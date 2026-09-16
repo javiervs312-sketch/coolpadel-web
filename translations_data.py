@@ -4,6 +4,8 @@ import re
 # DICCIONARIO COMPLETO DE TRADUCCIONES PROFESIONALES (ES, EN, FR, IT)
 TRANSLATIONS = {
     "es": {
+        "meta_title": "CoolPadel | Llaveros Personalizados & Soluciones para Clubs de Padel",
+        "meta_desc": "Ecosistema de merchandising y tecnología para clubes de padel y tenis: llaveros personalizados con logo oficial, Save my Play grabación con IA e informes del sector.",
         "top_ticker": "Descarga el informe exclusivo sobre la industria del padel",
         "nav_tenis_padel": "TENIS Y PADEL",
         "nav_contact": "Contactar",
@@ -59,6 +61,8 @@ TRANSLATIONS = {
         "wa_prefilled_msg": "Hola Javier"
     },
     "en": {
+        "meta_title": "CoolPadel | Custom Keychains & Smart Solutions for Padel Clubs",
+        "meta_desc": "Merchandising and smart technology for padel and tennis clubs: custom keychains with official club logo, Save my Play AI court recording, and industry reports.",
         "top_ticker": "Download the exclusive padel industry report",
         "nav_tenis_padel": "TENNIS & PADEL",
         "nav_contact": "Contact",
@@ -114,6 +118,8 @@ TRANSLATIONS = {
         "wa_prefilled_msg": "Hello Javier"
     },
     "fr": {
+        "meta_title": "CoolPadel | Porte-clés Personnalisés & Solutions pour Clubs de Padel",
+        "meta_desc": "Écosystème de merchandising et technologie pour clubs de padel et tennis : porte-clés personnalisés avec logo officiel, enregistrement Save my Play avec IA et rapports du secteur.",
         "top_ticker": "Téléchargez le rapport exclusif sur l'industrie du padel",
         "nav_tenis_padel": "TENNIS & PADEL",
         "nav_contact": "Contact",
@@ -161,7 +167,7 @@ TRANSLATIONS = {
         "report_card1_btn_success": "Rapport Téléchargé !",
         "report_card2_tag": "LinkedIn Pulse",
         "report_card2_title": "Newsletter CoolPadel",
-        "report_card2_desc": "Articles, analyses et actualités régulières de l'industrie du padel directement sur LinkedIn.",
+        "report_card2_desc": "Articles, analyses et actualités régulières de l'industrie du padel directamente sur LinkedIn.",
         "report_card2_btn": "Lire sur LinkedIn",
         "contact_title": "Contact",
         "contact_wa_btn": "WhatsApp Direct",
@@ -169,6 +175,8 @@ TRANSLATIONS = {
         "wa_prefilled_msg": "Bonjour Javier"
     },
     "it": {
+        "meta_title": "CoolPadel | Portachiavi Personalizzati & Soluzioni per Club di Padel",
+        "meta_desc": "Ecosistema di merchandising e tecnologia per club di padel e tennis: portachiavi personalizzati con logo ufficiale, registrazione Save my Play con IA e report del settore.",
         "top_ticker": "Scarica il report esclusivo sull'industria del padel",
         "nav_tenis_padel": "TENNIS & PADEL",
         "nav_contact": "Contatta",

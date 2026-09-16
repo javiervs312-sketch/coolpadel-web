@@ -9,13 +9,16 @@ def get_base_html(active_lang="es", is_subfolder=False):
     # Pre-calcular JSON de traducciones para inyectar en JS
     translations_json = json.dumps(TRANSLATIONS, ensure_ascii=False)
 
+    og_locales = {"es": "es_ES", "en": "en_US", "fr": "fr_FR", "it": "it_IT"}
+    og_locale = og_locales.get(active_lang, "es_ES")
+
     html = f"""<!DOCTYPE html>
 <html lang="{active_lang}" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CoolPadel | Llaveros Personalizados & Soluciones para Clubs de Padel</title>
-  <meta name="description" content="Ecosistema de merchandising y tecnología para clubes de padel y tenis: llaveros personalizados con logo oficial, Save my Play grabación con IA e informes del sector.">
+  <title>{t['meta_title']}</title>
+  <meta name="description" content="{t['meta_desc']}">
   <meta name="keywords" content="llaveros personalizados padel, llaveros personalizados tenis, merchandising clubes padel, regalos torneos padel, grabacion partidos padel, camaras padel ia, save my play, informe industria padel 2026, coolpadel">
   <meta name="author" content="CoolPadel">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
@@ -42,18 +45,18 @@ def get_base_html(active_lang="es", is_subfolder=False):
 
   <!-- Open Graph / WhatsApp / Facebook / LinkedIn Previews -->
   <meta property="og:type" content="website">
-  <meta property="og:locale" content="{active_lang}_ES" if active_lang == "es" else f"{active_lang}">
+  <meta property="og:locale" content="{og_locale}">
   <meta property="og:site_name" content="CoolPadel">
   <meta property="og:url" content="https://coolpadelstudios.com/{active_lang + '/' if is_subfolder else ''}">
-  <meta property="og:title" content="CoolPadel | Llaveros Personalizados & Soluciones para Clubs de Padel">
-  <meta property="og:description" content="Ecosistema de merchandising y tecnología para clubes de padel y tenis: llaveros personalizados con logo oficial, Save my Play grabación con IA e informes del sector.">
+  <meta property="og:title" content="{t['meta_title']}">
+  <meta property="og:description" content="{t['meta_desc']}">
   <meta property="og:image" content="https://coolpadelstudios.com/assets/images/slide-1.jpg">
   <meta property="og:image:alt" content="Llaveros personalizados CoolPadel para clubs de padel y tenis">
 
   <!-- Twitter / X Cards -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="CoolPadel | Llaveros Personalizados & Soluciones para Clubs de Padel">
-  <meta name="twitter:description" content="Ecosistema de merchandising y tecnología para clubes de padel y tenis: llaveros personalizados, Save my Play e informes del sector.">
+  <meta name="twitter:title" content="{t['meta_title']}">
+  <meta name="twitter:description" content="{t['meta_desc']}">
   <meta name="twitter:image" content="https://coolpadelstudios.com/assets/images/slide-1.jpg">
 
   <!-- Datos Estructurados Schema.org JSON-LD (Google Rich Snippets & Generative AI / GEO) -->
