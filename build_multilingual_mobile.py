@@ -185,7 +185,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
             }}
           }},
           animation: {{
-            'ticker-slow': 'tickerSlow 30s linear infinite',
+            'ticker-slow': 'tickerSlow 18s linear infinite',
             'ticker-trusted': 'tickerSlow 32s linear infinite',
           }},
           keyframes: {{
@@ -298,50 +298,59 @@ def get_base_html(active_lang="es", is_subfolder=False):
 </head>
 <body class="bg-[#0b1626] text-slate-100 min-h-screen relative selection:bg-cool-orange selection:text-white overflow-x-hidden">
 
-  <!-- 1. TOP BAR NEGRA: SOLO INFORME EN BUCLE ESPACIADO -->
-  <div class="bg-black border-b border-neutral-800 py-2 sm:py-2.5 ticker-wrap text-[11px] sm:text-xs text-neutral-200 tracking-widest z-50 relative">
+  <!-- 1. TOP BAR NEGRA: INFORME EXCLUSIVO INTERCALADO CON NEWSLETTER COOLPADEL -->
+  <div class="bg-black border-b border-neutral-800 py-2 sm:py-2.5 ticker-wrap text-[11px] sm:text-xs text-neutral-200 tracking-wider z-50 relative">
     <div class="ticker-content animate-ticker-slow flex items-center font-medium">
       
-      <a href="#informe" class="inline-flex items-center hover:text-white transition px-6 sm:px-10">
+      <!-- BLOQUE 1 -->
+      <a href="#informe" class="inline-flex items-center hover:text-white transition px-5 sm:px-8 shrink-0">
+        <span class="w-1.5 h-1.5 rounded-full bg-[#f2920b] inline-block mr-2.5"></span>
         <span data-i18n="top_ticker">{t['top_ticker']}</span>
       </a>
-      <span class="text-neutral-600">·</span>
+      <span class="text-neutral-600 select-none">·</span>
 
-      <a href="#informe" class="inline-flex items-center hover:text-white transition px-6 sm:px-10">
-        <span data-i18n="top_ticker">{t['top_ticker']}</span>
+      <a href="https://www.linkedin.com/pulse/padel-world-summit-2026-startup-recap-javier-villoria-soleto-c7hle/" target="_blank" class="inline-flex items-center hover:text-white transition px-5 sm:px-8 text-neutral-300 hover:text-[#76d3f6] shrink-0">
+        <span class="w-1.5 h-1.5 rounded-full bg-[#76d3f6] inline-block mr-2.5"></span>
+        <span data-i18n="top_ticker_newsletter">{t['top_ticker_newsletter']}</span>
       </a>
-      <span class="text-neutral-600">·</span>
+      <span class="text-neutral-600 select-none">·</span>
 
-      <a href="#informe" class="inline-flex items-center hover:text-white transition px-6 sm:px-10">
+      <a href="#informe" class="inline-flex items-center hover:text-white transition px-5 sm:px-8 shrink-0">
+        <span class="w-1.5 h-1.5 rounded-full bg-[#f2920b] inline-block mr-2.5"></span>
         <span data-i18n="top_ticker">{t['top_ticker']}</span>
       </a>
-      <span class="text-neutral-600">·</span>
+      <span class="text-neutral-600 select-none">·</span>
 
-      <a href="#informe" class="inline-flex items-center hover:text-white transition px-6 sm:px-10">
-        <span data-i18n="top_ticker">{t['top_ticker']}</span>
+      <a href="https://www.linkedin.com/pulse/padel-world-summit-2026-startup-recap-javier-villoria-soleto-c7hle/" target="_blank" class="inline-flex items-center hover:text-white transition px-5 sm:px-8 text-neutral-300 hover:text-[#76d3f6] shrink-0">
+        <span class="w-1.5 h-1.5 rounded-full bg-[#76d3f6] inline-block mr-2.5"></span>
+        <span data-i18n="top_ticker_newsletter">{t['top_ticker_newsletter']}</span>
       </a>
-      <span class="text-neutral-600">·</span>
+      <span class="text-neutral-600 select-none">·</span>
 
-      <!-- DUPLICADO EXACTO PARA BUCLE CONTINUO -->
-      <a href="#informe" class="inline-flex items-center hover:text-white transition px-6 sm:px-10">
+      <!-- BLOQUE 2 (DUPLICADO PARA ANIMACIÓN INFINITA SUAVE AL 50%) -->
+      <a href="#informe" class="inline-flex items-center hover:text-white transition px-5 sm:px-8 shrink-0">
+        <span class="w-1.5 h-1.5 rounded-full bg-[#f2920b] inline-block mr-2.5"></span>
         <span data-i18n="top_ticker">{t['top_ticker']}</span>
       </a>
-      <span class="text-neutral-600">·</span>
+      <span class="text-neutral-600 select-none">·</span>
 
-      <a href="#informe" class="inline-flex items-center hover:text-white transition px-6 sm:px-10">
-        <span data-i18n="top_ticker">{t['top_ticker']}</span>
+      <a href="https://www.linkedin.com/pulse/padel-world-summit-2026-startup-recap-javier-villoria-soleto-c7hle/" target="_blank" class="inline-flex items-center hover:text-white transition px-5 sm:px-8 text-neutral-300 hover:text-[#76d3f6] shrink-0">
+        <span class="w-1.5 h-1.5 rounded-full bg-[#76d3f6] inline-block mr-2.5"></span>
+        <span data-i18n="top_ticker_newsletter">{t['top_ticker_newsletter']}</span>
       </a>
-      <span class="text-neutral-600">·</span>
+      <span class="text-neutral-600 select-none">·</span>
 
-      <a href="#informe" class="inline-flex items-center hover:text-white transition px-6 sm:px-10">
+      <a href="#informe" class="inline-flex items-center hover:text-white transition px-5 sm:px-8 shrink-0">
+        <span class="w-1.5 h-1.5 rounded-full bg-[#f2920b] inline-block mr-2.5"></span>
         <span data-i18n="top_ticker">{t['top_ticker']}</span>
       </a>
-      <span class="text-neutral-600">·</span>
+      <span class="text-neutral-600 select-none">·</span>
 
-      <a href="#informe" class="inline-flex items-center hover:text-white transition px-6 sm:px-10">
-        <span data-i18n="top_ticker">{t['top_ticker']}</span>
+      <a href="https://www.linkedin.com/pulse/padel-world-summit-2026-startup-recap-javier-villoria-soleto-c7hle/" target="_blank" class="inline-flex items-center hover:text-white transition px-5 sm:px-8 text-neutral-300 hover:text-[#76d3f6] shrink-0">
+        <span class="w-1.5 h-1.5 rounded-full bg-[#76d3f6] inline-block mr-2.5"></span>
+        <span data-i18n="top_ticker_newsletter">{t['top_ticker_newsletter']}</span>
       </a>
-      <span class="text-neutral-600">·</span>
+      <span class="text-neutral-600 select-none">·</span>
 
     </div>
   </div>
