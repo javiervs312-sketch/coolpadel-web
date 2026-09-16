@@ -1,0 +1,27 @@
+# Robots.txt for CoolPadel Studios
+User-agent: *
+Allow: /
+Disallow:
+
+# AI Search Engines & Generative Crawlers (GEO)
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+# Sitemap & LLMs Manifest
+Sitemap: https://coolpadelstudios.com/sitemap.xml
+# LLMs: https://coolpadelstudios.com/llms.txt

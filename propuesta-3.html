@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CoolPadel | Propuesta 3: Tech & Smart Padel</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            outfit: ['Outfit', 'sans-serif'],
+            jakarta: ['Plus Jakarta Sans', 'sans-serif'],
+          },
+          colors: {
+            cool: {
+              navy: '#07111e',
+              dark: '#0c1a2e',
+              card: '#112540',
+              blue: '#0284c7',
+              cyan: '#38bdf8',
+              orange: '#f97316',
+              amber: '#fb923c'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    body { font-family: 'Plus Jakarta Sans', sans-serif; }
+    h1, h2, h3, h4, .font-heading { font-family: 'Outfit', sans-serif; }
+    .bg-tech-texture {
+      background: linear-gradient(180deg, rgba(7, 17, 30, 0.88) 0%, rgba(12, 26, 46, 0.94) 100%),
+                  url('assets/images/background-fair.jpg');
+      background-size: cover;
+      background-attachment: fixed;
+    }
+  </style>
+</head>
+<body class="bg-tech-texture text-slate-100 min-h-screen relative selection:bg-cool-orange selection:text-white">
+
+  
+    <!-- PROPOSALS SELECTOR BAR -->
+    <div class="fixed top-0 inset-x-0 z-[100] bg-slate-950/95 backdrop-blur-md border-b border-cool-cyan/30 py-2 px-4 flex flex-wrap items-center justify-between text-xs text-white shadow-xl">
+      <div class="flex items-center gap-2">
+        <span class="inline-block w-2.5 h-2.5 rounded-full bg-cool-orange animate-ping"></span>
+        <span class="font-bold text-cool-cyan">EXPLORADOR DE PROPUESTAS COOLPADEL:</span>
+        <span class="text-slate-400 hidden sm:inline">Haz clic para comparar estilos en tiempo real</span>
+      </div>
+      <div class="flex items-center gap-2 mt-1 sm:mt-0">
+        <a href="index.html" class="px-3 py-1 rounded-lg font-bold transition bg-slate-800 text-slate-300 hover:text-white">
+          1. Editorial & PWS Style
+        </a>
+        <a href="propuesta-2.html" class="px-3 py-1 rounded-lg font-bold transition bg-slate-800 text-slate-300 hover:text-white">
+          2. B2B Club & Merch Pro
+        </a>
+        <a href="propuesta-3.html" class="px-3 py-1 rounded-lg font-bold transition bg-cool-orange text-white">
+          3. Tech & Smart Padel
+        </a>
+      </div>
+    </div>
+    <div class="h-10"></div>
+    
+
+  <header class="sticky top-10 z-40 bg-cool-navy/90 backdrop-blur-md border-b border-slate-800 py-4 px-6">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      <span class="font-heading font-black text-2xl text-white">COOL<span class="text-cool-cyan">PADEL</span> <span class="text-xs uppercase px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 ml-2">Smart Courts & Merch Hub</span></span>
+      <a href="https://wa.me/34680317486?text=Hola%20Javier" target="_blank" class="px-4 py-2 rounded-xl bg-cool-cyan text-cool-navy font-bold text-xs">Hablar con Javier</a>
+    </div>
+  </header>
+
+  <section class="py-20 px-4 text-center max-w-4xl mx-auto space-y-6">
+    <div class="inline-block px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-400 text-xs font-bold uppercase">
+      Innovación & Comunidad de Pádel
+    </div>
+    <h1 class="text-4xl sm:text-6xl font-black font-heading text-white">
+      Tecnología Save my Play + Merchandising de Alta Fidelidad
+    </h1>
+    <p class="text-slate-300 text-lg">
+      La combinación perfecta para convertir tu club en una referencia: grabaciones con IA en pista y llaveros custom con los que los socios presumirán de club.
+    </p>
+
+    <!-- Tech Grid -->
+    <div class="grid sm:grid-cols-2 gap-6 pt-8 text-left">
+      <div class="bg-cool-card/90 p-6 rounded-2xl border border-emerald-500/30">
+        <i data-lucide="video" class="w-8 h-8 text-emerald-400 mb-3"></i>
+        <h3 class="font-bold text-white text-xl">Save my Play (Cámaras IA)</h3>
+        <p class="text-xs text-slate-300 mt-2">Graba partidos sin esfuerzo. Los jugadores se llevan su mejor punto con un clic en el reloj/botón de pista.</p>
+      </div>
+      <div class="bg-cool-card/90 p-6 rounded-2xl border border-cool-cyan/30">
+        <i data-lucide="tag" class="w-8 h-8 text-cool-cyan mb-3"></i>
+        <h3 class="font-bold text-white text-xl">Llaveros Custom CoolPadel</h3>
+        <p class="text-xs text-slate-300 mt-2">Fabricación rápida con materiales premium y relieve para federaciones y clubes.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="py-8 text-center text-xs text-slate-500 border-t border-slate-800">
+    CoolPadel Smart Edition · Javier Villoria Soleto
+  </footer>
+
+  <script>lucide.createIcons();</script>
+</body>
+</html>

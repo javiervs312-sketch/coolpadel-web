@@ -1,0 +1,664 @@
+import os
+
+def build_coverflow_site():
+    html = """<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CoolPadel | Llaveros Personalizados & Soluciones para Clubs de Pádel</title>
+  <meta name="description" content="Ecosistema de merchandising y tecnología para clubes de pádel: llaveros personalizados, Save my Play y consultoría del sector de raqueta.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            outfit: ['Outfit', 'sans-serif'],
+            jakarta: ['Plus Jakarta Sans', 'sans-serif'],
+          },
+          colors: {
+            cool: {
+              navy: '#091322',
+              dark: '#0e1d33',
+              card: '#132845',
+              blue: '#0284c7',
+              cyan: '#38bdf8',
+              orange: '#f97316',
+              amber: '#fb923c'
+            }
+          },
+          animation: {
+            'ticker-slow': 'tickerSlow 30s linear infinite',
+            'ticker-trusted': 'tickerSlow 25s linear infinite',
+          },
+          keyframes: {
+            tickerSlow: {
+              '0%': { transform: 'translateX(0%)' },
+              '100%': { transform: 'translateX(-50%)' }
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    body { font-family: 'Plus Jakarta Sans', sans-serif; }
+    h1, h2, h3, h4, .font-heading { font-family: 'Outfit', sans-serif; }
+    
+    .ticker-wrap {
+      width: 100%;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+    .ticker-content {
+      display: inline-flex;
+      white-space: nowrap;
+    }
+
+    /* 3D Coverflow Styles */
+    .coverflow-wrapper {
+      perspective: 1000px;
+    }
+    .coverflow-slide {
+      transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+      position: absolute;
+    }
+    .coverflow-slide.active {
+      transform: translateX(0%) scale(1);
+      z-index: 30;
+      opacity: 1;
+      border: 2px solid #38bdf8;
+      box-shadow: 0 0 35px rgba(56, 189, 248, 0.4), 0 20px 40px rgba(0, 0, 0, 0.8);
+    }
+    .coverflow-slide.prev {
+      transform: translateX(-62%) scale(0.86);
+      z-index: 10;
+      opacity: 0.45;
+      cursor: pointer;
+    }
+    .coverflow-slide.next {
+      transform: translateX(62%) scale(0.86);
+      z-index: 10;
+      opacity: 0.45;
+      cursor: pointer;
+    }
+    .coverflow-slide.prev:hover, .coverflow-slide.next:hover {
+      opacity: 0.75;
+    }
+
+    .glass-card-clean {
+      background: rgba(14, 29, 51, 0.75);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(56, 189, 248, 0.18);
+    }
+  </style>
+</head>
+<body class="bg-[#0b1626] text-slate-100 min-h-screen relative selection:bg-cool-orange selection:text-white overflow-x-hidden">
+
+  <!-- 1. TOP BAR NEGRA: SOLO INFORME EN BUCLE ESPACIADO -->
+  <div class="bg-black border-b border-neutral-800 py-2.5 ticker-wrap text-xs text-neutral-200 tracking-widest z-50 relative">
+    <div class="ticker-content animate-ticker-slow flex items-center font-medium">
+      
+      <a href="#informe" class="inline-flex items-center hover:text-white transition px-10">
+        <span class="w-1.5 h-1.5 rounded-full bg-cool-orange mr-3"></span>
+        <span>Descarga el informe exclusivo sobre la industria del padel</span>
+      </a>
+      <span class="text-neutral-600">·</span>
+
+      <a href="#informe" class="inline-flex items-center hover:text-white transition px-10">
+        <span class="w-1.5 h-1.5 rounded-full bg-cool-cyan mr-3"></span>
+        <span>Descarga el informe exclusivo sobre la industria del padel</span>
+      </a>
+      <span class="text-neutral-600">·</span>
+
+      <a href="#informe" class="inline-flex items-center hover:text-white transition px-10">
+        <span class="w-1.5 h-1.5 rounded-full bg-cool-orange mr-3"></span>
+        <span>Descarga el informe exclusivo sobre la industria del padel</span>
+      </a>
+      <span class="text-neutral-600">·</span>
+
+      <a href="#informe" class="inline-flex items-center hover:text-white transition px-10">
+        <span class="w-1.5 h-1.5 rounded-full bg-cool-cyan mr-3"></span>
+        <span>Descarga el informe exclusivo sobre la industria del padel</span>
+      </a>
+      <span class="text-neutral-600">·</span>
+
+      <!-- DUPLICADO EXACTO PARA BUCLE CONTINUO -->
+      <a href="#informe" class="inline-flex items-center hover:text-white transition px-10">
+        <span class="w-1.5 h-1.5 rounded-full bg-cool-orange mr-3"></span>
+        <span>Descarga el informe exclusivo sobre la industria del padel</span>
+      </a>
+      <span class="text-neutral-600">·</span>
+
+      <a href="#informe" class="inline-flex items-center hover:text-white transition px-10">
+        <span class="w-1.5 h-1.5 rounded-full bg-cool-cyan mr-3"></span>
+        <span>Descarga el informe exclusivo sobre la industria del padel</span>
+      </a>
+      <span class="text-neutral-600">·</span>
+
+      <a href="#informe" class="inline-flex items-center hover:text-white transition px-10">
+        <span class="w-1.5 h-1.5 rounded-full bg-cool-orange mr-3"></span>
+        <span>Descarga el informe exclusivo sobre la industria del padel</span>
+      </a>
+      <span class="text-neutral-600">·</span>
+
+      <a href="#informe" class="inline-flex items-center hover:text-white transition px-10">
+        <span class="w-1.5 h-1.5 rounded-full bg-cool-cyan mr-3"></span>
+        <span>Descarga el informe exclusivo sobre la industria del padel</span>
+      </a>
+      <span class="text-neutral-600">·</span>
+
+    </div>
+  </div>
+
+  <!-- 2. NAVBAR BLANCA: LOGO CENTRADO + BOTÓN NARANJA CON LETRA NEGRA A LA DERECHA -->
+  <header class="sticky top-0 z-40 bg-white text-slate-900 border-b border-slate-200 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <div class="w-24 sm:w-32 hidden sm:block"></div>
+
+      <!-- LOGO CENTRADO: MASCOTA + LETRAS COOLPADEL HD -->
+      <a href="#" class="flex items-center justify-center gap-2.5 sm:gap-3.5 group py-2 mx-auto sm:mx-0">
+        <img src="assets/images/coolpadel-mascot-hd.png" alt="Mascota CoolPadel" class="h-10 sm:h-12 w-auto object-contain group-hover:scale-105 transition max-h-[50px]">
+        <img src="assets/images/coolpadel-typography-hd.png" alt="CoolPadel" class="h-5 sm:h-6 w-auto object-contain">
+      </a>
+
+      <!-- BOTÓN NARANJA CON LETRA NEGRA A LA DERECHA -->
+      <div class="flex items-center justify-end w-auto sm:w-32">
+        <a href="https://wa.me/34680317486?text=Hola%20Javier" 
+           target="_blank" 
+           class="px-5 sm:px-6 py-2.5 rounded-full font-heading font-black text-xs sm:text-sm bg-cool-orange text-slate-950 hover:bg-cool-amber active:scale-95 shadow-md hover:shadow-lg transition flex items-center gap-1.5">
+          <span>Contactar</span>
+        </a>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- 3. COVERFLOW ROTATIVO EN BUCLE INFINITO (3 FOTOS A LA VEZ: CENTRO GRANDE + LATERALES TAPADAS) -->
+  <section class="relative bg-[#07111e] overflow-hidden select-none pt-8 pb-12 sm:pt-12 sm:pb-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="relative w-full h-[440px] sm:h-[520px] lg:h-[580px] flex items-center justify-center coverflow-wrapper">
+        
+        <!-- SLIDE 1: LLAVEROS PARA TU CLUB/COMUNIDAD (SLIDE-1.PNG) -->
+        <div id="coverflow-0" class="coverflow-slide active w-[85%] sm:w-[68%] lg:w-[60%] max-w-[820px] h-[380px] sm:h-[460px] lg:h-[520px] rounded-3xl overflow-hidden bg-neutral-950">
+          <img src="assets/images/slide-1.png" alt="Llaveros CoolPadel" class="w-full h-full object-cover">
+          
+          <!-- Slide Content (Nike Bottom Left Layout) -->
+          <div class="slide-caption absolute bottom-8 left-6 sm:left-10 z-30 space-y-3 pointer-events-auto">
+            <h1 class="text-2xl sm:text-4xl lg:text-5xl font-black font-heading text-white uppercase tracking-tight drop-shadow-[0_4px_12px_rgba(0,0,0,0.95)]">
+              Llaveros para tu <br class="hidden sm:inline">
+              <span class="line-through decoration-cool-orange decoration-[3px] text-neutral-300">club</span> 
+              <span class="text-white ml-1">comunidad</span>
+            </h1>
+            <div>
+              <a href="#llaveros" class="inline-flex items-center justify-center px-6 py-2.5 rounded-full bg-white text-black font-heading font-black text-xs sm:text-sm hover:bg-neutral-200 transition shadow-2xl">
+                Ver Llaveros
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- SLIDE 2: SAVE MY PLAY (SLIDE-2.PNG) -->
+        <div id="coverflow-1" class="coverflow-slide next w-[85%] sm:w-[68%] lg:w-[60%] max-w-[820px] h-[380px] sm:h-[460px] lg:h-[520px] rounded-3xl overflow-hidden bg-neutral-950">
+          <img src="assets/images/slide-2.png" alt="Save my Play cámaras con IA" class="w-full h-full object-cover">
+          
+          <div class="slide-caption absolute bottom-8 left-6 sm:left-10 z-30 space-y-3 pointer-events-auto">
+            <h2 class="text-2xl sm:text-4xl lg:text-5xl font-black font-heading text-white uppercase tracking-tight drop-shadow-[0_4px_12px_rgba(0,0,0,0.95)]">
+              Save my Play: <br>
+              <span class="text-emerald-400">Cámaras con IA</span>
+            </h2>
+            <div>
+              <a href="#savemyplay" class="inline-flex items-center justify-center px-6 py-2.5 rounded-full bg-white text-black font-heading font-black text-xs sm:text-sm hover:bg-neutral-200 transition shadow-2xl">
+                Descubrir
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- SLIDE 3: EL NEGOCIO DEL PÁDEL INFORME (SLIDE-3.JPG) -->
+        <div id="coverflow-2" class="coverflow-slide prev w-[85%] sm:w-[68%] lg:w-[60%] max-w-[820px] h-[380px] sm:h-[460px] lg:h-[520px] rounded-3xl overflow-hidden bg-neutral-950">
+          <img src="assets/images/slide-3.jpg" alt="Informe de la industria del pádel" class="w-full h-full object-cover">
+          
+          <div class="slide-caption absolute bottom-8 left-6 sm:left-10 z-30 space-y-3 pointer-events-auto">
+            <h2 class="text-2xl sm:text-4xl lg:text-5xl font-black font-heading text-white uppercase tracking-tight drop-shadow-[0_4px_12px_rgba(0,0,0,0.95)]">
+              El Negocio del Pádel: <br>
+              <span class="text-yellow-400">Informe 2026</span>
+            </h2>
+            <div>
+              <a href="#informe" class="inline-flex items-center justify-center px-6 py-2.5 rounded-full bg-white text-black font-heading font-black text-xs sm:text-sm hover:bg-neutral-200 transition shadow-2xl">
+                Descargar PDF
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- CONTROLES ESTILO NIKE (PAUSA + FLECHAS REDONDAS) -->
+        <div class="absolute bottom-4 right-6 sm:right-16 z-40 flex items-center gap-2">
+          <button id="pause-slide-btn" class="w-9 h-9 rounded-full bg-neutral-950/80 hover:bg-neutral-800 text-white flex items-center justify-center border border-neutral-700/80 backdrop-blur-sm transition" title="Pausar / Reproducir">
+            <i id="pause-icon" data-lucide="pause" class="w-4 h-4"></i>
+          </button>
+          <button id="prev-slide-btn" class="w-9 h-9 rounded-full bg-neutral-950/80 hover:bg-neutral-800 text-white flex items-center justify-center border border-neutral-700/80 backdrop-blur-sm transition" title="Anterior">
+            <i data-lucide="chevron-left" class="w-4 h-4"></i>
+          </button>
+          <button id="next-slide-btn" class="w-9 h-9 rounded-full bg-neutral-950/80 hover:bg-neutral-800 text-white flex items-center justify-center border border-neutral-700/80 backdrop-blur-sm transition" title="Siguiente">
+            <i data-lucide="chevron-right" class="w-4 h-4"></i>
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 4. CARROUSEL PASARELA "TRUSTED BY" -->
+  <section class="py-8 bg-neutral-950 border-b border-neutral-800 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 mb-3 text-center">
+      <p class="text-[11px] uppercase tracking-widest font-black text-neutral-400">
+        TRUSTED BY · MÁS DE 30 CLUBS, MARCAS Y FEDERACIONES
+      </p>
+    </div>
+
+    <div class="ticker-wrap py-2">
+      <div class="ticker-content animate-ticker-trusted flex items-center gap-12 text-slate-300 text-sm font-black font-heading tracking-wider">
+        
+        <div class="flex items-center gap-3 px-5 py-2.5 rounded-xl bg-neutral-900 border border-neutral-800">
+          <i data-lucide="shield" class="w-5 h-5 text-cool-orange"></i>
+          <span>AUSTRIAN PADEL UNION</span>
+        </div>
+        <div class="flex items-center gap-3 px-5 py-2.5 rounded-xl bg-neutral-900 border border-neutral-800">
+          <i data-lucide="trophy" class="w-5 h-5 text-cool-cyan"></i>
+          <span>CLUB PADEL VILAMALLA</span>
+        </div>
+        <div class="flex items-center gap-3 px-5 py-2.5 rounded-xl bg-neutral-900 border border-neutral-800">
+          <i data-lucide="activity" class="w-5 h-5 text-yellow-400"></i>
+          <span>RETCL TENNIS CLUB</span>
+        </div>
+        <div class="flex items-center gap-3 px-5 py-2.5 rounded-xl bg-neutral-900 border border-neutral-800">
+          <i data-lucide="award" class="w-5 h-5 text-emerald-400"></i>
+          <span>PADEL ADDICT</span>
+        </div>
+        <div class="flex items-center gap-3 px-5 py-2.5 rounded-xl bg-neutral-900 border border-neutral-800">
+          <i data-lucide="play" class="w-5 h-5 text-emerald-400"></i>
+          <span>SAVE MY PLAY</span>
+        </div>
+        <div class="flex items-center gap-3 px-5 py-2.5 rounded-xl bg-neutral-900 border border-neutral-800">
+          <i data-lucide="star" class="w-5 h-5 text-cool-orange"></i>
+          <span>USA PADEL EXPANSION</span>
+        </div>
+
+        <!-- DUPLICATE -->
+        <div class="flex items-center gap-3 px-5 py-2.5 rounded-xl bg-neutral-900 border border-neutral-800">
+          <i data-lucide="shield" class="w-5 h-5 text-cool-orange"></i>
+          <span>AUSTRIAN PADEL UNION</span>
+        </div>
+        <div class="flex items-center gap-3 px-5 py-2.5 rounded-xl bg-neutral-900 border border-neutral-800">
+          <i data-lucide="trophy" class="w-5 h-5 text-cool-cyan"></i>
+          <span>CLUB PADEL VILAMALLA</span>
+        </div>
+        <div class="flex items-center gap-3 px-5 py-2.5 rounded-xl bg-neutral-900 border border-neutral-800">
+          <i data-lucide="activity" class="w-5 h-5 text-yellow-400"></i>
+          <span>RETCL TENNIS CLUB</span>
+        </div>
+        <div class="flex items-center gap-3 px-5 py-2.5 rounded-xl bg-neutral-900 border border-neutral-800">
+          <i data-lucide="award" class="w-5 h-5 text-emerald-400"></i>
+          <span>PADEL ADDICT</span>
+        </div>
+        <div class="flex items-center gap-3 px-5 py-2.5 rounded-xl bg-neutral-900 border border-neutral-800">
+          <i data-lucide="play" class="w-5 h-5 text-emerald-400"></i>
+          <span>SAVE MY PLAY</span>
+        </div>
+        <div class="flex items-center gap-3 px-5 py-2.5 rounded-xl bg-neutral-900 border border-neutral-800">
+          <i data-lucide="star" class="w-5 h-5 text-cool-orange"></i>
+          <span>USA PADEL EXPANSION</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. SECCIÓN DETALLADA: LLAVEROS PARA CLUBS -->
+  <section id="llaveros" class="py-24 bg-cool-navy relative border-b border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+        <span class="inline-block px-3 py-1 rounded-full bg-cool-orange/20 text-cool-orange text-xs font-bold uppercase tracking-wider">
+          Pilar 01 · Merchandising Premium
+        </span>
+        <h2 class="text-3xl sm:text-5xl font-black font-heading text-white">
+          Llaveros Personalizados con el Escudo de tu Club
+        </h2>
+        <p class="text-slate-300 text-base sm:text-lg">
+          Tus socios lo usarán a diario en las llaves o en el paletero. Resistentes, ligeros y con relieve 3D.
+        </p>
+      </div>
+
+      <!-- GALERÍA DE FOTOS -->
+      <div class="grid sm:grid-cols-3 gap-6 mb-16">
+        
+        <div class="glass-card-clean rounded-2xl p-4 group transition duration-300 hover:-translate-y-1">
+          <div class="aspect-[4/3] rounded-xl overflow-hidden mb-3 bg-slate-900">
+            <img src="assets/images/slide-1.png" alt="Llaveros de pádel para clubs" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+          </div>
+          <span class="text-[10px] font-bold text-cool-cyan uppercase tracking-wider">Pádel Custom</span>
+          <h3 class="font-bold text-white text-base">Pala Pádel Doble Cara</h3>
+          <p class="text-xs text-slate-400 mt-1">Escudo en relieve, micro-perforaciones y marco protector.</p>
+        </div>
+
+        <div class="glass-card-clean rounded-2xl p-4 group transition duration-300 hover:-translate-y-1">
+          <div class="aspect-[4/3] rounded-xl overflow-hidden mb-3 bg-slate-900">
+            <img src="assets/images/slide-2.png" alt="Llavero Custom Pádel" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+          </div>
+          <span class="text-[10px] font-bold text-cool-orange uppercase tracking-wider">Federaciones & Clubs</span>
+          <h3 class="font-bold text-white text-base">Ediciones Especiales</h3>
+          <p class="text-xs text-slate-400 mt-1">Colores oficiales y acabado suave al tacto de larga duración.</p>
+        </div>
+
+        <div class="glass-card-clean rounded-2xl p-4 group transition duration-300 hover:-translate-y-1">
+          <div class="aspect-[4/3] rounded-xl overflow-hidden mb-3 bg-slate-900">
+            <img src="assets/images/slide-3.jpg" alt="Llaveros de raqueta" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+          </div>
+          <span class="text-[10px] font-bold text-yellow-400 uppercase tracking-wider">Torneos & Welcome Packs</span>
+          <h3 class="font-bold text-white text-base">Grips y Colores Flúor</h3>
+          <p class="text-xs text-slate-400 mt-1">Personalización completa en tiradas desde 50 unidades.</p>
+        </div>
+
+      </div>
+
+      <!-- CALCULADORA DE PRESUPUESTO EXPRESS -->
+      <div class="max-w-3xl mx-auto glass-card-clean rounded-3xl p-8 sm:p-10 border border-cool-orange/40 shadow-2xl">
+        <div class="text-center space-y-2 mb-8">
+          <h3 class="text-2xl sm:text-3xl font-black font-heading text-white">Calcula el pedido de tu Club</h3>
+          <p class="text-xs sm:text-sm text-slate-300">Muestra digital 3D 100% gratuita y sin compromiso antes de fabricar.</p>
+        </div>
+
+        <div class="space-y-6">
+          <div>
+            <div class="flex justify-between items-center mb-2">
+              <label class="text-sm font-bold text-white">Cantidad estimada:</label>
+              <span id="calc-qty-badge" class="px-3 py-1 rounded-lg bg-cool-orange text-slate-950 font-black text-sm">100 unidades</span>
+            </div>
+            <input type="range" id="calc-slider" min="50" max="1000" step="50" value="100" class="w-full h-2.5 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-cool-orange">
+          </div>
+
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-center">
+            <div class="bg-cool-dark p-3 rounded-xl border border-slate-700">
+              <span class="text-[10px] text-slate-400 block">Diseño 3D</span>
+              <strong class="text-emerald-400 text-sm">GRATIS</strong>
+            </div>
+            <div class="bg-cool-dark p-3 rounded-xl border border-slate-700">
+              <span class="text-[10px] text-slate-400 block">Plazo</span>
+              <strong class="text-white text-sm">10-14 días</strong>
+            </div>
+            <div class="bg-cool-dark p-3 rounded-xl border border-slate-700">
+              <span class="text-[10px] text-slate-400 block">Envío</span>
+              <strong class="text-cool-cyan text-sm">Toda Europa</strong>
+            </div>
+            <div class="bg-cool-dark p-3 rounded-xl border border-slate-700">
+              <span class="text-[10px] text-slate-400 block">Mínimo</span>
+              <strong class="text-yellow-400 text-sm">50 uds</strong>
+            </div>
+          </div>
+
+          <a id="calc-wa-btn" href="https://wa.me/34680317486?text=Hola%20Javier,%20quiero%20muestra%203D%20para%20100%20llaveros%20de%20mi%20club" target="_blank" class="w-full py-4 rounded-xl font-heading font-black text-sm sm:text-base bg-cool-orange text-slate-950 shadow-xl flex items-center justify-center gap-2 hover:bg-cool-amber transition font-extrabold">
+            <i data-lucide="send" class="w-5 h-5"></i> Pedir Simulación 3D de mi Escudo por WhatsApp
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 6. SECCIÓN DETALLADA: SAVE MY PLAY -->
+  <section id="savemyplay" class="py-24 bg-cool-dark relative border-b border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="glass-card-clean rounded-3xl p-8 sm:p-12 border border-emerald-500/40">
+        <div class="grid lg:grid-cols-12 gap-8 items-center">
+          
+          <div class="lg:col-span-8 space-y-5">
+            <span class="px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-400 text-xs font-bold uppercase tracking-wider">
+              Pilar 02 · Smart Courts & IA en Pista
+            </span>
+
+            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black font-heading text-white">
+              Cámaras con IA para tus pistas: <span class="text-emerald-400">Save my Play</span>
+            </h2>
+
+            <p class="text-slate-300 text-base leading-relaxed">
+              Como partner oficial de <strong>Save my Play</strong>, ayudamos a los gerentes de club a instalar tecnología que fideliza: cámaras inteligentes que graban partidos en directo y permiten a los jugadores descargar sus mejores jugadas en segundos con un clic.
+            </p>
+
+            <div class="grid sm:grid-cols-2 gap-4 pt-2">
+              <div class="flex items-center gap-3 text-sm text-slate-200">
+                <i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-400 flex-shrink-0"></i>
+                <span>Viralidad en Instagram & TikTok</span>
+              </div>
+              <div class="flex items-center gap-3 text-sm text-slate-200">
+                <i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-400 flex-shrink-0"></i>
+                <span>Aumenta ocupación en horas valle</span>
+              </div>
+              <div class="flex items-center gap-3 text-sm text-slate-200">
+                <i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-400 flex-shrink-0"></i>
+                <span>Instalación rápida sin obras</span>
+              </div>
+              <div class="flex items-center gap-3 text-sm text-slate-200">
+                <i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-400 flex-shrink-0"></i>
+                <span>Integración con SportAI</span>
+              </div>
+            </div>
+
+            <div class="pt-4 flex flex-wrap gap-4">
+              <a href="https://wa.me/34680317486?text=Hola%20Javier" 
+                 target="_blank" 
+                 class="px-6 py-3.5 rounded-xl font-heading font-bold text-sm bg-emerald-500 hover:bg-emerald-600 text-white shadow-lg transition flex items-center gap-2">
+                <i data-lucide="message-square" class="w-4 h-4"></i> Solicitar Demo para mi Club
+              </a>
+            </div>
+          </div>
+
+          <div class="lg:col-span-4 bg-cool-navy p-6 sm:p-8 rounded-2xl border border-slate-700 text-center space-y-4">
+            <div class="w-16 h-16 rounded-2xl bg-emerald-500 text-white flex items-center justify-center mx-auto shadow-xl">
+              <i data-lucide="video" class="w-8 h-8"></i>
+            </div>
+            <h3 class="font-heading font-black text-xl text-white">¿Quieres ver cómo funciona en directo?</h3>
+            <p class="text-xs text-slate-300">Te mostramos vídeos reales de jugadas grabadas en clubes con Save my Play.</p>
+            <a href="https://wa.me/34680317486?text=Hola%20Javier,%20p%C3%A1same%20un%20v%C3%ADdeo%20de%20ejemplo%20de%20Save%20my%20Play" target="_blank" class="block w-full py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-cool-cyan text-xs font-bold transition">
+              Ver Vídeos de Ejemplo
+            </a>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 7. SECCIÓN DETALLADA: INFORME DEL NEGOCIO DEL PÁDEL & BLOG -->
+  <section id="informe" class="py-24 bg-cool-navy relative border-b border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8">
+      
+      <div class="max-w-3xl mx-auto space-y-3">
+        <span class="px-3 py-1 rounded-full bg-yellow-500/20 text-yellow-400 text-xs font-bold uppercase tracking-wider">
+          Pilar 03 · Padel World Summit & RacquetX Miami
+        </span>
+        <h2 class="text-3xl sm:text-5xl font-black font-heading text-white">
+          "How is the Padel Business playing out?"
+        </h2>
+        <p class="text-slate-300 text-base">
+          Conclusiones reales tras conversar con más de 116 stands del sector: pistas inteligentes, expansión en EEUU, modelo de clubs lifestyle y claves para marcas.
+        </p>
+      </div>
+
+      <div class="max-w-xl mx-auto glass-card-clean rounded-3xl p-8 border border-cool-cyan/40 text-center space-y-4 shadow-2xl">
+        <i data-lucide="file-check-2" class="w-12 h-12 text-cool-orange mx-auto"></i>
+        <h3 class="font-heading font-black text-2xl text-white">Descarga el Informe en PDF</h3>
+        <p class="text-xs text-slate-300">Documento completo con todas las diapositivas y recomendaciones para clubs y marcas deportivas.</p>
+        <a href="assets/padel-industry-report-coolpadel.pdf" download target="_blank" class="inline-flex items-center gap-2 px-8 py-3.5 rounded-xl font-heading font-bold text-sm bg-gradient-to-r from-cool-orange to-cool-amber text-white shadow-xl hover:scale-105 transition">
+          <i data-lucide="download" class="w-4 h-4"></i> Descargar PDF Gratis (8.5 MB)
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 8. SECCIÓN: SOBRE JAVIER VILLORIA -->
+  <section id="sobre-javier" class="py-24 bg-cool-dark relative border-b border-slate-800">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
+      <div class="w-20 h-20 rounded-full bg-gradient-to-tr from-cool-orange to-cool-amber text-white font-heading font-black text-2xl flex items-center justify-center mx-auto shadow-xl">
+        JV
+      </div>
+      <h2 class="text-3xl font-black font-heading text-white">Javier Villoria Soleto</h2>
+      <p class="text-xs font-bold text-cool-cyan uppercase tracking-widest -mt-4">Fundador de CoolPadel · Consultor de Ecosistema Pádel</p>
+      <p class="text-slate-300 text-base leading-relaxed max-w-2xl mx-auto">
+        "Fundé CoolPadel combinando mi pasión por el deporte con la fabricación de merchandising de máxima calidad. Hoy trabajamos con más de 30 clubes y marcas en Europa y colaboro con Save my Play para acercar la innovación a cada pista."
+      </p>
+      <div class="pt-2">
+        <a href="https://wa.me/34680317486?text=Hola%20Javier,%20me%20gustar%C3%ADa%20hablar%20contigo" target="_blank" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-bold text-sm bg-cool-card border border-slate-700 hover:border-cool-cyan text-white transition">
+          <i data-lucide="message-circle" class="w-4 h-4 text-cool-cyan"></i> Hablar directamente con Javier
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-black border-t border-neutral-800 py-10 text-center text-xs text-neutral-400">
+    <div class="max-w-7xl mx-auto px-4 flex flex-col items-center space-y-4">
+      <div class="flex items-center gap-2">
+        <img src="assets/images/coolpadel-mascot-hd.png" alt="CoolPadel" class="h-8 w-auto object-contain">
+        <img src="assets/images/coolpadel-typography-hd.png" alt="CoolPadel" class="h-5 w-auto object-contain brightness-125">
+      </div>
+      <p>© 2026 CoolPadel. Ecosistema de Merchandising y Soluciones para Clubs de Pádel.</p>
+    </div>
+  </footer>
+
+  <!-- BOTÓN FLOTANTE DE WHATSAPP -->
+  <a href="https://wa.me/34680317486?text=Hola%20Javier" 
+     target="_blank" 
+     class="fixed bottom-6 right-6 z-50 p-4 rounded-full bg-emerald-500 text-white shadow-2xl hover:bg-emerald-600 hover:scale-110 active:scale-95 transition flex items-center justify-center group"
+     title="Hablar por WhatsApp con Javier">
+    <i data-lucide="message-circle" class="w-7 h-7"></i>
+    <span class="max-w-0 overflow-hidden whitespace-nowrap group-hover:max-w-xs transition-all duration-300 ease-in-out text-xs font-bold px-0 group-hover:px-2">
+      ¿Hablamos de tu club?
+    </span>
+  </a>
+
+  <!-- SCRIPTS -->
+  <script>
+    lucide.createIcons();
+
+    // COVERFLOW 3D INFINITE CAROUSEL SCRIPT
+    const slides = [
+      document.getElementById('coverflow-0'),
+      document.getElementById('coverflow-1'),
+      document.getElementById('coverflow-2')
+    ];
+    let currentIndex = 0;
+    const total = 3;
+    let autoSlideInterval;
+    let isPaused = false;
+
+    function updateCoverflow() {
+      slides.forEach((slide, idx) => {
+        slide.classList.remove('active', 'prev', 'next');
+        const diff = (idx - currentIndex + total) % total;
+        
+        if (diff === 0) {
+          slide.classList.add('active');
+        } else if (diff === 1) {
+          slide.classList.add('next');
+        } else if (diff === 2) {
+          slide.classList.add('prev');
+        }
+      });
+    }
+
+    function nextSlide() {
+      currentIndex = (currentIndex + 1) % total;
+      updateCoverflow();
+    }
+
+    function prevSlide() {
+      currentIndex = (currentIndex - 1 + total) % total;
+      updateCoverflow();
+    }
+
+    // Direct click on slides
+    slides.forEach((slide, idx) => {
+      slide.addEventListener('click', (e) => {
+        // If clicking on a side slide, bring it to center
+        if (idx !== currentIndex) {
+          e.preventDefault();
+          currentIndex = idx;
+          updateCoverflow();
+          resetAutoSlide();
+        }
+      });
+    });
+
+    document.getElementById('next-slide-btn').addEventListener('click', () => {
+      nextSlide();
+      resetAutoSlide();
+    });
+
+    document.getElementById('prev-slide-btn').addEventListener('click', () => {
+      prevSlide();
+      resetAutoSlide();
+    });
+
+    const pauseBtn = document.getElementById('pause-slide-btn');
+    const pauseIcon = document.getElementById('pause-icon');
+    pauseBtn.addEventListener('click', () => {
+      isPaused = !isPaused;
+      if (isPaused) {
+        clearInterval(autoSlideInterval);
+        pauseIcon.setAttribute('data-lucide', 'play');
+      } else {
+        startAutoSlide();
+        pauseIcon.setAttribute('data-lucide', 'pause');
+      }
+      lucide.createIcons();
+    });
+
+    function startAutoSlide() {
+      if (!isPaused) {
+        autoSlideInterval = setInterval(nextSlide, 4500);
+      }
+    }
+
+    function resetAutoSlide() {
+      clearInterval(autoSlideInterval);
+      startAutoSlide();
+    }
+
+    startAutoSlide();
+
+    // Calculadora presupuesto
+    const slider = document.getElementById('calc-slider');
+    const badge = document.getElementById('calc-qty-badge');
+    const waBtn = document.getElementById('calc-wa-btn');
+
+    slider.addEventListener('input', (e) => {
+      const val = e.target.value;
+      badge.textContent = `${val} unidades`;
+      const msg = `Hola Javier, quiero muestra 3D gratuita para ${val} llaveros de mi club.`;
+      waBtn.href = `https://wa.me/34680317486?text=${encodeURIComponent(msg)}`;
+    });
+  </script>
+</body>
+</html>"""
+
+    out_file = os.path.join(os.getcwd(), "coolpadel-web", "index.html")
+    with open(out_file, "w", encoding="utf-8") as f:
+        f.write(html)
+    print("3D Coverflow Infinite Carousel site generated successfully!")
+
+if __name__ == "__main__":
+    build_coverflow_site()
