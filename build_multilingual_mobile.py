@@ -1,5 +1,16 @@
-<!DOCTYPE html>
-<html lang="es" class="scroll-smooth">
+import os
+import json
+from translations_data import TRANSLATIONS
+
+def get_base_html(active_lang="es", is_subfolder=False):
+    t = TRANSLATIONS[active_lang]
+    asset_prefix = "../" if is_subfolder else ""
+    
+    # Pre-calcular JSON de traducciones para inyectar en JS
+    translations_json = json.dumps(TRANSLATIONS, ensure_ascii=False)
+
+    html = f"""<!DOCTYPE html>
+<html lang="{active_lang}" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,8 +19,8 @@
   <meta name="keywords" content="llaveros personalizados padel, llaveros personalizados tenis, merchandising clubes padel, regalos torneos padel, grabacion partidos padel, camaras padel ia, save my play, informe industria padel 2026, coolpadel">
   <meta name="author" content="CoolPadel">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
-  <link rel="canonical" href="https://coolpadelstudios.com/">
-  <link rel="icon" type="image/png" href="assets/images/Ojos logo.png">
+  <link rel="canonical" href="https://coolpadelstudios.com/{active_lang + '/' if is_subfolder else ''}">
+  <link rel="icon" type="image/png" href="{asset_prefix}assets/images/Ojos logo.png">
   <meta name="theme-color" content="#0b1626">
 
   <!-- Etiquetas Hreflang para SEO Internacional Multilingüe -->
@@ -24,16 +35,16 @@
   <meta name="geo.placename" content="España">
   <meta name="geo.position" content="40.4168;-3.7038">
   <meta name="ICBM" content="40.4168, -3.7038">
-  <meta name="language" content="es">
+  <meta name="language" content="{active_lang}">
   <meta name="coverage" content="Worldwide">
   <meta name="distribution" content="Global">
   <meta name="rating" content="General">
 
   <!-- Open Graph / WhatsApp / Facebook / LinkedIn Previews -->
   <meta property="og:type" content="website">
-  <meta property="og:locale" content="es_ES" if active_lang == "es" else f"es">
+  <meta property="og:locale" content="{active_lang}_ES" if active_lang == "es" else f"{active_lang}">
   <meta property="og:site_name" content="CoolPadel">
-  <meta property="og:url" content="https://coolpadelstudios.com/">
+  <meta property="og:url" content="https://coolpadelstudios.com/{active_lang + '/' if is_subfolder else ''}">
   <meta property="og:title" content="CoolPadel | Llaveros Personalizados & Soluciones para Clubs de Padel">
   <meta property="og:description" content="Ecosistema de merchandising y tecnología para clubes de padel y tenis: llaveros personalizados con logo oficial, Save my Play grabación con IA e informes del sector.">
   <meta property="og:image" content="https://coolpadelstudios.com/assets/images/slide-1.jpg">
@@ -47,18 +58,18 @@
 
   <!-- Datos Estructurados Schema.org JSON-LD (Google Rich Snippets & Generative AI / GEO) -->
   <script type="application/ld+json">
-  {
+  {{
     "@context": "https://schema.org",
     "@graph": [
-      {
+      {{
         "@type": "Organization",
         "@id": "https://coolpadelstudios.com/#organization",
         "name": "CoolPadel",
         "url": "https://coolpadelstudios.com",
-        "logo": {
+        "logo": {{
           "@type": "ImageObject",
           "url": "https://coolpadelstudios.com/assets/images/coolpadel-mascot-hd.png"
-        },
+        }},
         "description": "Ecosistema integral de merchandising y soluciones tecnológicas para clubes de padel, tenis, marcas y federaciones de todo el mundo.",
         "areaServed": [
           "ES", "IT", "FR", "PT", "SE", "DE", "GB", "US", "AE", "Worldwide"
@@ -70,80 +81,80 @@
           "Save my Play",
           "Industria del padel y tendencias de mercado"
         ],
-        "contactPoint": {
+        "contactPoint": {{
           "@type": "ContactPoint",
           "telephone": "+34-680-31-74-86",
           "contactType": "customer service",
           "email": "javier@coolpadelstudios.com",
           "availableLanguage": ["Spanish", "English", "French", "Italian"]
-        }
-      },
-      {
+        }}
+      }},
+      {{
         "@type": "WebSite",
         "@id": "https://coolpadelstudios.com/#website",
         "url": "https://coolpadelstudios.com",
         "name": "CoolPadel",
-        "publisher": { "@id": "https://coolpadelstudios.com/#organization" },
-        "inLanguage": "es"
-      },
-      {
+        "publisher": {{ "@id": "https://coolpadelstudios.com/#organization" }},
+        "inLanguage": "{active_lang}"
+      }},
+      {{
         "@type": "Product",
         "name": "Llaveros Personalizados para Clubs de Padel y Tenis",
         "description": "Llaveros de goma 3D personalizados con el logo oficial del club o comunidad. Muestras desde 15€, pedidos a partir de 100 unidades y envíos incluidos.",
-        "brand": { "@type": "Brand", "name": "CoolPadel" },
-        "offers": {
+        "brand": {{ "@type": "Brand", "name": "CoolPadel" }},
+        "offers": {{
           "@type": "AggregateOffer",
           "priceCurrency": "EUR",
           "lowPrice": "1.50",
           "highPrice": "3.00",
           "offerCount": "4"
-        }
-      },
-      {
+        }}
+      }},
+      {{
         "@type": "Service",
         "name": "Save my Play - Grabación de Pistas con Inteligencia Artificial",
         "description": "Sistema de cámaras inteligentes con IA para pistas de padel y tenis. Grabación de partidos, highlights automáticos y repeticiones instantáneas con instalación en 5 minutos.",
-        "provider": { "@id": "https://coolpadelstudios.com/#organization" }
-      },
-      {
+        "provider": {{ "@id": "https://coolpadelstudios.com/#organization" }}
+      }},
+      {{
         "@type": "FAQPage",
         "mainEntity": [
-          {
+          {{
             "@type": "Question",
             "name": "¿Cómo solicitar llaveros personalizados para un club de padel o tenis?",
-            "acceptedAnswer": {
+            "acceptedAnswer": {{
               "@type": "Answer",
               "text": "El proceso consta de 3 pasos: 1) Creación de diseño 3D con el logo de tu club, 2) Envío de muestra física por 15€ con envíos incluidos, y 3) Fabricación y entrega del pedido completo desde 100 unidades."
-            }
-          },
-          {
+            }}
+          }},
+          {{
             "@type": "Question",
             "name": "¿Cuáles son los precios y tarifas de los llaveros personalizados?",
-            "acceptedAnswer": {
+            "acceptedAnswer": {{
               "@type": "Answer",
               "text": "Las tarifas por volumen son: 100 unidades a 300€ (3,00€/ud), 250 unidades a 625€ (2,50€/ud), 500 unidades a 1.000€ (2,00€/ud) y 1.500 unidades a 2.250€ (1,50€/ud). Los envíos están siempre incluidos."
-            }
-          },
-          {
+            }}
+          }},
+          {{
             "@type": "Question",
             "name": "¿Qué ventajas ofrece Save my Play para los clubes deportivos?",
-            "acceptedAnswer": {
+            "acceptedAnswer": {{
               "@type": "Answer",
               "text": "Save my Play permite grabar automáticamente partidos y puntos destacados en pista mediante cámaras inteligentes e Inteligencia Artificial, aumentando las reservas y atrayendo jugadores sin dolores de cabeza de instalación (lista en 5 minutos)."
-            }
-          },
-          {
+            }}
+          }},
+          {{
             "@type": "Question",
             "name": "¿Cómo contactar con CoolPadel para pedir presupuesto?",
-            "acceptedAnswer": {
+            "acceptedAnswer": {{
               "@type": "Answer",
               "text": "Puedes contactar directamente con Javier por WhatsApp en el +34 680317486 o por correo electrónico en javier@coolpadelstudios.com."
-            }
-          }
+            }}
+          }}
         ]
-      }
+      }}
     ]
-  }
+  }}
   </script>
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -151,16 +162,16 @@
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
-    tailwind.config = {
+    tailwind.config = {{
       darkMode: 'class',
-      theme: {
-        extend: {
-          fontFamily: {
+      theme: {{
+        extend: {{
+          fontFamily: {{
             outfit: ['Outfit', 'sans-serif'],
             jakarta: ['Plus Jakarta Sans', 'sans-serif'],
-          },
-          colors: {
-            cool: {
+          }},
+          colors: {{
+            cool: {{
               navy: '#091322',
               dark: '#0e1d33',
               card: '#132845',
@@ -168,118 +179,118 @@
               cyan: '#76d3f6',
               orange: '#f2920b',
               amber: '#d97706'
-            }
-          },
-          animation: {
+            }}
+          }},
+          animation: {{
             'ticker-slow': 'tickerSlow 30s linear infinite',
             'ticker-trusted': 'tickerSlow 32s linear infinite',
-          },
-          keyframes: {
-            tickerSlow: {
-              '0%': { transform: 'translateX(0%)' },
-              '100%': { transform: 'translateX(-50%)' }
-            }
-          }
-        }
-      }
-    }
+          }},
+          keyframes: {{
+            tickerSlow: {{
+              '0%': {{ transform: 'translateX(0%)' }},
+              '100%': {{ transform: 'translateX(-50%)' }}
+            }}
+          }}
+        }}
+      }}
+    }}
   </script>
   <script src="https://unpkg.com/lucide@latest"></script>
   <style>
-    body { font-family: 'Plus Jakarta Sans', sans-serif; }
-    h1, h2, h3, h4, .font-heading { font-family: 'Outfit', sans-serif; }
+    body {{ font-family: 'Plus Jakarta Sans', sans-serif; }}
+    h1, h2, h3, h4, .font-heading {{ font-family: 'Outfit', sans-serif; }}
     
-    .ticker-wrap {
+    .ticker-wrap {{
       width: 100%;
       overflow: hidden;
       white-space: nowrap;
-    }
-    .ticker-content {
+    }}
+    .ticker-content {{
       display: inline-flex;
       white-space: nowrap;
-    }
+    }}
 
     /* Coverflow 3D Styles */
-    .coverflow-wrapper {
+    .coverflow-wrapper {{
       perspective: 1400px;
-    }
-    .coverflow-slide {
+    }}
+    .coverflow-slide {{
       position: absolute;
       transition: transform 0.65s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.65s ease, filter 0.65s ease, box-shadow 0.65s ease;
       transform-style: preserve-3d;
       will-change: transform, opacity;
       cursor: pointer;
-    }
-    .coverflow-slide.active {
+    }}
+    .coverflow-slide.active {{
       transform: translateX(0%) scale(1);
       z-index: 30;
       opacity: 1;
       filter: blur(0px);
       box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.7);
       cursor: default;
-    }
-    .coverflow-slide.prev {
+    }}
+    .coverflow-slide.prev {{
       transform: translateX(-56%) scale(0.88);
       z-index: 20;
       opacity: 0.65;
       filter: blur(1.5px);
       cursor: pointer;
       box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.65);
-    }
-    .coverflow-slide.next {
+    }}
+    .coverflow-slide.next {{
       transform: translateX(56%) scale(0.88);
       z-index: 20;
       opacity: 0.65;
       filter: blur(1.5px);
       cursor: pointer;
       box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.65);
-    }
-    @media (min-width: 768px) {
-      .coverflow-slide.prev {
+    }}
+    @media (min-width: 768px) {{
+      .coverflow-slide.prev {{
         transform: translateX(-68%) scale(0.86);
-      }
-      .coverflow-slide.next {
+      }}
+      .coverflow-slide.next {{
         transform: translateX(68%) scale(0.86);
-      }
-    }
-    @media (min-width: 1280px) {
-      .coverflow-slide.prev {
+      }}
+    }}
+    @media (min-width: 1280px) {{
+      .coverflow-slide.prev {{
         transform: translateX(-72%) scale(0.86);
-      }
-      .coverflow-slide.next {
+      }}
+      .coverflow-slide.next {{
         transform: translateX(72%) scale(0.86);
-      }
-      .coverflow-slide.prev:hover {
+      }}
+      .coverflow-slide.prev:hover {{
         transform: translateX(-69%) scale(0.88);
         opacity: 0.85;
-      }
-      .coverflow-slide.next:hover {
+      }}
+      .coverflow-slide.next:hover {{
         transform: translateX(69%) scale(0.88);
         opacity: 0.85;
-      }
-    }
-    .coverflow-slide.prev:hover, .coverflow-slide.next:hover {
+      }}
+    }}
+    .coverflow-slide.prev:hover, .coverflow-slide.next:hover {{
       opacity: 0.85;
-    }
+    }}
 
-    .glass-card-clean {
+    .glass-card-clean {{
       background: rgba(14, 29, 51, 0.75);
       backdrop-filter: blur(12px);
       border: 1px solid rgba(56, 189, 248, 0.18);
-    }
+    }}
 
     /* Slider de calculadora con touch-action optimizado */
-    #slider-track {
+    #slider-track {{
       touch-action: none;
-    }
+    }}
     
     /* Selector de idioma botón activo */
-    .lang-btn.active {
+    .lang-btn.active {{
       background-color: #f2920b;
       color: #0f172a;
       box-shadow: 0 2px 6px rgba(242, 146, 11, 0.35);
       font-weight: 900;
-    }
+    }}
   </style>
 </head>
 <body class="bg-[#0b1626] text-slate-100 min-h-screen relative selection:bg-cool-orange selection:text-white overflow-x-hidden">
@@ -289,43 +300,43 @@
     <div class="ticker-content animate-ticker-slow flex items-center font-medium">
       
       <a href="#informe" class="inline-flex items-center hover:text-white transition px-6 sm:px-10">
-        <span data-i18n="top_ticker">Descarga el informe exclusivo sobre la industria del padel</span>
+        <span data-i18n="top_ticker">{t['top_ticker']}</span>
       </a>
       <span class="text-neutral-600">·</span>
 
       <a href="#informe" class="inline-flex items-center hover:text-white transition px-6 sm:px-10">
-        <span data-i18n="top_ticker">Descarga el informe exclusivo sobre la industria del padel</span>
+        <span data-i18n="top_ticker">{t['top_ticker']}</span>
       </a>
       <span class="text-neutral-600">·</span>
 
       <a href="#informe" class="inline-flex items-center hover:text-white transition px-6 sm:px-10">
-        <span data-i18n="top_ticker">Descarga el informe exclusivo sobre la industria del padel</span>
+        <span data-i18n="top_ticker">{t['top_ticker']}</span>
       </a>
       <span class="text-neutral-600">·</span>
 
       <a href="#informe" class="inline-flex items-center hover:text-white transition px-6 sm:px-10">
-        <span data-i18n="top_ticker">Descarga el informe exclusivo sobre la industria del padel</span>
+        <span data-i18n="top_ticker">{t['top_ticker']}</span>
       </a>
       <span class="text-neutral-600">·</span>
 
       <!-- DUPLICADO EXACTO PARA BUCLE CONTINUO -->
       <a href="#informe" class="inline-flex items-center hover:text-white transition px-6 sm:px-10">
-        <span data-i18n="top_ticker">Descarga el informe exclusivo sobre la industria del padel</span>
+        <span data-i18n="top_ticker">{t['top_ticker']}</span>
       </a>
       <span class="text-neutral-600">·</span>
 
       <a href="#informe" class="inline-flex items-center hover:text-white transition px-6 sm:px-10">
-        <span data-i18n="top_ticker">Descarga el informe exclusivo sobre la industria del padel</span>
+        <span data-i18n="top_ticker">{t['top_ticker']}</span>
       </a>
       <span class="text-neutral-600">·</span>
 
       <a href="#informe" class="inline-flex items-center hover:text-white transition px-6 sm:px-10">
-        <span data-i18n="top_ticker">Descarga el informe exclusivo sobre la industria del padel</span>
+        <span data-i18n="top_ticker">{t['top_ticker']}</span>
       </a>
       <span class="text-neutral-600">·</span>
 
       <a href="#informe" class="inline-flex items-center hover:text-white transition px-6 sm:px-10">
-        <span data-i18n="top_ticker">Descarga el informe exclusivo sobre la industria del padel</span>
+        <span data-i18n="top_ticker">{t['top_ticker']}</span>
       </a>
       <span class="text-neutral-600">·</span>
 
@@ -339,11 +350,11 @@
       <!-- IZQUIERDA: OJOS A LA IZQUIERDA + TENIS Y PADEL EN DESKTOP / MINI EN MOVIL -->
       <div class="flex items-center flex-1 min-w-0">
         <a href="#" class="group py-1 inline-flex items-center flex-shrink-0">
-          <img src="assets/images/Ojos logo.png" alt="CoolPadel Eyes" class="h-5 sm:h-7 lg:h-9 w-auto object-contain group-hover:scale-110 transition duration-300">
+          <img src="{asset_prefix}assets/images/Ojos logo.png" alt="CoolPadel Eyes" class="h-5 sm:h-7 lg:h-9 w-auto object-contain group-hover:scale-110 transition duration-300">
         </a>
         <div class="hidden md:flex flex-1 items-center justify-center">
           <span data-i18n="nav_tenis_padel" class="font-heading font-black text-xs lg:text-base tracking-wider uppercase text-slate-950 select-none whitespace-nowrap">
-            TENIS Y PADEL
+            {t['nav_tenis_padel']}
           </span>
         </div>
       </div>
@@ -351,8 +362,8 @@
       <!-- LOGO CENTRADO: MASCOTA + LETRAS COOLPADEL HD -->
       <div class="flex items-center justify-center flex-shrink-0">
         <a href="#" class="flex items-center justify-center gap-2 sm:gap-3.5 group py-1.5 sm:py-2">
-          <img src="assets/images/coolpadel-mascot-hd.png" alt="Mascota CoolPadel" class="h-10 sm:h-13 lg:h-16 w-auto object-contain group-hover:scale-105 transition max-h-[64px]">
-          <img src="assets/images/coolpadel-typography-hd.png" alt="CoolPadel" class="h-6 sm:h-8 lg:h-11 w-auto object-contain">
+          <img src="{asset_prefix}assets/images/coolpadel-mascot-hd.png" alt="Mascota CoolPadel" class="h-10 sm:h-13 lg:h-16 w-auto object-contain group-hover:scale-105 transition max-h-[64px]">
+          <img src="{asset_prefix}assets/images/coolpadel-typography-hd.png" alt="CoolPadel" class="h-6 sm:h-8 lg:h-11 w-auto object-contain">
         </a>
       </div>
 
@@ -361,24 +372,24 @@
         
         <!-- SELECTOR DE IDIOMA INTERACTIVO COMPACTO -->
         <div class="inline-flex items-center bg-slate-100 rounded-full p-0.5 sm:p-1 border border-slate-200/90 shadow-inner text-[10px] sm:text-xs font-bold" id="lang-switcher">
-          <button type="button" onclick="switchLanguage('es')" data-lang-btn="es" class="lang-btn active px-2 sm:px-2.5 py-1 rounded-full transition-all duration-200 font-bold" title="Español">ES</button>
-          <button type="button" onclick="switchLanguage('en')" data-lang-btn="en" class="lang-btn text-slate-600 hover:text-slate-950 px-2 sm:px-2.5 py-1 rounded-full transition-all duration-200 font-bold" title="English">EN</button>
-          <button type="button" onclick="switchLanguage('fr')" data-lang-btn="fr" class="lang-btn text-slate-600 hover:text-slate-950 px-2 sm:px-2.5 py-1 rounded-full transition-all duration-200 font-bold" title="Français">FR</button>
-          <button type="button" onclick="switchLanguage('it')" data-lang-btn="it" class="lang-btn text-slate-600 hover:text-slate-950 px-2 sm:px-2.5 py-1 rounded-full transition-all duration-200 font-bold" title="Italiano">IT</button>
+          <button type="button" onclick="switchLanguage('es')" data-lang-btn="es" class="lang-btn {'active' if active_lang=='es' else 'text-slate-600 hover:text-slate-950'} px-2 sm:px-2.5 py-1 rounded-full transition-all duration-200 font-bold" title="Español">ES</button>
+          <button type="button" onclick="switchLanguage('en')" data-lang-btn="en" class="lang-btn {'active' if active_lang=='en' else 'text-slate-600 hover:text-slate-950'} px-2 sm:px-2.5 py-1 rounded-full transition-all duration-200 font-bold" title="English">EN</button>
+          <button type="button" onclick="switchLanguage('fr')" data-lang-btn="fr" class="lang-btn {'active' if active_lang=='fr' else 'text-slate-600 hover:text-slate-950'} px-2 sm:px-2.5 py-1 rounded-full transition-all duration-200 font-bold" title="Français">FR</button>
+          <button type="button" onclick="switchLanguage('it')" data-lang-btn="it" class="lang-btn {'active' if active_lang=='it' else 'text-slate-600 hover:text-slate-950'} px-2 sm:px-2.5 py-1 rounded-full transition-all duration-200 font-bold" title="Italiano">IT</button>
         </div>
 
         <!-- BOTÓN CONTACTAR RESPONSIVE -->
-        <a id="nav-contact-btn" href="https://wa.me/34680317486?text=Hola Javier" 
+        <a id="nav-contact-btn" href="https://wa.me/34680317486?text={t['wa_prefilled_msg']}" 
            target="_blank" 
            class="group relative inline-flex items-center gap-1.5 sm:gap-2.5 px-3.5 sm:px-6 lg:px-7 py-2 sm:py-2.5 lg:py-3 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] active:bg-[#76d3f6] text-slate-950 active:scale-95 font-heading font-black text-xs sm:text-sm lg:text-base tracking-wider uppercase transition-all duration-300 shadow-[0_4px_15px_rgba(242,146,11,0.25)] hover:shadow-[0_10px_25px_rgba(118,211,246,0.4)] hover:scale-105 shrink-0 overflow-hidden">
-          <span data-i18n="nav_contact" class="font-black">Contactar</span>
+          <span data-i18n="nav_contact" class="font-black">{t['nav_contact']}</span>
           <div class="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-slate-950/10 group-hover:bg-slate-950 group-hover:text-white flex items-center justify-center transition-all duration-300 shrink-0">
             <i data-lucide="arrow-up-right" class="w-3 h-3 sm:w-3.5 sm:h-3.5 stroke-[3] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300"></i>
           </div>
         </a>
 
         <a href="#" class="hidden lg:inline-flex group py-1 items-center flex-shrink-0">
-          <img src="assets/images/Ojos logo.png" alt="CoolPadel Eyes" class="h-6 sm:h-8 lg:h-9 w-auto object-contain group-hover:scale-110 transition duration-300">
+          <img src="{asset_prefix}assets/images/Ojos logo.png" alt="CoolPadel Eyes" class="h-6 sm:h-8 lg:h-9 w-auto object-contain group-hover:scale-110 transition duration-300">
         </a>
       </div>
 
@@ -393,16 +404,16 @@
         
         <!-- SLIDE 1: LLAVEROS PARA TU CLUB/COMUNIDAD (SLIDE-1.JPG) -->
         <div id="coverflow-0" class="coverflow-slide active w-[92%] sm:w-[75%] lg:w-[67%] max-w-[960px] h-[360px] sm:h-[470px] lg:h-[520px] rounded-3xl overflow-hidden bg-neutral-950">
-          <img src="assets/images/slide-1.jpg" alt="Llaveros personalizados para club de padel y tenis CoolPadel" class="w-full h-full object-cover" fetchpriority="high" decoding="async">
+          <img src="{asset_prefix}assets/images/slide-1.jpg" alt="Llaveros personalizados para club de padel y tenis CoolPadel" class="w-full h-full object-cover" fetchpriority="high" decoding="async">
           
           <!-- Slide Content (Nike Bottom Left Layout) -->
           <div class="slide-caption absolute bottom-6 sm:bottom-12 left-5 sm:left-12 z-30 space-y-3 sm:space-y-4 pointer-events-auto pr-4">
             <h1 data-i18n="slide1_title" class="text-2xl sm:text-5xl lg:text-6xl font-black font-heading text-white uppercase tracking-tight leading-[1.1]">
-              Llaveros para tu <br class="hidden sm:inline"><span class="relative inline-block px-1.5 text-neutral-300">club<svg class="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 100 100" preserveAspectRatio="none"><line x1="8" y1="92" x2="92" y2="8" stroke="#f2920b" stroke-width="16" stroke-linecap="round"/><line x1="8" y1="8" x2="92" y2="92" stroke="#f2920b" stroke-width="16" stroke-linecap="round"/></svg></span><span class="text-[#f2920b] ml-2">comunidad</span>
+              {t['slide1_title']}
             </h1>
             <div>
               <a href="#llaveros" class="group inline-flex items-center gap-2 sm:gap-2.5 px-5 sm:px-8 py-2 sm:py-3.5 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] active:bg-[#76d3f6] text-slate-950 font-heading font-extrabold text-xs sm:text-sm tracking-wider uppercase shadow-[0_10px_25px_rgba(0,0,0,0.4)] hover:shadow-[0_14px_30px_rgba(118,211,246,0.5)] hover:scale-105 active:scale-95 transition-all duration-300 overflow-hidden">
-                <span data-i18n="slide1_btn">Ver más</span>
+                <span data-i18n="slide1_btn">{t['slide1_btn']}</span>
                 <div class="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-slate-950/10 group-hover:bg-slate-950 group-hover:text-white flex items-center justify-center transition-all duration-300">
                   <i data-lucide="arrow-right" class="w-3 h-3 sm:w-3.5 sm:h-3.5 stroke-[3] group-hover:translate-x-1 transition-transform duration-300"></i>
                 </div>
@@ -413,16 +424,16 @@
 
         <!-- SLIDE 2: SAVE MY PLAY - GRABACIÓN EN PISTA: HIGHLIGHTS Y PARTIDOS -->
         <div id="coverflow-1" class="coverflow-slide next w-[92%] sm:w-[75%] lg:w-[67%] max-w-[960px] h-[360px] sm:h-[470px] lg:h-[520px] rounded-3xl overflow-hidden bg-neutral-950">
-          <img src="assets/images/slide-2.png" alt="Save my Play camaras inteligentes con IA para pistas de padel" class="w-full h-full object-cover" loading="lazy" decoding="async">
+          <img src="{asset_prefix}assets/images/slide-2.png" alt="Save my Play camaras inteligentes con IA para pistas de padel" class="w-full h-full object-cover" loading="lazy" decoding="async">
           
           <div class="slide-caption absolute bottom-6 sm:bottom-12 left-5 sm:left-12 z-30 space-y-3 sm:space-y-4 pointer-events-auto pr-4">
             <h2 data-i18n="slide2_title" class="text-2xl sm:text-5xl lg:text-6xl font-black font-heading text-white uppercase tracking-tight leading-[1.1]">
-              Grabación en pista: <br><span class="text-black">highlights y partidos</span>
+              {t['slide2_title']}
             </h2>
             <div>
               <a href="#savemyplay" class="group inline-flex items-center gap-2.5 sm:gap-3 px-5 sm:px-8 py-2 sm:py-3.5 rounded-full bg-white hover:bg-neutral-100 active:bg-neutral-200 text-neutral-950 font-heading font-extrabold text-xs sm:text-sm tracking-wider uppercase shadow-[0_10px_25px_rgba(0,0,0,0.4)] hover:shadow-[0_14px_30px_rgba(0,0,0,0.6)] hover:scale-105 active:scale-95 transition-all duration-300 overflow-hidden">
-                <span data-i18n="slide2_btn">Descubrir</span>
-                <img src="assets/images/savemyplay-logo-cropped.png" alt="Save my Play" class="h-5 sm:h-7 lg:h-8 w-auto object-contain" loading="lazy">
+                <span data-i18n="slide2_btn">{t['slide2_btn']}</span>
+                <img src="{asset_prefix}assets/images/savemyplay-logo-cropped.png" alt="Save my Play" class="h-5 sm:h-7 lg:h-8 w-auto object-contain" loading="lazy">
                 <div class="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-slate-950/10 group-hover:bg-slate-950/20 text-neutral-950 flex items-center justify-center transition-all duration-300">
                   <i data-lucide="arrow-up-right" class="w-3 h-3 sm:w-3.5 sm:h-3.5 stroke-[3] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300"></i>
                 </div>
@@ -433,15 +444,15 @@
 
         <!-- SLIDE 3: EL NEGOCIO DEL PADEL INFORME (SLIDE-3.JPG) -->
         <div id="coverflow-2" class="coverflow-slide prev w-[92%] sm:w-[75%] lg:w-[67%] max-w-[960px] h-[360px] sm:h-[470px] lg:h-[520px] rounded-3xl overflow-hidden bg-neutral-950">
-          <img src="assets/images/slide-3.jpg" alt="Informe exclusivo sobre la industria del padel 2026" class="w-full h-full object-cover" loading="lazy" decoding="async">
+          <img src="{asset_prefix}assets/images/slide-3.jpg" alt="Informe exclusivo sobre la industria del padel 2026" class="w-full h-full object-cover" loading="lazy" decoding="async">
           
           <div class="slide-caption absolute bottom-6 sm:bottom-12 left-5 sm:left-12 z-30 space-y-3 sm:space-y-4 pointer-events-auto pr-4">
             <h2 data-i18n="slide3_title" class="text-2xl sm:text-5xl lg:text-6xl font-black font-heading text-white uppercase tracking-tight leading-[1.1]">
-              El Negocio del Padel: <br><span class="text-[#76d3f6]">Informe 2026</span>
+              {t['slide3_title']}
             </h2>
             <div>
               <a href="#informe" class="group inline-flex items-center gap-2 sm:gap-2.5 px-5 sm:px-8 py-2 sm:py-3.5 rounded-full bg-[#76d3f6] hover:bg-[#f2920b] active:bg-[#f2920b] text-slate-950 font-heading font-extrabold text-xs sm:text-sm tracking-wider uppercase shadow-[0_10px_25px_rgba(0,0,0,0.4)] hover:shadow-[0_14px_30px_rgba(242,146,11,0.5)] hover:scale-105 active:scale-95 transition-all duration-300 overflow-hidden">
-                <span data-i18n="slide3_btn">Descargar PDF</span>
+                <span data-i18n="slide3_btn">{t['slide3_btn']}</span>
                 <div class="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-slate-950/10 group-hover:bg-slate-950 group-hover:text-white flex items-center justify-center transition-all duration-300">
                   <i data-lucide="download" class="w-3 h-3 sm:w-3.5 sm:h-3.5 stroke-[3] group-hover:translate-y-0.5 transition-transform duration-300"></i>
                 </div>
@@ -468,7 +479,7 @@
       <!-- TEXTO EN ZONA DEBAJO DE LAS FOTOS -->
       <div class="mt-6 sm:mt-11 mb-0 text-center px-4">
         <p data-i18n="trusted_text" class="text-[13px] sm:text-[17.5px] lg:text-[20px] font-heading font-extrabold uppercase tracking-widest text-slate-950 leading-snug">
-          Trabajamos con <span class="text-[#76d3f6]">clubs</span>, <span class="text-[#f2920b]">marcas</span> y <span class="text-[#76d3f6]">federaciones</span> de todo el mundo
+          {t['trusted_text']}
         </p>
       </div>
 
@@ -479,7 +490,7 @@
   <section class="py-4 sm:py-5 lg:py-6 bg-white border-y border-slate-200 overflow-hidden shadow-sm">
     <div class="ticker-wrap py-1">
       <div class="ticker-content animate-ticker-trusted flex items-center gap-6 sm:gap-12 lg:gap-14">
-        <div class="flex items-center justify-center shrink-0 px-3 sm:px-6 group"><img src="assets/images/Clubs/client-02.png" alt="Club Deportivo Partner CoolPadel" class="h-14 sm:h-22 lg:h-24 w-auto max-w-[140px] sm:max-w-[240px] object-contain transition-all duration-300 hover:scale-110" loading="lazy" decoding="async"></div><div class="flex items-center justify-center shrink-0 px-3 sm:px-6 group"><img src="assets/images/Clubs/client-03.png" alt="Club Deportivo Partner CoolPadel" class="h-14 sm:h-22 lg:h-24 w-auto max-w-[140px] sm:max-w-[240px] object-contain transition-all duration-300 hover:scale-110" loading="lazy" decoding="async"></div><div class="flex items-center justify-center shrink-0 px-3 sm:px-6 group"><img src="assets/images/Clubs/client-04.png" alt="Club Deportivo Partner CoolPadel" class="h-14 sm:h-22 lg:h-24 w-auto max-w-[140px] sm:max-w-[240px] object-contain transition-all duration-300 hover:scale-110" loading="lazy" decoding="async"></div><div class="flex items-center justify-center shrink-0 px-3 sm:px-6 group"><img src="assets/images/Clubs/client-05.png" alt="Club Deportivo Partner CoolPadel" class="h-14 sm:h-22 lg:h-24 w-auto max-w-[140px] sm:max-w-[240px] object-contain transition-all duration-300 hover:scale-110" loading="lazy" decoding="async"></div><div class="flex items-center justify-center shrink-0 px-3 sm:px-6 group"><img src="assets/images/Clubs/client-06.png" alt="Club Deportivo Partner CoolPadel" class="h-14 sm:h-22 lg:h-24 w-auto max-w-[140px] sm:max-w-[240px] object-contain transition-all duration-300 hover:scale-110" loading="lazy" decoding="async"></div><div class="flex items-center justify-center shrink-0 px-3 sm:px-6 group"><img src="assets/images/Clubs/client-07.png" alt="Club Deportivo Partner CoolPadel" class="h-14 sm:h-22 lg:h-24 w-auto max-w-[140px] sm:max-w-[240px] object-contain transition-all duration-300 hover:scale-110" loading="lazy" decoding="async"></div><div class="flex items-center justify-center shrink-0 px-3 sm:px-6 group"><img src="assets/images/Clubs/client-08.png" alt="Club Deportivo Partner CoolPadel" class="h-14 sm:h-22 lg:h-24 w-auto max-w-[140px] sm:max-w-[240px] object-contain transition-all duration-300 hover:scale-110" loading="lazy" decoding="async"></div><div class="flex items-center justify-center shrink-0 px-3 sm:px-6 group"><img src="assets/images/Clubs/client-09.png" alt="Club Deportivo Partner CoolPadel" class="h-14 sm:h-22 lg:h-24 w-auto max-w-[140px] sm:max-w-[240px] object-contain transition-all duration-300 hover:scale-110" loading="lazy" decoding="async"></div><div class="flex items-center justify-center shrink-0 px-3 sm:px-6 group"><img src="assets/images/Clubs/client-10.png" alt="Club Deportivo Partner CoolPadel" class="h-14 sm:h-22 lg:h-24 w-auto max-w-[140px] sm:max-w-[240px] object-contain transition-all duration-300 hover:scale-110" loading="lazy" decoding="async"></div><div class="flex items-center justify-center shrink-0 px-3 sm:px-6 group"><img src="assets/images/Clubs/client-11.png" alt="Club Deportivo Partner CoolPadel" class="h-14 sm:h-22 lg:h-24 w-auto max-w-[140px] sm:max-w-[240px] object-contain transition-all duration-300 hover:scale-110" loading="lazy" decoding="async"></div><div class="flex items-center justify-center shrink-0 px-3 sm:px-6 group"><img src="assets/images/Clubs/client-12.png" alt="Club Deportivo Partner CoolPadel" class="h-14 sm:h-22 lg:h-24 w-auto max-w-[140px] sm:max-w-[240px] object-contain transition-all duration-300 hover:scale-110" loading="lazy" decoding="async"></div><div class="flex items-center justify-center shrink-0 px-3 sm:px-6 group"><img src="assets/images/Clubs/client-13.png" alt="Club Deportivo Partner CoolPadel" class="h-14 sm:h-22 lg:h-24 w-auto max-w-[140px] sm:max-w-[240px] object-contain transition-all duration-300 hover:scale-110" loading="lazy" decoding="async"></div><div class="flex items-center justify-center shrink-0 px-3 sm:px-6 group"><img src="assets/images/Clubs/client-14.png" alt="Club Deportivo Partner CoolPadel" class="h-14 sm:h-22 lg:h-24 w-auto max-w-[140px] sm:max-w-[240px] object-contain transition-all duration-300 hover:scale-110" loading="lazy" decoding="async"></div><div class="flex items-center justify-center shrink-0 px-3 sm:px-6 group"><img src="assets/images/Clubs/client-15.png" alt="Club Deportivo Partner CoolPadel" class="h-14 sm:h-22 lg:h-24 w-auto max-w-[140px] sm:max-w-[240px] object-contain transition-all duration-300 hover:scale-110" loading="lazy" decoding="async"></div><div class="flex items-center justify-center shrink-0 px-3 sm:px-6 group"><img src="assets/images/Clubs/client-16.png" alt="Club Deportivo Partner CoolPadel" class="h-14 sm:h-22 lg:h-24 w-auto max-w-[140px] sm:max-w-[240px] object-contain transition-all duration-300 hover:scale-110" loading="lazy" decoding="async"></div><div class="flex items-center justify-center shrink-0 px-3 sm:px-6 group"><img src="assets/images/Clubs/client-17.png" alt="Club Deportivo Partner CoolPadel" class="h-14 sm:h-22 lg:h-24 w-auto max-w-[140px] sm:max-w-[240px] object-contain transition-all duration-300 hover:scale-110" loading="lazy" decoding="async"></div><div class="flex items-center justify-center shrink-0 px-3 sm:px-6 group"><img src="assets/images/Clubs/client-18.png" alt="Club Deportivo Partner CoolPadel" class="h-14 sm:h-22 lg:h-24 w-auto max-w-[140px] sm:max-w-[240px] object-contain transition-all duration-300 hover:scale-110" loading="lazy" decoding="async"></div><div class="flex items-center justify-center shrink-0 px-3 sm:px-6 group"><img src="assets/images/Clubs/client-19.png" alt="Club Deportivo Partner CoolPadel" class="h-14 sm:h-22 lg:h-24 w-auto max-w-[140px] sm:max-w-[240px] object-contain transition-all duration-300 hover:scale-110" loading="lazy" decoding="async"></div><div class="flex items-center justify-center shrink-0 px-3 sm:px-6 group"><img src="assets/images/Clubs/client-20.png" alt="Club Deportivo Partner CoolPadel" class="h-14 sm:h-22 lg:h-24 w-auto max-w-[140px] sm:max-w-[240px] object-contain transition-all duration-300 hover:scale-110" loading="lazy" decoding="async"></div><div class="flex items-center justify-center shrink-0 px-3 sm:px-6 group"><img src="assets/images/Clubs/client-21.png" alt="Club Deportivo Partner CoolPadel" class="h-14 sm:h-22 lg:h-24 w-auto max-w-[140px] sm:max-w-[240px] object-contain transition-all duration-300 hover:scale-110" loading="lazy" decoding="async"></div><div class="flex items-center justify-center shrink-0 px-3 sm:px-6 group"><img src="assets/images/Clubs/client-22.png" alt="Club Deportivo Partner CoolPadel" class="h-14 sm:h-22 lg:h-24 w-auto max-w-[140px] sm:max-w-[240px] object-contain transition-all duration-300 hover:scale-110" loading="lazy" decoding="async"></div><div class="flex items-center justify-center shrink-0 px-3 sm:px-6 group"><img src="assets/images/Clubs/client-23.png" alt="Club Deportivo Partner CoolPadel" class="h-14 sm:h-22 lg:h-24 w-auto max-w-[140px] sm:max-w-[240px] object-contain transition-all duration-300 hover:scale-110" loading="lazy" decoding="async"></div><div class="flex items-center justify-center shrink-0 px-3 sm:px-6 group"><img src="assets/images/Clubs/client-24.png" alt="Club Deportivo Partner CoolPadel" class="h-14 sm:h-22 lg:h-24 w-auto max-w-[140px] sm:max-w-[240px] object-contain transition-all duration-300 hover:scale-110" loading="lazy" decoding="async"></div><div class="flex items-center justify-center shrink-0 px-3 sm:px-6 group"><img src="assets/images/Clubs/client-25.png" alt="Club Deportivo Partner CoolPadel" class="h-14 sm:h-22 lg:h-24 w-auto max-w-[140px] sm:max-w-[240px] object-contain transition-all duration-300 hover:scale-110" loading="lazy" decoding="async"></div><div class="flex items-center justify-center shrink-0 px-3 sm:px-6 group"><img src="assets/images/Clubs/client-26.png" alt="Club Deportivo Partner CoolPadel" class="h-14 sm:h-22 lg:h-24 w-auto max-w-[140px] sm:max-w-[240px] object-contain transition-all duration-300 hover:scale-110" loading="lazy" decoding="async"></div><div class="flex items-center justify-center shrink-0 px-3 sm:px-6 group"><img src="assets/images/Clubs/client-27.png" alt="Club Deportivo Partner CoolPadel" class="h-14 sm:h-22 lg:h-24 w-auto max-w-[140px] sm:max-w-[240px] object-contain transition-all duration-300 hover:scale-110" loading="lazy" decoding="async"></div>
+        {"".join([f'<div class="flex items-center justify-center shrink-0 px-3 sm:px-6 group"><img src="{asset_prefix}assets/images/Clubs/client-{str(i).zfill(2)}.png" alt="Club Deportivo Partner CoolPadel" class="h-14 sm:h-22 lg:h-24 w-auto max-w-[140px] sm:max-w-[240px] object-contain transition-all duration-300 hover:scale-110" loading="lazy" decoding="async"></div>' for i in range(2, 28)])}
       </div>
     </div>
   </section>
@@ -491,10 +502,10 @@
       <!-- CABECERA DE SECCIÓN LLAVEROS -->
       <div class="max-w-3xl mx-auto text-center space-y-2 sm:space-y-3 mb-10 sm:mb-16">
         <h2 data-i18n="llaveros_title" class="text-2xl sm:text-5xl font-black font-heading text-white uppercase tracking-tight leading-tight">
-          Llaveros personalizados con vuestro logo
+          {t['llaveros_title']}
         </h2>
         <p data-i18n="llaveros_subtitle" class="text-white/90 text-sm sm:text-lg font-medium">
-          Tus jugadores, dentro y fuera de la pista
+          {t['llaveros_subtitle']}
         </p>
       </div>
 
@@ -504,20 +515,20 @@
         <!-- CARD IZQUIERDA: TENIS -->
         <div class="bg-white border border-slate-200/90 rounded-3xl p-5 sm:p-7 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.25)] hover:shadow-[0_35px_65px_-10px_rgba(0,0,0,0.35)] transition-all duration-300 group flex flex-col justify-between hover:-translate-y-1">
           <div class="aspect-[4/3] rounded-2xl overflow-hidden mb-4 sm:mb-5 bg-white shadow-[0_20px_40px_-10px_rgba(0,0,0,0.3)] border border-slate-200/90">
-            <img src="assets/images/llaveros 2.png" alt="Llaveros de tenis personalizados con logo para clubs y escuelas" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
+            <img src="{asset_prefix}assets/images/llaveros 2.png" alt="Llaveros de tenis personalizados con logo para clubs y escuelas" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
           </div>
           <h3 data-i18n="card_tenis" class="font-heading font-black text-2xl sm:text-3xl uppercase tracking-tight text-slate-950 text-center py-1">
-            TENIS
+            {t['card_tenis']}
           </h3>
         </div>
 
         <!-- CARD DERECHA: PADEL -->
         <div class="bg-white border border-slate-200/90 rounded-3xl p-5 sm:p-7 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.25)] hover:shadow-[0_35px_65px_-10px_rgba(0,0,0,0.35)] transition-all duration-300 group flex flex-col justify-between hover:-translate-y-1">
           <div class="aspect-[4/3] rounded-2xl overflow-hidden mb-4 sm:mb-5 bg-white shadow-[0_20px_40px_-10px_rgba(0,0,0,0.3)] border border-slate-200/90">
-            <img src="assets/images/llaveros 1.png" alt="Llaveros de padel de goma 3D personalizados para clubes" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
+            <img src="{asset_prefix}assets/images/llaveros 1.png" alt="Llaveros de padel de goma 3D personalizados para clubes" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
           </div>
           <h3 data-i18n="card_padel" class="font-heading font-black text-2xl sm:text-3xl uppercase tracking-tight text-[#f2920b] text-center py-1">
-            PADEL
+            {t['card_padel']}
           </h3>
         </div>
 
@@ -527,14 +538,14 @@
       <div class="max-w-3xl mx-auto bg-white rounded-3xl p-5 sm:p-10 border border-white/60 shadow-2xl text-slate-950">
         <div class="text-center space-y-2 sm:space-y-4 mb-6 sm:mb-8">
           <h3 data-i18n="calc_title" class="text-xl sm:text-3xl font-black font-heading text-slate-950">
-            Calcula el pedido de tu Club
+            {t['calc_title']}
           </h3>
           <div class="flex items-center justify-center gap-2 sm:gap-6 text-xs sm:text-base font-heading font-black uppercase tracking-wider text-slate-900 flex-wrap pt-1">
-            <span data-i18n="step_1">Diseño 3D</span>
+            <span data-i18n="step_1">{t['step_1']}</span>
             <i data-lucide="arrow-right" class="w-4 h-4 sm:w-6 sm:h-6 stroke-[3] text-[#f2920b]"></i>
-            <span data-i18n="step_2">Muestra</span>
+            <span data-i18n="step_2">{t['step_2']}</span>
             <i data-lucide="arrow-right" class="w-4 h-4 sm:w-6 sm:h-6 stroke-[3] text-[#f2920b]"></i>
-            <span data-i18n="step_3">Pedido</span>
+            <span data-i18n="step_3">{t['step_3']}</span>
           </div>
         </div>
 
@@ -544,14 +555,14 @@
           <div>
             <div class="flex justify-between items-end mb-3">
               <div>
-                <span data-i18n="calc_label_qty" class="text-xs sm:text-sm font-bold text-slate-500 uppercase tracking-wider block">Nº de llaveros:</span>
-                <span id="calc-qty-badge" class="text-xl sm:text-3xl font-black font-heading text-slate-950">100 unidades</span>
+                <span data-i18n="calc_label_qty" class="text-xs sm:text-sm font-bold text-slate-500 uppercase tracking-wider block">{t['calc_label_qty']}</span>
+                <span id="calc-qty-badge" class="text-xl sm:text-3xl font-black font-heading text-slate-950">100 {t['calc_unit_name']}</span>
               </div>
               <div class="text-right">
-                <span data-i18n="calc_label_price" class="text-xs sm:text-sm font-bold text-slate-500 uppercase tracking-wider block">Importe estimado:</span>
+                <span data-i18n="calc_label_price" class="text-xs sm:text-sm font-bold text-slate-500 uppercase tracking-wider block">{t['calc_label_price']}</span>
                 <div class="flex items-baseline justify-end gap-1 sm:gap-1.5">
                   <span id="calc-price-badge" class="text-xl sm:text-3xl font-black font-heading text-[#76d3f6]">300 €</span>
-                  <span id="calc-unit-badge" class="text-xs sm:text-sm font-bold text-slate-500">(3,00 €/ud)</span>
+                  <span id="calc-unit-badge" class="text-xs sm:text-sm font-bold text-slate-500">(3,00 €/{t['calc_unit_price']})</span>
                 </div>
               </div>
             </div>
@@ -569,7 +580,7 @@
                   <div id="slider-thumb" 
                        class="absolute top-1/2 -translate-x-1/2 -translate-y-1/2 w-10 sm:w-11 h-5 sm:h-6 flex items-center justify-center cursor-grab active:cursor-grabbing hover:scale-115 active:scale-125 transition-all duration-300 z-30 pointer-events-none"
                        style="left: 0%;">
-                    <img src="assets/images/eyes-thumb.png" alt="Ojos CoolPadel" class="w-full h-full object-contain drop-shadow-[0_3px_5px_rgba(0,0,0,0.35)] select-none">
+                    <img src="{asset_prefix}assets/images/eyes-thumb.png" alt="Ojos CoolPadel" class="w-full h-full object-contain drop-shadow-[0_3px_5px_rgba(0,0,0,0.35)] select-none">
                   </div>
                 </div>
                 
@@ -588,23 +599,23 @@
           <!-- 3 Condiciones Oficiales del Tarifario (15% más grandes) -->
           <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 text-center pt-2">
             <div class="bg-white p-4 sm:p-5 rounded-2xl border border-slate-200/90 shadow-sm">
-              <span data-i18n="badge_muestra" class="text-sm sm:text-base font-bold text-slate-500 uppercase tracking-wider block">Muestra</span>
+              <span data-i18n="badge_muestra" class="text-sm sm:text-base font-bold text-slate-500 uppercase tracking-wider block">{t['badge_muestra']}</span>
               <strong class="text-slate-950 text-lg sm:text-xl font-black block mt-0.5">15€</strong>
             </div>
             <div class="bg-white p-4 sm:p-5 rounded-2xl border border-slate-200/90 shadow-sm">
-              <span data-i18n="badge_envios" class="text-sm sm:text-base font-bold text-slate-500 uppercase tracking-wider block">Envíos</span>
-              <strong data-i18n="badge_envios_val" class="text-slate-950 text-lg sm:text-xl font-black block mt-0.5">Incluidos</strong>
+              <span data-i18n="badge_envios" class="text-sm sm:text-base font-bold text-slate-500 uppercase tracking-wider block">{t['badge_envios']}</span>
+              <strong data-i18n="badge_envios_val" class="text-slate-950 text-lg sm:text-xl font-black block mt-0.5">{t['badge_envios_val']}</strong>
             </div>
             <div class="bg-white p-4 sm:p-5 rounded-2xl border border-slate-200/90 shadow-sm">
-              <span data-i18n="badge_pago" class="text-sm sm:text-base font-bold text-slate-500 uppercase tracking-wider block">Pago</span>
-              <strong data-i18n="badge_pago_val" class="text-slate-950 text-lg sm:text-xl font-black block mt-0.5">Adelantado</strong>
+              <span data-i18n="badge_pago" class="text-sm sm:text-base font-bold text-slate-500 uppercase tracking-wider block">{t['badge_pago']}</span>
+              <strong data-i18n="badge_pago_val" class="text-slate-950 text-lg sm:text-xl font-black block mt-0.5">{t['badge_pago_val']}</strong>
             </div>
           </div>
 
           <!-- Botón de WhatsApp Contactar Premium -->
           <div class="pt-2">
-            <a id="calc-wa-btn" href="https://wa.me/34680317486?text=Hola Javier" target="_blank" class="group relative w-full py-4 sm:py-4.5 rounded-2xl font-heading font-black text-base sm:text-lg uppercase tracking-wider bg-[#f2920b] hover:bg-[#76d3f6] active:bg-[#76d3f6] text-slate-950 shadow-[0_10px_25px_rgba(242,146,11,0.35)] hover:shadow-[0_16px_35px_rgba(118,211,246,0.45)] hover:scale-[1.01] active:scale-[0.98] flex items-center justify-center gap-3 transition-all duration-300 overflow-hidden">
-              <span data-i18n="btn_calc_wa" class="font-black">Contactar</span>
+            <a id="calc-wa-btn" href="https://wa.me/34680317486?text={t['wa_prefilled_msg']}" target="_blank" class="group relative w-full py-4 sm:py-4.5 rounded-2xl font-heading font-black text-base sm:text-lg uppercase tracking-wider bg-[#f2920b] hover:bg-[#76d3f6] active:bg-[#76d3f6] text-slate-950 shadow-[0_10px_25px_rgba(242,146,11,0.35)] hover:shadow-[0_16px_35px_rgba(118,211,246,0.45)] hover:scale-[1.01] active:scale-[0.98] flex items-center justify-center gap-3 transition-all duration-300 overflow-hidden">
+              <span data-i18n="btn_calc_wa" class="font-black">{t['btn_calc_wa']}</span>
               <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-slate-950/10 group-hover:bg-slate-950 group-hover:text-white flex items-center justify-center transition-all duration-300">
                 <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 sm:w-4 sm:h-4 stroke-[3] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300"></i>
               </div>
@@ -625,10 +636,10 @@
       <!-- CABECERA DE SECCIÓN -->
       <div class="max-w-3xl mx-auto text-center space-y-2 sm:space-y-3 mb-10 sm:mb-16">
         <h2 data-i18n="smp_title" class="text-2xl sm:text-5xl font-black font-heading text-slate-950 uppercase tracking-tight leading-tight">
-          Graba todo lo que pasa en pista
+          {t['smp_title']}
         </h2>
         <p data-i18n="smp_subtitle" class="text-slate-950 text-sm sm:text-xl font-extrabold uppercase tracking-wide">
-          Los buenos puntos y los malos
+          {t['smp_subtitle']}
         </p>
       </div>
 
@@ -638,7 +649,7 @@
         <!-- FOTO 1 -->
         <div class="rounded-3xl overflow-hidden shadow-[0_25px_50px_-10px_rgba(0,0,0,0.75)] hover:shadow-[0_35px_65px_-10px_rgba(0,0,0,0.9)] transition-all duration-500 group border-2 border-slate-950 bg-slate-950 hover:-translate-y-1">
           <div class="relative aspect-[16/10] overflow-hidden">
-            <img src="assets/images/savemyplay-1.jpg" alt="Camara Save my Play grabando partido en pista de padel" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" decoding="async">
+            <img src="{asset_prefix}assets/images/savemyplay-1.jpg" alt="Camara Save my Play grabando partido en pista de padel" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" decoding="async">
             <div class="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent"></div>
           </div>
         </div>
@@ -646,7 +657,7 @@
         <!-- FOTO 2 -->
         <div class="rounded-3xl overflow-hidden shadow-[0_25px_50px_-10px_rgba(0,0,0,0.75)] hover:shadow-[0_35px_65px_-10px_rgba(0,0,0,0.9)] transition-all duration-500 group border-2 border-slate-950 bg-slate-950 hover:-translate-y-1">
           <div class="relative aspect-[16/10] overflow-hidden">
-            <img src="assets/images/savemyplay-2.jpg" alt="Jugadores de padel usando la app Save my Play para ver repeticiones" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" decoding="async">
+            <img src="{asset_prefix}assets/images/savemyplay-2.jpg" alt="Jugadores de padel usando la app Save my Play para ver repeticiones" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" decoding="async">
             <div class="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent"></div>
           </div>
         </div>
@@ -654,7 +665,7 @@
         <!-- FOTO 3 -->
         <div class="rounded-3xl overflow-hidden shadow-[0_25px_50px_-10px_rgba(0,0,0,0.75)] hover:shadow-[0_35px_65px_-10px_rgba(0,0,0,0.9)] transition-all duration-500 group border-2 border-slate-950 bg-slate-950 hover:-translate-y-1">
           <div class="relative aspect-[16/10] overflow-hidden">
-            <img src="assets/images/savemyplay-3.jpg" alt="Pista panoramica con sistema de video inteligente Save my Play" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" decoding="async">
+            <img src="{asset_prefix}assets/images/savemyplay-3.jpg" alt="Pista panoramica con sistema de video inteligente Save my Play" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" decoding="async">
             <div class="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent"></div>
           </div>
         </div>
@@ -664,7 +675,7 @@
       <!-- CAJA DE INFORMACIÓN CLAVE SAVE MY PLAY -->
       <div class="max-w-4xl mx-auto bg-white rounded-3xl p-6 sm:p-10 border border-emerald-300 shadow-2xl text-slate-900 space-y-6">
         <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pb-4 border-b border-slate-200">
-          <img src="assets/images/savemyplay-logo-clean.png" alt="Save my Play" class="h-10 sm:h-12 w-auto object-contain" loading="lazy">
+          <img src="{asset_prefix}assets/images/savemyplay-logo-clean.png" alt="Save my Play" class="h-10 sm:h-12 w-auto object-contain" loading="lazy">
           <span class="text-xs sm:text-sm font-black uppercase tracking-wider px-4 py-1.5 rounded-full bg-[#4bbb81]/20 text-slate-950">
             Partner Oficial CoolPadel
           </span>
@@ -676,8 +687,8 @@
               <i data-lucide="video" class="w-4 h-4 stroke-[2.5]"></i>
             </div>
             <div>
-              <h5 data-i18n="feat1_title" class="text-sm font-black text-slate-950 uppercase">Cámaras con IA</h5>
-              <p data-i18n="feat1_desc" class="text-xs sm:text-sm text-slate-600 font-medium">Captura automática de highlights y repeticiones.</p>
+              <h5 data-i18n="feat1_title" class="text-sm font-black text-slate-950 uppercase">{t['feat1_title']}</h5>
+              <p data-i18n="feat1_desc" class="text-xs sm:text-sm text-slate-600 font-medium">{t['feat1_desc']}</p>
             </div>
           </div>
 
@@ -686,8 +697,8 @@
               <i data-lucide="clock" class="w-4 h-4 stroke-[2.5]"></i>
             </div>
             <div>
-              <h5 data-i18n="feat2_title" class="text-sm font-black text-slate-950 uppercase">Sin dolores de cabeza</h5>
-              <p data-i18n="feat2_desc" class="text-xs sm:text-sm text-slate-600 font-medium">Instalación en 5 minutos y sin problemas.</p>
+              <h5 data-i18n="feat2_title" class="text-sm font-black text-slate-950 uppercase">{t['feat2_title']}</h5>
+              <p data-i18n="feat2_desc" class="text-xs sm:text-sm text-slate-600 font-medium">{t['feat2_desc']}</p>
             </div>
           </div>
 
@@ -696,18 +707,18 @@
               <i data-lucide="trending-up" class="w-4 h-4 stroke-[2.5]"></i>
             </div>
             <div>
-              <h5 data-i18n="feat3_title" class="text-sm font-black text-slate-950 uppercase">Ingresos por reservas</h5>
-              <p data-i18n="feat3_desc" class="text-xs sm:text-sm text-slate-600 font-medium">Aumenta ocupación en horas valle.</p>
+              <h5 data-i18n="feat3_title" class="text-sm font-black text-slate-950 uppercase">{t['feat3_title']}</h5>
+              <p data-i18n="feat3_desc" class="text-xs sm:text-sm text-slate-600 font-medium">{t['feat3_desc']}</p>
             </div>
           </div>
         </div>
 
         <!-- BOTÓN DE CONTACTO OFICIAL -->
         <div class="pt-4 flex items-center justify-center">
-          <a id="smp-contact-btn" href="https://wa.me/34680317486?text=Hola Javier" 
+          <a id="smp-contact-btn" href="https://wa.me/34680317486?text={t['wa_prefilled_msg']}" 
              target="_blank" 
              class="group relative inline-flex items-center justify-center gap-2.5 px-8 sm:px-10 py-3.5 sm:py-4 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] active:bg-[#76d3f6] text-slate-950 active:scale-95 font-heading font-black text-sm sm:text-base tracking-wider uppercase transition-all duration-300 shadow-[0_6px_20px_rgba(242,146,11,0.3)] hover:shadow-[0_10px_25px_rgba(118,211,246,0.4)] hover:scale-105 overflow-hidden">
-            <span data-i18n="smp_btn" class="font-black">Contactar</span>
+            <span data-i18n="smp_btn" class="font-black">{t['smp_btn']}</span>
             <div class="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-slate-950/10 group-hover:bg-slate-950 group-hover:text-white flex items-center justify-center transition-all duration-300">
               <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 sm:w-4 sm:h-4 stroke-[3] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300"></i>
             </div>
@@ -725,10 +736,10 @@
       <!-- CABECERA DE SECCIÓN -->
       <div class="max-w-3xl mx-auto text-center space-y-2 sm:space-y-3 mb-10 sm:mb-16">
         <h2 data-i18n="report_section_title" class="text-2xl sm:text-4xl font-black font-heading text-slate-950 uppercase tracking-tight">
-          CONTENIDO EXCLUSIVO COOLPADEL
+          {t['report_section_title']}
         </h2>
         <p data-i18n="report_section_subtitle" class="text-slate-600 text-sm sm:text-lg font-medium">
-          Suscríbete para no perderte las últimas tendencias de la industria del padel
+          {t['report_section_subtitle']}
         </p>
       </div>
 
@@ -738,19 +749,19 @@
         <div class="bg-white border border-slate-200/90 rounded-3xl p-5 sm:p-8 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.18)] hover:shadow-[0_35px_65px_-10px_rgba(0,0,0,0.28)] transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1">
           <div class="space-y-4 sm:space-y-5">
             <div class="aspect-[16/10] rounded-2xl overflow-hidden bg-slate-900 border border-slate-200/90 shadow-[0_20px_40px_-10px_rgba(0,0,0,0.4)] group-hover:scale-[1.01] transition duration-500 relative">
-              <img src="assets/images/foto-reportaje.jpg" alt="Informe PDF sobre tendencias de la industria del padel 2026" class="w-full h-full object-cover group-hover:scale-105 transition duration-700" loading="lazy" decoding="async">
+              <img src="{asset_prefix}assets/images/foto-reportaje.jpg" alt="Informe PDF sobre tendencias de la industria del padel 2026" class="w-full h-full object-cover group-hover:scale-105 transition duration-700" loading="lazy" decoding="async">
               <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
               <span data-i18n="report_card1_tag" class="absolute bottom-3 left-3 text-[11px] font-black uppercase tracking-wider px-3 py-1 rounded-full bg-white text-slate-950 shadow-md">
-                PDF Oficial
+                {t['report_card1_tag']}
               </span>
             </div>
 
             <div class="space-y-2 pt-1">
               <h3 data-i18n="report_card1_title" class="font-heading font-black text-xl sm:text-3xl uppercase tracking-tight text-slate-950">
-                Reportaje Industria Padel 2026
+                {t['report_card1_title']}
               </h3>
               <p data-i18n="report_card1_desc" class="text-xs sm:text-sm text-slate-600 font-medium leading-relaxed">
-                Conclusiones tras conversar con más de 116 stands del sector: pistas inteligentes, expansión en EEUU, modelo de clubs lifestyle y claves para marcas.
+                {t['report_card1_desc']}
               </p>
             </div>
           </div>
@@ -759,10 +770,10 @@
           <div class="pt-5 sm:pt-6 border-t border-slate-200 mt-6">
             <form onsubmit="handleReportDownload(event)" class="space-y-3">
               <div class="relative">
-                <input type="email" id="report-email-input" required placeholder="Introduce tu email para recibir el informe..." data-i18n-placeholder="report_card1_placeholder" class="w-full px-4 sm:px-5 py-3 sm:py-3.5 rounded-full bg-white border border-slate-300 text-slate-950 text-base font-medium focus:outline-none focus:border-[#f2920b] shadow-inner transition">
+                <input type="email" id="report-email-input" required placeholder="{t['report_card1_placeholder']}" data-i18n-placeholder="report_card1_placeholder" class="w-full px-4 sm:px-5 py-3 sm:py-3.5 rounded-full bg-white border border-slate-300 text-slate-950 text-base font-medium focus:outline-none focus:border-[#f2920b] shadow-inner transition">
               </div>
               <button type="submit" class="group relative w-full inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] active:bg-[#76d3f6] text-slate-950 active:scale-95 font-heading font-black text-xs sm:text-sm uppercase tracking-wider transition-all duration-300 shadow-[0_4px_15px_rgba(242,146,11,0.25)] hover:shadow-[0_8px_25px_rgba(118,211,246,0.35)] hover:scale-[1.01] overflow-hidden cursor-pointer">
-                <span data-i18n="report_card1_btn">Descargar PDF</span>
+                <span data-i18n="report_card1_btn">{t['report_card1_btn']}</span>
                 <div class="w-6 h-6 rounded-full bg-slate-950/10 group-hover:bg-slate-950 group-hover:text-white flex items-center justify-center transition-all duration-300">
                   <i data-lucide="download" class="w-3.5 h-3.5 stroke-[3] group-hover:translate-y-0.5 transition-transform duration-300"></i>
                 </div>
@@ -775,19 +786,19 @@
         <div class="bg-white border border-slate-200/90 rounded-3xl p-5 sm:p-8 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.18)] hover:shadow-[0_35px_65px_-10px_rgba(0,0,0,0.28)] transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1">
           <div class="space-y-4 sm:space-y-5">
             <div class="aspect-[16/10] rounded-2xl overflow-hidden bg-slate-900 border border-slate-200/90 shadow-[0_20px_40px_-10px_rgba(0,0,0,0.4)] group-hover:scale-[1.01] transition duration-500 relative">
-              <img src="assets/images/coolpadels-newsletter.jpg" alt="Newsletter CoolPadel en LinkedIn Pulse sobre el sector de raqueta" class="w-full h-full object-cover group-hover:scale-105 transition duration-700" loading="lazy" decoding="async">
+              <img src="{asset_prefix}assets/images/coolpadels-newsletter.jpg" alt="Newsletter CoolPadel en LinkedIn Pulse sobre el sector de raqueta" class="w-full h-full object-cover group-hover:scale-105 transition duration-700" loading="lazy" decoding="async">
               <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
               <span data-i18n="report_card2_tag" class="absolute bottom-3 left-3 text-[11px] font-black uppercase tracking-wider px-3 py-1 rounded-full bg-white text-slate-950 shadow-md">
-                LinkedIn Pulse
+                {t['report_card2_tag']}
               </span>
             </div>
 
             <div class="space-y-2 pt-1">
               <h3 data-i18n="report_card2_title" class="font-heading font-black text-xl sm:text-3xl uppercase tracking-tight text-slate-950">
-                Newsletter CoolPadel
+                {t['report_card2_title']}
               </h3>
               <p data-i18n="report_card2_desc" class="text-xs sm:text-sm text-slate-600 font-medium leading-relaxed">
-                Artículos, análisis y novedades periódicas de la industria del padel directamente en tu feed de LinkedIn.
+                {t['report_card2_desc']}
               </p>
             </div>
           </div>
@@ -797,7 +808,7 @@
             <a href="https://www.linkedin.com/pulse/padel-world-summit-2026-startup-recap-javier-villoria-soleto-c7hle/" 
                target="_blank" 
                class="group relative w-full inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] active:bg-[#76d3f6] text-slate-950 active:scale-95 font-heading font-black text-xs sm:text-sm uppercase tracking-wider transition-all duration-300 shadow-[0_4px_15px_rgba(242,146,11,0.25)] hover:shadow-[0_8px_25px_rgba(118,211,246,0.35)] hover:scale-[1.01] overflow-hidden">
-              <span data-i18n="report_card2_btn">Leer en LinkedIn</span>
+              <span data-i18n="report_card2_btn">{t['report_card2_btn']}</span>
               <div class="w-6 h-6 rounded-full bg-slate-950/10 group-hover:bg-slate-950 group-hover:text-white flex items-center justify-center transition-all duration-300">
                 <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 stroke-[3] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300"></i>
               </div>
@@ -817,7 +828,7 @@
       <!-- TÍTULO DE LA SECCIÓN -->
       <div class="max-w-3xl mx-auto text-center mb-10 sm:mb-14">
         <h2 data-i18n="contact_title" class="text-2xl sm:text-5xl font-black font-heading text-white uppercase tracking-tight leading-tight">
-          Contacto
+          {t['contact_title']}
         </h2>
       </div>
 
@@ -826,8 +837,8 @@
         
         <!-- IZQUIERDA: COOLPADEL ALINEADO HACIA EL CORREO -->
         <div class="flex items-center justify-center md:justify-end gap-3 sm:gap-4 md:pr-16 lg:pr-24 xl:pr-28">
-          <img src="assets/images/coolpadel-mascot-hd.png" alt="CoolPadel Mascota" class="h-12 sm:h-18 lg:h-20 w-auto object-contain drop-shadow-md" loading="lazy">
-          <img src="assets/images/coolpadel-typography-hd.png" alt="CoolPadel" class="h-6 sm:h-9 lg:h-10 w-auto object-contain drop-shadow-md" loading="lazy">
+          <img src="{asset_prefix}assets/images/coolpadel-mascot-hd.png" alt="CoolPadel Mascota" class="h-12 sm:h-18 lg:h-20 w-auto object-contain drop-shadow-md" loading="lazy">
+          <img src="{asset_prefix}assets/images/coolpadel-typography-hd.png" alt="CoolPadel" class="h-6 sm:h-9 lg:h-10 w-auto object-contain drop-shadow-md" loading="lazy">
         </div>
 
         <!-- CENTRO: CORREO Y WHATSAPP OFICIAL DE JAVIER -->
@@ -839,19 +850,19 @@
           </a>
 
           <!-- BOTÓN WHATSAPP OFICIAL EN CONTACTO -->
-          <a id="contact-wa-btn" href="https://wa.me/34680317486?text=Hola Javier" 
+          <a id="contact-wa-btn" href="https://wa.me/34680317486?text={t['wa_prefilled_msg']}" 
              target="_blank" 
              class="group inline-flex items-center gap-2.5 px-5 sm:px-6 py-2.5 rounded-full bg-[#25D366] hover:bg-[#20ba59] active:bg-[#20ba59] text-white font-sans font-black text-xs sm:text-sm tracking-wider uppercase shadow-md hover:shadow-xl hover:scale-105 active:scale-95 transition-all duration-300 mt-1 sm:mt-2">
             <svg class="w-4 h-4 sm:w-5 sm:h-5 fill-current" viewBox="0 0 24 24">
               <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
             </svg>
-            <span data-i18n="contact_wa_btn">WhatsApp Directo</span>
+            <span data-i18n="contact_wa_btn">{t['contact_wa_btn']}</span>
           </a>
         </div>
 
         <!-- DERECHA: SAVE MY PLAY ALINEADO HACIA EL CORREO -->
         <div class="flex items-center justify-center md:justify-start md:pl-16 lg:pl-24 xl:pr-28">
-          <img src="assets/images/savemyplay-logo-white-text-hd.png" alt="Save my Play" class="h-10 sm:h-14 lg:h-16 w-auto object-contain drop-shadow-md" loading="lazy">
+          <img src="{asset_prefix}assets/images/savemyplay-logo-white-text-hd.png" alt="Save my Play" class="h-10 sm:h-14 lg:h-16 w-auto object-contain drop-shadow-md" loading="lazy">
         </div>
 
       </div>
@@ -860,7 +871,7 @@
   </section>
 
   <!-- BOTÓN FLOTANTE OFICIAL DE WHATSAPP -->
-  <a id="floating-wa-btn" href="https://wa.me/34680317486?text=Hola Javier" 
+  <a id="floating-wa-btn" href="https://wa.me/34680317486?text={t['wa_prefilled_msg']}" 
      target="_blank" 
      class="fixed bottom-5 right-5 sm:bottom-6 sm:right-6 z-50 p-3.5 sm:p-4 rounded-full bg-[#25D366] text-white shadow-[0_10px_30px_rgba(37,211,102,0.45)] hover:bg-[#20ba59] hover:scale-110 active:scale-95 transition flex items-center justify-center group"
      title="Hablar por WhatsApp con Javier">
@@ -868,7 +879,7 @@
       <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
     </svg>
     <span data-i18n="wa_floating_tooltip" class="max-w-0 overflow-hidden whitespace-nowrap group-hover:max-w-xs transition-all duration-300 ease-in-out text-xs font-black px-0 group-hover:px-2">
-      ¿Hablamos?
+      {t['wa_floating_tooltip']}
     </span>
   </a>
 
@@ -877,38 +888,38 @@
     lucide.createIcons();
 
     // DICCIONARIO REACTIVO MULTI-IDIOMA
-    const I18N_DATA = {"es": {"top_ticker": "Descarga el informe exclusivo sobre la industria del padel", "nav_tenis_padel": "TENIS Y PADEL", "nav_contact": "Contactar", "slide1_title": "Llaveros para tu <br class=\"hidden sm:inline\"><span class=\"relative inline-block px-1.5 text-neutral-300\">club<svg class=\"absolute inset-0 w-full h-full pointer-events-none\" viewBox=\"0 0 100 100\" preserveAspectRatio=\"none\"><line x1=\"8\" y1=\"92\" x2=\"92\" y2=\"8\" stroke=\"#f2920b\" stroke-width=\"16\" stroke-linecap=\"round\"/><line x1=\"8\" y1=\"8\" x2=\"92\" y2=\"92\" stroke=\"#f2920b\" stroke-width=\"16\" stroke-linecap=\"round\"/></svg></span><span class=\"text-[#f2920b] ml-2\">comunidad</span>", "slide1_btn": "Ver más", "slide2_title": "Grabación en pista: <br><span class=\"text-black\">highlights y partidos</span>", "slide2_btn": "Descubrir", "slide3_title": "El Negocio del Padel: <br><span class=\"text-[#76d3f6]\">Informe 2026</span>", "slide3_btn": "Descargar PDF", "trusted_text": "Trabajamos con <span class=\"text-[#76d3f6]\">clubs</span>, <span class=\"text-[#f2920b]\">marcas</span> y <span class=\"text-[#76d3f6]\">federaciones</span> de todo el mundo", "llaveros_title": "Llaveros personalizados con vuestro logo", "llaveros_subtitle": "Tus jugadores, dentro y fuera de la pista", "card_tenis": "TENIS", "card_padel": "PADEL", "calc_title": "Calcula el pedido de tu Club", "step_1": "Diseño 3D", "step_2": "Muestra", "step_3": "Pedido", "calc_label_qty": "Nº de llaveros:", "calc_unit_name": "unidades", "calc_label_price": "Importe estimado:", "calc_unit_price": "ud", "badge_muestra": "Muestra", "badge_envios": "Envíos", "badge_envios_val": "Incluidos", "badge_pago": "Pago", "badge_pago_val": "Adelantado", "btn_calc_wa": "Contactar", "smp_title": "Graba todo lo que pasa en pista", "smp_subtitle": "Los buenos puntos y los malos", "feat1_title": "Cámaras con IA", "feat1_desc": "Captura automática de highlights y repeticiones.", "feat2_title": "Sin dolores de cabeza", "feat2_desc": "Instalación en 5 minutos y sin problemas.", "feat3_title": "Ingresos por reservas", "feat3_desc": "Aumenta ocupación en horas valle.", "smp_btn": "Contactar", "report_section_title": "CONTENIDO EXCLUSIVO COOLPADEL", "report_section_subtitle": "Suscríbete para no perderte las últimas tendencias de la industria del padel", "report_card1_tag": "PDF Oficial", "report_card1_title": "Reportaje Industria Padel 2026", "report_card1_desc": "Conclusiones tras conversar con más de 116 stands del sector: pistas inteligentes, expansión en EEUU, modelo de clubs lifestyle y claves para marcas.", "report_card1_placeholder": "Introduce tu email para recibir el informe...", "report_card1_btn": "Descargar PDF", "report_card1_btn_success": "¡Informe Descargado!", "report_card2_tag": "LinkedIn Pulse", "report_card2_title": "Newsletter CoolPadel", "report_card2_desc": "Artículos, análisis y novedades periódicas de la industria del padel directamente en tu feed de LinkedIn.", "report_card2_btn": "Leer en LinkedIn", "contact_title": "Contacto", "contact_wa_btn": "WhatsApp Directo", "wa_floating_tooltip": "¿Hablamos?", "wa_prefilled_msg": "Hola Javier"}, "en": {"top_ticker": "Download the exclusive padel industry report", "nav_tenis_padel": "TENNIS & PADEL", "nav_contact": "Contact", "slide1_title": "Keychains for your <br class=\"hidden sm:inline\"><span class=\"relative inline-block px-1.5 text-neutral-300\">club<svg class=\"absolute inset-0 w-full h-full pointer-events-none\" viewBox=\"0 0 100 100\" preserveAspectRatio=\"none\"><line x1=\"8\" y1=\"92\" x2=\"92\" y2=\"8\" stroke=\"#f2920b\" stroke-width=\"16\" stroke-linecap=\"round\"/><line x1=\"8\" y1=\"8\" x2=\"92\" y2=\"92\" stroke=\"#f2920b\" stroke-width=\"16\" stroke-linecap=\"round\"/></svg></span><span class=\"text-[#f2920b] ml-2\">community</span>", "slide1_btn": "Learn more", "slide2_title": "Court recording: <br><span class=\"text-black\">highlights & matches</span>", "slide2_btn": "Discover", "slide3_title": "The Padel Business: <br><span class=\"text-[#76d3f6]\">2026 Report</span>", "slide3_btn": "Download PDF", "trusted_text": "We work with <span class=\"text-[#76d3f6]\">clubs</span>, <span class=\"text-[#f2920b]\">brands</span> and <span class=\"text-[#76d3f6]\">federations</span> worldwide", "llaveros_title": "Custom keychains with your club logo", "llaveros_subtitle": "Your players, on and off the court", "card_tenis": "TENNIS", "card_padel": "PADEL", "calc_title": "Calculate your Club's order", "step_1": "3D Design", "step_2": "Sample", "step_3": "Order", "calc_label_qty": "No. of keychains:", "calc_unit_name": "units", "calc_label_price": "Estimated price:", "calc_unit_price": "unit", "badge_muestra": "Sample", "badge_envios": "Shipping", "badge_envios_val": "Included", "badge_pago": "Payment", "badge_pago_val": "Upfront", "btn_calc_wa": "Get in touch", "smp_title": "Record everything on court", "smp_subtitle": "The great shots and the funny misses", "feat1_title": "AI Cameras", "feat1_desc": "Automatic capture of highlights and replays.", "feat2_title": "Zero headaches", "feat2_desc": "5-minute hassle-free setup.", "feat3_title": "Booking revenue", "feat3_desc": "Boost off-peak court occupancy.", "smp_btn": "Get in touch", "report_section_title": "COOLPADEL EXCLUSIVE CONTENT", "report_section_subtitle": "Subscribe to stay ahead of the latest padel industry trends", "report_card1_tag": "Official PDF", "report_card1_title": "Padel Industry Report 2026", "report_card1_desc": "Insights from over 116 industry stands: smart courts, US expansion, lifestyle club models, and brand strategies.", "report_card1_placeholder": "Enter your email to receive the report...", "report_card1_btn": "Download PDF", "report_card1_btn_success": "Report Downloaded!", "report_card2_tag": "LinkedIn Pulse", "report_card2_title": "CoolPadel Newsletter", "report_card2_desc": "Articles, analysis and regular padel industry insights directly in your LinkedIn feed.", "report_card2_btn": "Read on LinkedIn", "contact_title": "Contact", "contact_wa_btn": "Direct WhatsApp", "wa_floating_tooltip": "Let's talk", "wa_prefilled_msg": "Hello Javier"}, "fr": {"top_ticker": "Téléchargez le rapport exclusif sur l'industrie du padel", "nav_tenis_padel": "TENNIS & PADEL", "nav_contact": "Contact", "slide1_title": "Porte-clés pour votre <br class=\"hidden sm:inline\"><span class=\"relative inline-block px-1.5 text-neutral-300\">club<svg class=\"absolute inset-0 w-full h-full pointer-events-none\" viewBox=\"0 0 100 100\" preserveAspectRatio=\"none\"><line x1=\"8\" y1=\"92\" x2=\"92\" y2=\"8\" stroke=\"#f2920b\" stroke-width=\"16\" stroke-linecap=\"round\"/><line x1=\"8\" y1=\"8\" x2=\"92\" y2=\"92\" stroke=\"#f2920b\" stroke-width=\"16\" stroke-linecap=\"round\"/></svg></span><span class=\"text-[#f2920b] ml-2\">communauté</span>", "slide1_btn": "En savoir plus", "slide2_title": "Enregistrement sur court : <br><span class=\"text-black\">moments forts & matchs</span>", "slide2_btn": "Découvrir", "slide3_title": "Le Business du Padel : <br><span class=\"text-[#76d3f6]\">Rapport 2026</span>", "slide3_btn": "Télécharger PDF", "trusted_text": "Nous travaillons avec des <span class=\"text-[#76d3f6]\">clubs</span>, <span class=\"text-[#f2920b]\">marques</span> et <span class=\"text-[#76d3f6]\">fédérations</span> du monde entier", "llaveros_title": "Porte-clés personnalisés avec le logo de votre club", "llaveros_subtitle": "Vos joueurs, sur et en dehors du court", "card_tenis": "TENNIS", "card_padel": "PADEL", "calc_title": "Calculez la commande de votre Club", "step_1": "Design 3D", "step_2": "Échantillon", "step_3": "Commande", "calc_label_qty": "Nbre de porte-clés :", "calc_unit_name": "unités", "calc_label_price": "Montant estimé :", "calc_unit_price": "unité", "badge_muestra": "Échantillon", "badge_envios": "Livraison", "badge_envios_val": "Incluse", "badge_pago": "Paiement", "badge_pago_val": "À l'avance", "btn_calc_wa": "Contacter", "smp_title": "Enregistrez tout ce qui se passe sur le court", "smp_subtitle": "Les super points et les ratés", "feat1_title": "Caméras IA", "feat1_desc": "Capture automatique des temps forts et ralentis.", "feat2_title": "Zéro prise de tête", "feat2_desc": "Installation en 5 minutes sans problème.", "feat3_title": "Revenus de réservation", "feat3_desc": "Augmentez l'occupation en heures creuses.", "smp_btn": "Contacter", "report_section_title": "CONTENU EXCLUSIF COOLPADEL", "report_section_subtitle": "Abonnez-vous pour ne rien manquer des tendances du padel", "report_card1_tag": "PDF Officiel", "report_card1_title": "Rapport Industrie du Padel 2026", "report_card1_desc": "Conclusions après échanges avec plus de 116 stands : pistes intelligentes, expansion US, clubs lifestyle et clés pour les marques.", "report_card1_placeholder": "Entrez votre email pour recevoir le rapport...", "report_card1_btn": "Télécharger PDF", "report_card1_btn_success": "Rapport Téléchargé !", "report_card2_tag": "LinkedIn Pulse", "report_card2_title": "Newsletter CoolPadel", "report_card2_desc": "Articles, analyses et actualités régulières de l'industrie du padel directement sur LinkedIn.", "report_card2_btn": "Lire sur LinkedIn", "contact_title": "Contact", "contact_wa_btn": "WhatsApp Direct", "wa_floating_tooltip": "Discutons", "wa_prefilled_msg": "Bonjour Javier"}, "it": {"top_ticker": "Scarica il report esclusivo sull'industria del padel", "nav_tenis_padel": "TENNIS & PADEL", "nav_contact": "Contatta", "slide1_title": "Portachiavi per il tuo <br class=\"hidden sm:inline\"><span class=\"relative inline-block px-1.5 text-neutral-300\">club<svg class=\"absolute inset-0 w-full h-full pointer-events-none\" viewBox=\"0 0 100 100\" preserveAspectRatio=\"none\"><line x1=\"8\" y1=\"92\" x2=\"92\" y2=\"8\" stroke=\"#f2920b\" stroke-width=\"16\" stroke-linecap=\"round\"/><line x1=\"8\" y1=\"8\" x2=\"92\" y2=\"92\" stroke=\"#f2920b\" stroke-width=\"16\" stroke-linecap=\"round\"/></svg></span><span class=\"text-[#f2920b] ml-2\">community</span>", "slide1_btn": "Scopri di più", "slide2_title": "Registrazione in campo: <br><span class=\"text-black\">highlights e partite</span>", "slide2_btn": "Scopri", "slide3_title": "Il Business del Padel: <br><span class=\"text-[#76d3f6]\">Report 2026</span>", "slide3_btn": "Scarica PDF", "trusted_text": "Lavoriamo con <span class=\"text-[#76d3f6]\">club</span>, <span class=\"text-[#f2920b]\">brand</span> e <span class=\"text-[#76d3f6]\">federazioni</span> di tutto il mondo", "llaveros_title": "Portachiavi personalizzati con il logo del tuo club", "llaveros_subtitle": "I tuoi giocatori, dentro e fuori dal campo", "card_tenis": "TENNIS", "card_padel": "PADEL", "calc_title": "Calcola l'ordine per il tuo Club", "step_1": "Design 3D", "step_2": "Campione", "step_3": "Ordine", "calc_label_qty": "N. di portachiavi:", "calc_unit_name": "unità", "calc_label_price": "Importo stimato:", "calc_unit_price": "unità", "badge_muestra": "Campione", "badge_envios": "Spedizione", "badge_envios_val": "Inclusa", "badge_pago": "Pagamento", "badge_pago_val": "Anticipato", "btn_calc_wa": "Contatta", "smp_title": "Registra tutto ciò che accade in campo", "smp_subtitle": "I grandi punti e gli errori", "feat1_title": "Telecamere con IA", "feat1_desc": "Cattura automatica di highlights e replay.", "feat2_title": "Nessun mal di testa", "feat2_desc": "Installazione in 5 minuti senza problemi.", "feat3_title": "Entrate da prenotazioni", "feat3_desc": "Aumenta l'occupazione nelle ore non di punta.", "smp_btn": "Contatta", "report_section_title": "CONTENUTO ESCLUSIVO COOLPADEL", "report_section_subtitle": "Iscriviti per non perdere le ultime tendenze dell'industria del padel", "report_card1_tag": "PDF Ufficiale", "report_card1_title": "Report Industria Padel 2026", "report_card1_desc": "Conclusioni dopo aver parlato con oltre 116 stand: campi smart, espansione USA, club lifestyle e strategie per brand.", "report_card1_placeholder": "Inserisci la tua email per ricevere il report...", "report_card1_btn": "Scarica PDF", "report_card1_btn_success": "Report Scaricato!", "report_card2_tag": "LinkedIn Pulse", "report_card2_title": "Newsletter CoolPadel", "report_card2_desc": "Articoli, analisi e novità periodiche del settore del padel direttamente sul tuo feed LinkedIn.", "report_card2_btn": "Leggi su LinkedIn", "contact_title": "Contatto", "contact_wa_btn": "WhatsApp Diretto", "wa_floating_tooltip": "Parliamo?", "wa_prefilled_msg": "Ciao Javier"}};
-    let currentLang = 'es';
+    const I18N_DATA = {translations_json};
+    let currentLang = '{active_lang}';
 
-    function switchLanguage(lang) {
+    function switchLanguage(lang) {{
       if (!I18N_DATA[lang]) return;
       currentLang = lang;
       
-      try {
+      try {{
         localStorage.setItem('coolpadel_lang', lang);
-      } catch(e) {}
+      }} catch(e) {{}}
 
       const dict = I18N_DATA[lang];
 
       // 1. Actualizar textos simples con data-i18n
-      document.querySelectorAll('[data-i18n]').forEach(el => {
+      document.querySelectorAll('[data-i18n]').forEach(el => {{
         const key = el.getAttribute('data-i18n');
-        if (dict[key]) {
+        if (dict[key]) {{
           el.innerHTML = dict[key];
-        }
-      });
+        }}
+      }});
 
       // 2. Actualizar placeholders
-      document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+      document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {{
         const key = el.getAttribute('data-i18n-placeholder');
-        if (dict[key]) {
+        if (dict[key]) {{
           el.setAttribute('placeholder', dict[key]);
-        }
-      });
+        }}
+      }});
 
       // 3. Actualizar botones de WhatsApp
       const waMsg = encodeURIComponent(dict.wa_prefilled_msg);
-      const waUrl = `https://wa.me/34680317486?text=${waMsg}`;
+      const waUrl = `https://wa.me/34680317486?text=${{waMsg}}`;
       
       const navWaBtn = document.getElementById('nav-contact-btn');
       if (navWaBtn) navWaBtn.href = waUrl;
@@ -923,20 +934,20 @@
       if (floatWaBtn) floatWaBtn.href = waUrl;
 
       // 4. Actualizar botones de selector de idioma activo
-      document.querySelectorAll('[data-lang-btn]').forEach(btn => {
-        if (btn.getAttribute('data-lang-btn') === lang) {
+      document.querySelectorAll('[data-lang-btn]').forEach(btn => {{
+        if (btn.getAttribute('data-lang-btn') === lang) {{
           btn.className = 'lang-btn active px-2 sm:px-2.5 py-1 rounded-full transition-all duration-200 font-bold';
-        } else {
+        }} else {{
           btn.className = 'lang-btn text-slate-600 hover:text-slate-950 px-2 sm:px-2.5 py-1 rounded-full transition-all duration-200 font-bold';
-        }
-      });
+        }}
+      }});
 
       // 5. Actualizar calculadora
       updateCalculator(currentTierIdx);
 
       // Re-renderizar iconos de Lucide
       lucide.createIcons();
-    }
+    }}
 
     // COVERFLOW 3D INFINITE CAROUSEL SCRIPT + GESTOS TÁCTILES SWIPE
     const slides = [
@@ -949,77 +960,77 @@
     let autoSlideInterval;
     let isPaused = false;
 
-    function updateCoverflow() {
-      slides.forEach((slide, idx) => {
+    function updateCoverflow() {{
+      slides.forEach((slide, idx) => {{
         slide.classList.remove('active', 'prev', 'next');
         const diff = (idx - currentIndex + total) % total;
         
-        if (diff === 0) {
+        if (diff === 0) {{
           slide.classList.add('active');
-        } else if (diff === 1) {
+        }} else if (diff === 1) {{
           slide.classList.add('next');
-        } else if (diff === 2) {
+        }} else if (diff === 2) {{
           slide.classList.add('prev');
-        }
-      });
-    }
+        }}
+      }});
+    }}
 
-    function nextSlide() {
+    function nextSlide() {{
       currentIndex = (currentIndex + 1) % total;
       updateCoverflow();
-    }
+    }}
 
-    function prevSlide() {
+    function prevSlide() {{
       currentIndex = (currentIndex - 1 + total) % total;
       updateCoverflow();
-    }
+    }}
 
     // Clic directo en slides
-    slides.forEach((slide, idx) => {
-      slide.addEventListener('click', (e) => {
-        if (idx !== currentIndex) {
+    slides.forEach((slide, idx) => {{
+      slide.addEventListener('click', (e) => {{
+        if (idx !== currentIndex) {{
           e.preventDefault();
           currentIndex = idx;
           updateCoverflow();
           resetAutoSlide();
-        }
-      });
-    });
+        }}
+      }});
+    }});
 
-    document.getElementById('next-slide-btn').addEventListener('click', () => {
+    document.getElementById('next-slide-btn').addEventListener('click', () => {{
       nextSlide();
       resetAutoSlide();
-    });
+    }});
 
-    document.getElementById('prev-slide-btn').addEventListener('click', () => {
+    document.getElementById('prev-slide-btn').addEventListener('click', () => {{
       prevSlide();
       resetAutoSlide();
-    });
+    }});
 
     const pauseBtn = document.getElementById('pause-slide-btn');
     const pauseIcon = document.getElementById('pause-icon');
-    pauseBtn.addEventListener('click', () => {
+    pauseBtn.addEventListener('click', () => {{
       isPaused = !isPaused;
-      if (isPaused) {
+      if (isPaused) {{
         clearInterval(autoSlideInterval);
         pauseIcon.setAttribute('data-lucide', 'play');
-      } else {
+      }} else {{
         startAutoSlide();
         pauseIcon.setAttribute('data-lucide', 'pause');
-      }
+      }}
       lucide.createIcons();
-    });
+    }});
 
-    function startAutoSlide() {
-      if (!isPaused) {
+    function startAutoSlide() {{
+      if (!isPaused) {{
         autoSlideInterval = setInterval(nextSlide, 4500);
-      }
-    }
+      }}
+    }}
 
-    function resetAutoSlide() {
+    function resetAutoSlide() {{
       clearInterval(autoSlideInterval);
       startAutoSlide();
-    }
+    }}
 
     startAutoSlide();
 
@@ -1027,28 +1038,28 @@
     let touchStartX = 0;
     let touchEndX = 0;
     const coverflowEl = document.querySelector('.coverflow-wrapper');
-    if (coverflowEl) {
-      coverflowEl.addEventListener('touchstart', (e) => {
+    if (coverflowEl) {{
+      coverflowEl.addEventListener('touchstart', (e) => {{
         touchStartX = e.changedTouches[0].screenX;
-      }, { passive: true });
+      }}, {{ passive: true }});
 
-      coverflowEl.addEventListener('touchend', (e) => {
+      coverflowEl.addEventListener('touchend', (e) => {{
         touchEndX = e.changedTouches[0].screenX;
         const diff = touchEndX - touchStartX;
-        if (Math.abs(diff) > 40) {
+        if (Math.abs(diff) > 40) {{
           if (diff < 0) nextSlide();
           else prevSlide();
           resetAutoSlide();
-        }
-      }, { passive: true });
-    }
+        }}
+      }}, {{ passive: true }});
+    }}
 
     // Calculadora presupuesto con tarifario oficial e i18n
     const tiers = [
-      { qty: '100', price: '300', unit: '3,00', pct: 0 },
-      { qty: '250', price: '625', unit: '2,50', pct: 33.333 },
-      { qty: '500', price: '1.000', unit: '2,00', pct: 66.666 },
-      { qty: '1500', price: '2.250', unit: '1,50', pct: 100 }
+      {{ qty: '100', price: '300', unit: '3,00', pct: 0 }},
+      {{ qty: '250', price: '625', unit: '2,50', pct: 33.333 }},
+      {{ qty: '500', price: '1.000', unit: '2,00', pct: 66.666 }},
+      {{ qty: '1500', price: '2.250', unit: '1,50', pct: 100 }}
     ];
 
     let currentTierIdx = 0;
@@ -1060,134 +1071,220 @@
     const sliderProgress = document.getElementById('slider-progress');
     const sliderTrack = document.getElementById('slider-track');
 
-    function updateCalculator(idx) {
+    function updateCalculator(idx) {{
       currentTierIdx = idx;
       const tier = tiers[idx];
       const dict = I18N_DATA[currentLang] || I18N_DATA['es'];
       
       const qtyFormatted = idx === 3 ? '1.500' : tier.qty;
-      qtyBadge.textContent = `${qtyFormatted} ${dict.calc_unit_name}`;
-      priceBadge.textContent = `${tier.price} €`;
-      unitBadge.textContent = `(${tier.unit} €/${dict.calc_unit_price})`;
+      qtyBadge.textContent = `${{qtyFormatted}} ${{dict.calc_unit_name}}`;
+      priceBadge.textContent = `${{tier.price}} €`;
+      unitBadge.textContent = `(${{tier.unit}} €/${{dict.calc_unit_price}})`;
       
-      sliderThumb.style.left = `${tier.pct}%`;
-      sliderProgress.style.width = `${tier.pct}%`;
+      sliderThumb.style.left = `${{tier.pct}}%`;
+      sliderProgress.style.width = `${{tier.pct}}%`;
 
-      document.querySelectorAll('.tier-btn').forEach((btn, i) => {
-        if (i === idx) {
+      document.querySelectorAll('.tier-btn').forEach((btn, i) => {{
+        if (i === idx) {{
           btn.classList.add('text-[#f2920b]', 'font-black');
           btn.classList.remove('text-slate-600');
-        } else {
+        }} else {{
           btn.classList.remove('text-[#f2920b]', 'font-black');
           btn.classList.add('text-slate-600');
-        }
-      });
+        }}
+      }});
 
       const msg = dict.wa_prefilled_msg;
-      waBtn.href = `https://wa.me/34680317486?text=${encodeURIComponent(msg)}`;
-    }
+      waBtn.href = `https://wa.me/34680317486?text=${{encodeURIComponent(msg)}}`;
+    }}
 
-    function setTier(idx) {
+    function setTier(idx) {{
       updateCalculator(idx);
-    }
+    }}
 
     // Soporte para arrastrar o hacer clic en la barra
     let isDragging = false;
     
-    function handlePointerPosition(e) {
+    function handlePointerPosition(e) {{
       const rect = sliderTrack.getBoundingClientRect();
       const clientX = e.clientX || (e.touches && e.touches[0].clientX);
       if (!clientX) return;
       const ratio = Math.max(0, Math.min(1, (clientX - rect.left) / rect.width));
       let closestIdx = 0;
       let minDiff = 999;
-      tiers.forEach((t, i) => {
+      tiers.forEach((t, i) => {{
         const diff = Math.abs((t.pct / 100) - ratio);
-        if (diff < minDiff) {
+        if (diff < minDiff) {{
           minDiff = diff;
           closestIdx = i;
-        }
-      });
+        }}
+      }});
       setTier(closestIdx);
-    }
+    }}
 
-    sliderTrack.addEventListener('pointerdown', (e) => {
+    sliderTrack.addEventListener('pointerdown', (e) => {{
       isDragging = true;
       handlePointerPosition(e);
       window.addEventListener('pointermove', onPointerMove);
       window.addEventListener('pointerup', onPointerUp);
-    });
+    }});
 
-    function onPointerMove(e) {
+    function onPointerMove(e) {{
       if (isDragging) handlePointerPosition(e);
-    }
+    }}
 
-    function onPointerUp() {
+    function onPointerUp() {{
       isDragging = false;
       window.removeEventListener('pointermove', onPointerMove);
       window.removeEventListener('pointerup', onPointerUp);
-    }
+    }}
 
     // URL del Webhook de Google Apps Script
     const GOOGLE_SHEETS_WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbwm-6rDF4hpJMJeCJ26Vqfy-mg9Zvn7i4UJ-hWWx7xsvzreBU2WCGnCDoyKmR2Qt6CFSA/exec';
 
     // Descarga de PDF Informe con recolección de email a Google Sheets
-    async function handleReportDownload(e) {
+    async function handleReportDownload(e) {{
       e.preventDefault();
       const emailInput = document.getElementById('report-email-input');
       const email = emailInput ? emailInput.value.trim() : '';
       if (!email) return;
 
       const link = document.createElement('a');
-      link.href = 'assets/images/reportaje-industria-padel.pdf';
+      link.href = '{asset_prefix}assets/images/reportaje-industria-padel.pdf';
       link.download = 'Reportaje-Industria-Padel-2026.pdf';
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
 
-      if (GOOGLE_SHEETS_WEBHOOK_URL) {
-        try {
-          fetch(GOOGLE_SHEETS_WEBHOOK_URL, {
+      if (GOOGLE_SHEETS_WEBHOOK_URL) {{
+        try {{
+          fetch(GOOGLE_SHEETS_WEBHOOK_URL, {{
             method: 'POST',
             mode: 'no-cors',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
+            headers: {{ 'Content-Type': 'application/json' }},
+            body: JSON.stringify({{
               email: email,
-              origen: `Descarga Reportaje Industria Padel 2026 [${currentLang.toUpperCase()}]`,
+              origen: `Descarga Reportaje Industria Padel 2026 [${{currentLang.toUpperCase()}}]`,
               fecha: new Date().toISOString()
-            })
-          }).catch(err => console.log('Log Sheets:', err));
-        } catch (err) {
+            }})
+          }}).catch(err => console.log('Log Sheets:', err));
+        }} catch (err) {{
           console.log('Error enviando al Sheet:', err);
-        }
-      }
+        }}
+      }}
 
       const dict = I18N_DATA[currentLang] || I18N_DATA['es'];
       const btn = e.target.querySelector('button[type="submit"] span');
-      if (btn) {
+      if (btn) {{
         const originalText = btn.textContent;
         btn.textContent = dict.report_card1_btn_success || '¡Informe Descargado!';
-        setTimeout(() => {
+        setTimeout(() => {{
           btn.textContent = originalText;
           emailInput.value = '';
-        }, 3500);
-      }
-    }
+        }}, 3500);
+      }}
+    }}
 
     // Inicialización de idioma desde localStorage o URL
-    try {
+    try {{
       const urlParams = new URLSearchParams(window.location.search);
       const urlLang = urlParams.get('lang');
       const savedLang = localStorage.getItem('coolpadel_lang');
       const initialLang = urlLang || savedLang;
-      if (initialLang && I18N_DATA[initialLang] && initialLang !== 'es') {
+      if (initialLang && I18N_DATA[initialLang] && initialLang !== '{active_lang}') {{
         switchLanguage(initialLang);
-      } else {
+      }} else {{
         updateCalculator(0);
-      }
-    } catch(e) {
+      }}
+    }} catch(e) {{
       updateCalculator(0);
-    }
+    }}
   </script>
 </body>
-</html>
+</html>"""
+    return html
+
+def build_all():
+    import sys
+    if sys.platform == "win32" and hasattr(sys.stdout, "reconfigure"):
+        try:
+            sys.stdout.reconfigure(encoding="utf-8")
+        except Exception:
+            pass
+    print(">> Generando versiones con Responsive Movil y Multilingue (ES, EN, FR, IT)...")
+    
+    # 1. Página principal (Español)
+    es_html = get_base_html("es", is_subfolder=False)
+    with open("coolpadel-web/index.html", "w", encoding="utf-8") as f:
+        f.write(es_html)
+    print("  [OK] coolpadel-web/index.html (ES Principal)")
+
+    # 2. Subcarpetas para indexación SEO multilingüe
+    for lang in ["en", "fr", "it"]:
+        os.makedirs(f"coolpadel-web/{lang}", exist_ok=True)
+        lang_html = get_base_html(lang, is_subfolder=True)
+        with open(f"coolpadel-web/{lang}/index.html", "w", encoding="utf-8") as f:
+            f.write(lang_html)
+        print(f"  [OK] coolpadel-web/{lang}/index.html ({lang.upper()} SEO Landing)")
+
+    # 3. Sitemap Multilingüe
+    sitemap_xml = """<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://coolpadelstudios.com/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://coolpadelstudios.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://coolpadelstudios.com/en/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://coolpadelstudios.com/fr/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://coolpadelstudios.com/it/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://coolpadelstudios.com/"/>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://coolpadelstudios.com/assets/images/slide-1.jpg</image:loc>
+      <image:title>Llaveros personalizados para clubs de padel y tenis</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://coolpadelstudios.com/en/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://coolpadelstudios.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://coolpadelstudios.com/en/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://coolpadelstudios.com/fr/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://coolpadelstudios.com/it/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://coolpadelstudios.com/"/>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://coolpadelstudios.com/fr/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://coolpadelstudios.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://coolpadelstudios.com/en/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://coolpadelstudios.com/fr/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://coolpadelstudios.com/it/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://coolpadelstudios.com/"/>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://coolpadelstudios.com/it/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://coolpadelstudios.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://coolpadelstudios.com/en/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://coolpadelstudios.com/fr/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://coolpadelstudios.com/it/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://coolpadelstudios.com/"/>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+</urlset>
+"""
+    with open("coolpadel-web/sitemap.xml", "w", encoding="utf-8") as f:
+        f.write(sitemap_xml)
+    print("  [OK] coolpadel-web/sitemap.xml (Multilingue con Hreflang)")
+
+if __name__ == "__main__":
+    build_all()
