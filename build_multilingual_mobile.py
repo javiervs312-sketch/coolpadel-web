@@ -124,34 +124,58 @@ def get_base_html(active_lang="es", is_subfolder=False):
         "mainEntity": [
           {{
             "@type": "Question",
-            "name": "¿Cómo solicitar llaveros personalizados para un club de padel o tenis?",
+            "name": "{t['faq_q1']}",
             "acceptedAnswer": {{
               "@type": "Answer",
-              "text": "El proceso consta de 3 pasos: 1) Creación de diseño 3D con el logo de tu club, 2) Envío de muestra física por 15€ con envíos incluidos, y 3) Fabricación y entrega del pedido completo desde 100 unidades."
+              "text": "{t['faq_a1']}"
             }}
           }},
           {{
             "@type": "Question",
-            "name": "¿Cuáles son los precios y tarifas de los llaveros personalizados?",
+            "name": "{t['faq_q2']}",
             "acceptedAnswer": {{
               "@type": "Answer",
-              "text": "Las tarifas por volumen son: 100 unidades a 300€ (3,00€/ud), 250 unidades a 625€ (2,50€/ud), 500 unidades a 1.000€ (2,00€/ud) y 1.500 unidades a 2.250€ (1,50€/ud). Los envíos están siempre incluidos."
+              "text": "{t['faq_a2']}"
             }}
           }},
           {{
             "@type": "Question",
-            "name": "¿Qué ventajas ofrece Save my Play para los clubes deportivos?",
+            "name": "{t['faq_q3']}",
             "acceptedAnswer": {{
               "@type": "Answer",
-              "text": "Save my Play permite grabar automáticamente partidos y puntos destacados en pista mediante cámaras inteligentes e Inteligencia Artificial, aumentando las reservas y atrayendo jugadores sin dolores de cabeza de instalación (lista en 5 minutos)."
+              "text": "{t['faq_a3']}"
             }}
           }},
           {{
             "@type": "Question",
-            "name": "¿Cómo contactar con CoolPadel para pedir presupuesto?",
+            "name": "{t['faq_q4']}",
             "acceptedAnswer": {{
               "@type": "Answer",
-              "text": "Puedes contactar directamente con Javier por WhatsApp en el +34 680317486 o por correo electrónico en javier@coolpadelstudios.com."
+              "text": "{t['faq_a4']}"
+            }}
+          }},
+          {{
+            "@type": "Question",
+            "name": "{t['faq_q5']}",
+            "acceptedAnswer": {{
+              "@type": "Answer",
+              "text": "{t['faq_a5']}"
+            }}
+          }},
+          {{
+            "@type": "Question",
+            "name": "{t['faq_q6']}",
+            "acceptedAnswer": {{
+              "@type": "Answer",
+              "text": "{t['faq_a6']}"
+            }}
+          }},
+          {{
+            "@type": "Question",
+            "name": "{t['faq_q7']}",
+            "acceptedAnswer": {{
+              "@type": "Answer",
+              "text": "{t['faq_a7']}"
             }}
           }}
         ]
@@ -509,6 +533,59 @@ def get_base_html(active_lang="es", is_subfolder=False):
     </div>
   </section>
 
+  <!-- 4.5. GEO-BADGES DE COBERTURA Y DISTRIBUCIÓN DIRECTA (ESPAÑA & USA) -->
+  <section class="py-6 sm:py-8 bg-slate-50/90 border-b border-slate-200">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-4 sm:gap-6 bg-white border border-slate-200/90 rounded-2xl sm:rounded-3xl p-4 sm:p-6 shadow-sm">
+        
+        <!-- TEXTO INTRODUCTORIO GEO -->
+        <div class="flex items-center gap-3.5 text-center md:text-left">
+          <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-2xl bg-[#0b1626] text-[#76d3f6] flex items-center justify-center shrink-0 shadow-sm">
+            <i data-lucide="globe-2" class="w-5 h-5 sm:w-6 sm:h-6"></i>
+          </div>
+          <div>
+            <h4 data-i18n="geo_badge_title" class="font-heading font-black text-sm sm:text-base uppercase tracking-wider text-slate-950">
+              {t['geo_badge_title']}
+            </h4>
+            <p data-i18n="geo_badge_subtitle" class="text-xs sm:text-sm text-slate-500 font-medium">
+              {t['geo_badge_subtitle']}
+            </p>
+          </div>
+        </div>
+
+        <!-- BADGES ESPAÑA Y USA -->
+        <div class="flex items-center gap-3 sm:gap-4 flex-wrap justify-center">
+          
+          <!-- BADGE ESPAÑA -->
+          <div class="inline-flex items-center gap-2.5 px-4 py-2.5 rounded-2xl bg-amber-50/80 border border-amber-200/80 shadow-xs">
+            <span class="text-xl select-none leading-none">🇪🇸</span>
+            <div class="text-left">
+              <div class="flex items-center gap-1.5">
+                <span data-i18n="geo_spain" class="text-xs sm:text-sm font-black text-slate-950 uppercase">{t['geo_spain']}</span>
+                <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+              </div>
+              <span data-i18n="geo_spain_desc" class="text-[10px] sm:text-xs text-slate-500 font-medium block">{t['geo_spain_desc']}</span>
+            </div>
+          </div>
+
+          <!-- BADGE USA -->
+          <div class="inline-flex items-center gap-2.5 px-4 py-2.5 rounded-2xl bg-sky-50/80 border border-sky-200/80 shadow-xs">
+            <span class="text-xl select-none leading-none">🇺🇸</span>
+            <div class="text-left">
+              <div class="flex items-center gap-1.5">
+                <span data-i18n="geo_usa" class="text-xs sm:text-sm font-black text-slate-950 uppercase">{t['geo_usa']}</span>
+                <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+              </div>
+              <span data-i18n="geo_usa_desc" class="text-[10px] sm:text-xs text-slate-500 font-medium block">{t['geo_usa_desc']}</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
   <!-- 5. SECCIÓN DETALLADA: LLAVEROS PARA CLUBS (FONDO CELESTE #3478a6) -->
   <section id="llaveros" class="py-14 sm:py-20 bg-[#3478a6] relative border-b border-sky-700/40 text-white overflow-hidden">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -835,6 +912,105 @@ def get_base_html(active_lang="es", is_subfolder=False):
     </div>
   </section>
 
+  <!-- 7.5. SECCIÓN PREGUNTAS FRECUENTES (FAQ ACORDEÓN INTERACTIVO + GEO/SEO) -->
+  <section id="faq" class="py-16 sm:py-24 bg-slate-50 relative border-b border-slate-200">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- CABECERA FAQ -->
+      <div class="text-center space-y-2 sm:space-y-3 mb-10 sm:mb-14">
+        <h2 data-i18n="faq_section_title" class="text-2xl sm:text-4xl font-black font-heading text-slate-950 uppercase tracking-tight">
+          {t['faq_section_title']}
+        </h2>
+        <p data-i18n="faq_section_subtitle" class="text-slate-600 text-sm sm:text-base font-medium max-w-2xl mx-auto">
+          {t['faq_section_subtitle']}
+        </p>
+      </div>
+
+      <!-- ACORDEÓN DE PREGUNTAS -->
+      <div class="space-y-3 sm:space-y-4" id="faq-accordion">
+        
+        <!-- PREGUNTA 1 -->
+        <div class="faq-item bg-white border border-slate-200/90 rounded-2xl overflow-hidden shadow-xs transition-all duration-200">
+          <button type="button" onclick="toggleFaq(this)" class="w-full px-5 sm:px-6 py-4 sm:py-5 flex items-center justify-between text-left font-heading font-black text-sm sm:text-base text-slate-950 hover:text-[#f2920b] transition gap-4 cursor-pointer">
+            <span data-i18n="faq_q1">{t['faq_q1']}</span>
+            <i data-lucide="chevron-down" class="faq-icon w-4 h-4 sm:w-5 sm:h-5 stroke-[2.5] text-slate-400 shrink-0 transition-transform duration-300"></i>
+          </button>
+          <div class="faq-answer hidden px-5 sm:px-6 pb-5 pt-1 text-slate-600 text-xs sm:text-sm font-medium leading-relaxed border-t border-slate-100">
+            <p data-i18n="faq_a1">{t['faq_a1']}</p>
+          </div>
+        </div>
+
+        <!-- PREGUNTA 2 -->
+        <div class="faq-item bg-white border border-slate-200/90 rounded-2xl overflow-hidden shadow-xs transition-all duration-200">
+          <button type="button" onclick="toggleFaq(this)" class="w-full px-5 sm:px-6 py-4 sm:py-5 flex items-center justify-between text-left font-heading font-black text-sm sm:text-base text-slate-950 hover:text-[#f2920b] transition gap-4 cursor-pointer">
+            <span data-i18n="faq_q2">{t['faq_q2']}</span>
+            <i data-lucide="chevron-down" class="faq-icon w-4 h-4 sm:w-5 sm:h-5 stroke-[2.5] text-slate-400 shrink-0 transition-transform duration-300"></i>
+          </button>
+          <div class="faq-answer hidden px-5 sm:px-6 pb-5 pt-1 text-slate-600 text-xs sm:text-sm font-medium leading-relaxed border-t border-slate-100">
+            <p data-i18n="faq_a2">{t['faq_a2']}</p>
+          </div>
+        </div>
+
+        <!-- PREGUNTA 3 -->
+        <div class="faq-item bg-white border border-slate-200/90 rounded-2xl overflow-hidden shadow-xs transition-all duration-200">
+          <button type="button" onclick="toggleFaq(this)" class="w-full px-5 sm:px-6 py-4 sm:py-5 flex items-center justify-between text-left font-heading font-black text-sm sm:text-base text-slate-950 hover:text-[#f2920b] transition gap-4 cursor-pointer">
+            <span data-i18n="faq_q3">{t['faq_q3']}</span>
+            <i data-lucide="chevron-down" class="faq-icon w-4 h-4 sm:w-5 sm:h-5 stroke-[2.5] text-slate-400 shrink-0 transition-transform duration-300"></i>
+          </button>
+          <div class="faq-answer hidden px-5 sm:px-6 pb-5 pt-1 text-slate-600 text-xs sm:text-sm font-medium leading-relaxed border-t border-slate-100">
+            <p data-i18n="faq_a3">{t['faq_a3']}</p>
+          </div>
+        </div>
+
+        <!-- PREGUNTA 4 -->
+        <div class="faq-item bg-white border border-slate-200/90 rounded-2xl overflow-hidden shadow-xs transition-all duration-200">
+          <button type="button" onclick="toggleFaq(this)" class="w-full px-5 sm:px-6 py-4 sm:py-5 flex items-center justify-between text-left font-heading font-black text-sm sm:text-base text-slate-950 hover:text-[#f2920b] transition gap-4 cursor-pointer">
+            <span data-i18n="faq_q4">{t['faq_q4']}</span>
+            <i data-lucide="chevron-down" class="faq-icon w-4 h-4 sm:w-5 sm:h-5 stroke-[2.5] text-slate-400 shrink-0 transition-transform duration-300"></i>
+          </button>
+          <div class="faq-answer hidden px-5 sm:px-6 pb-5 pt-1 text-slate-600 text-xs sm:text-sm font-medium leading-relaxed border-t border-slate-100">
+            <p data-i18n="faq_a4">{t['faq_a4']}</p>
+          </div>
+        </div>
+
+        <!-- PREGUNTA 5 -->
+        <div class="faq-item bg-white border border-slate-200/90 rounded-2xl overflow-hidden shadow-xs transition-all duration-200">
+          <button type="button" onclick="toggleFaq(this)" class="w-full px-5 sm:px-6 py-4 sm:py-5 flex items-center justify-between text-left font-heading font-black text-sm sm:text-base text-slate-950 hover:text-[#f2920b] transition gap-4 cursor-pointer">
+            <span data-i18n="faq_q5">{t['faq_q5']}</span>
+            <i data-lucide="chevron-down" class="faq-icon w-4 h-4 sm:w-5 sm:h-5 stroke-[2.5] text-slate-400 shrink-0 transition-transform duration-300"></i>
+          </button>
+          <div class="faq-answer hidden px-5 sm:px-6 pb-5 pt-1 text-slate-600 text-xs sm:text-sm font-medium leading-relaxed border-t border-slate-100">
+            <p data-i18n="faq_a5">{t['faq_a5']}</p>
+          </div>
+        </div>
+
+        <!-- PREGUNTA 6 -->
+        <div class="faq-item bg-white border border-slate-200/90 rounded-2xl overflow-hidden shadow-xs transition-all duration-200">
+          <button type="button" onclick="toggleFaq(this)" class="w-full px-5 sm:px-6 py-4 sm:py-5 flex items-center justify-between text-left font-heading font-black text-sm sm:text-base text-slate-950 hover:text-[#f2920b] transition gap-4 cursor-pointer">
+            <span data-i18n="faq_q6">{t['faq_q6']}</span>
+            <i data-lucide="chevron-down" class="faq-icon w-4 h-4 sm:w-5 sm:h-5 stroke-[2.5] text-slate-400 shrink-0 transition-transform duration-300"></i>
+          </button>
+          <div class="faq-answer hidden px-5 sm:px-6 pb-5 pt-1 text-slate-600 text-xs sm:text-sm font-medium leading-relaxed border-t border-slate-100">
+            <p data-i18n="faq_a6">{t['faq_a6']}</p>
+          </div>
+        </div>
+
+        <!-- PREGUNTA 7 -->
+        <div class="faq-item bg-white border border-slate-200/90 rounded-2xl overflow-hidden shadow-xs transition-all duration-200">
+          <button type="button" onclick="toggleFaq(this)" class="w-full px-5 sm:px-6 py-4 sm:py-5 flex items-center justify-between text-left font-heading font-black text-sm sm:text-base text-slate-950 hover:text-[#f2920b] transition gap-4 cursor-pointer">
+            <span data-i18n="faq_q7">{t['faq_q7']}</span>
+            <i data-lucide="chevron-down" class="faq-icon w-4 h-4 sm:w-5 sm:h-5 stroke-[2.5] text-slate-400 shrink-0 transition-transform duration-300"></i>
+          </button>
+          <div class="faq-answer hidden px-5 sm:px-6 pb-5 pt-1 text-slate-600 text-xs sm:text-sm font-medium leading-relaxed border-t border-slate-100">
+            <p data-i18n="faq_a7">{t['faq_a7']}</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
   <!-- 8. SECCIÓN CONTACTO (FONDO CELESTE #3478a6 & SIMETRÍA RESPONSIVE) -->
   <section id="contacto" class="py-14 sm:py-20 bg-[#3478a6] relative border-t border-sky-700/40 text-white overflow-hidden">
     <div class="max-w-[1550px] mx-auto px-4 sm:px-8 lg:px-12 relative z-10">
@@ -896,6 +1072,50 @@ def get_base_html(active_lang="es", is_subfolder=False):
       {t['wa_floating_tooltip']}
     </span>
   </a>
+
+  <!-- 9. MODAL POP-UP LEAD MAGNET (INFORME EXCLUSIVO INDUSTRIA PADEL) -->
+  <div id="lead-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/75 backdrop-blur-md opacity-0 pointer-events-none transition-opacity duration-300">
+    <div id="lead-modal-content" class="relative w-full max-w-lg bg-[#0e1d33] border border-sky-500/30 rounded-3xl p-6 sm:p-8 text-white shadow-[0_25px_60px_-15px_rgba(0,0,0,0.8)] transform scale-95 transition-transform duration-300">
+      
+      <!-- BOTÓN CERRAR (X) -->
+      <button type="button" onclick="closeLeadModal()" class="absolute top-4 right-4 w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 text-slate-300 hover:text-white flex items-center justify-center transition cursor-pointer" aria-label="Cerrar modal">
+        <i data-lucide="x" class="w-4 h-4"></i>
+      </button>
+
+      <!-- CABECERA POPUP -->
+      <div class="space-y-3 text-center sm:text-left">
+        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#f2920b]/20 border border-[#f2920b]/40 text-[#f2920b] text-[10px] sm:text-xs font-heading font-black tracking-wider uppercase">
+          <span class="w-1.5 h-1.5 rounded-full bg-[#f2920b] animate-ping"></span>
+          <span data-i18n="popup_tag">{t['popup_tag']}</span>
+        </div>
+        
+        <h3 data-i18n="popup_title" class="font-heading font-black text-xl sm:text-2xl uppercase tracking-tight text-white leading-tight">
+          {t['popup_title']}
+        </h3>
+        
+        <p data-i18n="popup_desc" class="text-xs sm:text-sm text-slate-300 font-medium leading-relaxed">
+          {t['popup_desc']}
+        </p>
+      </div>
+
+      <!-- FORMULARIO RECOLECCIÓN EMAIL POPUP -->
+      <form onsubmit="handlePopupDownload(event)" class="mt-6 space-y-3">
+        <div class="relative">
+          <input type="email" id="popup-email-input" required placeholder="{t['popup_placeholder']}" data-i18n-placeholder="popup_placeholder" class="w-full px-5 py-3.5 rounded-full bg-slate-900/90 border border-slate-700 text-white text-base font-medium placeholder:text-slate-500 focus:outline-none focus:border-[#f2920b] shadow-inner transition">
+        </div>
+        <button type="submit" class="group relative w-full inline-flex items-center justify-center gap-2.5 px-6 py-4 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] active:bg-[#76d3f6] text-slate-950 active:scale-95 font-heading font-black text-sm uppercase tracking-wider transition-all duration-300 shadow-[0_6px_20px_rgba(242,146,11,0.3)] hover:shadow-[0_10px_25px_rgba(118,211,246,0.4)] hover:scale-[1.01] cursor-pointer">
+          <span data-i18n="popup_btn">{t['popup_btn']}</span>
+          <div class="w-6 h-6 rounded-full bg-slate-950/10 group-hover:bg-slate-950 group-hover:text-white flex items-center justify-center transition-all duration-300">
+            <i data-lucide="download" class="w-3.5 h-3.5 stroke-[3] group-hover:translate-y-0.5 transition-transform duration-300"></i>
+          </div>
+        </button>
+        <p data-i18n="popup_disclaimer" class="text-[10px] text-slate-400 text-center font-medium">
+          {t['popup_disclaimer']}
+        </p>
+      </form>
+
+    </div>
+  </div>
 
   <!-- SCRIPTS & SISTEMA DE INTERNACIONALIZACIÓN (I18N) -->
   <script>
@@ -1090,40 +1310,30 @@ def get_base_html(active_lang="es", is_subfolder=False):
       const tier = tiers[idx];
       const dict = I18N_DATA[currentLang] || I18N_DATA['es'];
       
-      const qtyFormatted = idx === 3 ? '1.500' : tier.qty;
-      qtyBadge.textContent = `${{qtyFormatted}} ${{dict.calc_unit_name}}`;
-      priceBadge.textContent = `${{tier.price}} €`;
-      unitBadge.textContent = `(${{tier.unit}} €/${{dict.calc_unit_price}})`;
+      qtyBadge.textContent = `${{tier.qty}} ${{dict.calc_unit_name}}`;
+      priceBadge.textContent = `${{tier.price}}€`;
+      unitBadge.textContent = `(${{tier.unit}}€/${{dict.calc_unit_price}})`;
       
       sliderThumb.style.left = `${{tier.pct}}%`;
       sliderProgress.style.width = `${{tier.pct}}%`;
-
-      document.querySelectorAll('.tier-btn').forEach((btn, i) => {{
-        if (i === idx) {{
-          btn.classList.add('text-[#f2920b]', 'font-black');
-          btn.classList.remove('text-slate-600');
-        }} else {{
-          btn.classList.remove('text-[#f2920b]', 'font-black');
-          btn.classList.add('text-slate-600');
-        }}
-      }});
-
-      const msg = dict.wa_prefilled_msg;
-      waBtn.href = `https://wa.me/34680317486?text=${{encodeURIComponent(msg)}}`;
+      
+      const customMsg = encodeURIComponent(`${{dict.wa_prefilled_msg}}, me interesa solicitar presupuesto de ${{tier.qty}} llaveros para mi club.`);
+      waBtn.href = `https://wa.me/34680317486?text=${{customMsg}}`;
     }}
 
-    function setTier(idx) {{
+    window.setTier = function(idx) {{
       updateCalculator(idx);
-    }}
+    }};
 
-    // Soporte para arrastrar o hacer clic en la barra
+    // Control táctil y ratón del Slider
     let isDragging = false;
-    
     function handlePointerPosition(e) {{
       const rect = sliderTrack.getBoundingClientRect();
-      const clientX = e.clientX || (e.touches && e.touches[0].clientX);
-      if (!clientX) return;
-      const ratio = Math.max(0, Math.min(1, (clientX - rect.left) / rect.width));
+      let clientX = e.clientX;
+      if (e.touches && e.touches.length > 0) clientX = e.touches[0].clientX;
+      const x = Math.max(0, Math.min(clientX - rect.left, rect.width));
+      const ratio = x / rect.width;
+      
       let closestIdx = 0;
       let minDiff = 999;
       tiers.forEach((t, i) => {{
@@ -1152,6 +1362,21 @@ def get_base_html(active_lang="es", is_subfolder=False):
       window.removeEventListener('pointermove', onPointerMove);
       window.removeEventListener('pointerup', onPointerUp);
     }}
+
+    // TOGGLE ACORDEÓN FAQ
+    window.toggleFaq = function(btn) {{
+      const answer = btn.nextElementSibling;
+      const icon = btn.querySelector('.faq-icon');
+      const isHidden = answer.classList.contains('hidden');
+      
+      document.querySelectorAll('.faq-answer').forEach(el => el.classList.add('hidden'));
+      document.querySelectorAll('.faq-icon').forEach(el => el.classList.remove('rotate-180'));
+
+      if (isHidden) {{
+        answer.classList.remove('hidden');
+        if (icon) icon.classList.add('rotate-180');
+      }}
+    }};
 
     // URL del Webhook de Google Apps Script
     const GOOGLE_SHEETS_WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbwm-6rDF4hpJMJeCJ26Vqfy-mg9Zvn7i4UJ-hWWx7xsvzreBU2WCGnCDoyKmR2Qt6CFSA/exec';
@@ -1207,12 +1432,107 @@ def get_base_html(active_lang="es", is_subfolder=False):
       }}
     }}
 
-    // Inicialización de idioma desde localStorage o URL
+    // POP-UP LEAD MAGNET LOGIC
+    let modalTriggered = false;
+    window.openLeadModal = function() {{
+      if (modalTriggered || sessionStorage.getItem('coolpadel_lead_dismissed')) return;
+      modalTriggered = true;
+      const modal = document.getElementById('lead-modal');
+      const content = document.getElementById('lead-modal-content');
+      if (modal && content) {{
+        modal.classList.remove('opacity-0', 'pointer-events-none');
+        modal.classList.add('opacity-100', 'pointer-events-auto');
+        content.classList.remove('scale-95');
+        content.classList.add('scale-100');
+      }}
+    }};
+
+    window.closeLeadModal = function() {{
+      sessionStorage.setItem('coolpadel_lead_dismissed', 'true');
+      const modal = document.getElementById('lead-modal');
+      const content = document.getElementById('lead-modal-content');
+      if (modal && content) {{
+        modal.classList.add('opacity-0', 'pointer-events-none');
+        modal.classList.remove('opacity-100', 'pointer-events-auto');
+        content.classList.add('scale-95');
+        content.classList.remove('scale-100');
+      }}
+    }};
+
+    // Triggers para el Pop-up: 14s timer, scroll > 55%, mouseleave exit-intent
+    setTimeout(() => {{ openLeadModal(); }}, 14000);
+
+    window.addEventListener('scroll', () => {{
+      const scrollPct = (window.scrollY + window.innerHeight) / document.documentElement.scrollHeight;
+      if (scrollPct > 0.55) openLeadModal();
+    }}, {{ passive: true }});
+
+    document.addEventListener('mouseleave', (e) => {{
+      if (e.clientY <= 0) openLeadModal();
+    }});
+
+    async function handlePopupDownload(e) {{
+      e.preventDefault();
+      const emailInput = document.getElementById('popup-email-input');
+      const email = emailInput ? emailInput.value.trim() : '';
+      if (!email) return;
+
+      const reportFiles = {{
+        'es': {{ url: '{asset_prefix}assets/reports/padel-industry-report-es.pdf', name: 'CoolPadel-Reportaje-Industria-Padel-2026-ES.pdf' }},
+        'en': {{ url: '{asset_prefix}assets/reports/padel-industry-report-en.pdf', name: 'CoolPadel-Padel-Industry-Report-2026-ENG.pdf' }},
+        'it': {{ url: '{asset_prefix}assets/reports/padel-industry-report-it.pdf', name: 'CoolPadel-Report-Industria-Padel-2026-IT.pdf' }},
+        'fr': {{ url: '{asset_prefix}assets/reports/padel-industry-report-en.pdf', name: 'CoolPadel-Padel-Industry-Report-2026.pdf' }}
+      }};
+      const activeReport = reportFiles[currentLang] || reportFiles['es'];
+
+      const link = document.createElement('a');
+      link.href = activeReport.url;
+      link.download = activeReport.name;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+
+      if (GOOGLE_SHEETS_WEBHOOK_URL) {{
+        try {{
+          fetch(GOOGLE_SHEETS_WEBHOOK_URL, {{
+            method: 'POST',
+            mode: 'no-cors',
+            headers: {{ 'Content-Type': 'application/json' }},
+            body: JSON.stringify({{
+              email: email,
+              origen: `Lead Magnet Pop-up Modal [${{currentLang.toUpperCase()}}]`,
+              fecha: new Date().toISOString()
+            }})
+          }}).catch(err => console.log('Log Sheets Modal:', err));
+        }} catch (err) {{}}
+      }}
+
+      const dict = I18N_DATA[currentLang] || I18N_DATA['es'];
+      const btn = e.target.querySelector('button[type="submit"] span');
+      if (btn) {{
+        btn.textContent = dict.popup_btn_success || '¡Descargando Informe!';
+        setTimeout(() => {{
+          closeLeadModal();
+        }}, 2200);
+      }}
+    }}
+
+    // INICIALIZACIÓN DE IDIOMA CON AUTO-DETECCIÓN INTELIGENTE POR NAVEGADOR
     try {{
       const urlParams = new URLSearchParams(window.location.search);
       const urlLang = urlParams.get('lang');
       const savedLang = localStorage.getItem('coolpadel_lang');
-      const initialLang = urlLang || savedLang;
+      
+      let detectedLang = null;
+      if (!savedLang && !urlLang) {{
+        const navLang = (navigator.language || navigator.userLanguage || '').toLowerCase();
+        if (navLang.startsWith('fr')) detectedLang = 'fr';
+        else if (navLang.startsWith('it')) detectedLang = 'it';
+        else if (navLang.startsWith('es')) detectedLang = 'es';
+        else detectedLang = 'en'; // default internacional para el resto del mundo
+      }}
+
+      const initialLang = urlLang || savedLang || detectedLang;
       if (initialLang && I18N_DATA[initialLang] && initialLang !== '{active_lang}') {{
         switchLanguage(initialLang);
       }} else {{

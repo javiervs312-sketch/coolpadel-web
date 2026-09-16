@@ -17,6 +17,16 @@ TRANSLATIONS = {
         "slide3_title": "El Negocio del Padel: <br><span class=\"text-[#76d3f6]\">Informe 2026</span>",
         "slide3_btn": "Descargar PDF",
         "trusted_text": "Trabajamos con <span class=\"text-[#76d3f6]\">clubs</span>, <span class=\"text-[#f2920b]\">marcas</span> y <span class=\"text-[#76d3f6]\">federaciones</span> de todo el mundo",
+        
+        # Geo-Badges
+        "geo_badge_title": "Mercados Oficiales & Envíos Directos",
+        "geo_badge_subtitle": "Operamos y distribuimos activamente para clubes y torneos en:",
+        "geo_spain": "España",
+        "geo_spain_desc": "Distribución nacional y soporte directo",
+        "geo_usa": "Estados Unidos (USA)",
+        "geo_usa_desc": "Cobertura oficial y envíos prioritarios",
+
+        # Llaveros
         "llaveros_title": "Llaveros personalizados con vuestro logo",
         "llaveros_subtitle": "Tus jugadores, dentro y fuera de la pista",
         "card_tenis": "TENIS",
@@ -35,6 +45,8 @@ TRANSLATIONS = {
         "badge_pago": "Pago",
         "badge_pago_val": "Adelantado",
         "btn_calc_wa": "Contactar",
+
+        # Save my Play
         "smp_title": "Graba todo lo que pasa en pista",
         "smp_subtitle": "Los buenos puntos y los malos",
         "feat1_title": "Cámaras con IA",
@@ -44,6 +56,8 @@ TRANSLATIONS = {
         "feat3_title": "Ingresos por reservas",
         "feat3_desc": "Aumenta ocupación en horas valle.",
         "smp_btn": "Contactar",
+
+        # Informes
         "report_section_title": "CONTENIDO EXCLUSIVO COOLPADEL",
         "report_section_subtitle": "Suscríbete para no perderte las últimas tendencias de la industria del padel",
         "report_card1_tag": "PDF Oficial",
@@ -56,6 +70,35 @@ TRANSLATIONS = {
         "report_card2_title": "Newsletter CoolPadel",
         "report_card2_desc": "Artículos, análisis y novedades periódicas de la industria del padel directamente en tu feed de LinkedIn.",
         "report_card2_btn": "Leer en LinkedIn",
+
+        # FAQs
+        "faq_section_title": "PREGUNTAS FRECUENTES",
+        "faq_section_subtitle": "Resolvemos todas tus dudas sobre llaveros, tecnología en pista Save my Play y distribución.",
+        "faq_q1": "¿Cuál es el pedido mínimo y los plazos de entrega de los llaveros?",
+        "faq_a1": "El pedido mínimo es de solo 100 unidades con vuestro logo personalizado. Los plazos habituales de entrega son de 7 a 10 días laborables tras la confirmación de la muestra 3D.",
+        "faq_q2": "¿Cómo enviamos nuestro logotipo y cómo vemos el resultado antes de fabricar?",
+        "faq_a2": "Solo tienes que enviarnos el logo de tu club en cualquier formato (vectorial, PNG o JPG). Preparamos un render 3D digital y una muestra real para que revises acabados y colores antes de producir.",
+        "faq_q3": "¿Qué materiales y acabados tienen los llaveros de CoolPadel?",
+        "faq_a3": "Utilizamos polímeros de alta durabilidad y resistencia al desgaste diario, con relieve 3D de alta definición y anillas metálicas reforzadas.",
+        "faq_q4": "¿Cómo funciona la instalación y grabación de Save my Play en nuestro club?",
+        "faq_a4": "La instalación es muy ágil (en 5 minutos por pista), sin obras invasivas ni molestias para los socios. Las cámaras inteligentes capturan repeticiones automáticas y partidos completos accesibles desde la app.",
+        "faq_q5": "¿Cómo genera ingresos el club con las cámaras Save my Play?",
+        "faq_a5": "El club obtiene ingresos compartidos por cada partido grabado o descarga de highlights, además de incrementar la tasa de ocupación de pistas en franjas valle.",
+        "faq_q6": "¿A qué países realizáis envíos y tenéis distribución?",
+        "faq_a6": "Actualmente operamos y realizamos envíos directos a clubes y eventos en España y Estados Unidos.",
+        "faq_q7": "¿Tiene algún coste el informe de la industria del padel 2026?",
+        "faq_a7": "No, el informe es 100% gratuito en PDF. Lo hemos elaborado tras entrevistar a más de 116 stands del sector para aportar valor a directores, marcas y entrenadores.",
+
+        # Pop-up Modal Lead Magnet
+        "popup_tag": "DESCARGA GRATUITA",
+        "popup_title": "Descarga el informe exclusivo sobre la industria del padel",
+        "popup_desc": "Tendencias 2026, datos clave de más de 116 stands, pistas inteligentes y claves de rentabilidad para clubes.",
+        "popup_placeholder": "Introduce tu email aquí...",
+        "popup_btn": "Obtener Informe Gratis (PDF)",
+        "popup_btn_success": "¡Descargando Informe!",
+        "popup_disclaimer": "100% gratuito. Sin spam. Descarga directa e instantánea.",
+
+        # Contacto & WhatsApp
         "contact_title": "Contacto",
         "contact_wa_btn": "WhatsApp Directo",
         "wa_floating_tooltip": "¿Hablamos?",
@@ -75,6 +118,16 @@ TRANSLATIONS = {
         "slide3_title": "The Padel Business: <br><span class=\"text-[#76d3f6]\">2026 Report</span>",
         "slide3_btn": "Download PDF",
         "trusted_text": "We work with <span class=\"text-[#76d3f6]\">clubs</span>, <span class=\"text-[#f2920b]\">brands</span> and <span class=\"text-[#76d3f6]\">federations</span> worldwide",
+        
+        # Geo-Badges
+        "geo_badge_title": "Official Markets & Direct Shipping",
+        "geo_badge_subtitle": "Active operations and distribution for clubs and tournaments in:",
+        "geo_spain": "Spain",
+        "geo_spain_desc": "Nationwide delivery and direct support",
+        "geo_usa": "United States (USA)",
+        "geo_usa_desc": "Official coverage and priority logistics",
+
+        # Llaveros
         "llaveros_title": "Custom keychains with your club logo",
         "llaveros_subtitle": "Your players, on and off the court",
         "card_tenis": "TENNIS",
@@ -93,6 +146,8 @@ TRANSLATIONS = {
         "badge_pago": "Payment",
         "badge_pago_val": "Upfront",
         "btn_calc_wa": "Get in touch",
+
+        # Save my Play
         "smp_title": "Record everything on court",
         "smp_subtitle": "The great shots and the funny misses",
         "feat1_title": "AI Cameras",
@@ -102,6 +157,8 @@ TRANSLATIONS = {
         "feat3_title": "Booking revenue",
         "feat3_desc": "Boost off-peak court occupancy.",
         "smp_btn": "Get in touch",
+
+        # Informes
         "report_section_title": "COOLPADEL EXCLUSIVE CONTENT",
         "report_section_subtitle": "Subscribe to stay ahead of the latest padel industry trends",
         "report_card1_tag": "Official PDF",
@@ -114,6 +171,35 @@ TRANSLATIONS = {
         "report_card2_title": "CoolPadel Newsletter",
         "report_card2_desc": "Articles, analysis and regular padel industry insights directly in your LinkedIn feed.",
         "report_card2_btn": "Read on LinkedIn",
+
+        # FAQs
+        "faq_section_title": "FREQUENTLY ASKED QUESTIONS",
+        "faq_section_subtitle": "Everything you need to know about custom keychains, Save my Play court tech and delivery.",
+        "faq_q1": "What is the minimum order and delivery time for keychains?",
+        "faq_a1": "The minimum order is only 100 units with your custom club logo. Standard delivery takes 7 to 10 business days following 3D digital sample approval.",
+        "faq_q2": "How do we send our logo and preview the design before production?",
+        "faq_a2": "Simply send your club or tournament logo in any format (vector, PNG, JPG). We create a photorealistic 3D render and physical sample for your peace of mind before mass production.",
+        "faq_q3": "What materials are used for CoolPadel keychains?",
+        "faq_a3": "We use high-durability polymers resistant to daily wear and tear, featuring high-definition 3D relief and reinforced metallic rings.",
+        "faq_q4": "How does Save my Play camera installation and recording work?",
+        "faq_a4": "Installation is seamless (under 5 minutes per court) with zero structural works. AI smart cameras automatically record highlights and full matches accessible on demand via the app.",
+        "faq_q5": "How does the club generate revenue with Save my Play?",
+        "faq_a5": "Clubs earn revenue share on recorded games and highlight downloads, while significantly increasing off-peak court occupancy through high-tech player engagement.",
+        "faq_q6": "Which countries do you currently ship to and support?",
+        "faq_a6": "We currently sell and ship directly to clubs and sports facilities across Spain and the United States (USA).",
+        "faq_q7": "Is the 2026 Padel Industry Report free?",
+        "faq_a7": "Yes, the report is 100% free in PDF. We created it after surveying over 116 industry stands to provide actionable insights for club managers and brands.",
+
+        # Pop-up Modal Lead Magnet
+        "popup_tag": "FREE DOWNLOAD",
+        "popup_title": "Download the exclusive padel industry report",
+        "popup_desc": "2026 trends, data from 116+ industry stands, smart courts and club profitability strategies.",
+        "popup_placeholder": "Enter your email here...",
+        "popup_btn": "Get Free Report (PDF)",
+        "popup_btn_success": "Downloading Report!",
+        "popup_disclaimer": "100% free. No spam. Instant direct download.",
+
+        # Contacto & WhatsApp
         "contact_title": "Contact",
         "contact_wa_btn": "Direct WhatsApp",
         "wa_floating_tooltip": "Let's talk",
@@ -133,6 +219,16 @@ TRANSLATIONS = {
         "slide3_title": "Le Business du Padel : <br><span class=\"text-[#76d3f6]\">Rapport 2026</span>",
         "slide3_btn": "Télécharger PDF",
         "trusted_text": "Nous travaillons avec des <span class=\"text-[#76d3f6]\">clubs</span>, <span class=\"text-[#f2920b]\">marques</span> et <span class=\"text-[#76d3f6]\">fédérations</span> du monde entier",
+        
+        # Geo-Badges
+        "geo_badge_title": "Marchés Officiels & Livraison Directe",
+        "geo_badge_subtitle": "Distribution active et support dédié pour clubs et tournois en :",
+        "geo_spain": "Espagne",
+        "geo_spain_desc": "Livraison nationale et assistance directe",
+        "geo_usa": "États-Unis (USA)",
+        "geo_usa_desc": "Couverture officielle et logistique prioritaire",
+
+        # Llaveros
         "llaveros_title": "Porte-clés personnalisés avec le logo de votre club",
         "llaveros_subtitle": "Vos joueurs, sur et en dehors des pistes",
         "card_tenis": "TENNIS",
@@ -151,6 +247,8 @@ TRANSLATIONS = {
         "badge_pago": "Paiement",
         "badge_pago_val": "À l'avance",
         "btn_calc_wa": "Contacter",
+
+        # Save my Play
         "smp_title": "Enregistrez tout ce qui se passe sur vos pistes",
         "smp_subtitle": "Les beaux points comme les balles perdues",
         "feat1_title": "Caméras avec IA",
@@ -160,6 +258,8 @@ TRANSLATIONS = {
         "feat3_title": "Revenus de réservation",
         "feat3_desc": "Boostez l'occupation des pistes en heures creuses.",
         "smp_btn": "Contacter",
+
+        # Informes
         "report_section_title": "CONTENU EXCLUSIF COOLPADEL",
         "report_section_subtitle": "Abonnez-vous pour suivre les dernières tendances de l'industrie du padel",
         "report_card1_tag": "PDF Officiel",
@@ -172,6 +272,35 @@ TRANSLATIONS = {
         "report_card2_title": "Newsletter CoolPadel",
         "report_card2_desc": "Analyses, chiffres clés et actualités régulières de l'industrie du padel directement sur LinkedIn.",
         "report_card2_btn": "Lire sur LinkedIn",
+
+        # FAQs
+        "faq_section_title": "FOIRE AUX QUESTIONS (FAQ)",
+        "faq_section_subtitle": "Toutes les réponses sur nos porte-clés, la technologie Save my Play et nos livraisons.",
+        "faq_q1": "Quelle est la commande minimale et les délais de livraison pour les porte-clés ?",
+        "faq_a1": "La commande minimale est de seulement 100 unités avec votre logo personnalisé. Les délais habituels sont de 7 à 10 jours ouvrés après validation du visuel 3D.",
+        "faq_q2": "Comment envoyer notre logo et valider le design avant fabrication ?",
+        "faq_a2": "Envoyez simplement le logo de votre club en format vectoriel ou image. Nous créons un aperçu 3D fidèle et un échantillon pour validation avant production complète.",
+        "faq_q3": "Quels sont les matériaux utilisés pour les porte-clés CoolPadel ?",
+        "faq_a3": "Nous utilisons des polymères haute résistance conçus pour une durabilité maximale, avec un relief 3D précis et un anneau métallique renforcé.",
+        "faq_q4": "Comment fonctionne l'installation et l'enregistrement Save my Play dans notre club ?",
+        "faq_a4": "L'installation est rapide (5 minutes par piste) et sans travaux contraignants. Les caméras IA enregistrent automatiquement les temps forts et matchs complets accessibles sur mobile.",
+        "faq_q5": "Comment le club génère-t-il des revenus avec les caméras Save my Play ?",
+        "faq_a5": "Le club perçoit des revenus partagés sur chaque match enregistré et booste le taux d'occupation de ses pistes en heures creuses grâce à une expérience joueur augmentée.",
+        "faq_q6": "Vers quels pays assurez-vous les livraisons et la distribution ?",
+        "faq_a6": "Nous distribuons et livrons directement aux clubs et structures en Espagne et aux États-Unis (USA).",
+        "faq_q7": "Le rapport sur l'industrie du padel 2026 est-il payant ?",
+        "faq_a7": "Non, le rapport est 100% gratuit en PDF. Il a été conçu après avoir analysé plus de 116 stands du secteur pour éclairer les dirigeants et professionnels.",
+
+        # Pop-up Modal Lead Magnet
+        "popup_tag": "TÉLÉCHARGEMENT GRATUIT",
+        "popup_title": "Téléchargez le rapport exclusif sur l'industrie du padel",
+        "popup_desc": "Tendances 2026, données de plus de 116 stands, pistes connectées et rentabilité pour les clubs.",
+        "popup_placeholder": "Entrez votre email ici...",
+        "popup_btn": "Obtenir le Rapport Gratuit (PDF)",
+        "popup_btn_success": "Téléchargement en cours !",
+        "popup_disclaimer": "100% gratuit. Zéro spam. Téléchargement direct et instantané.",
+
+        # Contacto & WhatsApp
         "contact_title": "Contact",
         "contact_wa_btn": "WhatsApp Direct",
         "wa_floating_tooltip": "Discutons",
@@ -191,6 +320,16 @@ TRANSLATIONS = {
         "slide3_title": "Il Business del Padel: <br><span class=\"text-[#76d3f6]\">Report 2026</span>",
         "slide3_btn": "Scarica PDF",
         "trusted_text": "Lavoriamo con <span class=\"text-[#76d3f6]\">club</span>, <span class=\"text-[#f2920b]\">brand</span> e <span class=\"text-[#76d3f6]\">federazioni</span> di tutto il mondo",
+        
+        # Geo-Badges
+        "geo_badge_title": "Mercati Ufficiali & Spedizione Diretta",
+        "geo_badge_subtitle": "Operazioni attive e distribuzione per club e tornei in:",
+        "geo_spain": "Spagna",
+        "geo_spain_desc": "Distribuzione nazionale e assistenza diretta",
+        "geo_usa": "Stati Uniti (USA)",
+        "geo_usa_desc": "Copertura ufficiale e logistica prioritaria",
+
+        # Llaveros
         "llaveros_title": "Portachiavi personalizzati con il logo del tuo club",
         "llaveros_subtitle": "I tuoi giocatori, dentro e fuori dal campo",
         "card_tenis": "TENNIS",
@@ -209,6 +348,8 @@ TRANSLATIONS = {
         "badge_pago": "Pagamento",
         "badge_pago_val": "Anticipato",
         "btn_calc_wa": "Contatta",
+
+        # Save my Play
         "smp_title": "Registra tutto ciò che accade in campo",
         "smp_subtitle": "I grandi punti e gli errori",
         "feat1_title": "Telecamere con IA",
@@ -218,6 +359,8 @@ TRANSLATIONS = {
         "feat3_title": "Entrate da prenotazioni",
         "feat3_desc": "Aumenta l'occupazione nelle ore non di punta.",
         "smp_btn": "Contatta",
+
+        # Informes
         "report_section_title": "CONTENUTO ESCLUSIVO COOLPADEL",
         "report_section_subtitle": "Iscriviti per non perdere le ultime tendenze dell'industria del padel",
         "report_card1_tag": "PDF Ufficiale",
@@ -230,6 +373,35 @@ TRANSLATIONS = {
         "report_card2_title": "Newsletter CoolPadel",
         "report_card2_desc": "Articoli, analisi e novità periodiche del settore del padel direttamente sul tuo feed LinkedIn.",
         "report_card2_btn": "Leggi su LinkedIn",
+
+        # FAQs
+        "faq_section_title": "DOMANDE FREQUENTI (FAQ)",
+        "faq_section_subtitle": "Tutte le risposte sui nostri portachiavi personalizzati, la tecnologia Save my Play e le spedizioni.",
+        "faq_q1": "Qual è l'ordine minimo e i tempi di consegna dei portachiavi?",
+        "faq_a1": "L'ordine minimo è di sole 100 unità con il logo del tuo club. I tempi di consegna standard sono di 7-10 giorni lavorativi dopo l'approvazione del render 3D.",
+        "faq_q2": "Come inviamo il nostro logo e verifichiamo il design prima della produzione?",
+        "faq_a2": "Basta inviare il logo del club o torneo in qualsiasi formato. Prepariamo un render 3D digitale e un campione reale per la tua totale sicurezza prima della produzione in serie.",
+        "faq_q3": "Quali materiali vengono utilizzati per i portachiavi CoolPadel?",
+        "faq_a3": "Utilizziamo polimeri ad alta resistenza all'usura quotidiana, con rilievo 3D ad alta definizione e anelli metallici rinforzati.",
+        "faq_q4": "Come funziona l'installazione e la registrazione di Save my Play nel nostro club?",
+        "faq_a4": "L'installazione è rapidissima (in 5 minuti per campo) e senza interventi invasivi. Le telecamere con IA catturano automaticamente highlights e partite complete visibili da smartphone.",
+        "faq_q5": "Come guadagna il club con il sistema Save my Play?",
+        "faq_a5": "Il club genera entrate condivise su ogni partita registrata e aumenta l'occupazione dei campi nelle ore non di punta offrendo un servizio tecnologico esclusivo.",
+        "faq_q6": "In quali paesi spedite e operate attualmente?",
+        "faq_a6": "Attualmente vendiamo e spediamo direttamente a club e tornei in Spagna e negli Stati Uniti (USA).",
+        "faq_q7": "Il report sull'industria del padel 2026 è gratuito?",
+        "faq_a7": "Sì, il report è completamente gratuito in formato PDF. È stato redatto dopo aver intervistato oltre 116 stand per offrire dati preziosi a gestori e marchi.",
+
+        # Pop-up Modal Lead Magnet
+        "popup_tag": "DOWNLOAD GRATUITO",
+        "popup_title": "Scarica il report esclusivo sull'industria del padel",
+        "popup_desc": "Trend 2026, dati di oltre 116 stand, campi intelligenti e modelli di redditività per i club.",
+        "popup_placeholder": "Inserisci qui la tua email...",
+        "popup_btn": "Ottieni il Report Gratis (PDF)",
+        "popup_btn_success": "Download in corso!",
+        "popup_disclaimer": "100% gratuito. Zero spam. Download immediato.",
+
+        # Contacto & WhatsApp
         "contact_title": "Contatto",
         "contact_wa_btn": "WhatsApp Diretto",
         "wa_floating_tooltip": "Parliamo?",
