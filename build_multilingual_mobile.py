@@ -1151,9 +1151,17 @@ def get_base_html(active_lang="es", is_subfolder=False):
       const email = emailInput ? emailInput.value.trim() : '';
       if (!email) return;
 
+      const reportFiles = {{
+        'es': {{ url: '{asset_prefix}assets/reports/padel-industry-report-es.pdf', name: 'CoolPadel-Reportaje-Industria-Padel-2026-ES.pdf' }},
+        'en': {{ url: '{asset_prefix}assets/reports/padel-industry-report-en.pdf', name: 'CoolPadel-Padel-Industry-Report-2026-ENG.pdf' }},
+        'it': {{ url: '{asset_prefix}assets/reports/padel-industry-report-it.pdf', name: 'CoolPadel-Report-Industria-Padel-2026-IT.pdf' }},
+        'fr': {{ url: '{asset_prefix}assets/reports/padel-industry-report-en.pdf', name: 'CoolPadel-Padel-Industry-Report-2026.pdf' }}
+      }};
+      const activeReport = reportFiles[currentLang] || reportFiles['es'];
+
       const link = document.createElement('a');
-      link.href = '{asset_prefix}assets/images/reportaje-industria-padel.pdf';
-      link.download = 'Reportaje-Industria-Padel-2026.pdf';
+      link.href = activeReport.url;
+      link.download = activeReport.name;
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
