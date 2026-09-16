@@ -1102,43 +1102,35 @@ def get_base_html(active_lang="es", is_subfolder=False):
 
   <!-- 9. MODAL POP-UP LEAD MAGNET (INFORME EXCLUSIVO INDUSTRIA PADEL) -->
   <div id="lead-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/75 backdrop-blur-md opacity-0 pointer-events-none transition-opacity duration-300">
-    <div id="lead-modal-content" class="relative w-full max-w-lg bg-[#0e1d33] border border-sky-500/30 rounded-3xl p-6 sm:p-8 text-white shadow-[0_25px_60px_-15px_rgba(0,0,0,0.8)] transform scale-95 transition-transform duration-300">
+    <div id="lead-modal-content" class="relative w-full max-w-lg bg-[#3478a6] border border-white/20 rounded-3xl p-6 sm:p-8 text-white shadow-[0_25px_60px_-15px_rgba(0,0,0,0.6)] transform scale-95 transition-transform duration-300">
       
       <!-- BOTÓN CERRAR (X) -->
-      <button type="button" onclick="closeLeadModal()" class="absolute top-4 right-4 w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 text-slate-300 hover:text-white flex items-center justify-center transition cursor-pointer" aria-label="Cerrar modal">
+      <button type="button" onclick="closeLeadModal()" class="absolute top-4 right-4 w-8 h-8 rounded-full bg-white/15 hover:bg-white/25 text-white flex items-center justify-center transition cursor-pointer" aria-label="Cerrar modal">
         <i data-lucide="x" class="w-4 h-4"></i>
       </button>
 
       <!-- CABECERA POPUP -->
-      <div class="space-y-3 text-center sm:text-left">
-        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#f2920b]/20 border border-[#f2920b]/40 text-[#f2920b] text-[10px] sm:text-xs font-heading font-black tracking-wider uppercase">
-          <span class="w-1.5 h-1.5 rounded-full bg-[#f2920b] animate-ping"></span>
-          <span data-i18n="popup_tag">{t['popup_tag']}</span>
-        </div>
-        
+      <div class="space-y-2.5 text-center sm:text-left pr-6">
         <h3 data-i18n="popup_title" class="font-heading font-black text-xl sm:text-2xl uppercase tracking-tight text-white leading-tight">
           {t['popup_title']}
         </h3>
         
-        <p data-i18n="popup_desc" class="text-xs sm:text-sm text-slate-300 font-medium leading-relaxed">
+        <p data-i18n="popup_desc" class="text-xs sm:text-sm text-white/90 font-medium leading-relaxed">
           {t['popup_desc']}
         </p>
       </div>
 
       <!-- FORMULARIO RECOLECCIÓN EMAIL POPUP -->
-      <form onsubmit="handlePopupDownload(event)" class="mt-6 space-y-3">
+      <form onsubmit="handlePopupDownload(event)" class="mt-6 space-y-3.5">
         <div class="relative">
-          <input type="email" id="popup-email-input" required placeholder="{t['popup_placeholder']}" data-i18n-placeholder="popup_placeholder" class="w-full px-5 py-3.5 rounded-full bg-slate-900/90 border border-slate-700 text-white text-base font-medium placeholder:text-slate-500 focus:outline-none focus:border-[#f2920b] shadow-inner transition">
+          <input type="email" id="popup-email-input" required placeholder="{t['popup_placeholder']}" data-i18n-placeholder="popup_placeholder" class="w-full px-5 py-3.5 rounded-full bg-white border border-slate-200 text-slate-950 text-base font-medium placeholder:text-slate-400 focus:outline-none focus:border-[#f2920b] shadow-inner transition">
         </div>
-        <button type="submit" class="group relative w-full inline-flex items-center justify-center gap-2.5 px-6 py-4 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] active:bg-[#76d3f6] text-slate-950 active:scale-95 font-heading font-black text-sm uppercase tracking-wider transition-all duration-300 shadow-[0_6px_20px_rgba(242,146,11,0.3)] hover:shadow-[0_10px_25px_rgba(118,211,246,0.4)] hover:scale-[1.01] cursor-pointer">
+        <button type="submit" class="group relative w-full inline-flex items-center justify-center gap-2.5 px-6 py-4 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] active:bg-[#76d3f6] text-slate-950 active:scale-95 font-heading font-black text-sm uppercase tracking-wider transition-all duration-300 shadow-[0_6px_20px_rgba(0,0,0,0.2)] hover:shadow-[0_10px_25px_rgba(0,0,0,0.3)] hover:scale-[1.01] cursor-pointer">
           <span data-i18n="popup_btn">{t['popup_btn']}</span>
           <div class="w-6 h-6 rounded-full bg-slate-950/10 group-hover:bg-slate-950 group-hover:text-white flex items-center justify-center transition-all duration-300">
             <i data-lucide="download" class="w-3.5 h-3.5 stroke-[3] group-hover:translate-y-0.5 transition-transform duration-300"></i>
           </div>
         </button>
-        <p data-i18n="popup_disclaimer" class="text-[10px] text-slate-400 text-center font-medium">
-          {t['popup_disclaimer']}
-        </p>
       </form>
 
     </div>

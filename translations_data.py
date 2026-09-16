@@ -90,13 +90,11 @@ TRANSLATIONS = {
         "faq_a7": "No, el informe es 100% gratuito en PDF. Lo hemos elaborado tras entrevistar a más de 116 stands del sector para aportar valor a directores, marcas y entrenadores.",
 
         # Pop-up Modal Lead Magnet
-        "popup_tag": "DESCARGA GRATUITA",
-        "popup_title": "Descarga el informe exclusivo sobre la industria del padel",
-        "popup_desc": "Tendencias 2026, datos clave de más de 116 stands, pistas inteligentes y claves de rentabilidad para clubes.",
-        "popup_placeholder": "Introduce tu email aquí...",
-        "popup_btn": "Obtener Informe Gratis (PDF)",
+        "popup_title": "¿Cuáles son las principales tendencias de la industria del padel en 2026?",
+        "popup_desc": "Conclusiones tras conversar con más de 116 stands del sector: pistas inteligentes, expansión internacional, modelo de clubs lifestyle y claves para marcas.",
+        "popup_placeholder": "Introduce tu email...",
+        "popup_btn": "Descargar Informe (PDF)",
         "popup_btn_success": "¡Descargando Informe!",
-        "popup_disclaimer": "100% gratuito. Sin spam. Descarga directa e instantánea.",
 
         # Contacto & WhatsApp
         "contact_title": "Contacto",
@@ -191,13 +189,11 @@ TRANSLATIONS = {
         "faq_a7": "Yes, the report is 100% free in PDF. We created it after surveying over 116 industry stands to provide actionable insights for club managers and brands.",
 
         # Pop-up Modal Lead Magnet
-        "popup_tag": "FREE DOWNLOAD",
-        "popup_title": "Download the exclusive padel industry report",
-        "popup_desc": "2026 trends, data from 116+ industry stands, smart courts and club profitability strategies.",
-        "popup_placeholder": "Enter your email here...",
-        "popup_btn": "Get Free Report (PDF)",
+        "popup_title": "What are the key padel industry trends in 2026?",
+        "popup_desc": "Insights from surveying over 116 industry stands: smart courts, international expansion and club profitability keys.",
+        "popup_placeholder": "Enter your email...",
+        "popup_btn": "Download Report (PDF)",
         "popup_btn_success": "Downloading Report!",
-        "popup_disclaimer": "100% free. No spam. Instant direct download.",
 
         # Contacto & WhatsApp
         "contact_title": "Contact",
@@ -292,13 +288,11 @@ TRANSLATIONS = {
         "faq_a7": "Non, le rapport est 100% gratuit en PDF. Il a été conçu après avoir analysé plus de 116 stands du secteur pour éclairer les dirigeants et professionnels.",
 
         # Pop-up Modal Lead Magnet
-        "popup_tag": "TÉLÉCHARGEMENT GRATUIT",
-        "popup_title": "Téléchargez le rapport exclusif sur l'industrie du padel",
-        "popup_desc": "Tendances 2026, données de plus de 116 stands, pistes connectées et rentabilité pour les clubs.",
-        "popup_placeholder": "Entrez votre email ici...",
-        "popup_btn": "Obtenir le Rapport Gratuit (PDF)",
+        "popup_title": "Quelles sont les principales tendances de l'industrie du padel en 2026 ?",
+        "popup_desc": "Conclusions après l'analyse de plus de 116 stands : pistes connectées, expansion internationale et rentabilité pour les clubs.",
+        "popup_placeholder": "Entrez votre email...",
+        "popup_btn": "Télécharger le Rapport (PDF)",
         "popup_btn_success": "Téléchargement en cours !",
-        "popup_disclaimer": "100% gratuit. Zéro spam. Téléchargement direct et instantané.",
 
         # Contacto & WhatsApp
         "contact_title": "Contact",
@@ -393,13 +387,11 @@ TRANSLATIONS = {
         "faq_a7": "Sì, il report è completamente gratuito in formato PDF. È stato redatto dopo aver intervistato oltre 116 stand per offrire dati preziosi a gestori e marchi.",
 
         # Pop-up Modal Lead Magnet
-        "popup_tag": "DOWNLOAD GRATUITO",
-        "popup_title": "Scarica il report esclusivo sull'industria del padel",
-        "popup_desc": "Trend 2026, dati di oltre 116 stand, campi intelligenti e modelli di redditività per i club.",
+        "popup_title": "Quali sono i principali trend dell'industria del padel nel 2026?",
+        "popup_desc": "Dati e conclusioni dall'analisi di oltre 116 stand: campi intelligenti, espansione internazionale e redditività per i club.",
         "popup_placeholder": "Inserisci qui la tua email...",
-        "popup_btn": "Ottieni il Report Gratis (PDF)",
+        "popup_btn": "Scarica il Report (PDF)",
         "popup_btn_success": "Download in corso!",
-        "popup_disclaimer": "100% gratuito. Zero spam. Download immediato.",
 
         # Contacto & WhatsApp
         "contact_title": "Contatto",
