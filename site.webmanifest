@@ -1,0 +1,20 @@
+{
+  "name": "CoolPadel",
+  "short_name": "CoolPadel",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0b1626",
+  "theme_color": "#0b1626",
+  "icons": [
+    {
+      "src": "assets/images/Ojos logo.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/images/coolpadel-mascot-hd.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

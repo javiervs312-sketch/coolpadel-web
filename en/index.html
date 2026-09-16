@@ -10,7 +10,12 @@
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
   <link rel="canonical" href="https://coolpadelstudios.com/en/">
   <link rel="icon" type="image/png" href="../assets/images/Ojos logo.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../assets/images/Ojos logo.png">
+  <link rel="manifest" href="../site.webmanifest">
   <meta name="theme-color" content="#0b1626">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="CoolPadel">
 
   <!-- Etiquetas Hreflang para SEO Internacional Multilingüe -->
   <link rel="alternate" hreflang="es" href="https://coolpadelstudios.com/">
@@ -1417,8 +1422,31 @@
       }
     };
 
-    // URL del Webhook de Google Apps Script
+    // URL del Webhook de Google Apps Script (Recepción de Leads y Analítica de Eventos)
     const GOOGLE_SHEETS_WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbwm-6rDF4hpJMJeCJ26Vqfy-mg9Zvn7i4UJ-hWWx7xsvzreBU2WCGnCDoyKmR2Qt6CFSA/exec';
+
+    // SISTEMA DE ANALÍTICA PRIVACY-FIRST (SIN COOKIES INVASIVAS)
+    function trackEvent(eventName, extraData = {}) {
+      if (!GOOGLE_SHEETS_WEBHOOK_URL) return;
+      try {
+        const payload = {
+          tipo: 'analitica_evento',
+          evento: eventName,
+          idioma: currentLang,
+          zona_horaria: Intl.DateTimeFormat().resolvedOptions().timeZone || 'unknown',
+          url: window.location.href,
+          referrer: document.referrer || 'direct',
+          fecha: new Date().toISOString(),
+          ...extraData
+        };
+        fetch(GOOGLE_SHEETS_WEBHOOK_URL, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        }).catch(() => {});
+      } catch(e) {}
+    }
 
     // Descarga de PDF Informe con recolección de email a Google Sheets
     async function handleReportDownload(e) {
@@ -1580,6 +1608,27 @@
     } catch(e) {
       updateCalculator(0);
     }
+
+    // TRACKING AUTOMÁTICO DE VISITA Y CLICS EN BOTONES WHATSAPP / DESCARGAS
+    try {
+      trackEvent('pageview', { path: window.location.pathname, lang_activa: currentLang });
+      
+      const attachClick = (id, eventName, getExtra) => {
+        const el = document.getElementById(id);
+        if (el) {
+          el.addEventListener('click', () => {
+            trackEvent(eventName, getExtra ? getExtra() : {});
+          });
+        }
+      };
+
+      attachClick('nav-contact-btn', 'click_whatsapp_nav');
+      attachClick('nav-contact-btn-mob', 'click_whatsapp_nav_mob');
+      attachClick('calc-wa-btn', 'click_whatsapp_calc', () => ({ tier_qty: tiers[currentTierIdx]?.qty, tier_price: tiers[currentTierIdx]?.price }));
+      attachClick('smp-contact-btn', 'click_whatsapp_savemyplay');
+      attachClick('contact-wa-btn', 'click_whatsapp_footer');
+      attachClick('floating-wa-btn', 'click_whatsapp_floating');
+    } catch(e) {}
   </script>
 </body>
 </html>
