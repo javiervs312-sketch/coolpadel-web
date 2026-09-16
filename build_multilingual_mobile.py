@@ -26,6 +26,9 @@ def get_base_html(active_lang="es", is_subfolder=False):
   <link rel="icon" type="image/png" href="{asset_prefix}assets/images/Ojos logo.png">
   <link rel="apple-touch-icon" sizes="180x180" href="{asset_prefix}assets/images/Ojos logo.png">
   <link rel="manifest" href="{asset_prefix}site.webmanifest">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
   <meta name="theme-color" content="#0b1626">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -149,38 +152,6 @@ def get_base_html(active_lang="es", is_subfolder=False):
             "acceptedAnswer": {{
               "@type": "Answer",
               "text": "{t['faq_a3']}"
-            }}
-          }},
-          {{
-            "@type": "Question",
-            "name": "{t['faq_q4']}",
-            "acceptedAnswer": {{
-              "@type": "Answer",
-              "text": "{t['faq_a4']}"
-            }}
-          }},
-          {{
-            "@type": "Question",
-            "name": "{t['faq_q5']}",
-            "acceptedAnswer": {{
-              "@type": "Answer",
-              "text": "{t['faq_a5']}"
-            }}
-          }},
-          {{
-            "@type": "Question",
-            "name": "{t['faq_q6']}",
-            "acceptedAnswer": {{
-              "@type": "Answer",
-              "text": "{t['faq_a6']}"
-            }}
-          }},
-          {{
-            "@type": "Question",
-            "name": "{t['faq_q7']}",
-            "acceptedAnswer": {{
-              "@type": "Answer",
-              "text": "{t['faq_a7']}"
             }}
           }}
         ]
@@ -391,13 +362,13 @@ def get_base_html(active_lang="es", is_subfolder=False):
       <!-- DESKTOP NAVBAR (3 COLUMNAS: IZQUIERDA + CENTRO 100% + DERECHA) -->
       <div class="hidden sm:grid grid-cols-[1fr_auto_1fr] items-center h-full w-full gap-2 lg:gap-4">
         
-        <!-- COLUMNA 1: OJOS + TENIS Y PADEL A LA IZQUIERDA -->
-        <div class="flex items-center gap-2 justify-start min-w-0">
+        <!-- COLUMNA 1: OJOS + TENIS Y PADEL (100% CENTRADO EN MEDIO ENTRE OJOS Y MASCOTA) -->
+        <div class="flex items-center justify-between min-w-0 h-full">
           <a href="#" class="group py-1 inline-flex items-center shrink-0">
             <img src="{asset_prefix}assets/images/Ojos logo.png" alt="CoolPadel Eyes" class="h-6 sm:h-7 lg:h-9 w-auto object-contain group-hover:scale-110 transition duration-300">
           </a>
-          <div class="hidden lg:flex items-center ml-2">
-            <span data-i18n="nav_tenis_padel" class="font-heading font-black text-xs lg:text-base tracking-wider uppercase text-slate-950 select-none whitespace-nowrap">
+          <div class="flex-1 flex items-center justify-center px-2 lg:px-4">
+            <span data-i18n="nav_tenis_padel" class="font-heading font-black text-xs sm:text-sm lg:text-base tracking-wider uppercase text-slate-950 select-none whitespace-nowrap">
               {t['nav_tenis_padel']}
             </span>
           </div>
@@ -411,10 +382,10 @@ def get_base_html(active_lang="es", is_subfolder=False):
           </a>
         </div>
 
-        <!-- COLUMNA 3: IDIOMAS + CONTACTAR (ENTRE EL LOGO Y LOS OJOS) + OJOS A LA DERECHA -->
-        <div class="flex items-center justify-between min-w-0 pl-2 lg:pl-4">
-          <!-- BOTONES IDIOMA + CONTACTAR (UBICADOS INMEDIATAMENTE TRAS COOLPADEL) -->
-          <div class="flex items-center gap-2 sm:gap-3 lg:gap-4">
+        <!-- COLUMNA 3: IDIOMAS + CONTACTAR (DESPLAZADOS UN PELÍN A LA IZQUIERDA) + OJOS DERECHA -->
+        <div class="flex items-center justify-between min-w-0 h-full">
+          <!-- BOTONES IDIOMA + CONTACTAR (UN PELÍN A LA IZQUIERDA) -->
+          <div class="flex-1 flex items-center justify-center -translate-x-3 lg:-translate-x-6 gap-2 sm:gap-3 lg:gap-4 px-2 lg:px-4">
             <div class="inline-flex items-center bg-slate-100 rounded-full p-0.5 sm:p-1 border border-slate-200/90 shadow-inner text-[10px] sm:text-xs font-bold shrink-0">
               <button type="button" onclick="switchLanguage('es')" data-lang-btn="es" class="lang-btn {'active' if active_lang=='es' else 'text-slate-600 hover:text-slate-950'} px-2 sm:px-2.5 py-1 rounded-full transition-all duration-200 font-bold" title="Español">ES</button>
               <button type="button" onclick="switchLanguage('en')" data-lang-btn="en" class="lang-btn {'active' if active_lang=='en' else 'text-slate-600 hover:text-slate-950'} px-2 sm:px-2.5 py-1 rounded-full transition-all duration-200 font-bold" title="English">EN</button>
@@ -433,37 +404,46 @@ def get_base_html(active_lang="es", is_subfolder=False):
           </div>
 
           <!-- OJOS A LA DERECHA DEL TODO -->
-          <a href="#" class="group py-1 inline-flex items-center shrink-0 ml-auto">
+          <a href="#" class="group py-1 inline-flex items-center shrink-0">
             <img src="{asset_prefix}assets/images/Ojos logo.png" alt="CoolPadel Eyes" class="h-6 sm:h-7 lg:h-9 w-auto object-contain group-hover:scale-110 transition duration-300">
           </a>
         </div>
 
       </div>
 
-      <!-- MÓVIL NAVBAR (2 FILAS RESPONSIVE) -->
-      <div class="flex sm:hidden flex-col gap-1.5 py-1.5 w-full">
+      <!-- MÓVIL NAVBAR (2 FILAS RESPONSIVE PERFECTAMENTE ALINEADAS) -->
+      <div class="flex sm:hidden flex-col gap-2 py-2 w-full">
+        <!-- FILA 1: OJOS IZQ + [MASCOTA + COOLPADEL CENTRADO] + OJOS DER -->
         <div class="flex items-center justify-between w-full">
           <a href="#" class="py-1 inline-flex items-center shrink-0">
             <img src="{asset_prefix}assets/images/Ojos logo.png" alt="CoolPadel Eyes" class="h-5 w-auto object-contain">
           </a>
-          <a href="#" class="flex items-center justify-center gap-1.5 py-1">
-            <img src="{asset_prefix}assets/images/coolpadel-mascot-hd.png" alt="Mascota CoolPadel" class="h-8 w-auto object-contain">
-            <img src="{asset_prefix}assets/images/coolpadel-typography-hd.png" alt="CoolPadel" class="h-5 w-auto object-contain">
+          <a href="#" class="flex items-center justify-center gap-1.5 py-0.5">
+            <img src="{asset_prefix}assets/images/coolpadel-mascot-hd.png" alt="Mascota CoolPadel" class="h-7 w-auto object-contain">
+            <img src="{asset_prefix}assets/images/coolpadel-typography-hd.png" alt="CoolPadel" class="h-4.5 w-auto object-contain">
           </a>
+          <a href="#" class="py-1 inline-flex items-center shrink-0">
+            <img src="{asset_prefix}assets/images/Ojos logo.png" alt="CoolPadel Eyes" class="h-5 w-auto object-contain">
+          </a>
+        </div>
+        
+        <!-- FILA 2: TENIS Y PADEL + SELECTOR IDIOMAS + BOTÓN CONTACTAR -->
+        <div class="flex items-center justify-between w-full gap-1.5 pt-1 border-t border-slate-100">
+          <span data-i18n="nav_tenis_padel" class="font-heading font-black text-[10px] tracking-wider uppercase text-slate-950 select-none whitespace-nowrap">
+            {t['nav_tenis_padel']}
+          </span>
           <div class="inline-flex items-center bg-slate-100 rounded-full p-0.5 border border-slate-200/90 text-[10px] font-bold shrink-0">
             <button type="button" onclick="switchLanguage('es')" data-lang-btn="es" class="lang-btn {'active' if active_lang=='es' else 'text-slate-600 hover:text-slate-950'} px-1.5 py-0.5 rounded-full font-bold">ES</button>
             <button type="button" onclick="switchLanguage('en')" data-lang-btn="en" class="lang-btn {'active' if active_lang=='en' else 'text-slate-600 hover:text-slate-950'} px-1.5 py-0.5 rounded-full font-bold">EN</button>
             <button type="button" onclick="switchLanguage('fr')" data-lang-btn="fr" class="lang-btn {'active' if active_lang=='fr' else 'text-slate-600 hover:text-slate-950'} px-1.5 py-0.5 rounded-full font-bold">FR</button>
             <button type="button" onclick="switchLanguage('it')" data-lang-btn="it" class="lang-btn {'active' if active_lang=='it' else 'text-slate-600 hover:text-slate-950'} px-1.5 py-0.5 rounded-full font-bold">IT</button>
           </div>
-        </div>
-        <div class="w-full flex items-center justify-center pb-0.5">
           <a id="nav-contact-btn-mob" href="https://wa.me/34680317486?text={t['wa_prefilled_msg']}" 
              target="_blank" 
-             class="group relative w-full inline-flex items-center justify-center gap-2 py-2 rounded-full bg-[#f2920b] active:bg-[#76d3f6] text-slate-950 active:scale-95 font-heading font-black text-xs uppercase tracking-wider transition-all duration-300 shadow-sm">
+             class="group relative inline-flex items-center justify-center gap-1 px-3 py-1.5 rounded-full bg-[#f2920b] active:bg-[#76d3f6] text-slate-950 active:scale-95 font-heading font-black text-[10px] uppercase tracking-wider transition-all duration-300 shadow-sm shrink-0">
             <span data-i18n="nav_contact" class="font-black">{t['nav_contact']}</span>
-            <div class="w-4 h-4 rounded-full bg-slate-950/10 flex items-center justify-center">
-              <i data-lucide="arrow-up-right" class="w-2.5 h-2.5 stroke-[3]"></i>
+            <div class="w-3.5 h-3.5 rounded-full bg-slate-950/10 flex items-center justify-center">
+              <i data-lucide="arrow-up-right" class="w-2 h-2 stroke-[3]"></i>
             </div>
           </a>
         </div>
@@ -535,19 +515,6 @@ def get_base_html(active_lang="es", is_subfolder=False):
               </a>
             </div>
           </div>
-        </div>
-
-        <!-- CONTROLES ESTILO NIKE (PAUSA + FLECHAS REDONDAS) -->
-        <div class="absolute bottom-3 right-4 sm:bottom-4 sm:right-16 z-40 flex items-center gap-2">
-          <button id="pause-slide-btn" class="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-neutral-950/80 hover:bg-neutral-800 text-white flex items-center justify-center border border-neutral-700/80 backdrop-blur-sm transition active:scale-90" title="Pausa">
-            <i id="pause-icon" data-lucide="pause" class="w-3.5 h-3.5 sm:w-4 sm:h-4"></i>
-          </button>
-          <button id="prev-slide-btn" class="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-neutral-950/80 hover:bg-neutral-800 text-white flex items-center justify-center border border-neutral-700/80 backdrop-blur-sm transition active:scale-90" title="Anterior">
-            <i data-lucide="chevron-left" class="w-3.5 h-3.5 sm:w-4 sm:h-4"></i>
-          </button>
-          <button id="next-slide-btn" class="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-neutral-950/80 hover:bg-neutral-800 text-white flex items-center justify-center border border-neutral-700/80 backdrop-blur-sm transition active:scale-90" title="Siguiente">
-            <i data-lucide="chevron-right" class="w-3.5 h-3.5 sm:w-4 sm:h-4"></i>
-          </button>
         </div>
 
       </div>
@@ -714,13 +681,10 @@ def get_base_html(active_lang="es", is_subfolder=False):
         <h2 data-i18n="smp_title" class="text-2xl sm:text-5xl font-black font-heading text-slate-950 uppercase tracking-tight leading-tight">
           {t['smp_title']}
         </h2>
-        <p data-i18n="smp_subtitle" class="text-slate-950 text-sm sm:text-xl font-extrabold uppercase tracking-wide">
-          {t['smp_subtitle']}
-        </p>
       </div>
 
       <!-- 3 FOTOS EN FILA CON BORDE NEGRO Y SOMBRA GIGANTE 3D -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 max-w-6xl mx-auto mb-10 sm:mb-12">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 lg:gap-10 max-w-6xl sm:max-w-7xl mx-auto mb-12 sm:mb-16">
         
         <!-- FOTO 1 -->
         <div class="rounded-3xl overflow-hidden shadow-[0_25px_50px_-10px_rgba(0,0,0,0.75)] hover:shadow-[0_35px_65px_-10px_rgba(0,0,0,0.9)] transition-all duration-500 group border-2 border-slate-950 bg-slate-950 hover:-translate-y-1">
@@ -748,58 +712,145 @@ def get_base_html(active_lang="es", is_subfolder=False):
 
       </div>
 
-      <!-- CAJA DE INFORMACIÓN CLAVE SAVE MY PLAY -->
-      <div class="max-w-4xl mx-auto bg-white rounded-3xl p-6 sm:p-10 border border-emerald-300 shadow-2xl text-slate-900 space-y-6">
-        <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pb-4 border-b border-slate-200">
-          <img src="{asset_prefix}assets/images/savemyplay-logo-clean.png" alt="Save my Play" class="h-10 sm:h-12 w-auto object-contain" loading="lazy">
-          <span class="text-xs sm:text-sm font-black uppercase tracking-wider px-4 py-1.5 rounded-full bg-[#4bbb81]/20 text-slate-950">
-            Partner Oficial CoolPadel
-          </span>
-        </div>
-
-        <div class="grid sm:grid-cols-3 gap-5 pt-2">
-          <div class="flex items-start gap-3.5">
-            <div class="w-9 h-9 rounded-xl bg-[#4bbb81]/20 flex items-center justify-center shrink-0 mt-0.5 text-slate-950">
-              <i data-lucide="video" class="w-4 h-4 stroke-[2.5]"></i>
+      <!-- 2 TARJETAS SAVE MY PLAY: TARJETA PLANES + TARJETA ¿POR QUÉ AÑADIR SMP A TU CLUB? -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 xl:gap-16 max-w-6xl sm:max-w-7xl mx-auto">
+        
+        <!-- TARJETA 1: PLANES SAVE MY PLAY -->
+        <div class="bg-white rounded-3xl p-5 sm:p-7 border border-emerald-300 shadow-2xl text-slate-900 flex flex-col justify-between hover:-translate-y-1 transition duration-300">
+          <div class="space-y-4">
+            <div class="flex items-center justify-between border-b border-slate-200 pb-3 sm:pb-4">
+              <h3 data-i18n="smp_plans_title" class="font-heading font-black text-lg sm:text-2xl text-slate-950 uppercase tracking-tight">
+                {t['smp_plans_title']}
+              </h3>
+              <span class="w-8 h-8 rounded-full bg-[#4bbb81]/20 flex items-center justify-center text-slate-950">
+                <i data-lucide="layers" class="w-4 h-4 stroke-[2.5]"></i>
+              </span>
             </div>
-            <div>
-              <h5 data-i18n="feat1_title" class="text-sm font-black text-slate-950 uppercase">{t['feat1_title']}</h5>
-              <p data-i18n="feat1_desc" class="text-xs sm:text-sm text-slate-600 font-medium">{t['feat1_desc']}</p>
+
+            <!-- PLANES GRID -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+              
+              <!-- PLAN A: NARANJA 136€/mes -->
+              <div class="p-4 sm:p-5 rounded-2xl bg-orange-50/70 border-2 border-[#f2920b] flex flex-col space-y-2.5">
+                <div class="flex items-center justify-between">
+                  <span data-i18n="smp_plan_a_title" class="font-black text-xs uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-[#f2920b] text-slate-950">
+                    {t['smp_plan_a_title']}
+                  </span>
+                  <i data-lucide="sparkles" class="w-4 h-4 text-[#f2920b]"></i>
+                </div>
+                <strong data-i18n="smp_plan_a_price" class="text-2xl sm:text-3xl font-black font-heading text-slate-950 block">
+                  {t['smp_plan_a_price']}
+                </strong>
+                <p data-i18n="smp_plan_a_desc" class="text-xs text-slate-700 font-medium leading-relaxed">
+                  {t['smp_plan_a_desc']}
+                </p>
+              </div>
+
+              <!-- PLAN B: AZUL 45€/mes -->
+              <div class="p-4 sm:p-5 rounded-2xl bg-sky-50/70 border-2 border-[#76d3f6] flex flex-col space-y-2.5">
+                <div class="flex items-center justify-between">
+                  <span data-i18n="smp_plan_b_title" class="font-black text-xs uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-[#76d3f6] text-slate-950">
+                    {t['smp_plan_b_title']}
+                  </span>
+                  <i data-lucide="video" class="w-4 h-4 text-sky-600"></i>
+                </div>
+                <strong data-i18n="smp_plan_b_price" class="text-2xl sm:text-3xl font-black font-heading text-slate-950 block">
+                  {t['smp_plan_b_price']}
+                </strong>
+                <p data-i18n="smp_plan_b_desc" class="text-xs text-slate-700 font-medium leading-relaxed">
+                  {t['smp_plan_b_desc']}
+                </p>
+              </div>
+
+            </div>
+
+            <!-- INVERSIÓN INICIAL CÁMARAS: 180 € / PISTA CENTRADO ABAJO -->
+            <div class="py-2.5 px-4 max-w-xs sm:max-w-sm mx-auto rounded-xl bg-slate-100 border border-slate-200 text-center">
+              <span data-i18n="smp_cam_invest" class="font-black text-xs sm:text-sm text-slate-950 block">
+                {t['smp_cam_invest']}
+              </span>
             </div>
           </div>
 
-          <div class="flex items-start gap-3.5">
-            <div class="w-9 h-9 rounded-xl bg-[#4bbb81]/20 flex items-center justify-center shrink-0 mt-0.5 text-slate-950">
-              <i data-lucide="clock" class="w-4 h-4 stroke-[2.5]"></i>
-            </div>
-            <div>
-              <h5 data-i18n="feat2_title" class="text-sm font-black text-slate-950 uppercase">{t['feat2_title']}</h5>
-              <p data-i18n="feat2_desc" class="text-xs sm:text-sm text-slate-600 font-medium">{t['feat2_desc']}</p>
-            </div>
-          </div>
-
-          <div class="flex items-start gap-3.5">
-            <div class="w-9 h-9 rounded-xl bg-[#4bbb81]/20 flex items-center justify-center shrink-0 mt-0.5 text-slate-950">
-              <i data-lucide="trending-up" class="w-4 h-4 stroke-[2.5]"></i>
-            </div>
-            <div>
-              <h5 data-i18n="feat3_title" class="text-sm font-black text-slate-950 uppercase">{t['feat3_title']}</h5>
-              <p data-i18n="feat3_desc" class="text-xs sm:text-sm text-slate-600 font-medium">{t['feat3_desc']}</p>
-            </div>
+          <!-- BOTÓN CONTACTAR PLANES -->
+          <div class="pt-4 border-t border-slate-200 mt-4">
+            <a id="smp-plan-btn" href="https://wa.me/34680317486?text={t['wa_prefilled_msg']}" 
+               target="_blank" 
+               class="group relative w-full inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] active:bg-[#76d3f6] text-slate-950 active:scale-95 font-heading font-black text-xs sm:text-sm uppercase tracking-wider transition-all duration-300 shadow-[0_4px_15px_rgba(242,146,11,0.25)] hover:shadow-[0_8px_25px_rgba(118,211,246,0.35)] hover:scale-[1.01] overflow-hidden">
+              <span data-i18n="smp_btn" class="font-black">{t['smp_btn']}</span>
+              <div class="w-6 h-6 rounded-full bg-slate-950/10 group-hover:bg-slate-950 group-hover:text-white flex items-center justify-center transition-all duration-300">
+                <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 stroke-[3] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300"></i>
+              </div>
+            </a>
           </div>
         </div>
 
-        <!-- BOTÓN DE CONTACTO OFICIAL -->
-        <div class="pt-4 flex items-center justify-center">
-          <a id="smp-contact-btn" href="https://wa.me/34680317486?text={t['wa_prefilled_msg']}" 
-             target="_blank" 
-             class="group relative inline-flex items-center justify-center gap-2.5 px-8 sm:px-10 py-3.5 sm:py-4 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] active:bg-[#76d3f6] text-slate-950 active:scale-95 font-heading font-black text-sm sm:text-base tracking-wider uppercase transition-all duration-300 shadow-[0_6px_20px_rgba(242,146,11,0.3)] hover:shadow-[0_10px_25px_rgba(118,211,246,0.4)] hover:scale-105 overflow-hidden">
-            <span data-i18n="smp_btn" class="font-black">{t['smp_btn']}</span>
-            <div class="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-slate-950/10 group-hover:bg-slate-950 group-hover:text-white flex items-center justify-center transition-all duration-300">
-              <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 sm:w-4 sm:h-4 stroke-[3] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300"></i>
+        <!-- TARJETA 2: ¿POR QUÉ AÑADIR SAVE MY PLAY A TU CLUB? -->
+        <div class="bg-white rounded-3xl p-5 sm:p-7 border border-emerald-300 shadow-2xl text-slate-900 flex flex-col justify-between hover:-translate-y-1 transition duration-300">
+          <div class="space-y-4">
+            <div class="flex items-center gap-1.5 sm:gap-2 flex-wrap border-b border-slate-200 pb-3 sm:pb-4">
+              <span data-i18n="smp_why_title_prefix" class="font-heading font-black text-lg sm:text-2xl text-slate-950 uppercase tracking-tight">{t['smp_why_title_prefix']}</span>
+              <img src="{asset_prefix}assets/images/savemyplay-logo-clean.png" alt="Save my Play" class="h-6 sm:h-8 w-auto object-contain" loading="lazy">
+              <span data-i18n="smp_why_title_suffix" class="font-heading font-black text-lg sm:text-2xl text-slate-950 uppercase tracking-tight">{t['smp_why_title_suffix']}</span>
             </div>
-          </a>
+
+            <!-- 4 RAZONES COMERCIALES -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+              <div class="flex items-start gap-2.5 sm:gap-3 p-1">
+                <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-xl bg-[#4bbb81]/20 flex items-center justify-center shrink-0 mt-0.5 text-slate-950">
+                  <i data-lucide="sparkles" class="w-3.5 h-3.5 sm:w-4 sm:h-4 stroke-[2.5]"></i>
+                </div>
+                <div>
+                  <h5 data-i18n="feat1_title" class="text-xs sm:text-sm font-bold text-slate-950 uppercase leading-tight">{t['feat1_title']}</h5>
+                  <p data-i18n="feat1_desc" class="text-[11px] sm:text-xs text-slate-600 font-medium leading-relaxed mt-0.5">{t['feat1_desc']}</p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-2.5 sm:gap-3 p-1">
+                <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-xl bg-[#4bbb81]/20 flex items-center justify-center shrink-0 mt-0.5 text-slate-950">
+                  <i data-lucide="share-2" class="w-3.5 h-3.5 sm:w-4 sm:h-4 stroke-[2.5]"></i>
+                </div>
+                <div>
+                  <h5 data-i18n="feat2_title" class="text-xs sm:text-sm font-bold text-slate-950 uppercase leading-tight">{t['feat2_title']}</h5>
+                  <p data-i18n="feat2_desc" class="text-[11px] sm:text-xs text-slate-600 font-medium leading-relaxed mt-0.5">{t['feat2_desc']}</p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-2.5 sm:gap-3 p-1">
+                <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-xl bg-[#4bbb81]/20 flex items-center justify-center shrink-0 mt-0.5 text-slate-950">
+                  <i data-lucide="shield-check" class="w-3.5 h-3.5 sm:w-4 sm:h-4 stroke-[2.5]"></i>
+                </div>
+                <div>
+                  <h5 data-i18n="feat3_title" class="text-xs sm:text-sm font-bold text-slate-950 uppercase leading-tight">{t['feat3_title']}</h5>
+                  <p data-i18n="feat3_desc" class="text-[11px] sm:text-xs text-slate-600 font-medium leading-relaxed mt-0.5">{t['feat3_desc']}</p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-2.5 sm:gap-3 p-1">
+                <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-xl bg-[#4bbb81]/20 flex items-center justify-center shrink-0 mt-0.5 text-slate-950">
+                  <i data-lucide="trending-up" class="w-3.5 h-3.5 sm:w-4 sm:h-4 stroke-[2.5]"></i>
+                </div>
+                <div>
+                  <h5 data-i18n="feat4_title" class="text-xs sm:text-sm font-bold text-slate-950 uppercase leading-tight">{t['feat4_title']}</h5>
+                  <p data-i18n="feat4_desc" class="text-[11px] sm:text-xs text-slate-600 font-medium leading-relaxed mt-0.5">{t['feat4_desc']}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- BOTÓN CONTACTAR POR QUÉ SMP -->
+          <div class="pt-4 border-t border-slate-200 mt-4">
+            <a id="smp-contact-btn" href="https://wa.me/34680317486?text={t['wa_prefilled_msg']}" 
+               target="_blank" 
+               class="group relative w-full inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] active:bg-[#76d3f6] text-slate-950 active:scale-95 font-heading font-black text-xs sm:text-sm uppercase tracking-wider transition-all duration-300 shadow-[0_4px_15px_rgba(242,146,11,0.25)] hover:shadow-[0_8px_25px_rgba(118,211,246,0.35)] hover:scale-[1.01] overflow-hidden">
+              <span data-i18n="smp_btn" class="font-black">{t['smp_btn']}</span>
+              <div class="w-6 h-6 rounded-full bg-slate-950/10 group-hover:bg-slate-950 group-hover:text-white flex items-center justify-center transition-all duration-300">
+                <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 stroke-[3] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300"></i>
+              </div>
+            </a>
+          </div>
         </div>
+
       </div>
 
     </div>
@@ -833,7 +884,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
             </div>
 
             <div class="space-y-2 pt-1">
-              <h3 data-i18n="report_card1_title" class="font-heading font-black text-xl sm:text-3xl uppercase tracking-tight text-slate-950">
+              <h3 data-i18n="report_card1_title" class="font-heading font-bold text-xl sm:text-2xl text-slate-950">
                 {t['report_card1_title']}
               </h3>
               <p data-i18n="report_card1_desc" class="text-xs sm:text-sm text-slate-600 font-medium leading-relaxed">
@@ -870,7 +921,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
             </div>
 
             <div class="space-y-2 pt-1">
-              <h3 data-i18n="report_card2_title" class="font-heading font-black text-xl sm:text-3xl uppercase tracking-tight text-slate-950">
+              <h3 data-i18n="report_card2_title" class="font-heading font-bold text-xl sm:text-2xl text-slate-950">
                 {t['report_card2_title']}
               </h3>
               <p data-i18n="report_card2_desc" class="text-xs sm:text-sm text-slate-600 font-medium leading-relaxed">
@@ -902,92 +953,45 @@ def get_base_html(active_lang="es", is_subfolder=False):
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <!-- CABECERA FAQ -->
-      <div class="text-center space-y-2 sm:space-y-3 mb-10 sm:mb-14">
+      <div class="text-center mb-10 sm:mb-14">
         <h2 data-i18n="faq_section_title" class="text-2xl sm:text-4xl font-black font-heading text-slate-950 uppercase tracking-tight">
           {t['faq_section_title']}
         </h2>
-        <p data-i18n="faq_section_subtitle" class="text-slate-600 text-sm sm:text-base font-medium max-w-2xl mx-auto">
-          {t['faq_section_subtitle']}
-        </p>
       </div>
 
-      <!-- ACORDEÓN DE PREGUNTAS -->
+      <!-- ACORDEÓN DE PREGUNTAS (3 PREGUNTAS OFICIALES) -->
       <div class="space-y-3 sm:space-y-4" id="faq-accordion">
         
         <!-- PREGUNTA 1 -->
         <div class="faq-item bg-white border border-slate-200/90 rounded-2xl overflow-hidden shadow-xs transition-all duration-200">
-          <button type="button" onclick="toggleFaq(this)" class="w-full px-5 sm:px-6 py-4 sm:py-5 flex items-center justify-between text-left font-heading font-black text-sm sm:text-base text-slate-950 hover:text-[#f2920b] transition gap-4 cursor-pointer">
+          <button type="button" onclick="toggleFaq(this)" class="w-full px-5 sm:px-6 py-4 sm:py-5 flex items-center justify-between text-left font-sans font-bold text-base sm:text-lg text-slate-900 hover:text-[#f2920b] transition gap-4 cursor-pointer">
             <span data-i18n="faq_q1">{t['faq_q1']}</span>
-            <i data-lucide="chevron-down" class="faq-icon w-4 h-4 sm:w-5 sm:h-5 stroke-[2.5] text-slate-400 shrink-0 transition-transform duration-300"></i>
+            <i data-lucide="chevron-down" class="faq-icon w-5 h-5 stroke-[2.5] text-slate-400 shrink-0 transition-transform duration-300"></i>
           </button>
-          <div class="faq-answer hidden px-5 sm:px-6 pb-5 pt-1 text-slate-600 text-xs sm:text-sm font-medium leading-relaxed border-t border-slate-100">
+          <div class="faq-answer hidden px-5 sm:px-6 pb-5 pt-3 text-slate-700 text-sm sm:text-base font-normal leading-relaxed sm:leading-loose border-t border-slate-100">
             <p data-i18n="faq_a1">{t['faq_a1']}</p>
           </div>
         </div>
 
         <!-- PREGUNTA 2 -->
         <div class="faq-item bg-white border border-slate-200/90 rounded-2xl overflow-hidden shadow-xs transition-all duration-200">
-          <button type="button" onclick="toggleFaq(this)" class="w-full px-5 sm:px-6 py-4 sm:py-5 flex items-center justify-between text-left font-heading font-black text-sm sm:text-base text-slate-950 hover:text-[#f2920b] transition gap-4 cursor-pointer">
+          <button type="button" onclick="toggleFaq(this)" class="w-full px-5 sm:px-6 py-4 sm:py-5 flex items-center justify-between text-left font-sans font-bold text-base sm:text-lg text-slate-900 hover:text-[#f2920b] transition gap-4 cursor-pointer">
             <span data-i18n="faq_q2">{t['faq_q2']}</span>
-            <i data-lucide="chevron-down" class="faq-icon w-4 h-4 sm:w-5 sm:h-5 stroke-[2.5] text-slate-400 shrink-0 transition-transform duration-300"></i>
+            <i data-lucide="chevron-down" class="faq-icon w-5 h-5 stroke-[2.5] text-slate-400 shrink-0 transition-transform duration-300"></i>
           </button>
-          <div class="faq-answer hidden px-5 sm:px-6 pb-5 pt-1 text-slate-600 text-xs sm:text-sm font-medium leading-relaxed border-t border-slate-100">
+          <div class="faq-answer hidden px-5 sm:px-6 pb-5 pt-3 text-slate-700 text-sm sm:text-base font-normal leading-relaxed sm:leading-loose border-t border-slate-100">
             <p data-i18n="faq_a2">{t['faq_a2']}</p>
           </div>
         </div>
 
         <!-- PREGUNTA 3 -->
         <div class="faq-item bg-white border border-slate-200/90 rounded-2xl overflow-hidden shadow-xs transition-all duration-200">
-          <button type="button" onclick="toggleFaq(this)" class="w-full px-5 sm:px-6 py-4 sm:py-5 flex items-center justify-between text-left font-heading font-black text-sm sm:text-base text-slate-950 hover:text-[#f2920b] transition gap-4 cursor-pointer">
+          <button type="button" onclick="toggleFaq(this)" class="w-full px-5 sm:px-6 py-4 sm:py-5 flex items-center justify-between text-left font-sans font-bold text-base sm:text-lg text-slate-900 hover:text-[#f2920b] transition gap-4 cursor-pointer">
             <span data-i18n="faq_q3">{t['faq_q3']}</span>
-            <i data-lucide="chevron-down" class="faq-icon w-4 h-4 sm:w-5 sm:h-5 stroke-[2.5] text-slate-400 shrink-0 transition-transform duration-300"></i>
+            <i data-lucide="chevron-down" class="faq-icon w-5 h-5 stroke-[2.5] text-slate-400 shrink-0 transition-transform duration-300"></i>
           </button>
-          <div class="faq-answer hidden px-5 sm:px-6 pb-5 pt-1 text-slate-600 text-xs sm:text-sm font-medium leading-relaxed border-t border-slate-100">
+          <div class="faq-answer hidden px-5 sm:px-6 pb-5 pt-3 text-slate-700 text-sm sm:text-base font-normal leading-relaxed sm:leading-loose border-t border-slate-100">
             <p data-i18n="faq_a3">{t['faq_a3']}</p>
-          </div>
-        </div>
-
-        <!-- PREGUNTA 4 -->
-        <div class="faq-item bg-white border border-slate-200/90 rounded-2xl overflow-hidden shadow-xs transition-all duration-200">
-          <button type="button" onclick="toggleFaq(this)" class="w-full px-5 sm:px-6 py-4 sm:py-5 flex items-center justify-between text-left font-heading font-black text-sm sm:text-base text-slate-950 hover:text-[#f2920b] transition gap-4 cursor-pointer">
-            <span data-i18n="faq_q4">{t['faq_q4']}</span>
-            <i data-lucide="chevron-down" class="faq-icon w-4 h-4 sm:w-5 sm:h-5 stroke-[2.5] text-slate-400 shrink-0 transition-transform duration-300"></i>
-          </button>
-          <div class="faq-answer hidden px-5 sm:px-6 pb-5 pt-1 text-slate-600 text-xs sm:text-sm font-medium leading-relaxed border-t border-slate-100">
-            <p data-i18n="faq_a4">{t['faq_a4']}</p>
-          </div>
-        </div>
-
-        <!-- PREGUNTA 5 -->
-        <div class="faq-item bg-white border border-slate-200/90 rounded-2xl overflow-hidden shadow-xs transition-all duration-200">
-          <button type="button" onclick="toggleFaq(this)" class="w-full px-5 sm:px-6 py-4 sm:py-5 flex items-center justify-between text-left font-heading font-black text-sm sm:text-base text-slate-950 hover:text-[#f2920b] transition gap-4 cursor-pointer">
-            <span data-i18n="faq_q5">{t['faq_q5']}</span>
-            <i data-lucide="chevron-down" class="faq-icon w-4 h-4 sm:w-5 sm:h-5 stroke-[2.5] text-slate-400 shrink-0 transition-transform duration-300"></i>
-          </button>
-          <div class="faq-answer hidden px-5 sm:px-6 pb-5 pt-1 text-slate-600 text-xs sm:text-sm font-medium leading-relaxed border-t border-slate-100">
-            <p data-i18n="faq_a5">{t['faq_a5']}</p>
-          </div>
-        </div>
-
-        <!-- PREGUNTA 6 -->
-        <div class="faq-item bg-white border border-slate-200/90 rounded-2xl overflow-hidden shadow-xs transition-all duration-200">
-          <button type="button" onclick="toggleFaq(this)" class="w-full px-5 sm:px-6 py-4 sm:py-5 flex items-center justify-between text-left font-heading font-black text-sm sm:text-base text-slate-950 hover:text-[#f2920b] transition gap-4 cursor-pointer">
-            <span data-i18n="faq_q6">{t['faq_q6']}</span>
-            <i data-lucide="chevron-down" class="faq-icon w-4 h-4 sm:w-5 sm:h-5 stroke-[2.5] text-slate-400 shrink-0 transition-transform duration-300"></i>
-          </button>
-          <div class="faq-answer hidden px-5 sm:px-6 pb-5 pt-1 text-slate-600 text-xs sm:text-sm font-medium leading-relaxed border-t border-slate-100">
-            <p data-i18n="faq_a6">{t['faq_a6']}</p>
-          </div>
-        </div>
-
-        <!-- PREGUNTA 7 -->
-        <div class="faq-item bg-white border border-slate-200/90 rounded-2xl overflow-hidden shadow-xs transition-all duration-200">
-          <button type="button" onclick="toggleFaq(this)" class="w-full px-5 sm:px-6 py-4 sm:py-5 flex items-center justify-between text-left font-heading font-black text-sm sm:text-base text-slate-950 hover:text-[#f2920b] transition gap-4 cursor-pointer">
-            <span data-i18n="faq_q7">{t['faq_q7']}</span>
-            <i data-lucide="chevron-down" class="faq-icon w-4 h-4 sm:w-5 sm:h-5 stroke-[2.5] text-slate-400 shrink-0 transition-transform duration-300"></i>
-          </button>
-          <div class="faq-answer hidden px-5 sm:px-6 pb-5 pt-1 text-slate-600 text-xs sm:text-sm font-medium leading-relaxed border-t border-slate-100">
-            <p data-i18n="faq_a7">{t['faq_a7']}</p>
           </div>
         </div>
 
@@ -1209,30 +1213,6 @@ def get_base_html(active_lang="es", is_subfolder=False):
           resetAutoSlide();
         }}
       }});
-    }});
-
-    document.getElementById('next-slide-btn').addEventListener('click', () => {{
-      nextSlide();
-      resetAutoSlide();
-    }});
-
-    document.getElementById('prev-slide-btn').addEventListener('click', () => {{
-      prevSlide();
-      resetAutoSlide();
-    }});
-
-    const pauseBtn = document.getElementById('pause-slide-btn');
-    const pauseIcon = document.getElementById('pause-icon');
-    pauseBtn.addEventListener('click', () => {{
-      isPaused = !isPaused;
-      if (isPaused) {{
-        clearInterval(autoSlideInterval);
-        pauseIcon.setAttribute('data-lucide', 'play');
-      }} else {{
-        startAutoSlide();
-        pauseIcon.setAttribute('data-lucide', 'pause');
-      }}
-      lucide.createIcons();
     }});
 
     function startAutoSlide() {{
