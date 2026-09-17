@@ -280,6 +280,19 @@
       border: 1px solid rgba(56, 189, 248, 0.18);
     }
 
+    /* Selector desplegable de idioma: solo 1 elemento naranja a la vez */
+    .lang-opt-active {
+      background-color: #f2920b !important;
+      color: #020617 !important;
+      font-weight: 900 !important;
+    }
+    #lang-dropdown-menu:hover .lang-opt-active:not(:hover),
+    #lang-dropdown-menu-mob:hover .lang-opt-active:not(:hover) {
+      background-color: transparent !important;
+      color: #334155 !important;
+      font-weight: 700 !important;
+    }
+
     /* Slider de calculadora sin marcas ni selección accidental */
     #calc-slider-box, #slider-track, #slider-thumb, .tier-btn {
       touch-action: none;
@@ -398,7 +411,7 @@
               <button type="button" onclick="switchLanguage('en')" data-lang-opt="en" class="lang-opt text-slate-700 hover:bg-[#f2920b] hover:text-slate-950 font-bold w-full text-center px-4 py-2 text-xs transition duration-150 cursor-pointer">
                 EN
               </button>
-              <button type="button" onclick="switchLanguage('fr')" data-lang-opt="fr" class="lang-opt bg-[#f2920b] text-slate-950 font-black w-full text-center px-4 py-2 text-xs transition duration-150 cursor-pointer">
+              <button type="button" onclick="switchLanguage('fr')" data-lang-opt="fr" class="lang-opt lang-opt-active w-full text-center px-4 py-2 text-xs transition duration-150 cursor-pointer">
                 FR
               </button>
               <button type="button" onclick="switchLanguage('it')" data-lang-opt="it" class="lang-opt text-slate-700 hover:bg-[#f2920b] hover:text-slate-950 font-bold w-full text-center px-4 py-2 text-xs transition duration-150 cursor-pointer">
@@ -461,7 +474,7 @@
                 <button type="button" onclick="switchLanguage('en')" data-lang-opt="en" class="lang-opt text-slate-700 hover:bg-[#f2920b] hover:text-slate-950 font-bold w-full text-center px-3 py-1.5 text-[11px] transition duration-150 cursor-pointer">
                   EN
                 </button>
-                <button type="button" onclick="switchLanguage('fr')" data-lang-opt="fr" class="lang-opt bg-[#f2920b] text-slate-950 font-black w-full text-center px-3 py-1.5 text-[11px] transition duration-150 cursor-pointer">
+                <button type="button" onclick="switchLanguage('fr')" data-lang-opt="fr" class="lang-opt lang-opt-active w-full text-center px-3 py-1.5 text-[11px] transition duration-150 cursor-pointer">
                   FR
                 </button>
                 <button type="button" onclick="switchLanguage('it')" data-lang-opt="it" class="lang-opt text-slate-700 hover:bg-[#f2920b] hover:text-slate-950 font-bold w-full text-center px-3 py-1.5 text-[11px] transition duration-150 cursor-pointer">
@@ -1233,19 +1246,15 @@
       const codeElMob = document.getElementById('current-lang-code-mob');
       if (codeElMob) codeElMob.textContent = lang.toUpperCase();
 
-      // Resaltar idioma activo con fondo naranja (#f2920b) y texto negro
+      // Resaltar idioma activo con fondo naranja (#f2920b) y texto negro (solo 1 a la vez)
       document.querySelectorAll('[data-lang-opt]').forEach(btn => {
         const optLang = btn.getAttribute('data-lang-opt');
         if (optLang === lang) {
-          btn.className = 'lang-opt bg-[#f2920b] text-slate-950 font-black w-full text-center px-4 py-2 text-xs transition duration-150 cursor-pointer';
-          if (btn.closest('#lang-dropdown-menu-mob')) {
-            btn.className = 'lang-opt bg-[#f2920b] text-slate-950 font-black w-full text-center px-3 py-1.5 text-[11px] transition duration-150 cursor-pointer';
-          }
+          btn.classList.add('lang-opt-active');
+          btn.classList.remove('text-slate-700');
         } else {
-          btn.className = 'lang-opt text-slate-700 hover:bg-[#f2920b] hover:text-slate-950 font-bold w-full text-center px-4 py-2 text-xs transition duration-150 cursor-pointer';
-          if (btn.closest('#lang-dropdown-menu-mob')) {
-            btn.className = 'lang-opt text-slate-700 hover:bg-[#f2920b] hover:text-slate-950 font-bold w-full text-center px-3 py-1.5 text-[11px] transition duration-150 cursor-pointer';
-          }
+          btn.classList.remove('lang-opt-active');
+          btn.classList.add('text-slate-700');
         }
       });
 
