@@ -200,6 +200,14 @@ def get_base_html(active_lang="es", is_subfolder=False):
   </script>
   <script src="https://unpkg.com/lucide@latest"></script>
   <style>
+    *, *::before, *::after {{
+      box-sizing: border-box;
+    }}
+    html, body {{
+      overflow-x: hidden;
+      width: 100%;
+      -webkit-text-size-adjust: 100%;
+    }}
     body {{ font-family: 'Plus Jakarta Sans', sans-serif; }}
     h1, h2, h3, h4, .font-heading {{ font-family: 'Outfit', sans-serif; }}
     
@@ -216,12 +224,16 @@ def get_base_html(active_lang="es", is_subfolder=False):
     /* Coverflow 3D Styles */
     .coverflow-wrapper {{
       perspective: 1400px;
+      overflow: hidden;
+      width: 100%;
     }}
     .coverflow-slide {{
       position: absolute;
       transition: transform 0.65s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.65s ease, filter 0.65s ease, box-shadow 0.65s ease;
       transform-style: preserve-3d;
       will-change: transform, opacity;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
       cursor: pointer;
     }}
     .coverflow-slide.active {{
@@ -296,7 +308,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
     }}
   </style>
 </head>
-<body class="bg-[#0b1626] text-slate-100 min-h-screen relative selection:bg-cool-orange selection:text-white overflow-x-hidden">
+<body class="bg-[#0b1626] text-slate-100 min-h-screen relative selection:bg-cool-orange selection:text-white overflow-x-hidden w-full">
 
   <!-- 1. TOP BAR NEGRA: INFORME EXCLUSIVO INTERCALADO CON NEWSLETTER COOLPADEL -->
   <div class="bg-black border-b border-neutral-800 py-2 sm:py-2.5 ticker-wrap text-[11px] sm:text-xs text-neutral-200 tracking-wider z-50 relative">
@@ -356,7 +368,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
   </div>
 
   <!-- 2. NAVBAR BLANCA RESPONSIVE: SELECTOR DE IDIOMA + LOGOS + CONTACTAR -->
-  <header class="sticky top-0 z-40 bg-white text-slate-900 border-b border-slate-200 shadow-sm">
+  <header class="sticky top-0 z-40 bg-white text-slate-900 border-b border-slate-200 shadow-sm w-full">
     <div class="w-full max-w-[1700px] mx-auto px-3 sm:px-6 lg:px-12 py-2 sm:py-0 h-auto sm:h-22 lg:h-24">
       
       <!-- DESKTOP NAVBAR (3 COLUMNAS: IZQUIERDA + CENTRO 100% + DERECHA) -->
@@ -382,10 +394,10 @@ def get_base_html(active_lang="es", is_subfolder=False):
           </a>
         </div>
 
-        <!-- COLUMNA 3: IDIOMAS + CONTACTAR (DESPLAZADOS UN PELÍN A LA IZQUIERDA) + OJOS DERECHA -->
+        <!-- COLUMNA 3: IDIOMAS + CONTACTAR + OJOS DERECHA -->
         <div class="flex items-center justify-between min-w-0 h-full">
-          <!-- BOTONES IDIOMA + CONTACTAR (UN PELÍN A LA IZQUIERDA) -->
-          <div class="flex-1 flex items-center justify-center -translate-x-3 lg:-translate-x-6 gap-2 sm:gap-3 lg:gap-4 px-2 lg:px-4">
+          <!-- BOTONES IDIOMA + CONTACTAR -->
+          <div class="flex-1 flex items-center justify-center gap-2 sm:gap-3 lg:gap-4 px-2 lg:px-4">
             <div class="inline-flex items-center bg-slate-100 rounded-full p-0.5 sm:p-1 border border-slate-200/90 shadow-inner text-[10px] sm:text-xs font-bold shrink-0">
               <button type="button" onclick="switchLanguage('es')" data-lang-btn="es" class="lang-btn {'active' if active_lang=='es' else 'text-slate-600 hover:text-slate-950'} px-2 sm:px-2.5 py-1 rounded-full transition-all duration-200 font-bold" title="Español">ES</button>
               <button type="button" onclick="switchLanguage('en')" data-lang-btn="en" class="lang-btn {'active' if active_lang=='en' else 'text-slate-600 hover:text-slate-950'} px-2 sm:px-2.5 py-1 rounded-full transition-all duration-200 font-bold" title="English">EN</button>
@@ -411,28 +423,28 @@ def get_base_html(active_lang="es", is_subfolder=False):
 
       </div>
 
-      <!-- MÓVIL NAVBAR (2 FILAS RESPONSIVE PERFECTAMENTE ALINEADAS) -->
-      <div class="flex sm:hidden flex-col gap-2 py-2 w-full">
+      <!-- MÓVIL NAVBAR (2 FILAS RESPONSIVE PERFECTAMENTE ALINEADAS Y FLUIDAS) -->
+      <div class="flex sm:hidden flex-col gap-1.5 py-1.5 w-full">
         <!-- FILA 1: OJOS IZQ + [MASCOTA + COOLPADEL CENTRADO] + OJOS DER -->
         <div class="flex items-center justify-between w-full">
-          <a href="#" class="py-1 inline-flex items-center shrink-0">
+          <a href="#" class="py-0.5 inline-flex items-center shrink-0">
             <img src="{asset_prefix}assets/images/Ojos logo.png" alt="CoolPadel Eyes" class="h-5 w-auto object-contain">
           </a>
           <a href="#" class="flex items-center justify-center gap-1.5 py-0.5">
-            <img src="{asset_prefix}assets/images/coolpadel-mascot-hd.png" alt="Mascota CoolPadel" class="h-7 w-auto object-contain">
+            <img src="{asset_prefix}assets/images/coolpadel-mascot-hd.png" alt="Mascota CoolPadel" class="h-6.5 w-auto object-contain">
             <img src="{asset_prefix}assets/images/coolpadel-typography-hd.png" alt="CoolPadel" class="h-4.5 w-auto object-contain">
           </a>
-          <a href="#" class="py-1 inline-flex items-center shrink-0">
+          <a href="#" class="py-0.5 inline-flex items-center shrink-0">
             <img src="{asset_prefix}assets/images/Ojos logo.png" alt="CoolPadel Eyes" class="h-5 w-auto object-contain">
           </a>
         </div>
         
         <!-- FILA 2: TENIS Y PADEL + SELECTOR IDIOMAS + BOTÓN CONTACTAR -->
-        <div class="flex items-center justify-between w-full gap-1.5 pt-1 border-t border-slate-100">
-          <span data-i18n="nav_tenis_padel" class="font-heading font-black text-[10px] tracking-wider uppercase text-slate-950 select-none whitespace-nowrap">
+        <div class="flex items-center justify-between w-full gap-1 pt-1 border-t border-slate-100">
+          <span data-i18n="nav_tenis_padel" class="font-heading font-black text-[9px] xs:text-[10px] tracking-wider uppercase text-slate-950 select-none whitespace-nowrap shrink-0">
             {t['nav_tenis_padel']}
           </span>
-          <div class="inline-flex items-center bg-slate-100 rounded-full p-0.5 border border-slate-200/90 text-[10px] font-bold shrink-0">
+          <div class="inline-flex items-center bg-slate-100 rounded-full p-0.5 border border-slate-200/90 text-[9px] xs:text-[10px] font-bold shrink-0">
             <button type="button" onclick="switchLanguage('es')" data-lang-btn="es" class="lang-btn {'active' if active_lang=='es' else 'text-slate-600 hover:text-slate-950'} px-1.5 py-0.5 rounded-full font-bold">ES</button>
             <button type="button" onclick="switchLanguage('en')" data-lang-btn="en" class="lang-btn {'active' if active_lang=='en' else 'text-slate-600 hover:text-slate-950'} px-1.5 py-0.5 rounded-full font-bold">EN</button>
             <button type="button" onclick="switchLanguage('fr')" data-lang-btn="fr" class="lang-btn {'active' if active_lang=='fr' else 'text-slate-600 hover:text-slate-950'} px-1.5 py-0.5 rounded-full font-bold">FR</button>
@@ -440,9 +452,9 @@ def get_base_html(active_lang="es", is_subfolder=False):
           </div>
           <a id="nav-contact-btn-mob" href="https://wa.me/34680317486?text={t['wa_prefilled_msg']}" 
              target="_blank" 
-             class="group relative inline-flex items-center justify-center gap-1 px-3 py-1.5 rounded-full bg-[#f2920b] active:bg-[#76d3f6] text-slate-950 active:scale-95 font-heading font-black text-[10px] uppercase tracking-wider transition-all duration-300 shadow-sm shrink-0">
+             class="group relative inline-flex items-center justify-center gap-1 px-2.5 py-1 rounded-full bg-[#f2920b] active:bg-[#76d3f6] text-slate-950 active:scale-95 font-heading font-black text-[9px] xs:text-[10px] uppercase tracking-wider transition-all duration-300 shadow-sm shrink-0">
             <span data-i18n="nav_contact" class="font-black">{t['nav_contact']}</span>
-            <div class="w-3.5 h-3.5 rounded-full bg-slate-950/10 flex items-center justify-center">
+            <div class="w-3 h-3 rounded-full bg-slate-950/10 flex items-center justify-center">
               <i data-lucide="arrow-up-right" class="w-2 h-2 stroke-[3]"></i>
             </div>
           </a>
@@ -463,8 +475,8 @@ def get_base_html(active_lang="es", is_subfolder=False):
           <img src="{asset_prefix}assets/images/slide-1.jpg" alt="Llaveros personalizados para club de padel y tenis CoolPadel" class="w-full h-full object-cover" fetchpriority="high" decoding="async">
           
           <!-- Slide Content (Nike Bottom Left Layout) -->
-          <div class="slide-caption absolute bottom-6 sm:bottom-12 left-5 sm:left-12 z-30 space-y-3 sm:space-y-4 pointer-events-auto pr-4">
-            <h1 data-i18n="slide1_title" class="text-2xl sm:text-5xl lg:text-6xl font-black font-heading text-white uppercase tracking-tight leading-[1.1]">
+          <div class="slide-caption absolute bottom-6 sm:bottom-12 left-5 sm:left-12 z-30 space-y-3 sm:space-y-4 pointer-events-auto pr-4 max-w-[92%] sm:max-w-[85%]">
+            <h1 data-i18n="slide1_title" class="text-2xl sm:text-4xl lg:text-5xl font-black font-heading text-white uppercase tracking-tight leading-[1.15]">
               {t['slide1_title']}
             </h1>
             <div>
@@ -482,8 +494,8 @@ def get_base_html(active_lang="es", is_subfolder=False):
         <div id="coverflow-1" class="coverflow-slide next w-[92%] sm:w-[75%] lg:w-[67%] max-w-[960px] h-[360px] sm:h-[470px] lg:h-[520px] rounded-3xl overflow-hidden bg-neutral-950">
           <img src="{asset_prefix}assets/images/slide-2.png" alt="Save my Play camaras inteligentes con IA para pistas de padel" class="w-full h-full object-cover" loading="lazy" decoding="async">
           
-          <div class="slide-caption absolute bottom-6 sm:bottom-12 left-5 sm:left-12 z-30 space-y-3 sm:space-y-4 pointer-events-auto pr-4">
-            <h2 data-i18n="slide2_title" class="text-2xl sm:text-5xl lg:text-6xl font-black font-heading text-white uppercase tracking-tight leading-[1.1]">
+          <div class="slide-caption absolute bottom-6 sm:bottom-12 left-5 sm:left-12 z-30 space-y-3 sm:space-y-4 pointer-events-auto pr-4 max-w-[92%] sm:max-w-[85%]">
+            <h2 data-i18n="slide2_title" class="text-2xl sm:text-4xl lg:text-5xl font-black font-heading text-white uppercase tracking-tight leading-[1.15]">
               {t['slide2_title']}
             </h2>
             <div>
@@ -502,8 +514,8 @@ def get_base_html(active_lang="es", is_subfolder=False):
         <div id="coverflow-2" class="coverflow-slide prev w-[92%] sm:w-[75%] lg:w-[67%] max-w-[960px] h-[360px] sm:h-[470px] lg:h-[520px] rounded-3xl overflow-hidden bg-neutral-950">
           <img src="{asset_prefix}assets/images/slide-3.jpg" alt="Informe exclusivo sobre la industria del padel 2026" class="w-full h-full object-cover" loading="lazy" decoding="async">
           
-          <div class="slide-caption absolute bottom-6 sm:bottom-12 left-5 sm:left-12 z-30 space-y-3 sm:space-y-4 pointer-events-auto pr-4">
-            <h2 data-i18n="slide3_title" class="text-2xl sm:text-5xl lg:text-6xl font-black font-heading text-white uppercase tracking-tight leading-[1.1]">
+          <div class="slide-caption absolute bottom-6 sm:bottom-12 left-5 sm:left-12 z-30 space-y-3 sm:space-y-4 pointer-events-auto pr-4 max-w-[92%] sm:max-w-[85%]">
+            <h2 data-i18n="slide3_title" class="text-2xl sm:text-4xl lg:text-5xl font-black font-heading text-white uppercase tracking-tight leading-[1.15]">
               {t['slide3_title']}
             </h2>
             <div>
@@ -529,11 +541,11 @@ def get_base_html(active_lang="es", is_subfolder=False):
     </div>
   </section>
 
-  <!-- 4. CARROUSEL PASARELA CLUBS -->
+  <!-- 4. CARROUSEL PASARELA CLUBS (DOBLE BUCLE PARA ANIMACIÓN PERFECTAMENTE FLUIDA) -->
   <section class="py-4 sm:py-5 lg:py-6 bg-white border-y border-slate-200 overflow-hidden shadow-sm">
     <div class="ticker-wrap py-1">
       <div class="ticker-content animate-ticker-trusted flex items-center gap-6 sm:gap-12 lg:gap-14">
-        {"".join([f'<div class="flex items-center justify-center shrink-0 px-3 sm:px-6 group"><img src="{asset_prefix}assets/images/Clubs/client-{str(i).zfill(2)}.png" alt="Club Deportivo Partner CoolPadel" class="h-14 sm:h-22 lg:h-24 w-auto max-w-[140px] sm:max-w-[240px] object-contain transition-all duration-300 hover:scale-110" loading="lazy" decoding="async"></div>' for i in range(2, 28)])}
+        {"".join([f'<div class="flex items-center justify-center shrink-0 px-3 sm:px-6 group"><img src="{asset_prefix}assets/images/Clubs/client-{str(i).zfill(2)}.png" alt="Club Deportivo Partner CoolPadel" class="h-14 sm:h-22 lg:h-24 w-auto max-w-[140px] sm:max-w-[240px] object-contain transition-all duration-300 hover:scale-110" loading="lazy" decoding="async"></div>' for i in (list(range(2, 28)) * 2)])}
       </div>
     </div>
   </section>
@@ -627,12 +639,12 @@ def get_base_html(active_lang="es", is_subfolder=False):
                   </div>
                 </div>
                 
-                <!-- Marcas de escala rápida -->
+                <!-- Marcas de escala rápida (sin salirse de los límites) -->
                 <div class="relative w-full text-[11px] sm:text-sm font-extrabold text-slate-600 h-6 mt-4">
-                  <button type="button" onclick="setTier(0)" class="tier-btn absolute left-0 -translate-x-1/2 hover:text-[#f2920b] transition">100 uds</button>
+                  <button type="button" onclick="setTier(0)" class="tier-btn absolute left-0 translate-x-0 hover:text-[#f2920b] transition">100 uds</button>
                   <button type="button" onclick="setTier(1)" class="tier-btn absolute left-[33.333%] -translate-x-1/2 hover:text-[#f2920b] transition">250 uds</button>
                   <button type="button" onclick="setTier(2)" class="tier-btn absolute left-[66.666%] -translate-x-1/2 hover:text-[#f2920b] transition">500 uds</button>
-                  <button type="button" onclick="setTier(3)" class="tier-btn absolute left-[100%] -translate-x-1/2 hover:text-[#f2920b] transition">1.500 uds</button>
+                  <button type="button" onclick="setTier(3)" class="tier-btn absolute right-0 translate-x-0 hover:text-[#f2920b] transition">1.500 uds</button>
                 </div>
               </div>
 
@@ -1023,7 +1035,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
         <!-- CENTRO: CORREO Y WHATSAPP OFICIAL DE JAVIER -->
         <div class="flex flex-col items-center justify-center text-center gap-4 sm:gap-6 px-2 sm:px-4">
           <a href="mailto:javier@coolpadelstudios.com" 
-             class="group inline-flex items-center gap-2.5 text-white hover:text-[#f2920b] font-sans font-bold text-sm sm:text-xl lg:text-2xl tracking-normal transition-all duration-300 hover:scale-105 active:scale-95 whitespace-nowrap -mt-1 sm:-mt-2">
+             class="group inline-flex items-center gap-2.5 text-white hover:text-[#f2920b] font-sans font-bold text-sm sm:text-xl lg:text-2xl tracking-normal transition-all duration-300 hover:scale-105 active:scale-95 break-all sm:break-normal -mt-1 sm:-mt-2">
             <i data-lucide="mail" class="w-4 h-4 sm:w-6 sm:h-6 text-[#f2920b] group-hover:text-white transition-colors shrink-0"></i>
             <span class="underline decoration-white/40 group-hover:decoration-[#f2920b] underline-offset-6">javier@coolpadelstudios.com</span>
           </a>
@@ -1040,7 +1052,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
         </div>
 
         <!-- DERECHA: SAVE MY PLAY ALINEADO HACIA EL CORREO -->
-        <div class="flex items-center justify-center md:justify-start md:pl-16 lg:pl-24 xl:pr-28">
+        <div class="flex items-center justify-center md:justify-start md:pl-16 lg:pl-24 xl:pl-28">
           <img src="{asset_prefix}assets/images/savemyplay-logo-white-text-hd.png" alt="Save my Play" class="h-10 sm:h-14 lg:h-16 w-auto object-contain drop-shadow-md" loading="lazy">
         </div>
 
@@ -1064,7 +1076,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
 
   <!-- 9. MODAL POP-UP LEAD MAGNET (INFORME EXCLUSIVO INDUSTRIA PADEL) -->
   <div id="lead-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/75 backdrop-blur-md opacity-0 pointer-events-none transition-opacity duration-300">
-    <div id="lead-modal-content" class="relative w-full max-w-lg bg-[#3478a6] border border-white/20 rounded-3xl p-6 sm:p-8 text-white shadow-[0_25px_60px_-15px_rgba(0,0,0,0.6)] transform scale-95 transition-transform duration-300">
+    <div id="lead-modal-content" class="relative w-full max-w-lg max-h-[90vh] overflow-y-auto bg-[#3478a6] border border-white/20 rounded-3xl p-6 sm:p-8 text-white shadow-[0_25px_60px_-15px_rgba(0,0,0,0.6)] transform scale-95 transition-transform duration-300">
       
       <!-- BOTÓN CERRAR (X) -->
       <button type="button" onclick="closeLeadModal()" class="absolute top-4 right-4 w-8 h-8 rounded-full bg-white/15 hover:bg-white/25 text-white flex items-center justify-center transition cursor-pointer" aria-label="Cerrar modal">
