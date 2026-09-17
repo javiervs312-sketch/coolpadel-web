@@ -382,7 +382,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
 
   <!-- 2. NAVBAR BLANCA RESPONSIVE: SELECTOR DESPLEGABLE DE IDIOMA + LOGOS + CONTACTAR -->
   <header class="sticky top-0 z-40 bg-white text-slate-900 border-b border-slate-200 shadow-sm w-full">
-    <div class="w-full max-w-[1700px] mx-auto px-3 sm:px-6 lg:px-10 py-1.5 sm:py-0 h-auto sm:h-20 lg:h-22">
+    <div class="w-full max-w-[1700px] mx-auto px-3 sm:px-6 lg:px-10 py-1.5 sm:py-0 h-auto sm:h-16 lg:h-18">
       
       <!-- DESKTOP NAVBAR (3 COLUMNAS: IZQUIERDA + CENTRO 100% + DERECHA) -->
       <div class="hidden sm:grid grid-cols-[1fr_auto_1fr] items-center h-full w-full gap-2 lg:gap-4">
@@ -513,24 +513,24 @@ def get_base_html(active_lang="es", is_subfolder=False):
   </header>
 
   <!-- 3. COVERFLOW ROTATIVO (ALTURA BALANCEADA PARA VER LOGOS DE CLUBES EN PANTALLA COMPLETA) -->
-  <section class="relative bg-white overflow-hidden select-none pt-2 pb-1 sm:pt-4 sm:pb-2">
+  <section class="relative bg-white overflow-hidden select-none pt-1.5 pb-1 sm:pt-2.5 sm:pb-1.5">
     <div class="w-full max-w-full mx-auto px-0 sm:px-4">
       
-      <div class="relative w-full h-[320px] sm:h-[380px] lg:h-[410px] flex items-center justify-center coverflow-wrapper">
+      <div class="relative w-full h-[270px] sm:h-[315px] lg:h-[340px] flex items-center justify-center coverflow-wrapper">
         
         <!-- SLIDE 1: LLAVEROS PARA TU CLUB/COMUNIDAD (SLIDE-1.JPG) -->
-        <div id="coverflow-0" class="coverflow-slide active w-[90%] sm:w-[72%] lg:w-[62%] max-w-[840px] h-[300px] sm:h-[360px] lg:h-[390px] rounded-3xl overflow-hidden bg-neutral-900">
+        <div id="coverflow-0" class="coverflow-slide active w-[88%] sm:w-[68%] lg:w-[58%] max-w-[760px] h-[255px] sm:h-[295px] lg:h-[320px] rounded-3xl overflow-hidden bg-neutral-900">
           <img src="{asset_prefix}assets/images/slide-1.jpg" alt="Llaveros personalizados para club de padel y tenis CoolPadel" class="w-full h-full object-cover" fetchpriority="high" decoding="async">
           
           <!-- Slide Content (Nike Bottom Left Layout) -->
-          <div class="slide-caption absolute bottom-4 sm:bottom-7 left-4 sm:left-8 z-30 space-y-2 sm:space-y-3 pointer-events-auto pr-4 max-w-[92%] sm:max-w-[85%]">
-            <h1 data-i18n="slide1_title" class="text-xl sm:text-3xl lg:text-4xl font-black font-heading text-white uppercase tracking-tight leading-[1.15]">
+          <div class="slide-caption absolute bottom-3 sm:bottom-5 left-3 sm:left-6 z-30 space-y-1.5 sm:space-y-2 pointer-events-auto pr-4 max-w-[92%] sm:max-w-[85%]">
+            <h1 data-i18n="slide1_title" class="text-lg sm:text-2xl lg:text-3xl font-black font-heading text-white uppercase tracking-tight leading-[1.15]">
               {t['slide1_title']}
             </h1>
             <div>
-              <a href="#llaveros" class="group inline-flex items-center gap-2 sm:gap-2.5 px-4 sm:px-6 py-1.5 sm:py-2.5 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] active:bg-[#76d3f6] text-slate-950 font-heading font-extrabold text-xs sm:text-sm tracking-wider uppercase shadow-[0_10px_25px_rgba(0,0,0,0.4)] hover:shadow-[0_14px_30px_rgba(118,211,246,0.5)] hover:scale-105 active:scale-95 transition-all duration-300 overflow-hidden">
+              <a href="#llaveros" class="group inline-flex items-center gap-2 sm:gap-2.5 px-3.5 sm:px-5 py-1.5 sm:py-2 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] active:bg-[#76d3f6] text-slate-950 font-heading font-extrabold text-xs sm:text-sm tracking-wider uppercase shadow-[0_10px_25px_rgba(0,0,0,0.4)] hover:shadow-[0_14px_30px_rgba(118,211,246,0.5)] hover:scale-105 active:scale-95 transition-all duration-300 overflow-hidden">
                 <span data-i18n="slide1_btn">{t['slide1_btn']}</span>
-                <div class="w-5 h-5 sm:w-5.5 sm:h-5.5 rounded-full bg-slate-950/10 group-hover:bg-slate-950 group-hover:text-white flex items-center justify-center transition-all duration-300">
+                <div class="w-4.5 h-4.5 sm:w-5 sm:h-5 rounded-full bg-slate-950/10 group-hover:bg-slate-950 group-hover:text-white flex items-center justify-center transition-all duration-300">
                   <i data-lucide="arrow-right" class="w-3 h-3 sm:w-3.5 sm:h-3.5 stroke-[3] group-hover:translate-x-1 transition-transform duration-300"></i>
                 </div>
               </a>
@@ -539,18 +539,18 @@ def get_base_html(active_lang="es", is_subfolder=False):
         </div>
 
         <!-- SLIDE 2: SAVE MY PLAY - GRABACIÓN EN PISTA: HIGHLIGHTS Y PARTIDOS -->
-        <div id="coverflow-1" class="coverflow-slide next w-[90%] sm:w-[72%] lg:w-[62%] max-w-[840px] h-[300px] sm:h-[360px] lg:h-[390px] rounded-3xl overflow-hidden bg-neutral-900">
+        <div id="coverflow-1" class="coverflow-slide next w-[88%] sm:w-[68%] lg:w-[58%] max-w-[760px] h-[255px] sm:h-[295px] lg:h-[320px] rounded-3xl overflow-hidden bg-neutral-900">
           <img src="{asset_prefix}assets/images/slide-2.jpg" alt="Save my Play camaras inteligentes con IA para pistas de padel" class="w-full h-full object-cover" decoding="async">
           
-          <div class="slide-caption absolute bottom-4 sm:bottom-7 left-4 sm:left-8 z-30 space-y-2 sm:space-y-3 pointer-events-auto pr-4 max-w-[92%] sm:max-w-[85%]">
-            <h2 data-i18n="slide2_title" class="text-xl sm:text-3xl lg:text-4xl font-black font-heading text-white uppercase tracking-tight leading-[1.15]">
+          <div class="slide-caption absolute bottom-3 sm:bottom-5 left-3 sm:left-6 z-30 space-y-1.5 sm:space-y-2 pointer-events-auto pr-4 max-w-[92%] sm:max-w-[85%]">
+            <h2 data-i18n="slide2_title" class="text-lg sm:text-2xl lg:text-3xl font-black font-heading text-white uppercase tracking-tight leading-[1.15]">
               {t['slide2_title']}
             </h2>
             <div>
-              <a href="#savemyplay" class="group inline-flex items-center gap-2 sm:gap-2.5 px-4 sm:px-6 py-1.5 sm:py-2.5 rounded-full bg-white hover:bg-neutral-100 active:bg-neutral-200 text-neutral-950 font-heading font-extrabold text-xs sm:text-sm tracking-wider uppercase shadow-[0_10px_25px_rgba(0,0,0,0.4)] hover:shadow-[0_14px_30px_rgba(0,0,0,0.6)] hover:scale-105 active:scale-95 transition-all duration-300 overflow-hidden">
+              <a href="#savemyplay" class="group inline-flex items-center gap-2 sm:gap-2.5 px-3.5 sm:px-5 py-1.5 sm:py-2 rounded-full bg-white hover:bg-neutral-100 active:bg-neutral-200 text-neutral-950 font-heading font-extrabold text-xs sm:text-sm tracking-wider uppercase shadow-[0_10px_25px_rgba(0,0,0,0.4)] hover:shadow-[0_14px_30px_rgba(0,0,0,0.6)] hover:scale-105 active:scale-95 transition-all duration-300 overflow-hidden">
                 <span data-i18n="slide2_btn">{t['slide2_btn']}</span>
-                <img src="{asset_prefix}assets/images/savemyplay-logo-cropped.png" alt="Save my Play" class="h-4.5 sm:h-6 lg:h-7 w-auto object-contain">
-                <div class="w-5 h-5 sm:w-5.5 sm:h-5.5 rounded-full bg-slate-950/10 group-hover:bg-slate-950/20 text-neutral-950 flex items-center justify-center transition-all duration-300">
+                <img src="{asset_prefix}assets/images/savemyplay-logo-cropped.png" alt="Save my Play" class="h-4 sm:h-5 lg:h-6 w-auto object-contain">
+                <div class="w-4.5 h-4.5 sm:w-5 sm:h-5 rounded-full bg-slate-950/10 group-hover:bg-slate-950/20 text-neutral-950 flex items-center justify-center transition-all duration-300">
                   <i data-lucide="arrow-up-right" class="w-3 h-3 sm:w-3.5 sm:h-3.5 stroke-[3] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300"></i>
                 </div>
               </a>
@@ -559,17 +559,17 @@ def get_base_html(active_lang="es", is_subfolder=False):
         </div>
 
         <!-- SLIDE 3: EL NEGOCIO DEL PADEL INFORME (SLIDE-3.JPG) -->
-        <div id="coverflow-2" class="coverflow-slide prev w-[90%] sm:w-[72%] lg:w-[62%] max-w-[840px] h-[300px] sm:h-[360px] lg:h-[390px] rounded-3xl overflow-hidden bg-neutral-900">
+        <div id="coverflow-2" class="coverflow-slide prev w-[88%] sm:w-[68%] lg:w-[58%] max-w-[760px] h-[255px] sm:h-[295px] lg:h-[320px] rounded-3xl overflow-hidden bg-neutral-900">
           <img src="{asset_prefix}assets/images/slide-3.jpg" alt="Informe exclusivo sobre la industria del padel 2026" class="w-full h-full object-cover" decoding="async">
           
-          <div class="slide-caption absolute bottom-4 sm:bottom-7 left-4 sm:left-8 z-30 space-y-2 sm:space-y-3 pointer-events-auto pr-4 max-w-[92%] sm:max-w-[85%]">
-            <h2 data-i18n="slide3_title" class="text-xl sm:text-3xl lg:text-4xl font-black font-heading text-white uppercase tracking-tight leading-[1.15]">
+          <div class="slide-caption absolute bottom-3 sm:bottom-5 left-3 sm:left-6 z-30 space-y-1.5 sm:space-y-2 pointer-events-auto pr-4 max-w-[92%] sm:max-w-[85%]">
+            <h2 data-i18n="slide3_title" class="text-lg sm:text-2xl lg:text-3xl font-black font-heading text-white uppercase tracking-tight leading-[1.15]">
               {t['slide3_title']}
             </h2>
             <div>
-              <a href="#informe" class="group inline-flex items-center gap-2 sm:gap-2.5 px-4 sm:px-6 py-1.5 sm:py-2.5 rounded-full bg-[#76d3f6] hover:bg-[#f2920b] active:bg-[#f2920b] text-slate-950 font-heading font-extrabold text-xs sm:text-sm tracking-wider uppercase shadow-[0_10px_25px_rgba(0,0,0,0.4)] hover:shadow-[0_14px_30px_rgba(242,146,11,0.5)] hover:scale-105 active:scale-95 transition-all duration-300 overflow-hidden">
+              <a href="#informe" class="group inline-flex items-center gap-2 sm:gap-2.5 px-3.5 sm:px-5 py-1.5 sm:py-2 rounded-full bg-[#76d3f6] hover:bg-[#f2920b] active:bg-[#f2920b] text-slate-950 font-heading font-extrabold text-xs sm:text-sm tracking-wider uppercase shadow-[0_10px_25px_rgba(0,0,0,0.4)] hover:shadow-[0_14px_30px_rgba(242,146,11,0.5)] hover:scale-105 active:scale-95 transition-all duration-300 overflow-hidden">
                 <span data-i18n="slide3_btn">{t['slide3_btn']}</span>
-                <div class="w-5 h-5 sm:w-5.5 sm:h-5.5 rounded-full bg-slate-950/10 group-hover:bg-slate-950 group-hover:text-white flex items-center justify-center transition-all duration-300">
+                <div class="w-4.5 h-4.5 sm:w-5 sm:h-5 rounded-full bg-slate-950/10 group-hover:bg-slate-950 group-hover:text-white flex items-center justify-center transition-all duration-300">
                   <i data-lucide="download" class="w-3 h-3 sm:w-3.5 sm:h-3.5 stroke-[3] group-hover:translate-y-0.5 transition-transform duration-300"></i>
                 </div>
               </a>
@@ -580,8 +580,8 @@ def get_base_html(active_lang="es", is_subfolder=False):
       </div>
 
       <!-- TEXTO EN ZONA DEBAJO DE LAS FOTOS (SIEMPRE VISIBLE EN EL FOLD) -->
-      <div class="mt-3 sm:mt-4 mb-0 text-center px-4">
-        <p data-i18n="trusted_text" class="text-[12px] sm:text-[15px] lg:text-[17px] font-heading font-extrabold uppercase tracking-widest text-slate-950 leading-snug">
+      <div class="mt-2 sm:mt-2.5 mb-0 text-center px-4">
+        <p data-i18n="trusted_text" class="text-[11px] sm:text-[13px] lg:text-[15px] font-heading font-extrabold uppercase tracking-widest text-slate-950 leading-snug">
           {t['trusted_text']}
         </p>
       </div>
@@ -590,10 +590,10 @@ def get_base_html(active_lang="es", is_subfolder=False):
   </section>
 
   <!-- 4. CARROUSEL PASARELA CLUBS (ALTURA AJUSTADA PARA ESTAR VISIBLE DE INMEDIATO) -->
-  <section class="py-2.5 sm:py-3.5 bg-white border-y border-slate-200 overflow-hidden shadow-xs">
+  <section class="py-2 sm:py-2.5 bg-white border-y border-slate-200 overflow-hidden shadow-xs">
     <div class="ticker-wrap py-0.5">
-      <div class="ticker-content animate-ticker-trusted flex items-center gap-5 sm:gap-10 lg:gap-12">
-        {"".join([f'<div class="flex items-center justify-center shrink-0 px-2.5 sm:px-5 group"><img src="{asset_prefix}assets/images/Clubs/client-{str(i).zfill(2)}.png" alt="Club Deportivo Partner Oficial CoolPadel #{str(i).zfill(2)}" class="h-10 sm:h-14 lg:h-16 w-auto max-w-[110px] sm:max-w-[180px] object-contain transition-all duration-300 hover:scale-110" loading="lazy" decoding="async"></div>' for i in (list(range(2, 28)) * 2)])}
+      <div class="ticker-content animate-ticker-trusted flex items-center gap-5 sm:gap-8 lg:gap-10">
+        {"".join([f'<div class="flex items-center justify-center shrink-0 px-2 sm:px-4 group"><img src="{asset_prefix}assets/images/Clubs/client-{str(i).zfill(2)}.png" alt="Club Deportivo Partner Oficial CoolPadel #{str(i).zfill(2)}" class="h-8 sm:h-11 lg:h-12 w-auto max-w-[100px] sm:max-w-[160px] object-contain transition-all duration-300 hover:scale-110" loading="lazy" decoding="async"></div>' for i in (list(range(2, 28)) * 2)])}
       </div>
     </div>
   </section>
