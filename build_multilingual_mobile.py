@@ -1060,8 +1060,8 @@ def get_base_html(active_lang="es", is_subfolder=False):
     </div>
   </section>
 
-  <!-- 8. SECCIÓN CONTACTO (FONDO CELESTE #3478a6 & SIMETRÍA RESPONSIVE) -->
-  <section id="contacto" class="pt-8 sm:pt-12 pb-12 sm:pb-16 bg-[#3478a6] relative border-t border-sky-700/40 text-white overflow-hidden">
+  <!-- 8. SECCIÓN CONTACTO (FONDO CELESTE #3478a6 & GRAN ALTURA VISUAL) -->
+  <section id="contacto" class="py-20 sm:py-28 lg:py-36 bg-[#3478a6] relative border-t border-sky-700/40 text-white overflow-hidden">
     <div class="max-w-[1550px] mx-auto px-6 sm:px-12 lg:px-16 relative z-10">
       
       <!-- 3 BLOQUES MATEMÁTICAMENTE SIMÉTRICOS RESPECTO AL CORREO -->
