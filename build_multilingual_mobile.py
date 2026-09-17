@@ -198,7 +198,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
       }}
     }}
   </script>
-  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"></script>
   <style>
     *, *::before, *::after {{
       box-sizing: border-box;
@@ -540,7 +540,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
 
         <!-- SLIDE 2: SAVE MY PLAY - GRABACIÓN EN PISTA: HIGHLIGHTS Y PARTIDOS -->
         <div id="coverflow-1" class="coverflow-slide next w-[90%] sm:w-[72%] lg:w-[62%] max-w-[840px] h-[300px] sm:h-[360px] lg:h-[390px] rounded-3xl overflow-hidden bg-neutral-900">
-          <img src="{asset_prefix}assets/images/slide-2.jpg" alt="Save my Play camaras inteligentes con IA para pistas de padel" class="w-full h-full object-cover" loading="lazy" decoding="async">
+          <img src="{asset_prefix}assets/images/slide-2.jpg" alt="Save my Play camaras inteligentes con IA para pistas de padel" class="w-full h-full object-cover" decoding="async">
           
           <div class="slide-caption absolute bottom-4 sm:bottom-7 left-4 sm:left-8 z-30 space-y-2 sm:space-y-3 pointer-events-auto pr-4 max-w-[92%] sm:max-w-[85%]">
             <h2 data-i18n="slide2_title" class="text-xl sm:text-3xl lg:text-4xl font-black font-heading text-white uppercase tracking-tight leading-[1.15]">
@@ -549,7 +549,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
             <div>
               <a href="#savemyplay" class="group inline-flex items-center gap-2 sm:gap-2.5 px-4 sm:px-6 py-1.5 sm:py-2.5 rounded-full bg-white hover:bg-neutral-100 active:bg-neutral-200 text-neutral-950 font-heading font-extrabold text-xs sm:text-sm tracking-wider uppercase shadow-[0_10px_25px_rgba(0,0,0,0.4)] hover:shadow-[0_14px_30px_rgba(0,0,0,0.6)] hover:scale-105 active:scale-95 transition-all duration-300 overflow-hidden">
                 <span data-i18n="slide2_btn">{t['slide2_btn']}</span>
-                <img src="{asset_prefix}assets/images/savemyplay-logo-cropped.png" alt="Save my Play" class="h-4.5 sm:h-6 lg:h-7 w-auto object-contain" loading="lazy">
+                <img src="{asset_prefix}assets/images/savemyplay-logo-cropped.png" alt="Save my Play" class="h-4.5 sm:h-6 lg:h-7 w-auto object-contain">
                 <div class="w-5 h-5 sm:w-5.5 sm:h-5.5 rounded-full bg-slate-950/10 group-hover:bg-slate-950/20 text-neutral-950 flex items-center justify-center transition-all duration-300">
                   <i data-lucide="arrow-up-right" class="w-3 h-3 sm:w-3.5 sm:h-3.5 stroke-[3] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300"></i>
                 </div>
@@ -560,7 +560,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
 
         <!-- SLIDE 3: EL NEGOCIO DEL PADEL INFORME (SLIDE-3.JPG) -->
         <div id="coverflow-2" class="coverflow-slide prev w-[90%] sm:w-[72%] lg:w-[62%] max-w-[840px] h-[300px] sm:h-[360px] lg:h-[390px] rounded-3xl overflow-hidden bg-neutral-900">
-          <img src="{asset_prefix}assets/images/slide-3.jpg" alt="Informe exclusivo sobre la industria del padel 2026" class="w-full h-full object-cover" loading="lazy" decoding="async">
+          <img src="{asset_prefix}assets/images/slide-3.jpg" alt="Informe exclusivo sobre la industria del padel 2026" class="w-full h-full object-cover" decoding="async">
           
           <div class="slide-caption absolute bottom-4 sm:bottom-7 left-4 sm:left-8 z-30 space-y-2 sm:space-y-3 pointer-events-auto pr-4 max-w-[92%] sm:max-w-[85%]">
             <h2 data-i18n="slide3_title" class="text-xl sm:text-3xl lg:text-4xl font-black font-heading text-white uppercase tracking-tight leading-[1.15]">
@@ -593,7 +593,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
   <section class="py-2.5 sm:py-3.5 bg-white border-y border-slate-200 overflow-hidden shadow-xs">
     <div class="ticker-wrap py-0.5">
       <div class="ticker-content animate-ticker-trusted flex items-center gap-5 sm:gap-10 lg:gap-12">
-        {"".join([f'<div class="flex items-center justify-center shrink-0 px-2.5 sm:px-5 group"><img src="{asset_prefix}assets/images/Clubs/client-{str(i).zfill(2)}.png" alt="Club Deportivo Partner CoolPadel" class="h-10 sm:h-14 lg:h-16 w-auto max-w-[110px] sm:max-w-[180px] object-contain transition-all duration-300 hover:scale-110" loading="lazy" decoding="async"></div>' for i in (list(range(2, 28)) * 2)])}
+        {"".join([f'<div class="flex items-center justify-center shrink-0 px-2.5 sm:px-5 group"><img src="{asset_prefix}assets/images/Clubs/client-{str(i).zfill(2)}.png" alt="Club Deportivo Partner Oficial CoolPadel #{str(i).zfill(2)}" class="h-10 sm:h-14 lg:h-16 w-auto max-w-[110px] sm:max-w-[180px] object-contain transition-all duration-300 hover:scale-110" loading="lazy" decoding="async"></div>' for i in (list(range(2, 28)) * 2)])}
       </div>
     </div>
   </section>
@@ -1565,16 +1565,21 @@ def get_base_html(active_lang="es", is_subfolder=False):
         }}
       }}
 
-      const dict = I18N_DATA[currentLang] || I18N_DATA['es'];
-      const btn = e.target.querySelector('button[type="submit"] span');
-      if (btn) {{
-        const originalText = btn.textContent;
-        btn.textContent = dict.report_card1_btn_success || '¡Informe Descargado!';
-        setTimeout(() => {{
-          btn.textContent = originalText;
-          emailInput.value = '';
-        }}, 3500);
+      if (dict) {{
+        const btn = e.target.querySelector('button[type="submit"] span');
+        if (btn) {{
+          const originalText = btn.textContent;
+          btn.textContent = dict.report_card1_btn_success || '¡Informe Descargado!';
+          setTimeout(() => {{
+            btn.textContent = originalText;
+            emailInput.value = '';
+          }}, 3500);
+        }}
       }}
+      try {{
+        localStorage.setItem('coolpadel_lead_dismissed', 'true');
+        sessionStorage.setItem('coolpadel_lead_dismissed', 'true');
+      }} catch(e) {{}}
     }}
 
     // POP-UP LEAD MAGNET LOGIC (TEMPORIZADOR PROGRESIVO Y NO INTRUSIVO)
@@ -1582,7 +1587,9 @@ def get_base_html(active_lang="es", is_subfolder=False):
     const pageStartTime = Date.now();
 
     window.openLeadModal = function() {{
-      if (modalTriggered || sessionStorage.getItem('coolpadel_lead_dismissed')) return;
+      try {{
+        if (modalTriggered || sessionStorage.getItem('coolpadel_lead_dismissed') || localStorage.getItem('coolpadel_lead_dismissed')) return;
+      }} catch(e) {{}}
       modalTriggered = true;
       const modal = document.getElementById('lead-modal');
       const content = document.getElementById('lead-modal-content');
@@ -1595,7 +1602,10 @@ def get_base_html(active_lang="es", is_subfolder=False):
     }};
 
     window.closeLeadModal = function() {{
-      sessionStorage.setItem('coolpadel_lead_dismissed', 'true');
+      try {{
+        sessionStorage.setItem('coolpadel_lead_dismissed', 'true');
+        localStorage.setItem('coolpadel_lead_dismissed', 'true');
+      }} catch(e) {{}}
       const modal = document.getElementById('lead-modal');
       const content = document.getElementById('lead-modal-content');
       if (modal && content) {{
@@ -1638,6 +1648,11 @@ def get_base_html(active_lang="es", is_subfolder=False):
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
+
+      try {{
+        localStorage.setItem('coolpadel_lead_dismissed', 'true');
+        sessionStorage.setItem('coolpadel_lead_dismissed', 'true');
+      }} catch(e) {{}}
 
       if (GOOGLE_SHEETS_WEBHOOK_URL) {{
         try {{
@@ -1705,6 +1720,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
       attachClick('nav-contact-btn', 'click_whatsapp_nav');
       attachClick('nav-contact-btn-mob', 'click_whatsapp_nav_mob');
       attachClick('calc-wa-btn', 'click_whatsapp_calc', () => ({{ tier_qty: tiers[currentTierIdx]?.qty, tier_price: tiers[currentTierIdx]?.price }}));
+      attachClick('smp-plan-btn', 'click_whatsapp_savemyplay_plan');
       attachClick('smp-contact-btn', 'click_whatsapp_savemyplay');
       attachClick('contact-wa-btn', 'click_whatsapp_footer');
       attachClick('floating-wa-btn', 'click_whatsapp_floating');
