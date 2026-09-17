@@ -241,7 +241,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
       z-index: 30;
       opacity: 1;
       filter: blur(0px);
-      box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.7);
+      box-shadow: 0 20px 45px -12px rgba(0, 0, 0, 0.65);
       cursor: default;
     }}
     .coverflow-slide.prev {{
@@ -250,7 +250,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
       opacity: 0.65;
       filter: blur(1.5px);
       cursor: pointer;
-      box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.65);
+      box-shadow: 0 16px 32px -8px rgba(0, 0, 0, 0.55);
     }}
     .coverflow-slide.next {{
       transform: translateX(56%) scale(0.88);
@@ -258,7 +258,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
       opacity: 0.65;
       filter: blur(1.5px);
       cursor: pointer;
-      box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.65);
+      box-shadow: 0 16px 32px -8px rgba(0, 0, 0, 0.55);
     }}
     @media (min-width: 768px) {{
       .coverflow-slide.prev {{
@@ -294,24 +294,24 @@ def get_base_html(active_lang="es", is_subfolder=False):
       border: 1px solid rgba(56, 189, 248, 0.18);
     }}
 
-    /* Slider de calculadora con touch-action optimizado */
-    #slider-track {{
+    /* Slider de calculadora sin marcas ni selección accidental */
+    #calc-slider-box, #slider-track, #slider-thumb, .tier-btn {{
       touch-action: none;
-    }}
-    
-    /* Selector de idioma botón activo */
-    .lang-btn.active {{
-      background-color: #f2920b;
-      color: #0f172a;
-      box-shadow: 0 2px 6px rgba(242, 146, 11, 0.35);
-      font-weight: 900;
+      -webkit-touch-callout: none;
+      -webkit-user-select: none;
+      -khtml-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      outline: none !important;
+      -webkit-tap-highlight-color: transparent;
     }}
   </style>
 </head>
 <body class="bg-[#0b1626] text-slate-100 min-h-screen relative selection:bg-cool-orange selection:text-white overflow-x-hidden w-full">
 
   <!-- 1. TOP BAR NEGRA: INFORME EXCLUSIVO INTERCALADO CON NEWSLETTER COOLPADEL -->
-  <div class="bg-black border-b border-neutral-800 py-2 sm:py-2.5 ticker-wrap text-[11px] sm:text-xs text-neutral-200 tracking-wider z-50 relative">
+  <div class="bg-black border-b border-neutral-800 py-1.5 sm:py-2 ticker-wrap text-[11px] sm:text-xs text-neutral-200 tracking-wider z-50 relative">
     <div class="ticker-content animate-ticker-slow flex items-center font-medium">
       
       <!-- BLOQUE 1 -->
@@ -367,19 +367,19 @@ def get_base_html(active_lang="es", is_subfolder=False):
     </div>
   </div>
 
-  <!-- 2. NAVBAR BLANCA RESPONSIVE: SELECTOR DE IDIOMA + LOGOS + CONTACTAR -->
+  <!-- 2. NAVBAR BLANCA RESPONSIVE: SELECTOR DESPLEGABLE DE IDIOMA + LOGOS + CONTACTAR -->
   <header class="sticky top-0 z-40 bg-white text-slate-900 border-b border-slate-200 shadow-sm w-full">
-    <div class="w-full max-w-[1700px] mx-auto px-3 sm:px-6 lg:px-12 py-2 sm:py-0 h-auto sm:h-22 lg:h-24">
+    <div class="w-full max-w-[1700px] mx-auto px-3 sm:px-6 lg:px-10 py-1.5 sm:py-0 h-auto sm:h-20 lg:h-22">
       
       <!-- DESKTOP NAVBAR (3 COLUMNAS: IZQUIERDA + CENTRO 100% + DERECHA) -->
       <div class="hidden sm:grid grid-cols-[1fr_auto_1fr] items-center h-full w-full gap-2 lg:gap-4">
         
-        <!-- COLUMNA 1: OJOS + TENIS Y PADEL (100% CENTRADO EN MEDIO ENTRE OJOS Y MASCOTA) -->
+        <!-- COLUMNA 1: OJOS + TENIS Y PADEL (100% CENTRADO ENTRE OJOS Y MASCOTA) -->
         <div class="flex items-center justify-between min-w-0 h-full">
           <a href="#" class="group py-1 inline-flex items-center shrink-0">
-            <img src="{asset_prefix}assets/images/Ojos logo.png" alt="CoolPadel Eyes" class="h-6 sm:h-7 lg:h-9 w-auto object-contain group-hover:scale-110 transition duration-300">
+            <img src="{asset_prefix}assets/images/Ojos logo.png" alt="CoolPadel Eyes" class="h-6 sm:h-7 lg:h-8 w-auto object-contain group-hover:scale-110 transition duration-300">
           </a>
-          <div class="flex-1 flex items-center justify-center px-2 lg:px-4">
+          <div class="flex-1 flex items-center justify-center px-2">
             <span data-i18n="nav_tenis_padel" class="font-heading font-black text-xs sm:text-sm lg:text-base tracking-wider uppercase text-slate-950 select-none whitespace-nowrap">
               {t['nav_tenis_padel']}
             </span>
@@ -387,37 +387,54 @@ def get_base_html(active_lang="es", is_subfolder=False):
         </div>
 
         <!-- COLUMNA 2: MASCOTA + COOLPADEL (MATEMÁTICAMENTE 100% CENTRADO EN PANTALLA) -->
-        <div class="flex items-center justify-center shrink-0 px-2 lg:px-6">
-          <a href="#" class="flex items-center justify-center gap-2 sm:gap-3.5 group py-1 sm:py-2">
-            <img src="{asset_prefix}assets/images/coolpadel-mascot-hd.png" alt="Mascota CoolPadel" class="h-10 sm:h-13 lg:h-16 w-auto object-contain group-hover:scale-105 transition max-h-[64px]">
-            <img src="{asset_prefix}assets/images/coolpadel-typography-hd.png" alt="CoolPadel" class="h-6 sm:h-8 lg:h-11 w-auto object-contain">
+        <div class="flex items-center justify-center shrink-0 px-2 lg:px-4">
+          <a href="#" class="flex items-center justify-center gap-2 sm:gap-3 group py-1">
+            <img src="{asset_prefix}assets/images/coolpadel-mascot-hd.png" alt="Mascota CoolPadel" class="h-9 sm:h-12 lg:h-14 w-auto object-contain group-hover:scale-105 transition max-h-[58px]">
+            <img src="{asset_prefix}assets/images/coolpadel-typography-hd.png" alt="CoolPadel" class="h-5 sm:h-7 lg:h-9 w-auto object-contain">
           </a>
         </div>
 
-        <!-- COLUMNA 3: IDIOMAS + CONTACTAR + OJOS DERECHA -->
-        <div class="flex items-center justify-between min-w-0 h-full">
-          <!-- BOTONES IDIOMA + CONTACTAR -->
-          <div class="flex-1 flex items-center justify-center gap-2 sm:gap-3 lg:gap-4 px-2 lg:px-4">
-            <div class="inline-flex items-center bg-slate-100 rounded-full p-0.5 sm:p-1 border border-slate-200/90 shadow-inner text-[10px] sm:text-xs font-bold shrink-0">
-              <button type="button" onclick="switchLanguage('es')" data-lang-btn="es" class="lang-btn {'active' if active_lang=='es' else 'text-slate-600 hover:text-slate-950'} px-2 sm:px-2.5 py-1 rounded-full transition-all duration-200 font-bold" title="Español">ES</button>
-              <button type="button" onclick="switchLanguage('en')" data-lang-btn="en" class="lang-btn {'active' if active_lang=='en' else 'text-slate-600 hover:text-slate-950'} px-2 sm:px-2.5 py-1 rounded-full transition-all duration-200 font-bold" title="English">EN</button>
-              <button type="button" onclick="switchLanguage('fr')" data-lang-btn="fr" class="lang-btn {'active' if active_lang=='fr' else 'text-slate-600 hover:text-slate-950'} px-2 sm:px-2.5 py-1 rounded-full transition-all duration-200 font-bold" title="Français">FR</button>
-              <button type="button" onclick="switchLanguage('it')" data-lang-btn="it" class="lang-btn {'active' if active_lang=='it' else 'text-slate-600 hover:text-slate-950'} px-2 sm:px-2.5 py-1 rounded-full transition-all duration-200 font-bold" title="Italiano">IT</button>
-            </div>
+        <!-- COLUMNA 3: IDIOMAS DROPDOWN + CONTACTAR + OJOS DERECHA (SIEMPRE 100% VISIBLES) -->
+        <div class="flex items-center justify-end min-w-0 h-full gap-2 sm:gap-3 lg:gap-5">
+          
+          <!-- SELECTOR DE IDIOMA EN DESPLEGABLE COMPACTO -->
+          <div class="relative inline-block text-left" id="lang-dropdown-container">
+            <button type="button" onclick="toggleLangDropdown(event)" id="lang-dropdown-btn" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-100 hover:bg-slate-200/90 active:bg-slate-200 border border-slate-200 text-xs font-bold text-slate-800 shadow-xs transition cursor-pointer" aria-expanded="false" aria-haspopup="true">
+              <span id="current-lang-flag">{'🇪🇸' if active_lang=='es' else ('🇬🇧' if active_lang=='en' else ('🇫🇷' if active_lang=='fr' else '🇮🇹'))}</span>
+              <span id="current-lang-code" class="uppercase font-black">{active_lang.upper()}</span>
+              <i data-lucide="chevron-down" class="w-3.5 h-3.5 stroke-[2.5] text-slate-500 transition-transform duration-200" id="lang-dropdown-arrow"></i>
+            </button>
 
-            <a id="nav-contact-btn" href="https://wa.me/34680317486?text={t['wa_prefilled_msg']}" 
-               target="_blank" 
-               class="group relative inline-flex items-center gap-1.5 sm:gap-2.5 px-3 sm:px-5 lg:px-6 py-2 sm:py-2.5 lg:py-3 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] active:bg-[#76d3f6] text-slate-950 active:scale-95 font-heading font-black text-xs sm:text-sm lg:text-base tracking-wider uppercase transition-all duration-300 shadow-[0_4px_15px_rgba(242,146,11,0.25)] hover:shadow-[0_10px_25px_rgba(118,211,246,0.4)] hover:scale-105 shrink-0 overflow-hidden">
-              <span data-i18n="nav_contact" class="font-black">{t['nav_contact']}</span>
-              <div class="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-slate-950/10 group-hover:bg-slate-950 group-hover:text-white flex items-center justify-center transition-all duration-300 shrink-0">
-                <i data-lucide="arrow-up-right" class="w-3 h-3 sm:w-3.5 sm:h-3.5 stroke-[3] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300"></i>
-              </div>
-            </a>
+            <!-- MENÚ DESPLEGABLE FLOTANTE -->
+            <div id="lang-dropdown-menu" class="hidden absolute right-0 mt-2 w-38 bg-white rounded-2xl shadow-[0_12px_30px_rgba(0,0,0,0.15)] border border-slate-200 py-1.5 z-50 transition-all">
+              <button type="button" onclick="switchLanguage('es')" data-lang-opt="es" class="w-full text-left px-3.5 py-2 text-xs font-bold hover:bg-amber-50 hover:text-[#f2920b] flex items-center gap-2.5 text-slate-800 transition cursor-pointer">
+                <span>🇪🇸</span> Español (ES)
+              </button>
+              <button type="button" onclick="switchLanguage('en')" data-lang-opt="en" class="w-full text-left px-3.5 py-2 text-xs font-bold hover:bg-amber-50 hover:text-[#f2920b] flex items-center gap-2.5 text-slate-800 transition cursor-pointer">
+                <span>🇬🇧</span> English (EN)
+              </button>
+              <button type="button" onclick="switchLanguage('fr')" data-lang-opt="fr" class="w-full text-left px-3.5 py-2 text-xs font-bold hover:bg-amber-50 hover:text-[#f2920b] flex items-center gap-2.5 text-slate-800 transition cursor-pointer">
+                <span>🇫🇷</span> Français (FR)
+              </button>
+              <button type="button" onclick="switchLanguage('it')" data-lang-opt="it" class="w-full text-left px-3.5 py-2 text-xs font-bold hover:bg-amber-50 hover:text-[#f2920b] flex items-center gap-2.5 text-slate-800 transition cursor-pointer">
+                <span>🇮🇹</span> Italiano (IT)
+              </button>
+            </div>
           </div>
 
-          <!-- OJOS A LA DERECHA DEL TODO -->
+          <!-- BOTÓN CONTACTAR -->
+          <a id="nav-contact-btn" href="https://wa.me/34680317486?text={t['wa_prefilled_msg']}" 
+             target="_blank" 
+             class="group relative inline-flex items-center gap-1.5 sm:gap-2 px-3.5 sm:px-5 lg:px-6 py-2 sm:py-2.5 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] active:bg-[#76d3f6] text-slate-950 active:scale-95 font-heading font-black text-xs sm:text-sm lg:text-base tracking-wider uppercase transition-all duration-300 shadow-[0_4px_15px_rgba(242,146,11,0.25)] hover:shadow-[0_10px_25px_rgba(118,211,246,0.4)] hover:scale-105 shrink-0 overflow-hidden">
+            <span data-i18n="nav_contact" class="font-black">{t['nav_contact']}</span>
+            <div class="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-slate-950/10 group-hover:bg-slate-950 group-hover:text-white flex items-center justify-center transition-all duration-300 shrink-0">
+              <i data-lucide="arrow-up-right" class="w-3 h-3 sm:w-3.5 sm:h-3.5 stroke-[3] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300"></i>
+            </div>
+          </a>
+
+          <!-- OJOS A LA DERECHA DEL TODO (SIEMPRE VISIBLE) -->
           <a href="#" class="group py-1 inline-flex items-center shrink-0">
-            <img src="{asset_prefix}assets/images/Ojos logo.png" alt="CoolPadel Eyes" class="h-6 sm:h-7 lg:h-9 w-auto object-contain group-hover:scale-110 transition duration-300">
+            <img src="{asset_prefix}assets/images/Ojos logo.png" alt="CoolPadel Eyes" class="h-6 sm:h-7 lg:h-8 w-auto object-contain group-hover:scale-110 transition duration-300">
           </a>
         </div>
 
@@ -439,50 +456,70 @@ def get_base_html(active_lang="es", is_subfolder=False):
           </a>
         </div>
         
-        <!-- FILA 2: TENIS Y PADEL + SELECTOR IDIOMAS + BOTÓN CONTACTAR -->
+        <!-- FILA 2: TENIS Y PADEL + SELECTOR IDIOMAS DESPLEGABLE + BOTÓN CONTACTAR -->
         <div class="flex items-center justify-between w-full gap-1 pt-1 border-t border-slate-100">
-          <span data-i18n="nav_tenis_padel" class="font-heading font-black text-[9px] xs:text-[10px] tracking-wider uppercase text-slate-950 select-none whitespace-nowrap shrink-0">
+          <span data-i18n="nav_tenis_padel" class="font-heading font-black text-[9.5px] tracking-wider uppercase text-slate-950 select-none whitespace-nowrap shrink-0">
             {t['nav_tenis_padel']}
           </span>
-          <div class="inline-flex items-center bg-slate-100 rounded-full p-0.5 border border-slate-200/90 text-[9px] xs:text-[10px] font-bold shrink-0">
-            <button type="button" onclick="switchLanguage('es')" data-lang-btn="es" class="lang-btn {'active' if active_lang=='es' else 'text-slate-600 hover:text-slate-950'} px-1.5 py-0.5 rounded-full font-bold">ES</button>
-            <button type="button" onclick="switchLanguage('en')" data-lang-btn="en" class="lang-btn {'active' if active_lang=='en' else 'text-slate-600 hover:text-slate-950'} px-1.5 py-0.5 rounded-full font-bold">EN</button>
-            <button type="button" onclick="switchLanguage('fr')" data-lang-btn="fr" class="lang-btn {'active' if active_lang=='fr' else 'text-slate-600 hover:text-slate-950'} px-1.5 py-0.5 rounded-full font-bold">FR</button>
-            <button type="button" onclick="switchLanguage('it')" data-lang-btn="it" class="lang-btn {'active' if active_lang=='it' else 'text-slate-600 hover:text-slate-950'} px-1.5 py-0.5 rounded-full font-bold">IT</button>
-          </div>
-          <a id="nav-contact-btn-mob" href="https://wa.me/34680317486?text={t['wa_prefilled_msg']}" 
-             target="_blank" 
-             class="group relative inline-flex items-center justify-center gap-1 px-2.5 py-1 rounded-full bg-[#f2920b] active:bg-[#76d3f6] text-slate-950 active:scale-95 font-heading font-black text-[9px] xs:text-[10px] uppercase tracking-wider transition-all duration-300 shadow-sm shrink-0">
-            <span data-i18n="nav_contact" class="font-black">{t['nav_contact']}</span>
-            <div class="w-3 h-3 rounded-full bg-slate-950/10 flex items-center justify-center">
-              <i data-lucide="arrow-up-right" class="w-2 h-2 stroke-[3]"></i>
+
+          <div class="flex items-center gap-1.5 shrink-0">
+            <!-- DESPLEGABLE IDIOMA MÓVIL -->
+            <div class="relative inline-block text-left" id="lang-dropdown-container-mob">
+              <button type="button" onclick="toggleLangDropdownMob(event)" id="lang-dropdown-btn-mob" class="inline-flex items-center gap-1 px-2 py-1 rounded-full bg-slate-100 hover:bg-slate-200 border border-slate-200 text-[10px] font-bold text-slate-800 shadow-xs transition cursor-pointer">
+                <span id="current-lang-flag-mob">{'🇪🇸' if active_lang=='es' else ('🇬🇧' if active_lang=='en' else ('🇫🇷' if active_lang=='fr' else '🇮🇹'))}</span>
+                <span id="current-lang-code-mob" class="uppercase font-black">{active_lang.upper()}</span>
+                <i data-lucide="chevron-down" class="w-3 h-3 stroke-[2.5] text-slate-500" id="lang-dropdown-arrow-mob"></i>
+              </button>
+              <div id="lang-dropdown-menu-mob" class="hidden absolute right-0 mt-1 w-36 bg-white rounded-2xl shadow-xl border border-slate-200 py-1 z-50 transition-all">
+                <button type="button" onclick="switchLanguage('es')" class="w-full text-left px-3 py-1.5 text-xs font-bold hover:bg-slate-100 flex items-center gap-2 text-slate-800 cursor-pointer">
+                  <span>🇪🇸</span> Español (ES)
+                </button>
+                <button type="button" onclick="switchLanguage('en')" class="w-full text-left px-3 py-1.5 text-xs font-bold hover:bg-slate-100 flex items-center gap-2 text-slate-800 cursor-pointer">
+                  <span>🇬🇧</span> English (EN)
+                </button>
+                <button type="button" onclick="switchLanguage('fr')" class="w-full text-left px-3 py-1.5 text-xs font-bold hover:bg-slate-100 flex items-center gap-2 text-slate-800 cursor-pointer">
+                  <span>🇫🇷</span> Français (FR)
+                </button>
+                <button type="button" onclick="switchLanguage('it')" class="w-full text-left px-3 py-1.5 text-xs font-bold hover:bg-slate-100 flex items-center gap-2 text-slate-800 cursor-pointer">
+                  <span>🇮🇹</span> Italiano (IT)
+                </button>
+              </div>
             </div>
-          </a>
+
+            <a id="nav-contact-btn-mob" href="https://wa.me/34680317486?text={t['wa_prefilled_msg']}" 
+               target="_blank" 
+               class="group relative inline-flex items-center justify-center gap-1 px-3 py-1 rounded-full bg-[#f2920b] active:bg-[#76d3f6] text-slate-950 active:scale-95 font-heading font-black text-[10px] uppercase tracking-wider transition-all duration-300 shadow-sm shrink-0">
+              <span data-i18n="nav_contact" class="font-black">{t['nav_contact']}</span>
+              <div class="w-3.5 h-3.5 rounded-full bg-slate-950/10 flex items-center justify-center">
+                <i data-lucide="arrow-up-right" class="w-2.5 h-2.5 stroke-[3]"></i>
+              </div>
+            </a>
+          </div>
         </div>
       </div>
 
     </div>
   </header>
 
-  <!-- 3. COVERFLOW ROTATIVO (CON GESTOS SWIPE TÁCTILES EN MÓVIL) -->
-  <section class="relative bg-white overflow-hidden select-none pt-4 pb-1.5 sm:pt-8 sm:pb-2">
+  <!-- 3. COVERFLOW ROTATIVO (ALTURA BALANCEADA PARA VER LOGOS DE CLUBES EN PANTALLA COMPLETA) -->
+  <section class="relative bg-white overflow-hidden select-none pt-2 pb-1 sm:pt-4 sm:pb-2">
     <div class="w-full max-w-full mx-auto px-0 sm:px-4">
       
-      <div class="relative w-full h-[400px] sm:h-[510px] lg:h-[560px] flex items-center justify-center coverflow-wrapper">
+      <div class="relative w-full h-[320px] sm:h-[380px] lg:h-[410px] flex items-center justify-center coverflow-wrapper">
         
         <!-- SLIDE 1: LLAVEROS PARA TU CLUB/COMUNIDAD (SLIDE-1.JPG) -->
-        <div id="coverflow-0" class="coverflow-slide active w-[92%] sm:w-[75%] lg:w-[67%] max-w-[960px] h-[360px] sm:h-[470px] lg:h-[520px] rounded-3xl overflow-hidden bg-neutral-950">
+        <div id="coverflow-0" class="coverflow-slide active w-[90%] sm:w-[72%] lg:w-[62%] max-w-[840px] h-[300px] sm:h-[360px] lg:h-[390px] rounded-3xl overflow-hidden bg-neutral-900">
           <img src="{asset_prefix}assets/images/slide-1.jpg" alt="Llaveros personalizados para club de padel y tenis CoolPadel" class="w-full h-full object-cover" fetchpriority="high" decoding="async">
           
           <!-- Slide Content (Nike Bottom Left Layout) -->
-          <div class="slide-caption absolute bottom-6 sm:bottom-12 left-5 sm:left-12 z-30 space-y-3 sm:space-y-4 pointer-events-auto pr-4 max-w-[92%] sm:max-w-[85%]">
-            <h1 data-i18n="slide1_title" class="text-2xl sm:text-4xl lg:text-5xl font-black font-heading text-white uppercase tracking-tight leading-[1.15]">
+          <div class="slide-caption absolute bottom-4 sm:bottom-7 left-4 sm:left-8 z-30 space-y-2 sm:space-y-3 pointer-events-auto pr-4 max-w-[92%] sm:max-w-[85%]">
+            <h1 data-i18n="slide1_title" class="text-xl sm:text-3xl lg:text-4xl font-black font-heading text-white uppercase tracking-tight leading-[1.15]">
               {t['slide1_title']}
             </h1>
             <div>
-              <a href="#llaveros" class="group inline-flex items-center gap-2 sm:gap-2.5 px-5 sm:px-8 py-2 sm:py-3.5 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] active:bg-[#76d3f6] text-slate-950 font-heading font-extrabold text-xs sm:text-sm tracking-wider uppercase shadow-[0_10px_25px_rgba(0,0,0,0.4)] hover:shadow-[0_14px_30px_rgba(118,211,246,0.5)] hover:scale-105 active:scale-95 transition-all duration-300 overflow-hidden">
+              <a href="#llaveros" class="group inline-flex items-center gap-2 sm:gap-2.5 px-4 sm:px-6 py-1.5 sm:py-2.5 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] active:bg-[#76d3f6] text-slate-950 font-heading font-extrabold text-xs sm:text-sm tracking-wider uppercase shadow-[0_10px_25px_rgba(0,0,0,0.4)] hover:shadow-[0_14px_30px_rgba(118,211,246,0.5)] hover:scale-105 active:scale-95 transition-all duration-300 overflow-hidden">
                 <span data-i18n="slide1_btn">{t['slide1_btn']}</span>
-                <div class="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-slate-950/10 group-hover:bg-slate-950 group-hover:text-white flex items-center justify-center transition-all duration-300">
+                <div class="w-5 h-5 sm:w-5.5 sm:h-5.5 rounded-full bg-slate-950/10 group-hover:bg-slate-950 group-hover:text-white flex items-center justify-center transition-all duration-300">
                   <i data-lucide="arrow-right" class="w-3 h-3 sm:w-3.5 sm:h-3.5 stroke-[3] group-hover:translate-x-1 transition-transform duration-300"></i>
                 </div>
               </a>
@@ -491,18 +528,18 @@ def get_base_html(active_lang="es", is_subfolder=False):
         </div>
 
         <!-- SLIDE 2: SAVE MY PLAY - GRABACIÓN EN PISTA: HIGHLIGHTS Y PARTIDOS -->
-        <div id="coverflow-1" class="coverflow-slide next w-[92%] sm:w-[75%] lg:w-[67%] max-w-[960px] h-[360px] sm:h-[470px] lg:h-[520px] rounded-3xl overflow-hidden bg-neutral-950">
-          <img src="{asset_prefix}assets/images/slide-2.png" alt="Save my Play camaras inteligentes con IA para pistas de padel" class="w-full h-full object-cover" loading="lazy" decoding="async">
+        <div id="coverflow-1" class="coverflow-slide next w-[90%] sm:w-[72%] lg:w-[62%] max-w-[840px] h-[300px] sm:h-[360px] lg:h-[390px] rounded-3xl overflow-hidden bg-neutral-900">
+          <img src="{asset_prefix}assets/images/slide-2.jpg" alt="Save my Play camaras inteligentes con IA para pistas de padel" class="w-full h-full object-cover" loading="lazy" decoding="async">
           
-          <div class="slide-caption absolute bottom-6 sm:bottom-12 left-5 sm:left-12 z-30 space-y-3 sm:space-y-4 pointer-events-auto pr-4 max-w-[92%] sm:max-w-[85%]">
-            <h2 data-i18n="slide2_title" class="text-2xl sm:text-4xl lg:text-5xl font-black font-heading text-white uppercase tracking-tight leading-[1.15]">
+          <div class="slide-caption absolute bottom-4 sm:bottom-7 left-4 sm:left-8 z-30 space-y-2 sm:space-y-3 pointer-events-auto pr-4 max-w-[92%] sm:max-w-[85%]">
+            <h2 data-i18n="slide2_title" class="text-xl sm:text-3xl lg:text-4xl font-black font-heading text-white uppercase tracking-tight leading-[1.15]">
               {t['slide2_title']}
             </h2>
             <div>
-              <a href="#savemyplay" class="group inline-flex items-center gap-2.5 sm:gap-3 px-5 sm:px-8 py-2 sm:py-3.5 rounded-full bg-white hover:bg-neutral-100 active:bg-neutral-200 text-neutral-950 font-heading font-extrabold text-xs sm:text-sm tracking-wider uppercase shadow-[0_10px_25px_rgba(0,0,0,0.4)] hover:shadow-[0_14px_30px_rgba(0,0,0,0.6)] hover:scale-105 active:scale-95 transition-all duration-300 overflow-hidden">
+              <a href="#savemyplay" class="group inline-flex items-center gap-2 sm:gap-2.5 px-4 sm:px-6 py-1.5 sm:py-2.5 rounded-full bg-white hover:bg-neutral-100 active:bg-neutral-200 text-neutral-950 font-heading font-extrabold text-xs sm:text-sm tracking-wider uppercase shadow-[0_10px_25px_rgba(0,0,0,0.4)] hover:shadow-[0_14px_30px_rgba(0,0,0,0.6)] hover:scale-105 active:scale-95 transition-all duration-300 overflow-hidden">
                 <span data-i18n="slide2_btn">{t['slide2_btn']}</span>
-                <img src="{asset_prefix}assets/images/savemyplay-logo-cropped.png" alt="Save my Play" class="h-5 sm:h-7 lg:h-8 w-auto object-contain" loading="lazy">
-                <div class="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-slate-950/10 group-hover:bg-slate-950/20 text-neutral-950 flex items-center justify-center transition-all duration-300">
+                <img src="{asset_prefix}assets/images/savemyplay-logo-cropped.png" alt="Save my Play" class="h-4.5 sm:h-6 lg:h-7 w-auto object-contain" loading="lazy">
+                <div class="w-5 h-5 sm:w-5.5 sm:h-5.5 rounded-full bg-slate-950/10 group-hover:bg-slate-950/20 text-neutral-950 flex items-center justify-center transition-all duration-300">
                   <i data-lucide="arrow-up-right" class="w-3 h-3 sm:w-3.5 sm:h-3.5 stroke-[3] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300"></i>
                 </div>
               </a>
@@ -511,17 +548,17 @@ def get_base_html(active_lang="es", is_subfolder=False):
         </div>
 
         <!-- SLIDE 3: EL NEGOCIO DEL PADEL INFORME (SLIDE-3.JPG) -->
-        <div id="coverflow-2" class="coverflow-slide prev w-[92%] sm:w-[75%] lg:w-[67%] max-w-[960px] h-[360px] sm:h-[470px] lg:h-[520px] rounded-3xl overflow-hidden bg-neutral-950">
+        <div id="coverflow-2" class="coverflow-slide prev w-[90%] sm:w-[72%] lg:w-[62%] max-w-[840px] h-[300px] sm:h-[360px] lg:h-[390px] rounded-3xl overflow-hidden bg-neutral-900">
           <img src="{asset_prefix}assets/images/slide-3.jpg" alt="Informe exclusivo sobre la industria del padel 2026" class="w-full h-full object-cover" loading="lazy" decoding="async">
           
-          <div class="slide-caption absolute bottom-6 sm:bottom-12 left-5 sm:left-12 z-30 space-y-3 sm:space-y-4 pointer-events-auto pr-4 max-w-[92%] sm:max-w-[85%]">
-            <h2 data-i18n="slide3_title" class="text-2xl sm:text-4xl lg:text-5xl font-black font-heading text-white uppercase tracking-tight leading-[1.15]">
+          <div class="slide-caption absolute bottom-4 sm:bottom-7 left-4 sm:left-8 z-30 space-y-2 sm:space-y-3 pointer-events-auto pr-4 max-w-[92%] sm:max-w-[85%]">
+            <h2 data-i18n="slide3_title" class="text-xl sm:text-3xl lg:text-4xl font-black font-heading text-white uppercase tracking-tight leading-[1.15]">
               {t['slide3_title']}
             </h2>
             <div>
-              <a href="#informe" class="group inline-flex items-center gap-2 sm:gap-2.5 px-5 sm:px-8 py-2 sm:py-3.5 rounded-full bg-[#76d3f6] hover:bg-[#f2920b] active:bg-[#f2920b] text-slate-950 font-heading font-extrabold text-xs sm:text-sm tracking-wider uppercase shadow-[0_10px_25px_rgba(0,0,0,0.4)] hover:shadow-[0_14px_30px_rgba(242,146,11,0.5)] hover:scale-105 active:scale-95 transition-all duration-300 overflow-hidden">
+              <a href="#informe" class="group inline-flex items-center gap-2 sm:gap-2.5 px-4 sm:px-6 py-1.5 sm:py-2.5 rounded-full bg-[#76d3f6] hover:bg-[#f2920b] active:bg-[#f2920b] text-slate-950 font-heading font-extrabold text-xs sm:text-sm tracking-wider uppercase shadow-[0_10px_25px_rgba(0,0,0,0.4)] hover:shadow-[0_14px_30px_rgba(242,146,11,0.5)] hover:scale-105 active:scale-95 transition-all duration-300 overflow-hidden">
                 <span data-i18n="slide3_btn">{t['slide3_btn']}</span>
-                <div class="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-slate-950/10 group-hover:bg-slate-950 group-hover:text-white flex items-center justify-center transition-all duration-300">
+                <div class="w-5 h-5 sm:w-5.5 sm:h-5.5 rounded-full bg-slate-950/10 group-hover:bg-slate-950 group-hover:text-white flex items-center justify-center transition-all duration-300">
                   <i data-lucide="download" class="w-3 h-3 sm:w-3.5 sm:h-3.5 stroke-[3] group-hover:translate-y-0.5 transition-transform duration-300"></i>
                 </div>
               </a>
@@ -531,9 +568,9 @@ def get_base_html(active_lang="es", is_subfolder=False):
 
       </div>
 
-      <!-- TEXTO EN ZONA DEBAJO DE LAS FOTOS -->
-      <div class="mt-6 sm:mt-11 mb-0 text-center px-4">
-        <p data-i18n="trusted_text" class="text-[13px] sm:text-[17.5px] lg:text-[20px] font-heading font-extrabold uppercase tracking-widest text-slate-950 leading-snug">
+      <!-- TEXTO EN ZONA DEBAJO DE LAS FOTOS (SIEMPRE VISIBLE EN EL FOLD) -->
+      <div class="mt-3 sm:mt-4 mb-0 text-center px-4">
+        <p data-i18n="trusted_text" class="text-[12px] sm:text-[15px] lg:text-[17px] font-heading font-extrabold uppercase tracking-widest text-slate-950 leading-snug">
           {t['trusted_text']}
         </p>
       </div>
@@ -541,11 +578,11 @@ def get_base_html(active_lang="es", is_subfolder=False):
     </div>
   </section>
 
-  <!-- 4. CARROUSEL PASARELA CLUBS (DOBLE BUCLE PARA ANIMACIÓN PERFECTAMENTE FLUIDA) -->
-  <section class="py-4 sm:py-5 lg:py-6 bg-white border-y border-slate-200 overflow-hidden shadow-sm">
-    <div class="ticker-wrap py-1">
-      <div class="ticker-content animate-ticker-trusted flex items-center gap-6 sm:gap-12 lg:gap-14">
-        {"".join([f'<div class="flex items-center justify-center shrink-0 px-3 sm:px-6 group"><img src="{asset_prefix}assets/images/Clubs/client-{str(i).zfill(2)}.png" alt="Club Deportivo Partner CoolPadel" class="h-14 sm:h-22 lg:h-24 w-auto max-w-[140px] sm:max-w-[240px] object-contain transition-all duration-300 hover:scale-110" loading="lazy" decoding="async"></div>' for i in (list(range(2, 28)) * 2)])}
+  <!-- 4. CARROUSEL PASARELA CLUBS (ALTURA AJUSTADA PARA ESTAR VISIBLE DE INMEDIATO) -->
+  <section class="py-2.5 sm:py-3.5 bg-white border-y border-slate-200 overflow-hidden shadow-xs">
+    <div class="ticker-wrap py-0.5">
+      <div class="ticker-content animate-ticker-trusted flex items-center gap-5 sm:gap-10 lg:gap-12">
+        {"".join([f'<div class="flex items-center justify-center shrink-0 px-2.5 sm:px-5 group"><img src="{asset_prefix}assets/images/Clubs/client-{str(i).zfill(2)}.png" alt="Club Deportivo Partner CoolPadel" class="h-10 sm:h-14 lg:h-16 w-auto max-w-[110px] sm:max-w-[180px] object-contain transition-all duration-300 hover:scale-110" loading="lazy" decoding="async"></div>' for i in (list(range(2, 28)) * 2)])}
       </div>
     </div>
   </section>
@@ -569,8 +606,8 @@ def get_base_html(active_lang="es", is_subfolder=False):
         
         <!-- CARD IZQUIERDA: TENIS -->
         <div class="bg-white border border-slate-200/90 rounded-3xl p-5 sm:p-7 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.25)] hover:shadow-[0_35px_65px_-10px_rgba(0,0,0,0.35)] transition-all duration-300 group flex flex-col justify-between hover:-translate-y-1">
-          <div class="aspect-[4/3] rounded-2xl overflow-hidden mb-4 sm:mb-5 bg-white shadow-[0_20px_40px_-10px_rgba(0,0,0,0.3)] border border-slate-200/90">
-            <img src="{asset_prefix}assets/images/llaveros 2.png" alt="Llaveros de tenis personalizados con logo para clubs y escuelas" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
+          <div class="aspect-[4/3] rounded-2xl overflow-hidden mb-4 sm:mb-5 bg-slate-100 shadow-[0_20px_40px_-10px_rgba(0,0,0,0.3)] border border-slate-200/90">
+            <img src="{asset_prefix}assets/images/llaveros 2.jpg" alt="Llaveros de tenis personalizados con logo para clubs y escuelas" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
           </div>
           <h3 data-i18n="card_tenis" class="font-heading font-black text-2xl sm:text-3xl uppercase tracking-tight text-slate-950 text-center py-1">
             {t['card_tenis']}
@@ -579,8 +616,8 @@ def get_base_html(active_lang="es", is_subfolder=False):
 
         <!-- CARD DERECHA: PADEL -->
         <div class="bg-white border border-slate-200/90 rounded-3xl p-5 sm:p-7 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.25)] hover:shadow-[0_35px_65px_-10px_rgba(0,0,0,0.35)] transition-all duration-300 group flex flex-col justify-between hover:-translate-y-1">
-          <div class="aspect-[4/3] rounded-2xl overflow-hidden mb-4 sm:mb-5 bg-white shadow-[0_20px_40px_-10px_rgba(0,0,0,0.3)] border border-slate-200/90">
-            <img src="{asset_prefix}assets/images/llaveros 1.png" alt="Llaveros de padel de goma 3D personalizados para clubes" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
+          <div class="aspect-[4/3] rounded-2xl overflow-hidden mb-4 sm:mb-5 bg-slate-100 shadow-[0_20px_40px_-10px_rgba(0,0,0,0.3)] border border-slate-200/90">
+            <img src="{asset_prefix}assets/images/llaveros 1.jpg" alt="Llaveros de padel de goma 3D personalizados para clubes" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
           </div>
           <h3 data-i18n="card_padel" class="font-heading font-black text-2xl sm:text-3xl uppercase tracking-tight text-[#f2920b] text-center py-1">
             {t['card_padel']}
@@ -699,7 +736,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 lg:gap-10 max-w-6xl sm:max-w-7xl mx-auto mb-12 sm:mb-16">
         
         <!-- FOTO 1 -->
-        <div class="rounded-3xl overflow-hidden shadow-[0_25px_50px_-10px_rgba(0,0,0,0.75)] hover:shadow-[0_35px_65px_-10px_rgba(0,0,0,0.9)] transition-all duration-500 group border-2 border-slate-950 bg-slate-950 hover:-translate-y-1">
+        <div class="rounded-3xl overflow-hidden shadow-[0_20px_45px_-10px_rgba(0,0,0,0.65)] hover:shadow-[0_30px_60px_-10px_rgba(0,0,0,0.85)] transition-all duration-500 group border-2 border-slate-900 bg-slate-800 hover:-translate-y-1">
           <div class="relative aspect-[16/10] overflow-hidden">
             <img src="{asset_prefix}assets/images/savemyplay-1.jpg" alt="Camara Save my Play grabando partido en pista de padel" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" decoding="async">
             <div class="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent"></div>
@@ -707,7 +744,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
         </div>
 
         <!-- FOTO 2 -->
-        <div class="rounded-3xl overflow-hidden shadow-[0_25px_50px_-10px_rgba(0,0,0,0.75)] hover:shadow-[0_35px_65px_-10px_rgba(0,0,0,0.9)] transition-all duration-500 group border-2 border-slate-950 bg-slate-950 hover:-translate-y-1">
+        <div class="rounded-3xl overflow-hidden shadow-[0_20px_45px_-10px_rgba(0,0,0,0.65)] hover:shadow-[0_30px_60px_-10px_rgba(0,0,0,0.85)] transition-all duration-500 group border-2 border-slate-900 bg-slate-800 hover:-translate-y-1">
           <div class="relative aspect-[16/10] overflow-hidden">
             <img src="{asset_prefix}assets/images/savemyplay-2.jpg" alt="Jugadores de padel usando la app Save my Play para ver repeticiones" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" decoding="async">
             <div class="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent"></div>
@@ -715,7 +752,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
         </div>
 
         <!-- FOTO 3 -->
-        <div class="rounded-3xl overflow-hidden shadow-[0_25px_50px_-10px_rgba(0,0,0,0.75)] hover:shadow-[0_35px_65px_-10px_rgba(0,0,0,0.9)] transition-all duration-500 group border-2 border-slate-950 bg-slate-950 hover:-translate-y-1">
+        <div class="rounded-3xl overflow-hidden shadow-[0_20px_45px_-10px_rgba(0,0,0,0.65)] hover:shadow-[0_30px_60px_-10px_rgba(0,0,0,0.85)] transition-all duration-500 group border-2 border-slate-900 bg-slate-800 hover:-translate-y-1">
           <div class="relative aspect-[16/10] overflow-hidden">
             <img src="{asset_prefix}assets/images/savemyplay-3.jpg" alt="Pista panoramica con sistema de video inteligente Save my Play" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" decoding="async">
             <div class="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent"></div>
@@ -1117,6 +1154,48 @@ def get_base_html(active_lang="es", is_subfolder=False):
     // DICCIONARIO REACTIVO MULTI-IDIOMA
     const I18N_DATA = {translations_json};
     let currentLang = '{active_lang}';
+    const langFlags = {{ 'es': '🇪🇸', 'en': '🇬🇧', 'fr': '🇫🇷', 'it': '🇮🇹' }};
+
+    function toggleLangDropdown(e) {{
+      e.stopPropagation();
+      const menu = document.getElementById('lang-dropdown-menu');
+      const arrow = document.getElementById('lang-dropdown-arrow');
+      if (!menu) return;
+      const isHidden = menu.classList.contains('hidden');
+      document.querySelectorAll('#lang-dropdown-menu, #lang-dropdown-menu-mob').forEach(m => m.classList.add('hidden'));
+      if (isHidden) {{
+        menu.classList.remove('hidden');
+        if (arrow) arrow.style.transform = 'rotate(180deg)';
+      }} else {{
+        if (arrow) arrow.style.transform = 'rotate(0deg)';
+      }}
+    }}
+
+    function toggleLangDropdownMob(e) {{
+      e.stopPropagation();
+      const menu = document.getElementById('lang-dropdown-menu-mob');
+      const arrow = document.getElementById('lang-dropdown-arrow-mob');
+      if (!menu) return;
+      const isHidden = menu.classList.contains('hidden');
+      document.querySelectorAll('#lang-dropdown-menu, #lang-dropdown-menu-mob').forEach(m => m.classList.add('hidden'));
+      if (isHidden) {{
+        menu.classList.remove('hidden');
+        if (arrow) arrow.style.transform = 'rotate(180deg)';
+      }} else {{
+        if (arrow) arrow.style.transform = 'rotate(0deg)';
+      }}
+    }}
+
+    document.addEventListener('click', () => {{
+      const menu = document.getElementById('lang-dropdown-menu');
+      const arrow = document.getElementById('lang-dropdown-arrow');
+      if (menu) menu.classList.add('hidden');
+      if (arrow) arrow.style.transform = 'rotate(0deg)';
+      const menuMob = document.getElementById('lang-dropdown-menu-mob');
+      const arrowMob = document.getElementById('lang-dropdown-arrow-mob');
+      if (menuMob) menuMob.classList.add('hidden');
+      if (arrowMob) arrowMob.style.transform = 'rotate(0deg)';
+    }});
 
     function switchLanguage(lang) {{
       if (!I18N_DATA[lang]) return;
@@ -1163,17 +1242,25 @@ def get_base_html(active_lang="es", is_subfolder=False):
       const floatWaBtn = document.getElementById('floating-wa-btn');
       if (floatWaBtn) floatWaBtn.href = waUrl;
 
-      // 4. Actualizar botones de selector de idioma activo
-      document.querySelectorAll('[data-lang-btn]').forEach(btn => {{
-        if (btn.getAttribute('data-lang-btn') === lang) {{
-          btn.className = 'lang-btn active px-2 sm:px-2.5 py-1 rounded-full transition-all duration-200 font-bold';
-        }} else {{
-          btn.className = 'lang-btn text-slate-600 hover:text-slate-950 px-2 sm:px-2.5 py-1 rounded-full transition-all duration-200 font-bold';
-        }}
-      }});
+      // 4. Actualizar labels del desplegable de idioma
+      const flagEl = document.getElementById('current-lang-flag');
+      const codeEl = document.getElementById('current-lang-code');
+      if (flagEl) flagEl.textContent = langFlags[lang] || '🌐';
+      if (codeEl) codeEl.textContent = lang.toUpperCase();
+
+      const flagElMob = document.getElementById('current-lang-flag-mob');
+      const codeElMob = document.getElementById('current-lang-code-mob');
+      if (flagElMob) flagElMob.textContent = langFlags[lang] || '🌐';
+      if (codeElMob) codeElMob.textContent = lang.toUpperCase();
+
+      // Cerrar dropdowns tras seleccionar
+      const menu = document.getElementById('lang-dropdown-menu');
+      if (menu) menu.classList.add('hidden');
+      const menuMob = document.getElementById('lang-dropdown-menu-mob');
+      if (menuMob) menuMob.classList.add('hidden');
 
       // 5. Actualizar calculadora
-      updateCalculator(currentTierIdx);
+      updateCalculator(currentTierIdx, false);
 
       // Re-renderizar iconos de Lucide
       lucide.createIcons();
@@ -1277,7 +1364,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
     const sliderProgress = document.getElementById('slider-progress');
     const sliderTrack = document.getElementById('slider-track');
 
-    function updateCalculator(idx) {{
+    function updateCalculator(idx, isLiveDrag = false) {{
       currentTierIdx = idx;
       const tier = tiers[idx];
       const dict = I18N_DATA[currentLang] || I18N_DATA['es'];
@@ -1286,22 +1373,31 @@ def get_base_html(active_lang="es", is_subfolder=False):
       priceBadge.textContent = `${{tier.price}}€`;
       unitBadge.textContent = `(${{tier.unit}}€/${{dict.calc_unit_price}})`;
       
-      sliderThumb.style.left = `${{tier.pct}}%`;
-      sliderProgress.style.width = `${{tier.pct}}%`;
+      if (sliderThumb && sliderProgress) {{
+        if (isLiveDrag) {{
+          sliderThumb.style.transition = 'none';
+          sliderProgress.style.transition = 'none';
+        }} else {{
+          sliderThumb.style.transition = 'left 0.25s cubic-bezier(0.25, 1, 0.5, 1)';
+          sliderProgress.style.transition = 'width 0.25s cubic-bezier(0.25, 1, 0.5, 1)';
+        }}
+        sliderThumb.style.left = `${{tier.pct}}%`;
+        sliderProgress.style.width = `${{tier.pct}}%`;
+      }}
       
       const customMsg = encodeURIComponent(`${{dict.wa_prefilled_msg}}, me interesa solicitar presupuesto de ${{tier.qty}} llaveros para mi club.`);
       waBtn.href = `https://wa.me/34680317486?text=${{customMsg}}`;
     }}
 
     window.setTier = function(idx) {{
-      updateCalculator(idx);
+      updateCalculator(idx, false);
     }};
 
-    // Control táctil y ratón del Slider optimizado para móviles (arrastre fluido)
+    // Control táctil y ratón del Slider optimizado (arrastre instantáneo sin marcas ni retardo)
     let isDragging = false;
     const sliderBox = document.getElementById('calc-slider-box');
 
-    function handleSliderInteraction(clientX) {{
+    function handleSliderInteraction(clientX, isLive = false) {{
       if (!sliderTrack) return;
       const rect = sliderTrack.getBoundingClientRect();
       const x = Math.max(0, Math.min(clientX - rect.left, rect.width));
@@ -1316,48 +1412,55 @@ def get_base_html(active_lang="es", is_subfolder=False):
           closestIdx = i;
         }}
       }});
-      setTier(closestIdx);
+      updateCalculator(closestIdx, isLive);
     }}
 
     if (sliderBox) {{
-      // Eventos táctiles directos con passive: false para permitir arrastre sin scroll vertical no deseado
+      // Eventos táctiles
       sliderBox.addEventListener('touchstart', (e) => {{
         isDragging = true;
         if (e.touches && e.touches.length > 0) {{
-          handleSliderInteraction(e.touches[0].clientX);
+          handleSliderInteraction(e.touches[0].clientX, true);
         }}
       }}, {{ passive: true }});
 
       sliderBox.addEventListener('touchmove', (e) => {{
         if (!isDragging) return;
         if (e.touches && e.touches.length > 0) {{
-          handleSliderInteraction(e.touches[0].clientX);
+          handleSliderInteraction(e.touches[0].clientX, true);
           if (e.cancelable) e.preventDefault();
         }}
       }}, {{ passive: false }});
 
       sliderBox.addEventListener('touchend', () => {{
-        isDragging = false;
+        if (isDragging) {{
+          isDragging = false;
+          updateCalculator(currentTierIdx, false);
+        }}
       }}, {{ passive: true }});
 
       sliderBox.addEventListener('touchcancel', () => {{
         isDragging = false;
+        updateCalculator(currentTierIdx, false);
       }}, {{ passive: true }});
 
-      // Pointer events para desktop y stylus
+      // Eventos de ratón / puntero
       sliderBox.addEventListener('pointerdown', (e) => {{
         isDragging = true;
-        handleSliderInteraction(e.clientX);
+        handleSliderInteraction(e.clientX, true);
         window.addEventListener('pointermove', onPointerMove);
         window.addEventListener('pointerup', onPointerUp);
       }});
 
       function onPointerMove(e) {{
-        if (isDragging) handleSliderInteraction(e.clientX);
+        if (isDragging) handleSliderInteraction(e.clientX, true);
       }}
 
       function onPointerUp() {{
-        isDragging = false;
+        if (isDragging) {{
+          isDragging = false;
+          updateCalculator(currentTierIdx, false);
+        }}
         window.removeEventListener('pointermove', onPointerMove);
         window.removeEventListener('pointerup', onPointerUp);
       }}
@@ -1455,8 +1558,10 @@ def get_base_html(active_lang="es", is_subfolder=False):
       }}
     }}
 
-    // POP-UP LEAD MAGNET LOGIC
+    // POP-UP LEAD MAGNET LOGIC (TEMPORIZADOR PROGRESIVO Y NO INTRUSIVO)
     let modalTriggered = false;
+    const pageStartTime = Date.now();
+
     window.openLeadModal = function() {{
       if (modalTriggered || sessionStorage.getItem('coolpadel_lead_dismissed')) return;
       modalTriggered = true;
@@ -1482,16 +1587,16 @@ def get_base_html(active_lang="es", is_subfolder=False):
       }}
     }};
 
-    // Triggers para el Pop-up: 14s timer, scroll > 55%, mouseleave exit-intent
-    setTimeout(() => {{ openLeadModal(); }}, 14000);
+    // Triggers para el Pop-up: 50 segundos, scroll profundo (> 88%), o exit-intent tras 30s
+    setTimeout(() => {{ openLeadModal(); }}, 50000);
 
     window.addEventListener('scroll', () => {{
       const scrollPct = (window.scrollY + window.innerHeight) / document.documentElement.scrollHeight;
-      if (scrollPct > 0.55) openLeadModal();
+      if (scrollPct > 0.88) openLeadModal();
     }}, {{ passive: true }});
 
     document.addEventListener('mouseleave', (e) => {{
-      if (e.clientY <= 0) openLeadModal();
+      if (Date.now() - pageStartTime > 30000 && e.clientY <= 0) openLeadModal();
     }});
 
     async function handlePopupDownload(e) {{
