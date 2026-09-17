@@ -1071,17 +1071,17 @@ def get_base_html(active_lang="es", is_subfolder=False):
         </h2>
       </div>
 
-      <!-- 3 COLUMNAS MATEMÁTICAMENTE EQUILIBRADAS Y SIMÉTRICAS HACIA EL CENTRO -->
-      <div class="grid grid-cols-1 md:grid-cols-3 items-center gap-8 md:gap-4 lg:gap-8 w-full">
+      <!-- 3 BLOQUES PERFECTAMENTE CENTRADOS Y EQUIDISTANTES EN PANTALLA -->
+      <div class="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-10 lg:gap-16 xl:gap-20 w-full max-w-5xl mx-auto px-4">
         
-        <!-- IZQUIERDA: COOLPADEL (MASCOTA + TIPOGRAFÍA) ALINEADO AL CENTRO -->
-        <div class="flex items-center justify-center md:justify-end gap-3 sm:gap-4 px-2">
-          <img src="{asset_prefix}assets/images/coolpadel-mascot-hd.png" alt="CoolPadel Mascota" class="h-12 sm:h-16 lg:h-18 w-auto object-contain drop-shadow-md" loading="lazy">
-          <img src="{asset_prefix}assets/images/coolpadel-typography-hd.png" alt="CoolPadel" class="h-6 sm:h-8 lg:h-9 w-auto object-contain drop-shadow-md" loading="lazy">
+        <!-- IZQUIERDA: COOLPADEL (MASCOTA + TIPOGRAFÍA) -->
+        <div class="flex items-center justify-center gap-2.5 sm:gap-3 shrink-0">
+          <img src="{asset_prefix}assets/images/coolpadel-mascot-hd.png" alt="CoolPadel Mascota" class="h-11 sm:h-13 lg:h-15 w-auto object-contain drop-shadow-md" loading="lazy">
+          <img src="{asset_prefix}assets/images/coolpadel-typography-hd.png" alt="CoolPadel" class="h-5.5 sm:h-6.5 lg:h-7.5 w-auto object-contain drop-shadow-md" loading="lazy">
         </div>
 
         <!-- CENTRO: CORREO Y WHATSAPP OFICIAL DE JAVIER -->
-        <div class="flex flex-col items-center justify-center text-center gap-3.5 sm:gap-4.5 px-2">
+        <div class="flex flex-col items-center justify-center text-center gap-3.5 sm:gap-4 px-2 shrink-0">
           <a href="mailto:javier@coolpadelstudios.com" 
              class="group inline-flex items-center gap-2.5 text-white hover:text-[#f2920b] font-sans font-bold text-sm sm:text-lg lg:text-xl tracking-normal transition-all duration-300 hover:scale-105 active:scale-95 whitespace-nowrap">
             <i data-lucide="mail" class="w-4 h-4 sm:w-5 sm:h-5 text-[#f2920b] group-hover:text-white transition-colors shrink-0"></i>
@@ -1099,9 +1099,9 @@ def get_base_html(active_lang="es", is_subfolder=False):
           </a>
         </div>
 
-        <!-- DERECHA: SAVE MY PLAY ALINEADO AL CENTRO -->
-        <div class="flex items-center justify-center md:justify-start px-2">
-          <img src="{asset_prefix}assets/images/savemyplay-logo-white-text-hd.png" alt="Save my Play" class="h-9 sm:h-12 lg:h-14 w-auto object-contain drop-shadow-md" loading="lazy">
+        <!-- DERECHA: SAVE MY PLAY -->
+        <div class="flex items-center justify-center shrink-0">
+          <img src="{asset_prefix}assets/images/savemyplay-logo-white-text-hd.png" alt="Save my Play" class="h-8 sm:h-10 lg:h-11 w-auto object-contain drop-shadow-md" loading="lazy">
         </div>
 
       </div>
