@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>CoolPadel Studios | Llaveros de Pádel Personalizados</title>
+    <link>https://coolpadelstudios.com</link>
+    <description>Fabricante directo de llaveros de pádel personalizados de goma 3D y tecnología deportiva Save my Play.</description>
+    <language>es-es</language>
+    <atom:link href="https://coolpadelstudios.com/rss.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Llaveros de Pádel Personalizados para Clubs con Logo Oficial en Relieve 3D</title>
+      <link>https://coolpadelstudios.com/#llaveros</link>
+      <guid>https://coolpadelstudios.com/#llaveros</guid>
+      <description>Fabricación de llaveros de pádel de goma 3D personalizados desde 100 unidades con diseño 3D gratis y muestra previa por 15€.</description>
+      <pubDate>Fri, 18 Sep 2026 10:00:00 +0200</pubDate>
+    </item>
+    <item>
+      <title>Save my Play: Grabación de Pistas con Inteligencia Artificial</title>
+      <link>https://coolpadelstudios.com/#savemyplay</link>
+      <guid>https://coolpadelstudios.com/#savemyplay</guid>
+      <description>Cámaras con IA para clubes de pádel: repeticiones automáticas, estadísticas de juego y generación de ingresos.</description>
+      <pubDate>Fri, 18 Sep 2026 10:00:00 +0200</pubDate>
+    </item>
+    <item>
+      <title>Informe Oficial Industria del Pádel 2026</title>
+      <link>https://coolpadelstudios.com/#informe</link>
+      <guid>https://coolpadelstudios.com/#informe</guid>
+      <description>Descarga gratuita del reporte con tendencias, clubes inteligentes y expansión internacional de pádel.</description>
+      <pubDate>Fri, 18 Sep 2026 10:00:00 +0200</pubDate>
+    </item>
+  </channel>
+</rss>

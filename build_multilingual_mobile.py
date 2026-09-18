@@ -175,6 +175,55 @@ def get_base_html(active_lang="es", is_subfolder=False):
         "provider": {{ "@id": "https://coolpadelstudios.com/#organization" }}
       }},
       {{
+        "@type": "HowTo",
+        "name": "Cómo encargar llaveros de pádel personalizados para tu club",
+        "description": "Proceso oficial en 3 pasos para diseñar y fabricar llaveros de pádel en relieve 3D con muestra física real previa.",
+        "step": [
+          {{
+            "@type": "HowToStep",
+            "position": 1,
+            "name": "Envío de logotipo y diseño 3D",
+            "text": "Envíanos el logo de tu club en cualquier formato para preparar el render digital 3D sin coste."
+          }},
+          {{
+            "@type": "HowToStep",
+            "position": 2,
+            "name": "Muestra física real por 15€",
+            "text": "Fabricamos y enviamos una muestra real con el logo de tu club para validar relieve y colores."
+          }},
+          {{
+            "@type": "HowToStep",
+            "position": 3,
+            "name": "Producción del pedido final",
+            "text": "Fabricación en serie desde 100 unidades y entrega directa en 7-10 días laborables con envíos incluidos."
+          }}
+        ]
+      }},
+      {{
+        "@type": "LocalBusiness",
+        "@id": "https://coolpadelstudios.com/#localbusiness",
+        "name": "CoolPadel Studios",
+        "image": "https://coolpadelstudios.com/assets/images/coolpadel-mascot-hd.png",
+        "url": "https://coolpadelstudios.com",
+        "telephone": "+34-680-31-74-86",
+        "priceRange": "€€",
+        "address": {{
+          "@type": "PostalAddress",
+          "addressCountry": "ES"
+        }},
+        "geo": {{
+          "@type": "GeoCoordinates",
+          "latitude": 40.4168,
+          "longitude": -3.7038
+        }},
+        "openingHoursSpecification": {{
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "09:00",
+          "closes": "19:00"
+        }}
+      }},
+      {{
         "@type": "FAQPage",
         "mainEntity": [
           {{
@@ -206,6 +255,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
     ]
   }}
   </script>
+  <link rel="alternate" type="application/rss+xml" title="CoolPadel Studios Feed" href="https://coolpadelstudios.com/rss.xml">
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1880,9 +1930,81 @@ def build_all():
   </url>
 </urlset>
 """
-    with open("coolpadel-web/sitemap.xml", "w", encoding="utf-8") as f:
-        f.write(sitemap_xml)
-    print("  [OK] coolpadel-web/sitemap.xml (Multilingue con Hreflang)")
+    # 4. RSS Feed para indexación y agregadores de noticias/crawlers
+    rss_xml = """<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>CoolPadel Studios | Llaveros de Pádel Personalizados</title>
+    <link>https://coolpadelstudios.com</link>
+    <description>Fabricante directo de llaveros de pádel personalizados de goma 3D y tecnología deportiva Save my Play.</description>
+    <language>es-es</language>
+    <atom:link href="https://coolpadelstudios.com/rss.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Llaveros de Pádel Personalizados para Clubs con Logo Oficial en Relieve 3D</title>
+      <link>https://coolpadelstudios.com/#llaveros</link>
+      <guid>https://coolpadelstudios.com/#llaveros</guid>
+      <description>Fabricación de llaveros de pádel de goma 3D personalizados desde 100 unidades con diseño 3D gratis y muestra previa por 15€.</description>
+      <pubDate>Fri, 18 Sep 2026 10:00:00 +0200</pubDate>
+    </item>
+    <item>
+      <title>Save my Play: Grabación de Pistas con Inteligencia Artificial</title>
+      <link>https://coolpadelstudios.com/#savemyplay</link>
+      <guid>https://coolpadelstudios.com/#savemyplay</guid>
+      <description>Cámaras con IA para clubes de pádel: repeticiones automáticas, estadísticas de juego y generación de ingresos.</description>
+      <pubDate>Fri, 18 Sep 2026 10:00:00 +0200</pubDate>
+    </item>
+    <item>
+      <title>Informe Oficial Industria del Pádel 2026</title>
+      <link>https://coolpadelstudios.com/#informe</link>
+      <guid>https://coolpadelstudios.com/#informe</guid>
+      <description>Descarga gratuita del reporte con tendencias, clubes inteligentes y expansión internacional de pádel.</description>
+      <pubDate>Fri, 18 Sep 2026 10:00:00 +0200</pubDate>
+    </item>
+  </channel>
+</rss>
+"""
+    with open("coolpadel-web/rss.xml", "w", encoding="utf-8") as f:
+        f.write(rss_xml)
+    print("  [OK] coolpadel-web/rss.xml (Feed RSS 2.0)")
+
+    # 5. Google Merchant Center Feed (Google Shopping Free Listings)
+    merchant_xml = """<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:g="http://base.google.com/ns/1.0">
+  <channel>
+    <title>CoolPadel Studios - Catálogo Oficial de Llaveros de Pádel</title>
+    <link>https://coolpadelstudios.com</link>
+    <description>Catálogo de llaveros de pádel personalizados para Google Shopping y Google Merchant</description>
+    <item>
+      <g:id>LLAVERO-PADEL-100</g:id>
+      <g:title>Llaveros de Pádel Personalizados 3D (Pack 100 unidades)</g:title>
+      <g:description>Llaveros de pádel personalizados de goma 3D con logo oficial para clubes de pádel y tenis. Envíos incluidos y muestra previa.</g:description>
+      <g:link>https://coolpadelstudios.com/#llaveros</g:link>
+      <g:image_link>https://coolpadelstudios.com/assets/images/llaveros%201.jpg</g:image_link>
+      <g:additional_image_link>https://coolpadelstudios.com/assets/images/slide-1.jpg</g:additional_image_link>
+      <g:availability>in_stock</g:availability>
+      <g:price>300.00 EUR</g:price>
+      <g:brand>CoolPadel</g:brand>
+      <g:condition>new</g:condition>
+      <g:google_product_category>Sporting Goods &gt; Racquet Sports &gt; Padel</g:google_product_category>
+    </item>
+    <item>
+      <g:id>LLAVERO-PADEL-MUESTRA</g:id>
+      <g:title>Muestra Física Real Llavero de Pádel Personalizado</g:title>
+      <g:description>Muestra física real de llavero de pádel en relieve 3D con el logotipo de tu club antes de producir el pedido.</g:description>
+      <g:link>https://coolpadelstudios.com/#llaveros</g:link>
+      <g:image_link>https://coolpadelstudios.com/assets/images/llaveros%202.jpg</g:image_link>
+      <g:availability>in_stock</g:availability>
+      <g:price>15.00 EUR</g:price>
+      <g:brand>CoolPadel</g:brand>
+      <g:condition>new</g:condition>
+      <g:google_product_category>Sporting Goods &gt; Racquet Sports &gt; Padel</g:google_product_category>
+    </item>
+  </channel>
+</rss>
+"""
+    with open("coolpadel-web/google-merchant-feed.xml", "w", encoding="utf-8") as f:
+        f.write(merchant_xml)
+    print("  [OK] coolpadel-web/google-merchant-feed.xml (Google Shopping Feed)")
 
 if __name__ == "__main__":
     build_all()

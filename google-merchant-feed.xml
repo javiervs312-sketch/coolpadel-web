@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:g="http://base.google.com/ns/1.0">
+  <channel>
+    <title>CoolPadel Studios - Catálogo Oficial de Llaveros de Pádel</title>
+    <link>https://coolpadelstudios.com</link>
+    <description>Catálogo de llaveros de pádel personalizados para Google Shopping y Google Merchant</description>
+    <item>
+      <g:id>LLAVERO-PADEL-100</g:id>
+      <g:title>Llaveros de Pádel Personalizados 3D (Pack 100 unidades)</g:title>
+      <g:description>Llaveros de pádel personalizados de goma 3D con logo oficial para clubes de pádel y tenis. Envíos incluidos y muestra previa.</g:description>
+      <g:link>https://coolpadelstudios.com/#llaveros</g:link>
+      <g:image_link>https://coolpadelstudios.com/assets/images/llaveros%201.jpg</g:image_link>
+      <g:additional_image_link>https://coolpadelstudios.com/assets/images/slide-1.jpg</g:additional_image_link>
+      <g:availability>in_stock</g:availability>
+      <g:price>300.00 EUR</g:price>
+      <g:brand>CoolPadel</g:brand>
+      <g:condition>new</g:condition>
+      <g:google_product_category>Sporting Goods &gt; Racquet Sports &gt; Padel</g:google_product_category>
+    </item>
+    <item>
+      <g:id>LLAVERO-PADEL-MUESTRA</g:id>
+      <g:title>Muestra Física Real Llavero de Pádel Personalizado</g:title>
+      <g:description>Muestra física real de llavero de pádel en relieve 3D con el logotipo de tu club antes de producir el pedido.</g:description>
+      <g:link>https://coolpadelstudios.com/#llaveros</g:link>
+      <g:image_link>https://coolpadelstudios.com/assets/images/llaveros%202.jpg</g:image_link>
+      <g:availability>in_stock</g:availability>
+      <g:price>15.00 EUR</g:price>
+      <g:brand>CoolPadel</g:brand>
+      <g:condition>new</g:condition>
+      <g:google_product_category>Sporting Goods &gt; Racquet Sports &gt; Padel</g:google_product_category>
+    </item>
+  </channel>
+</rss>
