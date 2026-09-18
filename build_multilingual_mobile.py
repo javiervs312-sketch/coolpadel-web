@@ -26,6 +26,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
   <link rel="icon" type="image/png" href="{asset_prefix}assets/images/Ojos logo.png">
   <link rel="apple-touch-icon" sizes="180x180" href="{asset_prefix}assets/images/Ojos logo.png">
   <link rel="manifest" href="{asset_prefix}site.webmanifest">
+  <meta name="google-site-verification" content="google045b4db1401a0923">
   <meta name="theme-color" content="#0b1626">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
