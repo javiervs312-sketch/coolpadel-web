@@ -4,8 +4,8 @@ import re
 # DICCIONARIO COMPLETO DE TRADUCCIONES PROFESIONALES (ES, EN, FR, IT)
 TRANSLATIONS = {
     "es": {
-        "meta_title": "CoolPadel | Llaveros Personalizados para Clubs de Padel",
-        "meta_desc": "Ecosistema de merchandising y tecnología para clubes de padel y tenis: llaveros personalizados con logo oficial, cámaras Save my Play para grabación de partidos e informes, reportajes y newsletters de la industria del padel.",
+        "meta_title": "Llaveros de Pádel Personalizados para Clubs | CoolPadel",
+        "meta_desc": "Llaveros de pádel personalizados de alta calidad con logo oficial para clubes de pádel, torneos y jugadores. Fabricante directo de llaveros de pádel en relieve 3D y tecnología Save my Play.",
         "top_ticker": "Descarga el informe exclusivo sobre la industria del padel",
         "top_ticker_newsletter": "No te pierdas la última edición de la Newsletter de CoolPadel",
         "nav_tenis_padel": "TENIS Y PADEL",
@@ -107,8 +107,8 @@ TRANSLATIONS = {
         "wa_prefilled_msg": "Hola Javier"
     },
     "en": {
-        "meta_title": "CoolPadel | Custom Keychains for Padel Clubs",
-        "meta_desc": "Merchandising and smart technology for padel and tennis clubs: custom keychains with official logo, Save my Play cameras for match recording, and padel industry reports and newsletters.",
+        "meta_title": "Custom Padel Keychains for Clubs | CoolPadel",
+        "meta_desc": "High quality custom 3D rubber padel keychains with official club logo for padel clubs, tournaments and players. Direct manufacturer & Save my Play camera systems.",
         "top_ticker": "Download the exclusive padel industry report",
         "top_ticker_newsletter": "Don't miss the latest edition of the CoolPadel Newsletter",
         "nav_tenis_padel": "TENNIS & PADEL",
@@ -210,8 +210,8 @@ TRANSLATIONS = {
         "wa_prefilled_msg": "Hello Javier"
     },
     "fr": {
-        "meta_title": "CoolPadel | Porte-clés Personnalisés pour Clubs de Padel",
-        "meta_desc": "Écosystème de merchandising et technologie pour clubs de padel et tennis : porte-clés personnalisés avec logo officiel, caméras Save my Play pour l'enregistrement de matchs et rapports de l'industrie du padel.",
+        "meta_title": "Porte-clés Padel Personnalisés pour Clubs | CoolPadel",
+        "meta_desc": "Porte-clés de padel personnalisés en relief 3D haute qualité avec logo officiel pour clubs de padel, tournois et joueurs. Fabricant direct & caméras Save my Play.",
         "top_ticker": "Téléchargez le rapport exclusif sur l'industrie du padel",
         "top_ticker_newsletter": "Ne manquez pas la dernière édition de la Newsletter CoolPadel",
         "nav_tenis_padel": "TENNIS & PADEL",
@@ -313,8 +313,8 @@ TRANSLATIONS = {
         "wa_prefilled_msg": "Bonjour Javier"
     },
     "it": {
-        "meta_title": "CoolPadel | Portachiavi Personalizzati per Club di Padel",
-        "meta_desc": "Ecosistema di merchandising e tecnologia per club di padel e tennis: portachiavi personalizzati con logo ufficiale, telecamere Save my Play per la registrazione delle partite e report del settore padel.",
+        "meta_title": "Portachiavi Padel Personalizzati per Club | CoolPadel",
+        "meta_desc": "Portachiavi di padel personalizzati in rilievo 3D di alta qualità con logo ufficiale per club di padel, tornei e giocatori. Produttore diretto & Save my Play.",
         "top_ticker": "Scarica il report esclusivo sull'industria del padel",
         "top_ticker_newsletter": "Non perdere l'ultima edizione della Newsletter di CoolPadel",
         "nav_tenis_padel": "TENNIS & PADEL",

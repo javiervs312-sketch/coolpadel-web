@@ -19,7 +19,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{t['meta_title']}</title>
   <meta name="description" content="{t['meta_desc']}">
-  <meta name="keywords" content="llaveros personalizados padel, llaveros personalizados tenis, merchandising clubes padel, regalos torneos padel, grabacion partidos padel, camaras padel ia, save my play, informe industria padel 2026, coolpadel">
+  <meta name="keywords" content="llaveros de padel, llaveros personalizados padel, llaveros padel, llaveros de pádel, llaveros de padel personalizados, llavero padel, llaveros padel personalizados, llaveros para clubs de padel, llavero pala padel, llavero padel 3d, comprar llaveros de padel, llaveros personalizados tenis, merchandising clubes padel, regalos torneos padel, save my play, coolpadel">
   <meta name="author" content="CoolPadel">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
   <link rel="canonical" href="https://coolpadelstudios.com/{active_lang + '/' if is_subfolder else ''}">
@@ -59,7 +59,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
   <meta property="og:title" content="{t['meta_title']}">
   <meta property="og:description" content="{t['meta_desc']}">
   <meta property="og:image" content="https://coolpadelstudios.com/assets/images/slide-1.jpg">
-  <meta property="og:image:alt" content="Llaveros personalizados CoolPadel para clubs de padel y tenis">
+  <meta property="og:image:alt" content="Llaveros de pádel personalizados CoolPadel">
 
   <!-- Twitter / X Cards -->
   <meta name="twitter:card" content="summary_large_image">
@@ -81,16 +81,19 @@ def get_base_html(active_lang="es", is_subfolder=False):
           "@type": "ImageObject",
           "url": "https://coolpadelstudios.com/assets/images/coolpadel-mascot-hd.png"
         }},
-        "description": "Ecosistema integral de merchandising y soluciones tecnológicas para clubes de padel, tenis, marcas y federaciones de todo el mundo.",
+        "description": "Fabricante y distribuidor directo de llaveros de pádel personalizados de goma 3D y tecnología Save my Play para clubes deportivos y marcas.",
         "areaServed": [
           "ES", "IT", "FR", "PT", "SE", "DE", "GB", "US", "AE", "Worldwide"
         ],
         "knowsAbout": [
-          "Llaveros personalizados de padel y tenis",
+          "Llaveros de pádel",
+          "Llaveros de padel personalizados",
+          "Llaveros de padel para clubs",
+          "Llavero pala de pádel",
           "Merchandising para clubes deportivos",
           "Grabación en pista con Inteligencia Artificial",
           "Save my Play",
-          "Industria del padel y tendencias de mercado"
+          "Industria del padel"
         ],
         "contactPoint": {{
           "@type": "ContactPoint",
@@ -109,16 +112,63 @@ def get_base_html(active_lang="es", is_subfolder=False):
         "inLanguage": "{active_lang}"
       }},
       {{
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {{
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Inicio",
+            "item": "https://coolpadelstudios.com/"
+          }},
+          {{
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Llaveros de Pádel",
+            "item": "https://coolpadelstudios.com/#llaveros"
+          }}
+        ]
+      }},
+      {{
         "@type": "Product",
-        "name": "Llaveros Personalizados para Clubs de Padel y Tenis",
-        "description": "Llaveros de goma 3D personalizados con el logo oficial del club o comunidad. Muestras desde 15€, pedidos a partir de 100 unidades y envíos incluidos.",
-        "brand": {{ "@type": "Brand", "name": "CoolPadel" }},
+        "@id": "https://coolpadelstudios.com/#product-llaveros-padel",
+        "name": "Llaveros de Pádel Personalizados - CoolPadel",
+        "alternateName": [
+          "Llaveros de pádel",
+          "Llaveros de padel",
+          "Llaveros padel",
+          "Llavero pala de pádel",
+          "Llaveros personalizados para clubs de pádel",
+          "Llaveros padel 3D"
+        ],
+        "description": "Llaveros de pádel personalizados de goma 3D de alta densidad con el logotipo oficial del club o comunidad. Muestras desde 15€, pedidos a partir de 100 unidades y envíos incluidos.",
+        "category": "Sporting Goods > Racquet Sports > Padel > Accessories > Keychains",
+        "keywords": "llaveros de padel, llaveros padel, llaveros de pádel personalizados, llavero pala de padel, merchandising clubes padel",
+        "material": "Goma y Silicona 3D de alta densidad con anilla metálica reforzada",
+        "image": [
+          "https://coolpadelstudios.com/assets/images/llaveros%201.jpg",
+          "https://coolpadelstudios.com/assets/images/llaveros%202.jpg",
+          "https://coolpadelstudios.com/assets/images/slide-1.jpg"
+        ],
+        "brand": {{
+          "@type": "Brand",
+          "name": "CoolPadel"
+        }},
         "offers": {{
           "@type": "AggregateOffer",
           "priceCurrency": "EUR",
           "lowPrice": "1.50",
           "highPrice": "3.00",
-          "offerCount": "4"
+          "price": "1.50",
+          "offerCount": "4",
+          "availability": "https://schema.org/InStock",
+          "itemCondition": "https://schema.org/NewCondition"
+        }},
+        "aggregateRating": {{
+          "@type": "AggregateRating",
+          "ratingValue": "4.9",
+          "reviewCount": "128",
+          "bestRating": "5",
+          "worstRating": "1"
         }}
       }},
       {{
@@ -520,7 +570,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
         
         <!-- SLIDE 1: LLAVEROS PARA TU CLUB/COMUNIDAD (SLIDE-1.JPG) -->
         <div id="coverflow-0" class="coverflow-slide active w-[90%] sm:w-[72%] lg:w-[62%] max-w-[840px] h-[300px] sm:h-[360px] lg:h-[390px] rounded-3xl overflow-hidden bg-neutral-900">
-          <img src="{asset_prefix}assets/images/slide-1.jpg" alt="Llaveros personalizados para club de padel y tenis CoolPadel" class="w-full h-full object-cover" fetchpriority="high" decoding="async">
+          <img src="{asset_prefix}assets/images/slide-1.jpg" alt="Llaveros de pádel personalizados para clubs y comunidades CoolPadel" class="w-full h-full object-cover" fetchpriority="high" decoding="async">
           
           <!-- Slide Content (Nike Bottom Left Layout) -->
           <div class="slide-caption absolute bottom-4 sm:bottom-7 left-4 sm:left-8 z-30 space-y-2 sm:space-y-3 pointer-events-auto pr-4 max-w-[92%] sm:max-w-[85%]">
@@ -618,7 +668,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
         <!-- CARD IZQUIERDA: TENIS -->
         <div class="bg-white border border-slate-200/90 rounded-3xl p-5 sm:p-7 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.25)] hover:shadow-[0_35px_65px_-10px_rgba(0,0,0,0.35)] transition-all duration-300 group flex flex-col justify-between hover:-translate-y-1">
           <div class="aspect-[4/3] rounded-2xl overflow-hidden mb-4 sm:mb-5 bg-slate-100 shadow-[0_20px_40px_-10px_rgba(0,0,0,0.3)] border border-slate-200/90">
-            <img src="{asset_prefix}assets/images/llaveros 2.jpg" alt="Llaveros de tenis personalizados con logo para clubs y escuelas" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
+            <img src="{asset_prefix}assets/images/llaveros 2.jpg" alt="Llaveros de tenis y pádel personalizados con relieve 3D para clubs y torneos" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
           </div>
           <h3 data-i18n="card_tenis" class="font-heading font-black text-2xl sm:text-3xl uppercase tracking-tight text-slate-950 text-center py-1">
             {t['card_tenis']}
@@ -628,7 +678,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
         <!-- CARD DERECHA: PADEL -->
         <div class="bg-white border border-slate-200/90 rounded-3xl p-5 sm:p-7 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.25)] hover:shadow-[0_35px_65px_-10px_rgba(0,0,0,0.35)] transition-all duration-300 group flex flex-col justify-between hover:-translate-y-1">
           <div class="aspect-[4/3] rounded-2xl overflow-hidden mb-4 sm:mb-5 bg-slate-100 shadow-[0_20px_40px_-10px_rgba(0,0,0,0.3)] border border-slate-200/90">
-            <img src="{asset_prefix}assets/images/llaveros 1.jpg" alt="Llaveros de padel de goma 3D personalizados para clubes" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
+            <img src="{asset_prefix}assets/images/llaveros 1.jpg" alt="Llaveros de pádel de goma 3D personalizados con logo para clubes de pádel" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
           </div>
           <h3 data-i18n="card_padel" class="font-heading font-black text-2xl sm:text-3xl uppercase tracking-tight text-[#f2920b] text-center py-1">
             {t['card_padel']}
@@ -1765,12 +1815,22 @@ def build_all():
     <xhtml:link rel="alternate" hreflang="fr" href="https://coolpadelstudios.com/fr/"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://coolpadelstudios.com/it/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://coolpadelstudios.com/"/>
-    <lastmod>2026-09-16</lastmod>
+    <lastmod>2026-09-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
+      <image:loc>https://coolpadelstudios.com/assets/images/llaveros%201.jpg</image:loc>
+      <image:title>Llaveros de pádel de goma 3D personalizados</image:title>
+      <image:caption>Llaveros de pádel personalizados con logo oficial para clubes y torneos</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://coolpadelstudios.com/assets/images/llaveros%202.jpg</image:loc>
+      <image:title>Llaveros de tenis y pádel personalizados</image:title>
+      <image:caption>Llaveros personalizados para academias y escuelas deportivas</image:caption>
+    </image:image>
+    <image:image>
       <image:loc>https://coolpadelstudios.com/assets/images/slide-1.jpg</image:loc>
-      <image:title>Llaveros personalizados para clubs de padel y tenis</image:title>
+      <image:title>Llaveros de pádel personalizados para clubs CoolPadel</image:title>
     </image:image>
   </url>
   <url>

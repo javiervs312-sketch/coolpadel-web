@@ -9,12 +9,22 @@
     <xhtml:link rel="alternate" hreflang="fr" href="https://coolpadelstudios.com/fr/"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://coolpadelstudios.com/it/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://coolpadelstudios.com/"/>
-    <lastmod>2026-09-16</lastmod>
+    <lastmod>2026-09-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
+      <image:loc>https://coolpadelstudios.com/assets/images/llaveros%201.jpg</image:loc>
+      <image:title>Llaveros de pádel de goma 3D personalizados</image:title>
+      <image:caption>Llaveros de pádel personalizados con logo oficial para clubes y torneos</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://coolpadelstudios.com/assets/images/llaveros%202.jpg</image:loc>
+      <image:title>Llaveros de tenis y pádel personalizados</image:title>
+      <image:caption>Llaveros personalizados para academias y escuelas deportivas</image:caption>
+    </image:image>
+    <image:image>
       <image:loc>https://coolpadelstudios.com/assets/images/slide-1.jpg</image:loc>
-      <image:title>Llaveros personalizados para clubs de padel y tenis</image:title>
+      <image:title>Llaveros de pádel personalizados para clubs CoolPadel</image:title>
     </image:image>
   </url>
   <url>
