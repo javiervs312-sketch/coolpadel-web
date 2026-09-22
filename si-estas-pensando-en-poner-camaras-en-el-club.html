@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
     <title>Si estás pensando en poner cámaras en el club, tienes que leer esto | Save My Play</title>
     <meta name="description" content="Las 3 decisiones clave que hacen que muchos clubes de tenis y pádel en España se arrepientan al poner cámaras.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,7 +16,7 @@
             --bg-color: #ffffff;
             --text-color: #111111;
             --text-muted: #666666;
-            --border-color: #d1d5db;
+            --border-color: #b0b0b0;
             --card-bg: #f7f7f8;
             --font-main: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
         }
@@ -69,7 +72,7 @@
             margin-top: 6.5rem;
             margin-bottom: 3rem;
             padding-top: 3.5rem;
-            border-top: 2px solid var(--border-color);
+            border-top: 2px solid #b0b0b0;
             color: var(--text-color);
         }
 
@@ -87,13 +90,15 @@
             text-underline-offset: 8px;
         }
 
-        /* Separador de línea entre apartados */
+        /* Separador de línea muy nítido entre apartados */
         hr.sub-divider {
-            border: 0;
-            height: 1px;
-            background-color: var(--border-color);
-            margin: 3.5rem 0;
-            display: block;
+            border: 0 !important;
+            height: 1.5px !important;
+            background-color: #b0b0b0 !important;
+            margin: 3.8rem 0 !important;
+            width: 100% !important;
+            display: block !important;
+            opacity: 1 !important;
         }
 
         /* Párrafos: Mucha separación en puntos y aparte */
@@ -134,8 +139,8 @@
         /* ANIMACIONES AL HACER SCROLL (FADE IN Y SLIDE UP) */
         .reveal-on-scroll {
             opacity: 0;
-            transform: translateY(26px);
-            transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+            transform: translateY(24px);
+            transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
             will-change: opacity, transform;
         }
 
@@ -166,7 +171,7 @@
                 margin-bottom: 2rem;
             }
             hr.sub-divider {
-                margin: 2.5rem 0;
+                margin: 2.8rem 0 !important;
             }
             .lead-warning {
                 padding: 1.4rem 1.4rem;
@@ -562,7 +567,7 @@
             Por eso y porque no damos problemas.
         </p>
 
-        <!-- SECCIÓN: CÓMO PONERLAS -->
+        <!-- SECCIÓN: CÓMO PONERLAS (SIN NINGUNA LÍNEA DIVISORIA) -->
         <h2 class="section-title reveal-on-scroll">
             Y qué pasa si quiero ponerlas?
         </h2>
@@ -587,9 +592,6 @@
         <p class="reveal-on-scroll">
             Todo lo que necesitas saber está aquí escrito.
         </p>
-
-        <!-- SEPARACIÓN 10 -->
-        <hr class="sub-divider reveal-on-scroll">
 
         <p class="reveal-on-scroll">
             <strong>Si te gusta esto de Save My Play, me dices y te llamo cuando tenga un hueco libre.</strong>
@@ -625,8 +627,8 @@
 
             const revealObserver = new IntersectionObserver(revealCallback, {
                 root: null,
-                threshold: 0.1,
-                rootMargin: '0px 0px -40px 0px'
+                threshold: 0.05,
+                rootMargin: '0px 0px -20px 0px'
             });
 
             revealElements.forEach(el => revealObserver.observe(el));
