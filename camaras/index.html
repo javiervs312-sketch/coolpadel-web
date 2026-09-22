@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Si estás pensando en poner cámaras en el club, tienes que leer esto | Save My Play</title>
+    <meta name="description" content="Las 3 decisiones clave que hacen que muchos clubes de tenis y pádel en España se arrepientan al poner cámaras.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #111111;
+            --text-muted: #666666;
+            --border-color: #e5e5e5;
+            --card-bg: #f7f7f8;
+            --font-main: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: var(--font-main);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.85;
+            font-size: 1.2rem;
+            padding: 0;
+            margin: 0;
+            overflow-x: hidden;
+        }
+
+        /* Header sutil de marca */
+        header {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 3.5rem 1.5rem 1.5rem;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+        }
+
+        .brand {
+            font-weight: 800;
+            font-size: 1.05rem;
+            letter-spacing: -0.02em;
+            text-transform: uppercase;
+            text-decoration: none;
+            color: var(--text-color);
+        }
+
+        /* Contenedor principal de lectura */
+        main {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 2.5rem 1.5rem 8rem;
+        }
+
+        /* Título Principal */
+        h1.main-title {
+            font-size: clamp(2.1rem, 5vw, 2.85rem);
+            font-weight: 800;
+            line-height: 1.2;
+            letter-spacing: -0.035em;
+            margin-bottom: 3.5rem;
+            color: var(--text-color);
+        }
+
+        /* Títulos de Secciones Grandes */
+        h2.section-title {
+            font-size: clamp(1.6rem, 3.8vw, 2.05rem);
+            font-weight: 800;
+            line-height: 1.28;
+            letter-spacing: -0.025em;
+            margin-top: 6.5rem;
+            margin-bottom: 3rem;
+            padding-top: 3.5rem;
+            border-top: 2px solid var(--border-color);
+            color: var(--text-color);
+        }
+
+        /* Títulos de Decisiones / Apartados con Subrayado */
+        h3.decision-title {
+            font-size: clamp(1.35rem, 3vw, 1.65rem);
+            font-weight: 800;
+            line-height: 1.35;
+            letter-spacing: -0.015em;
+            margin-top: 6.5rem;
+            margin-bottom: 2.5rem;
+            color: var(--text-color);
+            text-decoration: underline;
+            text-decoration-thickness: 3px;
+            text-underline-offset: 8px;
+        }
+
+        /* Separador sutil dentro de las secciones */
+        hr.sub-divider {
+            border: 0;
+            height: 1px;
+            background-color: var(--border-color);
+            margin: 3.5rem 0;
+        }
+
+        /* Párrafos: Mucha separación en puntos y aparte */
+        p {
+            margin-bottom: 2.4rem;
+            color: #1a1a1a;
+            font-weight: 400;
+        }
+
+        /* Estilo destacado para el primer párrafo */
+        .lead-warning {
+            font-size: 1.25rem;
+            font-weight: 500;
+            line-height: 1.75;
+            padding: 1.75rem 2rem;
+            background-color: var(--card-bg);
+            border-left: 4px solid #000000;
+            border-radius: 4px;
+            margin-bottom: 3.5rem;
+            color: #111111;
+        }
+
+        .lead-warning p {
+            margin-bottom: 1.4rem;
+            color: inherit;
+        }
+
+        .lead-warning p:last-child {
+            margin-bottom: 0;
+            font-weight: 700;
+        }
+
+        /* ANIMACIONES AL HACER SCROLL (FADE IN Y SLIDE UP) */
+        .reveal-on-scroll {
+            opacity: 0;
+            transform: translateY(26px);
+            transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: opacity, transform;
+        }
+
+        .reveal-on-scroll.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Footer */
+        footer {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 3rem 1.5rem 5rem;
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+            font-size: 0.95rem;
+            color: var(--text-muted);
+        }
+
+        @media (max-width: 640px) {
+            body {
+                font-size: 1.1rem;
+                line-height: 1.8;
+            }
+            p {
+                margin-bottom: 2rem;
+            }
+            h2.section-title {
+                margin-top: 4.5rem;
+                margin-bottom: 2.2rem;
+                padding-top: 2.5rem;
+            }
+            h3.decision-title {
+                margin-top: 4.8rem;
+                margin-bottom: 2rem;
+            }
+            hr.sub-divider {
+                margin: 2.5rem 0;
+            }
+            .lead-warning {
+                padding: 1.4rem 1.4rem;
+                margin-bottom: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="reveal-on-scroll">
+        <a href="https://savemyplay.com" class="brand">Save My Play</a>
+    </header>
+
+    <main>
+        <!-- TÍTULO PRINCIPAL -->
+        <h1 class="main-title reveal-on-scroll">
+            Si estás pensando en poner cámaras en el club, tienes que leer esto
+        </h1>
+
+        <!-- PRIMER PÁRRAFO CON ESTILO DESTACADO -->
+        <div class="lead-warning reveal-on-scroll">
+            <p>
+                En primer lugar, si no eres dueño, trabajador, gerente, manager… de un club de tenis o padel en España puedes pulsar a la X arriba de la página y cerrar esta pestaña.
+            </p>
+            <p>
+                Esto no es para ti.
+            </p>
+        </div>
+
+        <!-- INTRODUCCIÓN -->
+        <p class="reveal-on-scroll">
+            Si estás pensando poner cámaras en tu club, es más que probable que te interese seguir leyendo.
+        </p>
+
+        <p class="reveal-on-scroll">
+            Muchos clubs en España se arrepienten de haber puesto cámaras en sus pistas.
+        </p>
+
+        <p class="reveal-on-scroll">
+            Sí, has leído bien.
+        </p>
+
+        <p class="reveal-on-scroll">
+            Y no son ni uno ni dos.
+        </p>
+
+        <!-- SEPARACIÓN 1 -->
+        <hr class="sub-divider reveal-on-scroll">
+
+        <p class="reveal-on-scroll">
+            Puede que te sorprenda sabiendo que me dedico a vender cámaras a clubs como el tuyo.
+        </p>
+
+        <p class="reveal-on-scroll">
+            Aprovecho ya y me presento:
+        </p>
+
+        <p class="reveal-on-scroll">
+            soy Javier, de Save My Play.
+        </p>
+
+        <p class="reveal-on-scroll">
+            Y lo que voy a contarte creo que te interesa.
+        </p>
+
+        <p class="reveal-on-scroll">
+            A muchos clubs les habría venido bien saberlo antes.
+        </p>
+
+        <!-- SEPARACIÓN 2 -->
+        <hr class="sub-divider reveal-on-scroll">
+
+        <p class="reveal-on-scroll">
+            Porque muchos de esos clubes no se arrepienten de haber puesto cámaras.
+        </p>
+
+        <p class="reveal-on-scroll">
+            Se arrepienten de haber elegido mal qué cámaras poner y qué servicio contratar.
+        </p>
+
+        <p class="reveal-on-scroll">
+            En concreto, hay 3 decisiones que se repiten.
+        </p>
+
+        <p class="reveal-on-scroll">
+            Te recomiendo leerlas con atención.
+        </p>
+
+        <p class="reveal-on-scroll">
+            Mal no te puede venir y quizá te ahorren un par de disgustos innecesarios.
+        </p>
+
+        <!-- SEPARACIÓN 3 -->
+        <hr class="sub-divider reveal-on-scroll">
+
+        <p class="reveal-on-scroll">
+            Lo sé porque hablo con clubes y me lo han contado ellos.
+        </p>
+
+        <p class="reveal-on-scroll">
+            No te pido que creas nada de lo que aquí te digo.
+        </p>
+
+        <p class="reveal-on-scroll">
+            De hecho, te recomiendo que tú también hables con otros clubes y les preguntes.
+        </p>
+
+        <p class="reveal-on-scroll">
+            <strong>Hazlo.</strong>
+        </p>
+
+        <!-- SECCIÓN: LAS 3 DECISIONES -->
+        <h2 class="section-title reveal-on-scroll">
+            Las 3 decisiones que hacen que los clubes se arrepientan de poner cámaras
+        </h2>
+
+        <p class="reveal-on-scroll">
+            Antes de empezar, una pregunta.
+        </p>
+
+        <p class="reveal-on-scroll">
+            Qué quieren realmente los jugadores de las cámaras?
+        </p>
+
+        <p class="reveal-on-scroll">
+            Un par de vídeos de sus mejores puntos para compartirlos con sus amigos o subirlos a redes.
+        </p>
+
+        <p class="reveal-on-scroll">
+            Y que todo el mundo se entere de que juegan al pádel.
+        </p>
+
+        <p class="reveal-on-scroll">
+            No hay que darle muchas más vueltas.
+        </p>
+
+        <!-- DECISIÓN 1 (TÍTULO SUBRAYADO CON EXTRA ESPACIADO) -->
+        <h3 class="decision-title reveal-on-scroll">
+            Decisión 1: Analytics y estadísticas con IA
+        </h3>
+
+        <p class="reveal-on-scroll">
+            A que suena chula la idea?
+        </p>
+
+        <p class="reveal-on-scroll">
+            Que una IA te analice tu juego, te diga cuántos golpes haces y hasta lo que haces bien y mal.
+        </p>
+
+        <p class="reveal-on-scroll">
+            El problema es que su coste no es tan gracioso para lo que luego se usa.
+        </p>
+
+        <!-- SEPARACIÓN 4 -->
+        <hr class="sub-divider reveal-on-scroll">
+
+        <p class="reveal-on-scroll">
+            La realidad es que al tercer partido que juegas te das cuenta de que tu mapa de calor se parece bastante al de los anteriores partidos.
+        </p>
+
+        <p class="reveal-on-scroll">
+            Y que tu número de derechas cortadas con doble tirabuzón invertido es un dato que no te aporta gran cosa.
+        </p>
+
+        <p class="reveal-on-scroll">
+            Y dejas de usarlo.
+        </p>
+
+        <p class="reveal-on-scroll">
+            Pero no de pagarlo.
+        </p>
+
+        <!-- SEPARACIÓN 5 -->
+        <hr class="sub-divider reveal-on-scroll">
+
+        <p class="reveal-on-scroll">
+            Me da especial pena verlo en clubes pequeños de pueblos de Burgos, Córdoba o Tarragona, por ejemplo.
+        </p>
+
+        <p class="reveal-on-scroll">
+            Pagar 180€ al mes por pista es una locura.
+        </p>
+
+        <p class="reveal-on-scroll">
+            No tienen suficiente público para rentabilizarlo.
+        </p>
+
+        <p class="reveal-on-scroll">
+            Es de cajón.
+        </p>
+
+        <p class="reveal-on-scroll">
+            Todo para que luego lo acaben usando los mismos 4 frikis de siempre.
+        </p>
+
+        <!-- SEPARACIÓN 6 -->
+        <hr class="sub-divider reveal-on-scroll">
+
+        <p class="reveal-on-scroll">
+            Ojo que en Save My Play, tenemos un plan que incluye Analytics y estadísticas con IA por 136€ al mes, además de la inversión de la cámara, que ya te contaré.
+        </p>
+
+        <p class="reveal-on-scroll">
+            Una ganga.
+        </p>
+
+        <p class="reveal-on-scroll">
+            Ya sabes mi opinión sobre este plan.
+        </p>
+
+        <p class="reveal-on-scroll">
+            Si me insistes mucho, tendré que vendértelo, pero no me vengas luego con que no te avisé.
+        </p>
+
+        <p class="reveal-on-scroll">
+            El único caso que puede tener sentido es un club con mucha rotación de jugadores o tal vez para competición.
+        </p>
+
+        <!-- DECISIÓN 2 (TÍTULO SUBRAYADO CON EXTRA ESPACIADO) -->
+        <h3 class="decision-title reveal-on-scroll">
+            Decisión 2: Permanencias y peridos de prueba
+        </h3>
+
+        <p class="reveal-on-scroll">
+            Cuidado con los periodos de prueba (gratis o a precio reducido) de un par de meses antes de firmar un contrato con permanencia.
+        </p>
+
+        <p class="reveal-on-scroll">
+            Cuidado.
+        </p>
+
+        <p class="reveal-on-scroll">
+            Al principio es evidente que la gente lo va a probar.
+        </p>
+
+        <p class="reveal-on-scroll">
+            Lógicamente.
+        </p>
+
+        <p class="reveal-on-scroll">
+            El problema viene cuando te parece que está teniendo más éxito del que realmente tiene, firmas un contrato largo y, seis meses después, descubres que el uso ha caído muchísimo.
+        </p>
+
+        <p class="reveal-on-scroll">
+            No te hipoteques con una permanencia.
+        </p>
+
+        <!-- SEPARACIÓN 7 -->
+        <hr class="sub-divider reveal-on-scroll">
+
+        <p class="reveal-on-scroll">
+            Nosotros no tenemos permanencias.
+        </p>
+
+        <p class="reveal-on-scroll">
+            Cancelas tu suscripción y te largas.
+        </p>
+
+        <p class="reveal-on-scroll">
+            No queremos clientes enfadados.
+        </p>
+
+        <p class="reveal-on-scroll">
+            Pensando a medio y largo plazo, no nos compensa.
+        </p>
+
+        <p class="reveal-on-scroll">
+            Aun así más del 97 % de los clubes siguen voluntariamente con nosotros cada mes.
+        </p>
+
+        <!-- DECISIÓN 3 (TÍTULO SUBRAYADO CON EXTRA ESPACIADO) -->
+        <h3 class="decision-title reveal-on-scroll">
+            3º Usar cámaras de vigilancia
+        </h3>
+
+        <p class="reveal-on-scroll">
+            Pregunta.
+        </p>
+
+        <p class="reveal-on-scroll">
+            Tú crees que una adolescente se grabaría TikToks usando una cámara de videovigilancia en vez de con el último Iphone??
+        </p>
+
+        <p class="reveal-on-scroll">
+            Pues algún club no lo tiene tan claro.
+        </p>
+
+        <p class="reveal-on-scroll">
+            Si la gente quiere compartir sus highlights en redes, no tiene sentido usar cámaras de vigilancia para grabarlos.
+        </p>
+
+        <p class="reveal-on-scroll">
+            La calidad de imagen es pésima.
+        </p>
+
+        <p class="reveal-on-scroll">
+            Las líneas y la imagen se ven curvadas.
+        </p>
+
+        <p class="reveal-on-scroll">
+            Hay infinidad de reflejos.
+        </p>
+
+        <p class="reveal-on-scroll">
+            Solo le falta estar en blanco y negro y parece la grabación de un robo a un banco.
+        </p>
+
+        <!-- SEPARACIÓN 8 -->
+        <hr class="sub-divider reveal-on-scroll">
+
+        <p class="reveal-on-scroll">
+            Nosotros no utilizamos cámaras de vigilancia para grabar las pistas.
+        </p>
+
+        <p class="reveal-on-scroll">
+            Fabricamos nuestras cámaras en Chicago y California para deportes de raqueta.
+        </p>
+
+        <p class="reveal-on-scroll">
+            Por eso, hay una inversión inicial de 180 € por cámara, una cámara por pista.
+        </p>
+
+        <p class="reveal-on-scroll">
+            Si no te gusta, ya sabes.
+        </p>
+
+        <p class="reveal-on-scroll">
+            Y encima tardamos en mandarlas de 2 a 4 semanas.
+        </p>
+
+        <p class="reveal-on-scroll">
+            O un poco más, que hay cola.
+        </p>
+
+        <p class="reveal-on-scroll">
+            El plan que recomendamos a la mayoría de clubs por 45€ al mes incluye grabaciones, highlights, retransmisiones en directo en YouTube, coaching tools… todo lo que necesitas.
+        </p>
+
+        <p class="reveal-on-scroll">
+            Ya te lo enseñaré si procede.
+        </p>
+
+        <!-- SECCIÓN: QUÉ GANAS -->
+        <h2 class="section-title reveal-on-scroll">
+            Entonces, qué ganas poniendo cámaras?
+        </h2>
+
+        <p class="reveal-on-scroll">
+            Después de todo esto, si no se te han quitado las ganas de poner las cámaras, vamos con lo bueno.
+        </p>
+
+        <p class="reveal-on-scroll">
+            Te diferencias de los más de 4.000 clubes que hay en España antes de que lo haga el club de al lado.
+        </p>
+
+        <p class="reveal-on-scroll">
+            Ofreces un servicio premium que tus jugadores agradecen.
+        </p>
+
+        <p class="reveal-on-scroll">
+            Y encima te generan ellos el contenido para redes.
+        </p>
+
+        <p class="reveal-on-scroll">
+            Y lo comparten.
+        </p>
+
+        <p class="reveal-on-scroll">
+            Y con tu logo en pantalla.
+        </p>
+
+        <!-- SEPARACIÓN 9 -->
+        <hr class="sub-divider reveal-on-scroll">
+
+        <p class="reveal-on-scroll">
+            Ya estamos en más de 1.600 pistas en todo el mundo.
+        </p>
+
+        <p class="reveal-on-scroll">
+            Porque con dos botones tienes todo funcionando.
+        </p>
+
+        <p class="reveal-on-scroll">
+            Facilito, no?
+        </p>
+
+        <p class="reveal-on-scroll">
+            Por eso, la Federación Americana de Pádel nos eligió para grabar sus torneos FIP.
+        </p>
+
+        <p class="reveal-on-scroll">
+            Y la de tenis también.
+        </p>
+
+        <p class="reveal-on-scroll">
+            Por eso y porque no damos problemas.
+        </p>
+
+        <!-- SECCIÓN: CÓMO PONERLAS -->
+        <h2 class="section-title reveal-on-scroll">
+            Y qué pasa si quiero ponerlas?
+        </h2>
+
+        <p class="reveal-on-scroll">
+            Te cuento el proceso.
+        </p>
+
+        <!-- APARTADO CON ESTILO DE TÍTULO SUBRAYADO -->
+        <h3 class="decision-title reveal-on-scroll">
+            1º No hay descuentos, gracias.
+        </h3>
+
+        <p class="reveal-on-scroll">
+            Si quieres alguna oferta, avísame y te paso el contacto de otras empresas de cámaras.
+        </p>
+
+        <p class="reveal-on-scroll">
+            Por cierto, tampoco mando presupuestos ni presentaciones con fotos bonitas. Todo lo que necesitas saber está aquí escrito.
+        </p>
+
+        <!-- SEPARACIÓN 10 -->
+        <hr class="sub-divider reveal-on-scroll">
+
+        <p class="reveal-on-scroll">
+            Si te gusta esto de Save My Play, me dices y te llamo cuando tenga un hueco libre.
+        </p>
+
+        <p class="reveal-on-scroll">
+            Hablamos y me cuentas sobre tu club.
+        </p>
+
+        <p class="reveal-on-scroll">
+            Y vemos si tiene sentido hacer una demo online para enseñarte cómo funciona todo.
+        </p>
+
+        <p class="reveal-on-scroll">
+            Los otros dos pasos ya te los contaré si llegáis a ellos.
+        </p>
+
+    </main>
+
+    <footer class="reveal-on-scroll">
+        <p>© Save My Play · Cámaras inteligentes para pistas de pádel y tenis.</p>
+    </footer>
+
+    <!-- SCRIPT DE REVELADO SUAVE A MEDIDA QUE SE DESLIZA (SCROLL) -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const revealElements = document.querySelectorAll('.reveal-on-scroll');
+            
+            const revealCallback = (entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            };
+
+            const revealObserver = new IntersectionObserver(revealCallback, {
+                root: null,
+                threshold: 0.1,
+                rootMargin: '0px 0px -40px 0px'
+            });
+
+            revealElements.forEach(el => revealObserver.observe(el));
+        });
+    </script>
+</body>
+</html>
