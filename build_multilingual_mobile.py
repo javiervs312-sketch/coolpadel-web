@@ -488,7 +488,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
         <!-- COLUMNA 1: OJOS + TENIS Y PADEL (100% CENTRADO ENTRE OJOS Y MASCOTA) -->
         <div class="flex items-center justify-between min-w-0 h-full">
           <a href="#" class="group py-1 inline-flex items-center shrink-0">
-            <img src="{asset_prefix}assets/images/Ojos logo.png" alt="CoolPadel Eyes" style="height: 24px; max-height: 24px; width: auto;" class="object-contain group-hover:scale-110 transition duration-300">
+            <img src="{asset_prefix}assets/images/eyes-thumb.png?v=fixed_eyes" alt="CoolPadel Eyes" style="height: 24px; max-height: 24px; width: auto;" class="object-contain group-hover:scale-110 transition duration-300">
           </a>
           <div class="flex-1 flex items-center justify-center px-2">
             <span data-i18n="nav_tenis_padel" class="font-heading font-black text-xs sm:text-sm lg:text-base tracking-wider uppercase text-slate-950 select-none whitespace-nowrap">
@@ -544,7 +544,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
 
           <!-- OJOS A LA DERECHA DEL TODO (SIEMPRE VISIBLE) -->
           <a href="#" class="group py-1 inline-flex items-center shrink-0">
-            <img src="{asset_prefix}assets/images/Ojos logo.png" alt="CoolPadel Eyes" style="height: 24px; max-height: 24px; width: auto;" class="object-contain group-hover:scale-110 transition duration-300">
+            <img src="{asset_prefix}assets/images/eyes-thumb.png?v=fixed_eyes" alt="CoolPadel Eyes" style="height: 24px; max-height: 24px; width: auto;" class="object-contain group-hover:scale-110 transition duration-300">
           </a>
         </div>
 
@@ -555,14 +555,14 @@ def get_base_html(active_lang="es", is_subfolder=False):
         <!-- FILA 1: OJOS IZQ + [MASCOTA + COOLPADEL CENTRADO] + OJOS DER -->
         <div class="flex items-center justify-between w-full px-1">
           <a href="#" class="py-0.5 inline-flex items-center shrink-0">
-            <img src="{asset_prefix}assets/images/Ojos logo.png" alt="CoolPadel Eyes" style="height: 18px; max-height: 18px; width: auto;" class="object-contain">
+            <img src="{asset_prefix}assets/images/eyes-thumb.png?v=fixed_eyes" alt="CoolPadel Eyes" style="height: 18px; max-height: 18px; width: auto;" class="object-contain">
           </a>
           <a href="#" class="flex items-center justify-center gap-1.5 py-0.5">
             <img src="{asset_prefix}assets/images/coolpadel-mascot-hd.png" alt="Mascota CoolPadel" style="height: 28px; max-height: 28px; width: auto;" class="object-contain">
             <img src="{asset_prefix}assets/images/coolpadel-typography-hd.png" alt="CoolPadel" style="height: 18px; max-height: 18px; width: auto;" class="object-contain">
           </a>
           <a href="#" class="py-0.5 inline-flex items-center shrink-0">
-            <img src="{asset_prefix}assets/images/Ojos logo.png" alt="CoolPadel Eyes" style="height: 18px; max-height: 18px; width: auto;" class="object-contain">
+            <img src="{asset_prefix}assets/images/eyes-thumb.png?v=fixed_eyes" alt="CoolPadel Eyes" style="height: 18px; max-height: 18px; width: auto;" class="object-contain">
           </a>
         </div>
         
