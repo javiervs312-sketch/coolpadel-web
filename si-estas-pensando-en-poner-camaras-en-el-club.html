@@ -641,6 +641,81 @@
             revealElements.forEach(el => revealObserver.observe(el));
         });
     </script>
+
+    <!-- SISTEMA DE ANALÍTICA AUTOMÁTICA (VISITAS, TIEMPO DE LECTURA Y % DE SCROLL) -->
+    <script>
+        const GOOGLE_SHEETS_WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbwm-6rDF4hpJMJeCJ26Vqfy-mg9Zvn7i4UJ-hWWx7xsvzreBU2WCGnCDoyKmR2Qt6CFSA/exec';
+        
+        const startTime = Date.now();
+        let maxScrollPercent = 0;
+        const reachedMilestones = new Set();
+
+        function sendAnalyticsEvent(eventName, extraData = {}) {
+            if (!GOOGLE_SHEETS_WEBHOOK_URL) return;
+            try {
+                const durationSeconds = Math.round((Date.now() - startTime) / 1000);
+                const isMobile = window.innerWidth <= 768;
+                const payload = {
+                    tipo: 'analitica_camaras',
+                    evento: eventName,
+                    pagina: 'Landing Cámaras (/camaras/)',
+                    dispositivo: isMobile ? 'Móvil' : 'Escritorio',
+                    tiempo_segundos: durationSeconds,
+                    tiempo_formato: Math.floor(durationSeconds / 60) + 'm ' + (durationSeconds % 60) + 's',
+                    scroll_max: maxScrollPercent + '%',
+                    url: window.location.href,
+                    referrer: document.referrer || 'Enlace Directo / WhatsApp',
+                    zona_horaria: Intl.DateTimeFormat().resolvedOptions().timeZone || 'unknown',
+                    fecha: new Date().toISOString(),
+                    ...extraData
+                };
+
+                if (navigator.sendBeacon) {
+                    navigator.sendBeacon(GOOGLE_SHEETS_WEBHOOK_URL, JSON.stringify(payload));
+                } else {
+                    fetch(GOOGLE_SHEETS_WEBHOOK_URL, {
+                        method: 'POST',
+                        mode: 'no-cors',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    }).catch(() => {});
+                }
+            } catch(e) {}
+        }
+
+        // 1. Registro de Visita Inicial
+        window.addEventListener('DOMContentLoaded', () => {
+            sendAnalyticsEvent('visita_iniciada');
+        });
+
+        // 2. Medición de Profundidad de Scroll (25%, 50%, 75%, 100%)
+        window.addEventListener('scroll', () => {
+            const h = document.documentElement, 
+                  b = document.body,
+                  st = 'scrollTop',
+                  sh = 'scrollHeight';
+            const percent = Math.min(100, Math.round(((h[st]||b[st]) / ((h[sh]||b[sh]) - h.clientHeight)) * 100));
+            if (percent > maxScrollPercent) maxScrollPercent = percent;
+
+            [25, 50, 75, 100].forEach(milestone => {
+                if (percent >= milestone && !reachedMilestones.has(milestone)) {
+                    reachedMilestones.add(milestone);
+                    sendAnalyticsEvent(`scroll_${milestone}_pct`, { scroll_alcanzado: milestone + '%' });
+                }
+            });
+        }, { passive: true });
+
+        // 3. Registro de Tiempo de Permanencia al salir o cambiar de pestaña
+        window.addEventListener('visibilitychange', () => {
+            if (document.visibilityState === 'hidden') {
+                sendAnalyticsEvent('sesion_finalizada');
+            }
+        });
+
+        window.addEventListener('pagehide', () => {
+            sendAnalyticsEvent('sesion_finalizada');
+        });
+    </script>
 </body>
 </html>
 
