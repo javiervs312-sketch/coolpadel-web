@@ -1668,6 +1668,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
             mode: 'no-cors',
             headers: {{ 'Content-Type': 'application/json' }},
             body: JSON.stringify({{
+              tipo: 'lead_email',
               email: email,
               origen: `Descarga Reportaje Industria Padel 2026 [${{currentLang.toUpperCase()}}]`,
               fecha: new Date().toISOString()
@@ -1678,6 +1679,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
         }}
       }}
 
+      const dict = I18N_DATA[currentLang] || I18N_DATA['es'];
       if (dict) {{
         const btn = e.target.querySelector('button[type="submit"] span');
         if (btn) {{
@@ -1774,6 +1776,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
             mode: 'no-cors',
             headers: {{ 'Content-Type': 'application/json' }},
             body: JSON.stringify({{
+              tipo: 'lead_email',
               email: email,
               origen: `Lead Magnet Pop-up Modal [${{currentLang.toUpperCase()}}]`,
               fecha: new Date().toISOString()
