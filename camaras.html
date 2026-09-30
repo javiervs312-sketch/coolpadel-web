@@ -685,78 +685,257 @@
         });
     </script>
 
-    <!-- SISTEMA DE ANALÍTICA AUTOMÁTICA (VISITAS, TIEMPO DE LECTURA Y % DE SCROLL) -->
+    <!-- SISTEMA DE ANALÍTICA COMERCIAL AVANZADA COOLPADEL & SAVE MY PLAY -->
     <script>
         const GOOGLE_SHEETS_WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbwm-6rDF4hpJMJeCJ26Vqfy-mg9Zvn7i4UJ-hWWx7xsvzreBU2WCGnCDoyKmR2Qt6CFSA/exec';
         
-        const startTime = Date.now();
-        let maxScrollPercent = 0;
-        const reachedMilestones = new Set();
+        // 1. Detección de Modo Administrador (Javier)
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get('admin') === '1' || urlParams.get('admin') === 'true' || urlParams.get('admin') === 'javier' || urlParams.get('yo') === '1') {
+            try { localStorage.setItem('cp_is_admin', 'true'); } catch(e) {}
+        } else if (urlParams.get('admin') === '0' || urlParams.get('admin') === 'false' || urlParams.get('reset_admin') === '1') {
+            try { localStorage.removeItem('cp_is_admin'); } catch(e) {}
+        }
+        
+        let isAdmin = false;
+        try {
+            isAdmin = localStorage.getItem('cp_is_admin') === 'true';
+        } catch(e) {}
 
+        // 2. Atribución de Leads y Campañas
+        const pLead = urlParams.get('lead') || urlParams.get('club') || urlParams.get('nombre') || '';
+        const pTel = urlParams.get('tel') || urlParams.get('phone') || urlParams.get('c') || '';
+        const pSource = urlParams.get('utm_source') || urlParams.get('src') || '';
+        const pCampaign = urlParams.get('utm_campaign') || urlParams.get('camp') || urlParams.get('ruta') || '';
+
+        try {
+            if (pLead) localStorage.setItem('cp_lead_name', pLead);
+            if (pTel) localStorage.setItem('cp_lead_tel', pTel);
+            if (pSource) localStorage.setItem('cp_utm_source', pSource);
+            if (pCampaign) localStorage.setItem('cp_utm_campaign', pCampaign);
+        } catch(e) {}
+
+        const leadName = pLead || (function(){ try { return localStorage.getItem('cp_lead_name') || ''; } catch(e){ return ''; } })();
+        const leadTel = pTel || (function(){ try { return localStorage.getItem('cp_lead_tel') || ''; } catch(e){ return ''; } })();
+        const utmSource = pSource || (function(){ try { return localStorage.getItem('cp_utm_source') || ''; } catch(e){ return ''; } })();
+        const utmCampaign = pCampaign || (function(){ try { return localStorage.getItem('cp_utm_campaign') || ''; } catch(e){ return ''; } })();
+
+        // 3. ID de Sesión e ID de Visitante
+        function generateUid(prefix) {
+            return prefix + '_' + Date.now().toString(36) + '_' + Math.random().toString(36).substring(2, 6);
+        }
+
+        let sessionId = '';
+        try {
+            sessionId = sessionStorage.getItem('cp_session_id');
+            if (!sessionId) {
+                sessionId = generateUid('s');
+                sessionStorage.setItem('cp_session_id', sessionId);
+            }
+        } catch(e) {
+            sessionId = generateUid('s');
+        }
+
+        let visitorId = '';
+        let visitCount = 1;
+        try {
+            visitorId = localStorage.getItem('cp_visitor_id');
+            if (!visitorId) {
+                visitorId = generateUid('v');
+                localStorage.setItem('cp_visitor_id', visitorId);
+                localStorage.setItem('cp_visit_count', '1');
+            } else {
+                let count = parseInt(localStorage.getItem('cp_visit_count') || '1', 10);
+                if (!sessionStorage.getItem('cp_counted_in_session')) {
+                    count++;
+                    localStorage.setItem('cp_visit_count', count.toString());
+                    sessionStorage.setItem('cp_counted_in_session', 'true');
+                }
+                visitCount = count;
+            }
+        } catch(e) {
+            visitorId = generateUid('v');
+        }
+
+        // 4. Detección Inteligente de Dispositivo
+        function getDeviceInfo() {
+            const ua = navigator.userAgent || '';
+            let dev = 'Escritorio';
+            let os = 'PC / Mac';
+            let app = '';
+
+            if (/mobile/i.test(ua)) dev = 'Móvil';
+            if (/tablet|ipad/i.test(ua)) dev = 'Tablet';
+
+            if (/iPhone/i.test(ua)) os = 'iPhone (iOS)';
+            else if (/iPad/i.test(ua)) os = 'iPad (iPadOS)';
+            else if (/Android/i.test(ua)) os = 'Android';
+            else if (/Windows/i.test(ua)) os = 'Windows';
+            else if (/Macintosh|Mac OS/i.test(ua)) os = 'macOS';
+            else if (/Linux/i.test(ua)) os = 'Linux';
+
+            if (/WhatsApp/i.test(ua)) app = ' [WhatsApp App]';
+            else if (/Instagram/i.test(ua)) app = ' [Instagram App]';
+            else if (/LinkedIn/i.test(ua)) app = ' [LinkedIn App]';
+
+            return {
+                dispositivo: `${dev}: ${os}${app}`,
+                resolucion: `${window.screen.width}x${window.screen.height}`
+            };
+        }
+
+        function getLeadIdentification() {
+            if (isAdmin) return '👤 Javier (Admin)';
+            if (leadName && leadTel) return `${leadName} (${leadTel})`;
+            if (leadName) return leadName;
+            if (leadTel) return leadTel;
+            return `Anónimo (${Intl.DateTimeFormat().resolvedOptions().timeZone || 'Zona Desconocida'})`;
+        }
+
+        function getTrafficTypeLabel() {
+            if (isAdmin) return '👤 Propio (Admin)';
+            if (utmSource.includes('whatsapp') || leadTel || document.referrer.includes('whatsapp')) return '🎯 Lead WhatsApp';
+            if (utmSource.includes('email') || utmSource.includes('resend')) return '✉️ Lead Email';
+            if (leadName) return '🎯 Lead Identificado';
+            return '🌐 Tráfico Web';
+        }
+
+        function getChannelOrigin() {
+            if (utmSource) return `Campaña: ${utmSource}${utmCampaign ? ' (' + utmCampaign + ')' : ''}`;
+            const ref = document.referrer || '';
+            if (!ref) return 'Enlace Directo';
+            if (ref.includes('whatsapp.com')) return 'WhatsApp Web/App';
+            if (ref.includes('instagram.com')) return 'Instagram';
+            if (ref.includes('google.')) return 'Búsqueda Google';
+            return ref.replace(/^https?:\/\//, '').split('/')[0];
+        }
+
+        // 5. Tiempo Activo de Atención
+        let activeSeconds = 0;
+        let lastTick = Date.now();
+        setInterval(() => {
+            if (!document.hidden) {
+                const now = Date.now();
+                const diff = Math.round((now - lastTick) / 1000);
+                if (diff > 0 && diff < 5) activeSeconds += diff;
+                lastTick = now;
+            } else {
+                lastTick = Date.now();
+            }
+        }, 1000);
+
+        function formatTime(sec) {
+            const m = Math.floor(sec / 60);
+            const s = sec % 60;
+            return `${m}m ${s < 10 ? '0' : ''}${s}s`;
+        }
+
+        // 6. Scroll y Secciones Vistas
+        let maxScrollPercent = 0;
+        let currentSection = 'Introducción Cámaras';
+        const reachedScrollMilestones = new Set();
+        const visitedSectionsList = ['Introducción Cámaras'];
+
+        window.addEventListener('scroll', () => {
+            const h = document.documentElement;
+            const b = document.body;
+            const st = 'scrollTop';
+            const sh = 'scrollHeight';
+            const scrollable = (h[sh] || b[sh]) - h.clientHeight;
+            if (scrollable <= 0) return;
+            const pct = Math.min(100, Math.round(((h[st] || b[st]) / scrollable) * 100));
+            if (pct > maxScrollPercent) maxScrollPercent = pct;
+
+            // Actualizar sección según scroll
+            if (pct > 75) currentSection = 'Opciones de Decisión Final';
+            else if (pct > 45) currentSection = 'Ventajas Técnicas y Pistas';
+            else if (pct > 20) currentSection = 'Problemas Típicos de Instalación';
+
+            if (!visitedSectionsList.includes(currentSection)) {
+                visitedSectionsList.push(currentSection);
+            }
+
+            [25, 50, 75, 90, 100].forEach(milestone => {
+                if (pct >= milestone && !reachedScrollMilestones.has(milestone)) {
+                    reachedScrollMilestones.add(milestone);
+                    sendAnalyticsEvent('scroll_hito', {
+                        scroll_hito: milestone + '%',
+                        evento_desc: `Scroll ${milestone}% alcanzado en Artículo Cámaras`
+                    });
+                }
+            });
+        }, { passive: true });
+
+        // 7. Función Central de Envío
         function sendAnalyticsEvent(eventName, extraData = {}) {
             if (!GOOGLE_SHEETS_WEBHOOK_URL) return;
             try {
-                const durationSeconds = Math.round((Date.now() - startTime) / 1000);
-                const isMobile = window.innerWidth <= 768;
+                const dev = getDeviceInfo();
                 const payload = {
-                    tipo: 'analitica_camaras',
+                    tipo: 'analitica_evento_v2',
+                    session_id: sessionId,
+                    visitor_id: visitorId,
+                    visita_num: visitCount,
+                    lead_label: getLeadIdentification(),
+                    lead_name: leadName,
+                    lead_tel: leadTel,
+                    es_admin: isAdmin,
+                    tipo_trafico: getTrafficTypeLabel(),
                     evento: eventName,
-                    pagina: 'Landing Cámaras (/camaras/)',
-                    dispositivo: isMobile ? 'Móvil' : 'Escritorio',
-                    tiempo_segundos: durationSeconds,
-                    tiempo_formato: Math.floor(durationSeconds / 60) + 'm ' + (durationSeconds % 60) + 's',
+                    evento_desc: extraData.evento_desc || eventName,
+                    pagina: '/camaras/',
+                    seccion_actual: currentSection,
+                    secciones_recorridas: visitedSectionsList.join(' > '),
                     scroll_max: maxScrollPercent + '%',
-                    url: window.location.href,
-                    referrer: document.referrer || 'Enlace Directo / WhatsApp',
+                    tiempo_activo: formatTime(activeSeconds),
+                    tiempo_segundos: activeSeconds,
+                    dispositivo: dev.dispositivo,
+                    resolucion: dev.resolucion,
+                    idioma: (navigator.language || 'es').toLowerCase(),
                     zona_horaria: Intl.DateTimeFormat().resolvedOptions().timeZone || 'unknown',
+                    origen_canal: getChannelOrigin(),
+                    referrer: document.referrer || 'direct',
+                    campana_utm: utmCampaign || utmSource || '',
+                    url_completa: window.location.href,
                     fecha: new Date().toISOString(),
                     ...extraData
                 };
 
+                const jsonPayload = JSON.stringify(payload);
                 if (navigator.sendBeacon) {
-                    navigator.sendBeacon(GOOGLE_SHEETS_WEBHOOK_URL, JSON.stringify(payload));
+                    navigator.sendBeacon(GOOGLE_SHEETS_WEBHOOK_URL, jsonPayload);
                 } else {
                     fetch(GOOGLE_SHEETS_WEBHOOK_URL, {
                         method: 'POST',
                         mode: 'no-cors',
                         headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify(payload)
+                        body: jsonPayload,
+                        keepalive: true
                     }).catch(() => {});
                 }
             } catch(e) {}
         }
 
-        // 1. Registro de Visita Inicial
+        // Registro de Visita Inicial
         window.addEventListener('DOMContentLoaded', () => {
-            sendAnalyticsEvent('visita_iniciada');
+            sendAnalyticsEvent('visita_iniciada', {
+                evento_desc: '🟢 Lectura Artículo Cámaras Iniciada'
+            });
         });
 
-        // 2. Medición de Profundidad de Scroll (25%, 50%, 75%, 100%)
-        window.addEventListener('scroll', () => {
-            const h = document.documentElement, 
-                  b = document.body,
-                  st = 'scrollTop',
-                  sh = 'scrollHeight';
-            const percent = Math.min(100, Math.round(((h[st]||b[st]) / ((h[sh]||b[sh]) - h.clientHeight)) * 100));
-            if (percent > maxScrollPercent) maxScrollPercent = percent;
-
-            [25, 50, 75, 100].forEach(milestone => {
-                if (percent >= milestone && !reachedMilestones.has(milestone)) {
-                    reachedMilestones.add(milestone);
-                    sendAnalyticsEvent(`scroll_${milestone}_pct`, { scroll_alcanzado: milestone + '%' });
-                }
-            });
-        }, { passive: true });
-
-        // 3. Registro de Tiempo de Permanencia al salir o cambiar de pestaña
+        // Registro de Sesión Finalizada al salir
         window.addEventListener('visibilitychange', () => {
             if (document.visibilityState === 'hidden') {
-                sendAnalyticsEvent('sesion_finalizada');
+                sendAnalyticsEvent('sesion_finalizada', {
+                    evento_desc: `🏁 Fin Lectura Cámaras (Tiempo: ${formatTime(activeSeconds)}, Scroll: ${maxScrollPercent}%)`
+                });
             }
         });
 
         window.addEventListener('pagehide', () => {
-            sendAnalyticsEvent('sesion_finalizada');
+            sendAnalyticsEvent('sesion_finalizada', {
+                evento_desc: `🏁 Fin Lectura Cámaras (Tiempo: ${formatTime(activeSeconds)}, Scroll: ${maxScrollPercent}%)`
+            });
         });
     </script>
 </body>
