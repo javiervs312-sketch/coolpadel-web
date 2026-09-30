@@ -1871,7 +1871,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
       try {{
         const dev = getDeviceInfo();
         const payload = {{
-          tipo: 'analitica_evento_v2',
+          tipo: 'analitica_evento',
           session_id: sessionId,
           visitor_id: visitorId,
           visita_num: visitCount,
