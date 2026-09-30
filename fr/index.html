@@ -1205,6 +1205,13 @@
 
       </div>
 
+      <!-- COPYRIGHT Y TRIGGER DE MODO ADMIN (TRIPLE CLIC) -->
+      <div class="mt-10 pt-6 border-t border-white/10 text-center select-none">
+        <p id="admin-toggle-trigger" class="text-xs text-white/50 hover:text-white/80 transition cursor-pointer inline-block" title="Modo Administrador">
+          © 2026 CoolPadel Studios · All rights reserved
+        </p>
+      </div>
+
     </div>
   </section>
 
@@ -1584,7 +1591,7 @@
       }
     }
 
-    // TOGGLE ACORDEÓN FAQ
+    // TOGGLE ACORDEÓN FAQ CON TRACKING DE INTERÉS
     window.toggleFaq = function(btn) {
       const answer = btn.nextElementSibling;
       const icon = btn.querySelector('.faq-icon');
@@ -1596,32 +1603,301 @@
       if (isHidden) {
         answer.classList.remove('hidden');
         if (icon) icon.classList.add('rotate-180');
+        
+        // Registrar qué pregunta específica abrió el usuario
+        const preguntaTexto = (btn.querySelector('span')?.textContent || btn.textContent || '').trim();
+        trackEvent('faq_abierto', {
+          faq_pregunta: preguntaTexto,
+          evento_desc: 'Abrió FAQ: ' + preguntaTexto.substring(0, 45)
+        });
       }
     };
 
     // URL del Webhook de Google Apps Script (Recepción de Leads y Analítica de Eventos)
     const GOOGLE_SHEETS_WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbwm-6rDF4hpJMJeCJ26Vqfy-mg9Zvn7i4UJ-hWWx7xsvzreBU2WCGnCDoyKmR2Qt6CFSA/exec';
 
-    // SISTEMA DE ANALÍTICA PRIVACY-FIRST (SIN COOKIES INVASIVAS)
+    // ─────────────────────────────────────────────────────────────────
+    // MOTOR DE ANALÍTICA COMERCIAL AVANZADA
+    // ─────────────────────────────────────────────────────────────────
+    
+    // 1. Detección y Gestión de Modo Administrador (Javier)
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('admin') === '1' || urlParams.get('admin') === 'true' || urlParams.get('admin') === 'javier' || urlParams.get('yo') === '1') {
+      try { localStorage.setItem('cp_is_admin', 'true'); } catch(e) {}
+    } else if (urlParams.get('admin') === '0' || urlParams.get('admin') === 'false' || urlParams.get('reset_admin') === '1') {
+      try { localStorage.removeItem('cp_is_admin'); } catch(e) {}
+    }
+    
+    let isAdmin = false;
+    try {
+      isAdmin = localStorage.getItem('cp_is_admin') === 'true';
+    } catch(e) {}
+
+    // Trigger de activación Admin por triple clic en copyright
+    try {
+      let adminClickCount = 0;
+      let adminClickTimer = null;
+      const adminTrigger = document.getElementById('admin-toggle-trigger');
+      if (adminTrigger) {
+        adminTrigger.addEventListener('click', () => {
+          adminClickCount++;
+          clearTimeout(adminClickTimer);
+          adminClickTimer = setTimeout(() => { adminClickCount = 0; }, 700);
+          if (adminClickCount >= 3) {
+            adminClickCount = 0;
+            const current = localStorage.getItem('cp_is_admin') === 'true';
+            if (current) {
+              localStorage.removeItem('cp_is_admin');
+              alert('👤 Modo Admin DESACTIVADO. Ahora se registrará como visitante normal.');
+            } else {
+              localStorage.setItem('cp_is_admin', 'true');
+              alert('👤 Modo Admin ACTIVADO. Tus visitas aparecerán marcadas como "Javier (Admin)".');
+            }
+            window.location.reload();
+          }
+        });
+      }
+    } catch(e) {}
+
+    // 2. Atribución de Leads y Campañas (WhatsApp, Email, Redes)
+    const pLead = urlParams.get('lead') || urlParams.get('club') || urlParams.get('nombre') || '';
+    const pTel = urlParams.get('tel') || urlParams.get('phone') || urlParams.get('c') || '';
+    const pSource = urlParams.get('utm_source') || urlParams.get('src') || '';
+    const pCampaign = urlParams.get('utm_campaign') || urlParams.get('camp') || urlParams.get('ruta') || '';
+    const pMedium = urlParams.get('utm_medium') || '';
+
+    try {
+      if (pLead) localStorage.setItem('cp_lead_name', pLead);
+      if (pTel) localStorage.setItem('cp_lead_tel', pTel);
+      if (pSource) localStorage.setItem('cp_utm_source', pSource);
+      if (pCampaign) localStorage.setItem('cp_utm_campaign', pCampaign);
+    } catch(e) {}
+
+    const leadName = pLead || (function(){ try { return localStorage.getItem('cp_lead_name') || ''; } catch(e){ return ''; } })();
+    const leadTel = pTel || (function(){ try { return localStorage.getItem('cp_lead_tel') || ''; } catch(e){ return ''; } })();
+    const utmSource = pSource || (function(){ try { return localStorage.getItem('cp_utm_source') || ''; } catch(e){ return ''; } })();
+    const utmCampaign = pCampaign || (function(){ try { return localStorage.getItem('cp_utm_campaign') || ''; } catch(e){ return ''; } })();
+
+    // 3. ID de Sesión e ID de Visitante
+    function generateUid(prefix) {
+      return prefix + '_' + Date.now().toString(36) + '_' + Math.random().toString(36).substring(2, 6);
+    }
+
+    let sessionId = '';
+    try {
+      sessionId = sessionStorage.getItem('cp_session_id');
+      if (!sessionId) {
+        sessionId = generateUid('s');
+        sessionStorage.setItem('cp_session_id', sessionId);
+      }
+    } catch(e) {
+      sessionId = generateUid('s');
+    }
+
+    let visitorId = '';
+    let visitCount = 1;
+    try {
+      visitorId = localStorage.getItem('cp_visitor_id');
+      if (!visitorId) {
+        visitorId = generateUid('v');
+        localStorage.setItem('cp_visitor_id', visitorId);
+        localStorage.setItem('cp_visit_count', '1');
+      } else {
+        let count = parseInt(localStorage.getItem('cp_visit_count') || '1', 10);
+        if (!sessionStorage.getItem('cp_counted_in_session')) {
+          count++;
+          localStorage.setItem('cp_visit_count', count.toString());
+          sessionStorage.setItem('cp_counted_in_session', 'true');
+        }
+        visitCount = count;
+      }
+    } catch(e) {
+      visitorId = generateUid('v');
+    }
+
+    // 4. Detección Inteligente de Dispositivo y Origen
+    function getDeviceInfo() {
+      const ua = navigator.userAgent || '';
+      let dev = 'Escritorio';
+      let os = 'PC / Mac';
+      let app = '';
+
+      if (/mobile/i.test(ua)) dev = 'Móvil';
+      if (/tablet|ipad/i.test(ua)) dev = 'Tablet';
+
+      if (/iPhone/i.test(ua)) os = 'iPhone (iOS)';
+      else if (/iPad/i.test(ua)) os = 'iPad (iPadOS)';
+      else if (/Android/i.test(ua)) os = 'Android';
+      else if (/Windows/i.test(ua)) os = 'Windows';
+      else if (/Macintosh|Mac OS/i.test(ua)) os = 'macOS';
+      else if (/Linux/i.test(ua)) os = 'Linux';
+
+      if (/WhatsApp/i.test(ua)) app = ' [WhatsApp App]';
+      else if (/Instagram/i.test(ua)) app = ' [Instagram App]';
+      else if (/FBAN|FBAV/i.test(ua)) app = ' [Facebook App]';
+      else if (/LinkedIn/i.test(ua)) app = ' [LinkedIn App]';
+
+      return {
+        dispositivo: `${dev}: ${os}${app}`,
+        resolucion: `${window.screen.width}x${window.screen.height}`
+      };
+    }
+
+    function getLeadIdentification() {
+      if (isAdmin) return '👤 Javier (Admin)';
+      if (leadName && leadTel) return `${leadName} (${leadTel})`;
+      if (leadName) return leadName;
+      if (leadTel) return leadTel;
+      return `Anónimo (${Intl.DateTimeFormat().resolvedOptions().timeZone || 'Zona Desconocida'})`;
+    }
+
+    function getTrafficTypeLabel() {
+      if (isAdmin) return '👤 Propio (Admin)';
+      if (utmSource.includes('whatsapp') || leadTel || document.referrer.includes('whatsapp')) return '🎯 Lead WhatsApp';
+      if (utmSource.includes('email') || utmSource.includes('resend')) return '✉️ Lead Email';
+      if (leadName) return '🎯 Lead Identificado';
+      return '🌐 Tráfico Web';
+    }
+
+    function getChannelOrigin() {
+      if (utmSource) return `Campaña: ${utmSource}${utmCampaign ? ' (' + utmCampaign + ')' : ''}`;
+      const ref = document.referrer || '';
+      if (!ref) return 'Enlace Directo';
+      if (ref.includes('whatsapp.com')) return 'WhatsApp Web/App';
+      if (ref.includes('instagram.com')) return 'Instagram';
+      if (ref.includes('linkedin.com')) return 'LinkedIn';
+      if (ref.includes('google.')) return 'Búsqueda Google';
+      if (ref.includes('bing.')) return 'Búsqueda Bing';
+      if (ref.includes('facebook.com')) return 'Facebook';
+      return ref.replace(/^https?:\/\//, '').split('/')[0];
+    }
+
+    // 5. Tiempo Activo de Atención (Attention Time)
+    let activeSeconds = 0;
+    let lastTick = Date.now();
+    setInterval(() => {
+      if (!document.hidden) {
+        const now = Date.now();
+        const diff = Math.round((now - lastTick) / 1000);
+        if (diff > 0 && diff < 5) activeSeconds += diff;
+        lastTick = now;
+      } else {
+        lastTick = Date.now();
+      }
+    }, 1000);
+
+    function formatTime(sec) {
+      const m = Math.floor(sec / 60);
+      const s = sec % 60;
+      return `${m}m ${s < 10 ? '0' : ''}${s}s`;
+    }
+
+    // 6. Scroll y Secciones Vistas
+    let maxScrollPercent = 0;
+    let currentSection = 'Cabecera / Hero';
+    const reachedScrollMilestones = new Set();
+    const visitedSectionsList = ['Cabecera / Hero'];
+
+    // IntersectionObserver para mapear secciones reales
+    try {
+      const sectionMap = [
+        { id: 'coverflow-0', name: 'Hero / Llaveros 3D' },
+        { id: 'llaveros', name: 'Calculadora de Pistas' },
+        { id: 'savemyplay', name: 'Save my Play & Cámaras' },
+        { id: 'informe', name: 'Descarga Informe 2026' },
+        { id: 'faq', name: 'Preguntas Frecuentes' },
+        { id: 'contacto', name: 'Contacto Final' }
+      ];
+
+      const secObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const match = sectionMap.find(s => s.id === entry.target.id);
+            if (match) {
+              currentSection = match.name;
+              if (!visitedSectionsList.includes(match.name)) {
+                visitedSectionsList.push(match.name);
+              }
+            }
+          }
+        });
+      }, { threshold: 0.25 });
+
+      sectionMap.forEach(s => {
+        const el = document.getElementById(s.id);
+        if (el) secObserver.observe(el);
+      });
+    } catch(e) {}
+
+    // Medición de porcentaje de scroll
+    window.addEventListener('scroll', () => {
+      const h = document.documentElement;
+      const b = document.body;
+      const st = 'scrollTop';
+      const sh = 'scrollHeight';
+      const scrollable = (h[sh] || b[sh]) - h.clientHeight;
+      if (scrollable <= 0) return;
+      const pct = Math.min(100, Math.round(((h[st] || b[st]) / scrollable) * 100));
+      if (pct > maxScrollPercent) maxScrollPercent = pct;
+
+      [25, 50, 75, 90, 100].forEach(milestone => {
+        if (pct >= milestone && !reachedScrollMilestones.has(milestone)) {
+          reachedScrollMilestones.add(milestone);
+          trackEvent('scroll_hito', {
+            scroll_hito: milestone + '%',
+            evento_desc: `Scroll ${milestone}% alcanzado`
+          });
+        }
+      });
+    }, { passive: true });
+
+    // 7. Función Central de Envío de Analítica
     function trackEvent(eventName, extraData = {}) {
       if (!GOOGLE_SHEETS_WEBHOOK_URL) return;
       try {
+        const dev = getDeviceInfo();
         const payload = {
-          tipo: 'analitica_evento',
+          tipo: 'analitica_evento_v2',
+          session_id: sessionId,
+          visitor_id: visitorId,
+          visita_num: visitCount,
+          lead_label: getLeadIdentification(),
+          lead_name: leadName,
+          lead_tel: leadTel,
+          es_admin: isAdmin,
+          tipo_trafico: getTrafficTypeLabel(),
           evento: eventName,
+          evento_desc: extraData.evento_desc || eventName,
+          pagina: window.location.pathname || '/',
+          seccion_actual: currentSection,
+          secciones_recorridas: visitedSectionsList.join(' > '),
+          scroll_max: maxScrollPercent + '%',
+          tiempo_activo: formatTime(activeSeconds),
+          tiempo_segundos: activeSeconds,
+          dispositivo: dev.dispositivo,
+          resolucion: dev.resolucion,
           idioma: currentLang,
           zona_horaria: Intl.DateTimeFormat().resolvedOptions().timeZone || 'unknown',
-          url: window.location.href,
+          origen_canal: getChannelOrigin(),
           referrer: document.referrer || 'direct',
+          campana_utm: utmCampaign || utmSource || '',
+          url_completa: window.location.href,
           fecha: new Date().toISOString(),
           ...extraData
         };
-        fetch(GOOGLE_SHEETS_WEBHOOK_URL, {
-          method: 'POST',
-          mode: 'no-cors',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(payload)
-        }).catch(() => {});
+
+        const jsonPayload = JSON.stringify(payload);
+        if (navigator.sendBeacon) {
+          navigator.sendBeacon(GOOGLE_SHEETS_WEBHOOK_URL, jsonPayload);
+        } else {
+          fetch(GOOGLE_SHEETS_WEBHOOK_URL, {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: { 'Content-Type': 'application/json' },
+            body: jsonPayload,
+            keepalive: true
+          }).catch(() => {});
+        }
       } catch(e) {}
     }
 
@@ -1647,8 +1923,10 @@
       link.click();
       document.body.removeChild(link);
 
+      // Guardar Lead en Sheet y Notificar
       if (GOOGLE_SHEETS_WEBHOOK_URL) {
         try {
+          const dev = getDeviceInfo();
           fetch(GOOGLE_SHEETS_WEBHOOK_URL, {
             method: 'POST',
             mode: 'no-cors',
@@ -1656,14 +1934,22 @@
             body: JSON.stringify({
               tipo: 'lead_email',
               email: email,
-              origen: `Descarga Reportaje Industria Padel 2026 [${currentLang.toUpperCase()}]`,
+              origen: `Descarga Informe Industria Padel 2026 [${currentLang.toUpperCase()}]`,
+              lead_label: getLeadIdentification(),
+              lead_name: leadName,
+              lead_tel: leadTel,
+              campana_utm: utmCampaign || utmSource || '',
+              dispositivo: dev.dispositivo,
               fecha: new Date().toISOString()
             })
-          }).catch(err => console.log('Log Sheets:', err));
-        } catch (err) {
-          console.log('Error enviando al Sheet:', err);
-        }
+          }).catch(() => {});
+        } catch (err) {}
       }
+
+      trackEvent('descarga_informe', {
+        email_lead: email,
+        evento_desc: `📥 Descargó Informe 2026 (${email})`
+      });
 
       const dict = I18N_DATA[currentLang] || I18N_DATA['es'];
       if (dict) {
@@ -1699,6 +1985,7 @@
         modal.classList.add('opacity-100', 'pointer-events-auto');
         content.classList.remove('scale-95');
         content.classList.add('scale-100');
+        trackEvent('modal_lead_abierto', { evento_desc: 'Pop-up Lead Magnet Mostrado' });
       }
     };
 
@@ -1757,6 +2044,7 @@
 
       if (GOOGLE_SHEETS_WEBHOOK_URL) {
         try {
+          const dev = getDeviceInfo();
           fetch(GOOGLE_SHEETS_WEBHOOK_URL, {
             method: 'POST',
             mode: 'no-cors',
@@ -1765,11 +2053,21 @@
               tipo: 'lead_email',
               email: email,
               origen: `Lead Magnet Pop-up Modal [${currentLang.toUpperCase()}]`,
+              lead_label: getLeadIdentification(),
+              lead_name: leadName,
+              lead_tel: leadTel,
+              campana_utm: utmCampaign || utmSource || '',
+              dispositivo: dev.dispositivo,
               fecha: new Date().toISOString()
             })
-          }).catch(err => console.log('Log Sheets Modal:', err));
+          }).catch(() => {});
         } catch (err) {}
       }
+
+      trackEvent('descarga_informe_popup', {
+        email_lead: email,
+        evento_desc: `📥 Descargó Informe desde Pop-up (${email})`
+      });
 
       const dict = I18N_DATA[currentLang] || I18N_DATA['es'];
       const btn = e.target.querySelector('button[type="submit"] span');
@@ -1783,7 +2081,6 @@
 
     // INICIALIZACIÓN DE IDIOMA CON AUTO-DETECCIÓN INTELIGENTE POR NAVEGADOR
     try {
-      const urlParams = new URLSearchParams(window.location.search);
       const urlLang = urlParams.get('lang');
       const savedLang = localStorage.getItem('coolpadel_lang');
       
@@ -1793,7 +2090,7 @@
         if (navLang.startsWith('fr')) detectedLang = 'fr';
         else if (navLang.startsWith('it')) detectedLang = 'it';
         else if (navLang.startsWith('es')) detectedLang = 'es';
-        else detectedLang = 'en'; // default internacional para el resto del mundo
+        else detectedLang = 'en';
       }
 
       const initialLang = urlLang || savedLang || detectedLang;
@@ -1806,26 +2103,76 @@
       updateCalculator(0);
     }
 
-    // TRACKING AUTOMÁTICO DE VISITA Y CLICS EN BOTONES WHATSAPP / DESCARGAS
+    // TRACKING DE CARGA INICIAL Y CLICS EN BOTONES WHATSAPP / INTERACCIONES
     try {
-      trackEvent('pageview', { path: window.location.pathname, lang_activa: currentLang });
+      // 1. Registro de Visita Inicial
+      trackEvent('pageview', {
+        evento_desc: '🟢 Visita Web',
+        path: window.location.pathname,
+        lang_activa: currentLang
+      });
       
-      const attachClick = (id, eventName, getExtra) => {
+      // 2. Clics en WhatsApp con atribución del botón exacto
+      const attachClick = (id, eventName, btnLabel, getExtra) => {
         const el = document.getElementById(id);
         if (el) {
           el.addEventListener('click', () => {
-            trackEvent(eventName, getExtra ? getExtra() : {});
+            trackEvent(eventName, {
+              ubicacion: btnLabel,
+              evento_desc: `🎯 Clic WhatsApp [${btnLabel}]`,
+              ...(getExtra ? getExtra() : {})
+            });
           });
         }
       };
 
-      attachClick('nav-contact-btn', 'click_whatsapp_nav');
-      attachClick('nav-contact-btn-mob', 'click_whatsapp_nav_mob');
-      attachClick('calc-wa-btn', 'click_whatsapp_calc', () => ({ tier_qty: tiers[currentTierIdx]?.qty, tier_price: tiers[currentTierIdx]?.price }));
-      attachClick('smp-plan-btn', 'click_whatsapp_savemyplay_plan');
-      attachClick('smp-contact-btn', 'click_whatsapp_savemyplay');
-      attachClick('contact-wa-btn', 'click_whatsapp_footer');
-      attachClick('floating-wa-btn', 'click_whatsapp_floating');
+      attachClick('nav-contact-btn', 'click_whatsapp_nav', 'Cabecera PC');
+      attachClick('nav-contact-btn-mob', 'click_whatsapp_nav_mob', 'Cabecera Móvil');
+      attachClick('calc-wa-btn', 'click_whatsapp_calc', 'Calculadora Pistas', () => ({
+        tier_pistas: tiers[currentTierIdx]?.qty,
+        tier_precio: tiers[currentTierIdx]?.price
+      }));
+      attachClick('smp-plan-btn', 'click_whatsapp_savemyplay_plan', 'Plan Save my Play');
+      attachClick('smp-contact-btn', 'click_whatsapp_savemyplay', 'Save my Play');
+      attachClick('contact-wa-btn', 'click_whatsapp_footer', 'Contacto Footer');
+      attachClick('floating-wa-btn', 'click_whatsapp_floating', 'Botón Flotante');
+
+      // 3. Tracking de interacción con slider de la calculadora al soltar
+      let lastTierTracked = 0;
+      const originalUpdateCalc = updateCalculator;
+      const trackCalculatorDebounced = (idx) => {
+        if (idx !== lastTierTracked) {
+          lastTierTracked = idx;
+          const tData = tiers[idx];
+          if (tData) {
+            trackEvent('calculadora_interaccion', {
+              tier_pistas: tData.qty,
+              tier_precio: tData.price,
+              evento_desc: `📊 Calculadora: ${tData.qty} pistas (${tData.price}€/mes)`
+            });
+          }
+        }
+      };
+      
+      if (sliderBox) {
+        sliderBox.addEventListener('pointerup', () => trackCalculatorDebounced(currentTierIdx));
+        sliderBox.addEventListener('touchend', () => trackCalculatorDebounced(currentTierIdx));
+      }
+
+      // 4. Registro de Sesión Finalizada al salir o cambiar de pestaña
+      window.addEventListener('visibilitychange', () => {
+        if (document.visibilityState === 'hidden') {
+          trackEvent('sesion_finalizada', {
+            evento_desc: `🏁 Fin de Sesión (Tiempo: ${formatTime(activeSeconds)}, Scroll: ${maxScrollPercent}%)`
+          });
+        }
+      });
+
+      window.addEventListener('pagehide', () => {
+        trackEvent('sesion_finalizada', {
+          evento_desc: `🏁 Fin de Sesión (Tiempo: ${formatTime(activeSeconds)}, Scroll: ${maxScrollPercent}%)`
+        });
+      });
     } catch(e) {}
   </script>
 </body>
