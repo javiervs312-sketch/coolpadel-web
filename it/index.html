@@ -1605,6 +1605,7 @@
         if (icon) icon.classList.add('rotate-180');
         
         // Registrar qué pregunta específica abrió el usuario
+        hasOpenedFaq = true;
         const preguntaTexto = (btn.querySelector('span')?.textContent || btn.textContent || '').trim();
         trackEvent('faq_abierto', {
           faq_pregunta: preguntaTexto,
@@ -1715,6 +1716,24 @@
       visitorId = generateUid('v');
     }
 
+    // 4.1 Geolocalización Silenciosa por IP (Ciudad, Región y País)
+    let geoUbicacion = 'España';
+    try {
+      const cachedGeo = sessionStorage.getItem('cp_geo');
+      if (cachedGeo) {
+        geoUbicacion = cachedGeo;
+      } else {
+        fetch('https://ipapi.co/json/')
+          .then(res => res.json())
+          .then(data => {
+            if (data && data.city) {
+              geoUbicacion = `${data.city}, ${data.region || ''}, ${data.country_code || 'ES'}`.replace(', ,', ',');
+              sessionStorage.setItem('cp_geo', geoUbicacion);
+            }
+          }).catch(() => {});
+      }
+    } catch(e) {}
+
     // 4. Detección Inteligente de Dispositivo y Origen
     function getDeviceInfo() {
       const ua = navigator.userAgent || '';
@@ -1748,7 +1767,7 @@
       if (leadName && leadTel) return `${leadName} (${leadTel})`;
       if (leadName) return leadName;
       if (leadTel) return leadTel;
-      return `Anónimo (${Intl.DateTimeFormat().resolvedOptions().timeZone || 'Zona Desconocida'})`;
+      return `Anónimo (${geoUbicacion})`;
     }
 
     function getTrafficTypeLabel() {
@@ -1772,14 +1791,31 @@
       return ref.replace(/^https?:\/\//, '').split('/')[0];
     }
 
-    // 5. Tiempo Activo de Atención (Attention Time)
+    // 5. Tiempo Activo y Medición por Secciones (Micro-tiempos)
     let activeSeconds = 0;
     let lastTick = Date.now();
+    const sectionTimes = {
+      'Hero': 0,
+      'Calculadora': 0,
+      'SaveMyPlay': 0,
+      'Informe': 0,
+      'FAQ': 0,
+      'Contacto': 0
+    };
+
     setInterval(() => {
       if (!document.hidden) {
         const now = Date.now();
         const diff = Math.round((now - lastTick) / 1000);
-        if (diff > 0 && diff < 5) activeSeconds += diff;
+        if (diff > 0 && diff < 5) {
+          activeSeconds += diff;
+          if (currentSection.includes('Calculadora')) sectionTimes['Calculadora'] += diff;
+          else if (currentSection.includes('Save')) sectionTimes['SaveMyPlay'] += diff;
+          else if (currentSection.includes('Informe')) sectionTimes['Informe'] += diff;
+          else if (currentSection.includes('FAQ') || currentSection.includes('Frecuentes')) sectionTimes['FAQ'] += diff;
+          else if (currentSection.includes('Contacto')) sectionTimes['Contacto'] += diff;
+          else sectionTimes['Hero'] += diff;
+        }
         lastTick = now;
       } else {
         lastTick = Date.now();
@@ -1790,6 +1826,38 @@
       const m = Math.floor(sec / 60);
       const s = sec % 60;
       return `${m}m ${s < 10 ? '0' : ''}${s}s`;
+    }
+
+    function getSectionTimesSummary() {
+      return Object.entries(sectionTimes)
+        .filter(([_, s]) => s > 0)
+        .map(([k, s]) => `${k}: ${s}s`)
+        .join(' | ') || '-';
+    }
+
+    let hasInteractedWithCalc = false;
+    let hasOpenedFaq = false;
+    let hasCopiedContact = false;
+
+    // 5.1 Cálculo del Termómetro de Interés (Lead Score)
+    function calculateLeadScore() {
+      if (isAdmin) return '👤 Propio (Admin)';
+      let score = 0;
+      if (activeSeconds >= 120) score += 40;
+      else if (activeSeconds >= 45) score += 25;
+      else if (activeSeconds >= 20) score += 10;
+
+      if (maxScrollPercent >= 85) score += 35;
+      else if (maxScrollPercent >= 50) score += 20;
+
+      if (hasInteractedWithCalc) score += 30;
+      if (hasOpenedFaq) score += 20;
+      if (hasCopiedContact) score += 35;
+      if (leadName || leadTel) score += 15;
+
+      if (score >= 65) return '🔥 Muy Caliente (A)';
+      if (score >= 35) return '⚡ Interesado (B)';
+      return '👀 Curioso (C)';
     }
 
     // 6. Scroll y Secciones Vistas
@@ -1851,6 +1919,18 @@
       });
     }, { passive: true });
 
+    // 6.1 Detección de Copy-Paste
+    document.addEventListener('copy', () => {
+      const text = (window.getSelection() ? window.getSelection().toString() : '').trim();
+      if (text.includes('680') || text.includes('317486') || text.includes('+34')) {
+        hasCopiedContact = true;
+        trackEvent('copiar_telefono', { evento_desc: '📋 Copió Teléfono de Javier' });
+      } else if (text.includes('@coolpadel') || text.includes('javier@')) {
+        hasCopiedContact = true;
+        trackEvent('copiar_email', { evento_desc: '📋 Copió Email de Javier' });
+      }
+    });
+
     // 7. Función Central de Envío de Analítica
     function trackEvent(eventName, extraData = {}) {
       if (!GOOGLE_SHEETS_WEBHOOK_URL) return;
@@ -1864,6 +1944,8 @@
           lead_label: getLeadIdentification(),
           lead_name: leadName,
           lead_tel: leadTel,
+          geo_ubicacion: geoUbicacion,
+          lead_score: calculateLeadScore(),
           es_admin: isAdmin,
           tipo_trafico: getTrafficTypeLabel(),
           evento: eventName,
@@ -1874,6 +1956,7 @@
           scroll_max: maxScrollPercent + '%',
           tiempo_activo: formatTime(activeSeconds),
           tiempo_segundos: activeSeconds,
+          tiempos_seccion: getSectionTimesSummary(),
           dispositivo: dev.dispositivo,
           resolucion: dev.resolucion,
           idioma: currentLang,
@@ -2143,6 +2226,7 @@
       const trackCalculatorDebounced = (idx) => {
         if (idx !== lastTierTracked) {
           lastTierTracked = idx;
+          hasInteractedWithCalc = true;
           const tData = tiers[idx];
           if (tData) {
             trackEvent('calculadora_interaccion', {
