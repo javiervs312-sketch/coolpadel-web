@@ -297,6 +297,14 @@ def get_base_html(active_lang="es", is_subfolder=False):
     }}
   </script>
   <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"></script>
+  <!-- Microsoft Clarity (Heatmaps y Grabaciones de Sesión) -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){{
+      c[a]=c[a]||function(){{(c[a].q=c[a].q||[]).push(arguments)}};
+      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    }})(window, document, "clarity", "script", "q7p8g52y9e");
+  </script>
   <style>
     *, *::before, *::after {{
       box-sizing: border-box;
@@ -1711,20 +1719,41 @@ def get_base_html(active_lang="es", is_subfolder=False):
 
     let visitorId = '';
     let visitCount = 1;
+    let isReturningVisitor = false;
+    let recurrenceLabel = '';
     try {{
       visitorId = localStorage.getItem('cp_visitor_id');
+      const nowMs = Date.now();
       if (!visitorId) {{
         visitorId = generateUid('v');
         localStorage.setItem('cp_visitor_id', visitorId);
         localStorage.setItem('cp_visit_count', '1');
+        localStorage.setItem('cp_first_visit', nowMs.toString());
+        localStorage.setItem('cp_last_visit', nowMs.toString());
       }} else {{
         let count = parseInt(localStorage.getItem('cp_visit_count') || '1', 10);
+        const firstVisitMs = parseInt(localStorage.getItem('cp_first_visit') || nowMs.toString(), 10);
+        const lastVisitMs = parseInt(localStorage.getItem('cp_last_visit') || nowMs.toString(), 10);
+
         if (!sessionStorage.getItem('cp_counted_in_session')) {{
           count++;
           localStorage.setItem('cp_visit_count', count.toString());
           sessionStorage.setItem('cp_counted_in_session', 'true');
+
+          const diffHours = Math.max(0, Math.round((nowMs - lastVisitMs) / (1000 * 60 * 60)));
+          const diffDays = Math.floor(diffHours / 24);
+          let tiempoAtras = diffHours < 1 ? 'hace minutos' : (diffHours < 24 ? `hace ${{diffHours}}h` : `hace ${{diffDays}}d`);
+          recurrenceLabel = `🔁 ${{count}}ª visita (${{tiempoAtras}})`;
+
+          localStorage.setItem('cp_last_visit', nowMs.toString());
+        }} else {{
+          const diffHours = Math.max(0, Math.round((nowMs - lastVisitMs) / (1000 * 60 * 60)));
+          const diffDays = Math.floor(diffHours / 24);
+          let tiempoAtras = diffHours < 1 ? 'hace minutos' : (diffHours < 24 ? `hace ${{diffHours}}h` : `hace ${{diffDays}}d`);
+          recurrenceLabel = count > 1 ? `🔁 ${{count}}ª visita (${{tiempoAtras}})` : '';
         }}
         visitCount = count;
+        if (visitCount > 1) isReturningVisitor = true;
       }}
     }} catch(e) {{
       visitorId = generateUid('v');
@@ -1743,6 +1772,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
             if (data && data.city) {{
               geoUbicacion = `${{data.city}}, ${{data.region || ''}}, ${{data.country_code || 'ES'}}`.replace(', ,', ',');
               sessionStorage.setItem('cp_geo', geoUbicacion);
+              syncClarityTags();
             }}
           }}).catch(() => {{}});
       }}
@@ -1778,10 +1808,31 @@ def get_base_html(active_lang="es", is_subfolder=False):
 
     function getLeadIdentification() {{
       if (isAdmin) return '👤 Javier (Admin)';
-      if (leadName && leadTel) return `${{leadName}} (${{leadTel}})`;
-      if (leadName) return leadName;
-      if (leadTel) return leadTel;
-      return `Anónimo (${{geoUbicacion}})`;
+      let base = '';
+      if (leadName && leadTel) base = `${{leadName}} (${{leadTel}})`;
+      else if (leadName) base = leadName;
+      else if (leadTel) base = leadTel;
+      else base = `Anónimo (${{geoUbicacion}})`;
+
+      if (recurrenceLabel) {{
+        return `${{base}} ${{recurrenceLabel}}`;
+      }}
+      return base;
+    }}
+
+    // Sincronización de variables personalizadas con Microsoft Clarity
+    function syncClarityTags() {{
+      if (window.clarity) {{
+        try {{
+          window.clarity("set", "lead_label", getLeadIdentification());
+          window.clarity("set", "lead_score", calculateLeadScore());
+          window.clarity("set", "geo", geoUbicacion);
+          window.clarity("set", "visitas_total", visitCount.toString());
+          window.clarity("set", "es_reincidente", isReturningVisitor ? "true" : "false");
+          window.clarity("set", "dispositivo", getDeviceInfo().dispositivo);
+          window.clarity("identify", visitorId, sessionId, undefined, leadName || undefined);
+        }} catch(e) {{}}
+      }}
     }}
 
     function getTrafficTypeLabel() {{
@@ -1868,6 +1919,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
       if (hasOpenedFaq) score += 20;
       if (hasCopiedContact) score += 35;
       if (leadName || leadTel) score += 15;
+      if (isReturningVisitor) score += 25; // Bonus por lead reincidente
 
       if (score >= 65) return '🔥 Muy Caliente (A)';
       if (score >= 35) return '⚡ Interesado (B)';
