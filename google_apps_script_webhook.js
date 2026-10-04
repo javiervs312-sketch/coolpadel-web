@@ -72,6 +72,8 @@ function doPost(e) {
     let sheetAnalitica = ss.getSheetByName("Analitica Web");
     if (!sheetAnalitica) {
       sheetAnalitica = ss.insertSheet("Analitica Web");
+    }
+    if (sheetAnalitica.getLastRow() === 0) {
       sheetAnalitica.appendRow([
         "Fecha", "Hora", "Lead / Club", "Visitas", "Ubicación", "Dispositivo", 
         "Página", "Evento Real", "Secciones Leídas", "Tiempo Activo", "% Scroll", "ID Sesión"
