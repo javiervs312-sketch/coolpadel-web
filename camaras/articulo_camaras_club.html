@@ -163,6 +163,48 @@
             color: #1a1a1a;
         }
 
+        /* Tabla de Decisiones en Conclusión */
+        .table-container {
+            width: 100%;
+            overflow-x: auto;
+            margin: 2.8rem 0 3.2rem;
+            border-radius: 8px;
+            border: 1px solid #d0d0d5;
+            background: #ffffff;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+        }
+
+        table.decisiones-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 1.05rem;
+            text-align: left;
+        }
+
+        table.decisiones-table th {
+            background-color: #f3f3f5;
+            color: #111111;
+            font-weight: 700;
+            padding: 1.1rem 1.25rem;
+            border-bottom: 2px solid #d0d0d5;
+        }
+
+        table.decisiones-table td {
+            padding: 1.1rem 1.25rem;
+            border-bottom: 1px solid #e5e5ea;
+            vertical-align: top;
+            line-height: 1.6;
+            color: #222222;
+        }
+
+        table.decisiones-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        table.decisiones-table tr:nth-child(even) td {
+            background-color: #fafafb;
+        }
+
         /* ANIMACIONES AL HACER SCROLL (FADE IN Y SLIDE UP) */
         .reveal-on-scroll {
             opacity: 0;
@@ -504,6 +546,35 @@
         <p class="reveal-on-scroll">
             Muchos clubs se arrepienten de los servicios y de las cámaras que contratan.
         </p>
+
+        <div class="table-container reveal-on-scroll">
+            <table class="decisiones-table">
+                <thead>
+                    <tr>
+                        <th>Decisión crítica</th>
+                        <th>Lo que te prometen</th>
+                        <th>La cruda realidad</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>1. Analytics con IA</strong></td>
+                        <td>Análisis de juego e IA en cada golpe</td>
+                        <td>Al 3º partido el mapa de calor no aporta nada y lo acaban usando los mismos 4</td>
+                    </tr>
+                    <tr>
+                        <td><strong>2. Periodos de prueba</strong></td>
+                        <td>Meses de prueba gratis o a precio reducido</td>
+                        <td>Te atan a una permanencia larga y sigues pagando tras el boom inicial</td>
+                    </tr>
+                    <tr>
+                        <td><strong>3. Videovigilancia</strong></td>
+                        <td>Cámaras convencionales baratas</td>
+                        <td>Imagen curvada, reflejos y calidad pésima para que los jugadores compartan en redes</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
         <p class="reveal-on-scroll">
             Insisto, no os fíeis de lo que os diga gente como yo.
