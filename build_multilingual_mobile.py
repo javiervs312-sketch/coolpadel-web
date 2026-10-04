@@ -1637,7 +1637,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
     }};
 
     // URL del Webhook de Google Apps Script (Recepción de Leads y Analítica de Eventos)
-    const GOOGLE_SHEETS_WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbwm-6rDF4hpJMJeCJ26Vqfy-mg9Zvn7i4UJ-hWWx7xsvzreBU2WCGnCDoyKmR2Qt6CFSA/exec';
+    const GOOGLE_SHEETS_WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbxnF9JmVrikeAW7PdLc02r_1kkuSJVz1Ncl71ZeVGT37H0ji5DQ3DVw60122pcuYnxCgA/exec';
 
     // ─────────────────────────────────────────────────────────────────
     // MOTOR DE ANALÍTICA COMERCIAL AVANZADA
