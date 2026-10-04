@@ -1,14 +1,19 @@
 /**
  * GOOGLE APPS SCRIPT - WEBHOOK OFICIAL COOLPADEL & SAVE MY PLAY
  * 
- * Funciones:
- * 1. Recepción de LEADS (Email) con validación estricta y alertas inmediatas a Javier.
- * 2. ANALÍTICA DE LEADS AGRUPADA POR SESIÓN (1 FILA POR LEAD):
- *    - Geolocalización por IP (Ciudad, Región, País).
- *    - Termómetro de Interés / Lead Scoring (🔥 Muy Caliente / ⚡ Interesado / 👀 Curioso).
- *    - Detección de Copy-Paste de teléfono/email y clics de contacto.
- *    - Desglose de tiempo de atención por sección.
- *    - Cada visita/lead se consolida en SU PROPIA FILA ÚNICA.
+ * Columnas Limpias y Accionables:
+ * 1. Fecha: día/mes (ej: 04/10)
+ * 2. Hora: HH:mm:ss (ej: 16:01:19)
+ * 3. Lead / Club: Nombre/Tel si se conoce, o EN BLANCO si es anónimo
+ * 4. Nº Visitas: 1ª visita, 2ª visita, 5ª visita...
+ * 5. Ubicación: Madrid, Madrid, ES (Ciudad, Región, País)
+ * 6. Dispositivo: iPhone, Android, Windows, Mac, iPad...
+ * 7. Página: /camaras/, /, etc.
+ * 8. Evento Real: Acción clara realizada (Lectura, Clic WhatsApp, Copió Teléfono...)
+ * 9. Secciones Leídas: Ruta de secciones leídas en orden
+ * 10. Tiempo Activo: Tiempo real de lectura (ej: 1m 14s)
+ * 11. % Scroll: Porcentaje máximo de lectura (ej: 75%)
+ * 12. ID Sesión: Identificador técnico de sesión para agrupar en 1 sola fila
  */
 
 const NOTIFICAR_EMAIL = "javier@coolpadelstudios.com";
@@ -21,6 +26,10 @@ function doPost(e) {
 
     const data = JSON.parse(e.postData.contents);
     const ss = SpreadsheetApp.getActiveSpreadsheet();
+
+    const ahoraDate = new Date();
+    const dia = Utilities.formatDate(ahoraDate, "Europe/Madrid", "dd/MM");
+    const hora = Utilities.formatDate(ahoraDate, "Europe/Madrid", "HH:mm:ss");
 
     // ─────────────────────────────────────────────────────────────────
     // 1. CAPTURA DE LEAD (EMAIL / DESCARGA INFORME)
@@ -36,23 +45,21 @@ function doPost(e) {
       let sheetEmails = ss.getSheetByName("email página web");
       if (!sheetEmails) {
         sheetEmails = ss.insertSheet("email página web");
-        sheetEmails.appendRow(["Fecha y Hora", "Email", "Origen", "Lead / Club", "Campaña", "Dispositivo", "Notas"]);
+        sheetEmails.appendRow(["Fecha", "Hora", "Email", "Origen", "Lead / Club", "Campaña", "Dispositivo"]);
       }
 
-      const ahora = Utilities.formatDate(new Date(), "Europe/Madrid", "yyyy-MM-dd HH:mm:ss");
       const origen = data.origen || "Descarga Informe";
-      const leadLabel = data.lead_label || data.lead_name || data.lead_tel || "Web Directa";
+      const leadLabel = data.lead_label || data.lead_name || data.lead_tel || "";
       const campana = data.campana_utm || data.campana || "";
-      const dispositivo = data.dispositivo || "";
-      const notas = data.notas || "";
+      const dispositivo = data.dispositivo || data.so || "";
 
-      sheetEmails.appendRow([ahora, emailLimpio, origen, leadLabel, campana, dispositivo, notas]);
+      sheetEmails.appendRow([dia, hora, emailLimpio, origen, leadLabel, campana, dispositivo]);
 
       try {
         MailApp.sendEmail({
           to: NOTIFICAR_EMAIL,
-          subject: "🎯 Nuevo Lead Web: " + emailLimpio + " (" + leadLabel + ")",
-          body: "Nuevo lead en CoolPadel:\n\nEmail: " + emailLimpio + "\nLead: " + leadLabel + "\nOrigen: " + origen + "\nFecha: " + ahora
+          subject: "🎯 Nuevo Lead Web: " + emailLimpio + (leadLabel ? " (" + leadLabel + ")" : ""),
+          body: "Nuevo lead en CoolPadel:\n\nEmail: " + emailLimpio + "\nLead: " + leadLabel + "\nOrigen: " + origen + "\nFecha: " + dia + " " + hora
         });
       } catch (errMail) {}
 
@@ -60,69 +67,82 @@ function doPost(e) {
     }
 
     // ─────────────────────────────────────────────────────────────────
-    // 2. ANALÍTICA AGRUPADA POR LEAD (16 COLUMNAS CON GEO & SCORE)
+    // 2. ANALÍTICA LIMPIA AGRUPADA POR SESIÓN (1 FILA POR VISITA)
     // ─────────────────────────────────────────────────────────────────
     let sheetAnalitica = ss.getSheetByName("Analitica Web");
     if (!sheetAnalitica) {
       sheetAnalitica = ss.insertSheet("Analitica Web");
       sheetAnalitica.appendRow([
-        "Fecha y Hora", "Lead / Club", "Ubicación (IP)", "Interés (Score)", "Tipo Tráfico", 
-        "Acción / Eventos Realizados", "Página", "Sección Alcanzada", "% Scroll", "Tiempo Activo", 
-        "Tiempos x Sección", "Dispositivo / SO", "Origen / Canal", "Campaña / Ruta", "Detalles Clave", "ID Sesión"
+        "Fecha", "Hora", "Lead / Club", "Visitas", "Ubicación", "Dispositivo", 
+        "Página", "Evento Real", "Secciones Leídas", "Tiempo Activo", "% Scroll", "ID Sesión"
       ]);
     }
 
-    const ahora = Utilities.formatDate(new Date(), "Europe/Madrid", "yyyy-MM-dd HH:mm:ss");
     const sessionId = (data.session_id || "").trim();
-    const leadLabel = data.lead_label || data.lead_name || data.lead_tel || (data.es_admin ? "👤 Javier (Admin)" : "Anónimo");
-    const tipoTrafico = data.tipo_trafico || (data.es_admin ? "👤 Propio (Admin)" : (data.lead_tel ? "🎯 Lead WhatsApp" : "🌐 Tráfico Web"));
     
-    // Normalizar Acción actual
-    let accionActual = data.evento_desc || data.evento || "Visita Web";
-    if (data.evento === "pageview" || data.evento === "visita_iniciada") {
-      accionActual = "🟢 Visita";
-    } else if (data.evento && data.evento.indexOf("click_whatsapp") >= 0) {
-      accionActual = "🎯 Clic WA (" + (data.ubicacion || "Web") + ")";
-    } else if (data.evento === "calculadora_interaccion") {
-      accionActual = "📊 Calc (" + (data.tier_pistas || "") + " pistas)";
-    } else if (data.evento === "faq_abierto") {
-      accionActual = "❓ FAQ";
-    } else if (data.evento === "copiar_telefono") {
-      accionActual = "📋 Copió Teléfono";
-    } else if (data.evento === "copiar_email") {
-      accionActual = "📋 Copió Email";
-    } else if (data.evento === "scroll_hito") {
-      accionActual = "📜 Scroll " + (data.scroll_hito || data.scroll_max || "");
-    } else if (data.evento === "sesion_finalizada") {
-      accionActual = "🏁 Fin Sesión";
+    // Lead / Club: EN BLANCO si es anónimo o no se sabe quién es
+    let leadLabel = "";
+    if (data.es_admin) {
+      leadLabel = "Javier (Admin)";
+    } else if (data.lead_name && data.lead_tel) {
+      leadLabel = data.lead_name + " (" + data.lead_tel + ")";
+    } else if (data.lead_name) {
+      leadLabel = data.lead_name;
+    } else if (data.lead_tel) {
+      leadLabel = data.lead_tel;
+    } else if (data.lead_label && !data.lead_label.startsWith("Anónimo") && !data.lead_label.startsWith("analitica_evento")) {
+      leadLabel = data.lead_label;
     }
 
-    const ubicacion = data.geo_ubicacion || data.zona_horaria || "España";
-    const score = data.lead_score || "⚡ Interesado (B)";
-    const pagina = data.pagina || data.url || "/";
-    const seccion = data.seccion_actual || data.seccion || "-";
-    const scrollMax = data.scroll_max || data.scroll_alcanzado || "-";
-    const tiempoActivo = data.tiempo_activo || (data.tiempo_segundos ? data.tiempo_segundos + "s" : "-");
-    const tiemposSeccion = data.tiempos_seccion || "-";
-    const dispositivo = data.dispositivo || "";
-    const origenCanal = data.origen_canal || data.referrer || "Directo";
-    const campana = data.campana_utm || data.campana || "-";
+    // Nº de visitas (1ª visita, 2ª visita, 5ª visita...)
+    let visitasStr = "1ª visita";
+    if (data.visita_num) {
+      visitasStr = data.visita_num + "ª visita";
+    }
 
-    // Construir detalles clave
-    let detallesArr = [];
-    if (data.tier_pistas) detallesArr.push("Pistas: " + data.tier_pistas + " (" + (data.tier_precio || "") + "€/m)");
-    if (data.faq_pregunta) detallesArr.push("FAQ: " + data.faq_pregunta);
-    if (data.secciones_recorridas) detallesArr.push("Ruta: " + data.secciones_recorridas);
-    if (data.idioma) detallesArr.push("Idioma: " + data.idioma.toUpperCase());
-    const detallesStr = detallesArr.join(" | ");
+    // Ubicación
+    const ubicacion = data.geo_ubicacion || data.ubicacion || "";
 
-    // Buscar si ya existe la sesión en las últimas 60 filas para AGRUPAR
+    // Dispositivo limpio (iPhone, Android, Windows, Mac, etc.)
+    const dispositivo = data.dispositivo || data.so || "Web";
+
+    // Página
+    const pagina = data.pagina || data.url || "/camaras/";
+
+    // Evento Real comprensible
+    let eventoReal = data.evento_desc || "";
+    const evt = data.evento || "";
+    const tActivo = data.tiempo_activo || (data.tiempo_segundos ? data.tiempo_segundos + "s" : "0s");
+    const sMax = data.scroll_max || data.scroll_hito || "0%";
+
+    if (evt === "visita_iniciada" || evt === "pageview") {
+      eventoReal = "🟢 Lectura Iniciada";
+    } else if (evt === "sesion_finalizada") {
+      eventoReal = "🏁 Fin Lectura (" + tActivo + ", " + sMax + ")";
+    } else if (evt.indexOf("click_whatsapp") >= 0) {
+      eventoReal = "🎯 Clic WhatsApp (" + (data.ubicacion || "Carta") + ")";
+    } else if (evt === "copiar_telefono") {
+      eventoReal = "📋 Copió Teléfono";
+    } else if (evt === "copiar_email") {
+      eventoReal = "📋 Copió Email";
+    } else if (evt === "calculadora_interaccion") {
+      eventoReal = "📊 Calculadora (" + (data.tier_pistas || "") + " pistas)";
+    } else if (!eventoReal) {
+      eventoReal = "Lectura (" + tActivo + ", " + sMax + ")";
+    }
+
+    // Secciones Leídas
+    const seccionesLeidas = data.secciones_recorridas || data.seccion_actual || "";
+    const tiempoActivo = tActivo;
+    const scrollMax = sMax;
+
+    // Buscar si ya existe la sesión en las últimas 80 filas para AGRUPAR
     let filaExistente = -1;
     const lastRow = sheetAnalitica.getLastRow();
     if (sessionId && lastRow > 1) {
-      const startRow = Math.max(2, lastRow - 60);
+      const startRow = Math.max(2, lastRow - 80);
       const numRows = lastRow - startRow + 1;
-      const idsRange = sheetAnalitica.getRange(startRow, 16, numRows, 1).getValues();
+      const idsRange = sheetAnalitica.getRange(startRow, 12, numRows, 1).getValues();
       for (let i = idsRange.length - 1; i >= 0; i--) {
         if (idsRange[i][0] === sessionId) {
           filaExistente = startRow + i;
@@ -132,58 +152,49 @@ function doPost(e) {
     }
 
     if (filaExistente > 1) {
-      // ACTUALIZAR Y CONSOLIDAR EN LA MISMA FILA DEL LEAD
-      const filaActual = sheetAnalitica.getRange(filaExistente, 1, 1, 16).getValues()[0];
+      // CONSOLIDAR EN LA MISMA FILA
+      const filaActual = sheetAnalitica.getRange(filaExistente, 1, 1, 12).getValues()[0];
       
-      let accionesPrevias = filaActual[5] || "";
-      let accionesActualizadas = accionesPrevias;
-      if (!accionesPrevias.includes(accionActual)) {
-        accionesActualizadas = accionesPrevias ? accionesPrevias + " ➔ " + accionActual : accionActual;
+      // Actualizar evento real sin redundancia
+      let eventosPrevios = filaActual[7] || "";
+      let eventosActualizados = eventosPrevios;
+      if (eventoReal && !eventosPrevios.includes(eventoReal)) {
+        if (eventosPrevios.startsWith("🟢 Lectura Iniciada") && (eventoReal.startsWith("🏁 Fin Lectura") || eventoReal.startsWith("🎯 Clic"))) {
+          eventosActualizados = eventoReal;
+        } else {
+          eventosActualizados = eventosPrevios + " ➔ " + eventoReal;
+        }
       }
 
-      let detallesPrevios = filaActual[14] || "";
-      let detallesActualizados = detallesPrevios;
-      if (detallesStr && !detallesPrevios.includes(detallesStr)) {
-        detallesActualizados = detallesPrevios ? detallesPrevios + " | " + detallesStr : detallesStr;
-      }
-
-      sheetAnalitica.getRange(filaExistente, 1, 1, 16).setValues([[
-        ahora,                                                   // Col 1: Fecha y Hora
-        leadLabel !== "Anónimo" ? leadLabel : (filaActual[1] || leadLabel), // Col 2: Lead / Club
-        ubicacion !== "España" ? ubicacion : (filaActual[2] || ubicacion),  // Col 3: Ubicación (IP)
-        score !== "⚡ Interesado (B)" ? score : (filaActual[3] || score),   // Col 4: Interés (Score)
-        tipoTrafico,                                             // Col 5: Tipo Tráfico
-        accionesActualizadas,                                    // Col 6: Acciones
-        pagina,                                                  // Col 7: Página
-        seccion !== "-" ? seccion : filaActual[7],               // Col 8: Sección Alcanzada
-        scrollMax !== "-" ? scrollMax : filaActual[8],           // Col 9: % Scroll
-        tiempoActivo !== "-" ? tiempoActivo : filaActual[9],     // Col 10: Tiempo Activo
-        tiemposSeccion !== "-" ? tiemposSeccion : filaActual[10],// Col 11: Tiempos x Sección
-        dispositivo || filaActual[11],                           // Col 12: Dispositivo / SO
-        origenCanal || filaActual[12],                           // Col 13: Origen / Canal
-        campana !== "-" ? campana : filaActual[13],              // Col 14: Campaña / Ruta
-        detallesActualizados,                                    // Col 15: Detalles Clave
-        sessionId                                                // Col 16: ID Sesión
+      sheetAnalitica.getRange(filaExistente, 1, 1, 12).setValues([[
+        dia,                                                             // Col 1: Fecha (dd/MM)
+        hora,                                                            // Col 2: Hora (HH:mm:ss)
+        leadLabel || filaActual[2] || "",                               // Col 3: Lead / Club (en blanco si no se conoce)
+        visitasStr || filaActual[3] || "1ª visita",                      // Col 4: Visitas
+        ubicacion || filaActual[4] || "",                               // Col 5: Ubicación
+        dispositivo || filaActual[5] || "",                             // Col 6: Dispositivo
+        pagina || filaActual[6] || "",                                  // Col 7: Página
+        eventosActualizados,                                             // Col 8: Evento Real
+        seccionesLeidas || filaActual[8] || "",                         // Col 9: Secciones Leídas
+        tiempoActivo !== "0s" ? tiempoActivo : (filaActual[9] || tiempoActivo), // Col 10: Tiempo Activo
+        scrollMax !== "0%" ? scrollMax : (filaActual[10] || scrollMax), // Col 11: % Scroll
+        sessionId                                                        // Col 12: ID Sesión
       ]]);
 
     } else {
-      // NUEVA FILA PARA UN NUEVO LEAD
+      // NUEVA FILA ÚNICA
       sheetAnalitica.appendRow([
-        ahora,
+        dia,
+        hora,
         leadLabel,
+        visitasStr,
         ubicacion,
-        score,
-        tipoTrafico,
-        accionActual,
-        pagina,
-        seccion,
-        scrollMax,
-        tiempoActivo,
-        tiemposSeccion,
         dispositivo,
-        origenCanal,
-        campana,
-        detallesStr,
+        pagina,
+        eventoReal,
+        seccionesLeidas,
+        tiempoActivo,
+        scrollMax,
         sessionId
       ]);
     }

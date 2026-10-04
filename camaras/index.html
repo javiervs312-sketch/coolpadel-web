@@ -865,49 +865,58 @@
 
         function getDeviceInfo() {
             const ua = navigator.userAgent || '';
-            let dev = 'Escritorio';
-            let os = 'PC / Mac';
+            const platform = navigator.platform || '';
+            const maxTouchPoints = navigator.maxTouchPoints || 0;
+            
+            let os = 'Desconocido';
+            if (/iPhone/i.test(ua)) {
+                os = 'iPhone';
+            } else if (/iPad/i.test(ua) || (platform === 'MacIntel' && maxTouchPoints > 1)) {
+                os = 'iPad';
+            } else if (/iPod/i.test(ua)) {
+                os = 'iPod';
+            } else if (/Android/i.test(ua)) {
+                os = 'Android';
+            } else if (/Windows|Win32|Win64|WOW64/i.test(ua)) {
+                os = 'Windows';
+            } else if (/Macintosh|MacIntel|MacPPC|Mac68K/i.test(ua)) {
+                os = 'Mac';
+            } else if (/CrOS/i.test(ua)) {
+                os = 'ChromeOS';
+            } else if (/Linux/i.test(ua) || /X11/i.test(ua)) {
+                os = 'Linux';
+            } else if (/mobile/i.test(ua)) {
+                os = 'Móvil';
+            } else {
+                os = 'PC / Mac';
+            }
+
             let app = '';
-
-            if (/mobile/i.test(ua)) dev = 'Móvil';
-            if (/tablet|ipad/i.test(ua)) dev = 'Tablet';
-
-            if (/iPhone/i.test(ua)) os = 'iPhone (iOS)';
-            else if (/iPad/i.test(ua)) os = 'iPad (iPadOS)';
-            else if (/Android/i.test(ua)) os = 'Android';
-            else if (/Windows/i.test(ua)) os = 'Windows';
-            else if (/Macintosh|Mac OS/i.test(ua)) os = 'macOS';
-            else if (/Linux/i.test(ua)) os = 'Linux';
-
-            if (/WhatsApp/i.test(ua)) app = ' [WhatsApp App]';
-            else if (/Instagram/i.test(ua)) app = ' [Instagram App]';
-            else if (/LinkedIn/i.test(ua)) app = ' [LinkedIn App]';
+            if (/WhatsApp/i.test(ua)) app = ' (WhatsApp)';
+            else if (/Instagram/i.test(ua)) app = ' (Instagram)';
+            else if (/LinkedIn/i.test(ua)) app = ' (LinkedIn)';
+            else if (/FBAN|FBAV/i.test(ua)) app = ' (Facebook)';
 
             return {
-                dispositivo: `${dev}: ${os}${app}`,
+                dispositivo: os + app,
+                so: os,
                 resolucion: `${window.screen.width}x${window.screen.height}`
             };
         }
 
         function getLeadIdentification() {
-            if (isAdmin) return '👤 Javier (Admin)';
-            let base = '';
-            if (leadName && leadTel) base = `${leadName} (${leadTel})`;
-            else if (leadName) base = leadName;
-            else if (leadTel) base = leadTel;
-            else base = `Anónimo (${geoUbicacion})`;
-            
-            if (recurrenceLabel) {
-                return `${base} ${recurrenceLabel}`;
-            }
-            return base;
+            if (isAdmin) return 'Javier (Admin)';
+            if (leadName && leadTel) return `${leadName} (${leadTel})`;
+            if (leadName) return leadName;
+            if (leadTel) return leadTel;
+            return ''; // En blanco si no se conoce el lead
         }
 
         // Sincronización de variables personalizadas con Microsoft Clarity
         function syncClarityTags() {
             if (window.clarity) {
                 try {
-                    window.clarity("set", "lead_label", getLeadIdentification());
+                    window.clarity("set", "lead_label", getLeadIdentification() || "Anónimo");
                     window.clarity("set", "lead_score", calculateLeadScore());
                     window.clarity("set", "geo", geoUbicacion);
                     window.clarity("set", "visitas_total", visitCount.toString());
@@ -952,7 +961,6 @@
                 const diff = Math.round((now - lastTick) / 1000);
                 if (diff > 0 && diff < 5) {
                     activeSeconds += diff;
-                    // Acumular tiempo en la sección actual
                     if (currentSection.includes('Decisión Final')) sectionTimes['Decisión Final'] += diff;
                     else if (currentSection.includes('Qué Ganas')) sectionTimes['Qué Ganas'] += diff;
                     else if (currentSection.includes('Decisiones') || currentSection.includes('Ventajas') || currentSection.includes('Problemas')) sectionTimes['3 Decisiones'] += diff;
@@ -991,7 +999,7 @@
             if (sectionTimes['Decisión Final'] >= 15) score += 25;
             if (copiedContact) score += 30;
             if (leadName || leadTel) score += 15;
-            if (isReturningVisitor) score += 25; // Bonus por lead reincidente
+            if (isReturningVisitor) score += 25;
 
             if (score >= 65) return '🔥 Muy Caliente (A)';
             if (score >= 35) return '⚡ Interesado (B)';
@@ -1001,7 +1009,6 @@
         // 6. Scroll y Secciones Vistas
         let maxScrollPercent = 0;
         let currentSection = 'Introducción Cámaras';
-        const reachedScrollMilestones = new Set();
         const visitedSectionsList = ['Introducción Cámaras'];
         let copiedContact = false;
 
@@ -1015,7 +1022,6 @@
             const pct = Math.min(100, Math.round(((h[st] || b[st]) / scrollable) * 100));
             if (pct > maxScrollPercent) maxScrollPercent = pct;
 
-            // Actualizar sección según scroll
             if (pct > 75) currentSection = 'Decisión Final (Opción A/B)';
             else if (pct > 55) currentSection = 'Qué Ganas con Cámaras';
             else if (pct > 25) currentSection = 'Las 3 Decisiones Clave';
@@ -1024,16 +1030,6 @@
             if (!visitedSectionsList.includes(currentSection)) {
                 visitedSectionsList.push(currentSection);
             }
-
-            [25, 50, 75, 90, 100].forEach(milestone => {
-                if (pct >= milestone && !reachedScrollMilestones.has(milestone)) {
-                    reachedScrollMilestones.add(milestone);
-                    sendAnalyticsEvent('scroll_hito', {
-                        scroll_hito: milestone + '%',
-                        evento_desc: `Scroll ${milestone}% alcanzado en Artículo Cámaras`
-                    });
-                }
-            });
         }, { passive: true });
 
         // 6.1 Detección de Copy-Paste (Intención de Contacto)
@@ -1054,7 +1050,6 @@
             try {
                 const dev = getDeviceInfo();
                 const payload = {
-                    tipo: 'analitica_evento',
                     session_id: sessionId,
                     visitor_id: visitorId,
                     visita_num: visitCount,
@@ -1077,12 +1072,9 @@
                     dispositivo: dev.dispositivo,
                     resolucion: dev.resolucion,
                     idioma: (navigator.language || 'es').toLowerCase(),
-                    zona_horaria: Intl.DateTimeFormat().resolvedOptions().timeZone || 'unknown',
                     origen_canal: getChannelOrigin(),
-                    referrer: document.referrer || 'direct',
                     campana_utm: utmCampaign || utmSource || '',
                     url_completa: window.location.href,
-                    fecha: new Date().toISOString(),
                     ...extraData
                 };
 
@@ -1104,23 +1096,28 @@
         // Registro de Visita Inicial
         window.addEventListener('DOMContentLoaded', () => {
             sendAnalyticsEvent('visita_iniciada', {
-                evento_desc: '🟢 Lectura Artículo Cámaras Iniciada'
+                evento_desc: '🟢 Lectura Iniciada'
             });
         });
 
         // Registro de Sesión Finalizada al salir
+        let finalReported = false;
+        function reportExit() {
+            if (finalReported && activeSeconds < 5) return;
+            finalReported = true;
+            sendAnalyticsEvent('sesion_finalizada', {
+                evento_desc: `🏁 Fin Lectura (${formatTime(activeSeconds)}, ${maxScrollPercent}%)`
+            });
+        }
+
         window.addEventListener('visibilitychange', () => {
             if (document.visibilityState === 'hidden') {
-                sendAnalyticsEvent('sesion_finalizada', {
-                    evento_desc: `🏁 Fin Lectura Cámaras (${formatTime(activeSeconds)}, ${maxScrollPercent}%)`
-                });
+                reportExit();
             }
         });
 
         window.addEventListener('pagehide', () => {
-            sendAnalyticsEvent('sesion_finalizada', {
-                evento_desc: `🏁 Fin Lectura Cámaras (${formatTime(activeSeconds)}, ${maxScrollPercent}%)`
-            });
+            reportExit();
         });
     </script>
 </body>
