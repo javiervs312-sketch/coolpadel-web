@@ -32,7 +32,7 @@
             --text-color: #111111;
             --text-muted: #666666;
             --border-color: #b0b0b0;
-            --card-bg: #f7f7f8;
+            --card-bg: #ececee;
             --font-main: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
         }
 
@@ -91,6 +91,17 @@
             color: var(--text-color);
         }
 
+        /* Título sin salto brusco de sección */
+        h2.section-title-inline {
+            font-size: clamp(1.5rem, 3.5vw, 1.95rem);
+            font-weight: 800;
+            line-height: 1.3;
+            letter-spacing: -0.02em;
+            margin-top: 3.2rem;
+            margin-bottom: 2.2rem;
+            color: var(--text-color);
+        }
+
         /* Títulos de Decisiones / Apartados con Subrayado */
         h3.decision-title {
             font-size: clamp(1.35rem, 3vw, 1.65rem);
@@ -128,27 +139,27 @@
             color: #000000;
         }
 
-        /* Estilo destacado para el primer párrafo */
+        /* Estilo destacado para las cajas (Formato ese) */
         .lead-warning {
-            font-size: 1.25rem;
+            font-size: 1.2rem;
             font-weight: 500;
-            line-height: 1.75;
-            padding: 1.75rem 2rem;
+            line-height: 1.8;
+            padding: 1.8rem 2rem;
             background-color: var(--card-bg);
-            border-left: 4px solid #000000;
-            border-radius: 4px;
-            margin-bottom: 3.5rem;
+            border-left: 5px solid #111111;
+            border-radius: 6px;
+            margin-top: 2.6rem;
+            margin-bottom: 3.2rem;
             color: #111111;
         }
 
         .lead-warning p {
-            margin-bottom: 1.4rem;
+            margin-bottom: 1.3rem;
             color: inherit;
         }
 
         .lead-warning p:last-child {
             margin-bottom: 0;
-            font-weight: 700;
         }
 
         /* Lista de puntos juntos */
@@ -281,7 +292,7 @@
         </p>
 
         <p class="reveal-on-scroll">
-            Con solo 3 minutos, puede que te ahorres meses, dinero y disgustos.
+            Con solo 3 minutos, te puedes ahorrar meses, dinero y disgustos.
         </p>
 
         <p class="reveal-on-scroll">
@@ -291,7 +302,7 @@
         <!-- SEPARACIÓN 1 -->
         <hr class="sub-divider reveal-on-scroll">
 
-        <!-- FORMATO DESTACADO (LO QUE HABÍA DE ESTO NO ES PARA TI) -->
+        <!-- CAJA DESTACADA 1 -->
         <div class="lead-warning reveal-on-scroll">
             <p>
                 Lo sé porque hablo con clubes y me lo dicen.
@@ -331,11 +342,11 @@
         </p>
 
         <p class="reveal-on-scroll">
-            En concreto, veo 3 decisiones que no creo que repetirían.
+            En concreto, hay 3 decisiones que no repetirían.
         </p>
 
-        <!-- SECCIÓN: LAS 3 DECISIONES -->
-        <h2 class="section-title reveal-on-scroll">
+        <!-- TÍTULO SIN SALTO DE SECCIÓN -->
+        <h2 class="section-title-inline reveal-on-scroll">
             Las 3 decisiones que hacen que los clubes se arrepientan de poner cámaras
         </h2>
 
@@ -360,9 +371,6 @@
             Y que tu número de derechas cortadas con doble tirabuzón invertido es un dato que no te aporta gran cosa.
         </p>
 
-        <!-- SEPARACIÓN -->
-        <hr class="sub-divider reveal-on-scroll">
-
         <p class="reveal-on-scroll">
             Me da especial pena verlo en clubes pequeños de pueblos de Burgos, Córdoba o Tarragona, por ejemplo.
         </p>
@@ -382,21 +390,21 @@
         <!-- SEPARACIÓN -->
         <hr class="sub-divider reveal-on-scroll">
 
-        <p class="reveal-on-scroll">
-            Ojo que en Save My Play, tenemos un plan que incluye Analytics y estadísticas con IA por 136€ al mes, además de la inversión de la cámara, que ya te contaré.
-        </p>
-
-        <p class="reveal-on-scroll">
-            Una ganga.
-        </p>
-
-        <p class="reveal-on-scroll">
-            <strong>Ya sabes mi opinión sobre este plan.</strong>
-        </p>
-
-        <p class="reveal-on-scroll">
-            Si me insistes mucho, tendré que vendértelo, pero no me vengas luego con que no te avisé.
-        </p>
+        <!-- CAJA DESTACADA 2 -->
+        <div class="lead-warning reveal-on-scroll">
+            <p>
+                Ojo que en Save My Play, tenemos un plan que incluye Analytics y estadísticas con IA por 136€ al mes, además de la inversión de la cámara, que ya te contaré.
+            </p>
+            <p>
+                Una ganga.
+            </p>
+            <p>
+                <strong>Ya sabes mi opinión sobre este plan.</strong>
+            </p>
+            <p>
+                Si me insistes mucho, tendré que vendértelo, pero no me vengas luego con que no te avisé.
+            </p>
+        </div>
 
         <!-- DECISIÓN 2 -->
         <h3 class="decision-title reveal-on-scroll">
@@ -434,25 +442,24 @@
         <!-- SEPARACIÓN -->
         <hr class="sub-divider reveal-on-scroll">
 
-        <p class="reveal-on-scroll">
-            <strong>No tenemos permanencias.</strong>
-        </p>
-
-        <p class="reveal-on-scroll">
-            Cancelas tu suscripción y te largas.
-        </p>
-
-        <p class="reveal-on-scroll">
-            No queremos clientes enfadados.
-        </p>
-
-        <p class="reveal-on-scroll">
-            Pensando a medio y largo plazo, no nos compensa.
-        </p>
-
-        <p class="reveal-on-scroll">
-            Aun así, más del 97 % de los clubes siguen voluntariamente con nosotros cada mes.
-        </p>
+        <!-- CAJA DESTACADA 3 -->
+        <div class="lead-warning reveal-on-scroll">
+            <p>
+                <strong>No tenemos permanencias.</strong>
+            </p>
+            <p>
+                Cancelas tu suscripción y te largas.
+            </p>
+            <p>
+                No queremos clientes enfadados.
+            </p>
+            <p>
+                Pensando a medio y largo plazo, no nos compensa.
+            </p>
+            <p>
+                Aun así, más del 97 % de los clubes siguen voluntariamente con nosotros cada mes.
+            </p>
+        </div>
 
         <!-- DECISIÓN 3 -->
         <h3 class="decision-title reveal-on-scroll">
@@ -463,21 +470,21 @@
             Antes de seguir, una pregunta clave que deberías haberte hecho ya.
         </p>
 
-        <p class="reveal-on-scroll">
-            Para qué quieren realmente los jugadores las cámaras?
-        </p>
-
-        <p class="reveal-on-scroll">
-            Para subir a redes sus mejores puntos y mandárselos a sus amigos.
-        </p>
-
-        <p class="reveal-on-scroll">
-            Y que todo el mundo se entere de que juegan al pádel.
-        </p>
-
-        <p class="reveal-on-scroll">
-            No hay que darle más vueltas.
-        </p>
+        <!-- CAJA DESTACADA 4 -->
+        <div class="lead-warning reveal-on-scroll">
+            <p>
+                Para qué quieren realmente los jugadores las cámaras?
+            </p>
+            <p>
+                Para subir a redes sus mejores puntos y mandárselos a sus amigos.
+            </p>
+            <p>
+                Y que todo el mundo se entere de que juegan al pádel.
+            </p>
+            <p>
+                <strong>No hay que darle más vueltas.</strong>
+            </p>
+        </div>
 
         <!-- SEPARACIÓN -->
         <hr class="sub-divider reveal-on-scroll">
@@ -521,33 +528,30 @@
         <!-- SEPARACIÓN -->
         <hr class="sub-divider reveal-on-scroll">
 
-        <p class="reveal-on-scroll">
-            <strong>No utilizamos cámaras de vigilancia para grabar las pistas.</strong>
-        </p>
-
-        <p class="reveal-on-scroll">
-            No, gracias.
-        </p>
-
-        <p class="reveal-on-scroll">
-            En Chicago y California fabricamos las cámaras de padel
-        </p>
-
-        <p class="reveal-on-scroll">
-            Por eso, hay una inversión inicial de 180 € por cámara, solo una por pista.
-        </p>
-
-        <p class="reveal-on-scroll">
-            Sabemos que no somos para todos los clubs.
-        </p>
-
-        <p class="reveal-on-scroll">
-            Y encima tardamos en mandarlas de 2 a 4 semanas.
-        </p>
-
-        <p class="reveal-on-scroll">
-            O un poco más, que hay cola, las últimas han tardado 5 semanas.
-        </p>
+        <!-- CAJA DESTACADA 5 -->
+        <div class="lead-warning reveal-on-scroll">
+            <p>
+                <strong>No utilizamos cámaras de vigilancia para grabar las pistas.</strong>
+            </p>
+            <p>
+                No, gracias.
+            </p>
+            <p>
+                En Chicago y California fabricamos las cámaras de padel
+            </p>
+            <p>
+                Por eso, hay una inversión inicial de 180 € por cámara, solo una por pista.
+            </p>
+            <p>
+                Sabemos que no somos para todos los clubs.
+            </p>
+            <p>
+                Y encima tardamos en mandarlas de 2 a 4 semanas.
+            </p>
+            <p>
+                O un poco más, que hay cola, las últimas han tardado 5 semanas.
+            </p>
+        </div>
 
         <!-- CONCLUSIÓN -->
         <h2 class="section-title reveal-on-scroll">
@@ -558,35 +562,6 @@
             Muchos clubs se arrepienten de los servicios y de las cámaras que contratan.
         </p>
 
-        <div class="table-container reveal-on-scroll">
-            <table class="decisiones-table">
-                <thead>
-                    <tr>
-                        <th>Decisión crítica</th>
-                        <th>Lo que te prometen</th>
-                        <th>La cruda realidad</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>1. Analytics con IA</strong></td>
-                        <td>Análisis de juego e IA en cada golpe</td>
-                        <td>Al 3º partido el mapa de calor no aporta nada y lo acaban usando los mismos 4</td>
-                    </tr>
-                    <tr>
-                        <td><strong>2. Periodos de prueba</strong></td>
-                        <td>Meses de prueba gratis o a precio reducido</td>
-                        <td>Te atan a una permanencia larga y sigues pagando tras el boom inicial</td>
-                    </tr>
-                    <tr>
-                        <td><strong>3. Videovigilancia</strong></td>
-                        <td>Cámaras convencionales baratas</td>
-                        <td>Imagen curvada, reflejos y calidad pésima para que los jugadores compartan en redes</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
         <p class="reveal-on-scroll">
             Insisto, no os fíeis de lo que os diga gente como yo.
         </p>
@@ -595,9 +570,38 @@
             Hablad con los clubs y que os cuenten ellos.
         </p>
 
+        <div class="table-container reveal-on-scroll">
+            <table class="decisiones-table">
+                <thead>
+                    <tr>
+                        <th>Decisión</th>
+                        <th>Lo que esperas</th>
+                        <th>La realidad</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Analytics con IA</strong></td>
+                        <td>Ser un club moderno</td>
+                        <td>Falta de uso, coste elevado</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Periodos de prueba</strong></td>
+                        <td>Tomar una mejor decisión</td>
+                        <td>Contratos con permanencia</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Cámaras de vigilancia</strong></td>
+                        <td>Cámaras de padel</td>
+                        <td>Grabaciones de videovigilancia</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
         <!-- SECCIÓN: QUÉ GANO -->
         <h2 class="section-title reveal-on-scroll">
-            Y qué gano con las cámaras de Save My Play?
+            Qué gano con las cámaras de Save My Play?
         </h2>
 
         <p class="reveal-on-scroll">
@@ -617,7 +621,7 @@
         </p>
 
         <p class="reveal-on-scroll">
-            Con un servicio premium y que tus jugadores disfrutan.
+            Con un servicio premium que tus jugadores disfrutan y usan.
         </p>
 
         <p class="reveal-on-scroll">
@@ -635,13 +639,15 @@
         <!-- SEPARACIÓN -->
         <hr class="sub-divider reveal-on-scroll">
 
-        <p class="reveal-on-scroll">
-            <strong>El plan que recomendamos a la mayoría de clubs por 45€ al mes incluye grabaciones, highlights, retransmisiones en directo en YouTube, coaching tools… todo lo que necesitas.</strong>
-        </p>
-
-        <p class="reveal-on-scroll">
-            Ya te lo enseñaré si procede.
-        </p>
+        <!-- CAJA DESTACADA 6 -->
+        <div class="lead-warning reveal-on-scroll">
+            <p>
+                <strong>El plan que recomendamos a la mayoría de clubs por 45€ al mes incluye grabaciones, highlights, retransmisiones en directo en YouTube, coaching tools… todo lo que necesitas.</strong>
+            </p>
+            <p>
+                Ya te lo enseñaré si procede.
+            </p>
+        </div>
 
         <!-- SEPARACIÓN -->
         <hr class="sub-divider reveal-on-scroll">
@@ -666,17 +672,13 @@
             Pero eso es otro melón que no voy a abrir.
         </p>
 
-        <!-- SECCIÓN: QUÉ HAGO AHORA -->
-        <h2 class="section-title reveal-on-scroll">
-            Y qué hago ahora?
-        </h2>
-
-        <p class="reveal-on-scroll">
-            <strong>Tienes Dos Opciones: Opción A y Opción B</strong>
-        </p>
-
         <!-- SEPARACIÓN -->
         <hr class="sub-divider reveal-on-scroll">
+
+        <!-- SECCIÓN: AHORA TIENES 2 OPCIONES -->
+        <h2 class="section-title reveal-on-scroll" style="margin-top: 3.5rem; border-top: none; padding-top: 0;">
+            Ahora tienes 2 opciones:
+        </h2>
 
         <p class="reveal-on-scroll" style="margin-bottom: 1.2rem;">
             Antes de nada, un par de recordatorios:
@@ -692,39 +694,27 @@
         <hr class="sub-divider reveal-on-scroll">
 
         <h3 class="decision-title reveal-on-scroll" style="margin-top: 2.5rem;">
-            Opción A
+            Opción A: Respóndeme que no te interesa
         </h3>
 
         <p class="reveal-on-scroll">
-            No me interesa/ estoy muy ocupado/ más adelante tal vez…
-        </p>
-
-        <p class="reveal-on-scroll">
-            No pasa absolutamente nada.
-        </p>
-
-        <p class="reveal-on-scroll">
-            <strong>SOLUCION A: Respóndeme que no te interesa.</strong>
+            Si no te interesa/ estás muy ocupado/ más adelante tal vez…
         </p>
 
         <!-- SEPARACIÓN -->
         <hr class="sub-divider reveal-on-scroll">
 
         <h3 class="decision-title reveal-on-scroll" style="margin-top: 2.5rem;">
-            Opción B
+            Opción B: Respóndeme que quieres te cuente
         </h3>
 
         <p class="reveal-on-scroll">
-            Sigues con la idea de poner las cámaras
+            Si sigues con la idea de poner las cámaras
         </p>
 
         <p class="reveal-on-scroll">
-            <strong>SOLUCIÓN B: Respóndeme que quieres te cuente.</strong>
+            Cuando tenga un hueco libre, te llamaré.
         </p>
-
-        <h3 class="decision-title reveal-on-scroll" style="margin-top: 2.5rem;">
-            1º Cuando tenga un hueco libre, te llamaré.
-        </h3>
 
         <p class="reveal-on-scroll">
             Hablamos, me preguntas y me cuentas sobre tu club.
