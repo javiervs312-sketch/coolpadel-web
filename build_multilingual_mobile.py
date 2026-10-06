@@ -1861,7 +1861,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
       if (ref.includes('google.')) return 'Búsqueda Google';
       if (ref.includes('bing.')) return 'Búsqueda Bing';
       if (ref.includes('facebook.com')) return 'Facebook';
-      return ref.replace(/^https?:\/\//, '').split('/')[0];
+      return ref.replace(/^https?:\\/\\//, '').split('/')[0];
     }}
 
     // 5. Tiempo Activo y Medición por Secciones (Micro-tiempos)
