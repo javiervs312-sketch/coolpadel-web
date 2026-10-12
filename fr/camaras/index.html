@@ -26,6 +26,9 @@
             y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
         })(window, document, "clarity", "script", "q7p8g52y9e");
     </script>
+    <!-- Calendly Widget Assets -->
+    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+    <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
     <style>
         :root {
             --bg-color: #ffffff;
@@ -225,6 +228,66 @@
 
         table.decisiones-table tr:nth-child(even) td {
             background-color: #fafafb;
+        }
+
+        /* Conteneur Calendly Intégré */
+        .calendly-embed-container {
+            margin-top: 2rem;
+            margin-bottom: 1.2rem;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid #e2e2e5;
+            background: #ffffff;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+        }
+
+        .calendly-fallback-text {
+            text-align: center;
+            font-size: 0.95rem;
+            color: #666666;
+            margin-top: 0.75rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .calendly-fallback-text a {
+            color: #111111;
+            font-weight: 700;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+        }
+
+        .calendly-success-card {
+            display: none;
+            background: #f0fdf4;
+            border: 2px solid #16a34a;
+            border-radius: 8px;
+            padding: 2rem 1.8rem;
+            margin: 2rem 0;
+            text-align: left;
+            animation: fadeInSuccess 0.5s ease-out forwards;
+        }
+
+        @keyframes fadeInSuccess {
+            from { opacity: 0; transform: translateY(12px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .calendly-success-card h4 {
+            color: #15803d;
+            font-size: 1.35rem;
+            font-weight: 800;
+            margin-bottom: 0.8rem;
+        }
+
+        .calendly-success-card p {
+            color: #166534;
+            font-size: 1.05rem;
+            line-height: 1.6;
+            margin-bottom: 0.8rem;
+        }
+
+        .calendly-success-card p:last-child {
+            margin-bottom: 0;
         }
 
         /* Animations au scroll */
@@ -681,34 +744,41 @@
         <hr class="sub-divider reveal-on-scroll">
 
         <h3 class="decision-title reveal-on-scroll" style="margin-top: 2.5rem;">
-            Option A : Répondez-moi que cela ne vous intéresse pas
+            Option 1 : Répondez-moi que cela ne vous intéresse pas
         </h3>
 
         <p class="reveal-on-scroll">
-            Si ce n'est pas pour vous / vous êtes débordé / plus tard éventuellement…
+            Si l'idée ne vous convient pas, vous êtes très occupé ou ce n'est pas le bon moment.
         </p>
 
         <!-- SÉPARATEUR -->
         <hr class="sub-divider reveal-on-scroll">
 
         <h3 class="decision-title reveal-on-scroll" style="margin-top: 2.5rem;">
-            Option B : Répondez-moi que vous souhaitez en savoir plus
+            Option 2 : Choisir un créneau pour la démo en ligne
         </h3>
-
-        <p class="reveal-on-scroll">
-            Si vous envisagez réellement d'installer des caméras sur vos terrains.
-        </p>
-
-        <p class="reveal-on-scroll">
-            Dès que j'aurai un créneau disponible, je vous appellerai.
-        </p>
 
         <p class="reveal-on-scroll">
             Nous échangerons, vous poserez vos questions et vous me parlerez de votre club.
         </p>
 
         <p class="reveal-on-scroll">
-            Et nous verrons s'il est pertinent de faire une courte démonstration en ligne pour vous montrer le fonctionnement.
+            Et je vous montrerai comment tout fonctionne pour que vous puissiez en juger.
+        </p>
+
+        <!-- CARTE DE CONFIRMATION -->
+        <div id="calendlySuccessCard" class="calendly-success-card">
+            <h4>C'est fait. Démo réservée.</h4>
+            <p id="calendlySuccessDetails">Vous recevrez un e-mail de confirmation avec le lien d'accès.</p>
+        </div>
+
+        <!-- WIDGET CALENDLY INTÉGRÉ -->
+        <div id="calendlyContainer" class="reveal-on-scroll calendly-embed-container">
+            <div id="calendlyWidget" class="calendly-inline-widget" data-url="https://calendly.com/javier-vs-312/demo-save-my-play?hide_landing_page_details=1&hide_gdpr_banner=1&locale=fr" style="min-width:320px;height:700px;"></div>
+        </div>
+
+        <p class="reveal-on-scroll calendly-fallback-text">
+            Si le calendrier ne s'affiche pas : <a href="https://calendly.com/javier-vs-312/demo-save-my-play?locale=fr" target="_blank" rel="noopener noreferrer">Cliquez ici pour l'ouvrir directement</a>
         </p>
     </main>
 
@@ -1103,6 +1173,42 @@
 
         window.addEventListener('pagehide', () => {
             reportExit();
+        });
+
+        // Écoute en temps réel des réservations Calendly
+        window.addEventListener('message', (e) => {
+            try {
+                if (!e.data || typeof e.data !== 'object') return;
+                const cEvent = e.data.event;
+                
+                if (cEvent === 'calendly.event_type_viewed') {
+                    sendAnalyticsEvent('calendly_visto', {
+                        evento_desc: '👀 Calendrier Calendly Vu'
+                    });
+                } else if (cEvent === 'calendly.date_and_time_selected') {
+                    sendAnalyticsEvent('calendly_hora_seleccionada', {
+                        evento_desc: '🕒 Date/Heure Sélectionnée'
+                    });
+                } else if (cEvent === 'calendly.event_scheduled') {
+                    const payloadCalendly = e.data.payload || {};
+                    sendAnalyticsEvent('demo_agendada', {
+                        tipo: 'reunion_calendly',
+                        evento_desc: `🎯 DÉMO RÉSERVÉE (FR): ${leadName || 'Club'}${leadTel ? ' ' + leadTel : ''}`,
+                        lead_nombre: leadName,
+                        lead_tel: leadTel,
+                        calendly_uri: payloadCalendly.event ? payloadCalendly.event.uri : ''
+                    });
+
+                    const successCard = document.getElementById('calendlySuccessCard');
+                    const successDetails = document.getElementById('calendlySuccessDetails');
+                    if (successCard && successDetails) {
+                        const clubStr = leadName ? ` (${leadName})` : '';
+                        successDetails.innerHTML = `C'est fait. Démo réservée${clubStr}. Vous recevrez un e-mail de confirmation avec le lien.`;
+                        successCard.style.display = 'block';
+                        successCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    }
+                }
+            } catch (err) {}
         });
     </script>
 </body>

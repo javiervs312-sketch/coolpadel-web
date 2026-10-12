@@ -26,6 +26,9 @@
             y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
         })(window, document, "clarity", "script", "q7p8g52y9e");
     </script>
+    <!-- Calendly Widget Assets -->
+    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+    <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
     <style>
         :root {
             --bg-color: #ffffff;
@@ -225,6 +228,66 @@
 
         table.decisiones-table tr:nth-child(even) td {
             background-color: #fafafb;
+        }
+
+        /* Calendly Embedded Container */
+        .calendly-embed-container {
+            margin-top: 2rem;
+            margin-bottom: 1.2rem;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid #e2e2e5;
+            background: #ffffff;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+        }
+
+        .calendly-fallback-text {
+            text-align: center;
+            font-size: 0.95rem;
+            color: #666666;
+            margin-top: 0.75rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .calendly-fallback-text a {
+            color: #111111;
+            font-weight: 700;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+        }
+
+        .calendly-success-card {
+            display: none;
+            background: #f0fdf4;
+            border: 2px solid #16a34a;
+            border-radius: 8px;
+            padding: 2rem 1.8rem;
+            margin: 2rem 0;
+            text-align: left;
+            animation: fadeInSuccess 0.5s ease-out forwards;
+        }
+
+        @keyframes fadeInSuccess {
+            from { opacity: 0; transform: translateY(12px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .calendly-success-card h4 {
+            color: #15803d;
+            font-size: 1.35rem;
+            font-weight: 800;
+            margin-bottom: 0.8rem;
+        }
+
+        .calendly-success-card p {
+            color: #166534;
+            font-size: 1.05rem;
+            line-height: 1.6;
+            margin-bottom: 0.8rem;
+        }
+
+        .calendly-success-card p:last-child {
+            margin-bottom: 0;
         }
 
         /* Scroll Animations (Fade in & Slide up) */
@@ -681,34 +744,41 @@
         <hr class="sub-divider reveal-on-scroll">
 
         <h3 class="decision-title reveal-on-scroll" style="margin-top: 2.5rem;">
-            Option A: Reply that you're not interested
+            Option 1: Reply that you're not interested
         </h3>
 
         <p class="reveal-on-scroll">
-            If it's not for you / you're too busy / maybe down the line…
+            If you don't like the idea, you're too busy, or it's not the right time.
         </p>
 
         <!-- DIVIDER -->
         <hr class="sub-divider reveal-on-scroll">
 
         <h3 class="decision-title reveal-on-scroll" style="margin-top: 2.5rem;">
-            Option B: Reply asking me to tell you more
+            Option 2: Pick a time for the online demo
         </h3>
 
         <p class="reveal-on-scroll">
-            If you're genuinely thinking about putting cameras on your courts.
+            We'll talk, you can ask questions and tell me about your club.
         </p>
 
         <p class="reveal-on-scroll">
-            When I have a free slot, I'll give you a quick call.
+            And I'll show you how everything works so you can see it for yourself.
         </p>
 
-        <p class="reveal-on-scroll">
-            We'll talk, you can ask your questions and tell me about your club.
-        </p>
+        <!-- CONFIRMATION CARD -->
+        <div id="calendlySuccessCard" class="calendly-success-card">
+            <h4>Done. Demo booked.</h4>
+            <p id="calendlySuccessDetails">You'll receive a confirmation email with the call link.</p>
+        </div>
 
-        <p class="reveal-on-scroll">
-            And we'll see if it makes sense to set up a quick online demo to show you how everything works.
+        <!-- EMBEDDED CALENDLY WIDGET -->
+        <div id="calendlyContainer" class="reveal-on-scroll calendly-embed-container">
+            <div id="calendlyWidget" class="calendly-inline-widget" data-url="https://calendly.com/javier-vs-312/demo-save-my-play?hide_landing_page_details=1&hide_gdpr_banner=1&locale=en" style="min-width:320px;height:700px;"></div>
+        </div>
+
+        <p class="reveal-on-scroll calendly-fallback-text">
+            If the calendar doesn't load: <a href="https://calendly.com/javier-vs-312/demo-save-my-play?locale=en" target="_blank" rel="noopener noreferrer">Click here to open it directly</a>
         </p>
     </main>
 
@@ -1103,6 +1173,42 @@
 
         window.addEventListener('pagehide', () => {
             reportExit();
+        });
+
+        // Real-time Calendly booking listener
+        window.addEventListener('message', (e) => {
+            try {
+                if (!e.data || typeof e.data !== 'object') return;
+                const cEvent = e.data.event;
+                
+                if (cEvent === 'calendly.event_type_viewed') {
+                    sendAnalyticsEvent('calendly_visto', {
+                        evento_desc: '👀 Viewed Calendly Calendar'
+                    });
+                } else if (cEvent === 'calendly.date_and_time_selected') {
+                    sendAnalyticsEvent('calendly_hora_seleccionada', {
+                        evento_desc: '🕒 Selected Date/Time in Calendly'
+                    });
+                } else if (cEvent === 'calendly.event_scheduled') {
+                    const payloadCalendly = e.data.payload || {};
+                    sendAnalyticsEvent('demo_agendada', {
+                        tipo: 'reunion_calendly',
+                        evento_desc: `🎯 DEMO BOOKED (EN): ${leadName || 'Club'}${leadTel ? ' ' + leadTel : ''}`,
+                        lead_nombre: leadName,
+                        lead_tel: leadTel,
+                        calendly_uri: payloadCalendly.event ? payloadCalendly.event.uri : ''
+                    });
+
+                    const successCard = document.getElementById('calendlySuccessCard');
+                    const successDetails = document.getElementById('calendlySuccessDetails');
+                    if (successCard && successDetails) {
+                        const clubStr = leadName ? ` (${leadName})` : '';
+                        successDetails.innerHTML = `Done. Demo booked${clubStr}. You'll receive a confirmation email with the link.`;
+                        successCard.style.display = 'block';
+                        successCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    }
+                }
+            } catch (err) {}
         });
     </script>
 </body>
