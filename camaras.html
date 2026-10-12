@@ -227,6 +227,33 @@
             background-color: #fafafb;
         }
 
+        /* Botón de Acción / Calendly */
+        .btn-calendly {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 1.5rem;
+            margin-bottom: 1.5rem;
+            padding: 1.1rem 2rem;
+            background-color: #111111;
+            color: #ffffff !important;
+            font-size: 1.15rem;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 6px;
+            letter-spacing: -0.01em;
+            transition: background-color 0.2s ease, transform 0.15s ease;
+        }
+
+        .btn-calendly:hover {
+            background-color: #333333;
+            transform: translateY(-2px);
+        }
+
+        .btn-calendly:active {
+            transform: translateY(0);
+        }
+
         /* ANIMACIONES AL HACER SCROLL (FADE IN Y SLIDE UP) */
         .reveal-on-scroll {
             opacity: 0;
@@ -695,26 +722,22 @@
         <hr class="sub-divider reveal-on-scroll">
 
         <h3 class="decision-title reveal-on-scroll" style="margin-top: 2.5rem;">
-            Opción A: Respóndeme que no te interesa
+            Opción 1: Respóndeme que no te interesa
         </h3>
 
         <p class="reveal-on-scroll">
-            Si no te interesa/ estás muy ocupado/ más adelante tal vez…
+            Si no te gusta la idea, estás muy ocupado o de momento no lo ves.
         </p>
 
         <!-- SEPARACIÓN -->
         <hr class="sub-divider reveal-on-scroll">
 
         <h3 class="decision-title reveal-on-scroll" style="margin-top: 2.5rem;">
-            Opción B: Respóndeme que quieres te cuente
+            Opción 2: Elegir hora para la demo online
         </h3>
 
         <p class="reveal-on-scroll">
-            Si sigues con la idea de poner las cámaras
-        </p>
-
-        <p class="reveal-on-scroll">
-            Cuando tenga un hueco libre, te llamaré.
+            Si quieres poner cámaras
         </p>
 
         <p class="reveal-on-scroll">
@@ -722,8 +745,14 @@
         </p>
 
         <p class="reveal-on-scroll">
-            Y vemos si tiene sentido hacer una demo online para enseñarte cómo funciona todo.
+            Y te enseño cómo funciona todo para que lo veas.
         </p>
+
+        <div class="reveal-on-scroll" style="margin-top: 2rem; margin-bottom: 2rem;">
+            <a href="https://calendly.com/javier-vs-312/demo-save-my-play" target="_blank" rel="noopener noreferrer" class="btn-calendly" onclick="if(typeof sendAnalyticsEvent === 'function') sendAnalyticsEvent('clic_calendly', { evento_desc: '📅 Clic en Reserva Calendly Demo' });">
+                Elegir día y hora para la demo →
+            </a>
+        </div>
     </main>
 
     <!-- SCRIPT DE REVELADO SUAVE A MEDIDA QUE SE DESLIZA (SCROLL) -->
@@ -1022,7 +1051,7 @@
             const pct = Math.min(100, Math.round(((h[st] || b[st]) / scrollable) * 100));
             if (pct > maxScrollPercent) maxScrollPercent = pct;
 
-            if (pct > 75) currentSection = 'Decisión Final (Opción A/B)';
+            if (pct > 75) currentSection = 'Decisión Final (Opción 1/2)';
             else if (pct > 55) currentSection = 'Qué Ganas con Cámaras';
             else if (pct > 25) currentSection = 'Las 3 Decisiones Clave';
             else currentSection = 'Introducción Cámaras';
