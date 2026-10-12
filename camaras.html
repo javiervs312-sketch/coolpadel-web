@@ -782,9 +782,8 @@
 
         <!-- TARJETA DE CONFIRMACIÓN AL AGENDAR EN CALENDLY -->
         <div id="calendlySuccessCard" class="calendly-success-card">
-            <h4>Hecho. Demo agendada</h4>
-            <p id="calendlySuccessDetails">Te hemos reservado la cita para la demo online. Te llegará la confirmación al correo.</p>
-            <p style="font-size: 0.95rem; color: #15803d; margin-top: 0.5rem;">Cualquier duda o cambio de hora puedes escribir a Javier directamente por WhatsApp.</p>
+            <h4>Hecho. Demo agendada.</h4>
+            <p id="calendlySuccessDetails">Te llegará la confirmación con el enlace al correo.</p>
         </div>
 
         <!-- CALENDARIO CALENDLY INCRUSTADO DIRECTAMENTE -->
@@ -855,19 +854,6 @@
         const leadTel = pTel || (function(){ try { return localStorage.getItem('cp_lead_tel') || ''; } catch(e){ return ''; } })();
         const utmSource = pSource || (function(){ try { return localStorage.getItem('cp_utm_source') || ''; } catch(e){ return ''; } })();
         const utmCampaign = pCampaign || (function(){ try { return localStorage.getItem('cp_utm_campaign') || ''; } catch(e){ return ''; } })();
-
-        // Pre-rellenado dinámico del widget de Calendly si conocemos el club o el teléfono
-        (function initCalendlyPreload() {
-            try {
-                const widgetEl = document.getElementById('calendlyWidget');
-                if (widgetEl) {
-                    let baseUrl = "https://calendly.com/javier-vs-312/demo-save-my-play?hide_landing_page_details=1&hide_gdpr_banner=1";
-                    if (leadName) baseUrl += "&name=" + encodeURIComponent(leadName);
-                    if (leadTel) baseUrl += "&a1=" + encodeURIComponent(leadTel);
-                    widgetEl.setAttribute('data-url', baseUrl);
-                }
-            } catch(e) {}
-        })();
 
         // 3. ID de Sesión e ID de Visitante
         function generateUid(prefix) {
@@ -1239,12 +1225,8 @@
                     const calendlyContainer = document.getElementById('calendlyContainer');
 
                     if (successCard && successDetails) {
-                        const hoy = new Date();
-                        const diasSemana = ['domingo', 'lunes', 'martes', 'miércoles', 'jueves', 'viernes', 'sábado'];
-                        const meses = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'];
-                        const nombreClubTexto = leadName ? ` para ${leadName}` : '';
-                        
-                        successDetails.innerHTML = `<strong>Hecho. Demo agendada${nombreClubTexto}.</strong><br>Te hemos reservado el hueco para enseñarte el sistema de cámaras en directo. Te llegará la confirmación al correo.`;
+                        const clubStr = leadName ? ` (${leadName})` : '';
+                        successDetails.innerHTML = `Hecho. Demo agendada${clubStr}. Te llegará la confirmación con el enlace al correo.`;
                         successCard.style.display = 'block';
                         successCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
                     }
