@@ -32,6 +32,52 @@ function doPost(e) {
     const hora = Utilities.formatDate(ahoraDate, "Europe/Madrid", "HH:mm:ss");
 
     // ─────────────────────────────────────────────────────────────────
+    // 0. CAPTURA DE DEMO AGENDADA POR CALENDLY EN PESTAÑA 'Reuniones'
+    // ─────────────────────────────────────────────────────────────────
+    if (data.tipo === "reunion_calendly" || data.evento === "demo_agendada") {
+      let sheetReuniones = ss.getSheetByName("Reuniones");
+      if (!sheetReuniones) {
+        sheetReuniones = ss.insertSheet("Reuniones");
+      }
+      if (sheetReuniones.getLastRow() === 0) {
+        sheetReuniones.appendRow([
+          "estado", "fecha", "hora_es", "pais", "hora_local", "num_lead",
+          "nombre_club", "email", "cc", "titulo", "meet_link", "id_evento", "notas", "fecha_creacion"
+        ]);
+      }
+
+      const fCreacion = dia + " " + hora;
+      const nombreClub = data.lead_nombre || data.lead_name || data.lead_label || "Club Web";
+      const telLead = data.lead_tel || "";
+      const notas = "Agendada desde carta de ventas (Calendly)" + (telLead ? " | Tel: " + telLead : "");
+      
+      sheetReuniones.appendRow([
+        "creada",
+        dia,
+        hora,
+        "ES",
+        hora + " (Madrid time)",
+        telLead,
+        nombreClub,
+        "",
+        NOTIFICAR_EMAIL,
+        "Demo Save my Play - " + nombreClub,
+        "",
+        "",
+        notas,
+        fCreacion
+      ]);
+
+      try {
+        MailApp.sendEmail({
+          to: NOTIFICAR_EMAIL,
+          subject: "🎯 DEMO AGENDADA: " + nombreClub + (telLead ? " (" + telLead + ")" : ""),
+          body: "¡Nuevo club ha agendado una demo desde la carta de ventas!\n\nClub: " + nombreClub + "\nTeléfono: " + telLead + "\nFecha registro: " + dia + " " + hora + "\n\nRevisa tu Google Calendar para ver los detalles exactos."
+        });
+      } catch (errMail) {}
+    }
+
+    // ─────────────────────────────────────────────────────────────────
     // 1. CAPTURA DE LEAD (EMAIL / DESCARGA INFORME)
     // ─────────────────────────────────────────────────────────────────
     const esLeadEmail = data.tipo === "lead_email" || (data.email && typeof data.email === "string" && data.email.includes("@"));

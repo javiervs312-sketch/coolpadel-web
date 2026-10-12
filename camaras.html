@@ -232,13 +232,62 @@
 
         /* Calendario Incrustado de Calendly */
         .calendly-embed-container {
-            margin-top: 2.5rem;
-            margin-bottom: 2.5rem;
+            margin-top: 2rem;
+            margin-bottom: 1.2rem;
             border-radius: 8px;
             overflow: hidden;
             border: 1px solid #e2e2e5;
             background: #ffffff;
             box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+        }
+
+        .calendly-fallback-text {
+            text-align: center;
+            font-size: 0.95rem;
+            color: #666666;
+            margin-top: 0.75rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .calendly-fallback-text a {
+            color: #111111;
+            font-weight: 700;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+        }
+
+        .calendly-success-card {
+            display: none;
+            background: #f0fdf4;
+            border: 2px solid #16a34a;
+            border-radius: 8px;
+            padding: 2rem 1.8rem;
+            margin: 2rem 0;
+            text-align: left;
+            animation: fadeInSuccess 0.5s ease-out forwards;
+        }
+
+        @keyframes fadeInSuccess {
+            from { opacity: 0; transform: translateY(12px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .calendly-success-card h4 {
+            color: #15803d;
+            font-size: 1.35rem;
+            font-weight: 800;
+            margin-bottom: 0.8rem;
+        }
+
+        .calendly-success-card p {
+            color: #166534;
+            font-size: 1.05rem;
+            line-height: 1.6;
+            margin-bottom: 0.8rem;
+        }
+
+        .calendly-success-card p:last-child {
+            margin-bottom: 0;
         }
 
         /* ANIMACIONES AL HACER SCROLL (FADE IN Y SLIDE UP) */
@@ -731,10 +780,21 @@
             Y te enseño cómo funciona todo para que lo veas.
         </p>
 
-        <!-- CALENDARIO CALENDLY INCRUSTADO DIRECTAMENTE -->
-        <div class="reveal-on-scroll calendly-embed-container">
-            <div class="calendly-inline-widget" data-url="https://calendly.com/javier-vs-312/demo-save-my-play?hide_landing_page_details=1&hide_gdpr_banner=1" style="min-width:320px;height:700px;"></div>
+        <!-- TARJETA DE CONFIRMACIÓN AL AGENDAR EN CALENDLY -->
+        <div id="calendlySuccessCard" class="calendly-success-card">
+            <h4>Hecho. Demo agendada</h4>
+            <p id="calendlySuccessDetails">Te hemos reservado la cita para la demo online. Te llegará la confirmación al correo.</p>
+            <p style="font-size: 0.95rem; color: #15803d; margin-top: 0.5rem;">Cualquier duda o cambio de hora puedes escribir a Javier directamente por WhatsApp.</p>
         </div>
+
+        <!-- CALENDARIO CALENDLY INCRUSTADO DIRECTAMENTE -->
+        <div id="calendlyContainer" class="reveal-on-scroll calendly-embed-container">
+            <div id="calendlyWidget" class="calendly-inline-widget" data-url="https://calendly.com/javier-vs-312/demo-save-my-play?hide_landing_page_details=1&hide_gdpr_banner=1" style="min-width:320px;height:700px;"></div>
+        </div>
+
+        <p class="reveal-on-scroll calendly-fallback-text">
+            Si no te carga el calendario: <a href="https://calendly.com/javier-vs-312/demo-save-my-play" target="_blank" rel="noopener noreferrer">Haz clic aquí para abrirlo directamente</a>
+        </p>
     </main>
 
     <!-- SCRIPT DE REVELADO SUAVE A MEDIDA QUE SE DESLIZA (SCROLL) -->
@@ -795,6 +855,19 @@
         const leadTel = pTel || (function(){ try { return localStorage.getItem('cp_lead_tel') || ''; } catch(e){ return ''; } })();
         const utmSource = pSource || (function(){ try { return localStorage.getItem('cp_utm_source') || ''; } catch(e){ return ''; } })();
         const utmCampaign = pCampaign || (function(){ try { return localStorage.getItem('cp_utm_campaign') || ''; } catch(e){ return ''; } })();
+
+        // Pre-rellenado dinámico del widget de Calendly si conocemos el club o el teléfono
+        (function initCalendlyPreload() {
+            try {
+                const widgetEl = document.getElementById('calendlyWidget');
+                if (widgetEl) {
+                    let baseUrl = "https://calendly.com/javier-vs-312/demo-save-my-play?hide_landing_page_details=1&hide_gdpr_banner=1";
+                    if (leadName) baseUrl += "&name=" + encodeURIComponent(leadName);
+                    if (leadTel) baseUrl += "&a1=" + encodeURIComponent(leadTel);
+                    widgetEl.setAttribute('data-url', baseUrl);
+                }
+            } catch(e) {}
+        })();
 
         // 3. ID de Sesión e ID de Visitante
         function generateUid(prefix) {
@@ -1130,6 +1203,53 @@
 
         window.addEventListener('pagehide', () => {
             reportExit();
+        });
+
+        // 8. Escucha en tiempo real de eventos de Calendly (Reserva confirmada)
+        window.addEventListener('message', (e) => {
+            try {
+                if (!e.data || typeof e.data !== 'object') return;
+                const cEvent = e.data.event;
+                
+                if (cEvent === 'calendly.event_type_viewed') {
+                    sendAnalyticsEvent('calendly_visto', {
+                        evento_desc: '👀 Vio Calendario Calendly'
+                    });
+                } else if (cEvent === 'calendly.date_and_time_selected') {
+                    sendAnalyticsEvent('calendly_hora_seleccionada', {
+                        evento_desc: '🕒 Seleccionó Día/Hora en Calendly'
+                    });
+                } else if (cEvent === 'calendly.event_scheduled') {
+                    // Lead completó la reserva
+                    const payloadCalendly = e.data.payload || {};
+                    const clubTexto = leadName ? ` (${leadName})` : '';
+                    
+                    // Enviar evento de reunión agendada a Google Sheets
+                    sendAnalyticsEvent('demo_agendada', {
+                        tipo: 'reunion_calendly',
+                        evento_desc: `🎯 DEMO AGENDADA: ${leadName || 'Club'}${leadTel ? ' ' + leadTel : ''}`,
+                        lead_nombre: leadName,
+                        lead_tel: leadTel,
+                        calendly_uri: payloadCalendly.event ? payloadCalendly.event.uri : ''
+                    });
+
+                    // Mostrar mensaje de confirmación amigable en pantalla
+                    const successCard = document.getElementById('calendlySuccessCard');
+                    const successDetails = document.getElementById('calendlySuccessDetails');
+                    const calendlyContainer = document.getElementById('calendlyContainer');
+
+                    if (successCard && successDetails) {
+                        const hoy = new Date();
+                        const diasSemana = ['domingo', 'lunes', 'martes', 'miércoles', 'jueves', 'viernes', 'sábado'];
+                        const meses = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'];
+                        const nombreClubTexto = leadName ? ` para ${leadName}` : '';
+                        
+                        successDetails.innerHTML = `<strong>Hecho. Demo agendada${nombreClubTexto}.</strong><br>Te hemos reservado el hueco para enseñarte el sistema de cámaras en directo. Te llegará la confirmación al correo.`;
+                        successCard.style.display = 'block';
+                        successCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    }
+                }
+            } catch (err) {}
         });
     </script>
 </body>
