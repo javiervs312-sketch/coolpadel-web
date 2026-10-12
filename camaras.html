@@ -230,73 +230,15 @@
             background-color: #fafafb;
         }
 
-        /* Botón de Acción / Calendly */
-        .btn-calendly {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 1.05rem 1.6rem;
-            background-color: #111111;
-            color: #ffffff !important;
-            font-size: 1.05rem;
-            font-weight: 700;
-            text-decoration: none;
-            border-radius: 6px;
-            letter-spacing: -0.01em;
-            cursor: pointer;
-            border: 2px solid #111111;
-            transition: all 0.2s ease;
-            box-sizing: border-box;
-            width: 100%;
-            text-align: center;
-        }
-
-        .btn-calendly:hover {
-            background-color: #333333;
-            transform: translateY(-2px);
-        }
-
-        .btn-calendly.btn-secondary {
-            background-color: #ffffff;
-            color: #111111 !important;
-            border: 2px solid #111111;
-        }
-
-        .btn-calendly.btn-secondary:hover {
-            background-color: #f3f3f5;
-        }
-
-        .calendly-demo-box {
-            border: 2px solid #111111;
+        /* Calendario Incrustado de Calendly */
+        .calendly-embed-container {
+            margin-top: 2.5rem;
+            margin-bottom: 2.5rem;
             border-radius: 8px;
-            padding: 1.8rem 1.5rem;
-            background: #fafafb;
-            margin: 2.5rem 0;
-        }
-
-        .calendly-demo-item {
-            margin-bottom: 2rem;
-            padding-bottom: 1.8rem;
-            border-bottom: 1px dashed #cccccc;
-        }
-
-        .calendly-demo-item:last-child {
-            margin-bottom: 0;
-            padding-bottom: 0;
-            border-bottom: none;
-        }
-
-        .calendly-demo-badge {
-            display: inline-block;
-            font-size: 0.8rem;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            background: #111111;
-            color: #ffffff;
-            padding: 0.25rem 0.6rem;
-            border-radius: 4px;
-            margin-bottom: 0.75rem;
+            overflow: hidden;
+            border: 1px solid #e2e2e5;
+            background: #ffffff;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
         }
 
         /* ANIMACIONES AL HACER SCROLL (FADE IN Y SLIDE UP) */
@@ -789,43 +731,9 @@
             Y te enseño cómo funciona todo para que lo veas.
         </p>
 
-        <div class="reveal-on-scroll calendly-demo-box">
-            <p style="font-size: 0.95rem; font-weight: 700; color: #555555; margin-bottom: 1.5rem; text-transform: uppercase; letter-spacing: 0.04em;">
-                Prueba aquí los 3 formatos para elegir el que más te guste:
-            </p>
-
-            <!-- FORMATO 1: POP-UP MODAL (RECOMENDADO) -->
-            <div class="calendly-demo-item">
-                <span class="calendly-demo-badge">Formato 1: Ventana emergente (Pop-up Modal)</span>
-                <p style="font-size: 0.95rem; margin-bottom: 1rem; color: #444444;">
-                    No sale de la página. Al pulsar, se abre una ventana limpia flotando por encima con el calendario.
-                </p>
-                <button type="button" class="btn-calendly" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/javier-vs-312/demo-save-my-play'}); if(typeof sendAnalyticsEvent === 'function') sendAnalyticsEvent('clic_calendly_popup', { evento_desc: '📅 Clic en Calendly (Pop-up)' }); return false;">
-                    Elegir día y hora (Abrir en Ventana Emergente) →
-                </button>
-            </div>
-
-            <!-- FORMATO 2: ENLACE / PESTAÑA NUEVA -->
-            <div class="calendly-demo-item">
-                <span class="calendly-demo-badge">Formato 2: Pestaña nueva (Limpio y directo)</span>
-                <p style="font-size: 0.95rem; margin-bottom: 1rem; color: #444444;">
-                    Abre tu Calendly a pantalla completa en una nueva pestaña del navegador.
-                </p>
-                <a href="https://calendly.com/javier-vs-312/demo-save-my-play" target="_blank" rel="noopener noreferrer" class="btn-calendly btn-secondary" onclick="if(typeof sendAnalyticsEvent === 'function') sendAnalyticsEvent('clic_calendly_tab', { evento_desc: '📅 Clic en Calendly (Pestaña Nueva)' });">
-                    Elegir día y hora (Abrir en Pestaña Nueva) ↗
-                </a>
-            </div>
-
-            <!-- FORMATO 3: CALENDARIO INCRUSTADO (EMBEBIDO) -->
-            <div class="calendly-demo-item">
-                <span class="calendly-demo-badge">Formato 3: Calendario incrustado directamente</span>
-                <p style="font-size: 0.95rem; margin-bottom: 1.2rem; color: #444444;">
-                    El calendario está visible aquí mismo en la propia carta sin tener que hacer clic en nada para verlo:
-                </p>
-                <!-- Calendly inline widget begin -->
-                <div class="calendly-inline-widget" data-url="https://calendly.com/javier-vs-312/demo-save-my-play?hide_landing_page_details=1&hide_gdpr_banner=1" style="min-width:320px;height:700px;border:1px solid #e2e2e5;border-radius:6px;"></div>
-                <!-- Calendly inline widget end -->
-            </div>
+        <!-- CALENDARIO CALENDLY INCRUSTADO DIRECTAMENTE -->
+        <div class="reveal-on-scroll calendly-embed-container">
+            <div class="calendly-inline-widget" data-url="https://calendly.com/javier-vs-312/demo-save-my-play?hide_landing_page_details=1&hide_gdpr_banner=1" style="min-width:320px;height:700px;"></div>
         </div>
     </main>
 
