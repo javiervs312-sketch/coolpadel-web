@@ -471,9 +471,8 @@
               Llaveros
             </a>
             <span class="text-slate-300 font-bold select-none">•</span>
-            <a href="../blog/" class="font-heading font-black text-xs sm:text-sm lg:text-base tracking-wider uppercase text-slate-950 hover:text-[#f2920b] transition select-none whitespace-nowrap inline-flex items-center gap-1.5">
+            <a href="../blog/" class="font-heading font-black text-xs sm:text-sm lg:text-base tracking-wider uppercase text-slate-950 hover:text-[#f2920b] transition select-none whitespace-nowrap">
               Blog
-              <span class="text-[9px] font-black uppercase tracking-wider px-1.5 py-0.5 rounded-full bg-[#f2920b]/20 text-[#f2920b]">Nuevo</span>
             </a>
           </div>
         </div>
@@ -792,6 +791,180 @@
 
 
 
+  <!-- 6. MAPA INTERACTIVO: CLUBS Y MARCAS CON LLAVEROS COOLPADEL -->
+  <section id="mapa-clubs" class="py-12 sm:py-16 bg-slate-50 relative border-b border-slate-200">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- CABECERA DEL MAPA -->
+      <div class="text-center max-w-2xl mx-auto mb-6 sm:mb-8 space-y-2">
+        <h3 class="text-xl sm:text-3xl font-black font-heading text-slate-950 uppercase tracking-tight">
+          Clubs y Marcas con Llaveros CoolPadel
+        </h3>
+        <p class="text-xs sm:text-sm text-slate-600 font-medium">
+          Selecciona una zona o haz clic en cualquier club para ver detalles y modelos fabricados
+        </p>
+      </div>
+
+      <!-- CONTENEDOR DEL MAPA Y DETALLES -->
+      <div class="bg-white rounded-3xl p-4 sm:p-7 border border-slate-200/90 shadow-lg">
+        
+        <!-- FILTROS POR REGIÓN -->
+        <div class="flex items-center justify-center gap-1.5 sm:gap-2.5 flex-wrap pb-4 sm:pb-6 border-b border-slate-100" id="map-filter-bar">
+          <button type="button" onclick="filterMapRegion('all')" class="map-filter-btn px-3 sm:px-4 py-1.5 rounded-full text-xs font-bold transition cursor-pointer bg-slate-950 text-white shadow-xs" data-region="all">
+            Todos (30+)
+          </button>
+          <button type="button" onclick="filterMapRegion('madrid')" class="map-filter-btn px-3 sm:px-4 py-1.5 rounded-full text-xs font-bold transition cursor-pointer bg-slate-100 text-slate-700 hover:bg-slate-200" data-region="madrid">
+            Madrid & Centro
+          </button>
+          <button type="button" onclick="filterMapRegion('cataluna')" class="map-filter-btn px-3 sm:px-4 py-1.5 rounded-full text-xs font-bold transition cursor-pointer bg-slate-100 text-slate-700 hover:bg-slate-200" data-region="cataluna">
+            Cataluña & Levante
+          </button>
+          <button type="button" onclick="filterMapRegion('andalucia')" class="map-filter-btn px-3 sm:px-4 py-1.5 rounded-full text-xs font-bold transition cursor-pointer bg-slate-100 text-slate-700 hover:bg-slate-200" data-region="andalucia">
+            Andalucía & Norte
+          </button>
+          <button type="button" onclick="filterMapRegion('internacional')" class="map-filter-btn px-3 sm:px-4 py-1.5 rounded-full text-xs font-bold transition cursor-pointer bg-slate-100 text-slate-700 hover:bg-slate-200" data-region="internacional">
+            Internacional & Marcas
+          </button>
+        </div>
+
+        <!-- GRID INTERACTIVO: MAPA SVG A LA IZQUIERDA + PANEL DETALLE A LA DERECHA -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center pt-4">
+          
+          <!-- MAPA SVG VECTORIAL LIMPIO -->
+          <div class="lg:col-span-7 relative bg-slate-50/70 rounded-2xl p-3 sm:p-5 border border-slate-200/70 overflow-hidden flex items-center justify-center">
+            
+            <svg id="interactive-spain-map" viewBox="0 0 780 560" class="w-full h-auto max-h-[380px] select-none" xmlns="http://www.w3.org/2000/svg">
+              <!-- SILUETA PENÍNSULA IBÉRICA & EUROPA ESQUEMÁTICA ELEGANTE -->
+              <path d="M 120 70 L 220 50 L 320 40 L 460 45 L 530 65 L 560 110 L 600 135 L 610 180 L 590 230 L 530 280 L 470 330 L 430 380 L 410 440 L 370 470 L 300 480 L 250 495 L 210 480 L 160 440 L 120 380 L 105 300 L 95 210 L 105 130 Z" 
+                    fill="#f1f5f9" stroke="#cbd5e1" stroke-width="2" stroke-linejoin="round" />
+              <!-- BALEARES -->
+              <path d="M 640 230 C 655 220 675 230 670 245 C 660 255 645 245 640 230 Z" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1.8" />
+              <path d="M 615 250 C 625 245 635 252 630 260 C 622 265 615 258 615 250 Z" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1.8" />
+              <!-- CANARIAS INSET -->
+              <g transform="translate(60, 440) scale(0.65)">
+                <rect x="0" y="0" width="160" height="90" rx="8" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5" />
+                <text x="12" y="20" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="700" fill="#94a3b8">CANARIAS</text>
+                <circle cx="50" cy="50" r="10" fill="#e2e8f0" stroke="#cbd5e1" />
+                <circle cx="100" cy="45" r="12" fill="#e2e8f0" stroke="#cbd5e1" />
+              </g>
+
+              <!-- CONEXIÓN INTERNACIONAL (LÍNEAS PUNTEADAS SUTILES) -->
+              <path d="M 450 70 Q 560 40 680 50" fill="none" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="4,4" />
+              <path d="M 180 80 Q 80 40 40 30" fill="none" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="4,4" />
+
+              <!-- ETIQUETAS SUTILES DE PAÍSES/EXPANSIÓN -->
+              <text x="680" y="45" font-family="'Outfit', sans-serif" font-size="11" font-weight="800" fill="#64748b" text-anchor="middle">FRANCIA & EUROPA</text>
+              <text x="60" y="30" font-family="'Outfit', sans-serif" font-size="11" font-weight="800" fill="#64748b">USA & AMÉRICA</text>
+
+              <!-- PUNTOS INTERACTIVOS DE CLUBS CON PING DE RADAR -->
+              <!-- MADRID -->
+              <g class="map-pin cursor-pointer group" onclick="selectClub('ct_fuencarral')" data-region="madrid" transform="translate(320, 230)">
+                <circle cx="0" cy="0" r="14" fill="#f2920b" opacity="0.2" class="animate-ping" />
+                <circle cx="0" cy="0" r="7" fill="#f2920b" stroke="#ffffff" stroke-width="2.5" class="group-hover:scale-125 transition-transform" />
+                <text x="10" y="4" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="800" fill="#0f172a">Madrid (6 clubs)</text>
+              </g>
+
+              <!-- BARCELONA / CATALUÑA -->
+              <g class="map-pin cursor-pointer group" onclick="selectClub('padel_88')" data-region="cataluna" transform="translate(560, 160)">
+                <circle cx="0" cy="0" r="14" fill="#3478a6" opacity="0.2" class="animate-ping" />
+                <circle cx="0" cy="0" r="7" fill="#3478a6" stroke="#ffffff" stroke-width="2.5" class="group-hover:scale-125 transition-transform" />
+                <text x="10" y="4" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="800" fill="#0f172a">Barcelona (5 clubs)</text>
+              </g>
+
+              <!-- VALENCIA / LEVANTE -->
+              <g class="map-pin cursor-pointer group" onclick="selectClub('padel_in_one')" data-region="cataluna" transform="translate(500, 270)">
+                <circle cx="0" cy="0" r="6" fill="#3478a6" stroke="#ffffff" stroke-width="2" class="group-hover:scale-125 transition-transform" />
+                <text x="10" y="4" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" font-weight="700" fill="#334155">Levante & Torneos</text>
+              </g>
+
+              <!-- ANDALUCÍA (MÁLAGA / SEVILLA) -->
+              <g class="map-pin cursor-pointer group" onclick="selectClub('costa_del_sol')" data-region="andalucia" transform="translate(290, 440)">
+                <circle cx="0" cy="0" r="6.5" fill="#f2920b" stroke="#ffffff" stroke-width="2" class="group-hover:scale-125 transition-transform" />
+                <text x="10" y="4" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" font-weight="700" fill="#334155">Málaga & Costa del Sol</text>
+              </g>
+
+              <!-- PAÍS VASCO / NORTE -->
+              <g class="map-pin cursor-pointer group" onclick="selectClub('norte_padel')" data-region="andalucia" transform="translate(360, 60)">
+                <circle cx="0" cy="0" r="6" fill="#3478a6" stroke="#ffffff" stroke-width="2" class="group-hover:scale-125 transition-transform" />
+                <text x="10" y="4" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" font-weight="700" fill="#334155">Norte & Cantabria</text>
+              </g>
+
+              <!-- BALEARES -->
+              <g class="map-pin cursor-pointer group" onclick="selectClub('baleares_padel')" data-region="cataluna" transform="translate(645, 235)">
+                <circle cx="0" cy="0" r="5.5" fill="#3478a6" stroke="#ffffff" stroke-width="2" class="group-hover:scale-125 transition-transform" />
+                <text x="10" y="4" font-family="'Plus Jakarta Sans', sans-serif" font-size="9" font-weight="700" fill="#334155">Mallorca</text>
+              </g>
+
+              <!-- MARCAS & TORNEOS INTERNACIONALES -->
+              <g class="map-pin cursor-pointer group" onclick="selectClub('marcas_pro')" data-region="internacional" transform="translate(680, 75)">
+                <circle cx="0" cy="0" r="7" fill="#76d3f6" stroke="#0f172a" stroke-width="2" class="group-hover:scale-125 transition-transform" />
+                <text x="10" y="4" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" font-weight="800" fill="#0369a1">Hexagon Cup & FIP</text>
+              </g>
+              <g class="map-pin cursor-pointer group" onclick="selectClub('usa_circuits')" data-region="internacional" transform="translate(65, 55)">
+                <circle cx="0" cy="0" r="7" fill="#76d3f6" stroke="#0f172a" stroke-width="2" class="group-hover:scale-125 transition-transform" />
+                <text x="10" y="4" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" font-weight="800" fill="#0369a1">RacquetX / USA</text>
+              </g>
+            </svg>
+
+          </div>
+
+          <!-- PANEL LATERAL: INFORMACIÓN DEL CLUB SELECCIONADO -->
+          <div class="lg:col-span-5 flex flex-col justify-between bg-slate-50 rounded-2xl p-5 sm:p-6 border border-slate-200 min-h-[340px]" id="club-info-card">
+            
+            <div class="space-y-3">
+              <div class="flex items-center justify-between">
+                <span id="club-badge" class="px-2.5 py-1 rounded-full text-[11px] font-black uppercase tracking-wider bg-orange-100 text-[#f2920b]">
+                  Madrid · Club Oficial
+                </span>
+                <span id="club-count" class="text-xs font-bold text-slate-400">
+                  Ref: #CP-MAD01
+                </span>
+              </div>
+
+              <div>
+                <h4 id="club-name" class="font-heading font-black text-xl sm:text-2xl text-slate-950">
+                  Club Tenis y Pádel Fuencarral
+                </h4>
+                <p id="club-location" class="text-xs font-bold text-slate-500 mt-0.5">
+                  Madrid, España
+                </p>
+              </div>
+
+              <div class="space-y-2 pt-2 border-t border-slate-200 text-xs sm:text-sm text-slate-700">
+                <div class="flex items-center gap-2">
+                  <i data-lucide="package-check" class="w-4 h-4 text-[#3478a6] shrink-0"></i>
+                  <span><strong>Producto:</strong> <span id="club-prod">Llavero Pala 3D con relieve personalizado</span></span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <i data-lucide="layers" class="w-4 h-4 text-[#3478a6] shrink-0"></i>
+                  <span><strong>Destino:</strong> <span id="club-usage">Torneos del club y tienda oficial</span></span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <i data-lucide="check-circle" class="w-4 h-4 text-emerald-600 shrink-0"></i>
+                  <span id="club-status">Muestra física previa aprobada + tirada en serie</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- BOTÓN CONTACTO DIRECTO -->
+            <div class="pt-4 border-t border-slate-200 mt-4">
+              <a href="https://wa.me/34680317486?text=Hola%20Javier,%20he%20visto%20los%20llaveros%20de%20clubs%20en%20el%20mapa%20y%20quiero%20hacer%20los%20del%20m%C3%ADo" 
+                 target="_blank" 
+                 class="w-full inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] active:bg-[#76d3f6] text-slate-950 font-heading font-black text-xs uppercase tracking-wider transition shadow-sm hover:scale-102">
+                <span>Quiero llaveros para mi club</span>
+                <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 stroke-[3]"></i>
+              </a>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
   <!-- 7.5. SECCIÓN PREGUNTAS FRECUENTES (FAQ ACORDEÓN INTERACTIVO + GEO/SEO) -->
   <section id="faq" class="py-16 sm:py-24 bg-slate-50 relative border-b border-slate-200">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -844,38 +1017,38 @@
     </div>
   </section>
 
-  <!-- 8. SECCIÓN CONTACTO (FONDO CELESTE #3478a6 & TÍTULO ARRIBA DEL TODO) -->
-  <section id="contacto" class="pt-5 sm:pt-7 lg:pt-8 pb-10 sm:pb-14 lg:pb-16 bg-[#3478a6] relative border-t border-sky-700/40 text-white overflow-hidden">
-    <div class="max-w-[1550px] mx-auto px-6 sm:px-12 lg:px-16 relative z-10">
+  <!-- 8. SECCIÓN CONTACTO (FONDO CELESTE #3478a6 & 20% MÁS ANCHA) -->
+  <section id="contacto" class="pt-7 sm:pt-10 lg:pt-12 pb-12 sm:pb-16 lg:pb-20 bg-[#3478a6] relative border-t border-sky-700/40 text-white overflow-hidden">
+    <div class="max-w-[1850px] mx-auto px-6 sm:px-14 lg:px-20 relative z-10">
       
       <!-- TÍTULO DE LA SECCIÓN ARRIBA DEL TODO -->
-      <div class="max-w-3xl mx-auto text-center mb-5 sm:mb-7 lg:mb-8">
+      <div class="max-w-4xl mx-auto text-center mb-6 sm:mb-8 lg:mb-10">
         <h2 data-i18n="contact_title" class="text-2xl sm:text-4xl lg:text-5xl font-black font-heading text-white uppercase tracking-tight leading-tight">
           Contact
         </h2>
       </div>
 
-      <!-- BLOQUE DE CONTACTO CENTRADO Y LIMPIO -->
-      <div class="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-14 w-full">
+      <!-- BLOQUE DE CONTACTO CENTRADO Y 20% MÁS ESPACIOSO -->
+      <div class="flex flex-col md:flex-row items-center justify-center gap-10 md:gap-20 lg:gap-24 w-full">
         
         <!-- COOLPADEL (MASCOTA + TIPOGRAFÍA) -->
-        <div class="flex items-center justify-center gap-3">
-          <img src="../assets/images/coolpadel-mascot-hd.png" alt="CoolPadel Mascota" class="h-12 sm:h-16 lg:h-18 w-auto object-contain drop-shadow-md" loading="lazy">
-          <img src="../assets/images/coolpadel-typography-hd.png" alt="CoolPadel" class="h-6 sm:h-8 lg:h-9 w-auto object-contain drop-shadow-md" loading="lazy">
+        <div class="flex items-center justify-center gap-3.5">
+          <img src="../assets/images/coolpadel-mascot-hd.png" alt="CoolPadel Mascota" class="h-14 sm:h-18 lg:h-20 w-auto object-contain drop-shadow-md" loading="lazy">
+          <img src="../assets/images/coolpadel-typography-hd.png" alt="CoolPadel" class="h-7 sm:h-9 lg:h-10 w-auto object-contain drop-shadow-md" loading="lazy">
         </div>
 
         <!-- CORREO Y WHATSAPP OFICIAL DE JAVIER -->
-        <div class="flex flex-col items-center justify-center text-center gap-4 sm:gap-5">
+        <div class="flex flex-col items-center justify-center text-center gap-4 sm:gap-6">
           <a href="mailto:javier@coolpadelstudios.com" 
-             class="group inline-flex items-center gap-2.5 text-white hover:text-[#f2920b] font-sans font-bold text-sm sm:text-xl lg:text-2xl tracking-normal transition-all duration-300 hover:scale-105 active:scale-95 whitespace-nowrap">
-            <i data-lucide="mail" class="w-4 h-4 sm:w-6 sm:h-6 text-[#f2920b] group-hover:text-white transition-colors shrink-0"></i>
+             class="group inline-flex items-center gap-3 text-white hover:text-[#f2920b] font-sans font-bold text-sm sm:text-xl lg:text-2xl tracking-normal transition-all duration-300 hover:scale-105 active:scale-95 whitespace-nowrap">
+            <i data-lucide="mail" class="w-5 h-5 sm:w-6 sm:h-6 text-[#f2920b] group-hover:text-white transition-colors shrink-0"></i>
             <span class="underline decoration-white/40 group-hover:decoration-[#f2920b] underline-offset-6">javier@coolpadelstudios.com</span>
           </a>
 
           <!-- BOTÓN WHATSAPP OFICIAL EN CONTACTO -->
           <a id="contact-wa-btn" href="https://wa.me/34680317486?text=Hello Javier" 
              target="_blank" 
-             class="group inline-flex items-center gap-2.5 px-6 sm:px-7 py-2.5 sm:py-3 rounded-full bg-[#25D366] hover:bg-[#20ba59] active:bg-[#20ba59] text-white font-sans font-black text-xs sm:text-sm tracking-wider uppercase shadow-md hover:shadow-xl hover:scale-105 active:scale-95 transition-all duration-300">
+             class="group inline-flex items-center gap-3 px-8 sm:px-9 py-3 sm:py-3.5 rounded-full bg-[#25D366] hover:bg-[#20ba59] active:bg-[#20ba59] text-white font-sans font-black text-xs sm:text-sm tracking-wider uppercase shadow-md hover:shadow-xl hover:scale-105 active:scale-95 transition-all duration-300">
             <svg class="w-4 h-4 sm:w-5 sm:h-5 fill-current" viewBox="0 0 24 24">
               <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
             </svg>
@@ -1180,6 +1353,144 @@
           evento_desc: 'Abrió FAQ: ' + preguntaTexto.substring(0, 45)
         });
       }
+    };
+
+    // DATOS Y LÓGICA DEL MAPA INTERACTIVO DE CLUBS Y MARCAS
+    const MAP_CLUBS_DATA = {
+      'ct_fuencarral': {
+        badge: 'Madrid · Club Oficial',
+        ref: 'Ref: #CP-MAD01',
+        name: 'Club Tenis y Pádel Fuencarral',
+        location: 'Madrid, España',
+        prod: 'Llavero Pala 3D con relieve personalizado',
+        usage: 'Torneos del club y pro-shop oficial',
+        status: 'Muestra física previa aprobada + tirada en serie',
+        wa_text: 'Hola Javier, me interesa hacer llaveros como los del Club Fuencarral'
+      },
+      'padel_88': {
+        badge: 'Barcelona · Club Referente',
+        ref: 'Ref: #CP-BCN04',
+        name: 'Padel 88',
+        location: 'Barcelona, España',
+        prod: 'Llavero de pala personalizada en goma de alta densidad',
+        usage: 'Welcome packs de competiciones y socios',
+        status: 'Diseño 3D aprobado y entrega directa',
+        wa_text: 'Hola Javier, me interesa hacer llaveros personalizados como los de Padel 88'
+      },
+      'padel_in_one': {
+        badge: 'Levante · Club & Torneos',
+        ref: 'Ref: #CP-LEV02',
+        name: 'Padel in One',
+        location: 'Comunidad Valenciana, España',
+        prod: 'Llavero corporativo para torneos federados',
+        usage: 'Regalos para jugadores de circuito y eventos',
+        status: 'Pedido recurrente para torneos oficiales',
+        wa_text: 'Hola Javier, quiero consultar presupuesto para torneos de pádel'
+      },
+      'costa_del_sol': {
+        badge: 'Andalucía · Club & Academia',
+        ref: 'Ref: #CP-AND07',
+        name: 'Club Costa del Sol & Academias',
+        location: 'Málaga / Sevilla, España',
+        prod: 'Llavero pala personalizado doble cara',
+        usage: 'Escuelas infantiles y tienda de club',
+        status: 'Fabricación y envío nacional incluido',
+        wa_text: 'Hola Javier, me gustaría información para llaveros de mi club en Andalucía'
+      },
+      'norte_padel': {
+        badge: 'Norte · Clubs Cantábrico',
+        ref: 'Ref: #CP-NOR03',
+        name: 'Red de Clubs del Norte',
+        location: 'País Vasco & Cantabria',
+        prod: 'Llavero 3D con anilla metálica reforzada',
+        usage: 'Pack bienvenida de temporada anual',
+        status: 'Muestra aprobada y producción entregada',
+        wa_text: 'Hola Javier, quiero presupuesto para llaveros de nuestro club en el Norte'
+      },
+      'baleares_padel': {
+        badge: 'Baleares · Resort & Club',
+        ref: 'Ref: #CP-BAL01',
+        name: 'Clubs de Pádel & Tenis Baleares',
+        location: 'Mallorca / Ibiza, España',
+        prod: 'Llavero pala con relieve y colores de marca',
+        usage: 'Merchandising para torneos de verano',
+        status: 'Envíos asegurados a islas',
+        wa_text: 'Hola Javier, quiero consultar envíos y llaveros para las islas'
+      },
+      'marcas_pro': {
+        badge: 'Competición · Circuito Oficial',
+        ref: 'Ref: #CP-CIR01',
+        name: 'Hexagon Cup & Torneos FIP',
+        location: 'Circuito Internacional',
+        prod: 'Llavero edición especial evento oficial',
+        usage: 'Welcome packs VIP y activación de marca',
+        status: 'Edición limitada para eventos y circuito',
+        wa_text: 'Hola Javier, quiero consultar opciones de llaveros para eventos y torneos'
+      },
+      'usa_circuits': {
+        badge: 'USA & Internacional · RacquetX',
+        ref: 'Ref: #CP-USA01',
+        name: 'RacquetX & Red de Clubs USA',
+        location: 'Miami / Fort Lauderdale, USA',
+        prod: 'Custom Rubber Padel Racket Keychains',
+        usage: 'Presentación internacional y apertura de clubes',
+        status: 'Cobertura oficial y distribución prioritaria',
+        wa_text: 'Hello Javier, interested in custom keychains for US clubs'
+      }
+    };
+
+    window.selectClub = function(clubKey) {
+      const data = MAP_CLUBS_DATA[clubKey];
+      if (!data) return;
+
+      document.getElementById('club-badge').textContent = data.badge;
+      document.getElementById('club-count').textContent = data.ref;
+      document.getElementById('club-name').textContent = data.name;
+      document.getElementById('club-location').textContent = data.location;
+      document.getElementById('club-prod').textContent = data.prod;
+      document.getElementById('club-usage').textContent = data.usage;
+      document.getElementById('club-status').textContent = data.status;
+
+      // Animar suavemente el panel
+      const card = document.getElementById('club-info-card');
+      card.classList.add('ring-2', 'ring-[#f2920b]', 'transition-all');
+      setTimeout(() => card.classList.remove('ring-2', 'ring-[#f2920b]'), 700);
+
+      trackEvent('mapa_club_click', {
+        club_seleccionado: data.name,
+        evento_desc: 'Clic en club del mapa: ' + data.name
+      });
+    };
+
+    window.filterMapRegion = function(region) {
+      // Actualizar botones
+      document.querySelectorAll('.map-filter-btn').forEach(btn => {
+        if (btn.getAttribute('data-region') === region) {
+          btn.className = 'map-filter-btn px-3 sm:px-4 py-1.5 rounded-full text-xs font-bold transition cursor-pointer bg-slate-950 text-white shadow-xs';
+        } else {
+          btn.className = 'map-filter-btn px-3 sm:px-4 py-1.5 rounded-full text-xs font-bold transition cursor-pointer bg-slate-100 text-slate-700 hover:bg-slate-200';
+        }
+      });
+
+      // Filtrar pines en el SVG
+      const pins = document.querySelectorAll('.map-pin');
+      pins.forEach(pin => {
+        const pinRegion = pin.getAttribute('data-region');
+        if (region === 'all' || pinRegion === region) {
+          pin.style.display = 'block';
+          pin.style.opacity = '1';
+        } else {
+          pin.style.display = 'block';
+          pin.style.opacity = '0.25';
+        }
+      });
+
+      // Auto-seleccionar el primer club de esa región
+      if (region === 'madrid') selectClub('ct_fuencarral');
+      else if (region === 'cataluna') selectClub('padel_88');
+      else if (region === 'andalucia') selectClub('costa_del_sol');
+      else if (region === 'internacional') selectClub('marcas_pro');
+      else selectClub('ct_fuencarral');
     };
 
     // URL del Webhook de Google Apps Script (Recepción de Leads y Analítica de Eventos)
