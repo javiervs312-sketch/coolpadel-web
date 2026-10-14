@@ -50,13 +50,6 @@ def get_base_html(active_lang="es", is_subfolder=False):
     # Pre-calcular JSON de traducciones para inyectar en JS
     translations_json = json.dumps(TRANSLATIONS, ensure_ascii=False)
 
-    geojson_path = os.path.join(os.path.dirname(__file__), "assets", "geo", "europe_countries.json")
-    if os.path.exists(geojson_path):
-        with open(geojson_path, "r", encoding="utf-8") as gf:
-            europe_geojson_str = gf.read()
-    else:
-        europe_geojson_str = '{"type":"FeatureCollection","features":[]}'
-
     og_locales = {"es": "es_ES", "en": "en_US", "fr": "fr_FR", "it": "it_IT"}
     og_locale = og_locales.get(active_lang, "es_ES")
 
@@ -434,10 +427,10 @@ def get_base_html(active_lang="es", is_subfolder=False):
     .leaflet-container {{
       font-family: 'Plus Jakarta Sans', sans-serif !important;
       z-index: 10 !important;
-      background: #ffffff !important;
+      background: #7ca8c9 !important;
     }}
     #coolpadel-leaflet-map {{
-      background: #ffffff !important;
+      background: #7ca8c9 !important;
     }}
     .custom-pin-container {{
       position: relative;
@@ -1022,7 +1015,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
           
           <!-- MAPA LEAFLET INTERACTIVO PANNABLE/ZOOMABLE -->
           <div class="lg:col-span-8 relative bg-white rounded-2xl border border-slate-200/90 overflow-hidden shadow-inner min-h-[380px] sm:min-h-[480px]">
-            <div id="coolpadel-leaflet-map" class="w-full h-full min-h-[380px] sm:min-h-[480px] z-10" style="min-height: 480px; width: 100%; background: #ffffff;"></div>
+            <div id="coolpadel-leaflet-map" class="w-full h-full min-h-[380px] sm:min-h-[480px] z-10" style="min-height: 480px; width: 100%; background: #7ca8c9;"></div>
             
             <!-- HINT FLOTANTE INFERIOR -->
             <div class="absolute bottom-3 left-3 z-[400] bg-white/95 backdrop-blur-sm px-3.5 py-1.5 rounded-full border border-slate-200/90 shadow-sm pointer-events-none hidden sm:flex items-center gap-2 text-[11px] font-bold text-slate-700">
@@ -1460,7 +1453,6 @@ def get_base_html(active_lang="es", is_subfolder=False):
     // MAPA INTERACTIVO LEAFLET: CLUBS Y MARCAS REALES CON LOGOS
     // ─────────────────────────────────────────────────────────────────
     const ASSET_PREFIX = '{asset_prefix}';
-    const EUROPE_GEOJSON = {europe_geojson_str};
 
     const MAP_CLUBS_DATA = [
       // ESPAÑA (15)
@@ -1726,9 +1718,9 @@ def get_base_html(active_lang="es", is_subfolder=False):
 
       try {{
         leafletMapInstance = L.map('coolpadel-leaflet-map', {{
-          center: [46.0, 4.0],
-          zoom: 5,
-          minZoom: 3,
+          center: [38.0, 10.0],
+          zoom: 3,
+          minZoom: 2,
           maxZoom: 16,
           scrollWheelZoom: false
         }});
@@ -1736,30 +1728,17 @@ def get_base_html(active_lang="es", is_subfolder=False):
         leafletMapInstance.on('focus', () => leafletMapInstance.scrollWheelZoom.enable());
         leafletMapInstance.on('click', () => leafletMapInstance.scrollWheelZoom.enable());
 
-        // Capa de mosaico base sutil
-        L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{{z}}/{{y}}/{{x}}', {{
-          attribution: 'Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ',
-          maxZoom: 16,
-          opacity: 0.22
+        // 1. Capa Base: Mapamundi con relieve topográfico real, sombreado de montañas y océanos en tono azul
+        L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Ocean/World_Ocean_Base/MapServer/tile/{{z}}/{{y}}/{{x}}', {{
+          attribution: 'Tiles &copy; Esri, GEBCO, NOAA, Garmin',
+          maxZoom: 16
         }}).addTo(leafletMapInstance);
 
-        // Capa de países: azul CoolPadel (#3478a6) en países con clientes, fondo blanco
-        if (typeof EUROPE_GEOJSON !== 'undefined' && EUROPE_GEOJSON.features) {{
-          const clientCountries = ['Spain', 'Italy', 'France', 'Belgium', 'Austria', 'Denmark'];
-          L.geoJSON(EUROPE_GEOJSON, {{
-            style: function(feature) {{
-              const name = (feature.properties && (feature.properties.name || feature.properties.NAME)) || '';
-              const isClient = clientCountries.includes(name);
-              return {{
-                fillColor: isClient ? '#3478a6' : '#dbeafe',
-                weight: 1.5,
-                opacity: 1,
-                color: '#ffffff',
-                fillOpacity: isClient ? 0.95 : 0.4
-              }};
-            }}
-          }}).addTo(leafletMapInstance);
-        }}
+        // 2. Capa de Referencia: Fronteras y nombres limpios de países y ciudades
+        L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Ocean/World_Ocean_Reference/MapServer/tile/{{z}}/{{y}}/{{x}}', {{
+          attribution: '',
+          maxZoom: 16
+        }}).addTo(leafletMapInstance);
 
         // Marcador con ping naranja, cuerpo negro y borde naranja
         const createPinIcon = () => L.divIcon({{
@@ -1860,19 +1839,19 @@ def get_base_html(active_lang="es", is_subfolder=False):
         leafletMapInstance.flyTo([40.2, -3.7], 6, {{ duration: 1.2 }});
         selectClubById('cambados');
       }} else if (region === 'it') {{
-        leafletMapInstance.flyTo([44.5, 9.5], 7, {{ duration: 1.2 }});
+        leafletMapInstance.flyTo([43.5, 11.0], 6, {{ duration: 1.2 }});
         selectClubById('fiorfiore');
       }} else if (region === 'fr') {{
-        leafletMapInstance.flyTo([48.5, 1.0], 7, {{ duration: 1.2 }});
+        leafletMapInstance.flyTo([47.0, 2.0], 6, {{ duration: 1.2 }});
         selectClubById('evreux');
       }} else if (region === 'be') {{
-        leafletMapInstance.flyTo([50.8, 4.8], 8, {{ duration: 1.2 }});
+        leafletMapInstance.flyTo([50.8, 4.8], 7, {{ duration: 1.2 }});
         selectClubById('royal_excelsior');
       }} else if (region === 'other') {{
         leafletMapInstance.flyTo([52.0, 14.0], 5, {{ duration: 1.2 }});
         selectClubById('austrian_padel');
       }} else {{
-        leafletMapInstance.flyTo([46.0, 4.0], 5, {{ duration: 1.2 }});
+        leafletMapInstance.flyTo([38.0, 10.0], 3, {{ duration: 1.2 }});
         selectClubById('cambados');
       }}
     }};
