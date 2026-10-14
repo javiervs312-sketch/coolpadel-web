@@ -121,22 +121,6 @@ def generate_blog_index():
 <body class="bg-white text-slate-900 min-h-screen relative selection:bg-[#f2920b] selection:text-white flex flex-col justify-between">
 
   <div>
-    <!-- 1. TOP TICKER EN AZUL #3478a6 COMPLETO -->
-    <div class="bg-[#3478a6] border-b border-[#2c668d] py-2 sm:py-2.5 px-4 z-50 relative text-white">
-      <div class="max-w-[1700px] mx-auto flex items-center justify-between">
-        <!-- BOTÓN VOLVER CON FLECHA ATRÁS Y TEXTO EN BLANCO -->
-        <a href="../" class="inline-flex items-center gap-2 px-3.5 sm:px-4 py-1.5 rounded-full bg-white/15 hover:bg-white/25 active:bg-white/30 text-white font-heading font-black text-xs sm:text-sm tracking-wider uppercase transition">
-          <i data-lucide="arrow-left" class="w-4 h-4 stroke-[3]"></i>
-          <span>Volver</span>
-        </a>
-
-        <!-- TEXTO INFORMATIVO DERECHA -->
-        <span class="text-xs text-white/90 font-medium hidden sm:inline">
-          CoolPadel Studios · Blog & Newsletter
-        </span>
-      </div>
-    </div>
-
     <!-- 2. NAVBAR BLANCA IDÉNTICA A LA PRINCIPAL -->
     <header class="sticky top-0 z-40 bg-white text-slate-900 border-b border-slate-200 shadow-sm w-full">
       <div class="w-full max-w-[1700px] mx-auto px-3 sm:px-6 lg:px-10 py-1.5 sm:py-0 h-auto sm:h-16 lg:h-18">
@@ -224,12 +208,12 @@ def generate_blog_index():
             CONTENIDO EXCLUSIVO COOLPADEL
           </h1>
           <p class="text-slate-600 text-xs sm:text-base font-medium">
-            Artículos, análisis y reflexiones sobre la industria del pádel sin rodeos y directos al grano
+            Perspectivas, reflexiones y opiniones sobre la industria del pádel
           </p>
         </div>
 
-        <!-- 3 NEWSLETTERS EN FILA DE IZQ A DCHA (MÁS GRANDES Y DESTACADAS) -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-10 max-w-7xl mx-auto">
+        <!-- 3 NEWSLETTERS EN FILA DE IZQ A DCHA (MÁS ANCHAS Y LEGIBLES) -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 max-w-[1700px] w-full mx-auto">
           
           <!-- 1. HIGHLIGHTS #03 (IZQUIERDA - MÁS RECIENTE) -->
           <div class="bg-white border border-slate-200/90 rounded-3xl p-6 sm:p-7 shadow-[0_20px_45px_-12px_rgba(0,0,0,0.14)] hover:shadow-[0_30px_60px_-10px_rgba(0,0,0,0.22)] transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1">
@@ -239,10 +223,13 @@ def generate_blog_index():
               </a>
 
               <div class="pt-1">
-                <h2 class="font-heading font-black text-xl sm:text-2xl text-slate-950 leading-snug">
-                  <span class="block text-sm font-black text-[#f2920b] uppercase tracking-wider mb-1">Highlights #03:</span>
+                <span class="block text-xs sm:text-sm font-extrabold text-[#f2920b] uppercase tracking-wider mb-1">Highlights #03:</span>
+                <h2 class="font-sans font-extrabold text-lg sm:text-xl lg:text-2xl text-slate-900 leading-snug tracking-tight">
                   ¿Cómo crece realmente la industria del pádel?
                 </h2>
+                <p class="text-slate-600 text-xs sm:text-sm font-normal leading-relaxed mt-2 line-clamp-2">
+                  Nuevas oportunidades en mercados emergentes, desafíos en mercados maduros y las 5 etapas del desarrollo del pádel.
+                </p>
               </div>
             </div>
 
@@ -266,10 +253,13 @@ def generate_blog_index():
               </a>
 
               <div class="pt-1">
-                <h2 class="font-heading font-black text-xl sm:text-2xl text-slate-950 leading-snug">
-                  <span class="block text-sm font-black text-[#f2920b] uppercase tracking-wider mb-1">Highlights #02:</span>
+                <span class="block text-xs sm:text-sm font-extrabold text-[#f2920b] uppercase tracking-wider mb-1">Highlights #02:</span>
+                <h2 class="font-sans font-extrabold text-lg sm:text-xl lg:text-2xl text-slate-900 leading-snug tracking-tight">
                   El Pádel debería estar lejos de ser un deporte olímpico. ¿Por qué?
                 </h2>
+                <p class="text-slate-600 text-xs sm:text-sm font-normal leading-relaxed mt-2 line-clamp-2">
+                  Por qué la cultura del pádel necesita consolidarse fuera de los países tradicionales antes de dar el salto olímpico.
+                </p>
               </div>
             </div>
 
@@ -293,10 +283,13 @@ def generate_blog_index():
               </a>
 
               <div class="pt-1">
-                <h2 class="font-heading font-black text-xl sm:text-2xl text-slate-950 leading-snug">
-                  <span class="block text-sm font-black text-[#f2920b] uppercase tracking-wider mb-1">Highlights #01:</span>
+                <span class="block text-xs sm:text-sm font-extrabold text-[#f2920b] uppercase tracking-wider mb-1">Highlights #01:</span>
+                <h2 class="font-sans font-extrabold text-lg sm:text-xl lg:text-2xl text-slate-900 leading-snug tracking-tight">
                   Padel World Summit 2026: Startup Recap
                 </h2>
+                <p class="text-slate-600 text-xs sm:text-sm font-normal leading-relaxed mt-2 line-clamp-2">
+                  Conversaciones una a una con las 20 startups del Innovation Arena: software, pistas inteligentes y diferenciación real.
+                </p>
               </div>
             </div>
 
@@ -357,19 +350,19 @@ def generate_blog_index():
     </main>
   </div>
 
-  <!-- FOOTER -->
-  <footer class="bg-slate-950 text-white py-8 border-t border-slate-800 text-xs">
+  <!-- FOOTER EN AZUL DE LLAVEROS #3478a6 -->
+  <footer class="bg-[#3478a6] text-white py-8 border-t border-sky-700/40 text-xs">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
       <div class="flex items-center gap-3">
         <img src="../assets/images/coolpadel-mascot-hd.png" alt="CoolPadel" class="h-8 w-auto">
-        <span class="font-bold text-slate-400">© 2026 CoolPadel Studios · All rights reserved</span>
+        <span class="font-bold text-white/90">© 2026 CoolPadel Studios · All rights reserved</span>
       </div>
-      <div class="flex items-center gap-6 text-slate-400 font-semibold">
+      <div class="flex items-center gap-6 text-white/80 font-semibold">
         <a href="../" class="hover:text-white transition">Inicio</a>
         <a href="../#llaveros" class="hover:text-white transition">Llaveros</a>
         <a href="./" class="hover:text-white transition">Blog</a>
-        <a href="https://wa.me/34680317486?text=Hola%20Javier" target="_blank" class="hover:text-[#f2920b] transition">WhatsApp</a>
-        <a href="https://www.instagram.com/coolpadel_/" target="_blank" rel="noopener noreferrer" class="opacity-40 hover:opacity-100 text-[11px] text-slate-500 transition">Instagram</a>
+        <a href="https://wa.me/34680317486?text=Hola%20Javier" target="_blank" class="hover:text-white transition">WhatsApp</a>
+        <a href="https://www.instagram.com/coolpadel_/" target="_blank" rel="noopener noreferrer" class="opacity-40 hover:opacity-100 text-[11px] text-white transition">Instagram</a>
       </div>
     </div>
   </footer>
@@ -423,20 +416,7 @@ def generate_article_page(slug, edition_num, title, date_str, read_time, cover_i
 <body class="bg-white text-slate-900 min-h-screen relative selection:bg-[#f2920b] selection:text-white flex flex-col justify-between">
 
   <div>
-    <!-- 1. TOP TICKER AZUL #3478a6 -->
-    <div class="bg-[#3478a6] border-b border-[#2c668d] py-2 sm:py-2.5 px-4 z-50 relative text-white">
-      <div class="max-w-[1700px] mx-auto flex items-center justify-between">
-        <a href="../" class="inline-flex items-center gap-2 px-3.5 sm:px-4 py-1.5 rounded-full bg-white/15 hover:bg-white/25 active:bg-white/30 text-white font-heading font-black text-xs sm:text-sm tracking-wider uppercase transition">
-          <i data-lucide="arrow-left" class="w-4 h-4 stroke-[3]"></i>
-          <span>Volver al Blog</span>
-        </a>
-        <span class="text-xs text-white/90 font-medium hidden sm:inline">
-          Highlights by CoolPadel · Edición #{edition_num}
-        </span>
-      </div>
-    </div>
-
-    <!-- 2. NAVBAR BLANCA -->
+    <!-- NAVBAR BLANCA -->
     <header class="sticky top-0 z-40 bg-white text-slate-900 border-b border-slate-200 shadow-sm w-full">
       <div class="w-full max-w-[1700px] mx-auto px-3 sm:px-6 lg:px-10 py-1.5 sm:py-0 h-auto sm:h-16 lg:h-18">
         <div class="flex items-center justify-between h-full w-full">
@@ -472,7 +452,7 @@ def generate_article_page(slug, edition_num, title, date_str, read_time, cover_i
       </div>
     </header>
 
-    <!-- 3. ARTÍCULO COMPLETO -->
+    <!-- ARTÍCULO COMPLETO -->
     <main class="py-10 sm:py-16 bg-white relative">
       <article class="max-w-3xl mx-auto px-4 sm:px-6">
         
@@ -488,7 +468,7 @@ def generate_article_page(slug, edition_num, title, date_str, read_time, cover_i
             <span>{read_time}</span>
           </div>
 
-          <h1 class="text-2xl sm:text-4xl font-black font-heading text-slate-950 uppercase tracking-tight leading-tight">
+          <h1 class="text-2xl sm:text-4xl font-extrabold font-sans text-slate-900 tracking-tight leading-tight">
             {title}
           </h1>
 
@@ -519,11 +499,11 @@ def generate_article_page(slug, edition_num, title, date_str, read_time, cover_i
             <i data-lucide="mail" class="w-6 h-6 stroke-[2.5]"></i>
           </div>
           <div class="space-y-1.5">
-            <h3 class="font-heading font-black text-xl sm:text-2xl text-slate-950 uppercase tracking-tight">
+            <h3 class="font-sans font-extrabold text-xl sm:text-2xl text-slate-900 tracking-tight">
               Suscríbete a Highlights by CoolPadel
             </h3>
             <p class="text-xs sm:text-sm text-slate-600 font-medium max-w-md mx-auto">
-              Análisis directos, sin relleno y sin clichés sobre el negocio real del pádel. Directo a tu bandeja de entrada.
+              Perspectivas, reflexiones y opiniones sobre la industria del pádel.
             </p>
           </div>
           <form onsubmit="handleNewsletterSub(event, 'Highlights #{edition_num}')" class="space-y-2.5 max-w-md mx-auto pt-2">
@@ -547,19 +527,19 @@ def generate_article_page(slug, edition_num, title, date_str, read_time, cover_i
     </main>
   </div>
 
-  <!-- FOOTER -->
-  <footer class="bg-slate-950 text-white py-8 border-t border-slate-800 text-xs">
+  <!-- FOOTER AZUL LLAVEROS #3478a6 -->
+  <footer class="bg-[#3478a6] text-white py-8 border-t border-[#2c668d] text-xs">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
       <div class="flex items-center gap-3">
         <img src="../../assets/images/coolpadel-mascot-hd.png" alt="CoolPadel" class="h-8 w-auto">
-        <span class="font-bold text-slate-400">© 2026 CoolPadel Studios · All rights reserved</span>
+        <span class="font-bold text-white/90">© 2026 CoolPadel Studios · All rights reserved</span>
       </div>
-      <div class="flex items-center gap-6 text-slate-400 font-semibold">
+      <div class="flex items-center gap-6 text-white/90 font-semibold">
         <a href="../../" class="hover:text-white transition">Inicio</a>
         <a href="../../#llaveros" class="hover:text-white transition">Llaveros</a>
         <a href="../" class="hover:text-white transition">Blog</a>
-        <a href="https://wa.me/34680317486?text=Hola%20Javier" target="_blank" class="hover:text-[#f2920b] transition">WhatsApp</a>
-        <a href="https://www.instagram.com/coolpadel_/" target="_blank" rel="noopener noreferrer" class="opacity-40 hover:opacity-100 text-[11px] text-slate-500 transition">Instagram</a>
+        <a href="https://wa.me/34680317486?text=Hola%20Javier" target="_blank" class="hover:text-white transition">WhatsApp</a>
+        <a href="https://www.instagram.com/coolpadel_/" target="_blank" rel="noopener noreferrer" class="opacity-60 hover:opacity-100 text-[11px] text-white/80 transition">Instagram</a>
       </div>
     </div>
   </footer>
