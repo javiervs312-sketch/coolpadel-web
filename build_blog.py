@@ -1,14 +1,15 @@
 #!/usr/bin/env python3
 """
 Generador de la página de Blog de CoolPadel Studios (coolpadelstudios.com/blog/).
-Diseño fiel a la estética original de la sección de Contenido Exclusivo:
-- Cabecera oficial con LLAVEROS y BLOG
+Diseño fiel a los requerimientos del usuario:
+- Cabecera oficial con LLAVEROS y BLOG (Navbar idéntica a la principal)
 - Botón 'Volver' con flecha atrás y fondo azul #3478a6 oficial
-- 4 tarjetas con estética original limpia:
-    1. Highlights by CoolPadel #01: Padel World Summit 2026: Startup Recap
-    2. Highlights by CoolPadel #02: El Pádel debería estar lejos de ser un deporte olímpico. ¿Por qué?
-    3. Highlights by CoolPadel #03: How does the padel industry actually grow?
-    4. Informe Industria del Pádel 2026 (Descarga oficial PDF)
+- 3 newsletters en fila de izq a dcha (la más reciente a la izquierda):
+    1. Highlights #03 (Izquierda): How does the padel industry actually grow?
+    2. Highlights #02 (Centro): El Pádel debería estar lejos de ser un deporte olímpico. ¿Por qué?
+    3. Highlights #01 (Derecha): Padel World Summit 2026: Startup Recap
+    (Solo con imagen real 16:9, título y botón 'Leer Highlights #0X' sin descripción)
+- Debajo al deslizar, centrado: Reportaje de la Industria del Pádel 2026 (descarga PDF).
 """
 import os
 
@@ -35,7 +36,7 @@ def generate_blog_html():
   <meta property="og:url" content="https://coolpadelstudios.com/blog/">
   <meta property="og:title" content="Blog & Newsletter | CoolPadel Studios">
   <meta property="og:description" content="Artículos y análisis de la industria del pádel por Javier Villoria y descarga exclusiva del Informe 2026.">
-  <meta property="og:image" content="https://coolpadelstudios.com/assets/images/foto-reportaje.jpg">
+  <meta property="og:image" content="https://coolpadelstudios.com/assets/images/cover_highlights_03.jpg">
 
   <!-- Tailwind CSS & Lucide Icons -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -169,142 +170,124 @@ def generate_blog_html():
       </div>
     </header>
 
-    <!-- 3. SECCIÓN: BLOG & CONTENIDO EXCLUSIVO (ESTÉTICA EXACTA A LA ORIGINAL) -->
-    <main class="py-12 sm:py-20 bg-white relative">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- 3. SECCIÓN: BLOG & CONTENIDO EXCLUSIVO -->
+    <main class="py-10 sm:py-16 bg-white relative">
+      <div class="max-w-[1700px] mx-auto px-4 sm:px-6 lg:px-10">
         
-        <!-- CABECERA DE SECCIÓN IDÉNTICA -->
-        <div class="max-w-3xl mx-auto text-center space-y-2 sm:space-y-3 mb-10 sm:mb-16">
+        <!-- CABECERA DE SECCIÓN -->
+        <div class="max-w-3xl mx-auto text-center space-y-2 mb-8 sm:mb-12">
           <h1 class="text-2xl sm:text-4xl font-black font-heading text-slate-950 uppercase tracking-tight">
             CONTENIDO EXCLUSIVO COOLPADEL
           </h1>
-          <p class="text-slate-600 text-sm sm:text-lg font-medium">
+          <p class="text-slate-600 text-xs sm:text-base font-medium">
             Artículos, análisis y reflexiones sobre la industria del pádel sin rodeos y directos al grano
           </p>
         </div>
 
-        <!-- GRID DE 4 ENTRADAS (2x2 EN DESKTOP, 1 EN MÓVIL) -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 lg:gap-10 max-w-6xl mx-auto">
+        <!-- 3 NEWSLETTERS EN FILA DE IZQ A DCHA (MÁS RECIENTE A LA IZQUIERDA) -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 max-w-6xl mx-auto">
           
-          <!-- ENTRADA 1: NEWSLETTER #01 -->
-          <div class="bg-white border border-slate-200/90 rounded-3xl p-5 sm:p-6 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.18)] hover:shadow-[0_35px_65px_-10px_rgba(0,0,0,0.28)] transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1">
-            <div class="space-y-3 sm:space-y-4">
-              <div class="aspect-[16/10] rounded-2xl overflow-hidden bg-slate-900 border border-slate-200/90 shadow-[0_20px_40px_-10px_rgba(0,0,0,0.4)] group-hover:scale-[1.01] transition duration-500 relative">
-                <img src="../assets/images/coolpadels-newsletter.jpg" alt="Newsletter CoolPadel #01" class="w-full h-full object-cover group-hover:scale-105 transition duration-700" loading="lazy" decoding="async">
-                <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
-                <span class="absolute bottom-3 left-3 text-[11px] font-black uppercase tracking-wider px-3 py-1 rounded-full bg-white text-slate-950 shadow-md">
-                  Newsletter #01
-                </span>
+          <!-- 1. HIGHLIGHTS #03 (IZQUIERDA - MÁS RECIENTE) -->
+          <div class="bg-white border border-slate-200/90 rounded-3xl p-4 sm:p-5 shadow-[0_20px_45px_-12px_rgba(0,0,0,0.14)] hover:shadow-[0_30px_60px_-10px_rgba(0,0,0,0.22)] transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1">
+            <div class="space-y-3">
+              <div class="aspect-[16/9] rounded-2xl overflow-hidden bg-slate-900 border border-slate-200/90 shadow-[0_15px_30px_-10px_rgba(0,0,0,0.35)] relative">
+                <img src="../assets/images/cover_highlights_03.jpg" alt="Highlights #03: How does the padel industry actually grow?" class="w-full h-full object-cover group-hover:scale-105 transition duration-700" loading="eager" decoding="async">
               </div>
 
-              <div class="space-y-1.5 pt-0.5">
-                <h2 class="font-heading font-bold text-xl sm:text-2xl text-slate-950">
-                  Padel World Summit 2026: Startup Recap
-                </h2>
-                <p class="text-xs sm:text-sm text-slate-600 font-medium leading-relaxed">
-                  Análisis directo de las 20 startups del Innovation Arena en el PWS: gestión de clubes, presurizadores y marcas sostenibles frente a los gigantes del sector.
-                </p>
-              </div>
-            </div>
-
-            <!-- BOTÓN ABRIR ARTÍCULO EN OTRA VENTANA -->
-            <div class="pt-3 sm:pt-4 border-t border-slate-200 mt-3 sm:mt-4">
-              <a href="https://www.linkedin.com/pulse/padel-world-summit-2026-startup-recap-javier-villoria-soleto-c7hle/" 
-                 target="_blank" 
-                 rel="noopener noreferrer"
-                 class="group relative w-full inline-flex items-center justify-center gap-2.5 px-6 py-3 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] active:bg-[#76d3f6] text-slate-950 active:scale-95 font-heading font-black text-xs sm:text-sm uppercase tracking-wider transition-all duration-300 shadow-[0_4px_15px_rgba(242,146,11,0.25)] hover:shadow-[0_8px_25px_rgba(118,211,246,0.35)] hover:scale-[1.01] overflow-hidden">
-                <span class="font-black">Leer Edición #01</span>
-                <div class="w-6 h-6 rounded-full bg-slate-950/10 group-hover:bg-slate-950 group-hover:text-white flex items-center justify-center transition-all duration-300">
-                  <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 stroke-[3] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300"></i>
-                </div>
-              </a>
-            </div>
-          </div>
-
-          <!-- ENTRADA 2: NEWSLETTER #02 -->
-          <div class="bg-white border border-slate-200/90 rounded-3xl p-5 sm:p-6 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.18)] hover:shadow-[0_35px_65px_-10px_rgba(0,0,0,0.28)] transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1">
-            <div class="space-y-3 sm:space-y-4">
-              <div class="aspect-[16/10] rounded-2xl overflow-hidden bg-slate-900 border border-slate-200/90 shadow-[0_20px_40px_-10px_rgba(0,0,0,0.4)] group-hover:scale-[1.01] transition duration-500 relative">
-                <img src="../assets/images/coolpadel's (1).jpg" alt="Newsletter CoolPadel #02" class="w-full h-full object-cover group-hover:scale-105 transition duration-700" loading="lazy" decoding="async">
-                <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
-                <span class="absolute bottom-3 left-3 text-[11px] font-black uppercase tracking-wider px-3 py-1 rounded-full bg-white text-slate-950 shadow-md">
-                  Newsletter #02
-                </span>
-              </div>
-
-              <div class="space-y-1.5 pt-0.5">
-                <h2 class="font-heading font-bold text-xl sm:text-2xl text-slate-950">
-                  El Pádel debería estar lejos de ser un deporte olímpico. ¿Por qué?
-                </h2>
-                <p class="text-xs sm:text-sm text-slate-600 font-medium leading-relaxed">
-                  ¿Es realmente prioritario el estatus olímpico para el pádel? Un debate honesto sobre madurez de mercado, federaciones y prioridades reales de crecimiento.
-                </p>
-              </div>
-            </div>
-
-            <!-- BOTÓN ABRIR ARTÍCULO EN OTRA VENTANA -->
-            <div class="pt-3 sm:pt-4 border-t border-slate-200 mt-3 sm:mt-4">
-              <a href="https://www.linkedin.com/pulse/el-padel-deber%C3%ADa-estar-lejos-de-ser-un-deporte-por-villoria-soleto-tgrde" 
-                 target="_blank" 
-                 rel="noopener noreferrer"
-                 class="group relative w-full inline-flex items-center justify-center gap-2.5 px-6 py-3 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] active:bg-[#76d3f6] text-slate-950 active:scale-95 font-heading font-black text-xs sm:text-sm uppercase tracking-wider transition-all duration-300 shadow-[0_4px_15px_rgba(242,146,11,0.25)] hover:shadow-[0_8px_25px_rgba(118,211,246,0.35)] hover:scale-[1.01] overflow-hidden">
-                <span class="font-black">Leer Edición #02</span>
-                <div class="w-6 h-6 rounded-full bg-slate-950/10 group-hover:bg-slate-950 group-hover:text-white flex items-center justify-center transition-all duration-300">
-                  <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 stroke-[3] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300"></i>
-                </div>
-              </a>
-            </div>
-          </div>
-
-          <!-- ENTRADA 3: NEWSLETTER #03 -->
-          <div class="bg-white border border-slate-200/90 rounded-3xl p-5 sm:p-6 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.18)] hover:shadow-[0_35px_65px_-10px_rgba(0,0,0,0.28)] transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1">
-            <div class="space-y-3 sm:space-y-4">
-              <div class="aspect-[16/10] rounded-2xl overflow-hidden bg-slate-900 border border-slate-200/90 shadow-[0_20px_40px_-10px_rgba(0,0,0,0.4)] group-hover:scale-[1.01] transition duration-500 relative">
-                <img src="../assets/images/slide-1.jpg" alt="Newsletter CoolPadel #03" class="w-full h-full object-cover group-hover:scale-105 transition duration-700" loading="lazy" decoding="async">
-                <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
-                <span class="absolute bottom-3 left-3 text-[11px] font-black uppercase tracking-wider px-3 py-1 rounded-full bg-white text-slate-950 shadow-md">
-                  Newsletter #03
-                </span>
-              </div>
-
-              <div class="space-y-1.5 pt-0.5">
-                <h2 class="font-heading font-bold text-xl sm:text-2xl text-slate-950">
+              <div class="pt-1">
+                <h2 class="font-heading font-black text-lg sm:text-xl text-slate-950 leading-snug">
                   How does the padel industry actually grow?
                 </h2>
-                <p class="text-xs sm:text-sm text-slate-600 font-medium leading-relaxed">
-                  ¿Cómo crece realmente el negocio internacional del pádel? La saturación de España, los mercados emergentes y las 5 fases de expansión de un país.
-                </p>
               </div>
             </div>
 
-            <!-- BOTÓN ABRIR ARTÍCULO EN OTRA VENTANA -->
-            <div class="pt-3 sm:pt-4 border-t border-slate-200 mt-3 sm:mt-4">
+            <!-- BOTÓN ABRIR ARTÍCULO -->
+            <div class="pt-4 border-t border-slate-100 mt-4">
               <a href="https://www.linkedin.com/pulse/how-does-padel-industry-actually-grow-c%C3%B3mo-crece-la-villoria-soleto-fwere" 
                  target="_blank" 
                  rel="noopener noreferrer"
-                 class="group relative w-full inline-flex items-center justify-center gap-2.5 px-6 py-3 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] active:bg-[#76d3f6] text-slate-950 active:scale-95 font-heading font-black text-xs sm:text-sm uppercase tracking-wider transition-all duration-300 shadow-[0_4px_15px_rgba(242,146,11,0.25)] hover:shadow-[0_8px_25px_rgba(118,211,246,0.35)] hover:scale-[1.01] overflow-hidden">
-                <span class="font-black">Leer Edición #03</span>
-                <div class="w-6 h-6 rounded-full bg-slate-950/10 group-hover:bg-slate-950 group-hover:text-white flex items-center justify-center transition-all duration-300">
+                 class="group relative w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] active:bg-[#76d3f6] text-slate-950 active:scale-95 font-heading font-black text-xs sm:text-sm uppercase tracking-wider transition-all duration-300 shadow-[0_4px_15px_rgba(242,146,11,0.25)] hover:shadow-[0_8px_25px_rgba(118,211,246,0.35)] hover:scale-[1.01] overflow-hidden">
+                <span class="font-black">Leer Highlights #03</span>
+                <div class="w-5 h-5 rounded-full bg-slate-950/10 group-hover:bg-slate-950 group-hover:text-white flex items-center justify-center transition-all duration-300">
                   <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 stroke-[3] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300"></i>
                 </div>
               </a>
             </div>
           </div>
 
-          <!-- ENTRADA 4: REPORTAJE INDUSTRIA PADEL 2026 (DESCARGA PDF) -->
-          <div class="bg-white border border-slate-200/90 rounded-3xl p-5 sm:p-6 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.18)] hover:shadow-[0_35px_65px_-10px_rgba(0,0,0,0.28)] transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1">
-            <div class="space-y-3 sm:space-y-4">
+          <!-- 2. HIGHLIGHTS #02 (CENTRO) -->
+          <div class="bg-white border border-slate-200/90 rounded-3xl p-4 sm:p-5 shadow-[0_20px_45px_-12px_rgba(0,0,0,0.14)] hover:shadow-[0_30px_60px_-10px_rgba(0,0,0,0.22)] transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1">
+            <div class="space-y-3">
+              <div class="aspect-[16/9] rounded-2xl overflow-hidden bg-slate-900 border border-slate-200/90 shadow-[0_15px_30px_-10px_rgba(0,0,0,0.35)] relative">
+                <img src="../assets/images/cover_highlights_02.jpg" alt="Highlights #02: El Pádel debería estar lejos de ser un deporte olímpico" class="w-full h-full object-cover group-hover:scale-105 transition duration-700" loading="lazy" decoding="async">
+              </div>
+
+              <div class="pt-1">
+                <h2 class="font-heading font-black text-lg sm:text-xl text-slate-950 leading-snug">
+                  El Pádel debería estar lejos de ser un deporte olímpico. ¿Por qué?
+                </h2>
+              </div>
+            </div>
+
+            <!-- BOTÓN ABRIR ARTÍCULO -->
+            <div class="pt-4 border-t border-slate-100 mt-4">
+              <a href="https://www.linkedin.com/pulse/el-padel-deber%C3%ADa-estar-lejos-de-ser-un-deporte-por-villoria-soleto-tgrde" 
+                 target="_blank" 
+                 rel="noopener noreferrer"
+                 class="group relative w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] active:bg-[#76d3f6] text-slate-950 active:scale-95 font-heading font-black text-xs sm:text-sm uppercase tracking-wider transition-all duration-300 shadow-[0_4px_15px_rgba(242,146,11,0.25)] hover:shadow-[0_8px_25px_rgba(118,211,246,0.35)] hover:scale-[1.01] overflow-hidden">
+                <span class="font-black">Leer Highlights #02</span>
+                <div class="w-5 h-5 rounded-full bg-slate-950/10 group-hover:bg-slate-950 group-hover:text-white flex items-center justify-center transition-all duration-300">
+                  <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 stroke-[3] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300"></i>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <!-- 3. HIGHLIGHTS #01 (DERECHA) -->
+          <div class="bg-white border border-slate-200/90 rounded-3xl p-4 sm:p-5 shadow-[0_20px_45px_-12px_rgba(0,0,0,0.14)] hover:shadow-[0_30px_60px_-10px_rgba(0,0,0,0.22)] transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1">
+            <div class="space-y-3">
+              <div class="aspect-[16/9] rounded-2xl overflow-hidden bg-slate-900 border border-slate-200/90 shadow-[0_15px_30px_-10px_rgba(0,0,0,0.35)] relative">
+                <img src="../assets/images/cover_highlights_01.jpg" alt="Highlights #01: Padel World Summit 2026: Startup Recap" class="w-full h-full object-cover group-hover:scale-105 transition duration-700" loading="lazy" decoding="async">
+              </div>
+
+              <div class="pt-1">
+                <h2 class="font-heading font-black text-lg sm:text-xl text-slate-950 leading-snug">
+                  Padel World Summit 2026: Startup Recap
+                </h2>
+              </div>
+            </div>
+
+            <!-- BOTÓN ABRIR ARTÍCULO -->
+            <div class="pt-4 border-t border-slate-100 mt-4">
+              <a href="https://www.linkedin.com/pulse/padel-world-summit-2026-startup-recap-javier-villoria-soleto-c7hle/" 
+                 target="_blank" 
+                 rel="noopener noreferrer"
+                 class="group relative w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] active:bg-[#76d3f6] text-slate-950 active:scale-95 font-heading font-black text-xs sm:text-sm uppercase tracking-wider transition-all duration-300 shadow-[0_4px_15px_rgba(242,146,11,0.25)] hover:shadow-[0_8px_25px_rgba(118,211,246,0.35)] hover:scale-[1.01] overflow-hidden">
+                <span class="font-black">Leer Highlights #01</span>
+                <div class="w-5 h-5 rounded-full bg-slate-950/10 group-hover:bg-slate-950 group-hover:text-white flex items-center justify-center transition-all duration-300">
+                  <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 stroke-[3] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300"></i>
+                </div>
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- DEBAJO AL DESLIZAR: REPORTAJE DE LA INDUSTRIA DEL PÁDEL CENTRADO -->
+        <div class="max-w-2xl mx-auto mt-12 sm:mt-16">
+          <div class="bg-white border border-slate-200/90 rounded-3xl p-5 sm:p-7 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.18)] hover:shadow-[0_35px_65px_-10px_rgba(0,0,0,0.28)] transition-all duration-300 flex flex-col justify-between group">
+            <div class="space-y-4">
               <div class="aspect-[16/10] rounded-2xl overflow-hidden bg-slate-900 border border-slate-200/90 shadow-[0_20px_40px_-10px_rgba(0,0,0,0.4)] group-hover:scale-[1.01] transition duration-500 relative">
                 <img src="../assets/images/foto-reportaje.jpg" alt="Informe PDF sobre tendencias de la industria del padel 2026" class="w-full h-full object-cover group-hover:scale-105 transition duration-700" loading="lazy" decoding="async">
                 <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
                 <span class="absolute bottom-3 left-3 text-[11px] font-black uppercase tracking-wider px-3 py-1 rounded-full bg-white text-slate-950 shadow-md">
-                  PDF Oficial
+                  Reportaje Oficial
                 </span>
               </div>
 
-              <div class="space-y-1.5 pt-0.5">
-                <h2 class="font-heading font-bold text-xl sm:text-2xl text-slate-950">
-                  Reportaje Industria Pádel 2026
+              <div class="space-y-1.5 pt-1 text-center sm:text-left">
+                <h2 class="font-heading font-black text-xl sm:text-2xl text-slate-950">
+                  Reportaje de la Industria del Pádel 2026
                 </h2>
                 <p class="text-xs sm:text-sm text-slate-600 font-medium leading-relaxed">
                   ¿Hacia dónde va la industria del pádel? Radiografía de 116 empresas del sector: pistas, software, tendencias y proyección internacional.
@@ -313,13 +296,13 @@ def generate_blog_html():
             </div>
 
             <!-- FORMULARIO DESCARGA PDF -->
-            <div class="pt-3 sm:pt-4 border-t border-slate-200 mt-3 sm:mt-4">
+            <div class="pt-4 border-t border-slate-200 mt-5">
               <form onsubmit="handleReportDownload(event)" class="space-y-2.5">
                 <div class="relative">
                   <input type="email" id="report-email-input" required placeholder="Introduce tu email para recibir el reportaje..." class="w-full px-4 sm:px-5 py-2.5 sm:py-3 rounded-full bg-white border border-slate-300 text-slate-950 text-xs sm:text-sm font-medium focus:outline-none focus:border-[#f2920b] shadow-inner transition">
                 </div>
                 <button type="submit" id="report-btn" class="group relative w-full inline-flex items-center justify-center gap-2.5 px-6 py-3 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] active:bg-[#76d3f6] text-slate-950 active:scale-95 font-heading font-black text-xs sm:text-sm uppercase tracking-wider transition-all duration-300 shadow-[0_4px_15px_rgba(242,146,11,0.25)] hover:shadow-[0_8px_25px_rgba(118,211,246,0.35)] hover:scale-[1.01] overflow-hidden cursor-pointer">
-                  <span id="report-btn-text">Descargar PDF</span>
+                  <span id="report-btn-text">Descargar Reportaje PDF</span>
                   <div class="w-6 h-6 rounded-full bg-slate-950/10 group-hover:bg-slate-950 group-hover:text-white flex items-center justify-center transition-all duration-300">
                     <i data-lucide="download" class="w-3.5 h-3.5 stroke-[3] group-hover:translate-y-0.5 transition-transform duration-300"></i>
                   </div>
@@ -327,7 +310,6 @@ def generate_blog_html():
               </form>
             </div>
           </div>
-
         </div>
 
       </div>
@@ -383,7 +365,7 @@ def generate_blog_html():
     os.makedirs("coolpadel-web/blog", exist_ok=True)
     with open("coolpadel-web/blog/index.html", "w", encoding="utf-8") as f:
         f.write(html)
-    print("  [OK] coolpadel-web/blog/index.html (Página Blog con 4 entradas)")
+    print("  [OK] coolpadel-web/blog/index.html (Página Blog con 3 newsletters en fila y reportaje centrado)")
 
 if __name__ == "__main__":
     generate_blog_html()
