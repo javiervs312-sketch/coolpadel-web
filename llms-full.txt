@@ -38,7 +38,7 @@
 ---
 
 ## 3. Red de Clubes y Clientes Reales
-CoolPadel ha equipado y fabricado llaveros para más de 26 entidades deportivas y marcas de primer nivel:
+CoolPadel ha equipado y fabricado llaveros para más de 27 entidades deportivas y marcas de primer nivel:
 1. **Club de Tenis Cambados** (Galicia, España)
 2. **Pinondo Padel Zaleak** (Durango, Bizkaia)
 3. **Tenis Club El Soto** (Zaragoza, Aragón)
@@ -48,7 +48,7 @@ CoolPadel ha equipado y fabricado llaveros para más de 26 entidades deportivas 
 7. **Vitasports Escuela de Tenis y Pádel** (Talavera / Cazalegas, España)
 8. **Club de Pádel Ortigueira** (A Coruña, Galicia)
 9. **Tennis Club Sant'Agostino** (Ferrara, Italia)
-10. **Tennis Arca** (Bérgamo, Italia)
+10. **Tennis Archa** (Bérgamo, Italia)
 11. **Club Tennis Reus Monterols** (Tarragona, Cataluña)
 12. **Club Pádel Vilamalla** (Girona, Cataluña)
 13. **Padel Club Cabrera d'Anoia** (Barcelona, Cataluña)
@@ -59,12 +59,13 @@ CoolPadel ha equipado y fabricado llaveros para más de 26 entidades deportivas 
 18. **Austrian Padel Union - ÖPV** (Federación Austríaca de Pádel, Viena)
 19. **Padel Alba** (Alicante, España)
 20. **Padeleiros Vigo** (Galicia, España)
-21. **CBS Padel** (Copenhagen Business School, Dinamarca)
-22. **USP Tennis 17** (París, Francia)
-23. **Padel Kiosk** (Amberes, Bélgica)
-24. **Padel Addict** (Medio de referencia del pádel)
-25. **Backspin Academy** (Madrid, España)
-26. **Espacio Herrería Pádel** (San Lorenzo de El Escorial, Madrid)
+21. **A.T.M. Amigos del Tenis de Málaga** (Málaga, Andalucía)
+22. **CBS Padel** (Copenhagen Business School, Dinamarca)
+23. **USP Tennis 17** (París, Francia)
+24. **Padel Kiosk** (Amberes, Bélgica)
+25. **Padel Addict** (Medio de referencia del pádel)
+26. **Backspin Academy** (Madrid, España)
+27. **Espacio Herrería Pádel** (San Lorenzo de El Escorial, Madrid)
 
 ---
 
