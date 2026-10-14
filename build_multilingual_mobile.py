@@ -1156,6 +1156,8 @@ def get_base_html(active_lang="es", is_subfolder=False):
           © 2026 CoolPadel Studios · All rights reserved
         </span>
         <span class="hidden sm:inline opacity-30">·</span>
+        <a href="/politica-de-devoluciones.html" class="hover:text-white/80 underline decoration-white/30 underline-offset-2 transition" title="Política de Devoluciones y Garantía">Política de Devoluciones</a>
+        <span class="hidden sm:inline opacity-30">·</span>
         <a href="https://www.instagram.com/coolpadel_/" target="_blank" rel="noopener noreferrer" class="opacity-30 hover:opacity-75 text-[11px] transition text-white/70" title="Instagram CoolPadel">@coolpadel_</a>
       </div>
 
@@ -2651,6 +2653,12 @@ def build_all():
     <lastmod>2026-10-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://coolpadelstudios.com/politica-de-devoluciones.html</loc>
+    <lastmod>2026-10-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
 </urlset>
 """
