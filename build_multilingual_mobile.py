@@ -618,75 +618,35 @@ def get_base_html(active_lang="es", is_subfolder=False):
     </div>
   </header>
 
-  <!-- 3. COVERFLOW ROTATIVO (GRAN IMPACTO VISUAL Y PROPORCIONES PERFECTAS) -->
-  <section class="relative bg-white overflow-hidden select-none pt-2 sm:pt-4 pb-2 sm:pb-3">
-    <div class="w-full max-w-full mx-auto px-0 sm:px-4">
+  <!-- 3. HERO PRINCIPAL: FOTO GRANDE LLAVEROS PARA TU CLUB / COMUNIDAD -->
+  <section class="relative bg-white select-none pt-2 sm:pt-4 pb-2 sm:pb-3">
+    <div class="w-full max-w-6xl mx-auto px-3 sm:px-6">
       
-      <div class="relative w-full h-[320px] sm:h-[380px] lg:h-[415px] flex items-center justify-center coverflow-wrapper">
+      <!-- HERO CARD EN GRANDE -->
+      <div id="coverflow-0" class="relative w-full h-[340px] sm:h-[420px] lg:h-[480px] xl:h-[520px] rounded-3xl sm:rounded-[2.2rem] overflow-hidden bg-neutral-900 shadow-[0_20px_50px_-12px_rgba(0,0,0,0.35)] border border-slate-200/80 group">
+        <img src="{asset_prefix}assets/images/slide-1.jpg" alt="Llaveros de pádel personalizados para clubs y comunidades CoolPadel" class="w-full h-full object-cover group-hover:scale-[1.015] transition-transform duration-700 ease-out" fetchpriority="high" decoding="async">
         
-        <!-- SLIDE 1: LLAVEROS PARA TU CLUB/COMUNIDAD (SLIDE-1.JPG) -->
-        <div id="coverflow-0" class="coverflow-slide active w-[90%] sm:w-[72%] lg:w-[62%] max-w-[840px] h-[300px] sm:h-[360px] lg:h-[390px] rounded-3xl overflow-hidden bg-neutral-900">
-          <img src="{asset_prefix}assets/images/slide-1.jpg" alt="Llaveros de pádel personalizados para clubs y comunidades CoolPadel" class="w-full h-full object-cover" fetchpriority="high" decoding="async">
-          
-          <!-- Slide Content (Nike Bottom Left Layout) -->
-          <div class="slide-caption absolute bottom-4 sm:bottom-7 left-4 sm:left-8 z-30 space-y-2 sm:space-y-3 pointer-events-auto pr-4 max-w-[92%] sm:max-w-[85%]">
-            <h1 data-i18n="slide1_title" class="text-xl sm:text-3xl lg:text-4xl font-black font-heading text-white uppercase tracking-tight leading-[1.15]">
-              {t['slide1_title']}
-            </h1>
-            <div>
-              <a href="#llaveros" class="group inline-flex items-center gap-2 sm:gap-2.5 px-4 sm:px-6 py-1.5 sm:py-2.5 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] active:bg-[#76d3f6] text-slate-950 font-heading font-extrabold text-xs sm:text-sm tracking-wider uppercase shadow-[0_10px_25px_rgba(0,0,0,0.4)] hover:shadow-[0_14px_30px_rgba(118,211,246,0.5)] hover:scale-105 active:scale-95 transition-all duration-300 overflow-hidden">
-                <span data-i18n="slide1_btn">{t['slide1_btn']}</span>
-                <div class="w-5 h-5 sm:w-5.5 sm:h-5.5 rounded-full bg-slate-950/10 group-hover:bg-slate-950 group-hover:text-white flex items-center justify-center transition-all duration-300">
-                  <i data-lucide="arrow-right" class="w-3 h-3 sm:w-3.5 sm:h-3.5 stroke-[3] group-hover:translate-x-1 transition-transform duration-300"></i>
-                </div>
-              </a>
-            </div>
+        <!-- Degradado inferior para máxima legibilidad -->
+        <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-transparent pointer-events-none"></div>
+
+        <!-- Contenido Hero (Bottom Left) -->
+        <div class="absolute bottom-5 sm:bottom-9 left-5 sm:left-10 z-20 space-y-2.5 sm:space-y-3.5 max-w-[92%] sm:max-w-[85%] lg:max-w-[75%] pointer-events-auto">
+          <h1 data-i18n="slide1_title" class="text-2xl sm:text-4xl lg:text-5xl font-black font-heading text-white uppercase tracking-tight leading-[1.12]">
+            {t['slide1_title']}
+          </h1>
+          <div>
+            <a href="#llaveros" class="group inline-flex items-center gap-2 sm:gap-2.5 px-4 sm:px-6 py-2 sm:py-3 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] active:bg-[#76d3f6] text-slate-950 font-heading font-extrabold text-xs sm:text-sm tracking-wider uppercase shadow-[0_10px_25px_rgba(0,0,0,0.4)] hover:shadow-[0_14px_30px_rgba(118,211,246,0.5)] hover:scale-105 active:scale-95 transition-all duration-300 overflow-hidden">
+              <span data-i18n="slide1_btn">{t['slide1_btn']}</span>
+              <div class="w-5 h-5 sm:w-5.5 sm:h-5.5 rounded-full bg-slate-950/10 group-hover:bg-slate-950 group-hover:text-white flex items-center justify-center transition-all duration-300">
+                <i data-lucide="arrow-right" class="w-3 h-3 sm:w-3.5 sm:h-3.5 stroke-[3] group-hover:translate-x-1 transition-transform duration-300"></i>
+              </div>
+            </a>
           </div>
         </div>
-
-        <!-- SLIDE 2: SAVE MY PLAY - GRABACIÓN EN PISTA: HIGHLIGHTS Y PARTIDOS -->
-        <div id="coverflow-1" class="coverflow-slide next w-[90%] sm:w-[72%] lg:w-[62%] max-w-[840px] h-[300px] sm:h-[360px] lg:h-[390px] rounded-3xl overflow-hidden bg-neutral-900">
-          <img src="{asset_prefix}assets/images/slide-2.jpg" alt="Save my Play camaras inteligentes con IA para pistas de padel" class="w-full h-full object-cover" decoding="async">
-          
-          <div class="slide-caption absolute bottom-4 sm:bottom-7 left-4 sm:left-8 z-30 space-y-2 sm:space-y-3 pointer-events-auto pr-4 max-w-[92%] sm:max-w-[85%]">
-            <h2 data-i18n="slide2_title" class="text-xl sm:text-3xl lg:text-4xl font-black font-heading text-white uppercase tracking-tight leading-[1.15]">
-              {t['slide2_title']}
-            </h2>
-            <div>
-              <a href="#savemyplay" class="group inline-flex items-center gap-2 sm:gap-2.5 px-4 sm:px-6 py-1.5 sm:py-2.5 rounded-full bg-white hover:bg-neutral-100 active:bg-neutral-200 text-neutral-950 font-heading font-extrabold text-xs sm:text-sm tracking-wider uppercase shadow-[0_10px_25px_rgba(0,0,0,0.4)] hover:shadow-[0_14px_30px_rgba(0,0,0,0.6)] hover:scale-105 active:scale-95 transition-all duration-300 overflow-hidden">
-                <span data-i18n="slide2_btn">{t['slide2_btn']}</span>
-                <img src="{asset_prefix}assets/images/savemyplay-logo-cropped.png" alt="Save my Play" class="h-4.5 sm:h-6 lg:h-7 w-auto object-contain">
-                <div class="w-5 h-5 sm:w-5.5 sm:h-5.5 rounded-full bg-slate-950/10 group-hover:bg-slate-950/20 text-neutral-950 flex items-center justify-center transition-all duration-300">
-                  <i data-lucide="arrow-up-right" class="w-3 h-3 sm:w-3.5 sm:h-3.5 stroke-[3] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300"></i>
-                </div>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- SLIDE 3: EL NEGOCIO DEL PADEL INFORME (SLIDE-3.JPG) -->
-        <div id="coverflow-2" class="coverflow-slide prev w-[90%] sm:w-[72%] lg:w-[62%] max-w-[840px] h-[300px] sm:h-[360px] lg:h-[390px] rounded-3xl overflow-hidden bg-neutral-900">
-          <img src="{asset_prefix}assets/images/slide-3.jpg" alt="Informe exclusivo sobre la industria del padel 2026" class="w-full h-full object-cover" decoding="async">
-          
-          <div class="slide-caption absolute bottom-4 sm:bottom-7 left-4 sm:left-8 z-30 space-y-2 sm:space-y-3 pointer-events-auto pr-4 max-w-[92%] sm:max-w-[85%]">
-            <h2 data-i18n="slide3_title" class="text-xl sm:text-3xl lg:text-4xl font-black font-heading text-white uppercase tracking-tight leading-[1.15]">
-              {t['slide3_title']}
-            </h2>
-            <div>
-              <a href="#informe" class="group inline-flex items-center gap-2 sm:gap-2.5 px-4 sm:px-6 py-1.5 sm:py-2.5 rounded-full bg-[#76d3f6] hover:bg-[#f2920b] active:bg-[#f2920b] text-slate-950 font-heading font-extrabold text-xs sm:text-sm tracking-wider uppercase shadow-[0_10px_25px_rgba(0,0,0,0.4)] hover:shadow-[0_14px_30px_rgba(242,146,11,0.5)] hover:scale-105 active:scale-95 transition-all duration-300 overflow-hidden">
-                <span data-i18n="slide3_btn">{t['slide3_btn']}</span>
-                <div class="w-5 h-5 sm:w-5.5 sm:h-5.5 rounded-full bg-slate-950/10 group-hover:bg-slate-950 group-hover:text-white flex items-center justify-center transition-all duration-300">
-                  <i data-lucide="download" class="w-3 h-3 sm:w-3.5 sm:h-3.5 stroke-[3] group-hover:translate-y-0.5 transition-transform duration-300"></i>
-                </div>
-              </a>
-            </div>
-          </div>
-        </div>
-
       </div>
 
-      <!-- TEXTO EN ZONA DEBAJO DE LAS FOTOS (SIEMPRE VISIBLE EN EL FOLD) -->
-      <div class="mt-3 sm:mt-4 mb-0 text-center px-4">
+      <!-- TEXTO EN ZONA DEBAJO DE LA FOTO (TRABAJAMOS CON CLUBS...) -->
+      <div class="mt-3 sm:mt-5 mb-0 text-center px-4">
         <p data-i18n="trusted_text" class="text-[12px] sm:text-[15px] lg:text-[17px] font-heading font-extrabold uppercase tracking-widest text-slate-950 leading-snug">
           {t['trusted_text']}
         </p>
@@ -1413,86 +1373,8 @@ def get_base_html(active_lang="es", is_subfolder=False):
       lucide.createIcons();
     }}
 
-    // COVERFLOW 3D INFINITE CAROUSEL SCRIPT + GESTOS TÁCTILES SWIPE
-    const slides = [
-      document.getElementById('coverflow-0'),
-      document.getElementById('coverflow-1'),
-      document.getElementById('coverflow-2')
-    ];
-    let currentIndex = 0;
-    const total = 3;
-    let autoSlideInterval;
-    let isPaused = false;
-
-    function updateCoverflow() {{
-      slides.forEach((slide, idx) => {{
-        slide.classList.remove('active', 'prev', 'next');
-        const diff = (idx - currentIndex + total) % total;
-        
-        if (diff === 0) {{
-          slide.classList.add('active');
-        }} else if (diff === 1) {{
-          slide.classList.add('next');
-        }} else if (diff === 2) {{
-          slide.classList.add('prev');
-        }}
-      }});
-    }}
-
-    function nextSlide() {{
-      currentIndex = (currentIndex + 1) % total;
-      updateCoverflow();
-    }}
-
-    function prevSlide() {{
-      currentIndex = (currentIndex - 1 + total) % total;
-      updateCoverflow();
-    }}
-
-    // Clic directo en slides
-    slides.forEach((slide, idx) => {{
-      slide.addEventListener('click', (e) => {{
-        if (idx !== currentIndex) {{
-          e.preventDefault();
-          currentIndex = idx;
-          updateCoverflow();
-          resetAutoSlide();
-        }}
-      }});
-    }});
-
-    function startAutoSlide() {{
-      if (!isPaused) {{
-        autoSlideInterval = setInterval(nextSlide, 4500);
-      }}
-    }}
-
-    function resetAutoSlide() {{
-      clearInterval(autoSlideInterval);
-      startAutoSlide();
-    }}
-
-    startAutoSlide();
-
-    // SOPORTE DE SWIPE TÁCTIL EN MÓVIL (DEDO IZQUIERDA / DERECHA)
-    let touchStartX = 0;
-    let touchEndX = 0;
-    const coverflowEl = document.querySelector('.coverflow-wrapper');
-    if (coverflowEl) {{
-      coverflowEl.addEventListener('touchstart', (e) => {{
-        touchStartX = e.changedTouches[0].screenX;
-      }}, {{ passive: true }});
-
-      coverflowEl.addEventListener('touchend', (e) => {{
-        touchEndX = e.changedTouches[0].screenX;
-        const diff = touchEndX - touchStartX;
-        if (Math.abs(diff) > 40) {{
-          if (diff < 0) nextSlide();
-          else prevSlide();
-          resetAutoSlide();
-        }}
-      }}, {{ passive: true }});
-    }}
+    // HERO ÚNICO (Sin rotación de diapositivas)
+    const heroCard = document.getElementById('coverflow-0');
 
     // Calculadora presupuesto con tarifario oficial e i18n
     const tiers = [
