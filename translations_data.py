@@ -211,7 +211,7 @@ TRANSLATIONS = {
     },
     "fr": {
         "meta_title": "Porte-clés Padel Personnalisés pour Clubs | CoolPadel",
-        "meta_desc": "Porte-clés de padel personnalisés en relief 3D haute qualité avec logo officiel pour clubs de padel, tournois et joueurs. Fabricant direct & caméras Save my Play.",
+        "meta_desc": "Porte-clés de padel personnalisés en relief 3D haute qualité avec logo officiel pour clubs de padel, tournois et joueurs. Fabricant direct.",
         "top_ticker": "Téléchargez le rapport exclusif sur l'industrie du padel",
         "top_ticker_newsletter": "Ne manquez pas la dernière édition de la Newsletter CoolPadel",
         "nav_tenis_padel": "TENNIS & PADEL",
@@ -314,7 +314,7 @@ TRANSLATIONS = {
     },
     "it": {
         "meta_title": "Portachiavi Padel Personalizzati per Club | CoolPadel",
-        "meta_desc": "Portachiavi di padel personalizzati in rilievo 3D di alta qualità con logo ufficiale per club di padel, tornei e giocatori. Produttore diretto & Save my Play.",
+        "meta_desc": "Portachiavi di padel personalizzati in rilievo 3D di alta qualità con logo ufficiale per club di padel, tornei e giocatori. Produttore diretto.",
         "top_ticker": "Scarica il report esclusivo sull'industria del padel",
         "top_ticker_newsletter": "Non perdere l'ultima edizione della Newsletter di CoolPadel",
         "nav_tenis_padel": "TENNIS & PADEL",

@@ -19,7 +19,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{t['meta_title']}</title>
   <meta name="description" content="{t['meta_desc']}">
-  <meta name="keywords" content="llaveros de padel, llaveros personalizados padel, llaveros padel, llaveros de pádel, llaveros de padel personalizados, llavero padel, llaveros padel personalizados, llaveros para clubs de padel, llavero pala padel, llavero padel 3d, comprar llaveros de padel, llaveros personalizados tenis, merchandising clubes padel, regalos torneos padel, save my play, coolpadel">
+  <meta name="keywords" content="llaveros de padel, llaveros personalizados padel, llaveros padel, llaveros de pádel, llaveros de padel personalizados, llavero padel, llaveros padel personalizados, llaveros para clubs de padel, llavero pala padel, llavero padel 3d, comprar llaveros de padel, llaveros personalizados tenis, merchandising clubes padel, regalos torneos padel, coolpadel">
   <meta name="author" content="CoolPadel">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
   <link rel="canonical" href="https://coolpadelstudios.com/{active_lang + '/' if is_subfolder else ''}">
@@ -79,9 +79,9 @@ def get_base_html(active_lang="es", is_subfolder=False):
           "@type": "ImageObject",
           "url": "https://coolpadelstudios.com/assets/images/coolpadel-mascot-hd.png"
         }},
-        "description": "Fabricante y distribuidor directo de llaveros de pádel personalizados de goma 3D y tecnología Save my Play para clubes deportivos y marcas.",
+        "description": "Fabricante y distribuidor directo de llaveros de pádel personalizados de goma 3D para clubes deportivos y marcas.",
         "areaServed": [
-          "ES", "IT", "FR", "PT", "SE", "DE", "GB", "US", "AE", "Worldwide"
+          "ES", "IT", "FR", "PT", "DE", "GB", "US", "AE", "Worldwide"
         ],
         "knowsAbout": [
           "Llaveros de pádel",
@@ -89,8 +89,6 @@ def get_base_html(active_lang="es", is_subfolder=False):
           "Llaveros de padel para clubs",
           "Llavero pala de pádel",
           "Merchandising para clubes deportivos",
-          "Grabación en pista con Inteligencia Artificial",
-          "Save my Play",
           "Industria del padel"
         ],
         "contactPoint": {{
@@ -168,12 +166,6 @@ def get_base_html(active_lang="es", is_subfolder=False):
           "bestRating": "5",
           "worstRating": "1"
         }}
-      }},
-      {{
-        "@type": "Service",
-        "name": "Save my Play - Grabación de Pistas con Inteligencia Artificial",
-        "description": "Sistema de cámaras inteligentes con IA para pistas de padel y tenis. Grabación de partidos, highlights automáticos y repeticiones instantáneas con instalación en 5 minutos.",
-        "provider": {{ "@id": "https://coolpadelstudios.com/#organization" }}
       }},
       {{
         "@type": "HowTo",
@@ -877,17 +869,17 @@ def get_base_html(active_lang="es", is_subfolder=False):
         </h2>
       </div>
 
-      <!-- 3 BLOQUES MATEMÁTICAMENTE SIMÉTRICOS RESPECTO AL CORREO -->
-      <div class="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] items-center gap-8 md:gap-0 w-full">
+      <!-- BLOQUE DE CONTACTO CENTRADO Y LIMPIO -->
+      <div class="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-14 w-full">
         
-        <!-- IZQUIERDA: COOLPADEL (MASCOTA + TIPOGRAFÍA) DESPLAZADO A LA DERECHA -->
-        <div class="flex items-center justify-center md:justify-end gap-2.5 sm:gap-3.5 md:pr-2 md:translate-x-8 lg:translate-x-12">
-          <img src="{asset_prefix}assets/images/coolpadel-mascot-hd.png" alt="CoolPadel Mascota" class="h-11 sm:h-14 lg:h-16 w-auto object-contain drop-shadow-md" loading="lazy">
-          <img src="{asset_prefix}assets/images/coolpadel-typography-hd.png" alt="CoolPadel" class="h-5.5 sm:h-7 lg:h-8 w-auto object-contain drop-shadow-md" loading="lazy">
+        <!-- COOLPADEL (MASCOTA + TIPOGRAFÍA) -->
+        <div class="flex items-center justify-center gap-3">
+          <img src="{asset_prefix}assets/images/coolpadel-mascot-hd.png" alt="CoolPadel Mascota" class="h-12 sm:h-16 lg:h-18 w-auto object-contain drop-shadow-md" loading="lazy">
+          <img src="{asset_prefix}assets/images/coolpadel-typography-hd.png" alt="CoolPadel" class="h-6 sm:h-8 lg:h-9 w-auto object-contain drop-shadow-md" loading="lazy">
         </div>
 
-        <!-- CENTRO: CORREO Y WHATSAPP OFICIAL DE JAVIER (DESPLAZADO A LA DERECHA) -->
-        <div class="flex flex-col items-center justify-center text-center gap-4 sm:gap-5 px-4 sm:px-6 md:translate-x-8 lg:translate-x-14">
+        <!-- CORREO Y WHATSAPP OFICIAL DE JAVIER -->
+        <div class="flex flex-col items-center justify-center text-center gap-4 sm:gap-5">
           <a href="mailto:javier@coolpadelstudios.com" 
              class="group inline-flex items-center gap-2.5 text-white hover:text-[#f2920b] font-sans font-bold text-sm sm:text-xl lg:text-2xl tracking-normal transition-all duration-300 hover:scale-105 active:scale-95 whitespace-nowrap">
             <i data-lucide="mail" class="w-4 h-4 sm:w-6 sm:h-6 text-[#f2920b] group-hover:text-white transition-colors shrink-0"></i>
@@ -903,11 +895,6 @@ def get_base_html(active_lang="es", is_subfolder=False):
             </svg>
             <span data-i18n="contact_wa_btn">{t['contact_wa_btn']}</span>
           </a>
-        </div>
-
-        <!-- DERECHA: SAVE MY PLAY (DESPLAZADO A LA DERECHA) -->
-        <div class="flex items-center justify-center md:justify-start md:pl-4 lg:pl-8 md:translate-x-8 lg:translate-x-14">
-          <img src="{asset_prefix}assets/images/savemyplay-logo-white-text-hd.png" alt="Save my Play" class="h-8.5 sm:h-11 lg:h-12.5 w-auto object-contain drop-shadow-md" loading="lazy">
         </div>
 
       </div>
@@ -1443,8 +1430,6 @@ def get_base_html(active_lang="es", is_subfolder=False):
     const sectionTimes = {{
       'Hero': 0,
       'Calculadora': 0,
-      'SaveMyPlay': 0,
-      'Informe': 0,
       'FAQ': 0,
       'Contacto': 0
     }};
@@ -1456,8 +1441,6 @@ def get_base_html(active_lang="es", is_subfolder=False):
         if (diff > 0 && diff < 5) {{
           activeSeconds += diff;
           if (currentSection.includes('Calculadora')) sectionTimes['Calculadora'] += diff;
-          else if (currentSection.includes('Save')) sectionTimes['SaveMyPlay'] += diff;
-          else if (currentSection.includes('Informe')) sectionTimes['Informe'] += diff;
           else if (currentSection.includes('FAQ') || currentSection.includes('Frecuentes')) sectionTimes['FAQ'] += diff;
           else if (currentSection.includes('Contacto')) sectionTimes['Contacto'] += diff;
           else sectionTimes['Hero'] += diff;
@@ -1517,8 +1500,6 @@ def get_base_html(active_lang="es", is_subfolder=False):
       const sectionMap = [
         {{ id: 'coverflow-0', name: 'Hero / Llaveros 3D' }},
         {{ id: 'llaveros', name: 'Calculadora de Pistas' }},
-        {{ id: 'savemyplay', name: 'Save my Play & Cámaras' }},
-        {{ id: 'informe', name: 'Descarga Informe 2026' }},
         {{ id: 'faq', name: 'Preguntas Frecuentes' }},
         {{ id: 'contacto', name: 'Contacto Final' }}
       ];
@@ -1848,8 +1829,6 @@ def get_base_html(active_lang="es", is_subfolder=False):
         tier_pistas: tiers[currentTierIdx]?.qty,
         tier_precio: tiers[currentTierIdx]?.price
       }}));
-      attachClick('smp-plan-btn', 'click_whatsapp_savemyplay_plan', 'Plan Save my Play');
-      attachClick('smp-contact-btn', 'click_whatsapp_savemyplay', 'Save my Play');
       attachClick('contact-wa-btn', 'click_whatsapp_footer', 'Contacto Footer');
       attachClick('floating-wa-btn', 'click_whatsapp_floating', 'Botón Flotante');
 
