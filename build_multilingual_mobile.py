@@ -1717,27 +1717,22 @@ def get_base_html(active_lang="es", is_subfolder=False):
       if (!mapContainer || typeof L === 'undefined') return;
 
       try {{
+        const isMobile = window.innerWidth < 768;
         leafletMapInstance = L.map('coolpadel-leaflet-map', {{
-          center: [38.0, 10.0],
-          zoom: 3,
+          center: [44.0, 4.0],
+          zoom: isMobile ? 4 : 5,
           minZoom: 2,
-          maxZoom: 16,
+          maxZoom: 18,
           scrollWheelZoom: false
         }});
 
         leafletMapInstance.on('focus', () => leafletMapInstance.scrollWheelZoom.enable());
         leafletMapInstance.on('click', () => leafletMapInstance.scrollWheelZoom.enable());
 
-        // 1. Capa Base: Mapamundi con relieve topográfico real, sombreado de montañas y océanos en tono azul
-        L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Ocean/World_Ocean_Base/MapServer/tile/{{z}}/{{y}}/{{x}}', {{
-          attribution: 'Tiles &copy; Esri, GEBCO, NOAA, Garmin',
-          maxZoom: 16
-        }}).addTo(leafletMapInstance);
-
-        // 2. Capa de Referencia: Fronteras y nombres limpios de países y ciudades
-        L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Ocean/World_Ocean_Reference/MapServer/tile/{{z}}/{{y}}/{{x}}', {{
-          attribution: '',
-          maxZoom: 16
+        // Capa Topográfica: Relieve sombreado real solo en la tierra, mar en azul suave limpio y colores naturales
+        L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{{z}}/{{y}}/{{x}}', {{
+          attribution: 'Tiles &copy; Esri',
+          maxZoom: 18
         }}).addTo(leafletMapInstance);
 
         // Marcador con ping naranja, cuerpo negro y borde naranja
@@ -1851,7 +1846,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
         leafletMapInstance.flyTo([52.0, 14.0], 5, {{ duration: 1.2 }});
         selectClubById('austrian_padel');
       }} else {{
-        leafletMapInstance.flyTo([38.0, 10.0], 3, {{ duration: 1.2 }});
+        leafletMapInstance.flyTo([44.0, 4.0], window.innerWidth < 768 ? 4 : 5, {{ duration: 1.2 }});
         selectClubById('cambados');
       }}
     }};
