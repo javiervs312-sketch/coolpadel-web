@@ -10,7 +10,7 @@ TRANSLATIONS = {
         "top_ticker_newsletter": "Nueva edición de Highlights by CoolPadel en LinkedIn",
         "nav_tenis_padel": "LLAVEROS",
         "nav_contact": "Contactar",
-        "slide1_title": "Llaveros para tu <br class=\"hidden sm:inline\"><span class=\"relative inline-block px-1.5 text-neutral-300\">club<svg class=\"absolute inset-0 w-full h-full pointer-events-none\" viewBox=\"0 0 100 100\" preserveAspectRatio=\"none\"><line x1=\"8\" y1=\"92\" x2=\"92\" y2=\"8\" stroke=\"#f2920b\" stroke-width=\"16\" stroke-linecap=\"round\"/><line x1=\"8\" y1=\"8\" x2=\"92\" y2=\"92\" stroke=\"#f2920b\" stroke-width=\"16\" stroke-linecap=\"round\"/></svg></span><span class=\"text-[#f2920b] ml-2\">comunidad</span>",
+        "slide1_title": "Llaveros de Pádel para tu <br class=\"hidden sm:inline\"><span class=\"relative inline-block px-1.5 text-neutral-300\">club<svg class=\"absolute inset-0 w-full h-full pointer-events-none\" viewBox=\"0 0 100 100\" preserveAspectRatio=\"none\"><line x1=\"8\" y1=\"92\" x2=\"92\" y2=\"8\" stroke=\"#f2920b\" stroke-width=\"16\" stroke-linecap=\"round\"/><line x1=\"8\" y1=\"8\" x2=\"92\" y2=\"92\" stroke=\"#f2920b\" stroke-width=\"16\" stroke-linecap=\"round\"/></svg></span><span class=\"text-[#f2920b] ml-2\">comunidad</span>",
         "slide1_btn": "Ver más",
         "slide2_title": "Grabación en pista: <br><span class=\"text-black\">highlights y partidos</span>",
         "slide2_btn": "Descubrir",

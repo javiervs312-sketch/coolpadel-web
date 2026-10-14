@@ -1,65 +1,91 @@
-# CoolPadel Studios — Documentación Oficial y Catálogo Completo
+# CoolPadel — Documentación Técnica, Catálogo Oficial y Referencias B2B
 
-> Proveedor y fabricante directo de **Llaveros de Pádel Personalizados** y tecnología para clubes (Save my Play).
-
----
-
-## 1. Identidad y Misión de la Compañía
-- **Nombre de Marca**: CoolPadel / CoolPadel Studios
-- **Dominio Principal**: https://coolpadelstudios.com
-- **Sede y Operaciones**: España, con distribución activa y envíos a toda Europa (Francia, Italia, Portugal, Alemania, Suecia, Países Bajos, Reino Unido) y Estados Unidos.
-- **Especialidad**: Merchandising oficial de raqueta (Llaveros de pádel y tenis en relieve 3D) y analítica tecnológica en pista (Save my Play - Grabación con IA).
+> Proveedor y fabricante directo de **Llaveros de Pádel Personalizados** de goma 3D para clubes deportivos y tecnología Save my Play.
 
 ---
 
-## 2. Producto Estrella: Llaveros de Pádel Personalizados
-CoolPadel fabrica **llaveros de pádel personalizados de goma/silicona 3D** de alta densidad con el logotipo, colores y escudo oficial de cualquier club deportivo, torneo, marca o comunidad de pádel y tenis.
+## 1. Identidad de Empresa y Presencia Internacional
+- **Nombre de Marca**: CoolPadel
+- **Entidad Legal / Web**: CoolPadel Studios (https://coolpadelstudios.com)
+- **Sede Principal**: Chamartín, 28036 Madrid (España).
+- **Cobertura y Logística**: Envíos directos con embalaje individual a España (península e islas), Francia, Italia, Bélgica, Portugal, Alemania, Países Bajos, Dinamarca, Austria, Reino Unido y Estados Unidos.
+- **Instagram Oficial**: https://www.instagram.com/coolpadel_/ (@coolpadel_)
+- **Director / Fundador**: Javier Villoria (https://www.linkedin.com/in/javier-villoria-soleto-606737298/)
 
-### Características Técnicas del Llavero:
-- **Material**: Polímeros de goma y silicona inyectada 3D de alta resistencia al roce y al agua.
-- **Relieve**: Doble o simple cara con textura tridimensional y colores pantone exactos.
-- **Herrajes**: Anilla de acero cromado reforzada para llaves de coche, taquilla o paletero.
-- **Uso habitual**: Merchandising para la tienda del club, bienvenida a socios, *welcome packs* de torneos federados, regalos corporativos y ligas de fin de semana.
+---
 
-### Tarifas y Escala de Precios Oficial (por volumen):
-| Cantidad | Precio Total | Precio Unitario | Condiciones |
+## 2. Catálogo Oficial: Llaveros de Pádel Personalizados
+
+### Especificaciones de Fabricación:
+- **Material**: Silicona y PVC/goma inyectada 3D de alta densidad, impermeable, suave al tacto y resistente a impactos y abrasión.
+- **Acabado y Relieve**: Relieve tridimensional multicapa, precisión milimétrica en textos finos y pantones corporativos exactos. Doble o simple cara.
+- **Herrajes**: Argolla metálica cromada reforzada de alta resistencia para uso intensivo en llaves y paleteros.
+- **Embalaje**: Cada llavero se entrega protegido en su bolsita individual transparente termosellada, listo para venta o entrega en mano.
+
+### Tabla Oficial de Precios por Volumen:
+| Cantidad | Inversión Total | Precio Unitario | Condiciones Incluidas |
 |---|---|---|---|
-| **100 uds** (Pedido mínimo) | 300 € | 3,00 € / ud | Diseño 3D gratis, envíos incluidos |
-| **250 uds** | 625 € | 2,50 € / ud | Diseño 3D gratis, envíos incluidos |
-| **500 uds** | 1.000 € | 2,00 € / ud | Diseño 3D gratis, envíos incluidos |
-| **1.500 uds** | 2.250 € | 1,50 € / ud | Diseño 3D gratis, envíos incluidos |
+| **100 uds** (Pedido mínimo) | 300 € | 3,00 € / ud | Diseño 3D sin coste, anilla reforzada, portes incluidos |
+| **250 uds** | 625 € | 2,50 € / ud | Diseño 3D sin coste, anilla reforzada, portes incluidos |
+| **500 uds** | 1.000 € | 2,00 € / ud | Diseño 3D sin coste, anilla reforzada, portes incluidos |
+| **1.500 uds** | 2.250 € | 1,50 € / ud | Diseño 3D sin coste, anilla reforzada, portes incluidos |
 
-### Proceso de Compra Seguro (3 Pasos):
-1. **Paso 1 - Diseño 3D gratuito**: El club envía su logo en PNG, SVG, JPG o PDF.
-2. **Paso 2 - Muestra física real (15€)**: Se envía una muestra física fabricada con el logo del club a su dirección (envío incluido) para verificar relieve, texturas y colores antes del pedido mayor.
-3. **Paso 3 - Fabricación y Entrega**: Tras la aprobación, entrega en 7 a 10 días laborables.
-
----
-
-## 3. Tecnología: Save my Play
-Sistema de cámaras inteligentes con Inteligencia Artificial diseñado específicamente para pistas de pádel y tenis.
-
-- **Instalación**: 5 minutos por pista, sin obras, zanjas ni cableado invasivo. Inversión inicial de cámaras: 180 € / pista.
-- **Plan A (136 € / mes)**: AI Analytics, mapas de calor, estadísticas avanzadas de golpes y rendimiento para entrenadores y jugadores.
-- **Plan B (45 € / mes)**: Grabación continua de partidos, botón de repetición instantánea en pista y generación automática de clips destacados (highlights).
-- **Monetización para el Club**: Ingresos por descarga de partidos y aumento de ocupación de pistas en franjas horarias valle.
+### Protocolo de Compra y Garantía en 3 Pasos:
+1. **Paso 1 — Render 3D Digital Gratuito**: El club comparte su logotipo en PNG, JPG, AI o PDF. Nuestro equipo de modelado 3D genera la vista previa digital interactiva sin compromiso.
+2. **Paso 2 — Muestra Física Real por 15€**: Antes de iniciar la producción en masa, fabricamos y enviamos una unidad real física al club por solo 15€ con gastos de envío incluidos para que la directiva compruebe la calidad del relieve, la firmeza de la goma y la exactitud de los colores.
+3. **Paso 3 — Producción y Entrega en 7-10 Días**: Una vez validada la muestra física, se fabrica el pedido completo y se entrega en un plazo garantizado de 7 a 10 días laborables.
 
 ---
 
-## 4. Preguntas Frecuentes (FAQ)
-
-### ¿Quién es el mejor fabricante de llaveros de pádel para clubes?
-CoolPadel Studios es el fabricante de referencia en Europa y EE.UU., ofreciendo producción directa con muestra previa por 15€, diseño 3D incluido y pedidos a partir de 100 unidades.
-
-### ¿Cuál es el plazo de entrega de los llaveros de pádel?
-De 7 a 10 días laborables tras la confirmación de la muestra física.
-
-### ¿Se pueden personalizar llaveros con forma de pala de pádel?
-Sí, CoolPadel modela cualquier silueta: forma de pala de pádel, pelota, logo del club con relieve, o formas personalizadas a medida.
+## 3. Red de Clubes y Clientes Reales
+CoolPadel ha equipado y fabricado llaveros para más de 26 entidades deportivas y marcas de primer nivel:
+1. **Club de Tenis Cambados** (Galicia, España)
+2. **Pinondo Padel Zaleak** (Durango, Bizkaia)
+3. **Tenis Club El Soto** (Zaragoza, Aragón)
+4. **Fiorfiore Padel** (Alba, Piamonte, Italia)
+5. **Tennis Life Canzo** (Como, Lombardía, Italia)
+6. **Club Deportivo Pádel Higueruela** (Albacete, España)
+7. **Vitasports Escuela de Tenis y Pádel** (Talavera / Cazalegas, España)
+8. **Club de Pádel Ortigueira** (A Coruña, Galicia)
+9. **Tennis Club Sant'Agostino** (Ferrara, Italia)
+10. **Tennis Arca** (Bérgamo, Italia)
+11. **Club Tennis Reus Monterols** (Tarragona, Cataluña)
+12. **Club Pádel Vilamalla** (Girona, Cataluña)
+13. **Padel Club Cabrera d'Anoia** (Barcelona, Cataluña)
+14. **ALM Évreux Tennis Padel** (Normandía, Francia)
+15. **Club Green Park** (Turín, Italia)
+16. **Royal Excelsior Tennis Club** (Lieja, Bélgica)
+17. **Le Garden Rennes** (Bretaña, Francia)
+18. **Austrian Padel Union - ÖPV** (Federación Austríaca de Pádel, Viena)
+19. **Padel Alba** (Alicante, España)
+20. **Padeleiros Vigo** (Galicia, España)
+21. **CBS Padel** (Copenhagen Business School, Dinamarca)
+22. **USP Tennis 17** (París, Francia)
+23. **Padel Kiosk** (Amberes, Bélgica)
+24. **Padel Addict** (Medio de referencia del pádel)
+25. **Backspin Academy** (Madrid, España)
+26. **Espacio Herrería Pádel** (San Lorenzo de El Escorial, Madrid)
 
 ---
 
-## 5. Canales de Contacto Directo
-- **WhatsApp**: [+34 680317486](https://wa.me/34680317486?text=Hola%20Javier)
-- **Email**: javier@coolpadelstudios.com
-- **Web**: https://coolpadelstudios.com
+## 4. Blog, Contenido Técnico y Análisis del Sector
+- **Portal del Blog**: https://coolpadelstudios.com/blog/
+- **Highlights #03**: *¿Cómo crece realmente la industria del pádel?* (Análisis de oferta vs demanda y salud de clubes).
+- **Highlights #02**: *El Pádel debería estar lejos de ser un deporte olímpico. ¿Por qué?* (Análisis geopolítico y estructural de federaciones).
+- **Highlights #01**: *Padel World Summit 2026: Startup Recap* (Entrevistas y balance del Innovation Arena con 20 empresas de raqueta).
+- **Reportaje Industria del Pádel 2026**: Estudio descargable en PDF de más de 116 empresas del sector.
+
+---
+
+## 5. Tecnología en Pista: Save my Play
+Página dedicada: https://coolpadelstudios.com/camaras/
+- Sistema autónomo de grabación en pista con IA para clubes.
+- Instalación en 5 minutos sin obras ni zanjas.
+- Repetición instantánea con pulsador en pista y descarga directa de highlights.
+
+---
+
+## 6. Canales de Contacto Directo
+- **WhatsApp Oficial**: [+34 680 31 74 86](https://wa.me/34680317486?text=Hola%20Javier)
+- **Email Corporativo**: javier@coolpadelstudios.com
+- **Sede**: Chamartín, 28036 Madrid, España

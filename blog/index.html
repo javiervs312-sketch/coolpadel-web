@@ -1,26 +1,15 @@
 <!DOCTYPE html>
 <html lang="es" class="scroll-smooth">
 <head>
+  <title>Blog & Newsletter de la Industria del Pádel | CoolPadel</title>
+  <meta name="description" content="Artículos y análisis estratégicos sobre la industria del pádel por Javier Villoria. Noticias, mercado, clubes y descarga del Informe 2026.">
+  <link rel="canonical" href="https://coolpadelstudios.com/blog/">
+  
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Blog & Newsletter | CoolPadel Studios</title>
-  <meta name="description" content="Artículos y análisis de la industria del pádel por Javier Villoria y descarga exclusiva del Informe 2026.">
-  <meta name="keywords" content="blog padel, newsletter padel, industria del padel, javier villoria, coolpadel, informe padel 2026">
-  <meta name="author" content="Javier Villoria">
-  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
-  <link rel="canonical" href="https://coolpadelstudios.com/blog/">
   <link rel="icon" type="image/png" href="../assets/images/favicon_transparente.png?v=transp3">
   <link rel="apple-touch-icon" sizes="180x180" href="../assets/images/favicon_transparente.png?v=transp3">
   <meta name="theme-color" content="#0b1626">
-
-  <!-- Open Graph / LinkedIn -->
-  <meta property="og:type" content="website">
-  <meta property="og:locale" content="es_ES">
-  <meta property="og:site_name" content="CoolPadel Blog">
-  <meta property="og:url" content="https://coolpadelstudios.com/blog/">
-  <meta property="og:title" content="Blog & Newsletter | CoolPadel Studios">
-  <meta property="og:description" content="Artículos y análisis de la industria del pádel por Javier Villoria y descarga exclusiva del Informe 2026.">
-  <meta property="og:image" content="https://coolpadelstudios.com/assets/images/cover_highlights_03.jpg">
 
   <!-- Tailwind CSS & Lucide Icons -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -44,21 +33,22 @@
     body { font-family: 'Plus Jakarta Sans', sans-serif; }
     h1, h2, h3, h4, .font-heading { font-family: 'Outfit', sans-serif; }
   </style>
+
 </head>
 <body class="bg-white text-slate-900 min-h-screen relative selection:bg-[#f2920b] selection:text-white flex flex-col justify-between">
 
   <div>
-    <!-- 1. TOP TICKER CON BOTÓN 'VOLVER' EN AZUL #3478a6 -->
-    <div class="bg-black border-b border-neutral-800 py-2 sm:py-2.5 px-4 z-50 relative">
+    <!-- 1. TOP TICKER EN AZUL #3478a6 COMPLETO -->
+    <div class="bg-[#3478a6] border-b border-[#2c668d] py-2 sm:py-2.5 px-4 z-50 relative text-white">
       <div class="max-w-[1700px] mx-auto flex items-center justify-between">
-        <!-- BOTÓN VOLVER CON FLECHA ATRÁS Y FONDO AZUL OFICIAL #3478a6 -->
-        <a href="../" class="inline-flex items-center gap-2 px-3.5 sm:px-4 py-1.5 rounded-full bg-[#3478a6] hover:bg-[#2c668d] active:bg-[#255677] text-white font-heading font-black text-xs sm:text-sm tracking-wider uppercase shadow-xs transition-all duration-300 hover:scale-105">
+        <!-- BOTÓN VOLVER CON FLECHA ATRÁS Y TEXTO EN BLANCO -->
+        <a href="../" class="inline-flex items-center gap-2 px-3.5 sm:px-4 py-1.5 rounded-full bg-white/15 hover:bg-white/25 active:bg-white/30 text-white font-heading font-black text-xs sm:text-sm tracking-wider uppercase transition">
           <i data-lucide="arrow-left" class="w-4 h-4 stroke-[3]"></i>
           <span>Volver</span>
         </a>
 
-        <!-- TEXTO INFORMATIVO SUAVE DERECHA -->
-        <span class="text-xs text-neutral-400 font-medium hidden sm:inline">
+        <!-- TEXTO INFORMATIVO DERECHA -->
+        <span class="text-xs text-white/90 font-medium hidden sm:inline">
           CoolPadel Studios · Blog & Newsletter
         </span>
       </div>
@@ -70,8 +60,6 @@
         
         <!-- DESKTOP NAVBAR (3 COLUMNAS) -->
         <div class="hidden sm:grid grid-cols-[1fr_auto_1fr] items-center h-full w-full gap-2 lg:gap-4">
-          
-          <!-- COLUMNA 1: OJOS + ENLACES (LLAVEROS Y BLOG) -->
           <div class="flex items-center justify-between min-w-0 h-full">
             <a href="../" class="group py-1 inline-flex items-center shrink-0">
               <img src="../assets/images/eyes-thumb.png?v=fixed_eyes" alt="CoolPadel Eyes" style="height: 24px; max-height: 24px; width: auto;" class="object-contain group-hover:scale-110 transition duration-300">
@@ -87,7 +75,6 @@
             </div>
           </div>
 
-          <!-- COLUMNA 2: MASCOTA + COOLPADEL CENTRADO -->
           <div class="flex items-center justify-center shrink-0 px-2 lg:px-4">
             <a href="../" class="flex items-center justify-center gap-2 sm:gap-3 group py-1">
               <img src="../assets/images/coolpadel-mascot-hd.png" alt="Mascota CoolPadel" style="height: 46px; max-height: 46px; width: auto;" class="object-contain group-hover:scale-105 transition">
@@ -95,26 +82,21 @@
             </a>
           </div>
 
-          <!-- COLUMNA 3: CONTACTAR + OJOS DERECHA -->
           <div class="flex items-center justify-end min-w-0 h-full gap-2 sm:gap-3 lg:gap-5">
-            <a href="https://wa.me/34680317486?text=Hola%20Javier" 
-               target="_blank" 
-               class="group relative inline-flex items-center gap-1.5 sm:gap-2 px-3.5 sm:px-5 lg:px-6 py-2 sm:py-2.5 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] active:bg-[#76d3f6] text-slate-950 active:scale-95 font-heading font-black text-xs sm:text-sm lg:text-base tracking-wider uppercase transition-all duration-300 shadow-[0_4px_15px_rgba(242,146,11,0.25)] hover:shadow-[0_10px_25px_rgba(118,211,246,0.4)] hover:scale-105 shrink-0 overflow-hidden">
+            <a href="https://wa.me/34680317486?text=Hola%20Javier" target="_blank" class="group relative inline-flex items-center gap-1.5 sm:gap-2 px-3.5 sm:px-5 lg:px-6 py-2 sm:py-2.5 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] active:bg-[#76d3f6] text-slate-950 active:scale-95 font-heading font-black text-xs sm:text-sm lg:text-base tracking-wider uppercase transition-all duration-300 shadow-[0_4px_15px_rgba(242,146,11,0.25)] hover:shadow-[0_10px_25px_rgba(118,211,246,0.4)] hover:scale-105 shrink-0 overflow-hidden">
               <span class="font-black">Contactar</span>
               <div class="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-slate-950/10 group-hover:bg-slate-950 group-hover:text-white flex items-center justify-center transition-all duration-300 shrink-0">
-                <i data-lucide="arrow-up-right" class="w-3 h-3 sm:w-3.5 sm:h-3.5 stroke-[3] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300"></i>
+                <i data-lucide="arrow-up-right" class="w-3 h-3 sm:w-3.5 sm:h-3.5 stroke-[3]"></i>
               </div>
             </a>
             <a href="../" class="group py-1 inline-flex items-center shrink-0">
               <img src="../assets/images/eyes-thumb.png?v=fixed_eyes" alt="CoolPadel Eyes" style="height: 24px; max-height: 24px; width: auto;" class="object-contain group-hover:scale-110 transition duration-300">
             </a>
           </div>
-
         </div>
 
-        <!-- MÓVIL NAVBAR (2 FILAS) -->
+        <!-- MÓVIL NAVBAR -->
         <div class="flex sm:hidden flex-col gap-1.5 py-1.5 w-full">
-          <!-- FILA 1: OJOS + LOGO + OJOS -->
           <div class="flex items-center justify-between w-full px-1">
             <a href="../" class="py-0.5 inline-flex items-center shrink-0">
               <img src="../assets/images/eyes-thumb.png?v=fixed_eyes" alt="CoolPadel Eyes" style="height: 18px; max-height: 18px; width: auto;" class="object-contain">
@@ -127,8 +109,6 @@
               <img src="../assets/images/eyes-thumb.png?v=fixed_eyes" alt="CoolPadel Eyes" style="height: 18px; max-height: 18px; width: auto;" class="object-contain">
             </a>
           </div>
-          
-          <!-- FILA 2: LLAVEROS + BLOG + BOTÓN CONTACTAR -->
           <div class="flex items-center justify-between w-full gap-1 pt-1 border-t border-slate-100 px-1">
             <div class="flex items-center gap-2">
               <a href="../#llaveros" class="font-heading font-black text-[11px] tracking-wider uppercase text-slate-950 hover:text-[#f2920b] transition whitespace-nowrap">
@@ -139,10 +119,7 @@
                 Blog
               </a>
             </div>
-
-            <a href="https://wa.me/34680317486?text=Hola%20Javier" 
-               target="_blank" 
-               class="group relative inline-flex items-center justify-center gap-1 px-3 py-1 rounded-full bg-[#f2920b] active:bg-[#76d3f6] text-slate-950 active:scale-95 font-heading font-black text-[10px] uppercase tracking-wider transition-all duration-300 shadow-sm shrink-0">
+            <a href="https://wa.me/34680317486?text=Hola%20Javier" target="_blank" class="group relative inline-flex items-center justify-center gap-1 px-3 py-1 rounded-full bg-[#f2920b] active:bg-[#76d3f6] text-slate-950 active:scale-95 font-heading font-black text-[10px] uppercase tracking-wider transition shadow-sm shrink-0">
               <span class="font-black">Contactar</span>
               <div class="w-3.5 h-3.5 rounded-full bg-slate-950/10 flex items-center justify-center">
                 <i data-lucide="arrow-up-right" class="w-2.5 h-2.5 stroke-[3]"></i>
@@ -159,7 +136,7 @@
       <div class="max-w-[1700px] mx-auto px-4 sm:px-6 lg:px-10">
         
         <!-- CABECERA DE SECCIÓN -->
-        <div class="max-w-3xl mx-auto text-center space-y-2 mb-8 sm:mb-12">
+        <div class="max-w-3xl mx-auto text-center space-y-2 mb-10 sm:mb-14">
           <h1 class="text-2xl sm:text-4xl font-black font-heading text-slate-950 uppercase tracking-tight">
             CONTENIDO EXCLUSIVO COOLPADEL
           </h1>
@@ -168,88 +145,85 @@
           </p>
         </div>
 
-        <!-- 3 NEWSLETTERS EN FILA DE IZQ A DCHA (MÁS RECIENTE A LA IZQUIERDA) -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 max-w-6xl mx-auto">
+        <!-- 3 NEWSLETTERS EN FILA DE IZQ A DCHA (MÁS GRANDES Y DESTACADAS) -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-10 max-w-7xl mx-auto">
           
           <!-- 1. HIGHLIGHTS #03 (IZQUIERDA - MÁS RECIENTE) -->
-          <div class="bg-white border border-slate-200/90 rounded-3xl p-4 sm:p-5 shadow-[0_20px_45px_-12px_rgba(0,0,0,0.14)] hover:shadow-[0_30px_60px_-10px_rgba(0,0,0,0.22)] transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1">
-            <div class="space-y-3">
-              <div class="aspect-[16/9] rounded-2xl overflow-hidden bg-slate-900 border border-slate-200/90 shadow-[0_15px_30px_-10px_rgba(0,0,0,0.35)] relative">
-                <img src="../assets/images/cover_highlights_03.jpg" alt="Highlights #03: How does the padel industry actually grow?" class="w-full h-full object-cover group-hover:scale-105 transition duration-700" loading="eager" decoding="async">
-              </div>
+          <div class="bg-white border border-slate-200/90 rounded-3xl p-6 sm:p-7 shadow-[0_20px_45px_-12px_rgba(0,0,0,0.14)] hover:shadow-[0_30px_60px_-10px_rgba(0,0,0,0.22)] transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1">
+            <div class="space-y-4">
+              <a href="./highlights-03/" class="block aspect-[16/9] rounded-2xl overflow-hidden bg-slate-900 border border-slate-200/90 shadow-[0_15px_30px_-10px_rgba(0,0,0,0.35)] relative">
+                <img src="../assets/images/cover_highlights_03.jpg" alt="Highlights #03: ¿Cómo crece realmente la industria del pádel?" class="w-full h-full object-cover group-hover:scale-105 transition duration-700" loading="eager" decoding="async">
+              </a>
 
               <div class="pt-1">
-                <h2 class="font-heading font-black text-lg sm:text-xl text-slate-950 leading-snug">
-                  How does the padel industry actually grow?
+                <h2 class="font-heading font-black text-xl sm:text-2xl text-slate-950 leading-snug">
+                  <span class="block text-sm font-black text-[#f2920b] uppercase tracking-wider mb-1">Highlights #03:</span>
+                  ¿Cómo crece realmente la industria del pádel?
                 </h2>
               </div>
             </div>
 
             <!-- BOTÓN ABRIR ARTÍCULO -->
-            <div class="pt-4 border-t border-slate-100 mt-4">
-              <a href="https://www.linkedin.com/pulse/how-does-padel-industry-actually-grow-c%C3%B3mo-crece-la-villoria-soleto-fwere" 
-                 target="_blank" 
-                 rel="noopener noreferrer"
-                 class="group relative w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] active:bg-[#76d3f6] text-slate-950 active:scale-95 font-heading font-black text-xs sm:text-sm uppercase tracking-wider transition-all duration-300 shadow-[0_4px_15px_rgba(242,146,11,0.25)] hover:shadow-[0_8px_25px_rgba(118,211,246,0.35)] hover:scale-[1.01] overflow-hidden">
+            <div class="pt-5 border-t border-slate-100 mt-5">
+              <a href="./highlights-03/" 
+                 class="group relative w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] active:bg-[#76d3f6] text-slate-950 active:scale-95 font-heading font-black text-xs sm:text-sm uppercase tracking-wider transition-all duration-300 shadow-[0_4px_15px_rgba(242,146,11,0.25)] hover:shadow-[0_8px_25px_rgba(118,211,246,0.35)] hover:scale-[1.01] overflow-hidden">
                 <span class="font-black">Leer Highlights #03</span>
                 <div class="w-5 h-5 rounded-full bg-slate-950/10 group-hover:bg-slate-950 group-hover:text-white flex items-center justify-center transition-all duration-300">
-                  <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 stroke-[3] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300"></i>
+                  <i data-lucide="arrow-right" class="w-3.5 h-3.5 stroke-[3] group-hover:translate-x-0.5 transition-transform duration-300"></i>
                 </div>
               </a>
             </div>
           </div>
 
           <!-- 2. HIGHLIGHTS #02 (CENTRO) -->
-          <div class="bg-white border border-slate-200/90 rounded-3xl p-4 sm:p-5 shadow-[0_20px_45px_-12px_rgba(0,0,0,0.14)] hover:shadow-[0_30px_60px_-10px_rgba(0,0,0,0.22)] transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1">
-            <div class="space-y-3">
-              <div class="aspect-[16/9] rounded-2xl overflow-hidden bg-slate-900 border border-slate-200/90 shadow-[0_15px_30px_-10px_rgba(0,0,0,0.35)] relative">
+          <div class="bg-white border border-slate-200/90 rounded-3xl p-6 sm:p-7 shadow-[0_20px_45px_-12px_rgba(0,0,0,0.14)] hover:shadow-[0_30px_60px_-10px_rgba(0,0,0,0.22)] transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1">
+            <div class="space-y-4">
+              <a href="./highlights-02/" class="block aspect-[16/9] rounded-2xl overflow-hidden bg-slate-900 border border-slate-200/90 shadow-[0_15px_30px_-10px_rgba(0,0,0,0.35)] relative">
                 <img src="../assets/images/cover_highlights_02.jpg" alt="Highlights #02: El Pádel debería estar lejos de ser un deporte olímpico" class="w-full h-full object-cover group-hover:scale-105 transition duration-700" loading="lazy" decoding="async">
-              </div>
+              </a>
 
               <div class="pt-1">
-                <h2 class="font-heading font-black text-lg sm:text-xl text-slate-950 leading-snug">
+                <h2 class="font-heading font-black text-xl sm:text-2xl text-slate-950 leading-snug">
+                  <span class="block text-sm font-black text-[#f2920b] uppercase tracking-wider mb-1">Highlights #02:</span>
                   El Pádel debería estar lejos de ser un deporte olímpico. ¿Por qué?
                 </h2>
               </div>
             </div>
 
             <!-- BOTÓN ABRIR ARTÍCULO -->
-            <div class="pt-4 border-t border-slate-100 mt-4">
-              <a href="https://www.linkedin.com/pulse/el-padel-deber%C3%ADa-estar-lejos-de-ser-un-deporte-por-villoria-soleto-tgrde" 
-                 target="_blank" 
-                 rel="noopener noreferrer"
-                 class="group relative w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] active:bg-[#76d3f6] text-slate-950 active:scale-95 font-heading font-black text-xs sm:text-sm uppercase tracking-wider transition-all duration-300 shadow-[0_4px_15px_rgba(242,146,11,0.25)] hover:shadow-[0_8px_25px_rgba(118,211,246,0.35)] hover:scale-[1.01] overflow-hidden">
+            <div class="pt-5 border-t border-slate-100 mt-5">
+              <a href="./highlights-02/" 
+                 class="group relative w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] active:bg-[#76d3f6] text-slate-950 active:scale-95 font-heading font-black text-xs sm:text-sm uppercase tracking-wider transition-all duration-300 shadow-[0_4px_15px_rgba(242,146,11,0.25)] hover:shadow-[0_8px_25px_rgba(118,211,246,0.35)] hover:scale-[1.01] overflow-hidden">
                 <span class="font-black">Leer Highlights #02</span>
                 <div class="w-5 h-5 rounded-full bg-slate-950/10 group-hover:bg-slate-950 group-hover:text-white flex items-center justify-center transition-all duration-300">
-                  <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 stroke-[3] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300"></i>
+                  <i data-lucide="arrow-right" class="w-3.5 h-3.5 stroke-[3] group-hover:translate-x-0.5 transition-transform duration-300"></i>
                 </div>
               </a>
             </div>
           </div>
 
           <!-- 3. HIGHLIGHTS #01 (DERECHA) -->
-          <div class="bg-white border border-slate-200/90 rounded-3xl p-4 sm:p-5 shadow-[0_20px_45px_-12px_rgba(0,0,0,0.14)] hover:shadow-[0_30px_60px_-10px_rgba(0,0,0,0.22)] transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1">
-            <div class="space-y-3">
-              <div class="aspect-[16/9] rounded-2xl overflow-hidden bg-slate-900 border border-slate-200/90 shadow-[0_15px_30px_-10px_rgba(0,0,0,0.35)] relative">
+          <div class="bg-white border border-slate-200/90 rounded-3xl p-6 sm:p-7 shadow-[0_20px_45px_-12px_rgba(0,0,0,0.14)] hover:shadow-[0_30px_60px_-10px_rgba(0,0,0,0.22)] transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1">
+            <div class="space-y-4">
+              <a href="./highlights-01/" class="block aspect-[16/9] rounded-2xl overflow-hidden bg-slate-900 border border-slate-200/90 shadow-[0_15px_30px_-10px_rgba(0,0,0,0.35)] relative">
                 <img src="../assets/images/cover_highlights_01.jpg" alt="Highlights #01: Padel World Summit 2026: Startup Recap" class="w-full h-full object-cover group-hover:scale-105 transition duration-700" loading="lazy" decoding="async">
-              </div>
+              </a>
 
               <div class="pt-1">
-                <h2 class="font-heading font-black text-lg sm:text-xl text-slate-950 leading-snug">
+                <h2 class="font-heading font-black text-xl sm:text-2xl text-slate-950 leading-snug">
+                  <span class="block text-sm font-black text-[#f2920b] uppercase tracking-wider mb-1">Highlights #01:</span>
                   Padel World Summit 2026: Startup Recap
                 </h2>
               </div>
             </div>
 
             <!-- BOTÓN ABRIR ARTÍCULO -->
-            <div class="pt-4 border-t border-slate-100 mt-4">
-              <a href="https://www.linkedin.com/pulse/padel-world-summit-2026-startup-recap-javier-villoria-soleto-c7hle/" 
-                 target="_blank" 
-                 rel="noopener noreferrer"
-                 class="group relative w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] active:bg-[#76d3f6] text-slate-950 active:scale-95 font-heading font-black text-xs sm:text-sm uppercase tracking-wider transition-all duration-300 shadow-[0_4px_15px_rgba(242,146,11,0.25)] hover:shadow-[0_8px_25px_rgba(118,211,246,0.35)] hover:scale-[1.01] overflow-hidden">
+            <div class="pt-5 border-t border-slate-100 mt-5">
+              <a href="./highlights-01/" 
+                 class="group relative w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] active:bg-[#76d3f6] text-slate-950 active:scale-95 font-heading font-black text-xs sm:text-sm uppercase tracking-wider transition-all duration-300 shadow-[0_4px_15px_rgba(242,146,11,0.25)] hover:shadow-[0_8px_25px_rgba(118,211,246,0.35)] hover:scale-[1.01] overflow-hidden">
                 <span class="font-black">Leer Highlights #01</span>
                 <div class="w-5 h-5 rounded-full bg-slate-950/10 group-hover:bg-slate-950 group-hover:text-white flex items-center justify-center transition-all duration-300">
-                  <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 stroke-[3] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300"></i>
+                  <i data-lucide="arrow-right" class="w-3.5 h-3.5 stroke-[3] group-hover:translate-x-0.5 transition-transform duration-300"></i>
                 </div>
               </a>
             </div>
@@ -258,7 +232,7 @@
         </div>
 
         <!-- DEBAJO AL DESLIZAR: REPORTAJE DE LA INDUSTRIA DEL PÁDEL CENTRADO -->
-        <div class="max-w-2xl mx-auto mt-12 sm:mt-16">
+        <div class="max-w-2xl mx-auto mt-14 sm:mt-20">
           <div class="bg-white border border-slate-200/90 rounded-3xl p-5 sm:p-7 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.18)] hover:shadow-[0_35px_65px_-10px_rgba(0,0,0,0.28)] transition-all duration-300 flex flex-col justify-between group">
             <div class="space-y-4">
               <div class="aspect-[16/10] rounded-2xl overflow-hidden bg-slate-900 border border-slate-200/90 shadow-[0_20px_40px_-10px_rgba(0,0,0,0.4)] group-hover:scale-[1.01] transition duration-500 relative">
@@ -300,7 +274,7 @@
     </main>
   </div>
 
-  <!-- FOOTER LIMPIO -->
+  <!-- FOOTER -->
   <footer class="bg-slate-950 text-white py-8 border-t border-slate-800 text-xs">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
       <div class="flex items-center gap-3">
@@ -312,13 +286,78 @@
         <a href="../#llaveros" class="hover:text-white transition">Llaveros</a>
         <a href="./" class="hover:text-white transition">Blog</a>
         <a href="https://wa.me/34680317486?text=Hola%20Javier" target="_blank" class="hover:text-[#f2920b] transition">WhatsApp</a>
+        <a href="https://www.instagram.com/coolpadel_/" target="_blank" rel="noopener noreferrer" class="opacity-40 hover:opacity-100 text-[11px] text-slate-500 transition">Instagram</a>
       </div>
     </div>
   </footer>
 
+  
   <script>
     lucide.createIcons();
 
+    // Tracking de visitas a Google Sheets Webhook
+    const GOOGLE_SHEETS_WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbxnF9JmVrikeAW7PdLc02r_1kkuSJVz1Ncl71ZeVGT37H0ji5DQ3DVw60122pcuYnxCgA/exec';
+    
+    function trackEvent(nombreEvento, metadata) {
+      try {
+        const payload = {
+          tipo: 'evento',
+          evento: nombreEvento,
+          url: window.location.href,
+          path: window.location.pathname,
+          referrer: document.referrer || '',
+          timestamp: new Date().toISOString(),
+          metadata: metadata || {}
+        };
+        fetch(GOOGLE_SHEETS_WEBHOOK_URL, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        }).catch(() => {});
+      } catch(e) {}
+    }
+
+    trackEvent('visita_blog_pagina', { pagina: window.location.pathname });
+
+    function handleNewsletterSub(e, edicion) {
+      e.preventDefault();
+      const form = e.target;
+      const input = form.querySelector('input[type="email"]');
+      const btn = form.querySelector('button');
+      const email = input.value.trim();
+      if (!email) return;
+
+      btn.disabled = true;
+      const originalText = btn.innerHTML;
+      btn.innerHTML = '<span>¡Suscrito con éxito!</span>';
+      btn.classList.add('bg-emerald-500', 'text-white');
+
+      try {
+        fetch(GOOGLE_SHEETS_WEBHOOK_URL, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            tipo: 'lead',
+            email: email,
+            fuente: 'Suscripción Newsletter ' + edicion,
+            url: window.location.href,
+            fecha: new Date().toISOString()
+          })
+        }).catch(() => {});
+      } catch(err) {}
+
+      setTimeout(() => {
+        input.value = '';
+        btn.disabled = false;
+        btn.innerHTML = originalText;
+        btn.classList.remove('bg-emerald-500', 'text-white');
+      }, 3500);
+    }
+  </script>
+
+  <script>
     function handleReportDownload(e) {
       e.preventDefault();
       const email = document.getElementById('report-email-input').value;
@@ -330,7 +369,7 @@
       btn.classList.add('bg-emerald-500', 'text-white');
 
       try {
-        fetch('https://script.google.com/macros/s/AKfycbzTf3B5WlQo-c_9G9j5M_LwXhJk7_3a/exec', {
+        fetch(GOOGLE_SHEETS_WEBHOOK_URL, {
           method: 'POST',
           mode: 'no-cors',
           headers: { 'Content-Type': 'application/json' },

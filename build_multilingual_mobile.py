@@ -2,10 +2,51 @@ import os
 import json
 from translations_data import TRANSLATIONS
 
+CLUB_NAMES_MAP = {
+    2: 'Club de Tenis Cambados',
+    3: 'Pinondo Padel Zaleak',
+    4: 'Tenis Club El Soto (Zaragoza)',
+    5: 'Fiorfiore Padel (Italia)',
+    6: 'Tennis Life Canzo (Italia)',
+    7: 'Club Deportivo Pádel Higueruela',
+    8: 'Vitasports Escuela de Tenis y Pádel',
+    9: 'Club de Pádel Ortigueira',
+    10: "Tennis Club Sant'Agostino (Italia)",
+    11: 'Tennis Arca (Italia)',
+    12: 'Club Tennis Reus Monterols',
+    13: 'Club Pádel Vilamalla',
+    14: "Padel Club Cabrera d'Anoia",
+    15: 'ALM Évreux Tennis Padel (Francia)',
+    16: 'Club Green Park (Italia)',
+    17: 'Royal Excelsior Tennis Club (Bélgica)',
+    18: 'Le Garden Rennes (Francia)',
+    19: 'Austrian Padel Union (Federación Austríaca)',
+    20: 'Padel Alba (Alicante)',
+    21: 'Padeleiros Vigo',
+    22: 'CBS Padel (Copenhague)',
+    23: 'USP Tennis 17 (París)',
+    24: 'Padel Kiosk (Bélgica)',
+    25: 'Padel Addict',
+    26: 'Backspin Academy (Madrid)',
+    27: 'Espacio Herrería (Madrid)',
+}
+
 def get_base_html(active_lang="es", is_subfolder=False):
     t = TRANSLATIONS[active_lang]
     asset_prefix = "../" if is_subfolder else ""
     
+    ticker_items = []
+    for i in list(range(2, 28)) * 2:
+        c_name = CLUB_NAMES_MAP.get(i, f"Club #{i}")
+        ticker_items.append(
+            f'<div class="flex items-center justify-center shrink-0 px-2.5 sm:px-5 group">'
+            f'<img src="{asset_prefix}assets/images/Clubs/client-{str(i).zfill(2)}.png" '
+            f'alt="Llavero de pádel personalizado - {c_name}" '
+            f'class="h-10 sm:h-14 lg:h-16 w-auto max-w-[110px] sm:max-w-[180px] object-contain transition-all duration-300 hover:scale-110" '
+            f'loading="lazy" decoding="async"></div>'
+        )
+    ticker_html = "".join(ticker_items)
+
     # Pre-calcular JSON de traducciones para inyectar en JS
     translations_json = json.dumps(TRANSLATIONS, ensure_ascii=False)
 
@@ -40,10 +81,10 @@ def get_base_html(active_lang="es", is_subfolder=False):
   <link rel="alternate" hreflang="x-default" href="https://coolpadelstudios.com/">
   
   <!-- Geo-Targeting & International SEO -->
-  <meta name="geo.region" content="ES">
-  <meta name="geo.placename" content="España">
-  <meta name="geo.position" content="40.4168;-3.7038">
-  <meta name="ICBM" content="40.4168, -3.7038">
+  <meta name="geo.region" content="ES-M">
+  <meta name="geo.placename" content="Madrid, Chamartín">
+  <meta name="geo.position" content="40.4589;-3.6761">
+  <meta name="ICBM" content="40.4589, -3.6761">
   <meta name="language" content="{active_lang}">
   <meta name="coverage" content="Worldwide">
   <meta name="distribution" content="Global">
@@ -80,6 +121,10 @@ def get_base_html(active_lang="es", is_subfolder=False):
           "url": "https://coolpadelstudios.com/assets/images/coolpadel-mascot-hd.png"
         }},
         "description": "Fabricante y distribuidor directo de llaveros de pádel personalizados de goma 3D para clubes deportivos y marcas.",
+        "sameAs": [
+          "https://www.instagram.com/coolpadel_/",
+          "https://www.linkedin.com/in/javier-villoria-soleto-606737298/"
+        ],
         "areaServed": [
           "ES", "IT", "FR", "PT", "DE", "GB", "US", "AE", "Worldwide"
         ],
@@ -243,25 +288,33 @@ def get_base_html(active_lang="es", is_subfolder=False):
       {{
         "@type": "LocalBusiness",
         "@id": "https://coolpadelstudios.com/#localbusiness",
-        "name": "CoolPadel Studios",
+        "name": "CoolPadel",
         "image": "https://coolpadelstudios.com/assets/images/coolpadel-mascot-hd.png",
         "url": "https://coolpadelstudios.com",
         "telephone": "+34-680-31-74-86",
         "priceRange": "€€",
         "address": {{
           "@type": "PostalAddress",
+          "streetAddress": "Chamartín",
+          "postalCode": "28036",
+          "addressLocality": "Madrid",
+          "addressRegion": "Comunidad de Madrid",
           "addressCountry": "ES"
         }},
         "geo": {{
           "@type": "GeoCoordinates",
-          "latitude": 40.4168,
-          "longitude": -3.7038
+          "latitude": 40.4589,
+          "longitude": -3.6761
         }},
+        "sameAs": [
+          "https://www.instagram.com/coolpadel_/",
+          "https://www.linkedin.com/in/javier-villoria-soleto-606737298/"
+        ],
         "openingHoursSpecification": {{
           "@type": "OpeningHoursSpecification",
-          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-          "opens": "09:00",
-          "closes": "19:00"
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+          "opens": "00:00",
+          "closes": "23:59"
         }}
       }},
       {{
@@ -756,7 +809,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
   <section class="py-2.5 sm:py-3.5 bg-white border-y border-slate-200 overflow-hidden shadow-xs">
     <div class="ticker-wrap py-0.5">
       <div class="ticker-content animate-ticker-trusted flex items-center gap-5 sm:gap-10 lg:gap-12">
-        {"".join([f'<div class="flex items-center justify-center shrink-0 px-2.5 sm:px-5 group"><img src="{asset_prefix}assets/images/Clubs/client-{str(i).zfill(2)}.png" alt="Club Deportivo Partner Oficial CoolPadel #{str(i).zfill(2)}" class="h-10 sm:h-14 lg:h-16 w-auto max-w-[110px] sm:max-w-[180px] object-contain transition-all duration-300 hover:scale-110" loading="lazy" decoding="async"></div>' for i in (list(range(2, 28)) * 2)])}
+        {ticker_html}
       </div>
     </div>
   </section>
@@ -1120,10 +1173,12 @@ def get_base_html(active_lang="es", is_subfolder=False):
       </div>
 
       <!-- COPYRIGHT Y TRIGGER DE MODO ADMIN (TRIPLE CLIC) -->
-      <div class="mt-10 pt-6 border-t border-white/10 text-center select-none">
-        <p id="admin-toggle-trigger" class="text-xs text-white/50 hover:text-white/80 transition cursor-pointer inline-block" title="Modo Administrador">
+      <div class="mt-10 pt-6 border-t border-white/10 text-center select-none flex flex-col sm:flex-row items-center justify-center gap-2 text-xs text-white/50">
+        <span id="admin-toggle-trigger" class="hover:text-white/80 transition cursor-pointer" title="Modo Administrador">
           © 2026 CoolPadel Studios · All rights reserved
-        </p>
+        </span>
+        <span class="hidden sm:inline opacity-30">·</span>
+        <a href="https://www.instagram.com/coolpadel_/" target="_blank" rel="noopener noreferrer" class="opacity-30 hover:opacity-75 text-[11px] transition text-white/70" title="Instagram CoolPadel">@coolpadel_</a>
       </div>
 
     </div>
@@ -1773,17 +1828,16 @@ def get_base_html(active_lang="es", is_subfolder=False):
           center: [45.0, 4.0],
           zoom: 5,
           minZoom: 3,
-          maxZoom: 18,
+          maxZoom: 16,
           scrollWheelZoom: false
         }});
 
         leafletMapInstance.on('focus', () => leafletMapInstance.scrollWheelZoom.enable());
         leafletMapInstance.on('click', () => leafletMapInstance.scrollWheelZoom.enable());
 
-        L.tileLayer('https://{{s}}.basemaps.cartocdn.com/light_all/{{z}}/{{x}}/{{y}}{{r}}.png', {{
-          attribution: '&copy; <a href=\"https://www.openstreetmap.org/copyright\">OpenStreetMap</a> contributors &copy; <a href=\"https://carto.com/attributions\">CARTO</a>',
-          subdomains: 'abcd',
-          maxZoom: 19
+        L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{{z}}/{{y}}/{{x}}', {{
+          attribution: 'Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ',
+          maxZoom: 16
         }}).addTo(leafletMapInstance);
 
         const createPinIcon = () => L.divIcon({{
@@ -2702,6 +2756,24 @@ def build_all():
     <lastmod>2026-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://coolpadelstudios.com/blog/highlights-03/</loc>
+    <lastmod>2026-10-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://coolpadelstudios.com/blog/highlights-02/</loc>
+    <lastmod>2026-10-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://coolpadelstudios.com/blog/highlights-01/</loc>
+    <lastmod>2026-10-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://coolpadelstudios.com/camaras/</loc>
