@@ -1,5 +1,6 @@
 import os
 import json
+import urllib.parse
 from translations_data import TRANSLATIONS
 
 CLUB_NAMES_MAP = {
@@ -38,38 +39,29 @@ def get_base_html(active_lang="es", is_subfolder=False):
     asset_prefix = "../" if is_subfolder else ""
     
     ticker_items = []
-    for i in list(range(2, 28)) * 2:
+    for idx, i in enumerate(list(range(2, 28)) * 2):
         c_name = CLUB_NAMES_MAP.get(i, f"Club #{i}")
+        is_duplicate = idx >= 26
+        aria_attr = ' aria-hidden="true"' if is_duplicate else ''
+        alt_text = "" if is_duplicate else f"Logo de {c_name}, club cliente de CoolPadel Studios"
         ticker_items.append(
-            f'<div class="flex items-center justify-center shrink-0 px-2.5 sm:px-5 group">'
+            f'<div class="flex items-center justify-center shrink-0 px-2.5 sm:px-5 group"{aria_attr}>'
             f'<img src="{asset_prefix}assets/images/Clubs/client-{str(i).zfill(2)}.png" '
-            f'alt="Llavero de pádel personalizado - {c_name}" '
+            f'alt="{alt_text}" '
             f'class="h-10 sm:h-14 lg:h-16 w-auto max-w-[110px] sm:max-w-[180px] object-contain transition-all duration-300 hover:scale-110" '
             f'loading="lazy" decoding="async"></div>'
         )
     ticker_html = "".join(ticker_items)
+
+    club_list_items = [f"<li>{cname}</li>" for cid, cname in sorted(CLUB_NAMES_MAP.items())]
+    club_list_html = "".join(club_list_items)
+    wa_prefilled_encoded = urllib.parse.quote(t.get('wa_prefilled_msg', 'Hola Javier'))
 
     # Pre-calcular JSON de traducciones para inyectar en JS
     translations_json = json.dumps(TRANSLATIONS, ensure_ascii=False)
 
     og_locales = {"es": "es_ES", "en": "en_US", "fr": "fr_FR", "it": "it_IT"}
     og_locale = og_locales.get(active_lang, "es_ES")
-
-    lang_keywords = {
-        "es": "llaveros de padel, llaveros personalizados padel, llaveros padel, llaveros de pádel, llaveros de padel personalizados, llavero padel, llaveros padel personalizados, llaveros para clubs de padel, llavero pala padel, llavero padel 3d, comprar llaveros de padel, llaveros personalizados tenis, merchandising clubes padel, regalos torneos padel, coolpadel",
-        "en": "custom padel keychains, padel keychains, personalized padel keyrings, padel racket keychain, custom 3d padel keyring, padel club merchandising, padel tournament gifts, coolpadel",
-        "fr": "porte clés padel personnalisé, porte clé padel, porte-clés club de padel, goodies padel, raquette padel porte clé, cadeaux tournoi padel, merchandising club padel, coolpadel",
-        "it": "portachiavi padel personalizzati, portachiavi padel, portachiavi racchetta padel, gadget padel personalizzati, merchandising club padel, regali tornei padel, portachiavi 3d padel, coolpadel"
-    }
-    keywords_content = lang_keywords.get(active_lang, lang_keywords["es"])
-
-    geo_configs = {
-        "es": {"region": "ES-M", "placename": "Madrid, Chamartín", "pos": "40.4589;-3.6761", "icbm": "40.4589, -3.6761"},
-        "en": {"region": "GB, US", "placename": "London, New York, International", "pos": "51.5074;-0.1278", "icbm": "51.5074, -0.1278"},
-        "fr": {"region": "FR", "placename": "Paris, France", "pos": "48.8566;2.3522", "icbm": "48.8566, 2.3522"},
-        "it": {"region": "IT", "placename": "Roma, Milano, Italia", "pos": "41.9028;12.4964", "icbm": "41.9028, 12.4964"}
-    }
-    geo_data = geo_configs.get(active_lang, geo_configs["es"])
 
     html = f"""<!DOCTYPE html>
 <html lang="{active_lang}" class="scroll-smooth">
@@ -78,8 +70,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{t['meta_title']}</title>
   <meta name="description" content="{t['meta_desc']}">
-  <meta name="keywords" content="{keywords_content}">
-  <meta name="author" content="CoolPadel">
+  <meta name="author" content="CoolPadel Studios">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
   <link rel="canonical" href="https://coolpadelstudios.com/{active_lang + '/' if is_subfolder else ''}">
   <link rel="icon" type="image/png" href="{asset_prefix}assets/images/favicon_transparente.png?v=transp3">
@@ -89,7 +80,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
   <meta name="theme-color" content="#0b1626">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="apple-mobile-web-app-title" content="CoolPadel">
+  <meta name="apple-mobile-web-app-title" content="CoolPadel Studios">
 
   <!-- Etiquetas Hreflang para SEO Internacional Multilingüe -->
   <link rel="alternate" hreflang="es" href="https://coolpadelstudios.com/">
@@ -97,21 +88,12 @@ def get_base_html(active_lang="es", is_subfolder=False):
   <link rel="alternate" hreflang="fr" href="https://coolpadelstudios.com/fr/">
   <link rel="alternate" hreflang="it" href="https://coolpadelstudios.com/it/">
   <link rel="alternate" hreflang="x-default" href="https://coolpadelstudios.com/">
-  
-  <!-- Geo-Targeting & International SEO -->
-  <meta name="geo.region" content="{geo_data['region']}">
-  <meta name="geo.placename" content="{geo_data['placename']}">
-  <meta name="geo.position" content="{geo_data['pos']}">
-  <meta name="ICBM" content="{geo_data['icbm']}">
   <meta name="language" content="{active_lang}">
-  <meta name="coverage" content="Worldwide">
-  <meta name="distribution" content="Global">
-  <meta name="rating" content="General">
 
   <!-- Open Graph / WhatsApp / Facebook / LinkedIn Previews -->
   <meta property="og:type" content="website">
   <meta property="og:locale" content="{og_locale}">
-  <meta property="og:site_name" content="CoolPadel">
+  <meta property="og:site_name" content="CoolPadel Studios">
   <meta property="og:url" content="https://coolpadelstudios.com/{active_lang + '/' if is_subfolder else ''}">
   <meta property="og:title" content="{t['meta_title']}">
   <meta property="og:description" content="{t['meta_desc']}">
@@ -132,11 +114,17 @@ def get_base_html(active_lang="es", is_subfolder=False):
       {{
         "@type": "Organization",
         "@id": "https://coolpadelstudios.com/#organization",
-        "name": "CoolPadel",
+        "name": "CoolPadel Studios",
+        "alternateName": ["CoolPadel", "CoolPadel Madrid"],
         "url": "https://coolpadelstudios.com",
         "logo": {{
           "@type": "ImageObject",
           "url": "https://coolpadelstudios.com/assets/images/coolpadel-mascot-hd.png"
+        }},
+        "founder": {{
+          "@type": "Person",
+          "name": "Javier Villoria",
+          "sameAs": "https://www.linkedin.com/in/javier-villoria-soleto-606737298/"
         }},
         "description": "Fabricante y distribuidor directo de llaveros de pádel personalizados de goma 3D para clubes deportivos y marcas.",
         "sameAs": [
@@ -169,7 +157,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
         "contactPoint": {{
           "@type": "ContactPoint",
           "telephone": "+34-680-31-74-86",
-          "contactType": "customer service",
+          "contactType": "sales",
           "email": "javier@coolpadelstudios.com",
           "availableLanguage": ["Spanish", "English", "French", "Italian"]
         }}
@@ -178,7 +166,8 @@ def get_base_html(active_lang="es", is_subfolder=False):
         "@type": "WebSite",
         "@id": "https://coolpadelstudios.com/#website",
         "url": "https://coolpadelstudios.com",
-        "name": "CoolPadel",
+        "name": "CoolPadel Studios",
+        "alternateName": "CoolPadel",
         "publisher": {{ "@id": "https://coolpadelstudios.com/#organization" }},
         "inLanguage": "{active_lang}"
       }},
@@ -202,7 +191,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
       {{
         "@type": "Product",
         "@id": "https://coolpadelstudios.com/#product-llaveros-padel",
-        "name": "Llaveros de Pádel Personalizados - CoolPadel",
+        "name": "Llaveros de Pádel Personalizados - CoolPadel Studios",
         "alternateName": [
           "Llaveros de pádel",
           "Llaveros de padel",
@@ -431,31 +420,6 @@ def get_base_html(active_lang="es", is_subfolder=False):
               "@type": "Answer",
               "text": "{t_clean['faq_a10']}"
             }}
-          }}
-        ]
-      }},
-      {{
-        "@type": "WebSite",
-        "@id": "https://coolpadelstudios.com/#website",
-        "url": "https://coolpadelstudios.com/",
-        "name": "CoolPadel Studios",
-        "description": "Fabricante y distribuidor directo de llaveros de pádel personalizados de goma 3D con logo oficial.",
-        "inLanguage": ["es", "en", "fr", "it"]
-      }},
-      {{
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-          {{
-            "@type": "ListItem",
-            "position": 1,
-            "name": "CoolPadel",
-            "item": "https://coolpadelstudios.com/"
-          }},
-          {{
-            "@type": "ListItem",
-            "position": 2,
-            "name": "Llaveros de Pádel Personalizados",
-            "item": "https://coolpadelstudios.com/#llaveros"
           }}
         ]
       }}
@@ -781,7 +745,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
           </div>
 
           <!-- BOTÓN CONTACTAR -->
-          <a id="nav-contact-btn" href="https://wa.me/34680317486?text={t['wa_prefilled_msg']}" 
+          <a id="nav-contact-btn" href="https://wa.me/34680317486?text={wa_prefilled_encoded}" 
              target="_blank" 
              class="group relative inline-flex items-center gap-1.5 sm:gap-2 px-3.5 sm:px-5 lg:px-6 py-2 sm:py-2.5 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] active:bg-[#76d3f6] text-slate-950 active:scale-95 font-heading font-black text-xs sm:text-sm lg:text-base tracking-wider uppercase transition-all duration-300 shadow-[0_4px_15px_rgba(242,146,11,0.25)] hover:shadow-[0_10px_25px_rgba(118,211,246,0.4)] hover:scale-105 shrink-0 overflow-hidden">
             <span data-i18n="nav_contact" class="font-black">{t['nav_contact']}</span>
@@ -791,8 +755,8 @@ def get_base_html(active_lang="es", is_subfolder=False):
           </a>
 
           <!-- OJOS A LA DERECHA DEL TODO (SIEMPRE VISIBLE) -->
-          <a href="{asset_prefix}#" class="group py-1 inline-flex items-center shrink-0">
-            <img src="{asset_prefix}assets/images/eyes-thumb.png?v=fixed_eyes" alt="CoolPadel Eyes" style="height: 24px; max-height: 24px; width: auto;" class="object-contain group-hover:scale-110 transition duration-300">
+          <a href="{asset_prefix}#" class="group py-1 inline-flex items-center shrink-0" aria-label="CoolPadel Studios Home">
+            <img src="{asset_prefix}assets/images/eyes-thumb.png?v=fixed_eyes" alt="" aria-hidden="true" style="height: 24px; max-height: 24px; width: auto;" class="object-contain group-hover:scale-110 transition duration-300">
           </a>
         </div>
 
@@ -802,15 +766,15 @@ def get_base_html(active_lang="es", is_subfolder=False):
       <div class="flex sm:hidden flex-col gap-1.5 py-1.5 w-full">
         <!-- FILA 1: OJOS IZQ + [MASCOTA + COOLPADEL CENTRADO] + OJOS DER -->
         <div class="flex items-center justify-between w-full px-1">
-          <a href="{asset_prefix}#" class="py-0.5 inline-flex items-center shrink-0">
-            <img src="{asset_prefix}assets/images/eyes-thumb.png?v=fixed_eyes" alt="CoolPadel Eyes" style="height: 18px; max-height: 18px; width: auto;" class="object-contain">
+          <a href="{asset_prefix}#" class="py-0.5 inline-flex items-center shrink-0" aria-label="CoolPadel Studios Home">
+            <img src="{asset_prefix}assets/images/eyes-thumb.png?v=fixed_eyes" alt="" aria-hidden="true" style="height: 18px; max-height: 18px; width: auto;" class="object-contain">
           </a>
           <a href="{asset_prefix}#" class="flex items-center justify-center gap-1.5 py-0.5">
-            <img src="{asset_prefix}assets/images/coolpadel-mascot-hd.png" alt="Mascota CoolPadel" style="height: 28px; max-height: 28px; width: auto;" class="object-contain">
-            <img src="{asset_prefix}assets/images/coolpadel-typography-hd.png" alt="CoolPadel" style="height: 18px; max-height: 18px; width: auto;" class="object-contain">
+            <img src="{asset_prefix}assets/images/coolpadel-mascot-hd.png" alt="Mascota CoolPadel Studios" style="height: 28px; max-height: 28px; width: auto;" class="object-contain">
+            <img src="{asset_prefix}assets/images/coolpadel-typography-hd.png" alt="CoolPadel Studios" style="height: 18px; max-height: 18px; width: auto;" class="object-contain">
           </a>
-          <a href="{asset_prefix}#" class="py-0.5 inline-flex items-center shrink-0">
-            <img src="{asset_prefix}assets/images/eyes-thumb.png?v=fixed_eyes" alt="CoolPadel Eyes" style="height: 18px; max-height: 18px; width: auto;" class="object-contain">
+          <a href="{asset_prefix}#" class="py-0.5 inline-flex items-center shrink-0" aria-label="CoolPadel Studios Home">
+            <img src="{asset_prefix}assets/images/eyes-thumb.png?v=fixed_eyes" alt="" aria-hidden="true" style="height: 18px; max-height: 18px; width: auto;" class="object-contain">
           </a>
         </div>
         
@@ -849,7 +813,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
               </div>
             </div>
 
-            <a id="nav-contact-btn-mob" href="https://wa.me/34680317486?text={t['wa_prefilled_msg']}" 
+            <a id="nav-contact-btn-mob" href="https://wa.me/34680317486?text={wa_prefilled_encoded}" 
                target="_blank" 
                class="group relative inline-flex items-center justify-center gap-1 px-3 py-1 rounded-full bg-[#f2920b] active:bg-[#76d3f6] text-slate-950 active:scale-95 font-heading font-black text-[10px] uppercase tracking-wider transition-all duration-300 shadow-sm shrink-0">
               <span data-i18n="nav_contact" class="font-black">{t['nav_contact']}</span>
@@ -914,10 +878,11 @@ def get_base_html(active_lang="es", is_subfolder=False):
   <section id="llaveros" itemscope itemtype="https://schema.org/Product" class="py-14 sm:py-20 bg-[#3478a6] relative border-b border-sky-700/40 text-white overflow-hidden">
     <!-- GEO & Generative AI Semantic Microdata Block (Invisible visually, accessible to Screen Readers and AI Crawlers) -->
     <div class="sr-only">
-      <h2 itemprop="name">Llaveros de Pádel Personalizados</h2>
-      <p itemprop="description">Fabricación oficial de llaveros de pádel personalizados de goma 3D con el logo del club o torneo. Muestras desde 15€ con envíos incluidos a España, Europa y Estados Unidos. Pedidos desde 100 unidades con tarifa directa de fábrica.</p>
-      <span itemprop="brand" itemscope itemtype="https://schema.org/Brand"><meta itemprop="name" content="CoolPadel"></span>
-      <span itemprop="category">Sporting Goods &gt; Racquet Sports &gt; Padel &gt; Accessories &gt; Keychains</span>
+      <h2 itemprop="name">Llaveros de Pádel Personalizados 3D CoolPadel Studios</h2>
+      <p itemprop="description">Fabricante B2B especializado en llaveros de pádel y tenis personalizados en relieve 3D de goma microinyectada de alta densidad para clubes, torneos y federaciones. Pedidos al por mayor desde 100 unidades con tarifa directa de fábrica de 1,50€ a 3,00€ por unidad. Muestra física real personalizada previa por 15€ con envío incluido (100% reembolsable con el pedido final). Entrega en 7-10 días hábiles en España, Europa y EE. UU. No venta a particulares de unidades sueltas.</p>
+      <span itemprop="brand" itemscope itemtype="https://schema.org/Brand"><meta itemprop="name" content="CoolPadel Studios"></span>
+      <meta itemprop="category" content="Sporting Goods &gt; Racquet Sports &gt; Padel &gt; Accessories &gt; Keychains">
+      <meta itemprop="material" content="Goma PVC microinyección 3D de alta densidad con anilla metálica reforzada">
       <div itemprop="offers" itemscope itemtype="https://schema.org/AggregateOffer">
         <meta itemprop="priceCurrency" content="EUR">
         <meta itemprop="lowPrice" content="1.50">
@@ -974,6 +939,45 @@ def get_base_html(active_lang="es", is_subfolder=False):
 
         <div class="space-y-6">
           
+          <!-- Tabla estática oficial para crawlers de IA y accesibilidad (Sin impacto visual) -->
+          <table class="sr-only">
+            <caption>Tarifas oficiales de fabricación al por mayor de llaveros de pádel personalizados 3D CoolPadel Studios</caption>
+            <thead>
+              <tr>
+                <th scope="col">Tramo de volumen</th>
+                <th scope="col">Precio unitario</th>
+                <th scope="col">Importe estimado</th>
+                <th scope="col">Condiciones y Muestra</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>100 unidades (Pedido mínimo)</td>
+                <td>3,00 € / ud</td>
+                <td>300 € (+IVA)</td>
+                <td>Muestra física previa: 15€ (100% reembolsable en el pedido)</td>
+              </tr>
+              <tr>
+                <td>250 unidades</td>
+                <td>2,40 € / ud</td>
+                <td>600 € (+IVA)</td>
+                <td>Muestra física previa incluida y deducible</td>
+              </tr>
+              <tr>
+                <td>500 unidades</td>
+                <td>2,00 € / ud</td>
+                <td>1.000 € (+IVA)</td>
+                <td>Muestra física previa incluida y envíos directos</td>
+              </tr>
+              <tr>
+                <td>1.500 unidades</td>
+                <td>1,50 € / ud</td>
+                <td>2.250 € (+IVA)</td>
+                <td>Tarifa directa de fábrica al por mayor</td>
+              </tr>
+            </tbody>
+          </table>
+          
           <!-- Slider y Contador -->
           <div>
             <div class="flex justify-between items-end mb-3">
@@ -1003,7 +1007,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
                   <div id="slider-thumb" 
                        class="absolute top-1/2 -translate-x-1/2 -translate-y-1/2 w-10 sm:w-11 h-5 sm:h-6 flex items-center justify-center cursor-grab active:cursor-grabbing hover:scale-115 active:scale-125 transition-all duration-300 z-30 pointer-events-none"
                        style="left: 0%;">
-                    <img src="{asset_prefix}assets/images/eyes-thumb.png" alt="Ojos CoolPadel" class="w-full h-full object-contain drop-shadow-[0_3px_5px_rgba(0,0,0,0.35)] select-none">
+                    <img src="{asset_prefix}assets/images/eyes-thumb.png" alt="" aria-hidden="true" class="w-full h-full object-contain drop-shadow-[0_3px_5px_rgba(0,0,0,0.35)] select-none">
                   </div>
                 </div>
                 
@@ -1021,7 +1025,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
 
           <!-- Botón de WhatsApp Contactar Premium -->
           <div class="pt-2">
-            <a id="calc-wa-btn" href="https://wa.me/34680317486?text={t['wa_prefilled_msg']}" target="_blank" class="group relative w-full py-4 sm:py-4.5 rounded-2xl font-heading font-black text-base sm:text-lg uppercase tracking-wider bg-[#f2920b] hover:bg-[#76d3f6] active:bg-[#76d3f6] text-slate-950 shadow-[0_10px_25px_rgba(242,146,11,0.35)] hover:shadow-[0_16px_35px_rgba(118,211,246,0.45)] hover:scale-[1.01] active:scale-[0.98] flex items-center justify-center gap-3 transition-all duration-300 overflow-hidden">
+            <a id="calc-wa-btn" href="https://wa.me/34680317486?text={wa_prefilled_encoded}" target="_blank" class="group relative w-full py-4 sm:py-4.5 rounded-2xl font-heading font-black text-base sm:text-lg uppercase tracking-wider bg-[#f2920b] hover:bg-[#76d3f6] active:bg-[#76d3f6] text-slate-950 shadow-[0_10px_25px_rgba(242,146,11,0.35)] hover:shadow-[0_16px_35px_rgba(118,211,246,0.45)] hover:scale-[1.01] active:scale-[0.98] flex items-center justify-center gap-3 transition-all duration-300 overflow-hidden">
               <span data-i18n="btn_calc_wa" class="font-black">{t['btn_calc_wa']}</span>
               <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-slate-950/10 group-hover:bg-slate-950 group-hover:text-white flex items-center justify-center transition-all duration-300">
                 <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 sm:w-4 sm:h-4 stroke-[3] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300"></i>
@@ -1052,6 +1056,14 @@ def get_base_html(active_lang="es", is_subfolder=False):
 
       <!-- CONTENEDOR DEL MAPA Y DETALLES -->
       <div class="bg-white rounded-3xl p-4 sm:p-7 border border-slate-200/90 shadow-lg">
+        
+        <!-- Listado semántico HTML accesible de clubes para indexación de clientes y GEO (sr-only) -->
+        <div class="sr-only">
+          <h4>Clubes, academias y federaciones clientes oficiales de CoolPadel Studios:</h4>
+          <ul>
+            {club_list_html}
+          </ul>
+        </div>
         
         <!-- FILTROS POR REGIÓN -->
         <div class="flex items-center justify-center gap-1.5 sm:gap-2.5 flex-wrap pb-4 sm:pb-6 border-b border-slate-100" id="map-filter-bar">
@@ -1277,7 +1289,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
           </a>
 
           <!-- BOTÓN WHATSAPP OFICIAL EN CONTACTO -->
-          <a id="contact-wa-btn" href="https://wa.me/34680317486?text={t['wa_prefilled_msg']}" 
+          <a id="contact-wa-btn" href="https://wa.me/34680317486?text={wa_prefilled_encoded}" 
              target="_blank" 
              class="group inline-flex items-center gap-3 px-8 sm:px-9 py-3 sm:py-3.5 rounded-full bg-[#25D366] hover:bg-[#20ba59] active:bg-[#20ba59] text-white font-sans font-black text-xs sm:text-sm tracking-wider uppercase shadow-md hover:shadow-xl hover:scale-105 active:scale-95 transition-all duration-300">
             <svg class="w-4 h-4 sm:w-5 sm:h-5 fill-current" viewBox="0 0 24 24">
@@ -1304,7 +1316,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
   </section>
 
   <!-- BOTÓN FLOTANTE OFICIAL DE WHATSAPP -->
-  <a id="floating-wa-btn" href="https://wa.me/34680317486?text={t['wa_prefilled_msg']}" 
+  <a id="floating-wa-btn" href="https://wa.me/34680317486?text={wa_prefilled_encoded}" 
      target="_blank" 
      class="fixed bottom-5 right-5 sm:bottom-6 sm:right-6 z-50 p-3.5 sm:p-4 rounded-full bg-[#25D366] text-white shadow-[0_10px_30px_rgba(37,211,102,0.45)] hover:bg-[#20ba59] hover:scale-110 active:scale-95 transition flex items-center justify-center group"
      title="Hablar por WhatsApp con Javier">
