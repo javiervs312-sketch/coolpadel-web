@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Manual de Marca Oficial | CoolPadel Studios</title>
+  <title>Manual de Marca Oficial v2.0 | CoolPadel</title>
   <link rel="icon" type="image/png" href="assets/images/favicon_transparente.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,15 +20,14 @@
           },
           colors: {
             cool: {
+              pistaBlue: '#3478a6',
               orange: '#f3930b',
               orangeDark: '#d97706',
               cyan: '#7ed5f5',
-              cyanDark: '#38bdf8',
               espresso: '#251810',
               navy: '#0b1626',
               navyLight: '#0e1d33',
-              card: '#132845',
-              border: 'rgba(126, 213, 245, 0.18)'
+              card: '#132845'
             }
           }
         }
@@ -38,381 +37,294 @@
   <style>
     body { font-family: 'Plus Jakarta Sans', sans-serif; }
     h1, h2, h3, h4, .font-heading { font-family: 'Outfit', sans-serif; }
-    .glass-card {
-      background: rgba(14, 29, 51, 0.75);
-      backdrop-filter: blur(12px);
-      border: 1px solid rgba(126, 213, 245, 0.18);
+    
+    .bg-textured-blue {
+      background-color: #3478a6;
+      background-image: url('assets/images/branding/textura_editorial_coolpadel.jpg');
+      background-blend-mode: multiply;
+      background-size: cover;
+      background-position: center;
     }
-    .watermark-demo {
-      position: absolute;
-      top: 18px;
-      right: 18px;
-      width: 58px;
-      opacity: 0.92;
-      filter: drop-shadow(0 2px 6px rgba(0,0,0,0.4));
-      transition: all 0.3s ease;
+    
+    .glass-card {
+      background: rgba(14, 29, 51, 0.78);
+      backdrop-filter: blur(14px);
+      border: 1px solid rgba(126, 213, 245, 0.2);
     }
   </style>
 </head>
 <body class="bg-cool-navy text-slate-100 min-h-screen selection:bg-cool-orange selection:text-white">
 
   <!-- HEADER -->
-  <header class="border-b border-slate-800 bg-cool-navyLight/80 backdrop-blur sticky top-0 z-50">
+  <header class="border-b border-slate-800 bg-cool-navyLight/90 backdrop-blur sticky top-0 z-50">
     <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
       <div class="flex items-center gap-4">
         <img src="assets/images/branding/mascota_personaje.png" alt="Mascota CoolPadel" class="h-10 w-auto">
         <div>
           <span class="text-xl font-black font-heading tracking-wide text-white">COOL<span class="text-cool-orange">PADEL</span></span>
-          <span class="text-xs text-cool-cyan block font-semibold tracking-wider uppercase">Manual de Identidad Visual v1.0</span>
+          <span class="text-xs text-cool-cyan block font-semibold tracking-wider uppercase">Manual de Identidad Visual v2.0</span>
         </div>
       </div>
-      <div class="flex items-center gap-4 text-sm font-medium">
-        <a href="#identidad" class="text-slate-300 hover:text-cool-cyan transition">Identidad</a>
+      <div class="flex items-center gap-5 text-sm font-medium">
+        <a href="#artesanal" class="text-slate-300 hover:text-cool-cyan transition">Origen</a>
         <a href="#logotipos" class="text-slate-300 hover:text-cool-cyan transition">Logotipos</a>
-        <a href="#marca-de-agua" class="text-slate-300 hover:text-cool-cyan transition">Marca de Agua</a>
+        <a href="#ojos" class="text-slate-300 hover:text-cool-cyan transition">Los Ojos & Eye-Bombing</a>
+        <a href="#azul-textura" class="text-slate-300 hover:text-cool-cyan transition">Azul Textura</a>
         <a href="#colores" class="text-slate-300 hover:text-cool-cyan transition">Colores</a>
-        <a href="#tipografia" class="text-slate-300 hover:text-cool-cyan transition">Tipografía</a>
         <a href="https://coolpadelstudios.com/" target="_blank" class="px-3.5 py-1.5 rounded-lg bg-cool-orange hover:bg-cool-orangeDark text-white font-bold text-xs transition">Web Oficial ↗</a>
       </div>
     </div>
   </header>
 
-  <!-- HERO -->
-  <section class="max-w-7xl mx-auto px-6 py-16 text-center">
-    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cool-orange/15 border border-cool-orange/30 text-cool-orange text-xs font-bold mb-6 uppercase tracking-wider">
-      Guía Oficial de Marca
+  <!-- HERO EN AZUL TEXTURIZADO INSIGNIA -->
+  <section class="bg-textured-blue text-white py-20 px-6 border-b border-sky-700/50 relative">
+    <div class="max-w-5xl mx-auto text-center relative z-10">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-black/40 border border-white/20 text-white text-xs font-bold mb-6 uppercase tracking-wider backdrop-blur">
+        Identidad Oficial y Guía de Estilo
+      </div>
+      <h1 class="text-4xl md:text-6xl font-black font-heading tracking-tight mb-4 drop-shadow-md">
+        MANUAL DE MARCA <span class="text-cool-cyan">COOL</span><span class="text-cool-orange">PADEL</span>
+      </h1>
+      <p class="text-sky-100 max-w-2xl mx-auto text-base md:text-lg leading-relaxed drop-shadow">
+        Merchandising de colección (llaveros personalizados 3D), plataforma editorial de informes de pádel, origen 100% hecho a mano y el sistema visual de "Los Ojos".
+      </p>
     </div>
-    <h1 class="text-4xl md:text-6xl font-black font-heading text-white tracking-tight mb-4">
-      MANUAL DE MARCA <span class="text-transparent bg-clip-text bg-gradient-to-r from-cool-cyan via-white to-cool-orange">COOLPADEL</span>
-    </h1>
-    <p class="text-slate-300 max-w-2xl mx-auto text-base md:text-lg leading-relaxed">
-      Estándares visuales, anatomía del logotipo, paleta cromática, reglas de la firma de marca de agua en contenido audiovisual y tono de comunicación.
-    </p>
   </section>
 
-  <!-- 1. IDENTIDAD Y ADN -->
-  <section id="identidad" class="max-w-7xl mx-auto px-6 py-12">
-    <div class="glass-card rounded-2xl p-8 mb-12">
+  <!-- 1. ORIGEN ARTESANAL -->
+  <section id="artesanal" class="max-w-7xl mx-auto px-6 py-12">
+    <div class="glass-card rounded-2xl p-8 mb-8">
       <h2 class="text-2xl font-bold font-heading text-white mb-6 flex items-center gap-3">
         <span class="w-2.5 h-8 bg-cool-cyan rounded-full"></span>
-        1. ADN Y POSICIONAMIENTO DE MARCA
+        1. ORIGEN ARTESANAL Y SIN NOMBRE
       </h2>
-      <div class="grid md:grid-cols-3 gap-6">
-        <div class="bg-cool-navy/60 p-6 rounded-xl border border-slate-800">
-          <div class="text-cool-cyan text-sm font-bold uppercase tracking-wider mb-2">Esencia</div>
-          <h3 class="text-lg font-bold text-white mb-2">El Pádel con Estilo Propio</h3>
-          <p class="text-sm text-slate-300 leading-relaxed">
-            Unimos la pasión del deporte con el diseño coleccionable y la innovación tecnológica. Huimos de la estética corporativa aburrida y apostamos por un carácter enérgico, fresco y simpático.
+      <div class="grid md:grid-cols-2 gap-8 items-center">
+        <div class="space-y-4 text-sm text-slate-300 leading-relaxed">
+          <p>
+            <strong class="text-white text-base">Dibujado 100% a mano por Javier:</strong> A diferencia de la inmensa mayoría de marcas deportivas actuales con logotipos fríos o generados por ordenador, la mascota de CoolPadel, el lettering del nombre y los ojos fueron creados a mano alzada.
           </p>
+          <p>
+            Ese trazo manual e imperfecto es el alma de la marca: transmite cercanía, autenticidad y simpatía gamberra.
+          </p>
+          <div class="p-4 rounded-xl bg-cool-navy/80 border border-slate-800">
+            <span class="text-cool-orange font-bold text-xs uppercase tracking-wider block mb-1">Nombre del Personaje</span>
+            <p class="text-slate-200 text-xs">
+              <strong>No tiene nombre propio</strong>. Se le denomina oficialmente <em>"El Personaje"</em> o <em>"La Mascota de CoolPadel"</em>. Es libre y versátil.
+            </p>
+          </div>
         </div>
-        <div class="bg-cool-navy/60 p-6 rounded-xl border border-slate-800">
-          <div class="text-cool-orange text-sm font-bold uppercase tracking-wider mb-2">Misión Comercial</div>
-          <h3 class="text-lg font-bold text-white mb-2">Valor Tangible para Clubs</h3>
-          <p class="text-sm text-slate-300 leading-relaxed">
-            Dotamos a clubes de pádel, torneos y academias de merchandising prémium (llaveros 3D de goma personalizados) y tecnología de repetición en pista (Save my Play) para monetizar y fidelizar a sus jugadores.
-          </p>
-        </div>
-        <div class="bg-cool-navy/60 p-6 rounded-xl border border-slate-800">
-          <div class="text-emerald-400 text-sm font-bold uppercase tracking-wider mb-2">Personalidad</div>
-          <h3 class="text-lg font-bold text-white mb-2">Directo, Divertido y Experto</h3>
-          <p class="text-sm text-slate-300 leading-relaxed">
-            Hablamos claro, sin rodeos ni tecnicismos vacíos. Somos cercanos, ágiles y obsesionados con que cada producto y vídeo transmita la emoción de un partidazo de pádel.
-          </p>
+        <div class="bg-slate-900/90 p-8 rounded-2xl border border-slate-800 flex flex-col items-center justify-center">
+          <img src="assets/images/branding/mascota_personaje.png" alt="Mascota CoolPadel" class="max-h-56 w-auto object-contain">
+          <span class="text-xs text-slate-400 mt-4 font-mono">El Personaje · Trazado a mano original</span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 2. ARQUITECTURA DE LOGOTIPOS -->
+  <!-- 2. SISTEMA DE LOGOTIPOS -->
   <section id="logotipos" class="max-w-7xl mx-auto px-6 py-12">
     <h2 class="text-2xl font-bold font-heading text-white mb-8 flex items-center gap-3">
       <span class="w-2.5 h-8 bg-cool-orange rounded-full"></span>
-      2. SISTEMA DE LOGOTIPOS Y VERSIONES
+      2. SISTEMA DE LOGOTIPOS
     </h2>
 
-    <div class="grid md:grid-cols-2 gap-8 mb-8">
+    <div class="grid md:grid-cols-2 gap-8">
       <!-- LOGO COMPLETO -->
       <div class="glass-card rounded-2xl p-6 flex flex-col justify-between">
-        <div class="bg-slate-900/90 rounded-xl p-8 flex items-center justify-center min-h-[260px] border border-slate-800">
-          <img src="assets/images/branding/logo_completo.png" alt="Logotipo Completo CoolPadel" class="max-h-48 w-auto object-contain">
+        <div class="bg-slate-900/90 rounded-xl p-8 flex items-center justify-center min-h-[240px] border border-slate-800">
+          <img src="assets/images/branding/logo_completo.png" alt="Logotipo Completo" class="max-h-44 w-auto object-contain">
         </div>
         <div class="mt-4">
-          <div class="flex items-center justify-between mb-1">
-            <h3 class="text-lg font-bold text-white">Logotipo Completo (Oficial)</h3>
-            <span class="text-xs px-2.5 py-0.5 rounded bg-cool-orange/20 text-cool-orange font-bold">Principal</span>
-          </div>
+          <h3 class="text-lg font-bold text-white mb-1">Logotipo Completo (Isologo)</h3>
           <p class="text-xs text-slate-400">
-            Composición vertical: Mascota centrada arriba + Wordmark en la base. Aplicar en portadas, catálogos, dorsos de prendas y packaging central.
+            Composición oficial centrada: El personaje arriba y el Wordmark debajo. Para portadas de informes, dorsos de catálogo y papelería oficial.
           </p>
         </div>
       </div>
 
       <!-- WORDMARK -->
       <div class="glass-card rounded-2xl p-6 flex flex-col justify-between">
-        <div class="bg-slate-900/90 rounded-xl p-8 flex items-center justify-center min-h-[260px] border border-slate-800">
-          <img src="assets/images/branding/logo_tipografico.png" alt="Wordmark CoolPadel" class="max-h-24 w-auto object-contain">
+        <div class="bg-slate-900/90 rounded-xl p-8 flex items-center justify-center min-h-[240px] border border-slate-800">
+          <img src="assets/images/branding/logo_tipografico.png" alt="Wordmark" class="max-h-20 w-auto object-contain">
         </div>
         <div class="mt-4">
-          <div class="flex items-center justify-between mb-1">
-            <h3 class="text-lg font-bold text-white">Wordmark / Logo Tipográfico</h3>
-            <span class="text-xs px-2.5 py-0.5 rounded bg-cool-cyan/20 text-cool-cyan font-bold">Horizontal</span>
-          </div>
+          <h3 class="text-lg font-bold text-white mb-1">Wordmark (Logotipo Tipográfico)</h3>
           <p class="text-xs text-slate-400">
-            Lettering gestual exclusivo. "COOL" en Cyan + "PADEL" en Naranja con la letra "P" integrada como cabeza de la mascota. Aplicar en cabeceras web, faldones y cintas.
-          </p>
-        </div>
-      </div>
-
-      <!-- MASCOTA SOLA -->
-      <div class="glass-card rounded-2xl p-6 flex flex-col justify-between">
-        <div class="bg-slate-900/90 rounded-xl p-8 flex items-center justify-center min-h-[260px] border border-slate-800">
-          <img src="assets/images/branding/mascota_personaje.png" alt="Mascota Personaje" class="max-h-48 w-auto object-contain">
-        </div>
-        <div class="mt-4">
-          <div class="flex items-center justify-between mb-1">
-            <h3 class="text-lg font-bold text-white">Isotipo / Mascota Viva</h3>
-            <span class="text-xs px-2.5 py-0.5 rounded bg-amber-500/20 text-amber-400 font-bold">Símbolo</span>
-          </div>
-          <p class="text-xs text-slate-400">
-            Pelota de pádel esférica bicolor con relieve curvo blanco, rostro minimalista expresivo y brazos abiertos. Aplicar en avatares, llaveros 3D y pegatinas.
-          </p>
-        </div>
-      </div>
-
-      <!-- MARCA DE AGUA (OJOS) -->
-      <div class="glass-card rounded-2xl p-6 flex flex-col justify-between">
-        <div class="bg-slate-900/90 rounded-xl p-8 flex items-center justify-center min-h-[260px] border border-slate-800">
-          <div class="p-6 bg-white/10 rounded-2xl backdrop-blur">
-            <img src="assets/images/branding/marca_agua_ojos.png" alt="Marca de Agua Ojos" class="h-20 w-auto object-contain filter invert">
-          </div>
-        </div>
-        <div class="mt-4">
-          <div class="flex items-center justify-between mb-1">
-            <h3 class="text-lg font-bold text-white">Firma de Marca de Agua (Los Ojos)</h3>
-            <span class="text-xs px-2.5 py-0.5 rounded bg-purple-500/20 text-purple-300 font-bold">Signature</span>
-          </div>
-          <p class="text-xs text-slate-400">
-            Tres manchas icónicas. Sello identificativo obligatorio en la esquina superior derecha de todo contenido audiovisual y fotográfico.
+            "COOL" en Cyan (`#7ED5F5`) + "PADEL" en Naranja (`#F3930B`). La letra "P" integra la carita del personaje unificando texto y símbolo.
           </p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 3. MARCA DE AGUA EN CONTENIDO -->
-  <section id="marca-de-agua" class="max-w-7xl mx-auto px-6 py-12">
+  <!-- 3. SISTEMA DE LOS OJOS & EYE-BOMBING -->
+  <section id="ojos" class="max-w-7xl mx-auto px-6 py-12">
     <div class="glass-card rounded-2xl p-8">
       <h2 class="text-2xl font-bold font-heading text-white mb-4 flex items-center gap-3">
         <span class="w-2.5 h-8 bg-purple-500 rounded-full"></span>
-        3. LA MARCA DE AGUA EN CONTENIDO (REGLA DE LOS OJOS)
+        3. EL SISTEMA GRÁFICO DE "LOS OJOS" (3 APLICACIONES)
       </h2>
       <p class="text-slate-300 text-sm mb-8 max-w-3xl leading-relaxed">
-        En redes sociales (Instagram Reels, TikTok, YouTube Shorts), los ojos de CoolPadel deben posicionarse <strong class="text-white">SIEMPRE en la esquina superior derecha</strong>. De este modo quedan libres de los controles de la app (Likes, compartir y comentarios están abajo a la derecha, y títulos abajo a la izquierda).
+        Los ojos <strong class="text-white">NO tienen por qué ir arriba a la derecha</strong>. Son un elemento gráfico libre, expresivo y adaptable:
       </p>
 
-      <div class="grid md:grid-cols-2 gap-8 items-center">
-        <!-- SIMULADOR REEL VERTICAL -->
-        <div class="flex justify-center">
-          <div class="relative w-[280px] h-[520px] rounded-[32px] overflow-hidden border-4 border-slate-700 shadow-2xl bg-slate-950 flex flex-col justify-between p-4">
-            <!-- BACKGROUND IMAGE MOCKUP -->
-            <div class="absolute inset-0 bg-gradient-to-b from-blue-900/60 via-slate-900 to-black z-0"></div>
-            <img src="assets/images/cover_highlights_01.jpg" alt="Pista de pádel" class="absolute inset-0 w-full h-full object-cover opacity-50 z-0" onerror="this.style.display='none'">
+      <!-- 3 APLICACIONES GRID -->
+      <div class="grid md:grid-cols-3 gap-6 mb-10">
+        <div class="bg-cool-navy/70 p-5 rounded-xl border border-slate-800">
+          <div class="text-purple-400 text-xs font-bold uppercase mb-2">1. Eye-Bombing</div>
+          <h4 class="text-base font-bold text-white mb-2">Humanizar la Realidad</h4>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            Estampar los ojos sobre objetos de fotos reales (bolas que cuelgan del techo, barcos del puerto, aros olímpicos, palas). Le da vida y simpatía a cualquier escena.
+          </p>
+        </div>
+        <div class="bg-cool-navy/70 p-5 rounded-xl border border-slate-800">
+          <div class="text-cool-cyan text-xs font-bold uppercase mb-2">2. Corchetes Tipográficos</div>
+          <h4 class="text-base font-bold text-white mb-2">Viñetas de Título</h4>
+          <p class="text-xs text-slate-300 leading-relaxed font-mono">
+            •• INDEX ••<br>
+            •• CURRENT STATE ••
+          </p>
+          <p class="text-xs text-slate-400 mt-2">
+            Flanquean títulos de sección en informes y presentaciones editoriales.
+          </p>
+        </div>
+        <div class="bg-cool-navy/70 p-5 rounded-xl border border-slate-800">
+          <div class="text-cool-orange text-xs font-bold uppercase mb-2">3. Sello de Esquina</div>
+          <h4 class="text-base font-bold text-white mb-2">Marca de Agua Libre</h4>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            En informes y slides: abajo a la derecha. En reels/vídeo: arriba a la derecha para no chocar con los botones nativos de la app.
+          </p>
+        </div>
+      </div>
 
-            <!-- WATERMARK EN ESQUINA SUPERIOR DERECHA -->
-            <div class="z-20 absolute top-5 right-5 flex flex-col items-end">
-              <img src="assets/images/branding/marca_agua_ojos.png" alt="Watermark Ojos" class="w-14 h-auto filter drop-shadow(0 2px 8px rgba(0,0,0,0.8)) invert">
-              <span class="text-[9px] font-mono text-cool-cyan bg-black/60 px-1.5 py-0.5 rounded mt-1">top-right</span>
-            </div>
-
-            <!-- REEL UI SIMULATION -->
-            <div class="z-10 flex justify-between items-center text-xs text-white/80 pt-2">
-              <span class="font-bold">Para ti</span>
-              <span class="text-slate-400">Siguiendo</span>
-            </div>
-
-            <div class="z-10 pb-2">
-              <div class="flex items-center gap-2 mb-2">
-                <div class="w-7 h-7 rounded-full bg-cool-orange flex items-center justify-center font-bold text-xs">CP</div>
-                <span class="font-bold text-xs text-white">@coolpadel_</span>
-              </div>
-              <p class="text-[11px] text-slate-200 line-clamp-2">
-                ¡Puntazo de volea con efecto por 3 metros! 🎾🔥 Grabado con cámaras automáticas en pista central.
-              </p>
-              <div class="text-[10px] text-cool-cyan mt-1 font-mono">#padel #coolpadel #savemyplay</div>
-            </div>
+      <!-- GALERIA EYE-BOMBING -->
+      <h3 class="text-lg font-bold text-white mb-4">Ejemplos Reales de Eye-Bombing en Portadas:</h3>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="rounded-xl overflow-hidden border border-slate-800 group">
+          <img src="assets/images/branding/newsletter_cover_01.jpg" alt="Eye-bombing en bolas del techo" class="w-full h-auto object-cover group-hover:scale-105 transition duration-300">
+          <div class="p-3 bg-slate-900/90 text-xs text-slate-300">
+            <strong>Highlights #01:</strong> Ojos en las bolas del techo + mascota sentada en la barra.
           </div>
         </div>
-
-        <!-- REGLAS Y ESPECIFICACIONES -->
-        <div class="space-y-4">
-          <div class="bg-cool-navy/80 p-5 rounded-xl border border-slate-800">
-            <h4 class="text-sm font-bold text-white mb-1 flex items-center gap-2">
-              <span class="text-cool-cyan">📍</span> Posición Fija
-            </h4>
-            <p class="text-xs text-slate-300">
-              Esquina superior derecha. Margen superior: 60-80px. Margen derecho: 60-80px (en resolución vertical 1080x1920).
-            </p>
+        <div class="rounded-xl overflow-hidden border border-slate-800 group">
+          <img src="assets/images/branding/newsletter_cover_03.jpg" alt="Eye-bombing en barcos del puerto" class="w-full h-auto object-cover group-hover:scale-105 transition duration-300">
+          <div class="p-3 bg-slate-900/90 text-xs text-slate-300">
+            <strong>Highlights #03:</strong> Ojos en los cascos de las barcas del puerto.
           </div>
-
-          <div class="bg-cool-navy/80 p-5 rounded-xl border border-slate-800">
-            <h4 class="text-sm font-bold text-white mb-1 flex items-center gap-2">
-              <span class="text-cool-orange">🎨</span> Contraste y Variantes
-            </h4>
-            <p class="text-xs text-slate-300">
-              Sobre fondos oscuros o jugadas nocturnas: versión <strong class="text-white">Blanca</strong> (opacidad 85%). Sobre tomas claras o diurnas: versión <strong class="text-white">Espresso Dark</strong> (#251810).
-            </p>
-          </div>
-
-          <div class="bg-cool-navy/80 p-5 rounded-xl border border-slate-800">
-            <h4 class="text-sm font-bold text-white mb-1 flex items-center gap-2">
-              <span class="text-emerald-400">📏</span> Tamaño Recomendado
-            </h4>
-            <p class="text-xs text-slate-300">
-              Ancho de entre 90px y 120px en exportación Full HD vertical. Debe ser identificable al instante sin obstruir la vista de la bola.
-            </p>
+        </div>
+        <div class="rounded-xl overflow-hidden border border-slate-800 group">
+          <img src="assets/images/branding/newsletter_cover_02.jpg" alt="Eye-bombing en aros olímpicos" class="w-full h-auto object-cover group-hover:scale-105 transition duration-300">
+          <div class="p-3 bg-slate-900/90 text-xs text-slate-300">
+            <strong>Highlights #02:</strong> Ojos en cada aro olímpico de París.
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 4. PALETA DE COLORES -->
+  <!-- 4. AZUL PISTA Y TEXTURA EDITORIAL -->
+  <section id="azul-textura" class="max-w-7xl mx-auto px-6 py-12">
+    <div class="rounded-2xl p-8 bg-textured-blue text-white shadow-2xl border border-sky-600/40">
+      <h2 class="text-2xl font-bold font-heading text-white mb-4 flex items-center gap-3">
+        <span class="w-2.5 h-8 bg-white rounded-full"></span>
+        4. EL AZUL TEXTURIZADO INSIGNIA (#3478A6)
+      </h2>
+      <p class="text-sky-100 text-sm max-w-3xl mb-6 leading-relaxed">
+        El color oficial de la sección de llaveros de la web y de los informes PDF es el <strong>Azul Pista (#3478A6)</strong> acompañado de una <strong>textura de grano / cemento / papel rugoso</strong>. En las versiones modernas, los textos y líneas de encuadre van en <strong>Blanco Puro (#FFFFFF)</strong>, dejando atrás el crema antiguo.
+      </p>
+
+      <div class="grid md:grid-cols-2 gap-8 items-center">
+        <div class="bg-black/40 backdrop-blur p-6 rounded-xl border border-white/20">
+          <h4 class="text-sm font-bold text-cool-cyan mb-2 font-mono">CSS para replicar el fondo:</h4>
+          <pre class="text-xs font-mono text-slate-200 overflow-x-auto p-3 bg-black/60 rounded-lg"><code>background-color: #3478a6;
+background-image: url('textura_editorial_coolpadel.jpg');
+background-blend-mode: multiply;
+background-size: cover;</code></pre>
+          <div class="mt-4 flex items-center justify-between text-xs text-sky-200">
+            <span>HEX: <strong>#3478A6</strong></span>
+            <span>RGB: <strong>52, 120, 166</strong></span>
+            <span>Pantone: <strong>7690 C</strong></span>
+          </div>
+        </div>
+
+        <div class="p-6 rounded-xl bg-white/10 backdrop-blur border border-white/20 text-center">
+          <div class="font-heading text-3xl font-black mb-1">•• INDEX ••</div>
+          <p class="text-xs text-sky-100">Ejemplo de título blanco actual con viñeta de ojos sobre el azul texturizado</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. PALETA COMPLETA -->
   <section id="colores" class="max-w-7xl mx-auto px-6 py-12">
     <h2 class="text-2xl font-bold font-heading text-white mb-8 flex items-center gap-3">
       <span class="w-2.5 h-8 bg-cool-cyan rounded-full"></span>
-      4. PALETA CROMÁTICA OFICIAL
+      5. PALETA CROMÁTICA OFICIAL
     </h2>
 
-    <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+    <div class="grid grid-cols-1 md:grid-cols-5 gap-6">
+      <!-- AZUL PISTA -->
+      <div class="glass-card rounded-2xl overflow-hidden border border-slate-800">
+        <div class="h-28 bg-[#3478a6] p-3 flex items-end">
+          <span class="text-[10px] font-black font-mono text-white bg-black/60 px-2 py-0.5 rounded">EDITORIAL & WEB</span>
+        </div>
+        <div class="p-4 text-xs space-y-1">
+          <strong class="text-white block font-heading text-sm">Azul Pista Llaveros</strong>
+          <div class="text-cool-cyan font-mono font-bold">#3478A6</div>
+          <div class="text-slate-400">RGB: 52, 120, 166</div>
+          <div class="text-slate-400">Pantone: 7690 C</div>
+        </div>
+      </div>
+
       <!-- COOL ORANGE -->
       <div class="glass-card rounded-2xl overflow-hidden border border-slate-800">
-        <div class="h-32 bg-[#f3930b] flex items-end p-4">
-          <span class="text-xs font-black font-mono text-black/70 bg-white/70 px-2 py-0.5 rounded">PRIMARIO</span>
+        <div class="h-28 bg-[#f3930b] p-3 flex items-end">
+          <span class="text-[10px] font-black font-mono text-black bg-white/70 px-2 py-0.5 rounded">PRIMARIO</span>
         </div>
-        <div class="p-5">
-          <h3 class="text-lg font-bold text-white mb-1">Cool Orange</h3>
-          <p class="text-xs text-slate-400 mb-4">Energía, pista, dinamismo y entusiasmo.</p>
-          <div class="space-y-1.5 font-mono text-xs">
-            <div class="flex justify-between text-slate-300"><span class="text-slate-500">HEX:</span> <strong class="text-cool-orange">#F3930B</strong></div>
-            <div class="flex justify-between text-slate-300"><span class="text-slate-500">RGB:</span> <span>243, 147, 11</span></div>
-            <div class="flex justify-between text-slate-300"><span class="text-slate-500">CMYK:</span> <span>0, 48, 98, 0</span></div>
-            <div class="flex justify-between text-slate-300"><span class="text-slate-500">Pantone:</span> <span>144 C</span></div>
-          </div>
+        <div class="p-4 text-xs space-y-1">
+          <strong class="text-white block font-heading text-sm">Cool Orange</strong>
+          <div class="text-cool-orange font-mono font-bold">#F3930B</div>
+          <div class="text-slate-400">RGB: 243, 147, 11</div>
+          <div class="text-slate-400">Pantone: 144 C</div>
         </div>
       </div>
 
       <!-- PADEL SKY CYAN -->
       <div class="glass-card rounded-2xl overflow-hidden border border-slate-800">
-        <div class="h-32 bg-[#7ed5f5] flex items-end p-4">
-          <span class="text-xs font-black font-mono text-black/70 bg-white/70 px-2 py-0.5 rounded">PRIMARIO</span>
+        <div class="h-28 bg-[#7ed5f5] p-3 flex items-end">
+          <span class="text-[10px] font-black font-mono text-black bg-white/70 px-2 py-0.5 rounded">PRIMARIO</span>
         </div>
-        <div class="p-5">
-          <h3 class="text-lg font-bold text-white mb-1">Padel Sky Cyan</h3>
-          <p class="text-xs text-slate-400 mb-4">Moqueta oficial, frescura, juego limpio.</p>
-          <div class="space-y-1.5 font-mono text-xs">
-            <div class="flex justify-between text-slate-300"><span class="text-slate-500">HEX:</span> <strong class="text-cool-cyan">#7ED5F5</strong></div>
-            <div class="flex justify-between text-slate-300"><span class="text-slate-500">RGB:</span> <span>126, 213, 245</span></div>
-            <div class="flex justify-between text-slate-300"><span class="text-slate-500">CMYK:</span> <span>43, 2, 0, 0</span></div>
-            <div class="flex justify-between text-slate-300"><span class="text-slate-500">Pantone:</span> <span>297 C</span></div>
-          </div>
-        </div>
-      </div>
-
-      <!-- ESPRESSO DARK -->
-      <div class="glass-card rounded-2xl overflow-hidden border border-slate-800">
-        <div class="h-32 bg-[#251810] flex items-end p-4">
-          <span class="text-xs font-black font-mono text-white/90 bg-black/50 px-2 py-0.5 rounded">TRAZO & OJOS</span>
-        </div>
-        <div class="p-5">
-          <h3 class="text-lg font-bold text-white mb-1">Espresso Dark</h3>
-          <p class="text-xs text-slate-400 mb-4">Ojos, extremidades, calidez frente al negro puro.</p>
-          <div class="space-y-1.5 font-mono text-xs">
-            <div class="flex justify-between text-slate-300"><span class="text-slate-500">HEX:</span> <strong class="text-amber-200">#251810</strong></div>
-            <div class="flex justify-between text-slate-300"><span class="text-slate-500">RGB:</span> <span>37, 24, 16</span></div>
-            <div class="flex justify-between text-slate-300"><span class="text-slate-500">CMYK:</span> <span>65, 68, 68, 78</span></div>
-            <div class="flex justify-between text-slate-300"><span class="text-slate-500">Pantone:</span> <span>Black 7 C</span></div>
-          </div>
+        <div class="p-4 text-xs space-y-1">
+          <strong class="text-white block font-heading text-sm">Padel Sky Cyan</strong>
+          <div class="text-cool-cyan font-mono font-bold">#7ED5F5</div>
+          <div class="text-slate-400">RGB: 126, 213, 245</div>
+          <div class="text-slate-400">Pantone: 297 C</div>
         </div>
       </div>
 
       <!-- PURE WHITE -->
       <div class="glass-card rounded-2xl overflow-hidden border border-slate-800">
-        <div class="h-32 bg-white flex items-end p-4">
-          <span class="text-xs font-black font-mono text-black bg-slate-200 px-2 py-0.5 rounded">RELIEVE & LUZ</span>
+        <div class="h-28 bg-white p-3 flex items-end">
+          <span class="text-[10px] font-black font-mono text-black bg-slate-300 px-2 py-0.5 rounded">CONTRASTE</span>
         </div>
-        <div class="p-5">
-          <h3 class="text-lg font-bold text-white mb-1">Pure White</h3>
-          <p class="text-xs text-slate-400 mb-4">Línea de costura en relieve, separación y contraste.</p>
-          <div class="space-y-1.5 font-mono text-xs">
-            <div class="flex justify-between text-slate-300"><span class="text-slate-500">HEX:</span> <strong class="text-white">#FFFFFF</strong></div>
-            <div class="flex justify-between text-slate-300"><span class="text-slate-500">RGB:</span> <span>255, 255, 255</span></div>
-            <div class="flex justify-between text-slate-300"><span class="text-slate-500">CMYK:</span> <span>0, 0, 0, 0</span></div>
-            <div class="flex justify-between text-slate-300"><span class="text-slate-500">Ref:</span> <span>Opaque White</span></div>
-          </div>
+        <div class="p-4 text-xs space-y-1">
+          <strong class="text-white block font-heading text-sm">Pure White</strong>
+          <div class="text-white font-mono font-bold">#FFFFFF</div>
+          <div class="text-slate-400">RGB: 255, 255, 255</div>
+          <div class="text-slate-400">Titulares & Líneas</div>
         </div>
       </div>
-    </div>
-  </section>
 
-  <!-- 5. TIPOGRAFÍA -->
-  <section id="tipografia" class="max-w-7xl mx-auto px-6 py-12">
-    <div class="glass-card rounded-2xl p-8">
-      <h2 class="text-2xl font-bold font-heading text-white mb-6 flex items-center gap-3">
-        <span class="w-2.5 h-8 bg-emerald-400 rounded-full"></span>
-        5. TIPOGRAFÍAS CORPORATIVAS
-      </h2>
-
-      <div class="grid md:grid-cols-2 gap-8">
-        <div class="bg-cool-navy/70 p-6 rounded-xl border border-slate-800">
-          <span class="text-xs font-bold text-cool-orange uppercase tracking-wider">Titulares y Claims</span>
-          <h3 class="text-3xl font-black font-heading text-white mt-1 mb-2">Outfit</h3>
-          <p class="text-xs text-slate-400 mb-4">Google Fonts · Pesos recomendados: Bold (700) y Black (900).</p>
-          <div class="space-y-2 text-white border-t border-slate-800 pt-4">
-            <div class="font-heading text-2xl font-black">COOLPADEL STUDIOS</div>
-            <div class="font-heading text-lg font-bold text-cool-cyan">Llaveros 3D y Tecnología de Pádel</div>
-            <div class="font-heading text-sm text-slate-400 tracking-wider uppercase">ABCDEFGHIJKLMNÑOPQRSTUVWXYZ 0123456789</div>
-          </div>
+      <!-- ESPRESSO DARK -->
+      <div class="glass-card rounded-2xl overflow-hidden border border-slate-800">
+        <div class="h-28 bg-[#251810] p-3 flex items-end">
+          <span class="text-[10px] font-black font-mono text-white bg-black/60 px-2 py-0.5 rounded">TRAZO & OJOS</span>
         </div>
-
-        <div class="bg-cool-navy/70 p-6 rounded-xl border border-slate-800">
-          <span class="text-xs font-bold text-cool-cyan uppercase tracking-wider">Cuerpo de Texto y Datos</span>
-          <h3 class="text-3xl font-bold font-sans text-white mt-1 mb-2">Plus Jakarta Sans</h3>
-          <p class="text-xs text-slate-400 mb-4">Google Fonts · Pesos recomendados: Regular (400) y SemiBold (600).</p>
-          <div class="space-y-2 text-slate-200 border-t border-slate-800 pt-4 text-sm leading-relaxed">
-            <p class="font-semibold text-white">Excelente legibilidad en dispositivos móviles, fichas de producto y catálogos.</p>
-            <p class="text-slate-300">
-              Nuestra gama de llaveros de pádel personalizados se produce mediante inyección de PVC de alta precisión en relieve tridimensional multicapa.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 6. USOS INCORRECTOS -->
-  <section class="max-w-7xl mx-auto px-6 py-12">
-    <div class="glass-card rounded-2xl p-8 border border-red-500/20">
-      <h2 class="text-2xl font-bold font-heading text-white mb-6 flex items-center gap-3">
-        <span class="w-2.5 h-8 bg-red-500 rounded-full"></span>
-        6. USOS INCORRECTOS (LO QUE NUNCA SE DEBE HACER)
-      </h2>
-
-      <div class="grid md:grid-cols-4 gap-6 text-xs text-slate-300">
-        <div class="bg-red-950/30 p-4 rounded-xl border border-red-900/50">
-          <strong class="text-red-400 block text-sm mb-1">❌ No deformar</strong>
-          Nunca estirar, condensar o cambiar la relación de aspecto del logotipo ni de la mascota.
-        </div>
-        <div class="bg-red-950/30 p-4 rounded-xl border border-red-900/50">
-          <strong class="text-red-400 block text-sm mb-1">❌ No alterar los ojos</strong>
-          No cambiar la inclinación ni sustituir los ojos por otros símbolos o tipografías genéricas.
-        </div>
-        <div class="bg-red-950/30 p-4 rounded-xl border border-red-900/50">
-          <strong class="text-red-400 block text-sm mb-1">❌ No invertir colores</strong>
-          No colorear "COOL" de naranja ni "PADEL" de cyan arbitrariamente.
-        </div>
-        <div class="bg-red-950/30 p-4 rounded-xl border border-red-900/50">
-          <strong class="text-red-400 block text-sm mb-1">❌ No mover marca de agua</strong>
-          No situar los ojos en las esquinas inferiores donde la interfaz de Reels / TikTok los tape.
+        <div class="p-4 text-xs space-y-1">
+          <strong class="text-white block font-heading text-sm">Espresso Dark</strong>
+          <div class="text-amber-200 font-mono font-bold">#251810</div>
+          <div class="text-slate-400">RGB: 37, 24, 16</div>
+          <div class="text-slate-400">Ojos y extremidades</div>
         </div>
       </div>
     </div>
@@ -420,7 +332,7 @@
 
   <!-- FOOTER -->
   <footer class="border-t border-slate-800 bg-cool-navyLight/60 py-8 text-center text-xs text-slate-400">
-    <p>© 2026 CoolPadel Studios. Manual de Identidad Visual y Guía de Estilo Oficial. Todos los derechos reservados.</p>
+    <p>© 2026 CoolPadel. Manual de Identidad Visual Oficial v2.0.</p>
   </footer>
 
 </body>

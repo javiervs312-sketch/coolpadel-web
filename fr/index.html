@@ -628,26 +628,18 @@
       <!-- DESKTOP NAVBAR (3 COLUMNAS: IZQUIERDA + CENTRO 100% + DERECHA) -->
       <div class="hidden sm:grid grid-cols-[1fr_auto_1fr] items-center h-full w-full gap-2 lg:gap-4">
         
-        <!-- COLUMNA 1: OJOS + ENLACES (LLAVEROS Y BLOG) -->
+        <!-- COLUMNA 1: OJOS + LLAVEROS Y CÁMARAS PISTAS A LA IZQUIERDA DEL LOGO -->
         <div class="flex items-center justify-between min-w-0 h-full">
           <a href="../#" class="group py-1 inline-flex items-center shrink-0">
             <img src="../assets/images/eyes-thumb.png?v=fixed_eyes" alt="CoolPadel Eyes" style="height: 24px; max-height: 24px; width: auto;" class="object-contain group-hover:scale-110 transition duration-300">
           </a>
-          <div class="flex-1 flex items-center justify-center px-2 gap-2 lg:gap-3.5">
+          <div class="flex-1 flex items-center justify-center px-2 gap-3 lg:gap-5">
             <a href="../#llaveros" class="font-heading font-black text-xs lg:text-[13px] tracking-wider uppercase text-slate-950 hover:text-[#f2920b] transition select-none whitespace-nowrap">
               Llaveros
             </a>
             <span class="text-slate-300 font-bold select-none">•</span>
-            <a href="../blog/" class="font-heading font-black text-xs lg:text-[13px] tracking-wider uppercase text-slate-950 hover:text-[#f2920b] transition select-none whitespace-nowrap">
-              Blog
-            </a>
-            <span class="text-slate-300 font-bold select-none">•</span>
             <a href="../camaras/" class="font-heading font-black text-xs lg:text-[13px] tracking-wider uppercase text-slate-950 hover:text-[#f2920b] transition select-none whitespace-nowrap">
               Cámaras pistas
-            </a>
-            <span class="text-slate-300 font-bold select-none">•</span>
-            <a href="../franquicias-padel/" class="font-heading font-black text-xs lg:text-[13px] tracking-wider uppercase text-slate-950 hover:text-[#f2920b] transition select-none whitespace-nowrap">
-              Cadenas de clubs
             </a>
           </div>
         </div>
@@ -660,9 +652,18 @@
           </a>
         </div>
 
-        <!-- COLUMNA 3: IDIOMAS DROPDOWN + CONTACTAR + OJOS DERECHA (SIEMPRE 100% VISIBLES) -->
-        <div class="flex items-center justify-end min-w-0 h-full gap-2 sm:gap-3 lg:gap-5">
-          
+        <!-- COLUMNA 3: CADENAS DE CLUBS + BLOG A LA DERECHA DEL LOGO + IDIOMAS + CONTACTAR -->
+        <div class="flex items-center justify-end min-w-0 h-full gap-2 sm:gap-3 lg:gap-4">
+          <div class="flex items-center gap-2.5 lg:gap-3.5 mr-1">
+            <a href="../franquicias-padel/" class="font-heading font-black text-xs lg:text-[13px] tracking-wider uppercase text-slate-950 hover:text-[#f2920b] transition select-none whitespace-nowrap">
+              Cadenas de clubs
+            </a>
+            <span class="text-slate-300 font-bold select-none">•</span>
+            <a href="../blog/" class="font-heading font-black text-xs lg:text-[13px] tracking-wider uppercase text-slate-950 hover:text-[#f2920b] transition select-none whitespace-nowrap">
+              Blog
+            </a>
+          </div>
+
           <!-- SELECTOR DE IDIOMA EN DESPLEGABLE COMPACTO -->
           <div class="relative inline-block text-left" id="lang-dropdown-container">
             <button type="button" onclick="toggleLangDropdown(event)" id="lang-dropdown-btn" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-100 hover:bg-slate-200 border border-slate-200 text-xs font-black text-slate-900 shadow-xs transition cursor-pointer" aria-expanded="false" aria-haspopup="true">
@@ -721,15 +722,11 @@
           </a>
         </div>
         
-        <!-- FILA 2: LLAVEROS + BLOG + CÁMARAS + CADENAS + IDIOMAS + CONTACTAR -->
+        <!-- FILA 2: LLAVEROS + CÁMARAS PISTAS + CADENAS DE CLUBS + BLOG + IDIOMAS + CONTACTAR -->
         <div class="flex items-center justify-between w-full gap-1 pt-1 border-t border-slate-100 px-1 overflow-x-auto">
           <div class="flex items-center gap-1.5 shrink-0">
             <a href="../#llaveros" class="font-heading font-black text-[10px] tracking-wider uppercase text-slate-950 hover:text-[#f2920b] transition whitespace-nowrap">
               Llaveros
-            </a>
-            <span class="text-slate-300 font-bold select-none">•</span>
-            <a href="../blog/" class="font-heading font-black text-[10px] tracking-wider uppercase text-slate-950 hover:text-[#f2920b] transition whitespace-nowrap">
-              Blog
             </a>
             <span class="text-slate-300 font-bold select-none">•</span>
             <a href="../camaras/" class="font-heading font-black text-[10px] tracking-wider uppercase text-slate-950 hover:text-[#f2920b] transition whitespace-nowrap">
@@ -738,6 +735,10 @@
             <span class="text-slate-300 font-bold select-none">•</span>
             <a href="../franquicias-padel/" class="font-heading font-black text-[10px] tracking-wider uppercase text-slate-950 hover:text-[#f2920b] transition whitespace-nowrap">
               Cadenas de clubs
+            </a>
+            <span class="text-slate-300 font-bold select-none">•</span>
+            <a href="../blog/" class="font-heading font-black text-[10px] tracking-wider uppercase text-slate-950 hover:text-[#f2920b] transition whitespace-nowrap">
+              Blog
             </a>
           </div>
 

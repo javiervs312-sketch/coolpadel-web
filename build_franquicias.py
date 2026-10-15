@@ -65,16 +65,23 @@ def render_html():
     total_franquicias = len(FRANQUICIAS)
     paises_unicos = len(set(f["pais"] for f in FRANQUICIAS))
 
-    # Generación dinámica de opciones para el desplegable de región
-    region_options_html = ""
+    # Generación dinámica de opciones para el desplegable moderno de región
+    region_dropdown_items_html = ""
     for reg_code, reg_label, reg_flag in REGIONES_CONFIG:
         if reg_code == "all":
             cnt = total_franquicias
-            label_text = f"{reg_flag} Todos los países ({cnt})"
+            label_text = "Todas las regiones"
         else:
             cnt = sum(1 for f in FRANQUICIAS if f.get("region_filtro") == reg_code)
-            label_text = f"{reg_flag} {reg_label} ({cnt})"
-        region_options_html += f'<option value="{reg_code}">{label_text}</option>\n'
+            label_text = reg_label
+        region_dropdown_items_html += f"""
+              <button type="button" onclick="selectRegion('{reg_code}', '{label_text}', '{reg_flag}')" data-reg-opt="{reg_code}" class="region-opt w-full text-left px-3.5 py-2 text-xs font-bold text-slate-700 hover:bg-[#f2920b] hover:text-slate-950 transition flex items-center justify-between cursor-pointer rounded-xl">
+                <span class="flex items-center gap-2">
+                  <span class="text-base">{reg_flag}</span>
+                  <span>{label_text}</span>
+                </span>
+                <span class="text-[11px] font-mono opacity-60 bg-slate-100 px-1.5 py-0.5 rounded-md">{cnt}</span>
+              </button>"""
 
     # Cards HTML para el grid
     cards_html = ""
@@ -294,31 +301,26 @@ def render_html():
   <header class="sticky top-0 z-40 bg-white text-slate-900 border-b border-slate-200 shadow-sm w-full">
     <div class="w-full max-w-[1700px] mx-auto px-3 sm:px-6 lg:px-10 py-1.5 sm:py-0 h-auto sm:h-16 lg:h-18">
       
-      <!-- DESKTOP NAVBAR (3 COLUMNAS) -->
+      <!-- DESKTOP NAVBAR (3 COLUMNAS: IZQUIERDA + CENTRO 100% + DERECHA) -->
       <div class="hidden sm:grid grid-cols-[1fr_auto_1fr] items-center h-full w-full gap-2 lg:gap-4">
+        
+        <!-- COLUMNA 1: OJOS + LLAVEROS Y CÁMARAS PISTAS A LA IZQUIERDA DEL LOGO -->
         <div class="flex items-center justify-between min-w-0 h-full">
           <a href="../" class="group py-1 inline-flex items-center shrink-0">
             <img src="../assets/images/eyes-thumb.png?v=fixed_eyes" alt="CoolPadel Eyes" style="height: 24px; max-height: 24px; width: auto;" class="object-contain group-hover:scale-110 transition duration-300">
           </a>
-          <div class="flex-1 flex items-center justify-center px-2 gap-2 lg:gap-3.5">
+          <div class="flex-1 flex items-center justify-center px-2 gap-3 lg:gap-5">
             <a href="../#llaveros" class="font-heading font-black text-xs lg:text-[13px] tracking-wider uppercase text-slate-950 hover:text-[#f2920b] transition select-none whitespace-nowrap">
               Llaveros
-            </a>
-            <span class="text-slate-300 font-bold select-none">•</span>
-            <a href="../blog/" class="font-heading font-black text-xs lg:text-[13px] tracking-wider uppercase text-slate-950 hover:text-[#f2920b] transition select-none whitespace-nowrap">
-              Blog
             </a>
             <span class="text-slate-300 font-bold select-none">•</span>
             <a href="../camaras/" class="font-heading font-black text-xs lg:text-[13px] tracking-wider uppercase text-slate-950 hover:text-[#f2920b] transition select-none whitespace-nowrap">
               Cámaras pistas
             </a>
-            <span class="text-slate-300 font-bold select-none">•</span>
-            <a href="./" class="font-heading font-black text-xs lg:text-[13px] tracking-wider uppercase text-[#f2920b] transition select-none whitespace-nowrap border-b-2 border-[#f2920b] pb-0.5">
-              Cadenas de clubs
-            </a>
           </div>
         </div>
 
+        <!-- COLUMNA 2: MASCOTA + COOLPADEL CENTRADO -->
         <div class="flex items-center justify-center shrink-0 px-2 lg:px-4">
           <a href="../" class="flex items-center justify-center gap-2 sm:gap-3 group py-1">
             <img src="../assets/images/coolpadel-mascot-hd.png" alt="Mascota CoolPadel" style="height: 46px; max-height: 46px; width: auto;" class="object-contain group-hover:scale-105 transition">
@@ -326,7 +328,18 @@ def render_html():
           </a>
         </div>
 
+        <!-- COLUMNA 3: CADENAS DE CLUBS + BLOG A LA DERECHA DEL LOGO + CONTACTAR + OJOS -->
         <div class="flex items-center justify-end min-w-0 h-full gap-2 sm:gap-3 lg:gap-5">
+          <div class="flex items-center gap-2.5 lg:gap-3.5 mr-1">
+            <a href="./" class="font-heading font-black text-xs lg:text-[13px] tracking-wider uppercase text-[#f2920b] transition select-none whitespace-nowrap border-b-2 border-[#f2920b] pb-0.5">
+              Cadenas de clubs
+            </a>
+            <span class="text-slate-300 font-bold select-none">•</span>
+            <a href="../blog/" class="font-heading font-black text-xs lg:text-[13px] tracking-wider uppercase text-slate-950 hover:text-[#f2920b] transition select-none whitespace-nowrap">
+              Blog
+            </a>
+          </div>
+
           <a href="https://wa.me/34680317486?text=Hola%20Javier%2C%20estoy%20viendo%20el%20directorio%20global%20de%20franquicias%20de%20p%C3%A1del" target="_blank" class="group relative inline-flex items-center gap-1.5 px-3 sm:px-3.5 lg:px-4 py-1.5 sm:py-2 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] active:bg-[#76d3f6] text-slate-950 active:scale-95 font-heading font-black text-xs sm:text-xs lg:text-sm tracking-wider uppercase transition-all duration-300 shadow-[0_4px_12px_rgba(242,146,11,0.2)] hover:scale-105 shrink-0 overflow-hidden">
             <span class="font-black">Contactar</span>
             <div class="w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-slate-950/10 group-hover:bg-slate-950 group-hover:text-white flex items-center justify-center transition-all duration-300 shrink-0">
@@ -359,16 +372,16 @@ def render_html():
               Llaveros
             </a>
             <span class="text-slate-300 font-bold select-none">•</span>
-            <a href="../blog/" class="font-heading font-black text-[10px] tracking-wider uppercase text-slate-950 hover:text-[#f2920b] transition whitespace-nowrap">
-              Blog
-            </a>
-            <span class="text-slate-300 font-bold select-none">•</span>
             <a href="../camaras/" class="font-heading font-black text-[10px] tracking-wider uppercase text-slate-950 hover:text-[#f2920b] transition whitespace-nowrap">
               Cámaras pistas
             </a>
             <span class="text-slate-300 font-bold select-none">•</span>
             <a href="./" class="font-heading font-black text-[10px] tracking-wider uppercase text-[#f2920b] whitespace-nowrap border-b border-[#f2920b]">
               Cadenas de clubs
+            </a>
+            <span class="text-slate-300 font-bold select-none">•</span>
+            <a href="../blog/" class="font-heading font-black text-[10px] tracking-wider uppercase text-slate-950 hover:text-[#f2920b] transition whitespace-nowrap">
+              Blog
             </a>
           </div>
           <a href="https://wa.me/34680317486?text=Hola%20Javier%2C%20estoy%20viendo%20el%20directorio%20global%20de%20franquicias%20de%20p%C3%A1del" target="_blank" class="group relative inline-flex items-center justify-center gap-1 px-2.5 py-1 rounded-full bg-[#f2920b] active:bg-[#76d3f6] text-slate-950 active:scale-95 font-heading font-black text-[10px] uppercase tracking-wider transition shadow-xs shrink-0">
@@ -386,8 +399,8 @@ def render_html():
   <!-- MAIN -->
   <main class="flex-1">
 
-    <!-- HERO SECTION -->
-    <section class="py-12 sm:py-16 bg-gradient-to-b from-white via-slate-50 to-[#f8fafc] border-b border-slate-200">
+    <!-- HERO SECTION (ESPACIADO COMPACTO SIN VACÍO INEXPLICABLE) -->
+    <section class="pt-8 pb-4 sm:pt-10 sm:pb-6 bg-gradient-to-b from-white via-slate-50 to-[#f8fafc] border-b border-slate-200">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div class="max-w-4xl space-y-4">
@@ -411,7 +424,7 @@ def render_html():
         </div>
 
         <!-- KPI BANNER (3 TARJETAS) -->
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 mt-8 sm:mt-10 pt-8 border-t border-slate-200/80">
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 mt-6 pt-5 border-t border-slate-200/80">
           <div class="bg-white p-5 sm:p-6 rounded-2xl border border-slate-200/80 shadow-xs">
             <span class="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">Cadenas / Franquicias</span>
             <span class="font-heading font-black text-3xl sm:text-4xl text-slate-950">+153</span>
@@ -434,8 +447,8 @@ def render_html():
       </div>
     </section>
 
-    <!-- INTERACTIVE SECTION -->
-    <section class="py-10 sm:py-14 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- INTERACTIVE SECTION (CONECTADO SIN SALTO EXCESIVO) -->
+    <section class="pt-4 pb-12 sm:pt-6 sm:pb-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <!-- CONTROLES Y FILTROS -->
       <div class="bg-white rounded-3xl p-5 sm:p-7 border border-slate-200/90 shadow-sm mb-8 space-y-5" id="filtrosContainer">
@@ -461,37 +474,18 @@ def render_html():
           </div>
         </div>
 
-        <!-- Filtros por Región/País (Desplegable) y Categoría -->
-        <div class="flex flex-col gap-4 pt-3 border-t border-slate-100">
-          
-          <!-- Filtro Región / País en Dropdown Desplegable -->
-          <div class="flex items-center gap-3 flex-wrap">
-            <label for="regionSelect" class="text-xs font-bold uppercase text-slate-500 flex items-center gap-1.5 shrink-0">
-              <i data-lucide="globe" class="w-4 h-4 text-[#f2920b]"></i>
-              <span>Región / País:</span>
-            </label>
-            <div class="relative">
-              <select id="regionSelect" onchange="setRegionFilter(this.value)" class="appearance-none pl-3.5 pr-9 py-2 rounded-xl bg-slate-50 hover:bg-slate-100 border border-slate-200 text-slate-900 text-xs font-bold focus:outline-none focus:ring-2 focus:ring-[#f2920b] transition cursor-pointer">
-                {region_options_html}
-              </select>
-              <i data-lucide="chevron-down" class="w-3.5 h-3.5 text-slate-500 absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none stroke-[2.5]"></i>
-            </div>
-          </div>
-
-          <!-- Filtro Modelo / Tipo de Operador -->
-          <div class="flex items-center gap-1.5 flex-wrap">
-            <span class="text-xs font-bold uppercase text-slate-400 mr-1 flex items-center gap-1">
-              <i data-lucide="tag" class="w-3.5 h-3.5"></i>
-              <span>Modelo:</span>
-            </span>
-            <button onclick="setModelFilter('all')" class="filter-model-btn active px-3 py-1 rounded-lg text-xs font-bold bg-slate-900 text-white transition" data-model="all">Todos</button>
-            <button onclick="setModelFilter('cadena')" class="filter-model-btn px-3 py-1 rounded-lg text-xs font-bold bg-slate-100 text-slate-600 hover:bg-slate-200 transition" data-model="cadena">Cadena Multiclub (Mismo Nombre)</button>
-            <button onclick="setModelFilter('corporativo')" class="filter-model-btn px-3 py-1 rounded-lg text-xs font-bold bg-slate-100 text-slate-600 hover:bg-slate-200 transition" data-model="corporativo">Red Corporativa Propia</button>
-            <button onclick="setModelFilter('franquicia')" class="filter-model-btn px-3 py-1 rounded-lg text-xs font-bold bg-slate-100 text-slate-600 hover:bg-slate-200 transition" data-model="franquicia">Franquicia Llave en Mano</button>
-            <button onclick="setModelFilter('automatizado')" class="filter-model-btn px-3 py-1 rounded-lg text-xs font-bold bg-slate-100 text-slate-600 hover:bg-slate-200 transition" data-model="automatizado">Club Automatizado 24/7</button>
-            <button onclick="setModelFilter('boutique')" class="filter-model-btn px-3 py-1 rounded-lg text-xs font-bold bg-slate-100 text-slate-600 hover:bg-slate-200 transition" data-model="boutique">Boutique & Lujo</button>
-          </div>
-
+        <!-- Filtro Modelo / Tipo de Operador -->
+        <div class="flex items-center gap-1.5 flex-wrap pt-3 border-t border-slate-100">
+          <span class="text-xs font-bold uppercase text-slate-400 mr-1 flex items-center gap-1">
+            <i data-lucide="tag" class="w-3.5 h-3.5"></i>
+            <span>Modelo:</span>
+          </span>
+          <button onclick="setModelFilter('all')" class="filter-model-btn active px-3 py-1 rounded-lg text-xs font-bold bg-slate-900 text-white transition" data-model="all">Todos</button>
+          <button onclick="setModelFilter('cadena')" class="filter-model-btn px-3 py-1 rounded-lg text-xs font-bold bg-slate-100 text-slate-600 hover:bg-slate-200 transition" data-model="cadena">Cadena Multiclub (Mismo Nombre)</button>
+          <button onclick="setModelFilter('corporativo')" class="filter-model-btn px-3 py-1 rounded-lg text-xs font-bold bg-slate-100 text-slate-600 hover:bg-slate-200 transition" data-model="corporativo">Red Corporativa Propia</button>
+          <button onclick="setModelFilter('franquicia')" class="filter-model-btn px-3 py-1 rounded-lg text-xs font-bold bg-slate-100 text-slate-600 hover:bg-slate-200 transition" data-model="franquicia">Franquicia Llave en Mano</button>
+          <button onclick="setModelFilter('automatizado')" class="filter-model-btn px-3 py-1 rounded-lg text-xs font-bold bg-slate-100 text-slate-600 hover:bg-slate-200 transition" data-model="automatizado">Club Automatizado 24/7</button>
+          <button onclick="setModelFilter('boutique')" class="filter-model-btn px-3 py-1 rounded-lg text-xs font-bold bg-slate-100 text-slate-600 hover:bg-slate-200 transition" data-model="boutique">Boutique & Lujo</button>
         </div>
 
         <!-- Contador de resultados y Tip -->
@@ -507,12 +501,26 @@ def render_html():
 
       <!-- MAPA INTERACTIVO -->
       <div id="mapContainer" class="bg-white p-3 sm:p-4 rounded-3xl border border-slate-200/90 shadow-sm mb-10 relative">
-        <div class="flex items-center justify-between px-3 py-2 mb-2">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 px-3 py-2 mb-2">
           <div class="flex items-center gap-2">
             <span class="w-2.5 h-2.5 rounded-full bg-[#f2920b]"></span>
             <h2 class="font-heading font-black text-sm sm:text-base text-slate-900 uppercase tracking-wider">
               Mapa mundial de principales cadenas de clubs
             </h2>
+          </div>
+
+          <!-- SELECTOR DE REGIÓN MODERNO A LA DERECHA (ESTILO DESPLEGABLE DE IDIOMAS) -->
+          <div class="relative inline-block text-left" id="region-dropdown-container">
+            <button type="button" onclick="toggleRegionDropdown(event)" id="region-dropdown-btn" class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100 hover:bg-slate-200 border border-slate-200 text-xs font-bold text-slate-900 shadow-xs transition cursor-pointer" aria-expanded="false" aria-haspopup="true">
+              <span id="current-region-flag">🌍</span>
+              <span id="current-region-label" class="font-black text-slate-900">Todas las regiones</span>
+              <i data-lucide="chevron-down" class="w-3.5 h-3.5 stroke-[2.5] text-slate-600 transition-transform duration-200" id="region-dropdown-arrow"></i>
+            </button>
+
+            <!-- MENÚ DESPLEGABLE FLOTANTE -->
+            <div id="region-dropdown-menu" class="hidden absolute right-0 mt-2 w-64 max-h-80 overflow-y-auto bg-white rounded-2xl shadow-[0_12px_30px_rgba(0,0,0,0.15)] border border-slate-200 p-1.5 z-50 transition-all">
+              {region_dropdown_items_html}
+            </div>
           </div>
         </div>
 
@@ -1069,6 +1077,7 @@ def render_html():
     let currentView = 'grid';
     let map = null;
     let markersLayer = null;
+    let markersById = {{}};
 
     let selectedFranchises = [];
     let currentStep = 1;
@@ -1076,7 +1085,24 @@ def render_html():
 
     const WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbxnF9JmVrikeAW7PdLc02r_1kkuSJVz1Ncl71ZeVGT37H0ji5DQ3DVw60122pcuYnxCgA/exec';
 
-    // Inicializar mapa
+    // Bounding boxes / centros y zoom por región geográfica
+    const REGION_BOUNDS = {{
+      'all': {{ center: [46.0, 4.0], zoom: 4 }},
+      'GB': {{ center: [53.5, -2.0], zoom: 6 }},
+      'ES': {{ center: [40.2, -3.7], zoom: 6 }},
+      'FR': {{ center: [46.6, 2.3], zoom: 6 }},
+      'IT': {{ center: [42.5, 12.5], zoom: 6 }},
+      'NL': {{ center: [52.1, 5.3], zoom: 7 }},
+      'DE': {{ center: [50.5, 10.0], zoom: 6 }},
+      'SE': {{ center: [60.1, 16.0], zoom: 5 }},
+      'PT': {{ center: [39.5, -8.0], zoom: 7 }},
+      'US': {{ center: [37.0, -96.0], zoom: 4 }},
+      'MX': {{ center: [20.0, -99.0], zoom: 4 }},
+      'AE': {{ center: [24.5, 54.5], zoom: 7 }},
+      'ZA': {{ center: [-29.0, 25.0], zoom: 5 }}
+    }};
+
+    // Inicializar mapa con Esri World Street Map (nombres locales, sin API key, sin contorno de costa)
     function initMap() {{
       if (map) return;
       
@@ -1086,9 +1112,9 @@ def render_html():
         scrollWheelZoom: false
       }});
 
-      L.tileLayer('https://tile.openstreetmap.org/{{z}}/{{x}}/{{y}}.png', {{
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors | CoolPadel Studios',
-        maxZoom: 19
+      L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{{z}}/{{y}}/{{x}}', {{
+        attribution: 'Tiles &copy; Esri &mdash; Fuentes: Esri, DeLorme, NAVTEQ, USGS, Intermap, iPC, METI, TomTom | CoolPadel Studios',
+        maxZoom: 18
       }}).addTo(map);
 
       markersLayer = L.layerGroup().addTo(map);
@@ -1110,6 +1136,7 @@ def render_html():
     function renderMarkers(items) {{
       if (!markersLayer) return;
       markersLayer.clearLayers();
+      markersById = {{}};
 
       items.forEach(f => {{
         if (!f.coords || f.coords.length !== 2) return;
@@ -1145,21 +1172,61 @@ def render_html():
 
         const marker = L.marker(f.coords, {{ icon: customIcon }})
           .bindPopup(popupContent);
+        markersById[f.id] = marker;
         markersLayer.addLayer(marker);
       }});
     }}
 
     // Vistas de mapa
-    function resetMapView() {{ map.setView([35.0, 10.0], 3); }}
+    function resetMapView() {{ map.setView([46.0, 4.0], 4); }}
 
-    // Filtros
-    function setRegionFilter(region) {{
-      currentRegion = region;
-      const sel = document.getElementById('regionSelect');
-      if (sel && sel.value !== region) {{
-        sel.value = region;
+    // Menú desplegable flotante de región
+    function toggleRegionDropdown(event) {{
+      if (event) event.stopPropagation();
+      const menu = document.getElementById('region-dropdown-menu');
+      const arrow = document.getElementById('region-dropdown-arrow');
+      if (!menu) return;
+      const isOpen = !menu.classList.contains('hidden');
+      if (isOpen) {{
+        menu.classList.add('hidden');
+        if (arrow) arrow.classList.remove('rotate-180');
+      }} else {{
+        menu.classList.remove('hidden');
+        if (arrow) arrow.classList.add('rotate-180');
       }}
+    }}
+
+    document.addEventListener('click', function(e) {{
+      const container = document.getElementById('region-dropdown-container');
+      const menu = document.getElementById('region-dropdown-menu');
+      const arrow = document.getElementById('region-dropdown-arrow');
+      if (container && !container.contains(e.target) && menu && !menu.classList.contains('hidden')) {{
+        menu.classList.add('hidden');
+        if (arrow) arrow.classList.remove('rotate-180');
+      }}
+    }});
+
+    function selectRegion(code, label, flag) {{
+      currentRegion = code;
+      const lbl = document.getElementById('current-region-label');
+      const flg = document.getElementById('current-region-flag');
+      if (lbl) lbl.textContent = label;
+      if (flg) flg.textContent = flag;
+      
+      const menu = document.getElementById('region-dropdown-menu');
+      const arrow = document.getElementById('region-dropdown-arrow');
+      if (menu) menu.classList.add('hidden');
+      if (arrow) arrow.classList.remove('rotate-180');
+
       applyFilters();
+
+      // Animación fluida de zoom al país/región seleccionado
+      if (map && REGION_BOUNDS[code]) {{
+        map.flyTo(REGION_BOUNDS[code].center, REGION_BOUNDS[code].zoom, {{
+          animate: true,
+          duration: 1.2
+        }});
+      }}
     }}
 
     function setModelFilter(model) {{
@@ -1598,6 +1665,14 @@ def render_html():
       const f = FRANQUICIAS.find(item => item.id === id);
       if (!f) return;
       currentDrawerId = id;
+
+      // Zoom dinámico fluido sobre la coordenada de la cadena en el mapa
+      if (f.coords && f.coords.length === 2 && map) {{
+        map.flyTo(f.coords, 8, {{ animate: true, duration: 1.2 }});
+        if (markersById && markersById[id]) {{
+          markersById[id].openPopup();
+        }}
+      }}
 
       document.getElementById('drawerTitle').textContent = f.nombre;
       document.getElementById('drawerFlag').textContent = f.bandera;
