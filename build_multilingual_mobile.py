@@ -55,6 +55,22 @@ def get_base_html(active_lang="es", is_subfolder=False):
     og_locales = {"es": "es_ES", "en": "en_US", "fr": "fr_FR", "it": "it_IT"}
     og_locale = og_locales.get(active_lang, "es_ES")
 
+    lang_keywords = {
+        "es": "llaveros de padel, llaveros personalizados padel, llaveros padel, llaveros de pádel, llaveros de padel personalizados, llavero padel, llaveros padel personalizados, llaveros para clubs de padel, llavero pala padel, llavero padel 3d, comprar llaveros de padel, llaveros personalizados tenis, merchandising clubes padel, regalos torneos padel, coolpadel",
+        "en": "custom padel keychains, padel keychains, personalized padel keyrings, padel racket keychain, custom 3d padel keyring, padel club merchandising, padel tournament gifts, coolpadel",
+        "fr": "porte clés padel personnalisé, porte clé padel, porte-clés club de padel, goodies padel, raquette padel porte clé, cadeaux tournoi padel, merchandising club padel, coolpadel",
+        "it": "portachiavi padel personalizzati, portachiavi padel, portachiavi racchetta padel, gadget padel personalizzati, merchandising club padel, regali tornei padel, portachiavi 3d padel, coolpadel"
+    }
+    keywords_content = lang_keywords.get(active_lang, lang_keywords["es"])
+
+    geo_configs = {
+        "es": {"region": "ES-M", "placename": "Madrid, Chamartín", "pos": "40.4589;-3.6761", "icbm": "40.4589, -3.6761"},
+        "en": {"region": "GB, US", "placename": "London, New York, International", "pos": "51.5074;-0.1278", "icbm": "51.5074, -0.1278"},
+        "fr": {"region": "FR", "placename": "Paris, France", "pos": "48.8566;2.3522", "icbm": "48.8566, 2.3522"},
+        "it": {"region": "IT", "placename": "Roma, Milano, Italia", "pos": "41.9028;12.4964", "icbm": "41.9028, 12.4964"}
+    }
+    geo_data = geo_configs.get(active_lang, geo_configs["es"])
+
     html = f"""<!DOCTYPE html>
 <html lang="{active_lang}" class="scroll-smooth">
 <head>
@@ -62,7 +78,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{t['meta_title']}</title>
   <meta name="description" content="{t['meta_desc']}">
-  <meta name="keywords" content="llaveros de padel, llaveros personalizados padel, llaveros padel, llaveros de pádel, llaveros de padel personalizados, llavero padel, llaveros padel personalizados, llaveros para clubs de padel, llavero pala padel, llavero padel 3d, comprar llaveros de padel, llaveros personalizados tenis, merchandising clubes padel, regalos torneos padel, coolpadel">
+  <meta name="keywords" content="{keywords_content}">
   <meta name="author" content="CoolPadel">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
   <link rel="canonical" href="https://coolpadelstudios.com/{active_lang + '/' if is_subfolder else ''}">
@@ -83,10 +99,10 @@ def get_base_html(active_lang="es", is_subfolder=False):
   <link rel="alternate" hreflang="x-default" href="https://coolpadelstudios.com/">
   
   <!-- Geo-Targeting & International SEO -->
-  <meta name="geo.region" content="ES-M">
-  <meta name="geo.placename" content="Madrid, Chamartín">
-  <meta name="geo.position" content="40.4589;-3.6761">
-  <meta name="ICBM" content="40.4589, -3.6761">
+  <meta name="geo.region" content="{geo_data['region']}">
+  <meta name="geo.placename" content="{geo_data['placename']}">
+  <meta name="geo.position" content="{geo_data['pos']}">
+  <meta name="ICBM" content="{geo_data['icbm']}">
   <meta name="language" content="{active_lang}">
   <meta name="coverage" content="Worldwide">
   <meta name="distribution" content="Global">
@@ -1066,21 +1082,6 @@ def get_base_html(active_lang="es", is_subfolder=False):
           <div class="lg:col-span-8 relative bg-[#508db8] rounded-2xl border border-slate-200/90 overflow-hidden shadow-inner min-h-[380px] sm:min-h-[500px]">
             <div id="coolpadel-leaflet-map" class="w-full h-full min-h-[380px] sm:min-h-[500px] z-10" style="min-height: 500px; width: 100%; background: #508db8;"></div>
             
-            <!-- SELECTOR DE PROPUESTAS DE MAPA (4 PROPUESTAS: 0 RELIEVE, MAR PLANO Y SOLO PAÍSES) -->
-            <div class="absolute top-3 right-3 z-[400] bg-white/95 backdrop-blur-md p-1 rounded-xl border border-slate-200/90 shadow-md flex items-center gap-1 text-[10px] sm:text-[11px] font-bold overflow-x-auto max-w-[92%]">
-              <button type="button" onclick="setMapVectorTheme('salvia')" id="theme-btn-salvia" class="px-2.5 py-1 rounded-lg transition text-slate-950 font-black bg-[#f2920b] shadow-xs cursor-pointer whitespace-nowrap" title="Verde salvia natural y mar marino plano">
-                🌿 Verde Salvia
-              </button>
-              <button type="button" onclick="setMapVectorTheme('arena')" id="theme-btn-arena" class="px-2.5 py-1 rounded-lg transition text-slate-700 hover:text-slate-950 hover:bg-slate-100 cursor-pointer font-bold whitespace-nowrap" title="Arena cálida mediterránea y mar azul plano">
-                🏝️ Arena Cálida
-              </button>
-              <button type="button" onclick="setMapVectorTheme('terracota')" id="theme-btn-terracota" class="px-2.5 py-1 rounded-lg transition text-slate-700 hover:text-slate-950 hover:bg-slate-100 cursor-pointer font-bold whitespace-nowrap" title="Terracota suave y mar celeste plano">
-                🏛️ Terracota Suave
-              </button>
-              <button type="button" onclick="setMapVectorTheme('nautico')" id="theme-btn-nautico" class="px-2.5 py-1 rounded-lg transition text-slate-700 hover:text-slate-950 hover:bg-slate-100 cursor-pointer font-bold whitespace-nowrap" title="Marfil náutico y azul cobalto plano">
-                ☀️ Náutico & Marfil
-              </button>
-            </div>
 
             <!-- HINT FLOTANTE INFERIOR -->
             <div class="absolute bottom-3 left-3 z-[400] bg-white/95 backdrop-blur-sm px-3.5 py-1.5 rounded-full border border-slate-200/90 shadow-sm pointer-events-none hidden sm:flex items-center gap-2 text-[11px] font-bold text-slate-700">
@@ -1863,30 +1864,6 @@ def get_base_html(active_lang="es", is_subfolder=False):
         landColor: '#dbe6d6',
         borderColor: '#ffffff',
         labelColor: '#143322'
-      }},
-      arena: {{
-        id: 'arena',
-        name: 'Arena Cálida',
-        seaColor: '#5b99cb',
-        landColor: '#eae0d0',
-        borderColor: '#ffffff',
-        labelColor: '#1e293b'
-      }},
-      terracota: {{
-        id: 'terracota',
-        name: 'Terracota Suave',
-        seaColor: '#629cc7',
-        landColor: '#f3e4d7',
-        borderColor: '#ffffff',
-        labelColor: '#362117'
-      }},
-      nautico: {{
-        id: 'nautico',
-        name: 'Náutico & Marfil',
-        seaColor: '#4a83ab',
-        landColor: '#f5eedc',
-        borderColor: '#ffffff',
-        labelColor: '#0a1c36'
       }}
     }};
 
@@ -1938,16 +1915,6 @@ def get_base_html(active_lang="es", is_subfolder=False):
 
       document.querySelectorAll('.country-map-label span').forEach(el => {{
         el.style.color = theme.labelColor;
-      }});
-
-      ['salvia', 'arena', 'terracota', 'nautico'].forEach(k => {{
-        const btn = document.getElementById('theme-btn-' + k);
-        if (!btn) return;
-        if (k === themeKey) {{
-          btn.className = 'px-2.5 py-1 rounded-lg transition text-slate-950 font-black bg-[#f2920b] shadow-xs cursor-pointer whitespace-nowrap';
-        }} else {{
-          btn.className = 'px-2.5 py-1 rounded-lg transition text-slate-700 hover:text-slate-950 hover:bg-slate-100 cursor-pointer font-bold whitespace-nowrap';
-        }}
       }});
     }};
 
@@ -2921,8 +2888,46 @@ def build_all():
   </url>
   <url>
     <loc>https://coolpadelstudios.com/camaras/</loc>
-    <lastmod>2026-10-14</lastmod>
-    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="es" href="https://coolpadelstudios.com/camaras/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://coolpadelstudios.com/en/camaras/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://coolpadelstudios.com/fr/camaras/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://coolpadelstudios.com/it/camaras/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://coolpadelstudios.com/camaras/"/>
+    <lastmod>{today_iso}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://coolpadelstudios.com/en/camaras/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://coolpadelstudios.com/camaras/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://coolpadelstudios.com/en/camaras/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://coolpadelstudios.com/fr/camaras/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://coolpadelstudios.com/it/camaras/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://coolpadelstudios.com/camaras/"/>
+    <lastmod>{today_iso}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://coolpadelstudios.com/fr/camaras/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://coolpadelstudios.com/camaras/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://coolpadelstudios.com/en/camaras/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://coolpadelstudios.com/fr/camaras/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://coolpadelstudios.com/it/camaras/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://coolpadelstudios.com/camaras/"/>
+    <lastmod>{today_iso}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://coolpadelstudios.com/it/camaras/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://coolpadelstudios.com/camaras/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://coolpadelstudios.com/en/camaras/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://coolpadelstudios.com/fr/camaras/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://coolpadelstudios.com/it/camaras/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://coolpadelstudios.com/camaras/"/>
+    <lastmod>{today_iso}</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>

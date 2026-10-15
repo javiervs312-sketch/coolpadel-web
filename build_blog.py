@@ -116,6 +116,49 @@ def generate_blog_index():
   <title>Blog & Newsletter de la Industria del Pádel | CoolPadel</title>
   <meta name="description" content="Artículos y análisis estratégicos sobre la industria del pádel por Javier Villoria. Noticias, mercado, clubes y descarga del Informe 2026.">
   <link rel="canonical" href="https://coolpadelstudios.com/blog/">
+  
+  <!-- Open Graph / Redes Sociales -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="CoolPadel Studios">
+  <meta property="og:locale" content="es_ES">
+  <meta property="og:url" content="https://coolpadelstudios.com/blog/">
+  <meta property="og:title" content="Blog & Newsletter de la Industria del Pádel | CoolPadel">
+  <meta property="og:description" content="Artículos y análisis estratégicos sobre la industria del pádel por Javier Villoria. Noticias, mercado, clubes y descarga del Informe 2026.">
+  <meta property="og:image" content="https://coolpadelstudios.com/assets/images/foto-reportaje.jpg">
+  
+  <!-- Twitter Cards -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Blog & Newsletter de la Industria del Pádel | CoolPadel">
+  <meta name="twitter:description" content="Artículos y análisis estratégicos sobre la industria del pádel por Javier Villoria.">
+  <meta name="twitter:image" content="https://coolpadelstudios.com/assets/images/foto-reportaje.jpg">
+
+  <!-- Schema.org Blog & CollectionPage -->
+  <script type="application/ld+json">
+  {{
+    "@context": "https://schema.org",
+    "@graph": [
+      {{
+        "@type": "Blog",
+        "@id": "https://coolpadelstudios.com/blog/#blog",
+        "name": "Blog de la Industria del Pádel - CoolPadel Studios",
+        "url": "https://coolpadelstudios.com/blog/",
+        "description": "Análisis estratégico y noticias del ecosistema de raqueta por Javier Villoria.",
+        "inLanguage": "es",
+        "publisher": {{
+          "@type": "Organization",
+          "name": "CoolPadel Studios",
+          "url": "https://coolpadelstudios.com",
+          "logo": "https://coolpadelstudios.com/assets/images/coolpadel-mascot-hd.png"
+        }},
+        "author": {{
+          "@type": "Person",
+          "name": "Javier Villoria",
+          "sameAs": "https://www.linkedin.com/in/javier-villoria-soleto-606737298/"
+        }}
+      }}
+    ]
+  }}
+  </script>
   {COMMON_HEAD.format(root_prefix=root_prefix)}
 </head>
 <body class="bg-white text-slate-900 min-h-screen relative selection:bg-[#f2920b] selection:text-white flex flex-col justify-between">
@@ -405,12 +448,69 @@ def generate_article_page(slug, edition_num, title, date_str, read_time, cover_i
     root_prefix = "../../"
     html_paragraphs = "".join([f'<p class="text-slate-800 text-base sm:text-lg leading-relaxed">{p}</p>' if not p.startswith('<h') and not p.startswith('<ul') and not p.startswith('<ol') and not p.startswith('<div') else p for p in paragraphs])
 
+    date_iso_map = {
+        "01": "2026-08-15",
+        "02": "2026-09-18",
+        "03": "2026-10-14"
+    }
+    date_iso = date_iso_map.get(edition_num, "2026-10-14")
+
     html = f"""<!DOCTYPE html>
 <html lang="es" class="scroll-smooth">
 <head>
   <title>Highlights #{edition_num}: {title} | CoolPadel Studios</title>
   <meta name="description" content="Highlights #{edition_num}: {title}. Análisis y reflexiones sobre la industria del pádel por Javier Villoria.">
   <link rel="canonical" href="https://coolpadelstudios.com/blog/{slug}/">
+  
+  <!-- Open Graph / Redes Sociales -->
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="CoolPadel Studios">
+  <meta property="og:locale" content="es_ES">
+  <meta property="og:url" content="https://coolpadelstudios.com/blog/{slug}/">
+  <meta property="og:title" content="Highlights #{edition_num}: {title}">
+  <meta property="og:description" content="Análisis y reflexiones sobre la industria del pádel por Javier Villoria.">
+  <meta property="og:image" content="https://coolpadelstudios.com/assets/images/{cover_img}">
+  
+  <!-- Twitter Cards -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Highlights #{edition_num}: {title}">
+  <meta name="twitter:description" content="Análisis y reflexiones sobre la industria del pádel por Javier Villoria.">
+  <meta name="twitter:image" content="https://coolpadelstudios.com/assets/images/{cover_img}">
+
+  <!-- Schema.org BlogPosting -->
+  <script type="application/ld+json">
+  {{
+    "@context": "https://schema.org",
+    "@graph": [
+      {{
+        "@type": "BlogPosting",
+        "@id": "https://coolpadelstudios.com/blog/{slug}/#article",
+        "headline": "Highlights #{edition_num}: {title}",
+        "description": "Highlights #{edition_num}: {title}. Análisis y reflexiones sobre la industria del pádel por Javier Villoria.",
+        "image": "https://coolpadelstudios.com/assets/images/{cover_img}",
+        "datePublished": "{date_iso}T10:00:00+02:00",
+        "dateModified": "{date_iso}T10:00:00+02:00",
+        "inLanguage": "es",
+        "mainEntityOfPage": "https://coolpadelstudios.com/blog/{slug}/",
+        "author": {{
+          "@type": "Person",
+          "name": "Javier Villoria",
+          "url": "https://www.linkedin.com/in/javier-villoria-soleto-606737298/",
+          "sameAs": "https://www.linkedin.com/in/javier-villoria-soleto-606737298/"
+        }},
+        "publisher": {{
+          "@type": "Organization",
+          "name": "CoolPadel Studios",
+          "url": "https://coolpadelstudios.com",
+          "logo": {{
+            "@type": "ImageObject",
+            "url": "https://coolpadelstudios.com/assets/images/coolpadel-mascot-hd.png"
+          }}
+        }}
+      }}
+    ]
+  }}
+  </script>
   {COMMON_HEAD.format(root_prefix=root_prefix)}
 </head>
 <body class="bg-white text-slate-900 min-h-screen relative selection:bg-[#f2920b] selection:text-white flex flex-col justify-between">

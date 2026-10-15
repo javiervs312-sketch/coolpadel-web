@@ -86,8 +86,46 @@
   </url>
   <url>
     <loc>https://coolpadelstudios.com/camaras/</loc>
-    <lastmod>2026-10-14</lastmod>
-    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="es" href="https://coolpadelstudios.com/camaras/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://coolpadelstudios.com/en/camaras/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://coolpadelstudios.com/fr/camaras/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://coolpadelstudios.com/it/camaras/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://coolpadelstudios.com/camaras/"/>
+    <lastmod>2026-10-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://coolpadelstudios.com/en/camaras/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://coolpadelstudios.com/camaras/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://coolpadelstudios.com/en/camaras/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://coolpadelstudios.com/fr/camaras/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://coolpadelstudios.com/it/camaras/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://coolpadelstudios.com/camaras/"/>
+    <lastmod>2026-10-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://coolpadelstudios.com/fr/camaras/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://coolpadelstudios.com/camaras/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://coolpadelstudios.com/en/camaras/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://coolpadelstudios.com/fr/camaras/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://coolpadelstudios.com/it/camaras/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://coolpadelstudios.com/camaras/"/>
+    <lastmod>2026-10-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://coolpadelstudios.com/it/camaras/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://coolpadelstudios.com/camaras/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://coolpadelstudios.com/en/camaras/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://coolpadelstudios.com/fr/camaras/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://coolpadelstudios.com/it/camaras/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://coolpadelstudios.com/camaras/"/>
+    <lastmod>2026-10-15</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>

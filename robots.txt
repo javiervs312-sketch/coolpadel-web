@@ -34,10 +34,13 @@ Allow: /
 User-agent: Diffbot
 Allow: /
 
-User-agent: CCBot
+User-agent: Claude-Web
 Allow: /
 
-User-agent: meta-externalagent
+User-agent: cohere-ai
+Allow: /
+
+User-agent: Bytespider
 Allow: /
 
 # Sitemap & LLMs Manifests
