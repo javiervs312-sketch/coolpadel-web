@@ -912,7 +912,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
           <div class="aspect-[4/3] rounded-2xl overflow-hidden mb-4 sm:mb-5 bg-slate-100 shadow-[0_20px_40px_-10px_rgba(0,0,0,0.3)] border border-slate-200/90">
             <img src="{asset_prefix}assets/images/llaveros 2.jpg" alt="Llaveros de tenis y pádel personalizados con relieve 3D para clubs y torneos" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
           </div>
-          <h3 data-i18n="card_tenis" class="font-heading font-black text-2xl sm:text-3xl uppercase tracking-tight text-slate-950 text-center py-1">
+          <h3 data-i18n="card_tenis" class="font-heading font-black text-xl sm:text-2xl lg:text-3xl uppercase tracking-tight text-slate-950 text-center py-1">
             {t['card_tenis']}
           </h3>
         </div>
@@ -922,7 +922,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
           <div class="aspect-[4/3] rounded-2xl overflow-hidden mb-4 sm:mb-5 bg-slate-100 shadow-[0_20px_40px_-10px_rgba(0,0,0,0.3)] border border-slate-200/90">
             <img src="{asset_prefix}assets/images/llaveros 1.jpg" alt="Llaveros de pádel de goma 3D personalizados con logo para clubes de pádel" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
           </div>
-          <h3 data-i18n="card_padel" class="font-heading font-black text-2xl sm:text-3xl uppercase tracking-tight text-[#f2920b] text-center py-1">
+          <h3 data-i18n="card_padel" class="font-heading font-black text-xl sm:text-2xl lg:text-3xl uppercase tracking-tight text-[#f2920b] text-center py-1">
             {t['card_padel']}
           </h3>
         </div>
@@ -2948,6 +2948,30 @@ def build_all():
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
+  <url>
+    <loc>https://coolpadelstudios.com/llaveros-padel-personalizados/</loc>
+    <lastmod>{today_iso}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://coolpadelstudios.com/llaveros-tenis-personalizados/</loc>
+    <lastmod>{today_iso}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://coolpadelstudios.com/welcome-packs-torneos-padel/</loc>
+    <lastmod>{today_iso}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://coolpadelstudios.com/llaveros-personalizados-clubs-padel/</loc>
+    <lastmod>{today_iso}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
 </urlset>
 """
     with open("coolpadel-web/sitemap.xml", "w", encoding="utf-8") as f:
@@ -2960,6 +2984,13 @@ def build_all():
         generate_blog_html()
     except Exception as e:
         print(f"  [ERROR] Al generar Blog: {e}")
+
+    # 2.6. Landings B2B Transaccionales (Pádel, Tenis, Torneos, Clubs)
+    try:
+        from build_landing_pages import build_all_landings
+        build_all_landings()
+    except Exception as e:
+        print(f"  [ERROR] Al generar Landings B2B: {e}")
 
     # 4. RSS Feed para indexación y agregadores de noticias/crawlers
     rss_xml = """<?xml version="1.0" encoding="UTF-8"?>

@@ -29,8 +29,8 @@ TRANSLATIONS = {
         # Llaveros
         "llaveros_title": "Llaveros personalizados con vuestro logo",
         "llaveros_subtitle": "Tus jugadores, dentro y fuera de la pista",
-        "card_tenis": "TENIS",
-        "card_padel": "PADEL",
+        "card_tenis": "Llaveros de Tenis",
+        "card_padel": "Llaveros de Pádel",
         "calc_title": "Calcula el pedido de tu Club",
         "step_1": "Diseño 3D",
         "step_2": "Muestra",
@@ -146,8 +146,8 @@ TRANSLATIONS = {
         # Llaveros
         "llaveros_title": "Custom keychains with your club logo",
         "llaveros_subtitle": "Your players, on and off the court",
-        "card_tenis": "TENNIS",
-        "card_padel": "PADEL",
+        "card_tenis": "Tennis Keychains",
+        "card_padel": "Padel Keychains",
         "calc_title": "Calculate your Club's order",
         "step_1": "3D Design",
         "step_2": "Sample",
@@ -263,8 +263,8 @@ TRANSLATIONS = {
         # Llaveros
         "llaveros_title": "Porte-clés personnalisés avec le logo de votre club",
         "llaveros_subtitle": "Vos joueurs, sur et en dehors des pistes",
-        "card_tenis": "TENNIS",
-        "card_padel": "PADEL",
+        "card_tenis": "Porte-clés Tennis",
+        "card_padel": "Porte-clés Padel",
         "calc_title": "Calculez la commande de votre Club",
         "step_1": "Design 3D",
         "step_2": "Échantillon",
@@ -380,8 +380,8 @@ TRANSLATIONS = {
         # Llaveros
         "llaveros_title": "Portachiavi personalizzati con il logo del tuo club",
         "llaveros_subtitle": "I tuoi giocatori, dentro e fuori dal campo",
-        "card_tenis": "TENNIS",
-        "card_padel": "PADEL",
+        "card_tenis": "Portachiavi Tennis",
+        "card_padel": "Portachiavi Padel",
         "calc_title": "Calcola l'ordine per il tuo Club",
         "step_1": "Design 3D",
         "step_2": "Campione",
