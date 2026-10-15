@@ -381,6 +381,38 @@ def get_base_html(active_lang="es", is_subfolder=False):
               "@type": "Answer",
               "text": "{t['faq_a6']}"
             }}
+          }},
+          {{
+            "@type": "Question",
+            "name": "{t['faq_q7']}",
+            "acceptedAnswer": {{
+              "@type": "Answer",
+              "text": "{t['faq_a7']}"
+            }}
+          }},
+          {{
+            "@type": "Question",
+            "name": "{t['faq_q8']}",
+            "acceptedAnswer": {{
+              "@type": "Answer",
+              "text": "{t['faq_a8']}"
+            }}
+          }},
+          {{
+            "@type": "Question",
+            "name": "{t['faq_q9']}",
+            "acceptedAnswer": {{
+              "@type": "Answer",
+              "text": "{t['faq_a9']}"
+            }}
+          }},
+          {{
+            "@type": "Question",
+            "name": "{t['faq_q10']}",
+            "acceptedAnswer": {{
+              "@type": "Answer",
+              "text": "{t['faq_a10']}"
+            }}
           }}
         ]
       }},
@@ -591,7 +623,11 @@ def get_base_html(active_lang="es", is_subfolder=False):
 
     /* Estilos Leaflet Map Pins y Popup */
     #coolpadel-leaflet-map {{
-      background: #091322 !important;
+      background: #5b99cb !important;
+    }}
+    .tile-satellite-soft {{
+      filter: brightness(1.15) saturate(0.72) contrast(0.92);
+      opacity: 0.92;
     }}
     .custom-pin-container {{
       position: relative;
@@ -1076,24 +1112,24 @@ def get_base_html(active_lang="es", is_subfolder=False):
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch pt-4">
           
           <!-- MAPA LEAFLET INTERACTIVO PANNABLE/ZOOMABLE -->
-          <div class="lg:col-span-8 relative bg-slate-900 rounded-2xl border border-slate-700/60 overflow-hidden shadow-inner min-h-[380px] sm:min-h-[500px]">
-            <div id="coolpadel-leaflet-map" class="w-full h-full min-h-[380px] sm:min-h-[500px] z-10" style="min-height: 500px; width: 100%; background: #091322;"></div>
+          <div class="lg:col-span-8 relative bg-[#5b99cb] rounded-2xl border border-slate-200/90 overflow-hidden shadow-inner min-h-[380px] sm:min-h-[500px]">
+            <div id="coolpadel-leaflet-map" class="w-full h-full min-h-[380px] sm:min-h-[500px] z-10" style="min-height: 500px; width: 100%; background: #5b99cb;"></div>
             
-            <!-- SELECTOR DE FORMATO VISUAL DEL MAPA (NOCHE / RELIEVE / SATÉLITE) -->
-            <div class="absolute top-3 right-3 z-[400] bg-slate-900/90 backdrop-blur-md p-1 rounded-xl border border-slate-700/80 shadow-md flex items-center gap-1 text-[11px] font-bold">
-              <button type="button" onclick="setMapTileStyle('dark')" id="style-btn-dark" class="px-2.5 py-1 rounded-lg transition text-slate-950 font-black bg-[#f2920b] shadow-xs cursor-pointer">
-                🌙 Noche
+            <!-- SELECTOR DE FORMATO VISUAL DEL MAPA (FÍSICO NATURAL / SATÉLITE SUAVE / OCÉANO & RELIEVE) -->
+            <div class="absolute top-3 right-3 z-[400] bg-white/95 backdrop-blur-md p-1 rounded-xl border border-slate-200/90 shadow-md flex items-center gap-1 text-[11px] font-bold">
+              <button type="button" onclick="setMapTileStyle('physical')" id="style-btn-physical" class="px-2.5 py-1 rounded-lg transition text-slate-950 font-black bg-[#f2920b] shadow-xs cursor-pointer">
+                🗺️ Físico Natural
               </button>
-              <button type="button" onclick="setMapTileStyle('relief')" id="style-btn-relief" class="px-2.5 py-1 rounded-lg transition text-slate-300 hover:text-white hover:bg-slate-800 cursor-pointer font-bold">
-                ⛰️ Relieve
+              <button type="button" onclick="setMapTileStyle('satellite_soft')" id="style-btn-satellite_soft" class="px-2.5 py-1 rounded-lg transition text-slate-700 hover:text-slate-950 hover:bg-slate-100 cursor-pointer font-bold">
+                🛰️ Satélite Suave
               </button>
-              <button type="button" onclick="setMapTileStyle('satellite')" id="style-btn-satellite" class="px-2.5 py-1 rounded-lg transition text-slate-300 hover:text-white hover:bg-slate-800 cursor-pointer font-bold">
-                🛰️ Satélite
+              <button type="button" onclick="setMapTileStyle('ocean')" id="style-btn-ocean" class="px-2.5 py-1 rounded-lg transition text-slate-700 hover:text-slate-950 hover:bg-slate-100 cursor-pointer font-bold">
+                🌊 Océano & Relieve
               </button>
             </div>
 
             <!-- HINT FLOTANTE INFERIOR -->
-            <div class="absolute bottom-3 left-3 z-[400] bg-slate-900/90 backdrop-blur-sm px-3.5 py-1.5 rounded-full border border-slate-700/80 shadow-sm pointer-events-none hidden sm:flex items-center gap-2 text-[11px] font-bold text-slate-200">
+            <div class="absolute bottom-3 left-3 z-[400] bg-white/95 backdrop-blur-sm px-3.5 py-1.5 rounded-full border border-slate-200/90 shadow-sm pointer-events-none hidden sm:flex items-center gap-2 text-[11px] font-bold text-slate-700">
               <i data-lucide="hand" class="w-3.5 h-3.5 text-[#f2920b]"></i>
               <span>Arrastra para desplazarte o haz zoom en el mapa</span>
             </div>
@@ -1139,10 +1175,10 @@ def get_base_html(active_lang="es", is_subfolder=False):
         </h2>
       </div>
 
-      <!-- ACORDEÓN DE PREGUNTAS (3 PREGUNTAS OFICIALES) -->
+      <!-- ACORDEÓN DE PREGUNTAS (10 PREGUNTAS OFICIALES) -->
       <div class="space-y-3 sm:space-y-4" id="faq-accordion">
         
-        <!-- PREGUNTA 1 -->
+        <!-- PREGUNTA 1: PROCESO -->
         <div class="faq-item bg-white border border-slate-200/90 rounded-2xl overflow-hidden shadow-xs transition-all duration-200">
           <button type="button" onclick="toggleFaq(this)" class="w-full px-5 sm:px-6 py-4 sm:py-5 flex items-center justify-between text-left font-sans font-bold text-base sm:text-lg text-slate-900 hover:text-[#f2920b] transition gap-4 cursor-pointer">
             <span data-i18n="faq_q1">{t['faq_q1']}</span>
@@ -1153,7 +1189,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
           </div>
         </div>
 
-        <!-- PREGUNTA 2 -->
+        <!-- PREGUNTA 2: PEDIDO MÍNIMO Y PLAZOS -->
         <div class="faq-item bg-white border border-slate-200/90 rounded-2xl overflow-hidden shadow-xs transition-all duration-200">
           <button type="button" onclick="toggleFaq(this)" class="w-full px-5 sm:px-6 py-4 sm:py-5 flex items-center justify-between text-left font-sans font-bold text-base sm:text-lg text-slate-900 hover:text-[#f2920b] transition gap-4 cursor-pointer">
             <span data-i18n="faq_q2">{t['faq_q2']}</span>
@@ -1164,7 +1200,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
           </div>
         </div>
 
-        <!-- PREGUNTA 3 -->
+        <!-- PREGUNTA 3: PRECIOS, IVA Y FACTURACIÓN -->
         <div class="faq-item bg-white border border-slate-200/90 rounded-2xl overflow-hidden shadow-xs transition-all duration-200">
           <button type="button" onclick="toggleFaq(this)" class="w-full px-5 sm:px-6 py-4 sm:py-5 flex items-center justify-between text-left font-sans font-bold text-base sm:text-lg text-slate-900 hover:text-[#f2920b] transition gap-4 cursor-pointer">
             <span data-i18n="faq_q3">{t['faq_q3']}</span>
@@ -1175,7 +1211,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
           </div>
         </div>
 
-        <!-- PREGUNTA 4 (RENTABILIDAD Y MARGEN) -->
+        <!-- PREGUNTA 4: MUESTRA DESCONTABLE -->
         <div class="faq-item bg-white border border-slate-200/90 rounded-2xl overflow-hidden shadow-xs transition-all duration-200">
           <button type="button" onclick="toggleFaq(this)" class="w-full px-5 sm:px-6 py-4 sm:py-5 flex items-center justify-between text-left font-sans font-bold text-base sm:text-lg text-slate-900 hover:text-[#f2920b] transition gap-4 cursor-pointer">
             <span data-i18n="faq_q4">{t['faq_q4']}</span>
@@ -1186,7 +1222,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
           </div>
         </div>
 
-        <!-- PREGUNTA 5 (WELCOME PACKS Y TORNEOS) -->
+        <!-- PREGUNTA 5: TAMAÑO LLAVERO (70MM) -->
         <div class="faq-item bg-white border border-slate-200/90 rounded-2xl overflow-hidden shadow-xs transition-all duration-200">
           <button type="button" onclick="toggleFaq(this)" class="w-full px-5 sm:px-6 py-4 sm:py-5 flex items-center justify-between text-left font-sans font-bold text-base sm:text-lg text-slate-900 hover:text-[#f2920b] transition gap-4 cursor-pointer">
             <span data-i18n="faq_q5">{t['faq_q5']}</span>
@@ -1197,7 +1233,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
           </div>
         </div>
 
-        <!-- PREGUNTA 6 (MATERIAL GOMA 3D Y DURABILIDAD) -->
+        <!-- PREGUNTA 6: VENDER EN TIENDA / PRO-SHOP -->
         <div class="faq-item bg-white border border-slate-200/90 rounded-2xl overflow-hidden shadow-xs transition-all duration-200">
           <button type="button" onclick="toggleFaq(this)" class="w-full px-5 sm:px-6 py-4 sm:py-5 flex items-center justify-between text-left font-sans font-bold text-base sm:text-lg text-slate-900 hover:text-[#f2920b] transition gap-4 cursor-pointer">
             <span data-i18n="faq_q6">{t['faq_q6']}</span>
@@ -1205,6 +1241,50 @@ def get_base_html(active_lang="es", is_subfolder=False):
           </button>
           <div class="faq-answer hidden px-5 sm:px-6 pb-5 pt-3 text-slate-700 text-sm sm:text-base font-normal leading-relaxed sm:leading-loose border-t border-slate-100">
             <p data-i18n="faq_a6">{t['faq_a6']}</p>
+          </div>
+        </div>
+
+        <!-- PREGUNTA 7: USOS Y OCASIONES (WELCOME PACKS, CENAS, PATROCINADORES) -->
+        <div class="faq-item bg-white border border-slate-200/90 rounded-2xl overflow-hidden shadow-xs transition-all duration-200">
+          <button type="button" onclick="toggleFaq(this)" class="w-full px-5 sm:px-6 py-4 sm:py-5 flex items-center justify-between text-left font-sans font-bold text-base sm:text-lg text-slate-900 hover:text-[#f2920b] transition gap-4 cursor-pointer">
+            <span data-i18n="faq_q7">{t['faq_q7']}</span>
+            <i data-lucide="chevron-down" class="faq-icon w-5 h-5 stroke-[2.5] text-slate-400 shrink-0 transition-transform duration-300"></i>
+          </button>
+          <div class="faq-answer hidden px-5 sm:px-6 pb-5 pt-3 text-slate-700 text-sm sm:text-base font-normal leading-relaxed sm:leading-loose border-t border-slate-100">
+            <p data-i18n="faq_a7">{t['faq_a7']}</p>
+          </div>
+        </div>
+
+        <!-- PREGUNTA 8: CLUBES Y MAPA OFICIAL -->
+        <div class="faq-item bg-white border border-slate-200/90 rounded-2xl overflow-hidden shadow-xs transition-all duration-200">
+          <button type="button" onclick="toggleFaq(this)" class="w-full px-5 sm:px-6 py-4 sm:py-5 flex items-center justify-between text-left font-sans font-bold text-base sm:text-lg text-slate-900 hover:text-[#f2920b] transition gap-4 cursor-pointer">
+            <span data-i18n="faq_q8">{t['faq_q8']}</span>
+            <i data-lucide="chevron-down" class="faq-icon w-5 h-5 stroke-[2.5] text-slate-400 shrink-0 transition-transform duration-300"></i>
+          </button>
+          <div class="faq-answer hidden px-5 sm:px-6 pb-5 pt-3 text-slate-700 text-sm sm:text-base font-normal leading-relaxed sm:leading-loose border-t border-slate-100">
+            <p data-i18n="faq_a8">{t['faq_a8']}</p>
+          </div>
+        </div>
+
+        <!-- PREGUNTA 9: PAÍSES Y ENVÍOS -->
+        <div class="faq-item bg-white border border-slate-200/90 rounded-2xl overflow-hidden shadow-xs transition-all duration-200">
+          <button type="button" onclick="toggleFaq(this)" class="w-full px-5 sm:px-6 py-4 sm:py-5 flex items-center justify-between text-left font-sans font-bold text-base sm:text-lg text-slate-900 hover:text-[#f2920b] transition gap-4 cursor-pointer">
+            <span data-i18n="faq_q9">{t['faq_q9']}</span>
+            <i data-lucide="chevron-down" class="faq-icon w-5 h-5 stroke-[2.5] text-slate-400 shrink-0 transition-transform duration-300"></i>
+          </button>
+          <div class="faq-answer hidden px-5 sm:px-6 pb-5 pt-3 text-slate-700 text-sm sm:text-base font-normal leading-relaxed sm:leading-loose border-t border-slate-100">
+            <p data-i18n="faq_a9">{t['faq_a9']}</p>
+          </div>
+        </div>
+
+        <!-- PREGUNTA 10: SAVE MY PLAY -->
+        <div class="faq-item bg-white border border-slate-200/90 rounded-2xl overflow-hidden shadow-xs transition-all duration-200">
+          <button type="button" onclick="toggleFaq(this)" class="w-full px-5 sm:px-6 py-4 sm:py-5 flex items-center justify-between text-left font-sans font-bold text-base sm:text-lg text-slate-900 hover:text-[#f2920b] transition gap-4 cursor-pointer">
+            <span data-i18n="faq_q10">{t['faq_q10']}</span>
+            <i data-lucide="chevron-down" class="faq-icon w-5 h-5 stroke-[2.5] text-slate-400 shrink-0 transition-transform duration-300"></i>
+          </button>
+          <div class="faq-answer hidden px-5 sm:px-6 pb-5 pt-3 text-slate-700 text-sm sm:text-base font-normal leading-relaxed sm:leading-loose border-t border-slate-100">
+            <p data-i18n="faq_a10">{t['faq_a10']}</p>
           </div>
         </div>
 
@@ -1820,25 +1900,26 @@ def get_base_html(active_lang="es", is_subfolder=False):
     let currentMapTileLayer = null;
 
     const MAP_TILE_CONFIGS = {{
-      dark: {{
-        url: 'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{{z}}/{{y}}/{{x}}',
+      physical: {{
+        url: 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Physical_Map/MapServer/tile/{{z}}/{{y}}/{{x}}',
         options: {{
-          maxZoom: 16,
-          attribution: 'Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ'
+          maxZoom: 9,
+          attribution: 'Tiles &copy; Esri &mdash; World Physical Map'
         }}
       }},
-      relief: {{
-        url: 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Shaded_Relief/MapServer/tile/{{z}}/{{y}}/{{x}}',
-        options: {{
-          maxZoom: 13,
-          attribution: 'Tiles &copy; Esri &mdash; Shaded Relief'
-        }}
-      }},
-      satellite: {{
+      satellite_soft: {{
         url: 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{{z}}/{{y}}/{{x}}',
         options: {{
           maxZoom: 18,
+          className: 'tile-satellite-soft',
           attribution: 'Tiles &copy; Esri &mdash; Satellite Imagery'
+        }}
+      }},
+      ocean: {{
+        url: 'https://server.arcgisonline.com/ArcGIS/rest/services/Ocean/World_Ocean_Base/MapServer/tile/{{z}}/{{y}}/{{x}}',
+        options: {{
+          maxZoom: 13,
+          attribution: 'Tiles &copy; Esri &mdash; World Ocean Base'
         }}
       }}
     }};
@@ -1852,13 +1933,13 @@ def get_base_html(active_lang="es", is_subfolder=False):
       const cfg = MAP_TILE_CONFIGS[styleKey];
       currentMapTileLayer = L.tileLayer(cfg.url, cfg.options).addTo(leafletMapInstance);
 
-      ['dark', 'relief', 'satellite'].forEach(k => {{
+      ['physical', 'satellite_soft', 'ocean'].forEach(k => {{
         const btn = document.getElementById('style-btn-' + k);
         if (!btn) return;
         if (k === styleKey) {{
           btn.className = 'px-2.5 py-1 rounded-lg transition text-slate-950 font-black bg-[#f2920b] shadow-xs cursor-pointer';
         }} else {{
-          btn.className = 'px-2.5 py-1 rounded-lg transition text-slate-300 hover:text-white hover:bg-slate-800 cursor-pointer font-bold';
+          btn.className = 'px-2.5 py-1 rounded-lg transition text-slate-700 hover:text-slate-950 hover:bg-slate-100 cursor-pointer font-bold';
         }}
       }});
     }};
@@ -1879,8 +1960,8 @@ def get_base_html(active_lang="es", is_subfolder=False):
         leafletMapInstance.on('focus', () => leafletMapInstance.scrollWheelZoom.enable());
         leafletMapInstance.on('click', () => leafletMapInstance.scrollWheelZoom.enable());
 
-        // Carga por defecto el modo oscuro limpio y elegante (Dark Navy)
-        setMapTileStyle('dark');
+        // Carga por defecto: Físico Natural (mar azul limpio sin relieve submarino, tierra cálida suave, cero textos)
+        setMapTileStyle('physical');
 
         const createPinIcon = () => L.divIcon({{
           className: 'custom-pin',
@@ -2633,8 +2714,8 @@ def get_base_html(active_lang="es", is_subfolder=False):
 
       attachClick('nav-contact-btn', 'click_whatsapp_nav', 'Cabecera PC');
       attachClick('nav-contact-btn-mob', 'click_whatsapp_nav_mob', 'Cabecera Móvil');
-      attachClick('calc-wa-btn', 'click_whatsapp_calc', 'Calculadora Pistas', () => ({{
-        tier_pistas: tiers[currentTierIdx]?.qty,
+      attachClick('calc-wa-btn', 'click_whatsapp_calc', 'Calculadora Llaveros', () => ({{
+        tier_unidades: tiers[currentTierIdx]?.qty,
         tier_precio: tiers[currentTierIdx]?.price
       }}));
       attachClick('contact-wa-btn', 'click_whatsapp_footer', 'Contacto Footer');
@@ -2650,9 +2731,9 @@ def get_base_html(active_lang="es", is_subfolder=False):
           const tData = tiers[idx];
           if (tData) {{
             trackEvent('calculadora_interaccion', {{
-              tier_pistas: tData.qty,
+              tier_unidades: tData.qty,
               tier_precio: tData.price,
-              evento_desc: `📊 Calculadora: ${{tData.qty}} pistas (${{tData.price}}€/mes)`
+              evento_desc: `📊 Calculadora: ${{tData.qty}} llaveros (${{tData.price}}€)`
             }});
           }}
         }}
