@@ -929,17 +929,10 @@ def get_base_html(active_lang="es", is_subfolder=False):
 
       <!-- CALCULADORA DE PRESUPUESTO OFICIAL (RECUADRO BLANCO OFICIAL) -->
       <div class="max-w-3xl mx-auto bg-white rounded-3xl p-5 sm:p-10 border border-white/60 shadow-2xl text-slate-950">
-        <div class="text-center space-y-2 sm:space-y-4 mb-6 sm:mb-8">
+        <div class="text-center mb-6 sm:mb-8">
           <h3 data-i18n="calc_title" class="text-xl sm:text-3xl font-black font-heading text-slate-950">
             {t['calc_title']}
           </h3>
-          <div class="flex items-center justify-center gap-2 sm:gap-6 text-xs sm:text-base font-heading font-black uppercase tracking-wider text-slate-900 flex-wrap pt-1">
-            <span data-i18n="step_1">{t['step_1']}</span>
-            <i data-lucide="arrow-right" class="w-4 h-4 sm:w-6 sm:h-6 stroke-[3] text-[#f2920b]"></i>
-            <span data-i18n="step_2">{t['step_2']}</span>
-            <i data-lucide="arrow-right" class="w-4 h-4 sm:w-6 sm:h-6 stroke-[3] text-[#f2920b]"></i>
-            <span data-i18n="step_3">{t['step_3']}</span>
-          </div>
         </div>
 
         <div class="space-y-6">
@@ -986,22 +979,6 @@ def get_base_html(active_lang="es", is_subfolder=False):
                 </div>
               </div>
 
-            </div>
-          </div>
-
-          <!-- 3 Condiciones Oficiales del Tarifario (15% más grandes) -->
-          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 text-center pt-2">
-            <div class="bg-white p-4 sm:p-5 rounded-2xl border border-slate-200/90 shadow-sm">
-              <span data-i18n="badge_muestra" class="text-sm sm:text-base font-bold text-slate-500 uppercase tracking-wider block">{t['badge_muestra']}</span>
-              <strong class="text-slate-950 text-lg sm:text-xl font-black block mt-0.5">15€</strong>
-            </div>
-            <div class="bg-white p-4 sm:p-5 rounded-2xl border border-slate-200/90 shadow-sm">
-              <span data-i18n="badge_envios" class="text-sm sm:text-base font-bold text-slate-500 uppercase tracking-wider block">{t['badge_envios']}</span>
-              <strong data-i18n="badge_envios_val" class="text-slate-950 text-lg sm:text-xl font-black block mt-0.5">{t['badge_envios_val']}</strong>
-            </div>
-            <div class="bg-white p-4 sm:p-5 rounded-2xl border border-slate-200/90 shadow-sm">
-              <span data-i18n="badge_pago" class="text-sm sm:text-base font-bold text-slate-500 uppercase tracking-wider block">{t['badge_pago']}</span>
-              <strong data-i18n="badge_pago_val" class="text-slate-950 text-lg sm:text-xl font-black block mt-0.5">{t['badge_pago_val']}</strong>
             </div>
           </div>
 
