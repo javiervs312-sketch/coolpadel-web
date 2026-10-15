@@ -1821,11 +1821,10 @@ def get_base_html(active_lang="es", is_subfolder=False):
 
     const MAP_TILE_CONFIGS = {{
       dark: {{
-        url: 'https://{{s}}.basemaps.cartocdn.com/dark_all/{{z}}/{{x}}/{{y}}{{r}}.png',
+        url: 'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{{z}}/{{y}}/{{x}}',
         options: {{
-          subdomains: 'abcd',
-          maxZoom: 18,
-          attribution: '&copy; OpenStreetMap &copy; CARTO'
+          maxZoom: 16,
+          attribution: 'Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ'
         }}
       }},
       relief: {{
