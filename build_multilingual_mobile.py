@@ -1957,9 +1957,9 @@ def get_base_html(active_lang="es", is_subfolder=False):
 
       try {{
         leafletMapInstance = L.map('coolpadel-leaflet-map', {{
-          center: [44.0, 4.0],
-          zoom: 5,
-          minZoom: 4,
+          center: [47.5, 4.0],
+          zoom: 4,
+          minZoom: 3,
           maxZoom: 12,
           scrollWheelZoom: false
         }});
@@ -2101,7 +2101,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
       if (!leafletMapInstance) return;
 
       if (region === 'all') {{
-        leafletMapInstance.setView([44.0, 4.0], 5, {{ animate: true }});
+        leafletMapInstance.setView([47.5, 4.0], 4, {{ animate: true }});
         selectClubById('cambados');
       }} else if (region === 'es') {{
         leafletMapInstance.setView([40.2, -3.7], 6, {{ animate: true }});
