@@ -105,6 +105,30 @@ LANDINGS = [
             ("¿Podemos repetir pedidos en el futuro con el mismo molde?", "Sí. Guardamos tu molde de producción para que puedas pedir reposiciones de 100 en 100 unidades cuando lo necesites sin coste adicional de diseño."),
             ("¿Cuáles son las formas de pago para clubes?", "Transferencia bancaria oficial contra factura proforma tras validar la muestra física.")
         ]
+    },
+    {
+        "slug": "camaras-grabacion-pistas-padel",
+        "title": "Cámaras y Grabación de Partidos para Pistas de Pádel | Save My Play",
+        "meta_desc": "Sistema de grabación inteligente y repetición en vídeo para pistas de pádel. Instalación en 5 minutos sin obras ni zanjas, pulsador físico en poste y entrega vía WhatsApp.",
+        "badge": "TECNOLOGÍA DE CLUB · SAVE MY PLAY",
+        "h1": "Cámaras Inteligentes para Pistas de Pádel sin Obras",
+        "subtitle": "La tecnología de repetición y analítica en pista que fideliza a tus jugadores y genera ingresos recurrentes para tu club de pádel o tenis. Sin permanencia, sin zanjas y montado en 5 minutos.",
+        "hero_img": "assets/images/savemyplay-1.jpg",
+        "hero_img_alt": "Sistema de cámaras inteligentes de grabación para pistas de pádel Save My Play",
+        "wa_msg": "Hola Javier, quiero información sobre el sistema de cámaras y grabación Save My Play para las pistas de mi club",
+        "price_anchor": "Hardware 180 € / pista · Software desde 45 €/mes · Sin obras",
+        "target_audience": "Gerentes de clubes de pádel y tenis, directores de academias e inversores deportivos que buscan modernizar sus pistas con vídeo de alta definición.",
+        "benefits": [
+            ("Cero Obras y Montaje en 5 Minutos", "Se instala directamente en el poste de la pista sin necesidad de abrir zanjas, tirar tubos ni obras de albañilería."),
+            ("Pulsador Físico de Highlights en Pista", "Los jugadores pulsan un botón físico tras un gran punto y descargan sus mejores jugadas al instante mediante código QR."),
+            ("Sin Contratos de Permanencia", "Máxima flexibilidad. Pruébalo en tus pistas centrales y amplía cuando compruebes la satisfacción de los socios.")
+        ],
+        "faqs": [
+            ("¿Se necesitan obras o canalizaciones en el suelo?", "No. El sistema se ancla directamente al poste de la pista y no requiere zanjas ni obras civiles. La instalación dura solo 5 minutos por pista."),
+            ("¿Cuál es el precio y modelo de suscripción?", "Inversión única en hardware de 180 € por pista. La cuota mensual es de 45 €/mes (Plan Básico Highlights) o 136 €/mes (Plan Analítica IA Avanzada), sin permanencia."),
+            ("¿Cómo reciben los jugadores sus jugadas?", "El jugador pulsa el botón tras una jugada y al finalizar el partido escanea el QR en pista para tener el vídeo en su móvil al instante."),
+            ("¿Cumple con la normativa RGPD de protección de datos?", "Totalmente. El sistema cumple los estándares europeos de privacidad: los clips se almacenan temporalmente y solo los jugadores que activan su sesión acceden a sus grabaciones.")
+        ]
     }
 ]
 

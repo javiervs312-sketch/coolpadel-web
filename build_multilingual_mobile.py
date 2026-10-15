@@ -1309,6 +1309,8 @@ def get_base_html(active_lang="es", is_subfolder=False):
         <span class="hidden sm:inline opacity-30">·</span>
         <a href="/politica-de-devoluciones.html" class="hover:text-white/80 underline decoration-white/30 underline-offset-2 transition" title="Política de Devoluciones y Garantía">Política de Devoluciones</a>
         <span class="hidden sm:inline opacity-30">·</span>
+        <a href="/franquicias-padel/" class="hover:text-white/80 underline decoration-white/30 underline-offset-2 transition" title="Directorio de Franquicias de Pádel">Franquicias de Pádel</a>
+        <span class="hidden sm:inline opacity-30">·</span>
         <a href="https://www.instagram.com/coolpadel_/" target="_blank" rel="noopener noreferrer" class="opacity-30 hover:opacity-75 text-[11px] transition text-white/70" title="Instagram CoolPadel">@coolpadel_</a>
       </div>
 
@@ -2972,6 +2974,12 @@ def build_all():
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
+  <url>
+    <loc>https://coolpadelstudios.com/franquicias-padel/</loc>
+    <lastmod>{today_iso}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
 </urlset>
 """
     with open("coolpadel-web/sitemap.xml", "w", encoding="utf-8") as f:
@@ -2991,6 +2999,13 @@ def build_all():
         build_all_landings()
     except Exception as e:
         print(f"  [ERROR] Al generar Landings B2B: {e}")
+
+    # 2.7. Directorio de Franquicias y Cadenas de Pádel (+1 Club)
+    try:
+        from build_franquicias import main as build_franquicias_main
+        build_franquicias_main()
+    except Exception as e:
+        print(f"  [ERROR] Al generar Directorio de Franquicias: {e}")
 
     # 4. RSS Feed para indexación y agregadores de noticias/crawlers
     rss_xml = """<?xml version="1.0" encoding="UTF-8"?>
