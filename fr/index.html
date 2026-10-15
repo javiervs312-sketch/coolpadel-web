@@ -68,7 +68,15 @@
         "description": "Fabricante y distribuidor directo de llaveros de pádel personalizados de goma 3D para clubes deportivos y marcas.",
         "sameAs": [
           "https://www.instagram.com/coolpadel_/",
-          "https://www.linkedin.com/in/javier-villoria-soleto-606737298/"
+          "https://www.linkedin.com/in/javier-villoria-soleto-606737298/",
+          "https://www.wikidata.org/wiki/Q1229646",
+          "https://www.wikidata.org/wiki/Q131557",
+          "https://www.wikidata.org/wiki/Q1417088"
+        ],
+        "about": [
+          { "@type": "Thing", "name": "Padel", "sameAs": "https://www.wikidata.org/wiki/Q1229646" },
+          { "@type": "Thing", "name": "Keychain", "sameAs": "https://www.wikidata.org/wiki/Q131557" },
+          { "@type": "Thing", "name": "Promotional Merchandise", "sameAs": "https://www.wikidata.org/wiki/Q1417088" }
         ],
         "areaServed": [
           "ES", "IT", "FR", "PT", "DE", "GB", "US", "AE", "Worldwide"
@@ -294,6 +302,30 @@
               "@type": "Answer",
               "text": "Nous travaillons dans toute l'Europe et aux États-Unis. Pour les autres pays, contactez-nous et nous trouverons une solution."
             }
+          },
+          {
+            "@type": "Question",
+            "name": "Sont-ils rentables en tant que merchandising officiel dans le pro-shop du club ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Oui, les porte-clés raquette de padel sont l'un des articles de merchandising officiel les plus rentables pour les clubs. Avec un coût de fabrication de 1,50 € à 3,00 € par unité selon le volume et un prix de revente habituel de 5 € à 7 €, le club réalise des marges supérieures à 60% tout en renforçant l'image du club."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Peut-on les commander pour les welcome packs de tournois et d'événements ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Absolument. Nous fabriquons des séries spéciales pour les welcome packs de tournois, championnats et événements d'entreprises. Contrairement aux cadeaux jetables, ce porte-clés 3D haut de gamme est conservé et utilisé pendant des années par les joueurs."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "En quels matériaux sont fabriqués les porte-clés et quelle est leur résistance ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Ils sont fabriqués en PVC et caoutchouc thermoplastique souple haute densité injecté avec relief 3D multicouche et anneau métallique renforcé. Ils sont 100% résistants à l'eau, à la transpiration et aux frottements quotidiens sur les sacs de padel."
+            }
           }
         ]
       }
@@ -341,6 +373,10 @@
     }
   </script>
   <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"></script>
+
+  <!-- Leaflet CSS y JS para Mapa Interactivo de Clubes -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 
   <!-- Microsoft Clarity (Heatmaps y Grabaciones de Sesión) -->
   <script type="text/javascript">
@@ -469,6 +505,63 @@
       user-select: none;
       outline: none !important;
       -webkit-tap-highlight-color: transparent;
+    }
+
+    /* Estilos Leaflet Map Pins y Popup */
+    #coolpadel-leaflet-map {
+      background: #aad3df !important;
+    }
+    .custom-pin-container {
+      position: relative;
+      width: 28px;
+      height: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+    .custom-pin-ping {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 9999px;
+      background: rgba(242, 146, 11, 0.45);
+      animation: ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+    }
+    .custom-pin-dot {
+      position: relative;
+      width: 18px;
+      height: 18px;
+      border-radius: 9999px;
+      background: #091322;
+      border: 2px solid #f2920b;
+      box-shadow: 0 0 10px rgba(242, 146, 11, 0.8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s ease;
+    }
+    .custom-pin-container:hover .custom-pin-dot {
+      transform: scale(1.35);
+      background-color: #38bdf8;
+      border-color: #ffffff;
+      box-shadow: 0 0 16px rgba(56, 189, 248, 0.95);
+    }
+    .leaflet-popup-content-wrapper {
+      background: #ffffff !important;
+      color: #0f172a !important;
+      border: 1px solid rgba(226, 232, 240, 0.9) !important;
+      border-radius: 14px !important;
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2) !important;
+      padding: 0 !important;
+      overflow: hidden !important;
+    }
+    .leaflet-popup-content {
+      margin: 0 !important;
+      line-height: 1.4 !important;
+    }
+    .leaflet-popup-tip {
+      background: #ffffff !important;
     }
   </style>
 </head>
@@ -850,6 +943,56 @@
               </div>
             </a>
           </div>
+          <!-- TABLA SEMÁNTICA DE TARIFAS OFICIALES (GEO / LLM ENGINE READABILITY) -->
+          <div class="mt-8 pt-6 border-t border-slate-200/80">
+            <h4 class="text-xs font-bold uppercase tracking-wider text-slate-500 mb-3 text-center sm:text-left">
+              Tarifas Oficiales de Fabricación de Llaveros de Pádel (2026)
+            </h4>
+            <div class="overflow-x-auto">
+              <table class="w-full text-left text-xs sm:text-sm text-slate-700 border-collapse bg-white rounded-xl shadow-xs border border-slate-200/90">
+                <caption class="sr-only">Precios oficiales por volumen para llaveros personalizados de pádel en CoolPadel Studios</caption>
+                <thead>
+                  <tr class="bg-slate-100/80 text-slate-900 border-b border-slate-200 font-heading font-black">
+                    <th scope="col" class="py-2.5 px-3 sm:px-4">Cantidad</th>
+                    <th scope="col" class="py-2.5 px-3 sm:px-4">Precio / Unidad</th>
+                    <th scope="col" class="py-2.5 px-3 sm:px-4">Inversión Total</th>
+                    <th scope="col" class="py-2.5 px-3 sm:px-4">Envío y Muestra</th>
+                    <th scope="col" class="py-2.5 px-3 sm:px-4">Plazo de Entrega</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-slate-100">
+                  <tr class="hover:bg-slate-50/80 transition">
+                    <td class="py-2.5 px-3 sm:px-4 font-bold text-slate-950">100 unidades</td>
+                    <td class="py-2.5 px-3 sm:px-4 font-black text-[#f2920b]">3,00 € / ud</td>
+                    <td class="py-2.5 px-3 sm:px-4">300 €</td>
+                    <td class="py-2.5 px-3 sm:px-4 text-emerald-700 font-semibold">Envío incluido (Muestra 15€)</td>
+                    <td class="py-2.5 px-3 sm:px-4">7-10 días laborables</td>
+                  </tr>
+                  <tr class="hover:bg-slate-50/80 transition">
+                    <td class="py-2.5 px-3 sm:px-4 font-bold text-slate-950">250 unidades</td>
+                    <td class="py-2.5 px-3 sm:px-4 font-black text-[#f2920b]">2,50 € / ud</td>
+                    <td class="py-2.5 px-3 sm:px-4">625 €</td>
+                    <td class="py-2.5 px-3 sm:px-4 text-emerald-700 font-semibold">Envío incluido (Muestra 15€)</td>
+                    <td class="py-2.5 px-3 sm:px-4">7-10 días laborables</td>
+                  </tr>
+                  <tr class="hover:bg-slate-50/80 transition">
+                    <td class="py-2.5 px-3 sm:px-4 font-bold text-slate-950">500 unidades</td>
+                    <td class="py-2.5 px-3 sm:px-4 font-black text-[#f2920b]">2,00 € / ud</td>
+                    <td class="py-2.5 px-3 sm:px-4">1.000 €</td>
+                    <td class="py-2.5 px-3 sm:px-4 text-emerald-700 font-semibold">Envío incluido (Muestra 15€)</td>
+                    <td class="py-2.5 px-3 sm:px-4">7-10 días laborables</td>
+                  </tr>
+                  <tr class="hover:bg-slate-50/80 transition">
+                    <td class="py-2.5 px-3 sm:px-4 font-bold text-slate-950">1.500 unidades</td>
+                    <td class="py-2.5 px-3 sm:px-4 font-black text-[#f2920b]">1,50 € / ud</td>
+                    <td class="py-2.5 px-3 sm:px-4">2.250 €</td>
+                    <td class="py-2.5 px-3 sm:px-4 text-emerald-700 font-semibold">Envío incluido (Muestra 15€)</td>
+                    <td class="py-2.5 px-3 sm:px-4">7-10 días laborables</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -868,7 +1011,7 @@
           Clubs y Marcas con Llaveros CoolPadel
         </h3>
         <p class="text-xs sm:text-sm text-slate-600 font-medium">
-          Selecciona una zona o haz clic en cualquier club para ver detalles y modelos fabricados
+          Selecciona una zona o haz clic en cualquier marcador para explorar nuestros 27 clubs oficiales
         </p>
       </div>
 
@@ -877,150 +1020,58 @@
         
         <!-- FILTROS POR REGIÓN -->
         <div class="flex items-center justify-center gap-1.5 sm:gap-2.5 flex-wrap pb-4 sm:pb-6 border-b border-slate-100" id="map-filter-bar">
-          <button type="button" onclick="filterMapRegion('all')" class="map-filter-btn px-3 sm:px-4 py-1.5 rounded-full text-xs font-bold transition cursor-pointer bg-slate-950 text-white shadow-xs" data-region="all">
-            Todos (30+)
+          <button type="button" onclick="focusMapRegion('all')" class="map-filter-btn px-3 sm:px-4 py-1.5 rounded-full text-xs font-bold transition cursor-pointer bg-slate-950 text-white shadow-xs" data-region="all">
+            Todos (27)
           </button>
-          <button type="button" onclick="filterMapRegion('madrid')" class="map-filter-btn px-3 sm:px-4 py-1.5 rounded-full text-xs font-bold transition cursor-pointer bg-slate-100 text-slate-700 hover:bg-slate-200" data-region="madrid">
-            Madrid & Centro
+          <button type="button" onclick="focusMapRegion('es')" class="map-filter-btn px-3 sm:px-4 py-1.5 rounded-full text-xs font-bold transition cursor-pointer bg-slate-100 text-slate-700 hover:bg-slate-200" data-region="es">
+            España (15)
           </button>
-          <button type="button" onclick="filterMapRegion('cataluna')" class="map-filter-btn px-3 sm:px-4 py-1.5 rounded-full text-xs font-bold transition cursor-pointer bg-slate-100 text-slate-700 hover:bg-slate-200" data-region="cataluna">
-            Cataluña & Levante
+          <button type="button" onclick="focusMapRegion('it')" class="map-filter-btn px-3 sm:px-4 py-1.5 rounded-full text-xs font-bold transition cursor-pointer bg-slate-100 text-slate-700 hover:bg-slate-200" data-region="it">
+            Italia (5)
           </button>
-          <button type="button" onclick="filterMapRegion('andalucia')" class="map-filter-btn px-3 sm:px-4 py-1.5 rounded-full text-xs font-bold transition cursor-pointer bg-slate-100 text-slate-700 hover:bg-slate-200" data-region="andalucia">
-            Andalucía & Norte
+          <button type="button" onclick="focusMapRegion('fr')" class="map-filter-btn px-3 sm:px-4 py-1.5 rounded-full text-xs font-bold transition cursor-pointer bg-slate-100 text-slate-700 hover:bg-slate-200" data-region="fr">
+            Francia (3)
           </button>
-          <button type="button" onclick="filterMapRegion('internacional')" class="map-filter-btn px-3 sm:px-4 py-1.5 rounded-full text-xs font-bold transition cursor-pointer bg-slate-100 text-slate-700 hover:bg-slate-200" data-region="internacional">
-            Internacional & Marcas
+          <button type="button" onclick="focusMapRegion('be')" class="map-filter-btn px-3 sm:px-4 py-1.5 rounded-full text-xs font-bold transition cursor-pointer bg-slate-100 text-slate-700 hover:bg-slate-200" data-region="be">
+            Bélgica (2)
+          </button>
+          <button type="button" onclick="focusMapRegion('other')" class="map-filter-btn px-3 sm:px-4 py-1.5 rounded-full text-xs font-bold transition cursor-pointer bg-slate-100 text-slate-700 hover:bg-slate-200" data-region="other">
+            Austria & Dinamarca (2)
           </button>
         </div>
 
-        <!-- GRID INTERACTIVO: MAPA SVG A LA IZQUIERDA + PANEL DETALLE A LA DERECHA -->
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center pt-4">
+        <!-- GRID INTERACTIVO: MAPA LEAFLET A LA IZQUIERDA + PANEL DETALLE A LA DERECHA -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch pt-4">
           
-          <!-- MAPA SVG VECTORIAL LIMPIO -->
-          <div class="lg:col-span-7 relative bg-slate-50/70 rounded-2xl p-3 sm:p-5 border border-slate-200/70 overflow-hidden flex items-center justify-center">
+          <!-- MAPA LEAFLET INTERACTIVO PANNABLE/ZOOMABLE -->
+          <div class="lg:col-span-8 relative bg-white rounded-2xl border border-slate-200/90 overflow-hidden shadow-inner min-h-[380px] sm:min-h-[500px]">
+            <div id="coolpadel-leaflet-map" class="w-full h-full min-h-[380px] sm:min-h-[500px] z-10" style="min-height: 500px; width: 100%; background: #aad3df;"></div>
             
-            <svg id="interactive-spain-map" viewBox="0 0 780 560" class="w-full h-auto max-h-[380px] select-none" xmlns="http://www.w3.org/2000/svg">
-              <!-- SILUETA PENÍNSULA IBÉRICA & EUROPA ESQUEMÁTICA ELEGANTE -->
-              <path d="M 120 70 L 220 50 L 320 40 L 460 45 L 530 65 L 560 110 L 600 135 L 610 180 L 590 230 L 530 280 L 470 330 L 430 380 L 410 440 L 370 470 L 300 480 L 250 495 L 210 480 L 160 440 L 120 380 L 105 300 L 95 210 L 105 130 Z" 
-                    fill="#f1f5f9" stroke="#cbd5e1" stroke-width="2" stroke-linejoin="round" />
-              <!-- BALEARES -->
-              <path d="M 640 230 C 655 220 675 230 670 245 C 660 255 645 245 640 230 Z" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1.8" />
-              <path d="M 615 250 C 625 245 635 252 630 260 C 622 265 615 258 615 250 Z" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1.8" />
-              <!-- CANARIAS INSET -->
-              <g transform="translate(60, 440) scale(0.65)">
-                <rect x="0" y="0" width="160" height="90" rx="8" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5" />
-                <text x="12" y="20" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="700" fill="#94a3b8">CANARIAS</text>
-                <circle cx="50" cy="50" r="10" fill="#e2e8f0" stroke="#cbd5e1" />
-                <circle cx="100" cy="45" r="12" fill="#e2e8f0" stroke="#cbd5e1" />
-              </g>
-
-              <!-- CONEXIÓN INTERNACIONAL (LÍNEAS PUNTEADAS SUTILES) -->
-              <path d="M 450 70 Q 560 40 680 50" fill="none" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="4,4" />
-              <path d="M 180 80 Q 80 40 40 30" fill="none" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="4,4" />
-
-              <!-- ETIQUETAS SUTILES DE PAÍSES/EXPANSIÓN -->
-              <text x="680" y="45" font-family="'Outfit', sans-serif" font-size="11" font-weight="800" fill="#64748b" text-anchor="middle">FRANCIA & EUROPA</text>
-              <text x="60" y="30" font-family="'Outfit', sans-serif" font-size="11" font-weight="800" fill="#64748b">USA & AMÉRICA</text>
-
-              <!-- PUNTOS INTERACTIVOS DE CLUBS CON PING DE RADAR -->
-              <!-- MADRID -->
-              <g class="map-pin cursor-pointer group" onclick="selectClub('ct_fuencarral')" data-region="madrid" transform="translate(320, 230)">
-                <circle cx="0" cy="0" r="14" fill="#f2920b" opacity="0.2" class="animate-ping" />
-                <circle cx="0" cy="0" r="7" fill="#f2920b" stroke="#ffffff" stroke-width="2.5" class="group-hover:scale-125 transition-transform" />
-                <text x="10" y="4" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="800" fill="#0f172a">Madrid (6 clubs)</text>
-              </g>
-
-              <!-- BARCELONA / CATALUÑA -->
-              <g class="map-pin cursor-pointer group" onclick="selectClub('padel_88')" data-region="cataluna" transform="translate(560, 160)">
-                <circle cx="0" cy="0" r="14" fill="#3478a6" opacity="0.2" class="animate-ping" />
-                <circle cx="0" cy="0" r="7" fill="#3478a6" stroke="#ffffff" stroke-width="2.5" class="group-hover:scale-125 transition-transform" />
-                <text x="10" y="4" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="800" fill="#0f172a">Barcelona (5 clubs)</text>
-              </g>
-
-              <!-- VALENCIA / LEVANTE -->
-              <g class="map-pin cursor-pointer group" onclick="selectClub('padel_in_one')" data-region="cataluna" transform="translate(500, 270)">
-                <circle cx="0" cy="0" r="6" fill="#3478a6" stroke="#ffffff" stroke-width="2" class="group-hover:scale-125 transition-transform" />
-                <text x="10" y="4" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" font-weight="700" fill="#334155">Levante & Torneos</text>
-              </g>
-
-              <!-- ANDALUCÍA (MÁLAGA / SEVILLA) -->
-              <g class="map-pin cursor-pointer group" onclick="selectClub('costa_del_sol')" data-region="andalucia" transform="translate(290, 440)">
-                <circle cx="0" cy="0" r="6.5" fill="#f2920b" stroke="#ffffff" stroke-width="2" class="group-hover:scale-125 transition-transform" />
-                <text x="10" y="4" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" font-weight="700" fill="#334155">Málaga & Costa del Sol</text>
-              </g>
-
-              <!-- PAÍS VASCO / NORTE -->
-              <g class="map-pin cursor-pointer group" onclick="selectClub('norte_padel')" data-region="andalucia" transform="translate(360, 60)">
-                <circle cx="0" cy="0" r="6" fill="#3478a6" stroke="#ffffff" stroke-width="2" class="group-hover:scale-125 transition-transform" />
-                <text x="10" y="4" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" font-weight="700" fill="#334155">Norte & Cantabria</text>
-              </g>
-
-              <!-- BALEARES -->
-              <g class="map-pin cursor-pointer group" onclick="selectClub('baleares_padel')" data-region="cataluna" transform="translate(645, 235)">
-                <circle cx="0" cy="0" r="5.5" fill="#3478a6" stroke="#ffffff" stroke-width="2" class="group-hover:scale-125 transition-transform" />
-                <text x="10" y="4" font-family="'Plus Jakarta Sans', sans-serif" font-size="9" font-weight="700" fill="#334155">Mallorca</text>
-              </g>
-
-              <!-- MARCAS & TORNEOS INTERNACIONALES -->
-              <g class="map-pin cursor-pointer group" onclick="selectClub('marcas_pro')" data-region="internacional" transform="translate(680, 75)">
-                <circle cx="0" cy="0" r="7" fill="#76d3f6" stroke="#0f172a" stroke-width="2" class="group-hover:scale-125 transition-transform" />
-                <text x="10" y="4" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" font-weight="800" fill="#0369a1">Hexagon Cup & FIP</text>
-              </g>
-              <g class="map-pin cursor-pointer group" onclick="selectClub('usa_circuits')" data-region="internacional" transform="translate(65, 55)">
-                <circle cx="0" cy="0" r="7" fill="#76d3f6" stroke="#0f172a" stroke-width="2" class="group-hover:scale-125 transition-transform" />
-                <text x="10" y="4" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" font-weight="800" fill="#0369a1">RacquetX / USA</text>
-              </g>
-            </svg>
-
+            <!-- HINT FLOTANTE INFERIOR -->
+            <div class="absolute bottom-3 left-3 z-[400] bg-white/95 backdrop-blur-sm px-3.5 py-1.5 rounded-full border border-slate-200/90 shadow-sm pointer-events-none hidden sm:flex items-center gap-2 text-[11px] font-bold text-slate-700">
+              <i data-lucide="hand" class="w-3.5 h-3.5 text-[#f2920b]"></i>
+              <span>Arrastra para desplazarte o haz zoom en el mapa</span>
+            </div>
           </div>
 
-          <!-- PANEL LATERAL: INFORMACIÓN DEL CLUB SELECCIONADO -->
-          <div class="lg:col-span-5 flex flex-col justify-between bg-slate-50 rounded-2xl p-5 sm:p-6 border border-slate-200 min-h-[340px]" id="club-info-card">
+          <!-- PANEL LATERAL: INFORMACIÓN Y LOGO REAL DEL CLUB SELECCIONADO (FORMATO: SOLO LOGO Y DEBAJO NOMBRE Y UBICACIÓN CENTRADO) -->
+          <div class="lg:col-span-4 flex flex-col justify-center items-center bg-white rounded-2xl p-5 sm:p-6 border border-slate-200 min-h-[380px] shadow-sm text-center" id="club-info-card">
             
-            <div class="space-y-3">
-              <div class="flex items-center justify-between">
-                <span id="club-badge" class="px-2.5 py-1 rounded-full text-[11px] font-black uppercase tracking-wider bg-orange-100 text-[#f2920b]">
-                  Madrid · Club Oficial
-                </span>
-                <span id="club-count" class="text-xs font-bold text-slate-400">
-                  Ref: #CP-MAD01
-                </span>
+            <div class="w-full flex-1 flex flex-col items-center justify-center p-6 bg-slate-50/70 rounded-2xl border border-slate-200/80 shadow-xs">
+              <!-- CONTENEDOR LOGO REAL DEL CLUB -->
+              <div class="h-40 sm:h-48 w-full flex items-center justify-center">
+                <img id="club-logo-img" src="../assets/images/Clubs/client-02.png" alt="Logo Club de Tenis Cambados" class="max-h-36 sm:max-h-44 max-w-[240px] w-auto h-auto object-contain transition-all duration-300">
               </div>
 
-              <div>
+              <!-- NOMBRE Y UBICACIÓN CENTRADOS -->
+              <div class="mt-5 space-y-1 text-center">
                 <h4 id="club-name" class="font-heading font-black text-xl sm:text-2xl text-slate-950">
-                  Club Tenis y Pádel Fuencarral
+                  Club de Tenis Cambados
                 </h4>
-                <p id="club-location" class="text-xs font-bold text-slate-500 mt-0.5">
-                  Madrid, España
+                <p id="club-location" class="text-xs sm:text-sm font-bold text-slate-500">
+                  Cambados, Galicia (España)
                 </p>
               </div>
-
-              <div class="space-y-2 pt-2 border-t border-slate-200 text-xs sm:text-sm text-slate-700">
-                <div class="flex items-center gap-2">
-                  <i data-lucide="package-check" class="w-4 h-4 text-[#3478a6] shrink-0"></i>
-                  <span><strong>Producto:</strong> <span id="club-prod">Llavero Pala 3D con relieve personalizado</span></span>
-                </div>
-                <div class="flex items-center gap-2">
-                  <i data-lucide="layers" class="w-4 h-4 text-[#3478a6] shrink-0"></i>
-                  <span><strong>Destino:</strong> <span id="club-usage">Torneos del club y tienda oficial</span></span>
-                </div>
-                <div class="flex items-center gap-2">
-                  <i data-lucide="check-circle" class="w-4 h-4 text-emerald-600 shrink-0"></i>
-                  <span id="club-status">Muestra física previa aprobada + tirada en serie</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- BOTÓN CONTACTO DIRECTO -->
-            <div class="pt-4 border-t border-slate-200 mt-4">
-              <a href="https://wa.me/34680317486?text=Hola%20Javier,%20he%20visto%20los%20llaveros%20de%20clubs%20en%20el%20mapa%20y%20quiero%20hacer%20los%20del%20m%C3%ADo" 
-                 target="_blank" 
-                 class="w-full inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] active:bg-[#76d3f6] text-slate-950 font-heading font-black text-xs uppercase tracking-wider transition shadow-sm hover:scale-102">
-                <span>Quiero llaveros para mi club</span>
-                <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 stroke-[3]"></i>
-              </a>
             </div>
 
           </div>
@@ -1076,6 +1127,39 @@
           </button>
           <div class="faq-answer hidden px-5 sm:px-6 pb-5 pt-3 text-slate-700 text-sm sm:text-base font-normal leading-relaxed sm:leading-loose border-t border-slate-100">
             <p data-i18n="faq_a3">Nous travaillons dans toute l'Europe et aux États-Unis. Pour les autres pays, contactez-nous et nous trouverons une solution.</p>
+          </div>
+        </div>
+
+        <!-- PREGUNTA 4 (RENTABILIDAD Y MARGEN) -->
+        <div class="faq-item bg-white border border-slate-200/90 rounded-2xl overflow-hidden shadow-xs transition-all duration-200">
+          <button type="button" onclick="toggleFaq(this)" class="w-full px-5 sm:px-6 py-4 sm:py-5 flex items-center justify-between text-left font-sans font-bold text-base sm:text-lg text-slate-900 hover:text-[#f2920b] transition gap-4 cursor-pointer">
+            <span data-i18n="faq_q4">Sont-ils rentables en tant que merchandising officiel dans le pro-shop du club ?</span>
+            <i data-lucide="chevron-down" class="faq-icon w-5 h-5 stroke-[2.5] text-slate-400 shrink-0 transition-transform duration-300"></i>
+          </button>
+          <div class="faq-answer hidden px-5 sm:px-6 pb-5 pt-3 text-slate-700 text-sm sm:text-base font-normal leading-relaxed sm:leading-loose border-t border-slate-100">
+            <p data-i18n="faq_a4">Oui, les porte-clés raquette de padel sont l'un des articles de merchandising officiel les plus rentables pour les clubs. Avec un coût de fabrication de 1,50 € à 3,00 € par unité selon le volume et un prix de revente habituel de 5 € à 7 €, le club réalise des marges supérieures à 60% tout en renforçant l'image du club.</p>
+          </div>
+        </div>
+
+        <!-- PREGUNTA 5 (WELCOME PACKS Y TORNEOS) -->
+        <div class="faq-item bg-white border border-slate-200/90 rounded-2xl overflow-hidden shadow-xs transition-all duration-200">
+          <button type="button" onclick="toggleFaq(this)" class="w-full px-5 sm:px-6 py-4 sm:py-5 flex items-center justify-between text-left font-sans font-bold text-base sm:text-lg text-slate-900 hover:text-[#f2920b] transition gap-4 cursor-pointer">
+            <span data-i18n="faq_q5">Peut-on les commander pour les welcome packs de tournois et d'événements ?</span>
+            <i data-lucide="chevron-down" class="faq-icon w-5 h-5 stroke-[2.5] text-slate-400 shrink-0 transition-transform duration-300"></i>
+          </button>
+          <div class="faq-answer hidden px-5 sm:px-6 pb-5 pt-3 text-slate-700 text-sm sm:text-base font-normal leading-relaxed sm:leading-loose border-t border-slate-100">
+            <p data-i18n="faq_a5">Absolument. Nous fabriquons des séries spéciales pour les welcome packs de tournois, championnats et événements d'entreprises. Contrairement aux cadeaux jetables, ce porte-clés 3D haut de gamme est conservé et utilisé pendant des années par les joueurs.</p>
+          </div>
+        </div>
+
+        <!-- PREGUNTA 6 (MATERIAL GOMA 3D Y DURABILIDAD) -->
+        <div class="faq-item bg-white border border-slate-200/90 rounded-2xl overflow-hidden shadow-xs transition-all duration-200">
+          <button type="button" onclick="toggleFaq(this)" class="w-full px-5 sm:px-6 py-4 sm:py-5 flex items-center justify-between text-left font-sans font-bold text-base sm:text-lg text-slate-900 hover:text-[#f2920b] transition gap-4 cursor-pointer">
+            <span data-i18n="faq_q6">En quels matériaux sont fabriqués les porte-clés et quelle est leur résistance ?</span>
+            <i data-lucide="chevron-down" class="faq-icon w-5 h-5 stroke-[2.5] text-slate-400 shrink-0 transition-transform duration-300"></i>
+          </button>
+          <div class="faq-answer hidden px-5 sm:px-6 pb-5 pt-3 text-slate-700 text-sm sm:text-base font-normal leading-relaxed sm:leading-loose border-t border-slate-100">
+            <p data-i18n="faq_a6">Ils sont fabriqués en PVC et caoutchouc thermoplastique souple haute densité injecté avec relief 3D multicouche et anneau métallique renforcé. Ils sont 100% résistants à l'eau, à la transpiration et aux frottements quotidiens sur les sacs de padel.</p>
           </div>
         </div>
 
@@ -1159,7 +1243,7 @@
     lucide.createIcons();
 
     // DICCIONARIO REACTIVO MULTI-IDIOMA
-    const I18N_DATA = {"es": {"meta_title": "Llaveros de Pádel Personalizados para Clubs | CoolPadel", "meta_desc": "Llaveros de pádel personalizados de alta calidad con logo oficial para clubes de pádel, torneos y escuelas. Fabricante directo de llaveros de pádel en relieve 3D.", "top_ticker": "Descarga el Informe Industria del Pádel y lee la Newsletter en nuestro Blog", "top_ticker_newsletter": "Nueva edición de Highlights by CoolPadel en LinkedIn", "nav_tenis_padel": "LLAVEROS", "nav_contact": "Contactar", "slide1_title": "Llaveros de Pádel para tu <br class=\"hidden sm:inline\"><span class=\"relative inline-block px-1.5 text-neutral-300\">club<svg class=\"absolute inset-0 w-full h-full pointer-events-none\" viewBox=\"0 0 100 100\" preserveAspectRatio=\"none\"><line x1=\"8\" y1=\"92\" x2=\"92\" y2=\"8\" stroke=\"#f2920b\" stroke-width=\"16\" stroke-linecap=\"round\"/><line x1=\"8\" y1=\"8\" x2=\"92\" y2=\"92\" stroke=\"#f2920b\" stroke-width=\"16\" stroke-linecap=\"round\"/></svg></span><span class=\"text-[#f2920b] ml-2\">comunidad</span>", "slide1_btn": "Ver más", "slide2_title": "Grabación en pista: <br><span class=\"text-black\">highlights y partidos</span>", "slide2_btn": "Descubrir", "slide3_title": "El Negocio del Padel: <br><span class=\"text-[#76d3f6]\">Informe 2026</span>", "slide3_btn": "Descargar PDF", "trusted_text": "Trabajamos con <span class=\"text-[#76d3f6]\">clubs</span>, <span class=\"text-[#f2920b]\">marcas</span> y <span class=\"text-[#3478a6]\">federaciones</span> de todo el mundo", "geo_badge_title": "Mercados Oficiales & Envíos Directos", "geo_badge_subtitle": "Operamos y distribuimos activamente para clubes y torneos en:", "geo_spain": "España", "geo_spain_desc": "Distribución nacional y soporte directo", "geo_usa": "Estados Unidos (USA)", "geo_usa_desc": "Cobertura oficial y envíos prioritarios", "llaveros_title": "Llaveros personalizados con vuestro logo", "llaveros_subtitle": "Tus jugadores, dentro y fuera de la pista", "card_tenis": "TENIS", "card_padel": "PADEL", "calc_title": "Calcula el pedido de tu Club", "step_1": "Diseño 3D", "step_2": "Muestra", "step_3": "Pedido", "calc_label_qty": "Nº de llaveros:", "calc_unit_name": "unidades", "calc_label_price": "Importe estimado:", "calc_unit_price": "ud", "badge_muestra": "Muestra", "badge_envios": "Envíos", "badge_envios_val": "Incluidos", "badge_pago": "Pago", "badge_pago_val": "Adelantado", "btn_calc_wa": "Contactar", "smp_title": "Graba todo lo que pasa en pista", "smp_plans_title": "Planes Save my Play", "smp_plan_a_title": "Plan A", "smp_plan_a_price": "136 € / mes", "smp_plan_a_desc": "AI Analytics, estadísticas avanzadas y análisis técnico de rendimiento", "smp_plan_b_title": "Plan B", "smp_plan_b_price": "45 € / mes", "smp_plan_b_desc": "Grabación de partidos, repeticiones instantáneas y captura automática de highlights", "smp_cam_invest": "Inversión inicial cámaras: 180 € / pista", "smp_cam_invest_desc": "Instalación en 5 minutos y sin obras", "smp_why_title_prefix": "¿Por qué añadir", "smp_why_title_suffix": "a tu club?", "smp_partner_badge": "Partner Oficial CoolPadel", "feat1_title": "Diferenciación", "feat1_desc": "Ofrece una experiencia completa al jugador", "feat2_title": "Contenido orgánico", "feat2_desc": "Comparte en redes sociales en un click", "feat3_title": "Sin dolores de cabeza", "feat3_desc": "Sin problemas y con instalación en 5 mins", "feat4_title": "Ingresos por reservas", "feat4_desc": "Aumenta la ocupación en horas valle", "smp_btn": "Contactar", "report_section_title": "CONTENIDO EXCLUSIVO COOLPADEL", "report_section_subtitle": "Suscríbete para no perderte las últimas tendencias de la industria del padel", "report_card1_tag": "PDF Oficial", "report_card1_title": "Reportaje Industria Padel 2026", "report_card1_desc": "¿Hacia dónde avanza la industria del padel?<br>¿Cuáles son las principales tendencias?", "report_card1_placeholder": "Introduce tu email para recibir el informe...", "report_card1_btn": "Descargar PDF", "report_card1_btn_success": "¡Informe Descargado!", "report_card2_tag": "LinkedIn Pulse", "report_card2_title": "Newsletter CoolPadel", "report_card2_desc": "Artículos, análisis y reflexiones de la industria del padel<br>Hechas sin IA y directas al grano", "report_card2_btn": "Leer en LinkedIn", "faq_section_title": "PREGUNTAS FRECUENTES", "faq_q1": "¿Cuál es el pedido mínimo y los plazos de entrega de los llaveros?", "faq_a1": "El pedido mínimo es de 100 unidades con vuestro logo y colores personalizados. Los plazos habituales de entrega son de 7 a 10 días laborables tras la confirmación del pedido.", "faq_q2": "¿Cuál es el proceso de compra de los llaveros?", "faq_a2": "Envíanos el logo de tu club en cualquier formato (vectorial, PNG o JPG). Tras hacer el pago de la muestra (15€), te enviaremos el diseño a ordenador y posteriormente la muestra. De esta forma, puedes hacer el pedido con total seguridad.", "faq_q3": "¿A qué países realizáis envíos?", "faq_a3": "Trabajamos en todo Europa y Estados Unidos. Para otros países consúltanos y vemos cómo hacerlo.", "popup_title": "¿Cuáles son las principales tendencias de la industria del padel en 2026?", "popup_desc": "Accede en exclusiva al Reportaje CoolPadel sobre el futuro de la industria del padel<br>Escrito sin IA y directo al grano", "popup_placeholder": "Introduce tu email...", "popup_btn": "Descargar Informe (PDF)", "popup_btn_success": "¡Descargando Informe!", "contact_title": "Contacto", "contact_wa_btn": "WhatsApp Directo", "wa_floating_tooltip": "¿Hablamos?", "wa_prefilled_msg": "Hola Javier"}, "en": {"meta_title": "Custom Padel Keychains for Clubs | CoolPadel", "meta_desc": "High quality custom 3D rubber padel keychains with official club logo for padel clubs, tournaments and academies. Direct factory manufacturer.", "top_ticker": "Download the Padel Industry Report & read the Newsletter on our Blog", "top_ticker_newsletter": "Latest edition of Highlights by CoolPadel on LinkedIn", "nav_tenis_padel": "KEYCHAINS", "nav_contact": "Contact", "slide1_title": "Keychains for your <br class=\"hidden sm:inline\"><span class=\"relative inline-block px-1.5 text-neutral-300\">club<svg class=\"absolute inset-0 w-full h-full pointer-events-none\" viewBox=\"0 0 100 100\" preserveAspectRatio=\"none\"><line x1=\"8\" y1=\"92\" x2=\"92\" y2=\"8\" stroke=\"#f2920b\" stroke-width=\"16\" stroke-linecap=\"round\"/><line x1=\"8\" y1=\"8\" x2=\"92\" y2=\"92\" stroke=\"#f2920b\" stroke-width=\"16\" stroke-linecap=\"round\"/></svg></span><span class=\"text-[#f2920b] ml-2\">community</span>", "slide1_btn": "Learn more", "slide2_title": "Court recording: <br><span class=\"text-black\">highlights & matches</span>", "slide2_btn": "Discover", "slide3_title": "The Padel Business: <br><span class=\"text-[#76d3f6]\">2026 Report</span>", "slide3_btn": "Download PDF", "trusted_text": "We work with <span class=\"text-[#76d3f6]\">clubs</span>, <span class=\"text-[#f2920b]\">brands</span> and <span class=\"text-[#3478a6]\">federations</span> worldwide", "geo_badge_title": "Official Markets & Direct Shipping", "geo_badge_subtitle": "Active operations and distribution for clubs and tournaments in:", "geo_spain": "Spain", "geo_spain_desc": "Nationwide delivery and direct support", "geo_usa": "United States (USA)", "geo_usa_desc": "Official coverage and priority logistics", "llaveros_title": "Custom keychains with your club logo", "llaveros_subtitle": "Your players, on and off the court", "card_tenis": "TENNIS", "card_padel": "PADEL", "calc_title": "Calculate your Club's order", "step_1": "3D Design", "step_2": "Sample", "step_3": "Order", "calc_label_qty": "No. of keychains:", "calc_unit_name": "units", "calc_label_price": "Estimated price:", "calc_unit_price": "unit", "badge_muestra": "Sample", "badge_envios": "Shipping", "badge_envios_val": "Included", "badge_pago": "Payment", "badge_pago_val": "Upfront", "btn_calc_wa": "Get in touch", "smp_title": "Record everything on court", "smp_plans_title": "Save my Play Plans", "smp_plan_a_title": "Plan A", "smp_plan_a_price": "136 € / month", "smp_plan_a_desc": "AI Analytics, advanced stats and live technical tracking", "smp_plan_b_title": "Plan B", "smp_plan_b_price": "45 € / month", "smp_plan_b_desc": "Full court recording, instant replays and automatic highlights", "smp_cam_invest": "Initial camera setup: 180 € / court", "smp_cam_invest_desc": "5-minute hassle-free setup with zero construction", "smp_why_title_prefix": "Why add", "smp_why_title_suffix": "to your club?", "smp_partner_badge": "Official CoolPadel Partner", "feat1_title": "Differentiation", "feat1_desc": "Offer a complete experience to the player", "feat2_title": "Organic content", "feat2_desc": "Share on social media in one click", "feat3_title": "Zero headaches", "feat3_desc": "Hassle-free with a 5-minute setup", "feat4_title": "Booking revenue", "feat4_desc": "Boost court occupancy in off-peak hours", "smp_btn": "Get in touch", "report_section_title": "COOLPADEL EXCLUSIVE CONTENT", "report_section_subtitle": "Subscribe to stay ahead of the latest padel industry trends", "report_card1_tag": "Official PDF", "report_card1_title": "Padel Industry Report 2026", "report_card1_desc": "Where is the padel industry heading?<br>What are the key industry trends?", "report_card1_placeholder": "Enter your email to receive the report...", "report_card1_btn": "Download PDF", "report_card1_btn_success": "Report Downloaded!", "report_card2_tag": "LinkedIn Pulse", "report_card2_title": "CoolPadel Newsletter", "report_card2_desc": "Articles, analysis and reflections on the padel industry<br>Made without AI and straight to the point", "report_card2_btn": "Read on LinkedIn", "faq_section_title": "FREQUENTLY ASKED QUESTIONS", "faq_q1": "What is the minimum order and delivery time for keychains?", "faq_a1": "The minimum order is 100 units with your custom logo and club colors. Standard delivery takes 7 to 10 business days following order confirmation.", "faq_q2": "What is the purchasing process for custom keychains?", "faq_a2": "Send us your club logo in any format (vector, PNG or JPG). After paying for the sample (15€), we will send you the digital computer render and then the physical sample. This way, you can place your bulk order with complete peace of mind.", "faq_q3": "Which countries do you ship to?", "faq_a3": "We operate across Europe and the United States. For other countries, contact us and we will find a solution.", "popup_title": "What are the key padel industry trends in 2026?", "popup_desc": "Get exclusive access to the CoolPadel Report on the future of the padel industry<br>Human-written without AI and straight to the point", "popup_placeholder": "Enter your email...", "popup_btn": "Download Report (PDF)", "popup_btn_success": "Downloading Report!", "contact_title": "Contact", "contact_wa_btn": "Direct WhatsApp", "wa_floating_tooltip": "Let's talk", "wa_prefilled_msg": "Hello Javier"}, "fr": {"meta_title": "Porte-clés Padel Personnalisés pour Clubs | CoolPadel", "meta_desc": "Porte-clés de padel personnalisés en relief 3D haute qualité avec logo officiel pour clubs de padel, tournois et joueurs. Fabricant direct.", "top_ticker": "Téléchargez le rapport exclusif sur l'industrie du padel", "top_ticker_newsletter": "Ne manquez pas la dernière édition de la Newsletter CoolPadel", "nav_tenis_padel": "TENNIS & PADEL", "nav_contact": "Contact", "slide1_title": "Porte-clés pour votre <br class=\"hidden sm:inline\"><span class=\"relative inline-block px-1.5 text-neutral-300\">club<svg class=\"absolute inset-0 w-full h-full pointer-events-none\" viewBox=\"0 0 100 100\" preserveAspectRatio=\"none\"><line x1=\"8\" y1=\"92\" x2=\"92\" y2=\"8\" stroke=\"#f2920b\" stroke-width=\"16\" stroke-linecap=\"round\"/><line x1=\"8\" y1=\"8\" x2=\"92\" y2=\"92\" stroke=\"#f2920b\" stroke-width=\"16\" stroke-linecap=\"round\"/></svg></span><span class=\"text-[#f2920b] ml-2\">communauté</span>", "slide1_btn": "En savoir plus", "slide2_title": "Vidéo sur piste : <br><span class=\"text-black\">meilleurs points & matchs</span>", "slide2_btn": "Découvrir", "slide3_title": "Le Business du Padel : <br><span class=\"text-[#76d3f6]\">Rapport 2026</span>", "slide3_btn": "Télécharger PDF", "trusted_text": "Nous travaillons avec des <span class=\"text-[#76d3f6]\">clubs</span>, <span class=\"text-[#f2920b]\">marques</span> et <span class=\"text-[#3478a6]\">fédérations</span> du monde entier", "geo_badge_title": "Marchés Officiels & Livraison Directe", "geo_badge_subtitle": "Distribution active et support dédié pour clubs et tournois en :", "geo_spain": "Espagne", "geo_spain_desc": "Livraison nationale et assistance directe", "geo_usa": "États-Unis (USA)", "geo_usa_desc": "Couverture officielle et logistique prioritaire", "llaveros_title": "Porte-clés personnalisés avec le logo de votre club", "llaveros_subtitle": "Vos joueurs, sur et en dehors des pistes", "card_tenis": "TENNIS", "card_padel": "PADEL", "calc_title": "Calculez la commande de votre Club", "step_1": "Design 3D", "step_2": "Échantillon", "step_3": "Commande", "calc_label_qty": "Nbre de porte-clés :", "calc_unit_name": "unités", "calc_label_price": "Montant estimé :", "calc_unit_price": "unité", "badge_muestra": "Échantillon", "badge_envios": "Livraison", "badge_envios_val": "Incluse", "badge_pago": "Paiement", "badge_pago_val": "À l'avance", "btn_calc_wa": "Contacter", "smp_title": "Enregistrez tout ce qui se passe sur vos pistes", "smp_plans_title": "Formules Save my Play", "smp_plan_a_title": "Plan A", "smp_plan_a_price": "136 € / mois", "smp_plan_a_desc": "AI Analytics, statistiques avancées et analyse technique de performance", "smp_plan_b_title": "Plan B", "smp_plan_b_price": "45 € / mois", "smp_plan_b_desc": "Enregistrement de matchs, ralentis et capture automatique des meilleurs points", "smp_cam_invest": "Investissement initial caméras : 180 € / piste", "smp_cam_invest_desc": "Installation en 5 minutes chrono sans travaux", "smp_why_title_prefix": "Pourquoi équiper", "smp_why_title_suffix": "votre club ?", "smp_partner_badge": "Partenaire Officiel CoolPadel", "feat1_title": "Différenciation", "feat1_desc": "Offrez une expérience complète au joueur", "feat2_title": "Contenu organique", "feat2_desc": "Partagez sur les réseaux sociaux en un clic", "feat3_title": "Zéro prise de tête", "feat3_desc": "Sans contrainte et installation en 5 mins", "feat4_title": "Revenus de réservation", "feat4_desc": "Boostez l'occupation des pistes en heures creuses", "smp_btn": "Contacter", "report_section_title": "CONTENU EXCLUSIF COOLPADEL", "report_section_subtitle": "Abonnez-vous pour suivre les dernières tendances de l'industrie du padel", "report_card1_tag": "PDF Officiel", "report_card1_title": "Rapport Industrie du Padel 2026", "report_card1_desc": "Où se dirige l'industrie du padel ?<br>Quelles sont les principales tendances ?", "report_card1_placeholder": "Entrez votre email pour recevoir le rapport...", "report_card1_btn": "Télécharger PDF", "report_card1_btn_success": "Rapport Téléchargé !", "report_card2_tag": "LinkedIn Pulse", "report_card2_title": "Newsletter CoolPadel", "report_card2_desc": "Articles, analyses et réflexions sur l'industrie du padel<br>Rédigés sans IA et droits au but", "report_card2_btn": "Lire sur LinkedIn", "faq_section_title": "FOIRE AUX QUESTIONS (FAQ)", "faq_q1": "Quelle est la commande minimale et les délais de livraison pour les porte-clés ?", "faq_a1": "La commande minimale est de 100 unités avec votre logo et vos couleurs personnalisées. Les délais habituels sont de 7 à 10 jours ouvrés après confirmation de la commande.", "faq_q2": "Quel est le processus de commande des porte-clés ?", "faq_a2": "Envoyez-nous le logo de votre club dans n'importe quel format (vectoriel, PNG ou JPG). Après le règlement de l'échantillon (15€), nous vous envoyons le design numérique puis l'échantillon physique. Vous pouvez ainsi passer commande en toute sérénité.", "faq_q3": "Vers quels pays effectuez-vous les livraisons ?", "faq_a3": "Nous travaillons dans toute l'Europe et aux États-Unis. Pour les autres pays, contactez-nous et nous trouverons une solution.", "popup_title": "Quelles sont les principales tendances de l'industrie du padel en 2026 ?", "popup_desc": "Accédez en exclusivité au Rapport CoolPadel sur l'avenir de l'industrie du padel<br>Rédigé sans IA et droit au but", "popup_placeholder": "Entrez votre email...", "popup_btn": "Télécharger le Rapport (PDF)", "popup_btn_success": "Téléchargement en cours !", "contact_title": "Contact", "contact_wa_btn": "WhatsApp Direct", "wa_floating_tooltip": "Discutons", "wa_prefilled_msg": "Bonjour Javier"}, "it": {"meta_title": "Portachiavi Padel Personalizzati per Club | CoolPadel", "meta_desc": "Portachiavi di padel personalizzati in rilievo 3D di alta qualità con logo ufficiale per club di padel, tornei e giocatori. Produttore diretto.", "top_ticker": "Scarica il report esclusivo sull'industria del padel", "top_ticker_newsletter": "Non perdere l'ultima edizione della Newsletter di CoolPadel", "nav_tenis_padel": "TENNIS & PADEL", "nav_contact": "Contatta", "slide1_title": "Portachiavi per il tuo <br class=\"hidden sm:inline\"><span class=\"relative inline-block px-1.5 text-neutral-300\">club<svg class=\"absolute inset-0 w-full h-full pointer-events-none\" viewBox=\"0 0 100 100\" preserveAspectRatio=\"none\"><line x1=\"8\" y1=\"92\" x2=\"92\" y2=\"8\" stroke=\"#f2920b\" stroke-width=\"16\" stroke-linecap=\"round\"/><line x1=\"8\" y1=\"8\" x2=\"92\" y2=\"92\" stroke=\"#f2920b\" stroke-width=\"16\" stroke-linecap=\"round\"/></svg></span><span class=\"text-[#f2920b] ml-2\">community</span>", "slide1_btn": "Scopri di più", "slide2_title": "Registrazione in campo: <br><span class=\"text-black\">highlights e partite</span>", "slide2_btn": "Scopri", "slide3_title": "Il Business del Padel: <br><span class=\"text-[#76d3f6]\">Report 2026</span>", "slide3_btn": "Scarica PDF", "trusted_text": "Lavoriamo con <span class=\"text-[#76d3f6]\">club</span>, <span class=\"text-[#f2920b]\">brand</span> e <span class=\"text-[#3478a6]\">federazioni</span> di tutto il mondo", "geo_badge_title": "Mercati Ufficiali & Spedizione Diretta", "geo_badge_subtitle": "Operazioni attive e distribuzione per club e tornei in:", "geo_spain": "Spagna", "geo_spain_desc": "Distribuzione nazionale e assistenza diretta", "geo_usa": "Stati Uniti (USA)", "geo_usa_desc": "Copertura ufficiale e logistica prioritaria", "llaveros_title": "Portachiavi personalizzati con il logo del tuo club", "llaveros_subtitle": "I tuoi giocatori, dentro e fuori dal campo", "card_tenis": "TENNIS", "card_padel": "PADEL", "calc_title": "Calcola l'ordine per il tuo Club", "step_1": "Design 3D", "step_2": "Campione", "step_3": "Ordine", "calc_label_qty": "N. di portachiavi:", "calc_unit_name": "unità", "calc_label_price": "Importo stimato:", "calc_unit_price": "unità", "badge_muestra": "Campione", "badge_envios": "Spedizione", "badge_envios_val": "Inclusa", "badge_pago": "Pagamento", "badge_pago_val": "Anticipato", "btn_calc_wa": "Contatta", "smp_title": "Registra tutto ciò che accade in campo", "smp_plans_title": "Piani Save my Play", "smp_plan_a_title": "Plan A", "smp_plan_a_price": "136 € / mese", "smp_plan_a_desc": "AI Analytics, statistiche avanzate e analisi tecnica delle prestazioni", "smp_plan_b_title": "Plan B", "smp_plan_b_price": "45 € / mese", "smp_plan_b_desc": "Registrazione delle partite, replay istantanei e cattura automatica di highlights", "smp_cam_invest": "Investimento iniziale telecamere: 180 € / campo", "smp_cam_invest_desc": "Installazione in 5 minuti senza problemi", "smp_why_title_prefix": "Perché aggiungere", "smp_why_title_suffix": "al tuo club?", "smp_partner_badge": "Partner Ufficiale CoolPadel", "feat1_title": "Differenziazione", "feat1_desc": "Offri un'esperienza completa al giocatore", "feat2_title": "Contenuto organico", "feat2_desc": "Condividi sui social media in un clic", "feat3_title": "Nessun mal di testa", "feat3_desc": "Senza problemi e con installazione in 5 min", "feat4_title": "Entrate da prenotazioni", "feat4_desc": "Aumenta l'occupazione nelle ore non di punta", "smp_btn": "Contatta", "report_section_title": "CONTENUTO ESCLUSIVO COOLPADEL", "report_section_subtitle": "Iscriviti per non perdere le ultime tendenze dell'industria del padel", "report_card1_tag": "PDF Ufficiale", "report_card1_title": "Report Industria Padel 2026", "report_card1_desc": "Verso dove va l'industria del padel?<br>Quali sono i principali trend?", "report_card1_placeholder": "Inserisci la tua email per ricevere il report...", "report_card1_btn": "Scarica PDF", "report_card1_btn_success": "Report Scaricato!", "report_card2_tag": "LinkedIn Pulse", "report_card2_title": "Newsletter CoolPadel", "report_card2_desc": "Articoli, analisi e riflessioni sull'industria del padel<br>Fatti senza IA e dritti al punto", "report_card2_btn": "Leggi su LinkedIn", "faq_section_title": "DOMANDE FREQUENTI (FAQ)", "faq_q1": "Qual è l'ordine minimo e i tempi di consegna dei portachiavi?", "faq_a1": "L'ordine minimo è di 100 unità con il vostro logo e colori personalizzati. I tempi di consegna standard sono di 7-10 giorni lavorativi dopo la conferma dell'ordine.", "faq_q2": "Qual è il processo di acquisto dei portachiavi?", "faq_a2": "Inviaci il logo del tuo club in qualsiasi formato (vettoriale, PNG o JPG). Dopo aver effettuato il pagamento del campione (15€), ti invieremo il design al computer e successivamente il campione fisico. In questo modo, potrai effettuare l'ordine con totale sicurezza.", "faq_q3": "In quali paesi effettuate le spedizioni?", "faq_a3": "Lavoriamo in tutta Europa e negli Stati Uniti. Per altri paesi, contattaci e troveremo una soluzione.", "popup_title": "Quali sono i principali trend dell'industria del padel nel 2026?", "popup_desc": "Accedi in esclusiva al Report CoolPadel sul futuro dell'industria del padel<br>Scritto senza IA e dritto al punto", "popup_placeholder": "Inserisci qui la tua email...", "popup_btn": "Scarica il Report (PDF)", "popup_btn_success": "Download in corso!", "contact_title": "Contatto", "contact_wa_btn": "WhatsApp Diretto", "wa_floating_tooltip": "Parliamo?", "wa_prefilled_msg": "Ciao Javier"}};
+    const I18N_DATA = {"es": {"meta_title": "Llaveros de Pádel Personalizados para Clubs | CoolPadel", "meta_desc": "Llaveros de pádel personalizados de alta calidad con logo oficial para clubes de pádel, torneos y escuelas. Fabricante directo de llaveros de pádel en relieve 3D.", "top_ticker": "Descarga el Informe Industria del Pádel y lee la Newsletter en nuestro Blog", "top_ticker_newsletter": "Nueva edición de Highlights by CoolPadel en LinkedIn", "nav_tenis_padel": "LLAVEROS", "nav_contact": "Contactar", "slide1_title": "Llaveros de Pádel para tu <br class=\"hidden sm:inline\"><span class=\"relative inline-block px-1.5 text-neutral-300\">club<svg class=\"absolute inset-0 w-full h-full pointer-events-none\" viewBox=\"0 0 100 100\" preserveAspectRatio=\"none\"><line x1=\"8\" y1=\"92\" x2=\"92\" y2=\"8\" stroke=\"#f2920b\" stroke-width=\"16\" stroke-linecap=\"round\"/><line x1=\"8\" y1=\"8\" x2=\"92\" y2=\"92\" stroke=\"#f2920b\" stroke-width=\"16\" stroke-linecap=\"round\"/></svg></span><span class=\"text-[#f2920b] ml-2\">comunidad</span>", "slide1_btn": "Ver más", "slide2_title": "Grabación en pista: <br><span class=\"text-black\">highlights y partidos</span>", "slide2_btn": "Descubrir", "slide3_title": "El Negocio del Padel: <br><span class=\"text-[#76d3f6]\">Informe 2026</span>", "slide3_btn": "Descargar PDF", "trusted_text": "Trabajamos con <span class=\"text-[#76d3f6]\">clubs</span>, <span class=\"text-[#f2920b]\">marcas</span> y <span class=\"text-[#3478a6]\">federaciones</span> de todo el mundo", "geo_badge_title": "Mercados Oficiales & Envíos Directos", "geo_badge_subtitle": "Operamos y distribuimos activamente para clubes y torneos en:", "geo_spain": "España", "geo_spain_desc": "Distribución nacional y soporte directo", "geo_usa": "Estados Unidos (USA)", "geo_usa_desc": "Cobertura oficial y envíos prioritarios", "llaveros_title": "Llaveros personalizados con vuestro logo", "llaveros_subtitle": "Tus jugadores, dentro y fuera de la pista", "card_tenis": "TENIS", "card_padel": "PADEL", "calc_title": "Calcula el pedido de tu Club", "step_1": "Diseño 3D", "step_2": "Muestra", "step_3": "Pedido", "calc_label_qty": "Nº de llaveros:", "calc_unit_name": "unidades", "calc_label_price": "Importe estimado:", "calc_unit_price": "ud", "badge_muestra": "Muestra", "badge_envios": "Envíos", "badge_envios_val": "Incluidos", "badge_pago": "Pago", "badge_pago_val": "Adelantado", "btn_calc_wa": "Contactar", "smp_title": "Graba todo lo que pasa en pista", "smp_plans_title": "Planes Save my Play", "smp_plan_a_title": "Plan A", "smp_plan_a_price": "136 € / mes", "smp_plan_a_desc": "AI Analytics, estadísticas avanzadas y análisis técnico de rendimiento", "smp_plan_b_title": "Plan B", "smp_plan_b_price": "45 € / mes", "smp_plan_b_desc": "Grabación de partidos, repeticiones instantáneas y captura automática de highlights", "smp_cam_invest": "Inversión inicial cámaras: 180 € / pista", "smp_cam_invest_desc": "Instalación en 5 minutos y sin obras", "smp_why_title_prefix": "¿Por qué añadir", "smp_why_title_suffix": "a tu club?", "smp_partner_badge": "Partner Oficial CoolPadel", "feat1_title": "Diferenciación", "feat1_desc": "Ofrece una experiencia completa al jugador", "feat2_title": "Contenido orgánico", "feat2_desc": "Comparte en redes sociales en un click", "feat3_title": "Sin dolores de cabeza", "feat3_desc": "Sin problemas y con instalación en 5 mins", "feat4_title": "Ingresos por reservas", "feat4_desc": "Aumenta la ocupación en horas valle", "smp_btn": "Contactar", "report_section_title": "CONTENIDO EXCLUSIVO COOLPADEL", "report_section_subtitle": "Suscríbete para no perderte las últimas tendencias de la industria del padel", "report_card1_tag": "PDF Oficial", "report_card1_title": "Reportaje Industria Padel 2026", "report_card1_desc": "¿Hacia dónde avanza la industria del padel?<br>¿Cuáles son las principales tendencias?", "report_card1_placeholder": "Introduce tu email para recibir el informe...", "report_card1_btn": "Descargar PDF", "report_card1_btn_success": "¡Informe Descargado!", "report_card2_tag": "LinkedIn Pulse", "report_card2_title": "Newsletter CoolPadel", "report_card2_desc": "Artículos, análisis y reflexiones de la industria del padel<br>Hechas sin IA y directas al grano", "report_card2_btn": "Leer en LinkedIn", "faq_section_title": "PREGUNTAS FRECUENTES", "faq_q1": "¿Cuál es el pedido mínimo y los plazos de entrega de los llaveros?", "faq_a1": "El pedido mínimo es de 100 unidades con vuestro logo y colores personalizados. Los plazos habituales de entrega son de 7 a 10 días laborables tras la confirmación del pedido.", "faq_q2": "¿Cuál es el proceso de compra de los llaveros?", "faq_a2": "Envíanos el logo de tu club en cualquier formato (vectorial, PNG o JPG). Tras hacer el pago de la muestra (15€), te enviaremos el diseño a ordenador y posteriormente la muestra. De esta forma, puedes hacer el pedido con total seguridad.", "faq_q3": "¿A qué países realizáis envíos?", "faq_a3": "Trabajamos en todo Europa y Estados Unidos. Para otros países consúltanos y vemos cómo hacerlo.", "faq_q4": "¿Son rentables como merchandising oficial en la tienda o pro-shop del club?", "faq_a4": "Sí, son uno de los artículos de merchandising oficial más rentables para clubes y escuelas de pádel. Al costar entre 1,50 € y 3,00 € por unidad según el volumen y venderse habitualmente a 5 € o 6 € en recepción o pro-shop, el club genera márgenes superiores al 60% mientras los socios llevan la identidad y el logo del club a diario.", "faq_q5": "¿Se pueden encargar para welcome packs de torneos y eventos federados?", "faq_a5": "Totalmente. Producimos tiradas específicas para bolsas de bienvenida (welcome packs) de torneos, campeonatos federados y eventos corporativos. A diferencia de regalos desechables, el llavero de pala 3D es un detalle duradero y exclusivo que los jugadores conservan.", "faq_q6": "¿De qué material están fabricados los llaveros y qué durabilidad tienen?", "faq_a6": "Se fabrican en PVC y goma termoplástica flexible de alta densidad inyectada en molde 3D a medida, con relieve multicapa y anilla metálica reforzada. Son 100% resistentes al agua, al sudor de la pista y a la fricción diaria en paleteros.", "popup_title": "¿Cuáles son las principales tendencias de la industria del padel en 2026?", "popup_desc": "Accede en exclusiva al Reportaje CoolPadel sobre el futuro de la industria del padel<br>Escrito sin IA y directo al grano", "popup_placeholder": "Introduce tu email...", "popup_btn": "Descargar Informe (PDF)", "popup_btn_success": "¡Descargando Informe!", "contact_title": "Contacto", "contact_wa_btn": "WhatsApp Directo", "wa_floating_tooltip": "¿Hablamos?", "wa_prefilled_msg": "Hola Javier"}, "en": {"meta_title": "Custom Padel Keychains for Clubs | CoolPadel", "meta_desc": "High quality custom 3D rubber padel keychains with official club logo for padel clubs, tournaments and academies. Direct factory manufacturer.", "top_ticker": "Download the Padel Industry Report & read the Newsletter on our Blog", "top_ticker_newsletter": "Latest edition of Highlights by CoolPadel on LinkedIn", "nav_tenis_padel": "KEYCHAINS", "nav_contact": "Contact", "slide1_title": "Keychains for your <br class=\"hidden sm:inline\"><span class=\"relative inline-block px-1.5 text-neutral-300\">club<svg class=\"absolute inset-0 w-full h-full pointer-events-none\" viewBox=\"0 0 100 100\" preserveAspectRatio=\"none\"><line x1=\"8\" y1=\"92\" x2=\"92\" y2=\"8\" stroke=\"#f2920b\" stroke-width=\"16\" stroke-linecap=\"round\"/><line x1=\"8\" y1=\"8\" x2=\"92\" y2=\"92\" stroke=\"#f2920b\" stroke-width=\"16\" stroke-linecap=\"round\"/></svg></span><span class=\"text-[#f2920b] ml-2\">community</span>", "slide1_btn": "Learn more", "slide2_title": "Court recording: <br><span class=\"text-black\">highlights & matches</span>", "slide2_btn": "Discover", "slide3_title": "The Padel Business: <br><span class=\"text-[#76d3f6]\">2026 Report</span>", "slide3_btn": "Download PDF", "trusted_text": "We work with <span class=\"text-[#76d3f6]\">clubs</span>, <span class=\"text-[#f2920b]\">brands</span> and <span class=\"text-[#3478a6]\">federations</span> worldwide", "geo_badge_title": "Official Markets & Direct Shipping", "geo_badge_subtitle": "Active operations and distribution for clubs and tournaments in:", "geo_spain": "Spain", "geo_spain_desc": "Nationwide delivery and direct support", "geo_usa": "United States (USA)", "geo_usa_desc": "Official coverage and priority logistics", "llaveros_title": "Custom keychains with your club logo", "llaveros_subtitle": "Your players, on and off the court", "card_tenis": "TENNIS", "card_padel": "PADEL", "calc_title": "Calculate your Club's order", "step_1": "3D Design", "step_2": "Sample", "step_3": "Order", "calc_label_qty": "No. of keychains:", "calc_unit_name": "units", "calc_label_price": "Estimated price:", "calc_unit_price": "unit", "badge_muestra": "Sample", "badge_envios": "Shipping", "badge_envios_val": "Included", "badge_pago": "Payment", "badge_pago_val": "Upfront", "btn_calc_wa": "Get in touch", "smp_title": "Record everything on court", "smp_plans_title": "Save my Play Plans", "smp_plan_a_title": "Plan A", "smp_plan_a_price": "136 € / month", "smp_plan_a_desc": "AI Analytics, advanced stats and live technical tracking", "smp_plan_b_title": "Plan B", "smp_plan_b_price": "45 € / month", "smp_plan_b_desc": "Full court recording, instant replays and automatic highlights", "smp_cam_invest": "Initial camera setup: 180 € / court", "smp_cam_invest_desc": "5-minute hassle-free setup with zero construction", "smp_why_title_prefix": "Why add", "smp_why_title_suffix": "to your club?", "smp_partner_badge": "Official CoolPadel Partner", "feat1_title": "Differentiation", "feat1_desc": "Offer a complete experience to the player", "feat2_title": "Organic content", "feat2_desc": "Share on social media in one click", "feat3_title": "Zero headaches", "feat3_desc": "Hassle-free with a 5-minute setup", "feat4_title": "Booking revenue", "feat4_desc": "Boost court occupancy in off-peak hours", "smp_btn": "Get in touch", "report_section_title": "COOLPADEL EXCLUSIVE CONTENT", "report_section_subtitle": "Subscribe to stay ahead of the latest padel industry trends", "report_card1_tag": "Official PDF", "report_card1_title": "Padel Industry Report 2026", "report_card1_desc": "Where is the padel industry heading?<br>What are the key industry trends?", "report_card1_placeholder": "Enter your email to receive the report...", "report_card1_btn": "Download PDF", "report_card1_btn_success": "Report Downloaded!", "report_card2_tag": "LinkedIn Pulse", "report_card2_title": "CoolPadel Newsletter", "report_card2_desc": "Articles, analysis and reflections on the padel industry<br>Made without AI and straight to the point", "report_card2_btn": "Read on LinkedIn", "faq_section_title": "FREQUENTLY ASKED QUESTIONS", "faq_q1": "What is the minimum order and delivery time for keychains?", "faq_a1": "The minimum order is 100 units with your custom logo and club colors. Standard delivery takes 7 to 10 business days following order confirmation.", "faq_q2": "What is the purchasing process for custom keychains?", "faq_a2": "Send us your club logo in any format (vector, PNG or JPG). After paying for the sample (15€), we will send you the digital computer render and then the physical sample. This way, you can place your bulk order with complete peace of mind.", "faq_q3": "Which countries do you ship to?", "faq_a3": "We operate across Europe and the United States. For other countries, contact us and we will find a solution.", "faq_q4": "Are they profitable as official merchandising in the club pro-shop?", "faq_a4": "Yes, custom padel keychains are one of the most profitable official merchandising items for clubs and academies. With production costs between 1.50 € and 3.00 € per unit depending on volume and typical retail prices of 5 € to 7 €, clubs achieve profit margins exceeding 60% while players proudly display the club logo on their racket bags.", "faq_q5": "Can they be ordered for tournament welcome packs and federated events?", "faq_a5": "Absolutely. We manufacture dedicated production runs for tournament welcome packs, federated championships, and corporate padel events. Unlike disposable gifts, our 3D rubber racket keychains are premium keepsakes that players keep and use for years.", "faq_q6": "What materials are the keychains made of and how durable are they?", "faq_a6": "They are made of flexible high-density thermoplastic PVC rubber molded in custom 3D relief, featuring multi-layer textures and reinforced metal rings. They are 100% waterproof, sweat-resistant, and built to withstand daily wear on padel bags.", "popup_title": "What are the key padel industry trends in 2026?", "popup_desc": "Get exclusive access to the CoolPadel Report on the future of the padel industry<br>Human-written without AI and straight to the point", "popup_placeholder": "Enter your email...", "popup_btn": "Download Report (PDF)", "popup_btn_success": "Downloading Report!", "contact_title": "Contact", "contact_wa_btn": "Direct WhatsApp", "wa_floating_tooltip": "Let's talk", "wa_prefilled_msg": "Hello Javier"}, "fr": {"meta_title": "Porte-clés Padel Personnalisés pour Clubs | CoolPadel", "meta_desc": "Porte-clés de padel personnalisés en relief 3D haute qualité avec logo officiel pour clubs de padel, tournois et joueurs. Fabricant direct.", "top_ticker": "Téléchargez le rapport exclusif sur l'industrie du padel", "top_ticker_newsletter": "Ne manquez pas la dernière édition de la Newsletter CoolPadel", "nav_tenis_padel": "TENNIS & PADEL", "nav_contact": "Contact", "slide1_title": "Porte-clés pour votre <br class=\"hidden sm:inline\"><span class=\"relative inline-block px-1.5 text-neutral-300\">club<svg class=\"absolute inset-0 w-full h-full pointer-events-none\" viewBox=\"0 0 100 100\" preserveAspectRatio=\"none\"><line x1=\"8\" y1=\"92\" x2=\"92\" y2=\"8\" stroke=\"#f2920b\" stroke-width=\"16\" stroke-linecap=\"round\"/><line x1=\"8\" y1=\"8\" x2=\"92\" y2=\"92\" stroke=\"#f2920b\" stroke-width=\"16\" stroke-linecap=\"round\"/></svg></span><span class=\"text-[#f2920b] ml-2\">communauté</span>", "slide1_btn": "En savoir plus", "slide2_title": "Vidéo sur piste : <br><span class=\"text-black\">meilleurs points & matchs</span>", "slide2_btn": "Découvrir", "slide3_title": "Le Business du Padel : <br><span class=\"text-[#76d3f6]\">Rapport 2026</span>", "slide3_btn": "Télécharger PDF", "trusted_text": "Nous travaillons avec des <span class=\"text-[#76d3f6]\">clubs</span>, <span class=\"text-[#f2920b]\">marques</span> et <span class=\"text-[#3478a6]\">fédérations</span> du monde entier", "geo_badge_title": "Marchés Officiels & Livraison Directe", "geo_badge_subtitle": "Distribution active et support dédié pour clubs et tournois en :", "geo_spain": "Espagne", "geo_spain_desc": "Livraison nationale et assistance directe", "geo_usa": "États-Unis (USA)", "geo_usa_desc": "Couverture officielle et logistique prioritaire", "llaveros_title": "Porte-clés personnalisés avec le logo de votre club", "llaveros_subtitle": "Vos joueurs, sur et en dehors des pistes", "card_tenis": "TENNIS", "card_padel": "PADEL", "calc_title": "Calculez la commande de votre Club", "step_1": "Design 3D", "step_2": "Échantillon", "step_3": "Commande", "calc_label_qty": "Nbre de porte-clés :", "calc_unit_name": "unités", "calc_label_price": "Montant estimé :", "calc_unit_price": "unité", "badge_muestra": "Échantillon", "badge_envios": "Livraison", "badge_envios_val": "Incluse", "badge_pago": "Paiement", "badge_pago_val": "À l'avance", "btn_calc_wa": "Contacter", "smp_title": "Enregistrez tout ce qui se passe sur vos pistes", "smp_plans_title": "Formules Save my Play", "smp_plan_a_title": "Plan A", "smp_plan_a_price": "136 € / mois", "smp_plan_a_desc": "AI Analytics, statistiques avancées et analyse technique de performance", "smp_plan_b_title": "Plan B", "smp_plan_b_price": "45 € / mois", "smp_plan_b_desc": "Enregistrement de matchs, ralentis et capture automatique des meilleurs points", "smp_cam_invest": "Investissement initial caméras : 180 € / piste", "smp_cam_invest_desc": "Installation en 5 minutes chrono sans travaux", "smp_why_title_prefix": "Pourquoi équiper", "smp_why_title_suffix": "votre club ?", "smp_partner_badge": "Partenaire Officiel CoolPadel", "feat1_title": "Différenciation", "feat1_desc": "Offrez une expérience complète au joueur", "feat2_title": "Contenu organique", "feat2_desc": "Partagez sur les réseaux sociaux en un clic", "feat3_title": "Zéro prise de tête", "feat3_desc": "Sans contrainte et installation en 5 mins", "feat4_title": "Revenus de réservation", "feat4_desc": "Boostez l'occupation des pistes en heures creuses", "smp_btn": "Contacter", "report_section_title": "CONTENU EXCLUSIF COOLPADEL", "report_section_subtitle": "Abonnez-vous pour suivre les dernières tendances de l'industrie du padel", "report_card1_tag": "PDF Officiel", "report_card1_title": "Rapport Industrie du Padel 2026", "report_card1_desc": "Où se dirige l'industrie du padel ?<br>Quelles sont les principales tendances ?", "report_card1_placeholder": "Entrez votre email pour recevoir le rapport...", "report_card1_btn": "Télécharger PDF", "report_card1_btn_success": "Rapport Téléchargé !", "report_card2_tag": "LinkedIn Pulse", "report_card2_title": "Newsletter CoolPadel", "report_card2_desc": "Articles, analyses et réflexions sur l'industrie du padel<br>Rédigés sans IA et droits au but", "report_card2_btn": "Lire sur LinkedIn", "faq_section_title": "FOIRE AUX QUESTIONS (FAQ)", "faq_q1": "Quelle est la commande minimale et les délais de livraison pour les porte-clés ?", "faq_a1": "La commande minimale est de 100 unités avec votre logo et vos couleurs personnalisées. Les délais habituels sont de 7 à 10 jours ouvrés après confirmation de la commande.", "faq_q2": "Quel est le processus de commande des porte-clés ?", "faq_a2": "Envoyez-nous le logo de votre club dans n'importe quel format (vectoriel, PNG ou JPG). Après le règlement de l'échantillon (15€), nous vous envoyons le design numérique puis l'échantillon physique. Vous pouvez ainsi passer commande en toute sérénité.", "faq_q3": "Vers quels pays effectuez-vous les livraisons ?", "faq_a3": "Nous travaillons dans toute l'Europe et aux États-Unis. Pour les autres pays, contactez-nous et nous trouverons une solution.", "faq_q4": "Sont-ils rentables en tant que merchandising officiel dans le pro-shop du club ?", "faq_a4": "Oui, les porte-clés raquette de padel sont l'un des articles de merchandising officiel les plus rentables pour les clubs. Avec un coût de fabrication de 1,50 € à 3,00 € par unité selon le volume et un prix de revente habituel de 5 € à 7 €, le club réalise des marges supérieures à 60% tout en renforçant l'image du club.", "faq_q5": "Peut-on les commander pour les welcome packs de tournois et d'événements ?", "faq_a5": "Absolument. Nous fabriquons des séries spéciales pour les welcome packs de tournois, championnats et événements d'entreprises. Contrairement aux cadeaux jetables, ce porte-clés 3D haut de gamme est conservé et utilisé pendant des années par les joueurs.", "faq_q6": "En quels matériaux sont fabriqués les porte-clés et quelle est leur résistance ?", "faq_a6": "Ils sont fabriqués en PVC et caoutchouc thermoplastique souple haute densité injecté avec relief 3D multicouche et anneau métallique renforcé. Ils sont 100% résistants à l'eau, à la transpiration et aux frottements quotidiens sur les sacs de padel.", "popup_title": "Quelles sont les principales tendances de l'industrie du padel en 2026 ?", "popup_desc": "Accédez en exclusivité au Rapport CoolPadel sur l'avenir de l'industrie du padel<br>Rédigé sans IA et droit au but", "popup_placeholder": "Entrez votre email...", "popup_btn": "Télécharger le Rapport (PDF)", "popup_btn_success": "Téléchargement en cours !", "contact_title": "Contact", "contact_wa_btn": "WhatsApp Direct", "wa_floating_tooltip": "Discutons", "wa_prefilled_msg": "Bonjour Javier"}, "it": {"meta_title": "Portachiavi Padel Personalizzati per Club | CoolPadel", "meta_desc": "Portachiavi di padel personalizzati in rilievo 3D di alta qualità con logo ufficiale per club di padel, tornei e giocatori. Produttore diretto.", "top_ticker": "Scarica il report esclusivo sull'industria del padel", "top_ticker_newsletter": "Non perdere l'ultima edizione della Newsletter di CoolPadel", "nav_tenis_padel": "TENNIS & PADEL", "nav_contact": "Contatta", "slide1_title": "Portachiavi per il tuo <br class=\"hidden sm:inline\"><span class=\"relative inline-block px-1.5 text-neutral-300\">club<svg class=\"absolute inset-0 w-full h-full pointer-events-none\" viewBox=\"0 0 100 100\" preserveAspectRatio=\"none\"><line x1=\"8\" y1=\"92\" x2=\"92\" y2=\"8\" stroke=\"#f2920b\" stroke-width=\"16\" stroke-linecap=\"round\"/><line x1=\"8\" y1=\"8\" x2=\"92\" y2=\"92\" stroke=\"#f2920b\" stroke-width=\"16\" stroke-linecap=\"round\"/></svg></span><span class=\"text-[#f2920b] ml-2\">community</span>", "slide1_btn": "Scopri di più", "slide2_title": "Registrazione in campo: <br><span class=\"text-black\">highlights e partite</span>", "slide2_btn": "Scopri", "slide3_title": "Il Business del Padel: <br><span class=\"text-[#76d3f6]\">Report 2026</span>", "slide3_btn": "Scarica PDF", "trusted_text": "Lavoriamo con <span class=\"text-[#76d3f6]\">club</span>, <span class=\"text-[#f2920b]\">brand</span> e <span class=\"text-[#3478a6]\">federazioni</span> di tutto il mondo", "geo_badge_title": "Mercati Ufficiali & Spedizione Diretta", "geo_badge_subtitle": "Operazioni attive e distribuzione per club e tornei in:", "geo_spain": "Spagna", "geo_spain_desc": "Distribuzione nazionale e assistenza diretta", "geo_usa": "Stati Uniti (USA)", "geo_usa_desc": "Copertura ufficiale e logistica prioritaria", "llaveros_title": "Portachiavi personalizzati con il logo del tuo club", "llaveros_subtitle": "I tuoi giocatori, dentro e fuori dal campo", "card_tenis": "TENNIS", "card_padel": "PADEL", "calc_title": "Calcola l'ordine per il tuo Club", "step_1": "Design 3D", "step_2": "Campione", "step_3": "Ordine", "calc_label_qty": "N. di portachiavi:", "calc_unit_name": "unità", "calc_label_price": "Importo stimato:", "calc_unit_price": "unità", "badge_muestra": "Campione", "badge_envios": "Spedizione", "badge_envios_val": "Inclusa", "badge_pago": "Pagamento", "badge_pago_val": "Anticipato", "btn_calc_wa": "Contatta", "smp_title": "Registra tutto ciò che accade in campo", "smp_plans_title": "Piani Save my Play", "smp_plan_a_title": "Plan A", "smp_plan_a_price": "136 € / mese", "smp_plan_a_desc": "AI Analytics, statistiche avanzate e analisi tecnica delle prestazioni", "smp_plan_b_title": "Plan B", "smp_plan_b_price": "45 € / mese", "smp_plan_b_desc": "Registrazione delle partite, replay istantanei e cattura automatica di highlights", "smp_cam_invest": "Investimento iniziale telecamere: 180 € / campo", "smp_cam_invest_desc": "Installazione in 5 minuti senza problemi", "smp_why_title_prefix": "Perché aggiungere", "smp_why_title_suffix": "al tuo club?", "smp_partner_badge": "Partner Ufficiale CoolPadel", "feat1_title": "Differenziazione", "feat1_desc": "Offri un'esperienza completa al giocatore", "feat2_title": "Contenuto organico", "feat2_desc": "Condividi sui social media in un clic", "feat3_title": "Nessun mal di testa", "feat3_desc": "Senza problemi e con installazione in 5 min", "feat4_title": "Entrate da prenotazioni", "feat4_desc": "Aumenta l'occupazione nelle ore non di punta", "smp_btn": "Contatta", "report_section_title": "CONTENUTO ESCLUSIVO COOLPADEL", "report_section_subtitle": "Iscriviti per non perdere le ultime tendenze dell'industria del padel", "report_card1_tag": "PDF Ufficiale", "report_card1_title": "Report Industria Padel 2026", "report_card1_desc": "Verso dove va l'industria del padel?<br>Quali sono i principali trend?", "report_card1_placeholder": "Inserisci la tua email per ricevere il report...", "report_card1_btn": "Scarica PDF", "report_card1_btn_success": "Report Scaricato!", "report_card2_tag": "LinkedIn Pulse", "report_card2_title": "Newsletter CoolPadel", "report_card2_desc": "Articoli, analisi e riflessioni sull'industria del padel<br>Fatti senza IA e dritti al punto", "report_card2_btn": "Leggi su LinkedIn", "faq_section_title": "DOMANDE FREQUENTI (FAQ)", "faq_q1": "Qual è l'ordine minimo e i tempi di consegna dei portachiavi?", "faq_a1": "L'ordine minimo è di 100 unità con il vostro logo e colori personalizzati. I tempi di consegna standard sono di 7-10 giorni lavorativi dopo la conferma dell'ordine.", "faq_q2": "Qual è il processo di acquisto dei portachiavi?", "faq_a2": "Inviaci il logo del tuo club in qualsiasi formato (vettoriale, PNG o JPG). Dopo aver effettuato il pagamento del campione (15€), ti invieremo il design al computer e successivamente il campione fisico. In questo modo, potrai effettuare l'ordine con totale sicurezza.", "faq_q3": "In quali paesi effettuate le spedizioni?", "faq_a3": "Lavoriamo in tutta Europa e negli Stati Uniti. Per altri paesi, contattaci e troveremo una soluzione.", "faq_q4": "Sono redditizi come merchandising ufficiale nel pro-shop del circolo?", "faq_a4": "Sì, i portachiavi a pala da padel personalizzati sono tra gli articoli di merchandising ufficiale più redditizi per i club. Con un costo tra 1,50 € e 3,00 € a unità in base al volume e un prezzo di vendita tipico di 5 € - 7 €, il circolo ottiene margini superiori al 60% diffondendo il proprio logo.", "faq_q5": "Si possono ordinare per i welcome pack dei tornei e campionati?", "faq_a5": "Certamente. Produciamo lotti dedicati per le sacche di benvenuto (welcome pack) di tornei, campionati federali ed eventi aziendali. A differenza di gadget usa e getta, il portachiavi in gomma 3D è un ricordo esclusivo che i giocatori conservano a lungo.", "faq_q6": "Di che materiale sono fatti i portachiavi e che durata hanno?", "faq_a6": "Sono realizzati in PVC e gomma termoplastica flessibile ad alta densità con rilievo 3D multistrato e anello metallico rinforzato. Sono impermeabili al 100%, resistenti al sudore e all'usura quotidiana sulle borse da padel.", "popup_title": "Quali sono i principali trend dell'industria del padel nel 2026?", "popup_desc": "Accedi in esclusiva al Report CoolPadel sul futuro dell'industria del padel<br>Scritto senza IA e dritto al punto", "popup_placeholder": "Inserisci qui la tua email...", "popup_btn": "Scarica il Report (PDF)", "popup_btn_success": "Download in corso!", "contact_title": "Contatto", "contact_wa_btn": "WhatsApp Diretto", "wa_floating_tooltip": "Parliamo?", "wa_prefilled_msg": "Ciao Javier"}};
     let currentLang = 'fr';
     const langFlags = { 'es': '🇪🇸', 'en': '🇬🇧', 'fr': '🇫🇷', 'it': '🇮🇹' };
 
@@ -1427,104 +1511,361 @@
     };
 
     // ─────────────────────────────────────────────────────────────────
-    // DATOS Y LÓGICA DEL MAPA INTERACTIVO DE CLUBS Y MARCAS
+    // MAPA INTERACTIVO LEAFLET: CLUBS Y MARCAS REALES CON LOGOS
     // ─────────────────────────────────────────────────────────────────
-    const MAP_CLUBS_DATA = {
-      'ct_fuencarral': {
-        badge: 'Madrid · Club Oficial',
-        ref: 'Ref: #CP-MAD01',
-        name: 'Club Tenis y Pádel Fuencarral',
-        location: 'Madrid, España',
-        prod: 'Llavero Pala 3D con relieve personalizado',
-        usage: 'Torneos del club y pro-shop oficial',
-        status: 'Muestra física previa aprobada + tirada en serie',
-        wa_text: 'Hola Javier, me interesa hacer llaveros como los del Club Fuencarral'
+    const ASSET_PREFIX = '../';
+
+    const MAP_CLUBS_DATA = [
+      // ESPAÑA (15)
+      {
+        id: 'cambados',
+        name: 'Club de Tenis Cambados',
+        region: 'es',
+        location: 'Cambados, Galicia (España)',
+        lat: 42.5147,
+        lng: -8.8144,
+        logo: ASSET_PREFIX + 'assets/images/Clubs/client-02.png'
       },
-      'padel_88': {
-        badge: 'Barcelona · Club Referente',
-        ref: 'Ref: #CP-BCN04',
-        name: 'Padel 88',
-        location: 'Barcelona, España',
-        prod: 'Llavero de pala personalizada en goma de alta densidad',
-        usage: 'Welcome packs de competiciones y socios',
-        status: 'Diseño 3D aprobado y entrega directa',
-        wa_text: 'Hola Javier, me interesa hacer llaveros personalizados como los de Padel 88'
+      {
+        id: 'padel_zaleak',
+        name: 'Pinondo Padel Zaleak',
+        region: 'es',
+        location: 'Durango, Bizkaia (España)',
+        lat: 43.1697,
+        lng: -2.6322,
+        logo: ASSET_PREFIX + 'assets/images/Clubs/client-03.png'
       },
-      'padel_in_one': {
-        badge: 'Levante · Club & Torneos',
-        ref: 'Ref: #CP-LEV02',
-        name: 'Padel in One',
-        location: 'Comunidad Valenciana, España',
-        prod: 'Llavero corporativo para torneos federados',
-        usage: 'Regalos para jugadores de circuito y eventos',
-        status: 'Pedido recurrente para torneos oficiales',
-        wa_text: 'Hola Javier, quiero consultar presupuesto para torneos de pádel'
+      {
+        id: 'el_soto',
+        name: 'Tenis Club El Soto',
+        region: 'es',
+        location: 'Zaragoza, Aragón (España)',
+        lat: 41.6488,
+        lng: -0.8891,
+        logo: ASSET_PREFIX + 'assets/images/Clubs/client-04.png'
       },
-      'costa_del_sol': {
-        badge: 'Andalucía · Club & Academia',
-        ref: 'Ref: #CP-AND07',
-        name: 'Club Costa del Sol & Academias',
-        location: 'Málaga / Sevilla, España',
-        prod: 'Llavero pala personalizado doble cara',
-        usage: 'Escuelas infantiles y tienda de club',
-        status: 'Fabricación y envío nacional incluido',
-        wa_text: 'Hola Javier, me gustaría información para llaveros de mi club en Andalucía'
+      {
+        id: 'higueruela',
+        name: 'Club Deportivo Pádel Higueruela',
+        region: 'es',
+        location: 'Higueruela, Albacete (España)',
+        lat: 38.9611,
+        lng: -1.4422,
+        logo: ASSET_PREFIX + 'assets/images/Clubs/client-07.png'
       },
-      'norte_padel': {
-        badge: 'Norte · Clubs Cantábrico',
-        ref: 'Ref: #CP-NOR03',
-        name: 'Red de Clubs del Norte',
-        location: 'País Vasco & Cantabria',
-        prod: 'Llavero 3D con anilla metálica reforzada',
-        usage: 'Pack bienvenida de temporada anual',
-        status: 'Muestra aprobada y producción entregada',
-        wa_text: 'Hola Javier, quiero presupuesto para llaveros de nuestro club en el Norte'
+      {
+        id: 'vitasports',
+        name: 'Vitasports Escuela de Tenis y Pádel',
+        region: 'es',
+        location: 'Cazalegas, Toledo (España)',
+        lat: 40.0075,
+        lng: -4.6744,
+        logo: ASSET_PREFIX + 'assets/images/Clubs/client-08.png'
       },
-      'baleares_padel': {
-        badge: 'Baleares · Resort & Club',
-        ref: 'Ref: #CP-BAL01',
-        name: 'Clubs de Pádel & Tenis Baleares',
-        location: 'Mallorca / Ibiza, España',
-        prod: 'Llavero pala con relieve y colores de marca',
-        usage: 'Merchandising para torneos de verano',
-        status: 'Envíos asegurados a islas',
-        wa_text: 'Hola Javier, quiero consultar envíos y llaveros para las islas'
+      {
+        id: 'ortigueira',
+        name: 'Club de Pádel Ortigueira',
+        region: 'es',
+        location: 'Ortigueira, A Coruña (España)',
+        lat: 43.6842,
+        lng: -7.8544,
+        logo: ASSET_PREFIX + 'assets/images/Clubs/client-09.png'
       },
-      'marcas_pro': {
-        badge: 'Competición · Circuito Oficial',
-        ref: 'Ref: #CP-CIR01',
-        name: 'Hexagon Cup & Torneos FIP',
-        location: 'Circuito Internacional',
-        prod: 'Llavero edición especial evento oficial',
-        usage: 'Welcome packs VIP y activación de marca',
-        status: 'Edición limitada para eventos y circuito',
-        wa_text: 'Hola Javier, quiero consultar opciones de llaveros para eventos y torneos'
+      {
+        id: 'reus_monterols',
+        name: 'Club Tennis Reus Monterols',
+        region: 'es',
+        location: 'Reus, Tarragona (España)',
+        lat: 41.1561,
+        lng: 1.1069,
+        logo: ASSET_PREFIX + 'assets/images/Clubs/client-11.png'
       },
-      'usa_circuits': {
-        badge: 'USA & Internacional · RacquetX',
-        ref: 'Ref: #CP-USA01',
-        name: 'RacquetX & Red de Clubs USA',
-        location: 'Miami / Fort Lauderdale, USA',
-        prod: 'Custom Rubber Padel Racket Keychains',
-        usage: 'Presentación internacional y apertura de clubes',
-        status: 'Cobertura oficial y distribución prioritaria',
-        wa_text: 'Hello Javier, interested in custom keychains for US clubs'
+      {
+        id: 'vilamalla',
+        name: 'Club Pádel Vilamalla',
+        region: 'es',
+        location: 'Vilamalla, Girona (España)',
+        lat: 42.2158,
+        lng: 2.9714,
+        logo: ASSET_PREFIX + 'assets/images/Clubs/client-12.png'
+      },
+      {
+        id: 'cabrera_anoia',
+        name: "Padel Club Cabrera d'Anoia",
+        region: 'es',
+        location: "Cabrera d'Anoia, Barcelona (España)",
+        lat: 41.4800,
+        lng: 1.7058,
+        logo: ASSET_PREFIX + 'assets/images/Clubs/client-13.png'
+      },
+      {
+        id: 'padel_alba',
+        name: 'Padel Alba',
+        region: 'es',
+        location: 'Alicante (España)',
+        lat: 38.3452,
+        lng: -0.4810,
+        logo: ASSET_PREFIX + 'assets/images/Clubs/client-19.png'
+      },
+      {
+        id: 'padeleiros_vigo',
+        name: 'Padeleiros Vigo',
+        region: 'es',
+        location: 'Vigo, Pontevedra (España)',
+        lat: 42.2406,
+        lng: -8.7207,
+        logo: ASSET_PREFIX + 'assets/images/Clubs/client-20.png'
+      },
+      {
+        id: 'atm_malaga',
+        name: 'A.T.M. Amigos del Tenis de Málaga',
+        region: 'es',
+        location: 'Málaga, Andalucía (España)',
+        lat: 36.7213,
+        lng: -4.4214,
+        logo: ASSET_PREFIX + 'assets/images/Clubs/client-21.png'
+      },
+      {
+        id: 'padel_addict',
+        name: 'Padel Addict',
+        region: 'es',
+        location: 'Málaga / Madrid (España)',
+        lat: 36.5101,
+        lng: -4.8824,
+        logo: ASSET_PREFIX + 'assets/images/Clubs/client-25.png'
+      },
+      {
+        id: 'backspin_academy',
+        name: 'Backspin Academy',
+        region: 'es',
+        location: 'Madrid (España)',
+        lat: 40.4168,
+        lng: -3.7038,
+        logo: ASSET_PREFIX + 'assets/images/Clubs/client-26.png'
+      },
+      {
+        id: 'espacio_herreria',
+        name: 'Espacio Herrería',
+        region: 'es',
+        location: 'San Lorenzo de El Escorial, Madrid (España)',
+        lat: 40.5908,
+        lng: -4.1481,
+        logo: ASSET_PREFIX + 'assets/images/Clubs/client-27.png'
+      },
+
+      // ITALIA (5)
+      {
+        id: 'fiorfiore',
+        name: 'Fiorfiore Padel',
+        region: 'it',
+        location: 'Alba, Cuneo (Italia)',
+        lat: 44.7009,
+        lng: 8.0356,
+        logo: ASSET_PREFIX + 'assets/images/Clubs/client-05.png'
+      },
+      {
+        id: 'canzo',
+        name: 'Tennis Life Canzo',
+        region: 'it',
+        location: 'Canzo, Como (Italia)',
+        lat: 45.8509,
+        lng: 9.2789,
+        logo: ASSET_PREFIX + 'assets/images/Clubs/client-06.png'
+      },
+      {
+        id: 'sant_agostino',
+        name: "Tennis Club Sant'Agostino",
+        region: 'it',
+        location: "Sant'Agostino, Ferrara (Italia)",
+        lat: 44.7925,
+        lng: 11.3878,
+        logo: ASSET_PREFIX + 'assets/images/Clubs/client-10.png'
+      },
+      {
+        id: 'tennis_arca',
+        name: 'Tennis Archa',
+        region: 'it',
+        location: 'Bérgamo, Lombardía (Italia)',
+        lat: 45.6983,
+        lng: 9.6773,
+        logo: ASSET_PREFIX + 'assets/images/Clubs/client-tennis-arca.png'
+      },
+      {
+        id: 'green_park',
+        name: 'Club Green Park',
+        region: 'it',
+        location: 'Rivoli, Turín (Italia)',
+        lat: 45.0703,
+        lng: 7.5181,
+        logo: ASSET_PREFIX + 'assets/images/Clubs/client-15.png'
+      },
+
+      // FRANCIA (3)
+      {
+        id: 'evreux',
+        name: 'ALM Évreux Tennis Padel',
+        region: 'fr',
+        location: 'Évreux, Normandía (Francia)',
+        lat: 49.0241,
+        lng: 1.1508,
+        logo: ASSET_PREFIX + 'assets/images/Clubs/client-14.png'
+      },
+      {
+        id: 'le_garden',
+        name: 'Le Garden Rennes',
+        region: 'fr',
+        location: 'Rennes, Bretaña (Francia)',
+        lat: 48.1173,
+        lng: -1.6778,
+        logo: ASSET_PREFIX + 'assets/images/Clubs/client-17.png'
+      },
+      {
+        id: 'usp_tennis_17',
+        name: 'USP Tennis 17',
+        region: 'fr',
+        location: 'París, Île-de-France (Francia)',
+        lat: 48.8837,
+        lng: 2.3082,
+        logo: ASSET_PREFIX + 'assets/images/Clubs/client-23.png'
+      },
+
+      // BÉLGICA (2)
+      {
+        id: 'royal_excelsior',
+        name: 'Royal Excelsior Tennis Club',
+        region: 'be',
+        location: 'Lambermont, Liège (Bélgica)',
+        lat: 50.5964,
+        lng: 5.8344,
+        logo: ASSET_PREFIX + 'assets/images/Clubs/client-16.png'
+      },
+      {
+        id: 'padel_kiosk',
+        name: 'Padel Kiosk',
+        region: 'be',
+        location: 'Amberes (Bélgica)',
+        lat: 51.2194,
+        lng: 4.4025,
+        logo: ASSET_PREFIX + 'assets/images/Clubs/client-24.png'
+      },
+
+      // AUSTRIA & DINAMARCA (2)
+      {
+        id: 'austrian_padel',
+        name: 'Austrian Padel Union',
+        region: 'other',
+        location: 'Viena (Austria)',
+        lat: 48.2082,
+        lng: 16.3738,
+        logo: ASSET_PREFIX + 'assets/images/Clubs/client-18.png'
+      },
+      {
+        id: 'cbs_padel',
+        name: 'CBS Padel',
+        region: 'other',
+        location: 'Copenhague (Dinamarca)',
+        lat: 55.6791,
+        lng: 12.5348,
+        logo: ASSET_PREFIX + 'assets/images/Clubs/client-22.png'
       }
-    };
+    ];
 
-    window.selectClub = function(clubKey) {
-      const data = MAP_CLUBS_DATA[clubKey];
-      if (!data) return;
+    let leafletMapInstance = null;
+    let mapMarkersList = [];
 
-      document.getElementById('club-badge').textContent = data.badge;
-      document.getElementById('club-count').textContent = data.ref;
-      document.getElementById('club-name').textContent = data.name;
-      document.getElementById('club-location').textContent = data.location;
-      document.getElementById('club-prod').textContent = data.prod;
-      document.getElementById('club-usage').textContent = data.usage;
-      document.getElementById('club-status').textContent = data.status;
+    function initCoolPadelMap() {
+      const mapContainer = document.getElementById('coolpadel-leaflet-map');
+      if (!mapContainer || typeof L === 'undefined') return;
 
-      // Animar suavemente el panel
+      try {
+        leafletMapInstance = L.map('coolpadel-leaflet-map', {
+          center: [44.0, 4.0],
+          zoom: 5,
+          minZoom: 4,
+          maxZoom: 18,
+          scrollWheelZoom: false
+        });
+
+        leafletMapInstance.on('focus', () => leafletMapInstance.scrollWheelZoom.enable());
+        leafletMapInstance.on('click', () => leafletMapInstance.scrollWheelZoom.enable());
+
+        // Capa de mosaico Esri World Topo Map (sin API key, relieve natural terrestre y agua azul)
+        L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}', {
+          attribution: 'Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ',
+          maxZoom: 18
+        }).addTo(leafletMapInstance);
+
+        const createPinIcon = () => L.divIcon({
+          className: 'custom-pin',
+          html: `
+            <div class="custom-pin-container">
+              <span class="custom-pin-ping"></span>
+              <div class="custom-pin-dot">
+                <div style="width: 6px; height: 6px; border-radius: 9999px; background: #f2920b;"></div>
+              </div>
+            </div>
+          `,
+          iconSize: [28, 28],
+          iconAnchor: [14, 14],
+          popupAnchor: [0, -14]
+        });
+
+        MAP_CLUBS_DATA.forEach(club => {
+          const marker = L.marker([club.lat, club.lng], {
+            icon: createPinIcon(),
+            title: club.name
+          }).addTo(leafletMapInstance);
+
+          const popupContent = `
+            <div style="padding: 14px 16px; text-align: center; min-width: 170px; max-width: 220px; background: #ffffff;">
+              <div style="height: 52px; display: flex; align-items: center; justify-content: center; margin-bottom: 8px;">
+                <img src="${club.logo}" alt="${club.name}" style="max-height: 48px; max-width: 140px; width: auto; height: auto; object-fit: contain; margin: 0 auto; display: block;" />
+              </div>
+              <h4 style="font-family: 'Outfit', sans-serif; font-size: 14px; font-weight: 800; color: #0f172a; margin: 0 0 3px 0; line-height: 1.2;">
+                ${club.name}
+              </h4>
+              <p style="font-size: 11px; color: #64748b; font-weight: 600; margin: 0;">
+                ${club.location}
+              </p>
+            </div>
+          `;
+
+          marker.bindPopup(popupContent);
+
+          marker.on('click', () => {
+            selectClubById(club.id);
+          });
+
+          mapMarkersList.push({ id: club.id, region: club.region, marker: marker, club: club });
+        });
+
+        selectClubById('cambados');
+
+        setTimeout(() => {
+          if (leafletMapInstance) leafletMapInstance.invalidateSize();
+        }, 300);
+      } catch(err) {
+        console.warn('Leaflet init error:', err);
+      }
+    }
+
+    window.selectClubById = function(clubId) {
+      const found = mapMarkersList.find(m => m.id === clubId);
+      if (!found) return;
+      const data = found.club;
+
+      const logoEl = document.getElementById('club-logo-img');
+      if (logoEl) {
+        logoEl.src = data.logo;
+        logoEl.alt = 'Logo ' + data.name;
+      }
+
+      const nameEl = document.getElementById('club-name');
+      if (nameEl) nameEl.textContent = data.name;
+
+      const locEl = document.getElementById('club-location');
+      if (locEl) locEl.textContent = data.location;
+
       const card = document.getElementById('club-info-card');
       if (card) {
         card.classList.add('ring-2', 'ring-[#f2920b]', 'transition-all');
@@ -1537,8 +1878,7 @@
       });
     };
 
-    window.filterMapRegion = function(region) {
-      // Actualizar botones
+    window.focusMapRegion = function(region) {
       document.querySelectorAll('.map-filter-btn').forEach(btn => {
         if (btn.getAttribute('data-region') === region) {
           btn.className = 'map-filter-btn px-3 sm:px-4 py-1.5 rounded-full text-xs font-bold transition cursor-pointer bg-slate-950 text-white shadow-xs';
@@ -1547,26 +1887,34 @@
         }
       });
 
-      // Filtrar pines en el SVG
-      const pins = document.querySelectorAll('.map-pin');
-      pins.forEach(pin => {
-        const pinRegion = pin.getAttribute('data-region');
-        if (region === 'all' || pinRegion === region) {
-          pin.style.display = 'block';
-          pin.style.opacity = '1';
-        } else {
-          pin.style.display = 'block';
-          pin.style.opacity = '0.25';
-        }
-      });
+      if (!leafletMapInstance) return;
 
-      // Auto-seleccionar el primer club de esa región
-      if (region === 'madrid') selectClub('ct_fuencarral');
-      else if (region === 'cataluna') selectClub('padel_88');
-      else if (region === 'andalucia') selectClub('costa_del_sol');
-      else if (region === 'internacional') selectClub('marcas_pro');
-      else selectClub('ct_fuencarral');
+      if (region === 'all') {
+        leafletMapInstance.setView([44.0, 4.0], 5, { animate: true });
+        selectClubById('cambados');
+      } else if (region === 'es') {
+        leafletMapInstance.setView([40.2, -3.7], 6, { animate: true });
+        selectClubById('cambados');
+      } else if (region === 'it') {
+        leafletMapInstance.setView([44.5, 9.5], 6, { animate: true });
+        selectClubById('fiorfiore');
+      } else if (region === 'fr') {
+        leafletMapInstance.setView([48.6, 1.5], 6, { animate: true });
+        selectClubById('evreux');
+      } else if (region === 'be') {
+        leafletMapInstance.setView([50.8, 5.0], 8, { animate: true });
+        selectClubById('royal_excelsior');
+      } else if (region === 'other') {
+        leafletMapInstance.setView([51.0, 14.0], 5, { animate: true });
+        selectClubById('austrian_padel');
+      }
     };
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initCoolPadelMap);
+    } else {
+      initCoolPadelMap();
+    }
 
 
     // URL del Webhook de Google Apps Script (Recepción de Leads y Analítica de Eventos)

@@ -493,6 +493,11 @@ def generate_article_page(slug, edition_num, title, date_str, read_time, cover_i
           {html_paragraphs}
         </div>
 
+        <!-- ENLACE DISCRETO A HOME -->
+        <div class="pt-6 border-t border-slate-200 mt-10 text-xs text-slate-400 text-center sm:text-left">
+          <a href="../../" class="text-slate-600 hover:text-[#f2920b] underline underline-offset-2 transition font-medium">← Volver a CoolPadel Studios (Llaveros de Pádel Personalizados)</a>
+        </div>
+
         <!-- CAJA DE SUSCRIPCIÓN FINAL A LA NEWSLETTER -->
         <div class="bg-slate-50 border border-slate-200/90 rounded-3xl p-6 sm:p-8 mt-12 sm:mt-16 text-center space-y-4 shadow-sm">
           <div class="w-12 h-12 rounded-full bg-[#f2920b]/10 text-[#f2920b] flex items-center justify-center mx-auto">

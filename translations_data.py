@@ -92,6 +92,12 @@ TRANSLATIONS = {
         "faq_a2": "Envíanos el logo de tu club en cualquier formato (vectorial, PNG o JPG). Tras hacer el pago de la muestra (15€), te enviaremos el diseño a ordenador y posteriormente la muestra. De esta forma, puedes hacer el pedido con total seguridad.",
         "faq_q3": "¿A qué países realizáis envíos?",
         "faq_a3": "Trabajamos en todo Europa y Estados Unidos. Para otros países consúltanos y vemos cómo hacerlo.",
+        "faq_q4": "¿Son rentables como merchandising oficial en la tienda o pro-shop del club?",
+        "faq_a4": "Sí, son uno de los artículos de merchandising oficial más rentables para clubes y escuelas de pádel. Al costar entre 1,50 € y 3,00 € por unidad según el volumen y venderse habitualmente a 5 € o 6 € en recepción o pro-shop, el club genera márgenes superiores al 60% mientras los socios llevan la identidad y el logo del club a diario.",
+        "faq_q5": "¿Se pueden encargar para welcome packs de torneos y eventos federados?",
+        "faq_a5": "Totalmente. Producimos tiradas específicas para bolsas de bienvenida (welcome packs) de torneos, campeonatos federados y eventos corporativos. A diferencia de regalos desechables, el llavero de pala 3D es un detalle duradero y exclusivo que los jugadores conservan.",
+        "faq_q6": "¿De qué material están fabricados los llaveros y qué durabilidad tienen?",
+        "faq_a6": "Se fabrican en PVC y goma termoplástica flexible de alta densidad inyectada en molde 3D a medida, con relieve multicapa y anilla metálica reforzada. Son 100% resistentes al agua, al sudor de la pista y a la fricción diaria en paleteros.",
 
         # Pop-up Modal Lead Magnet
         "popup_title": "¿Cuáles son las principales tendencias de la industria del padel en 2026?",
@@ -195,6 +201,12 @@ TRANSLATIONS = {
         "faq_a2": "Send us your club logo in any format (vector, PNG or JPG). After paying for the sample (15€), we will send you the digital computer render and then the physical sample. This way, you can place your bulk order with complete peace of mind.",
         "faq_q3": "Which countries do you ship to?",
         "faq_a3": "We operate across Europe and the United States. For other countries, contact us and we will find a solution.",
+        "faq_q4": "Are they profitable as official merchandising in the club pro-shop?",
+        "faq_a4": "Yes, custom padel keychains are one of the most profitable official merchandising items for clubs and academies. With production costs between 1.50 € and 3.00 € per unit depending on volume and typical retail prices of 5 € to 7 €, clubs achieve profit margins exceeding 60% while players proudly display the club logo on their racket bags.",
+        "faq_q5": "Can they be ordered for tournament welcome packs and federated events?",
+        "faq_a5": "Absolutely. We manufacture dedicated production runs for tournament welcome packs, federated championships, and corporate padel events. Unlike disposable gifts, our 3D rubber racket keychains are premium keepsakes that players keep and use for years.",
+        "faq_q6": "What materials are the keychains made of and how durable are they?",
+        "faq_a6": "They are made of flexible high-density thermoplastic PVC rubber molded in custom 3D relief, featuring multi-layer textures and reinforced metal rings. They are 100% waterproof, sweat-resistant, and built to withstand daily wear on padel bags.",
 
         # Pop-up Modal Lead Magnet
         "popup_title": "What are the key padel industry trends in 2026?",
@@ -298,6 +310,12 @@ TRANSLATIONS = {
         "faq_a2": "Envoyez-nous le logo de votre club dans n'importe quel format (vectoriel, PNG ou JPG). Après le règlement de l'échantillon (15€), nous vous envoyons le design numérique puis l'échantillon physique. Vous pouvez ainsi passer commande en toute sérénité.",
         "faq_q3": "Vers quels pays effectuez-vous les livraisons ?",
         "faq_a3": "Nous travaillons dans toute l'Europe et aux États-Unis. Pour les autres pays, contactez-nous et nous trouverons une solution.",
+        "faq_q4": "Sont-ils rentables en tant que merchandising officiel dans le pro-shop du club ?",
+        "faq_a4": "Oui, les porte-clés raquette de padel sont l'un des articles de merchandising officiel les plus rentables pour les clubs. Avec un coût de fabrication de 1,50 € à 3,00 € par unité selon le volume et un prix de revente habituel de 5 € à 7 €, le club réalise des marges supérieures à 60% tout en renforçant l'image du club.",
+        "faq_q5": "Peut-on les commander pour les welcome packs de tournois et d'événements ?",
+        "faq_a5": "Absolument. Nous fabriquons des séries spéciales pour les welcome packs de tournois, championnats et événements d'entreprises. Contrairement aux cadeaux jetables, ce porte-clés 3D haut de gamme est conservé et utilisé pendant des années par les joueurs.",
+        "faq_q6": "En quels matériaux sont fabriqués les porte-clés et quelle est leur résistance ?",
+        "faq_a6": "Ils sont fabriqués en PVC et caoutchouc thermoplastique souple haute densité injecté avec relief 3D multicouche et anneau métallique renforcé. Ils sont 100% résistants à l'eau, à la transpiration et aux frottements quotidiens sur les sacs de padel.",
 
         # Pop-up Modal Lead Magnet
         "popup_title": "Quelles sont les principales tendances de l'industrie du padel en 2026 ?",
@@ -401,6 +419,12 @@ TRANSLATIONS = {
         "faq_a2": "Inviaci il logo del tuo club in qualsiasi formato (vettoriale, PNG o JPG). Dopo aver effettuato il pagamento del campione (15€), ti invieremo il design al computer e successivamente il campione fisico. In questo modo, potrai effettuare l'ordine con totale sicurezza.",
         "faq_q3": "In quali paesi effettuate le spedizioni?",
         "faq_a3": "Lavoriamo in tutta Europa e negli Stati Uniti. Per altri paesi, contattaci e troveremo una soluzione.",
+        "faq_q4": "Sono redditizi come merchandising ufficiale nel pro-shop del circolo?",
+        "faq_a4": "Sì, i portachiavi a pala da padel personalizzati sono tra gli articoli di merchandising ufficiale più redditizi per i club. Con un costo tra 1,50 € e 3,00 € a unità in base al volume e un prezzo di vendita tipico di 5 € - 7 €, il circolo ottiene margini superiori al 60% diffondendo il proprio logo.",
+        "faq_q5": "Si possono ordinare per i welcome pack dei tornei e campionati?",
+        "faq_a5": "Certamente. Produciamo lotti dedicati per le sacche di benvenuto (welcome pack) di tornei, campionati federali ed eventi aziendali. A differenza di gadget usa e getta, il portachiavi in gomma 3D è un ricordo esclusivo che i giocatori conservano a lungo.",
+        "faq_q6": "Di che materiale sono fatti i portachiavi e che durata hanno?",
+        "faq_a6": "Sono realizzati in PVC e gomma termoplastica flessibile ad alta densità con rilievo 3D multistrato e anello metallico rinforzato. Sono impermeabili al 100%, resistenti al sudore e all'usura quotidiana sulle borse da padel.",
 
         # Pop-up Modal Lead Magnet
         "popup_title": "Quali sono i principali trend dell'industria del padel nel 2026?",
