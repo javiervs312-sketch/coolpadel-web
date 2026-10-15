@@ -133,10 +133,16 @@ def render_html():
               <i data-lucide="chevron-right" class="w-5 h-5 text-slate-400 group-hover:text-[#f2920b] group-hover:translate-x-1 transition-all"></i>
             </h3>
             
-            <p class="text-xs font-semibold text-slate-500 mb-3 flex items-center gap-1.5">
-              <i data-lucide="map-pin" class="w-3.5 h-3.5 text-slate-400"></i>
-              <span>{ciudad}, {pais}</span>
-            </p>
+            <div class="flex items-center justify-between gap-2 mb-3">
+              <button type="button" onclick="event.stopPropagation(); focusClubOnMap('{fid}');" class="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-500 hover:text-[#f2920b] transition group/loc text-left cursor-pointer">
+                <i data-lucide="map-pin" class="w-3.5 h-3.5 text-[#f2920b] group-hover/loc:scale-110 transition-transform shrink-0"></i>
+                <span class="group-hover/loc:underline">{ciudad}, {pais}</span>
+              </button>
+              <button type="button" onclick="event.stopPropagation(); focusClubOnMap('{fid}');" class="inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-slate-100 hover:bg-[#f2920b] hover:text-slate-950 text-[10px] font-bold text-slate-600 transition shrink-0 cursor-pointer">
+                <i data-lucide="crosshair" class="w-3 h-3"></i>
+                <span>Ver en mapa</span>
+              </button>
+            </div>
 
             <p class="text-slate-600 text-sm leading-relaxed mb-5 line-clamp-2">
               {tagline}
@@ -161,9 +167,15 @@ def render_html():
 
           <div class="pt-2 border-t border-slate-100 flex items-center justify-between">
             <span class="text-xs font-bold text-slate-500 group-hover:text-slate-900 transition">Ver Ficha & Dossier</span>
-            <span class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-slate-100 group-hover:bg-[#f2920b] group-hover:text-white transition">
-              <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
-            </span>
+            <div class="flex items-center gap-2">
+              <button type="button" onclick="event.stopPropagation(); focusClubOnMap('{fid}');" class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-slate-100 hover:bg-[#f2920b] hover:text-slate-950 text-[11px] font-bold text-slate-700 transition cursor-pointer" title="Ver en el mapa">
+                <i data-lucide="map" class="w-3 h-3"></i>
+                <span>Mapa</span>
+              </button>
+              <span class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-slate-100 group-hover:bg-[#f2920b] group-hover:text-white transition">
+                <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+              </span>
+            </div>
           </div>
         </article>
         """
@@ -189,16 +201,27 @@ def render_html():
               {f['modelo']}
             </span>
           </td>
-          <td class="py-4 px-4 text-xs font-bold text-slate-700">{f['ciudad_sede']} ({f['pais']})</td>
+          <td class="py-4 px-4 text-xs font-bold text-slate-700">
+            <button type="button" onclick="event.stopPropagation(); focusClubOnMap('{fid}');" class="inline-flex items-center gap-1 hover:text-[#f2920b] transition font-bold text-left cursor-pointer group/tbloc">
+              <i data-lucide="map-pin" class="w-3.5 h-3.5 text-[#f2920b] group-hover/tbloc:scale-110 transition-transform"></i>
+              <span class="group-hover/tbloc:underline">{f['ciudad_sede']} ({f['pais']})</span>
+            </button>
+          </td>
           <td class="py-4 px-4 text-sm font-bold text-slate-800">{f['num_clubs']}</td>
           <td class="py-4 px-4 text-sm font-bold text-slate-800">{f['num_pistas']}</td>
           <td class="py-4 px-4 text-xs font-semibold text-slate-600">{f['software']}</td>
           <td class="py-4 px-4 text-xs text-slate-600 max-w-xs truncate">{f['tagline']}</td>
-          <td class="py-4 px-4 text-right">
-            <button class="inline-flex items-center gap-1 text-xs font-bold text-[#f2920b] hover:text-[#d97f08] transition">
-              <span>Dossier</span>
-              <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
-            </button>
+          <td class="py-4 px-4 text-right" onclick="event.stopPropagation()">
+            <div class="inline-flex items-center justify-end gap-2">
+              <button onclick="focusClubOnMap('{fid}')" class="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-[#f2920b] hover:text-slate-950 text-xs font-bold text-slate-700 transition" title="Ver en el mapa">
+                <i data-lucide="map" class="w-3.5 h-3.5"></i>
+                <span>Mapa</span>
+              </button>
+              <button onclick="openDrawer('{fid}')" class="inline-flex items-center gap-1 text-xs font-bold text-[#f2920b] hover:text-[#d97f08] transition">
+                <span>Dossier</span>
+                <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+              </button>
+            </div>
           </td>
         </tr>
         """
@@ -270,6 +293,10 @@ def render_html():
       width: 100%;
       border-radius: 1.5rem;
       z-index: 10;
+      touch-action: none;
+      -webkit-user-select: none;
+      user-select: none;
+      outline: none;
     }}
     .custom-marker {{
       display: flex;
@@ -503,31 +530,41 @@ def render_html():
             </h2>
           </div>
 
-          <!-- SELECTOR DE REGIÓN MODERNO A LA DERECHA (ESTILO DESPLEGABLE DE IDIOMAS) -->
-          <div class="relative inline-block text-left" id="region-dropdown-container">
-            <button type="button" onclick="toggleRegionDropdown(event)" id="region-dropdown-btn" class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100 hover:bg-slate-200 border border-slate-200 text-xs font-bold text-slate-900 shadow-xs transition cursor-pointer" aria-expanded="false" aria-haspopup="true">
-              <span id="current-region-flag">🌍</span>
-              <span id="current-region-label" class="font-black text-slate-900">Todas las regiones</span>
-              <i data-lucide="chevron-down" class="w-3.5 h-3.5 stroke-[2.5] text-slate-600 transition-transform duration-200" id="region-dropdown-arrow"></i>
+          <div class="flex items-center gap-2">
+            <!-- BOTÓN PLEGAR / DESPLEGAR MAPA -->
+            <button type="button" onclick="toggleMapFold()" id="mapToggleFoldBtn" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-100 hover:bg-slate-200 border border-slate-200 text-xs font-bold text-slate-700 shadow-xs transition cursor-pointer" title="Plegar o desplegar el mapa interactivo">
+              <i data-lucide="chevron-up" id="mapFoldIcon" class="w-3.5 h-3.5 stroke-[2.5] text-slate-600 transition-transform duration-200"></i>
+              <span id="mapFoldText" class="hidden xs:inline">Plegar mapa</span>
             </button>
 
-            <!-- MENÚ DESPLEGABLE FLOTANTE -->
-            <div id="region-dropdown-menu" class="hidden absolute right-0 mt-2 w-64 max-h-80 overflow-y-auto bg-white rounded-2xl shadow-[0_12px_30px_rgba(0,0,0,0.15)] border border-slate-200 p-1.5 z-50 transition-all">
-              {region_dropdown_items_html}
+            <!-- SELECTOR DE REGIÓN MODERNO A LA DERECHA (ESTILO DESPLEGABLE DE IDIOMAS) -->
+            <div class="relative inline-block text-left" id="region-dropdown-container">
+              <button type="button" onclick="toggleRegionDropdown(event)" id="region-dropdown-btn" class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100 hover:bg-slate-200 border border-slate-200 text-xs font-bold text-slate-900 shadow-xs transition cursor-pointer" aria-expanded="false" aria-haspopup="true">
+                <span id="current-region-flag">🌍</span>
+                <span id="current-region-label" class="font-black text-slate-900">Todas las regiones</span>
+                <i data-lucide="chevron-down" class="w-3.5 h-3.5 stroke-[2.5] text-slate-600 transition-transform duration-200" id="region-dropdown-arrow"></i>
+              </button>
+
+              <!-- MENÚ DESPLEGABLE FLOTANTE -->
+              <div id="region-dropdown-menu" class="hidden absolute right-0 mt-2 w-64 max-h-80 overflow-y-auto bg-white rounded-2xl shadow-[0_12px_30px_rgba(0,0,0,0.15)] border border-slate-200 p-1.5 z-50 transition-all">
+                {region_dropdown_items_html}
+              </div>
             </div>
           </div>
         </div>
 
-        <div id="franchiseMap"></div>
-        
-        <!-- Leyenda del mapa -->
-        <div class="flex items-center gap-3 sm:gap-6 px-3 py-2.5 mt-2 text-[11px] font-bold text-slate-600 flex-wrap border-t border-slate-100">
-          <span class="text-slate-400 uppercase">Tipología:</span>
-          <span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-full bg-[#0284c7]"></span> Cadena Multiclub</span>
-          <span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-full bg-[#2563eb]"></span> Red Corporativa</span>
-          <span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-full bg-[#4f46e5]"></span> Franquicia</span>
-          <span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-full bg-[#059669]"></span> Automatizado 24/7</span>
-          <span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-full bg-[#9333ea]"></span> Boutique Lujo</span>
+        <div id="mapBody" class="transition-all duration-300">
+          <div id="franchiseMap"></div>
+          
+          <!-- Leyenda del mapa -->
+          <div class="flex items-center gap-3 sm:gap-6 px-3 py-2.5 mt-2 text-[11px] font-bold text-slate-600 flex-wrap border-t border-slate-100">
+            <span class="text-slate-400 uppercase">Tipología:</span>
+            <span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-full bg-[#0284c7]"></span> Cadena Multiclub</span>
+            <span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-full bg-[#2563eb]"></span> Red Corporativa</span>
+            <span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-full bg-[#4f46e5]"></span> Franquicia</span>
+            <span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-full bg-[#059669]"></span> Automatizado 24/7</span>
+            <span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-full bg-[#9333ea]"></span> Boutique Lujo</span>
+          </div>
         </div>
       </div>
 
@@ -721,7 +758,13 @@ def render_html():
           <span id="drawerBadge" class="inline-block px-2.5 py-0.5 rounded-full text-xs font-bold border"></span>
         </div>
         <h2 id="drawerTitle" class="font-heading font-black text-2xl sm:text-3xl text-slate-950"></h2>
-        <p id="drawerCity" class="text-xs font-semibold text-slate-500 flex items-center gap-1"></p>
+        <div class="flex items-center gap-2.5 pt-1 flex-wrap">
+          <p id="drawerCity" class="text-xs font-semibold text-slate-500 flex items-center gap-1"></p>
+          <button type="button" onclick="focusClubOnMap(currentDrawerId, true, true)" class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-200/80 hover:bg-[#f2920b] hover:text-slate-950 text-xs font-bold text-slate-800 transition cursor-pointer shadow-2xs" title="Ver en el mapa interactivo">
+            <i data-lucide="map" class="w-3.5 h-3.5"></i>
+            <span>Ver en el mapa</span>
+          </button>
+        </div>
       </div>
 
       <button onclick="closeDrawer()" class="w-10 h-10 rounded-full bg-white hover:bg-slate-200 flex items-center justify-center text-slate-500 hover:text-slate-900 transition border border-slate-200">
@@ -1079,37 +1122,59 @@ def render_html():
 
     const WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbxnF9JmVrikeAW7PdLc02r_1kkuSJVz1Ncl71ZeVGT37H0ji5DQ3DVw60122pcuYnxCgA/exec';
 
-    // Bounding boxes / centros y zoom por región geográfica
+    // Bounding boxes calibrados para mostrar el país completo con márgenes (extremos incluidos sin cortar)
     const REGION_BOUNDS = {{
-      'all': {{ center: [46.0, 4.0], zoom: 4 }},
-      'GB': {{ center: [53.5, -2.0], zoom: 6 }},
-      'ES': {{ center: [40.2, -3.7], zoom: 6 }},
-      'FR': {{ center: [46.6, 2.3], zoom: 6 }},
-      'IT': {{ center: [42.5, 12.5], zoom: 6 }},
-      'NL': {{ center: [52.1, 5.3], zoom: 7 }},
-      'DE': {{ center: [50.5, 10.0], zoom: 6 }},
-      'SE': {{ center: [60.1, 16.0], zoom: 5 }},
-      'PT': {{ center: [39.5, -8.0], zoom: 7 }},
-      'US': {{ center: [37.0, -96.0], zoom: 4 }},
-      'MX': {{ center: [20.0, -99.0], zoom: 4 }},
-      'AE': {{ center: [24.5, 54.5], zoom: 7 }},
-      'ZA': {{ center: [-29.0, 25.0], zoom: 5 }}
+      'all': [[32.0, -18.0], [62.0, 36.0]],
+      'ES': [[35.2, -10.2], [44.4, 4.8]],   // España: Galicia, Cantábrico, Cataluña, Baleares, Andalucía y contexto Canarias
+      'GB': [[49.6, -8.8], [59.2, 2.4]],    // Reino Unido: Escocia, Gales, Inglaterra e Irlanda
+      'FR': [[41.8, -5.5], [51.5, 9.8]],    // Francia: Hexágono completo y Córcega
+      'IT': [[35.8, 6.2], [47.4, 18.8]],    // Italia: Desde los Alpes hasta Sicilia y Cerdeña
+      'NL': [[49.4, 2.2], [53.8, 7.5]],     // Benelux: Países Bajos, Bélgica y Luxemburgo
+      'DE': [[45.5, 5.5], [55.0, 17.2]],    // Alemania, Austria y Suiza (DACH)
+      'SE': [[54.3, 4.5], [64.5, 26.0]],    // Nórdicos: Suecia, Noruega, Dinamarca, Finlandia
+      'PT': [[36.8, -10.0], [42.4, -6.0]],  // Portugal: Todo el territorio continental
+      'US': [[24.0, -125.0], [49.5, -66.5]], // Estados Unidos: Costa a costa
+      'MX': [[-36.0, -108.0], [29.0, -34.0]], // Latinoamérica: México, Brasil, Chile, Argentina
+      'AE': [[22.0, 46.0], [30.5, 57.0]],   // Oriente Medio: EAU, Arabia, Catar, Kuwait
+      'ZA': [[-35.5, 15.5], [-21.5, 34.0]]  // Sudáfrica y región
     }};
 
-    // Inicializar mapa con Esri World Street Map (nombres locales, sin API key, sin contorno de costa)
+    // Inicializar mapa con Esri World Street Map (nombres locales, sin API key, zoom táctil con dos dedos)
     function initMap() {{
       if (map) return;
       
       map = L.map('franchiseMap', {{
         center: [48.0, 5.0],
         zoom: 4,
-        scrollWheelZoom: false
+        scrollWheelZoom: false,  // No secuestra scroll de la página con ratón
+        touchZoom: true,         // Zoom fluido con dos dedos en móvil
+        dragging: true,
+        tap: false,              // Desactiva emulación antigua de tap para soportar eventos táctiles nativos
+        zoomSnap: 0.25,          // Pasos de zoom ultra-suaves al pellizcar con dos dedos
+        zoomDelta: 0.5,
+        bounceAtZoomLimits: false
       }});
 
       L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{{z}}/{{y}}/{{x}}', {{
         attribution: 'Tiles &copy; Esri &mdash; Fuentes: Esri, DeLorme, NAVTEQ, USGS, Intermap, iPC, METI, TomTom | CoolPadel Studios',
         maxZoom: 18
       }}).addTo(map);
+
+      // Prevenir que gestos de dos dedos en el mapa hagan zoom en la página entera en móviles (iOS Safari & Chrome)
+      const mapContainerEl = document.getElementById('franchiseMap');
+      if (mapContainerEl) {{
+        ['gesturestart', 'gesturechange', 'gestureend'].forEach(evtName => {{
+          mapContainerEl.addEventListener(evtName, function(e) {{
+            e.preventDefault();
+          }}, {{ passive: false }});
+        }});
+
+        mapContainerEl.addEventListener('touchmove', function(e) {{
+          if (e.touches && e.touches.length > 1) {{
+            e.preventDefault();
+          }}
+        }}, {{ passive: false }});
+      }}
 
       markersLayer = L.layerGroup().addTo(map);
       renderMarkers(FRANQUICIAS);
@@ -1174,6 +1239,25 @@ def render_html():
     // Vistas de mapa
     function resetMapView() {{ map.setView([46.0, 4.0], 4); }}
 
+    // Plegar / Desplegar mapa interactivo
+    function toggleMapFold() {{
+      const mapBody = document.getElementById('mapBody');
+      const foldIcon = document.getElementById('mapFoldIcon');
+      const foldText = document.getElementById('mapFoldText');
+      if (!mapBody) return;
+      const isHidden = mapBody.classList.contains('hidden');
+      if (isHidden) {{
+        mapBody.classList.remove('hidden');
+        if (foldIcon) foldIcon.classList.remove('rotate-180');
+        if (foldText) foldText.textContent = 'Plegar mapa';
+        setTimeout(() => {{ if (map) map.invalidateSize(); }}, 150);
+      }} else {{
+        mapBody.classList.add('hidden');
+        if (foldIcon) foldIcon.classList.add('rotate-180');
+        if (foldText) foldText.textContent = 'Desplegar mapa';
+      }}
+    }}
+
     // Menú desplegable flotante de región
     function toggleRegionDropdown(event) {{
       if (event) event.stopPropagation();
@@ -1214,12 +1298,29 @@ def render_html():
 
       applyFilters();
 
-      // Animación fluida de zoom al país/región seleccionado
+      // Asegurar que el mapa esté desplegado si estaba plegado u oculto
+      const mapContainer = document.getElementById('mapContainer');
+      if (mapContainer && mapContainer.classList.contains('hidden')) {{
+        mapContainer.classList.remove('hidden');
+      }}
+      const mapBody = document.getElementById('mapBody');
+      const foldIcon = document.getElementById('mapFoldIcon');
+      const foldText = document.getElementById('mapFoldText');
+      if (mapBody && mapBody.classList.contains('hidden')) {{
+        mapBody.classList.remove('hidden');
+        if (foldIcon) foldIcon.classList.remove('rotate-180');
+        if (foldText) foldText.textContent = 'Plegar mapa';
+      }}
+
+      // Animación fluida con encuadre calibrado del país completo y sus extremos
       if (map && REGION_BOUNDS[code]) {{
-        map.flyTo(REGION_BOUNDS[code].center, REGION_BOUNDS[code].zoom, {{
-          animate: true,
-          duration: 1.2
-        }});
+        setTimeout(() => {{
+          map.invalidateSize();
+          map.flyToBounds(REGION_BOUNDS[code], {{
+            padding: [35, 35],
+            duration: 1.2
+          }});
+        }}, 50);
       }}
     }}
 
@@ -1653,6 +1754,59 @@ def render_html():
     }}
 
     // =========================================================================
+    // ENFOCAR CLUB EN EL MAPA (DESPLIEGA EL MAPA SI ESTÁ PLEGADO U OCULTO)
+    // =========================================================================
+    function focusClubOnMap(id, andScroll = true, closeDrawerModal = false) {{
+      const f = FRANQUICIAS.find(item => item.id === id);
+      if (!f || !f.coords || f.coords.length !== 2) return;
+
+      if (closeDrawerModal) {{
+        closeDrawer();
+      }}
+
+      // 1. Si estamos en vista Tabla o el mapa no está visible, desplegarlo
+      if (currentView === 'table') {{
+        switchView('grid');
+      }}
+
+      const mapContainer = document.getElementById('mapContainer');
+      if (mapContainer && mapContainer.classList.contains('hidden')) {{
+        mapContainer.classList.remove('hidden');
+      }}
+
+      // Si el cuerpo del mapa estaba plegado, desplegarlo
+      const mapBody = document.getElementById('mapBody');
+      const foldIcon = document.getElementById('mapFoldIcon');
+      const foldText = document.getElementById('mapFoldText');
+      if (mapBody && mapBody.classList.contains('hidden')) {{
+        mapBody.classList.remove('hidden');
+        if (foldIcon) foldIcon.classList.remove('rotate-180');
+        if (foldText) foldText.textContent = 'Plegar mapa';
+      }}
+
+      // 2. Scroll suave hacia el contenedor del mapa
+      if (andScroll && mapContainer) {{
+        mapContainer.scrollIntoView({{ behavior: 'smooth', block: 'center' }});
+      }}
+
+      // 3. Forzar recalculo de dimensiones y hacer zoom suave hacia el club seleccionado
+      setTimeout(() => {{
+        if (map) {{
+          map.invalidateSize();
+          map.flyTo(f.coords, 8, {{
+            animate: true,
+            duration: 1.2
+          }});
+          if (markersById && markersById[id]) {{
+            setTimeout(() => {{
+              markersById[id].openPopup();
+            }}, 500);
+          }}
+        }}
+      }}, 200);
+    }}
+
+    // =========================================================================
     // SLIDE-OVER DRAWER LOGIC
     // =========================================================================
     function openDrawer(id) {{
@@ -1660,8 +1814,19 @@ def render_html():
       if (!f) return;
       currentDrawerId = id;
 
+      // Asegurar que el mapa esté desplegado y sincronizado en segundo plano
+      const mapContainer = document.getElementById('mapContainer');
+      if (mapContainer && mapContainer.classList.contains('hidden')) {{
+        mapContainer.classList.remove('hidden');
+      }}
+      const mapBody = document.getElementById('mapBody');
+      if (mapBody && mapBody.classList.contains('hidden')) {{
+        mapBody.classList.remove('hidden');
+      }}
+
       // Zoom dinámico fluido sobre la coordenada de la cadena en el mapa
       if (f.coords && f.coords.length === 2 && map) {{
+        map.invalidateSize();
         map.flyTo(f.coords, 8, {{ animate: true, duration: 1.2 }});
         if (markersById && markersById[id]) {{
           markersById[id].openPopup();
