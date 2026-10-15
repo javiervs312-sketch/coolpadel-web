@@ -92,30 +92,96 @@
 </head>
 <body class="bg-[#f8fafc] text-slate-800 antialiased selection:bg-[#f2920b] selection:text-slate-950 min-h-screen flex flex-col">
 
-  <!-- HEADER OFICIAL -->
-  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-xs">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between">
-      <a href="../" class="flex items-center gap-2 group">
-        <img src="../assets/images/coolpadel-mascot-hd.png" alt="Mascota CoolPadel Studios" class="h-8 sm:h-11 w-auto object-contain">
-        <img src="../assets/images/coolpadel-typography-hd.png" alt="CoolPadel Studios" class="h-5 sm:h-7 w-auto object-contain">
-      </a>
+  <!-- NAVBAR BLANCA UNIFICADA COOLPADEL -->
+  <header class="sticky top-0 z-40 bg-white text-slate-900 border-b border-slate-200 shadow-sm w-full">
+    <div class="w-full max-w-[1700px] mx-auto px-3 sm:px-6 lg:px-10 py-1.5 sm:py-0 h-auto sm:h-16 lg:h-18">
       
-      <div class="flex items-center gap-2 sm:gap-4">
-        <a href="../#llaveros" class="hidden lg:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition">Llaveros</a>
-        <a href="../camaras/" class="hidden lg:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition">Cámaras</a>
-        <a href="../blog/" class="hidden md:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition">Blog</a>
-        
-        <!-- CTA Dar de Alta / Reclamar Franquicia -->
-        <button onclick="openOnboardingModal()" class="inline-flex items-center gap-1.5 px-3 sm:px-4 py-2 rounded-full bg-slate-900 hover:bg-slate-800 text-white font-heading font-black text-[11px] sm:text-xs uppercase tracking-wider transition shadow-sm">
-          <i data-lucide="building-2" class="w-3.5 h-3.5 text-[#f2920b]"></i>
-          <span>Alta / Reclamar Ficha</span>
-        </button>
+      <!-- DESKTOP NAVBAR (3 COLUMNAS) -->
+      <div class="hidden sm:grid grid-cols-[1fr_auto_1fr] items-center h-full w-full gap-2 lg:gap-4">
+        <div class="flex items-center justify-between min-w-0 h-full">
+          <a href="../" class="group py-1 inline-flex items-center shrink-0">
+            <img src="../assets/images/eyes-thumb.png?v=fixed_eyes" alt="CoolPadel Eyes" style="height: 24px; max-height: 24px; width: auto;" class="object-contain group-hover:scale-110 transition duration-300">
+          </a>
+          <div class="flex-1 flex items-center justify-center px-2 gap-2 lg:gap-3.5">
+            <a href="../#llaveros" class="font-heading font-black text-xs lg:text-[13px] tracking-wider uppercase text-slate-950 hover:text-[#f2920b] transition select-none whitespace-nowrap">
+              Llaveros
+            </a>
+            <span class="text-slate-300 font-bold select-none">•</span>
+            <a href="../blog/" class="font-heading font-black text-xs lg:text-[13px] tracking-wider uppercase text-slate-950 hover:text-[#f2920b] transition select-none whitespace-nowrap">
+              Blog
+            </a>
+            <span class="text-slate-300 font-bold select-none">•</span>
+            <a href="../camaras/" class="font-heading font-black text-xs lg:text-[13px] tracking-wider uppercase text-slate-950 hover:text-[#f2920b] transition select-none whitespace-nowrap">
+              Cámaras pistas
+            </a>
+            <span class="text-slate-300 font-bold select-none">•</span>
+            <a href="./" class="font-heading font-black text-xs lg:text-[13px] tracking-wider uppercase text-[#f2920b] transition select-none whitespace-nowrap border-b-2 border-[#f2920b] pb-0.5">
+              Cadenas de clubs
+            </a>
+          </div>
+        </div>
 
-        <a href="https://wa.me/34680317486?text=Hola%20Javier%2C%20estoy%20viendo%20el%20directorio%20global%20de%20franquicias%20de%20p%C3%A1del%20y%20quiero%20hacerte%20una%20consulta" target="_blank" class="inline-flex items-center gap-1.5 px-3.5 sm:px-4 py-2 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] text-slate-950 font-heading font-black text-xs sm:text-sm tracking-wider uppercase transition shadow-sm">
-          <i data-lucide="message-circle" class="w-3.5 h-3.5 stroke-[3]"></i>
-          <span class="hidden sm:inline">WhatsApp</span>
-        </a>
+        <div class="flex items-center justify-center shrink-0 px-2 lg:px-4">
+          <a href="../" class="flex items-center justify-center gap-2 sm:gap-3 group py-1">
+            <img src="../assets/images/coolpadel-mascot-hd.png" alt="Mascota CoolPadel" style="height: 46px; max-height: 46px; width: auto;" class="object-contain group-hover:scale-105 transition">
+            <img src="../assets/images/coolpadel-typography-hd.png" alt="CoolPadel" style="height: 26px; max-height: 26px; width: auto;" class="object-contain">
+          </a>
+        </div>
+
+        <div class="flex items-center justify-end min-w-0 h-full gap-2 sm:gap-3 lg:gap-5">
+          <a href="https://wa.me/34680317486?text=Hola%20Javier%2C%20estoy%20viendo%20el%20directorio%20global%20de%20franquicias%20de%20p%C3%A1del" target="_blank" class="group relative inline-flex items-center gap-1.5 px-3 sm:px-3.5 lg:px-4 py-1.5 sm:py-2 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] active:bg-[#76d3f6] text-slate-950 active:scale-95 font-heading font-black text-xs sm:text-xs lg:text-sm tracking-wider uppercase transition-all duration-300 shadow-[0_4px_12px_rgba(242,146,11,0.2)] hover:scale-105 shrink-0 overflow-hidden">
+            <span class="font-black">Contactar</span>
+            <div class="w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-slate-950/10 group-hover:bg-slate-950 group-hover:text-white flex items-center justify-center transition-all duration-300 shrink-0">
+              <i data-lucide="arrow-up-right" class="w-2.5 h-2.5 sm:w-3 sm:h-3 stroke-[3]"></i>
+            </div>
+          </a>
+          <a href="../" class="group py-1 inline-flex items-center shrink-0">
+            <img src="../assets/images/eyes-thumb.png?v=fixed_eyes" alt="CoolPadel Eyes" style="height: 24px; max-height: 24px; width: auto;" class="object-contain group-hover:scale-110 transition duration-300">
+          </a>
+        </div>
       </div>
+
+      <!-- MÓVIL NAVBAR -->
+      <div class="flex sm:hidden flex-col gap-1.5 py-1.5 w-full">
+        <div class="flex items-center justify-between w-full px-1">
+          <a href="../" class="py-0.5 inline-flex items-center shrink-0">
+            <img src="../assets/images/eyes-thumb.png?v=fixed_eyes" alt="CoolPadel Eyes" style="height: 18px; max-height: 18px; width: auto;" class="object-contain">
+          </a>
+          <a href="../" class="flex items-center justify-center gap-1.5 py-0.5">
+            <img src="../assets/images/coolpadel-mascot-hd.png" alt="Mascota CoolPadel" style="height: 28px; max-height: 28px; width: auto;" class="object-contain">
+            <img src="../assets/images/coolpadel-typography-hd.png" alt="CoolPadel" style="height: 18px; max-height: 18px; width: auto;" class="object-contain">
+          </a>
+          <a href="../" class="py-0.5 inline-flex items-center shrink-0">
+            <img src="../assets/images/eyes-thumb.png?v=fixed_eyes" alt="CoolPadel Eyes" style="height: 18px; max-height: 18px; width: auto;" class="object-contain">
+          </a>
+        </div>
+        <div class="flex items-center justify-between w-full gap-1 pt-1 border-t border-slate-100 px-1 overflow-x-auto">
+          <div class="flex items-center gap-1.5 shrink-0">
+            <a href="../#llaveros" class="font-heading font-black text-[10px] tracking-wider uppercase text-slate-950 hover:text-[#f2920b] transition whitespace-nowrap">
+              Llaveros
+            </a>
+            <span class="text-slate-300 font-bold select-none">•</span>
+            <a href="../blog/" class="font-heading font-black text-[10px] tracking-wider uppercase text-slate-950 hover:text-[#f2920b] transition whitespace-nowrap">
+              Blog
+            </a>
+            <span class="text-slate-300 font-bold select-none">•</span>
+            <a href="../camaras/" class="font-heading font-black text-[10px] tracking-wider uppercase text-slate-950 hover:text-[#f2920b] transition whitespace-nowrap">
+              Cámaras pistas
+            </a>
+            <span class="text-slate-300 font-bold select-none">•</span>
+            <a href="./" class="font-heading font-black text-[10px] tracking-wider uppercase text-[#f2920b] whitespace-nowrap border-b border-[#f2920b]">
+              Cadenas de clubs
+            </a>
+          </div>
+          <a href="https://wa.me/34680317486?text=Hola%20Javier%2C%20estoy%20viendo%20el%20directorio%20global%20de%20franquicias%20de%20p%C3%A1del" target="_blank" class="group relative inline-flex items-center justify-center gap-1 px-2.5 py-1 rounded-full bg-[#f2920b] active:bg-[#76d3f6] text-slate-950 active:scale-95 font-heading font-black text-[10px] uppercase tracking-wider transition shadow-xs shrink-0">
+            <span class="font-black">Contactar</span>
+            <div class="w-3 h-3 rounded-full bg-slate-950/10 flex items-center justify-center">
+              <i data-lucide="arrow-up-right" class="w-2 h-2 stroke-[3]"></i>
+            </div>
+          </a>
+        </div>
+      </div>
+
     </div>
   </header>
 
@@ -126,64 +192,44 @@
     <section class="py-12 sm:py-16 bg-gradient-to-b from-white via-slate-50 to-[#f8fafc] border-b border-slate-200">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        <!-- Breadcrumbs -->
-        <nav class="flex items-center gap-2 text-xs font-bold text-slate-500 mb-6 uppercase tracking-wider">
-          <a href="../" class="hover:text-slate-900 transition">Inicio</a>
-          <span>/</span>
-          <span class="text-[#f2920b]">Cadenas y Franquicias de Pádel</span>
-        </nav>
-
         <div class="max-w-4xl space-y-4">
-          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900 text-white font-heading font-bold text-xs uppercase tracking-wider">
-            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-            <span>PORTAL B2B DE INVERSIÓN Y COMPARADOR OFICIAL (+1 SEDE)</span>
-          </div>
-
           <h1 class="font-heading font-black text-3xl sm:text-5xl lg:text-6xl text-slate-950 leading-[1.08] uppercase tracking-tight">
             Directorio y Comparador de Franquicias de Pádel
           </h1>
 
           <p class="text-base sm:text-xl text-slate-600 font-medium leading-relaxed">
-            El censo internacional más exhaustivo para operadores y clubes que quieren franquiciarse: <strong>167 cadenas y franquicias analizadas</strong> en 26 países. Compara requisitos de nave, inversión inicial, royalties, software de reservas y exclusividad territorial.
+            El directorio para operadores y clubes que quieren franquiciarse:<br>
+            Ponte en contacto con más de 153 cadenas y franquicias de más de 25 países.<br>
+            Infórmate, compara y encuentra el modelo que tu club necesita.
           </p>
 
-          <!-- Acciones Principales Hero -->
-          <div class="flex flex-wrap items-center gap-3 pt-3">
-            <button onclick="openOnboardingModal()" class="inline-flex items-center gap-2 px-5 py-3 rounded-2xl bg-[#f2920b] hover:bg-[#d97f08] text-slate-950 font-heading font-black text-xs uppercase tracking-wider transition shadow-md hover:scale-105 active:scale-95">
+          <!-- Acciones Principales Hero: Botón Alta de Franquicia fuera de la barra -->
+          <div class="pt-2">
+            <button onclick="openOnboardingModal()" class="inline-flex items-center gap-2 px-6 py-3.5 rounded-2xl bg-[#f2920b] hover:bg-[#d97f08] text-slate-950 font-heading font-black text-xs sm:text-sm uppercase tracking-wider transition shadow-md hover:scale-105 active:scale-95">
               <i data-lucide="plus-circle" class="w-4 h-4 stroke-[2.5]"></i>
               <span>¿Tienes una Franquicia? Date de Alta / Reclama tu Ficha</span>
-            </button>
-            <button onclick="focusComparatorTip()" class="inline-flex items-center gap-2 px-5 py-3 rounded-2xl bg-white hover:bg-slate-100 text-slate-800 border border-slate-300 font-heading font-black text-xs uppercase tracking-wider transition shadow-xs">
-              <i data-lucide="scale" class="w-4 h-4 text-[#f2920b] stroke-[2.5]"></i>
-              <span>Cómo Comparar Cara a Cara</span>
             </button>
           </div>
         </div>
 
-        <!-- KPI BANNER -->
-        <div class="grid grid-cols-2 lg:grid-cols-4 gap-3.5 sm:gap-6 mt-8 sm:mt-10 pt-8 border-t border-slate-200/80">
-          <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-xs">
+        <!-- KPI BANNER (3 TARJETAS) -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 mt-8 sm:mt-10 pt-8 border-t border-slate-200/80">
+          <div class="bg-white p-5 sm:p-6 rounded-2xl border border-slate-200/80 shadow-xs">
             <span class="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">Cadenas / Franquicias</span>
-            <span class="font-heading font-black text-3xl sm:text-4xl text-slate-950">167</span>
-            <span class="text-xs text-slate-500 font-medium">Con +1 club abierto</span>
+            <span class="font-heading font-black text-3xl sm:text-4xl text-slate-950">+153</span>
+            <span class="text-xs text-slate-500 font-medium block mt-1">Con +1 club abierto</span>
           </div>
           
-          <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-xs">
+          <div class="bg-white p-5 sm:p-6 rounded-2xl border border-slate-200/80 shadow-xs">
             <span class="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">Pistas Totales</span>
-            <span class="font-heading font-black text-3xl sm:text-4xl text-slate-950">+8.500</span>
-            <span class="text-xs text-slate-500 font-medium">Bajo gestión analizada</span>
+            <span class="font-heading font-black text-3xl sm:text-4xl text-slate-950">+8.500 pistas</span>
+            <span class="text-xs text-slate-500 font-medium block mt-1">Bajo gestión analizada</span>
           </div>
 
-          <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-xs">
+          <div class="bg-white p-5 sm:p-6 rounded-2xl border border-slate-200/80 shadow-xs">
             <span class="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">Presencia Global</span>
-            <span class="font-heading font-black text-3xl sm:text-4xl text-slate-950">26 Países</span>
-            <span class="text-xs text-slate-500 font-medium">Europa, América, Oriente Medio, África y Oceanía</span>
-          </div>
-
-          <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-xs">
-            <span class="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">Herramienta B2B</span>
-            <span class="font-heading font-black text-3xl sm:text-4xl text-[#f2920b]">Cara a Cara</span>
-            <span class="text-xs text-slate-500 font-medium">Contrasta hasta 3 franquicias</span>
+            <span class="font-heading font-black text-3xl sm:text-4xl text-slate-950">+25 países</span>
+            <span class="text-xs text-slate-500 font-medium block mt-1">Europa, América, Oriente Medio, África y Oceanía</span>
           </div>
         </div>
 
@@ -200,46 +246,51 @@
         <div class="flex flex-col md:flex-row gap-4 items-stretch md:items-center justify-between">
           <div class="relative flex-1">
             <i data-lucide="search" class="w-5 h-5 text-slate-400 absolute left-4 top-1/2 -translate-y-1/2"></i>
-            <input type="text" id="searchInput" placeholder="Buscar por cadena, club, ciudad, país o software (ej. PadelStars, The Padel Hub, Playtomic, Spector, Arenal, Pàdel 7)..."
+            <input type="text" id="searchInput" placeholder="Buscar por cadena, club, ciudad o país (ej. PadelStars, The Padel Hub, Barcelona, Londres, Madrid)..."
                    class="w-full pl-12 pr-4 py-3.5 rounded-2xl bg-slate-50 border border-slate-200 text-slate-950 placeholder-slate-400 font-medium text-sm focus:outline-none focus:ring-2 focus:ring-[#f2920b] focus:bg-white transition"
                    oninput="applyFilters()">
           </div>
 
-          <div class="flex items-center gap-2 self-end md:self-auto">
+          <div class="flex items-center gap-2 self-end md:self-auto shrink-0">
             <button id="viewGridBtn" onclick="switchView('grid')" class="px-4 py-2.5 rounded-xl text-xs font-bold font-heading uppercase tracking-wider bg-slate-900 text-white transition flex items-center gap-1.5 shadow-xs">
-              <i data-lucide="layout-grid" class="w-4 h-4"></i>
-              <span>Tarjetas & Mapa</span>
+              <i data-lucide="map" class="w-4 h-4"></i>
+              <span>Mapa</span>
             </button>
             <button id="viewTableBtn" onclick="switchView('table')" class="px-4 py-2.5 rounded-xl text-xs font-bold font-heading uppercase tracking-wider bg-slate-100 text-slate-700 hover:bg-slate-200 transition flex items-center gap-1.5">
               <i data-lucide="table" class="w-4 h-4"></i>
-              <span>Tabla Comparativa</span>
+              <span>Tabla</span>
             </button>
           </div>
         </div>
 
-        <!-- Filtros por Región/País, Categoría, Presupuesto e Instalación -->
+        <!-- Filtros por Región/País (Desplegable) y Categoría -->
         <div class="flex flex-col gap-4 pt-3 border-t border-slate-100">
           
-          <!-- Filtro Región / País -->
-          <div class="flex items-center gap-1.5 flex-wrap">
-            <span class="text-xs font-bold uppercase text-slate-400 mr-1 flex items-center gap-1">
-              <i data-lucide="globe" class="w-3.5 h-3.5"></i>
-              <span>Región:</span>
-            </span>
-            <button onclick="setRegionFilter('all')" class="filter-region-btn active px-3 py-1 rounded-lg text-xs font-bold bg-[#f2920b] text-slate-950 transition" data-region="all">🌍 Todos (167)</button>
-<button onclick="setRegionFilter('GB')" class="filter-region-btn px-3 py-1 rounded-lg text-xs font-bold bg-slate-100 text-slate-600 hover:bg-slate-200 transition" data-region="GB">🇬🇧 Reino Unido (26)</button>
-<button onclick="setRegionFilter('ES')" class="filter-region-btn px-3 py-1 rounded-lg text-xs font-bold bg-slate-100 text-slate-600 hover:bg-slate-200 transition" data-region="ES">🇪🇸 España (20)</button>
-<button onclick="setRegionFilter('FR')" class="filter-region-btn px-3 py-1 rounded-lg text-xs font-bold bg-slate-100 text-slate-600 hover:bg-slate-200 transition" data-region="FR">🇫🇷 Francia (13)</button>
-<button onclick="setRegionFilter('IT')" class="filter-region-btn px-3 py-1 rounded-lg text-xs font-bold bg-slate-100 text-slate-600 hover:bg-slate-200 transition" data-region="IT">🇮🇹 Italia (11)</button>
-<button onclick="setRegionFilter('NL')" class="filter-region-btn px-3 py-1 rounded-lg text-xs font-bold bg-slate-100 text-slate-600 hover:bg-slate-200 transition" data-region="NL">🇳🇱 Benelux (11)</button>
-<button onclick="setRegionFilter('DE')" class="filter-region-btn px-3 py-1 rounded-lg text-xs font-bold bg-slate-100 text-slate-600 hover:bg-slate-200 transition" data-region="DE">🇩🇪 Alemania, AT & CH (15)</button>
-<button onclick="setRegionFilter('SE')" class="filter-region-btn px-3 py-1 rounded-lg text-xs font-bold bg-slate-100 text-slate-600 hover:bg-slate-200 transition" data-region="SE">🇸🇪 Nórdicos (20)</button>
-<button onclick="setRegionFilter('PT')" class="filter-region-btn px-3 py-1 rounded-lg text-xs font-bold bg-slate-100 text-slate-600 hover:bg-slate-200 transition" data-region="PT">🇵🇹 Portugal (7)</button>
-<button onclick="setRegionFilter('US')" class="filter-region-btn px-3 py-1 rounded-lg text-xs font-bold bg-slate-100 text-slate-600 hover:bg-slate-200 transition" data-region="US">🇺🇸 Estados Unidos (11)</button>
-<button onclick="setRegionFilter('MX')" class="filter-region-btn px-3 py-1 rounded-lg text-xs font-bold bg-slate-100 text-slate-600 hover:bg-slate-200 transition" data-region="MX">🇲🇽 Latinoamérica (17)</button>
-<button onclick="setRegionFilter('AE')" class="filter-region-btn px-3 py-1 rounded-lg text-xs font-bold bg-slate-100 text-slate-600 hover:bg-slate-200 transition" data-region="AE">🇦🇪 Oriente Medio (8)</button>
-<button onclick="setRegionFilter('ZA')" class="filter-region-btn px-3 py-1 rounded-lg text-xs font-bold bg-slate-100 text-slate-600 hover:bg-slate-200 transition" data-region="ZA">🇿🇦 Sudáfrica & Australia (8)</button>
+          <!-- Filtro Región / País en Dropdown Desplegable -->
+          <div class="flex items-center gap-3 flex-wrap">
+            <label for="regionSelect" class="text-xs font-bold uppercase text-slate-500 flex items-center gap-1.5 shrink-0">
+              <i data-lucide="globe" class="w-4 h-4 text-[#f2920b]"></i>
+              <span>Región / País:</span>
+            </label>
+            <div class="relative">
+              <select id="regionSelect" onchange="setRegionFilter(this.value)" class="appearance-none pl-3.5 pr-9 py-2 rounded-xl bg-slate-50 hover:bg-slate-100 border border-slate-200 text-slate-900 text-xs font-bold focus:outline-none focus:ring-2 focus:ring-[#f2920b] transition cursor-pointer">
+                <option value="all">🌍 Todos los países (167)</option>
+<option value="GB">🇬🇧 Reino Unido (26)</option>
+<option value="ES">🇪🇸 España (20)</option>
+<option value="FR">🇫🇷 Francia (13)</option>
+<option value="IT">🇮🇹 Italia (11)</option>
+<option value="NL">🇳🇱 Benelux (11)</option>
+<option value="DE">🇩🇪 Alemania, AT & CH (15)</option>
+<option value="SE">🇸🇪 Nórdicos (20)</option>
+<option value="PT">🇵🇹 Portugal (7)</option>
+<option value="US">🇺🇸 Estados Unidos (11)</option>
+<option value="MX">🇲🇽 Latinoamérica (17)</option>
+<option value="AE">🇦🇪 Oriente Medio (8)</option>
+<option value="ZA">🇿🇦 Sudáfrica & Australia (8)</option>
 
+              </select>
+              <i data-lucide="chevron-down" class="w-3.5 h-3.5 text-slate-500 absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none stroke-[2.5]"></i>
+            </div>
           </div>
 
           <!-- Filtro Modelo / Tipo de Operador -->
@@ -254,35 +305,6 @@
             <button onclick="setModelFilter('franquicia')" class="filter-model-btn px-3 py-1 rounded-lg text-xs font-bold bg-slate-100 text-slate-600 hover:bg-slate-200 transition" data-model="franquicia">Franquicia Llave en Mano</button>
             <button onclick="setModelFilter('automatizado')" class="filter-model-btn px-3 py-1 rounded-lg text-xs font-bold bg-slate-100 text-slate-600 hover:bg-slate-200 transition" data-model="automatizado">Club Automatizado 24/7</button>
             <button onclick="setModelFilter('boutique')" class="filter-model-btn px-3 py-1 rounded-lg text-xs font-bold bg-slate-100 text-slate-600 hover:bg-slate-200 transition" data-model="boutique">Boutique & Lujo</button>
-          </div>
-
-          <!-- Filtros de Inversión y Formato de Nave -->
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-3 pt-2 border-t border-slate-100 text-xs">
-            
-            <!-- Rango de Presupuesto (CAPEX) -->
-            <div class="flex items-center gap-1.5 flex-wrap">
-              <span class="font-bold uppercase text-slate-400 flex items-center gap-1">
-                <i data-lucide="wallet" class="w-3.5 h-3.5"></i>
-                <span>Inversión CAPEX:</span>
-              </span>
-              <button onclick="setBudgetFilter('all')" class="filter-budget-btn active px-2.5 py-1 rounded-lg font-bold bg-slate-900 text-white transition" data-budget="all">Cualquiera</button>
-              <button onclick="setBudgetFilter('low')" class="filter-budget-btn px-2.5 py-1 rounded-lg font-bold bg-slate-100 text-slate-600 hover:bg-slate-200 transition" data-budget="low">&lt; 400.000 €</button>
-              <button onclick="setBudgetFilter('mid')" class="filter-budget-btn px-2.5 py-1 rounded-lg font-bold bg-slate-100 text-slate-600 hover:bg-slate-200 transition" data-budget="mid">400k – 850k €</button>
-              <button onclick="setBudgetFilter('high')" class="filter-budget-btn px-2.5 py-1 rounded-lg font-bold bg-slate-100 text-slate-600 hover:bg-slate-200 transition" data-budget="high">&gt; 850.000 €</button>
-            </div>
-
-            <!-- Tipo de Espacio / Nave -->
-            <div class="flex items-center gap-1.5 flex-wrap">
-              <span class="font-bold uppercase text-slate-400 flex items-center gap-1">
-                <i data-lucide="warehouse" class="w-3.5 h-3.5"></i>
-                <span>Instalación:</span>
-              </span>
-              <button onclick="setFacilityFilter('all')" class="filter-facility-btn active px-2.5 py-1 rounded-lg font-bold bg-slate-900 text-white transition" data-facility="all">Todas</button>
-              <button onclick="setFacilityFilter('indoor')" class="filter-facility-btn px-2.5 py-1 rounded-lg font-bold bg-slate-100 text-slate-600 hover:bg-slate-200 transition" data-facility="indoor">Nave Indoor Cubierta</button>
-              <button onclick="setFacilityFilter('outdoor')" class="filter-facility-btn px-2.5 py-1 rounded-lg font-bold bg-slate-100 text-slate-600 hover:bg-slate-200 transition" data-facility="outdoor">Outdoor / Exterior</button>
-              <button onclick="setFacilityFilter('hybrid')" class="filter-facility-btn px-2.5 py-1 rounded-lg font-bold bg-slate-100 text-slate-600 hover:bg-slate-200 transition" data-facility="hybrid">Híbrido (Indoor+Outdoor)</button>
-            </div>
-
           </div>
 
         </div>
@@ -300,26 +322,12 @@
 
       <!-- MAPA INTERACTIVO -->
       <div id="mapContainer" class="bg-white p-3 sm:p-4 rounded-3xl border border-slate-200/90 shadow-sm mb-10 relative">
-        <div class="flex flex-col sm:flex-row sm:items-center justify-between px-3 py-2 mb-2 gap-2">
+        <div class="flex items-center justify-between px-3 py-2 mb-2">
           <div class="flex items-center gap-2">
             <span class="w-2.5 h-2.5 rounded-full bg-[#f2920b]"></span>
             <h2 class="font-heading font-black text-sm sm:text-base text-slate-900 uppercase tracking-wider">
-              Mapa Mundial de Sedes Principales & Cadenas
+              Mapa mundial de principales cadenas de clubs
             </h2>
-          </div>
-          <div class="flex items-center gap-1.5 text-xs font-bold flex-wrap">
-            <button onclick="resetMapView()" class="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 transition">Mundo</button>
-            <button onclick="zoomToUK()" class="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 transition">🇬🇧 UK</button>
-            <button onclick="zoomToSpain()" class="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 transition">🇪🇸 España</button>
-            <button onclick="zoomToFrance()" class="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 transition">🇫🇷 Francia</button>
-            <button onclick="zoomToItaly()" class="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 transition">🇮🇹 Italia</button>
-            <button onclick="zoomToBenelux()" class="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 transition">🇳🇱 Benelux</button>
-            <button onclick="zoomToDACH()" class="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 transition">🇩🇪 DACH</button>
-            <button onclick="zoomToNordics()" class="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 transition">🇸🇪 Nórdicos</button>
-            <button onclick="zoomToUSA()" class="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 transition">🇺🇸 EE.UU.</button>
-            <button onclick="zoomToLatam()" class="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 transition">🇲🇽 Latam</button>
-            <button onclick="zoomToMiddleEast()" class="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 transition">🇦🇪 O. Medio</button>
-            <button onclick="zoomToSouthAfrica()" class="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 transition">🇿🇦 Sudáfrica</button>
           </div>
         </div>
 
@@ -345,7 +353,7 @@
                  data-model="cadena"
                  data-budget="mid"
                  data-facility="indoor"
-                 data-search="padelstars uk reino unido basildon / south east padelstars app / playtomic cadena multiclub (mismo nombre)"
+                 data-search="padelstars uk reino unido basildon / south east cadena multiclub (mismo nombre)"
                  onclick="openDrawer('padelstars-uk')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -407,7 +415,7 @@
                  data-model="cadena"
                  data-budget="mid"
                  data-facility="indoor"
-                 data-search="let's go padel reino unido belfast / carryduff playtomic / app propia cadena multiclub (mismo nombre)"
+                 data-search="let's go padel reino unido belfast / carryduff cadena multiclub (mismo nombre)"
                  onclick="openDrawer('lets-go-padel')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -469,7 +477,7 @@
                  data-model="cadena"
                  data-budget="mid"
                  data-facility="indoor"
-                 data-search="the padel hub (padelhub) reino unido slough / reading playtomic cadena multiclub (mismo nombre)"
+                 data-search="the padel hub (padelhub) reino unido slough / reading cadena multiclub (mismo nombre)"
                  onclick="openDrawer('the-padel-hub')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -531,7 +539,7 @@
                  data-model="cadena"
                  data-budget="high"
                  data-facility="indoor"
-                 data-search="pure padel reino unido mánchester playtomic cadena multiclub (mismo nombre)"
+                 data-search="pure padel reino unido mánchester cadena multiclub (mismo nombre)"
                  onclick="openDrawer('pure-padel')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -593,7 +601,7 @@
                  data-model="cadena"
                  data-budget="mid"
                  data-facility="outdoor"
-                 data-search="padel people uk reino unido londres / sur de inglaterra playtomic / app propia cadena multiclub (mismo nombre)"
+                 data-search="padel people uk reino unido londres / sur de inglaterra cadena multiclub (mismo nombre)"
                  onclick="openDrawer('padel-people-uk')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -655,7 +663,7 @@
                  data-model="cadena"
                  data-budget="mid"
                  data-facility="indoor"
-                 data-search="smash padel uk reino unido oxfordshire / cardiff playtomic cadena multiclub (mismo nombre)"
+                 data-search="smash padel uk reino unido oxfordshire / cardiff cadena multiclub (mismo nombre)"
                  onclick="openDrawer('smash-padel-uk')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -717,7 +725,7 @@
                  data-model="cadena"
                  data-budget="mid"
                  data-facility="indoor"
-                 data-search="vida del padel reino unido londres / surrey vida del padel app / playtomic cadena multiclub (mismo nombre)"
+                 data-search="vida del padel reino unido londres / surrey cadena multiclub (mismo nombre)"
                  onclick="openDrawer('vida-del-padel')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -779,7 +787,7 @@
                  data-model="cadena"
                  data-budget="mid"
                  data-facility="indoor"
-                 data-search="social sports society (s3 padel) reino unido londres playtomic / s3 app cadena multiclub (mismo nombre)"
+                 data-search="social sports society (s3 padel) reino unido londres cadena multiclub (mismo nombre)"
                  onclick="openDrawer('social-sports-society')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -841,7 +849,7 @@
                  data-model="cadena"
                  data-budget="low"
                  data-facility="indoor"
-                 data-search="the padel club reino unido wilmslow / mánchester playtomic cadena multiclub (mismo nombre)"
+                 data-search="the padel club reino unido wilmslow / mánchester cadena multiclub (mismo nombre)"
                  onclick="openDrawer('the-padel-club-uk')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -903,7 +911,7 @@
                  data-model="franquicia"
                  data-budget="low"
                  data-facility="indoor"
-                 data-search="slazenger padel clubs reino unido leeds / west yorkshire playtomic franquicia llave en mano"
+                 data-search="slazenger padel clubs reino unido leeds / west yorkshire franquicia llave en mano"
                  onclick="openDrawer('slazenger-padel')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -965,7 +973,7 @@
                  data-model="cadena"
                  data-budget="low"
                  data-facility="indoor"
-                 data-search="rocket padel reino unido londres / bristol playtomic / matchi cadena multiclub (mismo nombre)"
+                 data-search="rocket padel reino unido londres / bristol cadena multiclub (mismo nombre)"
                  onclick="openDrawer('rocket-padel')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -1027,7 +1035,7 @@
                  data-model="cadena"
                  data-budget="mid"
                  data-facility="indoor"
-                 data-search="court de padel reino unido norwich / hull playtomic cadena multiclub (mismo nombre)"
+                 data-search="court de padel reino unido norwich / hull cadena multiclub (mismo nombre)"
                  onclick="openDrawer('court-de-padel')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -1089,7 +1097,7 @@
                  data-model="boutique"
                  data-budget="low"
                  data-facility="indoor"
-                 data-search="padium reino unido londres (canary wharf) padel mates boutique & ultra-lujo"
+                 data-search="padium reino unido londres (canary wharf) boutique & ultra-lujo"
                  onclick="openDrawer('padium-london')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -1151,7 +1159,7 @@
                  data-model="cadena"
                  data-budget="mid"
                  data-facility="indoor"
-                 data-search="padelx uk (padel x club) reino unido cotswolds / londres padel x app / playtomic cadena multiclub (mismo nombre)"
+                 data-search="padelx uk (padel x club) reino unido cotswolds / londres cadena multiclub (mismo nombre)"
                  onclick="openDrawer('padelx-uk')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -1213,7 +1221,7 @@
                  data-model="red_propia"
                  data-budget="mid"
                  data-facility="indoor"
-                 data-search="game4padel reino unido edimburgo / londres matchi / playtomic red corporativa propia"
+                 data-search="game4padel reino unido edimburgo / londres red corporativa propia"
                  onclick="openDrawer('game4padel')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -1275,7 +1283,7 @@
                  data-model="cadena"
                  data-budget="mid"
                  data-facility="indoor"
-                 data-search="pdl padel united uk reino unido maldon (essex) / londres matchi cadena multiclub (mismo nombre)"
+                 data-search="pdl padel united uk reino unido maldon (essex) / londres cadena multiclub (mismo nombre)"
                  onclick="openDrawer('pdl-padel-united-uk')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -1337,7 +1345,7 @@
                  data-model="cadena"
                  data-budget="mid"
                  data-facility="indoor"
-                 data-search="soul padel reino unido mánchester / stockport playtomic cadena multiclub (mismo nombre)"
+                 data-search="soul padel reino unido mánchester / stockport cadena multiclub (mismo nombre)"
                  onclick="openDrawer('soul-padel')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -1399,7 +1407,7 @@
                  data-model="cadena"
                  data-budget="mid"
                  data-facility="indoor"
-                 data-search="atmos padel reino unido chesterfield / darlington playtomic cadena multiclub (mismo nombre)"
+                 data-search="atmos padel reino unido chesterfield / darlington cadena multiclub (mismo nombre)"
                  onclick="openDrawer('atmos-padel')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -1461,7 +1469,7 @@
                  data-model="cadena"
                  data-budget="mid"
                  data-facility="indoor"
-                 data-search="padel 100 irlanda dublín / waterford / donegal playtomic cadena multiclub (mismo nombre)"
+                 data-search="padel 100 irlanda dublín / waterford / donegal cadena multiclub (mismo nombre)"
                  onclick="openDrawer('padel-100-ireland')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -1523,7 +1531,7 @@
                  data-model="cadena"
                  data-budget="mid"
                  data-facility="indoor"
-                 data-search="padel + play reino unido burntwood / telford (west midlands) playtomic cadena multiclub (mismo nombre)"
+                 data-search="padel + play reino unido burntwood / telford (west midlands) cadena multiclub (mismo nombre)"
                  onclick="openDrawer('padel-plus-play')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -1585,7 +1593,7 @@
                  data-model="cadena"
                  data-budget="mid"
                  data-facility="indoor"
-                 data-search="padel tree reino unido londres (arkley / finchley / brentford) playtomic cadena multiclub (mismo nombre)"
+                 data-search="padel tree reino unido londres (arkley / finchley / brentford) cadena multiclub (mismo nombre)"
                  onclick="openDrawer('padel-tree')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -1647,7 +1655,7 @@
                  data-model="cadena"
                  data-budget="mid"
                  data-facility="indoor"
-                 data-search="surge padel reino unido harrogate / bristol / cheshire playtomic cadena multiclub (mismo nombre)"
+                 data-search="surge padel reino unido harrogate / bristol / cheshire cadena multiclub (mismo nombre)"
                  onclick="openDrawer('surge-padel')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -1709,7 +1717,7 @@
                  data-model="cadena"
                  data-budget="mid"
                  data-facility="indoor"
-                 data-search="true padel reino unido durham / sunderland (north east) playtomic cadena multiclub (mismo nombre)"
+                 data-search="true padel reino unido durham / sunderland (north east) cadena multiclub (mismo nombre)"
                  onclick="openDrawer('true-padel-uk')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -1771,7 +1779,7 @@
                  data-model="cadena"
                  data-budget="mid"
                  data-facility="indoor"
-                 data-search="david lloyd clubs padel reino unido londres / mánchester / birmingham david lloyd app propietaria cadena multiclub (mismo nombre)"
+                 data-search="david lloyd clubs padel reino unido londres / mánchester / birmingham cadena multiclub (mismo nombre)"
                  onclick="openDrawer('david-lloyd-padel')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -1833,7 +1841,7 @@
                  data-model="cadena"
                  data-budget="mid"
                  data-facility="indoor"
-                 data-search="house of padel (hop) irlanda dublín (cookstown / belgard) playtomic cadena multiclub (mismo nombre)"
+                 data-search="house of padel (hop) irlanda dublín (cookstown / belgard) cadena multiclub (mismo nombre)"
                  onclick="openDrawer('house-of-padel-ireland')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -1895,7 +1903,7 @@
                  data-model="cadena"
                  data-budget="mid"
                  data-facility="indoor"
-                 data-search="padel4all reino unido swindon / bristol / bracknell playtomic cadena multiclub (mismo nombre)"
+                 data-search="padel4all reino unido swindon / bristol / bracknell cadena multiclub (mismo nombre)"
                  onclick="openDrawer('padel-4-all-uk')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -1957,7 +1965,7 @@
                  data-model="cadena"
                  data-budget="mid"
                  data-facility="hybrid"
-                 data-search="pàdel 7 españa barcelona playtomic / courtbrain cadena multiclub (mismo nombre)"
+                 data-search="pàdel 7 españa barcelona cadena multiclub (mismo nombre)"
                  onclick="openDrawer('padel-7')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -2019,7 +2027,7 @@
                  data-model="cadena"
                  data-budget="mid"
                  data-facility="indoor"
-                 data-search="padel people españa torrelodones (madrid) playtomic cadena multiclub (mismo nombre)"
+                 data-search="padel people españa torrelodones (madrid) cadena multiclub (mismo nombre)"
                  onclick="openDrawer('padel-people-madrid')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -2081,7 +2089,7 @@
                  data-model="cadena"
                  data-budget="low"
                  data-facility="indoor"
-                 data-search="forus pádel españa madrid app propia forus / resasports cadena multiclub (mismo nombre)"
+                 data-search="forus pádel españa madrid cadena multiclub (mismo nombre)"
                  onclick="openDrawer('forus-padel')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -2143,7 +2151,7 @@
                  data-model="red_propia"
                  data-budget="low"
                  data-facility="indoor"
-                 data-search="bamvolea españa madrid / pozuelo playtomic / syltek red corporativa propia"
+                 data-search="bamvolea españa madrid / pozuelo red corporativa propia"
                  onclick="openDrawer('bamvolea')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -2205,7 +2213,7 @@
                  data-model="cadena"
                  data-budget="low"
                  data-facility="indoor"
-                 data-search="aurial padel españa sabadell / sant cugat playtomic cadena multiclub (mismo nombre)"
+                 data-search="aurial padel españa sabadell / sant cugat cadena multiclub (mismo nombre)"
                  onclick="openDrawer('aurial-padel')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -2267,7 +2275,7 @@
                  data-model="academia"
                  data-budget="low"
                  data-facility="indoor"
-                 data-search="bela padel center españa alicante / barcelona playtomic academia & pro-shop"
+                 data-search="bela padel center españa alicante / barcelona academia & pro-shop"
                  onclick="openDrawer('bela-padel-center')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -2329,7 +2337,7 @@
                  data-model="automatizado"
                  data-budget="low"
                  data-facility="indoor"
-                 data-search="click & padel / padel time 24/7 españa valencia / madrid playtomic / domótica iot propia club 100% automatizado 24/7"
+                 data-search="click & padel / padel time 24/7 españa valencia / madrid club 100% automatizado 24/7"
                  onclick="openDrawer('click-and-padel')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -2391,7 +2399,7 @@
                  data-model="academia"
                  data-budget="low"
                  data-facility="indoor"
-                 data-search="paquito navarro academy españa sevilla / madrid playtomic / matchi academia & pro-shop"
+                 data-search="paquito navarro academy españa sevilla / madrid academia & pro-shop"
                  onclick="openDrawer('paquito-navarro-academy')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -2453,7 +2461,7 @@
                  data-model="franquicia"
                  data-budget="low"
                  data-facility="indoor"
-                 data-search="club pádel nuestro españa murcia / madrid playtomic / syltek franquicia llave en mano"
+                 data-search="club pádel nuestro españa murcia / madrid franquicia llave en mano"
                  onclick="openDrawer('padel-nuestro-clubs')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -2515,7 +2523,7 @@
                  data-model="cadena"
                  data-budget="low"
                  data-facility="indoor"
-                 data-search="duet sports españa barcelona app propia / resasports cadena multiclub (mismo nombre)"
+                 data-search="duet sports españa barcelona cadena multiclub (mismo nombre)"
                  onclick="openDrawer('duet-sports')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -2577,7 +2585,7 @@
                  data-model="cadena"
                  data-budget="low"
                  data-facility="indoor"
-                 data-search="vals sport málaga españa málaga playtomic / vals sport app cadena multiclub (mismo nombre)"
+                 data-search="vals sport málaga españa málaga cadena multiclub (mismo nombre)"
                  onclick="openDrawer('vals-sport-malaga')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -2639,7 +2647,7 @@
                  data-model="cadena"
                  data-budget="mid"
                  data-facility="indoor"
-                 data-search="pádel indoor aragón españa zaragoza playtomic / syltek cadena multiclub (mismo nombre)"
+                 data-search="pádel indoor aragón españa zaragoza cadena multiclub (mismo nombre)"
                  onclick="openDrawer('padel-indoor-aragon')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -2701,7 +2709,7 @@
                  data-model="cadena"
                  data-budget="mid"
                  data-facility="indoor"
-                 data-search="pádel 2.0 españa móstoles / madrid sur playtomic cadena multiclub (mismo nombre)"
+                 data-search="pádel 2.0 españa móstoles / madrid sur cadena multiclub (mismo nombre)"
                  onclick="openDrawer('padel-dos-cero')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -2763,7 +2771,7 @@
                  data-model="cadena"
                  data-budget="low"
                  data-facility="indoor"
-                 data-search="enjoy wellness españa madrid / valencia app enjoy / resasports cadena multiclub (mismo nombre)"
+                 data-search="enjoy wellness españa madrid / valencia cadena multiclub (mismo nombre)"
                  onclick="openDrawer('enjoy-wellness')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -2825,7 +2833,7 @@
                  data-model="cadena"
                  data-budget="low"
                  data-facility="indoor"
-                 data-search="sportcity valencia españa valencia / massanassa playtomic cadena multiclub (mismo nombre)"
+                 data-search="sportcity valencia españa valencia / massanassa cadena multiclub (mismo nombre)"
                  onclick="openDrawer('sportcity-valencia')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -2887,7 +2895,7 @@
                  data-model="cadena"
                  data-budget="mid"
                  data-facility="indoor"
-                 data-search="padel derio club españa bilbao / derio (bizkaia) playtomic cadena multiclub (mismo nombre)"
+                 data-search="padel derio club españa bilbao / derio (bizkaia) cadena multiclub (mismo nombre)"
                  onclick="openDrawer('padel-derio')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -2949,7 +2957,7 @@
                  data-model="boutique"
                  data-budget="low"
                  data-facility="indoor"
-                 data-search="club de pádel la moraleja españa madrid (alcobendas) syltek / app propia boutique & ultra-lujo"
+                 data-search="club de pádel la moraleja españa madrid (alcobendas) boutique & ultra-lujo"
                  onclick="openDrawer('padel-la-moraleja')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -3011,7 +3019,7 @@
                  data-model="cadena"
                  data-budget="mid"
                  data-facility="indoor"
-                 data-search="padel indoor granollers & mataró españa granollers / mataró playtomic cadena multiclub (mismo nombre)"
+                 data-search="padel indoor granollers & mataró españa granollers / mataró cadena multiclub (mismo nombre)"
                  onclick="openDrawer('padel-indoor-granollers')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -3073,7 +3081,7 @@
                  data-model="cadena"
                  data-budget="mid"
                  data-facility="indoor"
-                 data-search="padelprix españa ourense / a coruña / santiago playtomic cadena multiclub (mismo nombre)"
+                 data-search="padelprix españa ourense / a coruña / santiago cadena multiclub (mismo nombre)"
                  onclick="openDrawer('padelprix-galicia')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -3135,7 +3143,7 @@
                  data-model="cadena"
                  data-budget="low"
                  data-facility="indoor"
-                 data-search="máis que auga padel españa vigo (pontevedra) playtomic / app propia mqa cadena multiclub (mismo nombre)"
+                 data-search="máis que auga padel españa vigo (pontevedra) cadena multiclub (mismo nombre)"
                  onclick="openDrawer('mais-que-auga-vigo')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -3197,7 +3205,7 @@
                  data-model="cadena"
                  data-budget="low"
                  data-facility="indoor"
-                 data-search="all in padel francia lyon / grasse gestion sports / playtomic cadena multiclub (mismo nombre)"
+                 data-search="all in padel francia lyon / grasse cadena multiclub (mismo nombre)"
                  onclick="openDrawer('all-in-padel')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -3259,7 +3267,7 @@
                  data-model="cadena"
                  data-budget="mid"
                  data-facility="indoor"
-                 data-search="4padel / le five francia parís / toulouse app propia 4padel / doinsport cadena multiclub (mismo nombre)"
+                 data-search="4padel / le five francia parís / toulouse cadena multiclub (mismo nombre)"
                  onclick="openDrawer('cuatro-padel')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -3321,7 +3329,7 @@
                  data-model="cadena"
                  data-budget="mid"
                  data-facility="indoor"
-                 data-search="urbanpadel (urbansoccer) francia lille / nantes / parís urbansoccer app / myurban cadena multiclub (mismo nombre)"
+                 data-search="urbanpadel (urbansoccer) francia lille / nantes / parís cadena multiclub (mismo nombre)"
                  onclick="openDrawer('urbanpadel')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -3383,7 +3391,7 @@
                  data-model="cadena"
                  data-budget="low"
                  data-facility="indoor"
-                 data-search="padelshot francia caen / saint-étienne / metz gestion sports / doinsport cadena multiclub (mismo nombre)"
+                 data-search="padelshot francia caen / saint-étienne / metz cadena multiclub (mismo nombre)"
                  onclick="openDrawer('padelshot')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -3445,7 +3453,7 @@
                  data-model="cadena"
                  data-budget="low"
                  data-facility="indoor"
-                 data-search="casa padel francia parís (saint-denis) gestion sports / playtomic cadena multiclub (mismo nombre)"
+                 data-search="casa padel francia parís (saint-denis) cadena multiclub (mismo nombre)"
                  onclick="openDrawer('casa-padel')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -3507,7 +3515,7 @@
                  data-model="cadena"
                  data-budget="mid"
                  data-facility="indoor"
-                 data-search="padel horizon francia parís este (sucy-en-brie) gestion sports cadena multiclub (mismo nombre)"
+                 data-search="padel horizon francia parís este (sucy-en-brie) cadena multiclub (mismo nombre)"
                  onclick="openDrawer('padel-horizon')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -3569,7 +3577,7 @@
                  data-model="cadena"
                  data-budget="mid"
                  data-facility="indoor"
-                 data-search="padel tolosa francia toulouse / montauban / albi gestion sports cadena multiclub (mismo nombre)"
+                 data-search="padel tolosa francia toulouse / montauban / albi cadena multiclub (mismo nombre)"
                  onclick="openDrawer('padel-tolosa')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -3631,7 +3639,7 @@
                  data-model="cadena"
                  data-budget="low"
                  data-facility="indoor"
-                 data-search="esprit padel francia lyon (saint-priest) gestion sports / playtomic cadena multiclub (mismo nombre)"
+                 data-search="esprit padel francia lyon (saint-priest) cadena multiclub (mismo nombre)"
                  onclick="openDrawer('esprit-padel')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -3693,7 +3701,7 @@
                  data-model="academia"
                  data-budget="low"
                  data-facility="indoor"
-                 data-search="mouratoglou padel country club francia biot / sophia antipolis (costa azul) app propia mouratoglou / playtomic academia & pro-shop"
+                 data-search="mouratoglou padel country club francia biot / sophia antipolis (costa azul) academia & pro-shop"
                  onclick="openDrawer('mouratoglou-padel')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -3755,7 +3763,7 @@
                  data-model="cadena"
                  data-budget="low"
                  data-facility="indoor"
-                 data-search="winwin padel francia cabriès / nîmes (provenza) gestion sports cadena multiclub (mismo nombre)"
+                 data-search="winwin padel francia cabriès / nîmes (provenza) cadena multiclub (mismo nombre)"
                  onclick="openDrawer('winwin-padel')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -3817,7 +3825,7 @@
                  data-model="cadena"
                  data-budget="high"
                  data-facility="indoor"
-                 data-search="my center padel francia palavas-les-flots / la grande motte gestion sports cadena multiclub (mismo nombre)"
+                 data-search="my center padel francia palavas-les-flots / la grande motte cadena multiclub (mismo nombre)"
                  onclick="openDrawer('my-center-padel')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -3879,7 +3887,7 @@
                  data-model="cadena"
                  data-budget="low"
                  data-facility="indoor"
-                 data-search="forest hill francia parís (aquaboulevard) app propia forest hill / resasports cadena multiclub (mismo nombre)"
+                 data-search="forest hill francia parís (aquaboulevard) cadena multiclub (mismo nombre)"
                  onclick="openDrawer('forest-hill-padel')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -3941,7 +3949,7 @@
                  data-model="cadena"
                  data-budget="mid"
                  data-facility="indoor"
-                 data-search="padelshot francia caen / metz / saint-étienne / lyon playtomic cadena multiclub (mismo nombre)"
+                 data-search="padelshot francia caen / metz / saint-étienne / lyon cadena multiclub (mismo nombre)"
                  onclick="openDrawer('padelshot-france')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -4003,7 +4011,7 @@
                  data-model="cadena"
                  data-budget="mid"
                  data-facility="indoor"
-                 data-search="spector padel house (sph) italia milano / firenze / venezia playtomic cadena multiclub (mismo nombre)"
+                 data-search="spector padel house (sph) italia milano / firenze / venezia cadena multiclub (mismo nombre)"
                  onclick="openDrawer('spector-padel-house')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -4065,7 +4073,7 @@
                  data-model="cadena"
                  data-budget="low"
                  data-facility="indoor"
-                 data-search="country sport village italia milán (mirabello di senago) playtomic cadena multiclub (mismo nombre)"
+                 data-search="country sport village italia milán (mirabello di senago) cadena multiclub (mismo nombre)"
                  onclick="openDrawer('country-sport-village')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -4127,7 +4135,7 @@
                  data-model="cadena"
                  data-budget="low"
                  data-facility="indoor"
-                 data-search="padel palace italia milán playtomic cadena multiclub (mismo nombre)"
+                 data-search="padel palace italia milán cadena multiclub (mismo nombre)"
                  onclick="openDrawer('padel-palace-milano')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -4189,7 +4197,7 @@
                  data-model="boutique"
                  data-budget="low"
                  data-facility="indoor"
-                 data-search="city padel milano / golden goose arena italia milán (citylife) playtomic boutique & ultra-lujo"
+                 data-search="city padel milano / golden goose arena italia milán (citylife) boutique & ultra-lujo"
                  onclick="openDrawer('city-padel-milano')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -4251,7 +4259,7 @@
                  data-model="franquicia"
                  data-budget="low"
                  data-facility="indoor"
-                 data-search="ghost padel italia milano / roma playtomic / ghost padel app franquicia llave en mano"
+                 data-search="ghost padel italia milano / roma franquicia llave en mano"
                  onclick="openDrawer('ghost-padel')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -4313,7 +4321,7 @@
                  data-model="cadena"
                  data-budget="mid"
                  data-facility="indoor"
-                 data-search="joy padel club italia milano (tolcinasco) playtomic cadena multiclub (mismo nombre)"
+                 data-search="joy padel club italia milano (tolcinasco) cadena multiclub (mismo nombre)"
                  onclick="openDrawer('joy-padel-club')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -4375,7 +4383,7 @@
                  data-model="cadena"
                  data-budget="mid"
                  data-facility="indoor"
-                 data-search="smash padel pesaro & fano italia pesaro / fano (marche) playtomic cadena multiclub (mismo nombre)"
+                 data-search="smash padel pesaro & fano italia pesaro / fano (marche) cadena multiclub (mismo nombre)"
                  onclick="openDrawer('smash-padel-italia')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -4437,7 +4445,7 @@
                  data-model="cadena"
                  data-budget="high"
                  data-facility="indoor"
-                 data-search="bola padel club italia roma (ostiense / aurelia) playtomic cadena multiclub (mismo nombre)"
+                 data-search="bola padel club italia roma (ostiense / aurelia) cadena multiclub (mismo nombre)"
                  onclick="openDrawer('bola-padel-roma')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -4499,7 +4507,7 @@
                  data-model="cadena"
                  data-budget="mid"
                  data-facility="indoor"
-                 data-search="orange padel club italia roma (eur / grottaferrata) playtomic cadena multiclub (mismo nombre)"
+                 data-search="orange padel club italia roma (eur / grottaferrata) cadena multiclub (mismo nombre)"
                  onclick="openDrawer('orange-padel-roma')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -4561,7 +4569,7 @@
                  data-model="cadena"
                  data-budget="mid"
                  data-facility="indoor"
-                 data-search="padel club padova italia padova (véneto) playtomic cadena multiclub (mismo nombre)"
+                 data-search="padel club padova italia padova (véneto) cadena multiclub (mismo nombre)"
                  onclick="openDrawer('padel-club-padova')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -4623,7 +4631,7 @@
                  data-model="cadena"
                  data-budget="mid"
                  data-facility="indoor"
-                 data-search="padel hero italia pisa / versilia / parma playtomic cadena multiclub (mismo nombre)"
+                 data-search="padel hero italia pisa / versilia / parma cadena multiclub (mismo nombre)"
                  onclick="openDrawer('padel-hero-italy')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -4685,7 +4693,7 @@
                  data-model="cadena"
                  data-budget="low"
                  data-facility="indoor"
-                 data-search="arenal padel bélgica mechelen / brugge / antwerpen playtomic cadena multiclub (mismo nombre)"
+                 data-search="arenal padel bélgica mechelen / brugge / antwerpen cadena multiclub (mismo nombre)"
                  onclick="openDrawer('arenal-padel')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -4747,7 +4755,7 @@
                  data-model="cadena"
                  data-budget="low"
                  data-facility="indoor"
-                 data-search="garrincha padel & 5-a-side bélgica gante / amberes / bruselas playtomic cadena multiclub (mismo nombre)"
+                 data-search="garrincha padel & 5-a-side bélgica gante / amberes / bruselas cadena multiclub (mismo nombre)"
                  onclick="openDrawer('garrincha-padel')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -4809,7 +4817,7 @@
                  data-model="cadena"
                  data-budget="mid"
                  data-facility="indoor"
-                 data-search="the padellers países bajos ámsterdam / utrecht playtomic / app propia cadena multiclub (mismo nombre)"
+                 data-search="the padellers países bajos ámsterdam / utrecht cadena multiclub (mismo nombre)"
                  onclick="openDrawer('the-padellers')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -4871,7 +4879,7 @@
                  data-model="cadena"
                  data-budget="high"
                  data-facility="indoor"
-                 data-search="peakz padel países bajos ámsterdam playtomic cadena multiclub (mismo nombre)"
+                 data-search="peakz padel países bajos ámsterdam cadena multiclub (mismo nombre)"
                  onclick="openDrawer('peakz-padel')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -4933,7 +4941,7 @@
                  data-model="cadena"
                  data-budget="mid"
                  data-facility="indoor"
-                 data-search="plaza padel países bajos ámsterdam / maastricht playtomic cadena multiclub (mismo nombre)"
+                 data-search="plaza padel países bajos ámsterdam / maastricht cadena multiclub (mismo nombre)"
                  onclick="openDrawer('plaza-padel')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -4995,7 +5003,7 @@
                  data-model="cadena"
                  data-budget="mid"
                  data-facility="indoor"
-                 data-search="padel 4u2 bélgica gante (flandes) playtomic cadena multiclub (mismo nombre)"
+                 data-search="padel 4u2 bélgica gante (flandes) cadena multiclub (mismo nombre)"
                  onclick="openDrawer('padel-4u2')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -5057,7 +5065,7 @@
                  data-model="cadena"
                  data-budget="mid"
                  data-facility="indoor"
-                 data-search="padel mate club países bajos amstelveen / ámsterdam playtomic cadena multiclub (mismo nombre)"
+                 data-search="padel mate club países bajos amstelveen / ámsterdam cadena multiclub (mismo nombre)"
                  onclick="openDrawer('padel-mate-club')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -5119,7 +5127,7 @@
                  data-model="cadena"
                  data-budget="mid"
                  data-facility="indoor"
-                 data-search="padel dam países bajos ámsterdam west playtomic cadena multiclub (mismo nombre)"
+                 data-search="padel dam países bajos ámsterdam west cadena multiclub (mismo nombre)"
                  onclick="openDrawer('padel-dam')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -5181,7 +5189,7 @@
                  data-model="cadena"
                  data-budget="mid"
                  data-facility="indoor"
-                 data-search="planet padel bélgica limburg (hasselt / genk) playtomic cadena multiclub (mismo nombre)"
+                 data-search="planet padel bélgica limburg (hasselt / genk) cadena multiclub (mismo nombre)"
                  onclick="openDrawer('planet-padel-be')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -5243,7 +5251,7 @@
                  data-model="cadena"
                  data-budget="low"
                  data-facility="indoor"
-                 data-search="tero padel bélgica waterloo / bruselas / limelette playtomic cadena multiclub (mismo nombre)"
+                 data-search="tero padel bélgica waterloo / bruselas / limelette cadena multiclub (mismo nombre)"
                  onclick="openDrawer('tero-padel')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -5305,7 +5313,7 @@
                  data-model="cadena"
                  data-budget="low"
                  data-facility="indoor"
-                 data-search="garrincha bélgica bruselas / gante / amberes playtomic cadena multiclub (mismo nombre)"
+                 data-search="garrincha bélgica bruselas / gante / amberes cadena multiclub (mismo nombre)"
                  onclick="openDrawer('garrincha-belgium')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -5367,7 +5375,7 @@
                  data-model="cadena"
                  data-budget="mid"
                  data-facility="hybrid"
-                 data-search="padelzone austria austria viena / graz / wiener neustadt playtomic cadena multiclub (mismo nombre)"
+                 data-search="padelzone austria austria viena / graz / wiener neustadt cadena multiclub (mismo nombre)"
                  onclick="openDrawer('padelzone-austria')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -5429,7 +5437,7 @@
                  data-model="cadena"
                  data-budget="high"
                  data-facility="indoor"
-                 data-search="padeldome austria austria viena (erdberg / alterlaa) playtomic cadena multiclub (mismo nombre)"
+                 data-search="padeldome austria austria viena (erdberg / alterlaa) cadena multiclub (mismo nombre)"
                  onclick="openDrawer('padeldome-austria')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -5491,7 +5499,7 @@
                  data-model="cadena"
                  data-budget="mid"
                  data-facility="indoor"
-                 data-search="padel city germany alemania múnich / dortmund / leipzig playtomic cadena multiclub (mismo nombre)"
+                 data-search="padel city germany alemania múnich / dortmund / leipzig cadena multiclub (mismo nombre)"
                  onclick="openDrawer('padel-city-germany')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -5553,7 +5561,7 @@
                  data-model="cadena"
                  data-budget="mid"
                  data-facility="indoor"
-                 data-search="padelbox alemania colonia (köln) / nrw playtomic cadena multiclub (mismo nombre)"
+                 data-search="padelbox alemania colonia (köln) / nrw cadena multiclub (mismo nombre)"
                  onclick="openDrawer('padelbox-germany')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -5615,7 +5623,7 @@
                  data-model="cadena"
                  data-budget="low"
                  data-facility="indoor"
-                 data-search="we are padel germany alemania düsseldorf matchi / playtomic cadena multiclub (mismo nombre)"
+                 data-search="we are padel germany alemania düsseldorf cadena multiclub (mismo nombre)"
                  onclick="openDrawer('we-are-padel-germany')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -5677,7 +5685,7 @@
                  data-model="cadena"
                  data-budget="mid"
                  data-facility="indoor"
-                 data-search="walls padel alemania múnich / baviera playtomic cadena multiclub (mismo nombre)"
+                 data-search="walls padel alemania múnich / baviera cadena multiclub (mismo nombre)"
                  onclick="openDrawer('walls-padel')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -5739,7 +5747,7 @@
                  data-model="cadena"
                  data-budget="mid"
                  data-facility="hybrid"
-                 data-search="padel first suiza ginebra / lausana playtomic cadena multiclub (mismo nombre)"
+                 data-search="padel first suiza ginebra / lausana cadena multiclub (mismo nombre)"
                  onclick="openDrawer('padel-first-swiss')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -5801,7 +5809,7 @@
                  data-model="cadena"
                  data-budget="mid"
                  data-facility="indoor"
-                 data-search="padel basel suiza basilea playtomic cadena multiclub (mismo nombre)"
+                 data-search="padel basel suiza basilea cadena multiclub (mismo nombre)"
                  onclick="openDrawer('padel-basel')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -5863,7 +5871,7 @@
                  data-model="cadena"
                  data-budget="mid"
                  data-facility="indoor"
-                 data-search="unterland padel suiza zúrich (bülach) playtomic cadena multiclub (mismo nombre)"
+                 data-search="unterland padel suiza zúrich (bülach) cadena multiclub (mismo nombre)"
                  onclick="openDrawer('unterland-padel')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -5925,7 +5933,7 @@
                  data-model="cadena"
                  data-budget="mid"
                  data-facility="indoor"
-                 data-search="padelbase austria viena / linz playtomic cadena multiclub (mismo nombre)"
+                 data-search="padelbase austria viena / linz cadena multiclub (mismo nombre)"
                  onclick="openDrawer('padelbase-austria')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -5987,7 +5995,7 @@
                  data-model="cadena"
                  data-budget="mid"
                  data-facility="indoor"
-                 data-search="padel4fun austria viena / baden / tattendorf playtomic cadena multiclub (mismo nombre)"
+                 data-search="padel4fun austria viena / baden / tattendorf cadena multiclub (mismo nombre)"
                  onclick="openDrawer('padel4fun-austria')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -6049,7 +6057,7 @@
                  data-model="cadena"
                  data-budget="mid"
                  data-facility="indoor"
-                 data-search="tapedesign padelcenter austria graz / viena / leoben playtomic cadena multiclub (mismo nombre)"
+                 data-search="tapedesign padelcenter austria graz / viena / leoben cadena multiclub (mismo nombre)"
                  onclick="openDrawer('tapedesign-padel')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -6111,7 +6119,7 @@
                  data-model="cadena"
                  data-budget="mid"
                  data-facility="indoor"
-                 data-search="vamos padel alemania leipzig / milán (cimiano / corsico) playtomic cadena multiclub (mismo nombre)"
+                 data-search="vamos padel alemania leipzig / milán (cimiano / corsico) cadena multiclub (mismo nombre)"
                  onclick="openDrawer('vamos-padel-eu')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -6173,7 +6181,7 @@
                  data-model="cadena"
                  data-budget="mid"
                  data-facility="indoor"
-                 data-search="padelcity alemania múnich / dortmund / leipzig playtomic / app propia padelcity cadena multiclub (mismo nombre)"
+                 data-search="padelcity alemania múnich / dortmund / leipzig cadena multiclub (mismo nombre)"
                  onclick="openDrawer('padelcity-germany')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -6235,7 +6243,7 @@
                  data-model="cadena"
                  data-budget="low"
                  data-facility="indoor"
-                 data-search="padelta suiza zúrich / lucerna / zug / berna playtomic cadena multiclub (mismo nombre)"
+                 data-search="padelta suiza zúrich / lucerna / zug / berna cadena multiclub (mismo nombre)"
                  onclick="openDrawer('padelta-switzerland')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -6297,7 +6305,7 @@
                  data-model="cadena"
                  data-budget="low"
                  data-facility="indoor"
-                 data-search="interpadel norway noruega oslo / bergen / stavanger matchi / playtomic cadena multiclub (mismo nombre)"
+                 data-search="interpadel norway noruega oslo / bergen / stavanger cadena multiclub (mismo nombre)"
                  onclick="openDrawer('interpadel-norway')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -6359,7 +6367,7 @@
                  data-model="cadena"
                  data-budget="mid"
                  data-facility="indoor"
-                 data-search="just padel norway noruega kristiansand / drammen matchi cadena multiclub (mismo nombre)"
+                 data-search="just padel norway noruega kristiansand / drammen cadena multiclub (mismo nombre)"
                  onclick="openDrawer('just-padel-norway')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -6421,7 +6429,7 @@
                  data-model="cadena"
                  data-budget="high"
                  data-facility="indoor"
-                 data-search="nordic padel noruega oslo (røyken) matchi cadena multiclub (mismo nombre)"
+                 data-search="nordic padel noruega oslo (røyken) cadena multiclub (mismo nombre)"
                  onclick="openDrawer('nordic-padel')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -6483,7 +6491,7 @@
                  data-model="cadena"
                  data-budget="low"
                  data-facility="indoor"
-                 data-search="padelpadel denmark dinamarca odense / aarhus / aalborg matchi cadena multiclub (mismo nombre)"
+                 data-search="padelpadel denmark dinamarca odense / aarhus / aalborg cadena multiclub (mismo nombre)"
                  onclick="openDrawer('padelpadel-denmark')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -6545,7 +6553,7 @@
                  data-model="cadena"
                  data-budget="mid"
                  data-facility="indoor"
-                 data-search="match padel denmark dinamarca copenhague / aarhus / odense matchi cadena multiclub (mismo nombre)"
+                 data-search="match padel denmark dinamarca copenhague / aarhus / odense cadena multiclub (mismo nombre)"
                  onclick="openDrawer('match-padel-denmark')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -6607,7 +6615,7 @@
                  data-model="cadena"
                  data-budget="low"
                  data-facility="indoor"
-                 data-search="racket club denmark dinamarca copenhague (kløvermarken / taastrup) matchi cadena multiclub (mismo nombre)"
+                 data-search="racket club denmark dinamarca copenhague (kløvermarken / taastrup) cadena multiclub (mismo nombre)"
                  onclick="openDrawer('racket-club-denmark')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -6669,7 +6677,7 @@
                  data-model="cadena"
                  data-budget="mid"
                  data-facility="indoor"
-                 data-search="padel lounge denmark dinamarca aalborg / esbjerg / herning matchi cadena multiclub (mismo nombre)"
+                 data-search="padel lounge denmark dinamarca aalborg / esbjerg / herning cadena multiclub (mismo nombre)"
                  onclick="openDrawer('padel-lounge-denmark')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -6731,7 +6739,7 @@
                  data-model="red_propia"
                  data-budget="low"
                  data-facility="indoor"
-                 data-search="ledap / we are padel (wap) suecia estocolmo matchi / playtomic red corporativa propia"
+                 data-search="ledap / we are padel (wap) suecia estocolmo red corporativa propia"
                  onclick="openDrawer('ledap-we-are-padel')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -6793,7 +6801,7 @@
                  data-model="red_propia"
                  data-budget="low"
                  data-facility="indoor"
-                 data-search="pdl center / padel united suecia estocolmo matchi red corporativa propia"
+                 data-search="pdl center / padel united suecia estocolmo red corporativa propia"
                  onclick="openDrawer('pdl-padel-united')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -6855,7 +6863,7 @@
                  data-model="cadena"
                  data-budget="low"
                  data-facility="indoor"
-                 data-search="every padel suecia gotemburgo / estocolmo matchi cadena multiclub (mismo nombre)"
+                 data-search="every padel suecia gotemburgo / estocolmo cadena multiclub (mismo nombre)"
                  onclick="openDrawer('every-padel')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -6917,7 +6925,7 @@
                  data-model="cadena"
                  data-budget="low"
                  data-facility="indoor"
-                 data-search="padel zenter suecia estocolmo / milán matchi cadena multiclub (mismo nombre)"
+                 data-search="padel zenter suecia estocolmo / milán cadena multiclub (mismo nombre)"
                  onclick="openDrawer('padel-zenter')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -6979,7 +6987,7 @@
                  data-model="cadena"
                  data-budget="mid"
                  data-facility="indoor"
-                 data-search="padel club finland finlandia espoo / vantaa / tampere playtomic / padelution cadena multiclub (mismo nombre)"
+                 data-search="padel club finland finlandia espoo / vantaa / tampere cadena multiclub (mismo nombre)"
                  onclick="openDrawer('padel-club-finland')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -7041,7 +7049,7 @@
                  data-model="cadena"
                  data-budget="mid"
                  data-facility="indoor"
-                 data-search="billebeino padel finlandia helsinki (vallila) / vantaa playtomic cadena multiclub (mismo nombre)"
+                 data-search="billebeino padel finlandia helsinki (vallila) / vantaa cadena multiclub (mismo nombre)"
                  onclick="openDrawer('billebeino-padel')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -7103,7 +7111,7 @@
                  data-model="cadena"
                  data-budget="mid"
                  data-facility="indoor"
-                 data-search="open padel finlandia helsinki / espoo / kauniainen playtomic cadena multiclub (mismo nombre)"
+                 data-search="open padel finlandia helsinki / espoo / kauniainen cadena multiclub (mismo nombre)"
                  onclick="openDrawer('open-padel-finland')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -7165,7 +7173,7 @@
                  data-model="cadena"
                  data-budget="low"
                  data-facility="indoor"
-                 data-search="nordic wellness padel suecia gotemburgo / estocolmo matchi / nordic wellness app cadena multiclub (mismo nombre)"
+                 data-search="nordic wellness padel suecia gotemburgo / estocolmo cadena multiclub (mismo nombre)"
                  onclick="openDrawer('nordic-wellness-padel')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -7227,7 +7235,7 @@
                  data-model="cadena"
                  data-budget="mid"
                  data-facility="indoor"
-                 data-search="we love padel suecia helsingborg / skövde matchi cadena multiclub (mismo nombre)"
+                 data-search="we love padel suecia helsingborg / skövde cadena multiclub (mismo nombre)"
                  onclick="openDrawer('we-love-padel-se')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -7289,7 +7297,7 @@
                  data-model="cadena"
                  data-budget="mid"
                  data-facility="indoor"
-                 data-search="pro padel norway noruega bergen (paradis / åsane / askøy) matchi cadena multiclub (mismo nombre)"
+                 data-search="pro padel norway noruega bergen (paradis / åsane / askøy) cadena multiclub (mismo nombre)"
                  onclick="openDrawer('pro-padel-norway')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -7351,7 +7359,7 @@
                  data-model="cadena"
                  data-budget="mid"
                  data-facility="indoor"
-                 data-search="vamoz padel dinamarca copenhague (dtu / field's / fisketorvet) matchi cadena multiclub (mismo nombre)"
+                 data-search="vamoz padel dinamarca copenhague (dtu / field's / fisketorvet) cadena multiclub (mismo nombre)"
                  onclick="openDrawer('vamoz-padel-dk')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -7413,7 +7421,7 @@
                  data-model="cadena"
                  data-budget="mid"
                  data-facility="outdoor"
-                 data-search="suomen ulkopadel finlandia lohja / hamina / tammisaari playtomic / padelution cadena multiclub (mismo nombre)"
+                 data-search="suomen ulkopadel finlandia lohja / hamina / tammisaari cadena multiclub (mismo nombre)"
                  onclick="openDrawer('suomen-ulkopadel')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -7475,7 +7483,7 @@
                  data-model="cadena"
                  data-budget="mid"
                  data-facility="indoor"
-                 data-search="bueno padel finlandia ostrobotnia (seinäjoki / kurikka) playtomic cadena multiclub (mismo nombre)"
+                 data-search="bueno padel finlandia ostrobotnia (seinäjoki / kurikka) cadena multiclub (mismo nombre)"
                  onclick="openDrawer('bueno-padel-fi')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -7537,7 +7545,7 @@
                  data-model="cadena"
                  data-budget="mid"
                  data-facility="hybrid"
-                 data-search="rackets pro portugal lisboa (eul) aircourts / playtomic cadena multiclub (mismo nombre)"
+                 data-search="rackets pro portugal lisboa (eul) cadena multiclub (mismo nombre)"
                  onclick="openDrawer('rackets-pro')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -7599,7 +7607,7 @@
                  data-model="cadena"
                  data-budget="mid"
                  data-facility="hybrid"
-                 data-search="top-padel / az padel portugal oporto (industrial / fluvial) aircourts / playtomic cadena multiclub (mismo nombre)"
+                 data-search="top-padel / az padel portugal oporto (industrial / fluvial) cadena multiclub (mismo nombre)"
                  onclick="openDrawer('top-padel-az')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -7661,7 +7669,7 @@
                  data-model="cadena"
                  data-budget="mid"
                  data-facility="indoor"
-                 data-search="padel campo grande portugal lisboa (jardim do campo grande) aircourts cadena multiclub (mismo nombre)"
+                 data-search="padel campo grande portugal lisboa (jardim do campo grande) cadena multiclub (mismo nombre)"
                  onclick="openDrawer('padel-campo-grande')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -7723,7 +7731,7 @@
                  data-model="cadena"
                  data-budget="mid"
                  data-facility="indoor"
-                 data-search="padel inn portugal portugal braga / guimarães aircourts cadena multiclub (mismo nombre)"
+                 data-search="padel inn portugal portugal braga / guimarães cadena multiclub (mismo nombre)"
                  onclick="openDrawer('padel-inn-portugal')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -7785,7 +7793,7 @@
                  data-model="cadena"
                  data-budget="mid"
                  data-facility="hybrid"
-                 data-search="quinta de monserrate portugal oporto / matosinhos / braga aircourts / playtomic cadena multiclub (mismo nombre)"
+                 data-search="quinta de monserrate portugal oporto / matosinhos / braga cadena multiclub (mismo nombre)"
                  onclick="openDrawer('quinta-de-monserrate')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -7847,7 +7855,7 @@
                  data-model="cadena"
                  data-budget="mid"
                  data-facility="indoor"
-                 data-search="arena playsports portugal lisboa (alcântara / alvalade / belém) aircourts / playtomic cadena multiclub (mismo nombre)"
+                 data-search="arena playsports portugal lisboa (alcântara / alvalade / belém) cadena multiclub (mismo nombre)"
                  onclick="openDrawer('arena-playsports')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -7909,7 +7917,7 @@
                  data-model="cadena"
                  data-budget="mid"
                  data-facility="indoor"
-                 data-search="a-z padel portugal sintra / barcelos / famalicão aircourts cadena multiclub (mismo nombre)"
+                 data-search="a-z padel portugal sintra / barcelos / famalicão cadena multiclub (mismo nombre)"
                  onclick="openDrawer('az-padel-pt')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -7971,7 +7979,7 @@
                  data-model="boutique"
                  data-budget="low"
                  data-facility="indoor"
-                 data-search="padel haus estados unidos nueva york / nashville app propia padel haus / playtomic boutique & ultra-lujo"
+                 data-search="padel haus estados unidos nueva york / nashville boutique & ultra-lujo"
                  onclick="openDrawer('padel-haus')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -8033,7 +8041,7 @@
                  data-model="boutique"
                  data-budget="low"
                  data-facility="indoor"
-                 data-search="reserve padel estados unidos miami / nueva york reserve padel app / playtomic boutique & ultra-lujo"
+                 data-search="reserve padel estados unidos miami / nueva york boutique & ultra-lujo"
                  onclick="openDrawer('reserve-padel')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -8095,7 +8103,7 @@
                  data-model="cadena"
                  data-budget="low"
                  data-facility="indoor"
-                 data-search="ultra padel miami estados unidos miami (magic city) playtomic cadena multiclub (mismo nombre)"
+                 data-search="ultra padel miami estados unidos miami (magic city) cadena multiclub (mismo nombre)"
                  onclick="openDrawer('ultra-padel-miami')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -8157,7 +8165,7 @@
                  data-model="cadena"
                  data-budget="mid"
                  data-facility="indoor"
-                 data-search="taktika padel estados unidos san diego / los ángeles playtomic cadena multiclub (mismo nombre)"
+                 data-search="taktika padel estados unidos san diego / los ángeles cadena multiclub (mismo nombre)"
                  onclick="openDrawer('taktika-padel')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -8219,7 +8227,7 @@
                  data-model="cadena"
                  data-budget="mid"
                  data-facility="indoor"
-                 data-search="park padel estados unidos san francisco playtomic cadena multiclub (mismo nombre)"
+                 data-search="park padel estados unidos san francisco cadena multiclub (mismo nombre)"
                  onclick="openDrawer('park-padel')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -8281,7 +8289,7 @@
                  data-model="cadena"
                  data-budget="mid"
                  data-facility="indoor"
-                 data-search="wynwood padel club estados unidos miami (wynwood arts district) playtomic cadena multiclub (mismo nombre)"
+                 data-search="wynwood padel club estados unidos miami (wynwood arts district) cadena multiclub (mismo nombre)"
                  onclick="openDrawer('wynwood-padel-club')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -8343,7 +8351,7 @@
                  data-model="cadena"
                  data-budget="high"
                  data-facility="indoor"
-                 data-search="10by20 padel estados unidos texas (austin / dallas) playtomic cadena multiclub (mismo nombre)"
+                 data-search="10by20 padel estados unidos texas (austin / dallas) cadena multiclub (mismo nombre)"
                  onclick="openDrawer('diez-por-veinte-padel')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -8405,7 +8413,7 @@
                  data-model="cadena"
                  data-budget="mid"
                  data-facility="indoor"
-                 data-search="padelx usa estados unidos boca raton / miami playtomic / app propia cadena multiclub (mismo nombre)"
+                 data-search="padelx usa estados unidos boca raton / miami cadena multiclub (mismo nombre)"
                  onclick="openDrawer('padel-x-usa')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -8467,7 +8475,7 @@
                  data-model="automatizado"
                  data-budget="mid"
                  data-facility="indoor"
-                 data-search="smartpadel usa estados unidos miami / doral playtomic / iot propio club 100% automatizado 24/7"
+                 data-search="smartpadel usa estados unidos miami / doral club 100% automatizado 24/7"
                  onclick="openDrawer('smart-padel-usa')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -8529,7 +8537,7 @@
                  data-model="cadena"
                  data-budget="mid"
                  data-facility="indoor"
-                 data-search="taktika padel estados unidos san diego / los ángeles (carson) playtomic / playbypoint cadena multiclub (mismo nombre)"
+                 data-search="taktika padel estados unidos san diego / los ángeles (carson) cadena multiclub (mismo nombre)"
                  onclick="openDrawer('taktika-padel-california')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -8591,7 +8599,7 @@
                  data-model="cadena"
                  data-budget="mid"
                  data-facility="indoor"
-                 data-search="park padel estados unidos san francisco (embarcadero / oyster point) playtomic cadena multiclub (mismo nombre)"
+                 data-search="park padel estados unidos san francisco (embarcadero / oyster point) cadena multiclub (mismo nombre)"
                  onclick="openDrawer('park-padel-california')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -8653,7 +8661,7 @@
                  data-model="boutique"
                  data-budget="mid"
                  data-facility="indoor"
-                 data-search="padel co méxico méxico ciudad de méxico (polanco / reforma) playtomic / app propia boutique & ultra-lujo"
+                 data-search="padel co méxico méxico ciudad de méxico (polanco / reforma) boutique & ultra-lujo"
                  onclick="openDrawer('padel-co')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -8715,7 +8723,7 @@
                  data-model="cadena"
                  data-budget="high"
                  data-facility="indoor"
-                 data-search="altapadel méxico méxico cdmx / querétaro / puebla playtomic cadena multiclub (mismo nombre)"
+                 data-search="altapadel méxico méxico cdmx / querétaro / puebla cadena multiclub (mismo nombre)"
                  onclick="openDrawer('altapadel')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -8777,7 +8785,7 @@
                  data-model="cadena"
                  data-budget="mid"
                  data-facility="indoor"
-                 data-search="contrapared méxico méxico cdmx / guadalajara playtomic cadena multiclub (mismo nombre)"
+                 data-search="contrapared méxico méxico cdmx / guadalajara cadena multiclub (mismo nombre)"
                  onclick="openDrawer('contrapared')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -8839,7 +8847,7 @@
                  data-model="cadena"
                  data-budget="low"
                  data-facility="indoor"
-                 data-search="club padel pro méxico méxico monterrey / san pedro garza garcía playtomic cadena multiclub (mismo nombre)"
+                 data-search="club padel pro méxico méxico monterrey / san pedro garza garcía cadena multiclub (mismo nombre)"
                  onclick="openDrawer('club-padel-pro-mexico')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -8901,7 +8909,7 @@
                  data-model="cadena"
                  data-budget="mid"
                  data-facility="indoor"
-                 data-search="padel park chile chile santiago (huechuraba / peñalolén) easycanchas / playtomic cadena multiclub (mismo nombre)"
+                 data-search="padel park chile chile santiago (huechuraba / peñalolén) cadena multiclub (mismo nombre)"
                  onclick="openDrawer('padel-park-chile')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -8963,7 +8971,7 @@
                  data-model="boutique"
                  data-budget="low"
                  data-facility="hybrid"
-                 data-search="club conecta chile chile santiago (la dehesa / las condes) easycanchas boutique & ultra-lujo"
+                 data-search="club conecta chile chile santiago (la dehesa / las condes) boutique & ultra-lujo"
                  onclick="openDrawer('club-conecta-chile')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -9025,7 +9033,7 @@
                  data-model="cadena"
                  data-budget="high"
                  data-facility="indoor"
-                 data-search="capital padel chile chile santiago centro / maipú easycanchas cadena multiclub (mismo nombre)"
+                 data-search="capital padel chile chile santiago centro / maipú cadena multiclub (mismo nombre)"
                  onclick="openDrawer('capital-padel-chile')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -9087,7 +9095,7 @@
                  data-model="cadena"
                  data-budget="mid"
                  data-facility="indoor"
-                 data-search="más padel chile chile santiago (providencia / vitacura) easycanchas cadena multiclub (mismo nombre)"
+                 data-search="más padel chile chile santiago (providencia / vitacura) cadena multiclub (mismo nombre)"
                  onclick="openDrawer('mas-padel-chile')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -9149,7 +9157,7 @@
                  data-model="cadena"
                  data-budget="mid"
                  data-facility="indoor"
-                 data-search="el monasterio padel argentina buenos aires (flores / caballito) playtomic / padelclick cadena multiclub (mismo nombre)"
+                 data-search="el monasterio padel argentina buenos aires (flores / caballito) cadena multiclub (mismo nombre)"
                  onclick="openDrawer('el-monasterio')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -9211,7 +9219,7 @@
                  data-model="cadena"
                  data-budget="mid"
                  data-facility="indoor"
-                 data-search="premium padel center argentina buenos aires (pilar / vicente lópez) playtomic cadena multiclub (mismo nombre)"
+                 data-search="premium padel center argentina buenos aires (pilar / vicente lópez) cadena multiclub (mismo nombre)"
                  onclick="openDrawer('premium-padel-center')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -9273,7 +9281,7 @@
                  data-model="cadena"
                  data-budget="mid"
                  data-facility="indoor"
-                 data-search="brava padel brasil brasil santa catarina (balneário camboriú / itajaí) playtomic / app propia cadena multiclub (mismo nombre)"
+                 data-search="brava padel brasil brasil santa catarina (balneário camboriú / itajaí) cadena multiclub (mismo nombre)"
                  onclick="openDrawer('brava-padel')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -9335,7 +9343,7 @@
                  data-model="cadena"
                  data-budget="mid"
                  data-facility="indoor"
-                 data-search="delta padel brasil brasil porto alegre / caxias do sul playtomic cadena multiclub (mismo nombre)"
+                 data-search="delta padel brasil brasil porto alegre / caxias do sul cadena multiclub (mismo nombre)"
                  onclick="openDrawer('delta-padel')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -9397,7 +9405,7 @@
                  data-model="cadena"
                  data-budget="mid"
                  data-facility="indoor"
-                 data-search="mundo pádel méxico méxico ciudad de méxico (acoxpa / coapa / lomas verdes) playtomic cadena multiclub (mismo nombre)"
+                 data-search="mundo pádel méxico méxico ciudad de méxico (acoxpa / coapa / lomas verdes) cadena multiclub (mismo nombre)"
                  onclick="openDrawer('mundo-padel-mx')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -9459,7 +9467,7 @@
                  data-model="cadena"
                  data-budget="mid"
                  data-facility="indoor"
-                 data-search="glass cube padel center méxico querétaro (constituyentes / juriquilla) playtomic cadena multiclub (mismo nombre)"
+                 data-search="glass cube padel center méxico querétaro (constituyentes / juriquilla) cadena multiclub (mismo nombre)"
                  onclick="openDrawer('glass-cube-mx')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -9521,7 +9529,7 @@
                  data-model="cadena"
                  data-budget="mid"
                  data-facility="indoor"
-                 data-search="padel house chile chile santiago / puertecillo / villarrica easycanchas cadena multiclub (mismo nombre)"
+                 data-search="padel house chile chile santiago / puertecillo / villarrica cadena multiclub (mismo nombre)"
                  onclick="openDrawer('padel-house-chile')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -9583,7 +9591,7 @@
                  data-model="cadena"
                  data-budget="mid"
                  data-facility="indoor"
-                 data-search="speed padel chile chile santiago (almirante / los cóndores) easycanchas cadena multiclub (mismo nombre)"
+                 data-search="speed padel chile chile santiago (almirante / los cóndores) cadena multiclub (mismo nombre)"
                  onclick="openDrawer('speed-padel-chile')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -9645,7 +9653,7 @@
                  data-model="cadena"
                  data-budget="mid"
                  data-facility="indoor"
-                 data-search="padel park mx méxico monterrey / guadalajara playtomic cadena multiclub (mismo nombre)"
+                 data-search="padel park mx méxico monterrey / guadalajara cadena multiclub (mismo nombre)"
                  onclick="openDrawer('padel-park-mexico')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -9707,7 +9715,7 @@
                  data-model="cadena"
                  data-budget="low"
                  data-facility="indoor"
-                 data-search="padel in catar doha / kuwait / riad padel in app / playtomic cadena multiclub (mismo nombre)"
+                 data-search="padel in catar doha / kuwait / riad cadena multiclub (mismo nombre)"
                  onclick="openDrawer('padel-in')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -9769,7 +9777,7 @@
                  data-model="academia"
                  data-budget="low"
                  data-facility="indoor"
-                 data-search="world padel academy (wpa) emiratos árabes dubái (al quoz) / sharjah / baréin wpa app / playtomic academia & pro-shop"
+                 data-search="world padel academy (wpa) emiratos árabes dubái (al quoz) / sharjah / baréin academia & pro-shop"
                  onclick="openDrawer('world-padel-academy')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -9831,7 +9839,7 @@
                  data-model="cadena"
                  data-budget="low"
                  data-facility="indoor"
-                 data-search="padel pro uae emiratos árabes dubái (one central / jumeirah park) playtomic cadena multiclub (mismo nombre)"
+                 data-search="padel pro uae emiratos árabes dubái (one central / jumeirah park) cadena multiclub (mismo nombre)"
                  onclick="openDrawer('padel-pro-uae')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -9893,7 +9901,7 @@
                  data-model="cadena"
                  data-budget="low"
                  data-facility="indoor"
-                 data-search="just padel uae emiratos árabes dubái (mina rashid / kite beach) playtomic cadena multiclub (mismo nombre)"
+                 data-search="just padel uae emiratos árabes dubái (mina rashid / kite beach) cadena multiclub (mismo nombre)"
                  onclick="openDrawer('just-padel-uae')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -9955,7 +9963,7 @@
                  data-model="boutique"
                  data-budget="low"
                  data-facility="indoor"
-                 data-search="padelx floating club dubai emiratos árabes dubái (jlt - jumeirah lakes towers) playtomic boutique & ultra-lujo"
+                 data-search="padelx floating club dubai emiratos árabes dubái (jlt - jumeirah lakes towers) boutique & ultra-lujo"
                  onclick="openDrawer('padelx-dubai')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -10017,7 +10025,7 @@
                  data-model="cadena"
                  data-budget="low"
                  data-facility="indoor"
-                 data-search="smash padel dubai emiratos árabes dubái (palm jumeirah / al wasl) playtomic cadena multiclub (mismo nombre)"
+                 data-search="smash padel dubai emiratos árabes dubái (palm jumeirah / al wasl) cadena multiclub (mismo nombre)"
                  onclick="openDrawer('smash-padel-dubai')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -10079,7 +10087,7 @@
                  data-model="cadena"
                  data-budget="low"
                  data-facility="indoor"
-                 data-search="padel 26 kuwait kuwait kuwait city (shuwaikh) app propia / playtomic cadena multiclub (mismo nombre)"
+                 data-search="padel 26 kuwait kuwait kuwait city (shuwaikh) cadena multiclub (mismo nombre)"
                  onclick="openDrawer('padel-26-kuwait')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -10141,7 +10149,7 @@
                  data-model="cadena"
                  data-budget="low"
                  data-facility="indoor"
-                 data-search="padel rush arabia saudí riad (boulevard riyadh city) playtomic cadena multiclub (mismo nombre)"
+                 data-search="padel rush arabia saudí riad (boulevard riyadh city) cadena multiclub (mismo nombre)"
                  onclick="openDrawer('padel-rush-saudi')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -10203,7 +10211,7 @@
                  data-model="cadena"
                  data-budget="mid"
                  data-facility="indoor"
-                 data-search="virgin active padel club sudáfrica ciudad del cabo / johannesburgo playtomic / virgin active app cadena multiclub (mismo nombre)"
+                 data-search="virgin active padel club sudáfrica ciudad del cabo / johannesburgo cadena multiclub (mismo nombre)"
                  onclick="openDrawer('virgin-active-padel')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -10265,7 +10273,7 @@
                  data-model="cadena"
                  data-budget="mid"
                  data-facility="indoor"
-                 data-search="africa padel sudáfrica ciudad del cabo / sandton playtomic cadena multiclub (mismo nombre)"
+                 data-search="africa padel sudáfrica ciudad del cabo / sandton cadena multiclub (mismo nombre)"
                  onclick="openDrawer('africa-padel')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -10327,7 +10335,7 @@
                  data-model="cadena"
                  data-budget="low"
                  data-facility="indoor"
-                 data-search="indoor padel australia australia sídney (alexandria / cromer) playtomic cadena multiclub (mismo nombre)"
+                 data-search="indoor padel australia australia sídney (alexandria / cromer) cadena multiclub (mismo nombre)"
                  onclick="openDrawer('indoor-padel-australia')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -10389,7 +10397,7 @@
                  data-model="cadena"
                  data-budget="mid"
                  data-facility="indoor"
-                 data-search="tribe padel & wellness australia sídney / melbourne playtomic cadena multiclub (mismo nombre)"
+                 data-search="tribe padel & wellness australia sídney / melbourne cadena multiclub (mismo nombre)"
                  onclick="openDrawer('tribe-padel')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -10451,7 +10459,7 @@
                  data-model="cadena"
                  data-budget="mid"
                  data-facility="indoor"
-                 data-search="one padel australia australia sídney / brisbane playtomic cadena multiclub (mismo nombre)"
+                 data-search="one padel australia australia sídney / brisbane cadena multiclub (mismo nombre)"
                  onclick="openDrawer('one-padel-australia')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -10513,7 +10521,7 @@
                  data-model="cadena"
                  data-budget="mid"
                  data-facility="indoor"
-                 data-search="techno padel sudáfrica gauteng / western cape playtomic cadena multiclub (mismo nombre)"
+                 data-search="techno padel sudáfrica gauteng / western cape cadena multiclub (mismo nombre)"
                  onclick="openDrawer('techno-padel-za')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -10575,7 +10583,7 @@
                  data-model="cadena"
                  data-budget="high"
                  data-facility="outdoor"
-                 data-search="sydney racquet club australia sídney (moore park / alexandria) playtomic cadena multiclub (mismo nombre)"
+                 data-search="sydney racquet club australia sídney (moore park / alexandria) cadena multiclub (mismo nombre)"
                  onclick="openDrawer('sydney-racquet-club-australia')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -10637,7 +10645,7 @@
                  data-model="cadena"
                  data-budget="mid"
                  data-facility="indoor"
-                 data-search="action padel sudáfrica ciudad del cabo / johannesburgo playtomic cadena multiclub (mismo nombre)"
+                 data-search="action padel sudáfrica ciudad del cabo / johannesburgo cadena multiclub (mismo nombre)"
                  onclick="openDrawer('action-padel-south-africa')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -16090,9 +16098,9 @@
         scrollWheelZoom: false
       });
 
-      L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
-        attribution: '&copy; <a href="https://carto.com/">CARTO</a> | CoolPadel Studios',
-        maxZoom: 18
+      L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors | CoolPadel Studios',
+        maxZoom: 19
       }).addTo(map);
 
       markersLayer = L.layerGroup().addTo(map);
@@ -16155,30 +16163,14 @@
 
     // Vistas de mapa
     function resetMapView() { map.setView([35.0, 10.0], 3); }
-    function zoomToUK() { map.setView([53.0, -1.8], 6); }
-    function zoomToSpain() { map.setView([40.2, -3.7], 6); }
-    function zoomToFrance() { map.setView([46.5, 2.5], 6); }
-    function zoomToItaly() { map.setView([42.5, 12.5], 6); }
-    function zoomToBenelux() { map.setView([51.5, 4.5], 7); }
-    function zoomToDACH() { map.setView([48.5, 11.0], 6); }
-    function zoomToNordics() { map.setView([60.0, 15.0], 5); }
-    function zoomToUSA() { map.setView([37.0, -95.0], 4); }
-    function zoomToLatam() { map.setView([-15.0, -60.0], 3); }
-    function zoomToMiddleEast() { map.setView([25.0, 50.0], 5); }
-    function zoomToSouthAfrica() { map.setView([-29.0, 24.0], 5); }
 
     // Filtros
     function setRegionFilter(region) {
       currentRegion = region;
-      document.querySelectorAll('.filter-region-btn').forEach(btn => {
-        if (btn.dataset.region === region) {
-          btn.classList.add('bg-[#f2920b]', 'text-slate-950');
-          btn.classList.remove('bg-slate-100', 'text-slate-600');
-        } else {
-          btn.classList.remove('bg-[#f2920b]', 'text-slate-950');
-          btn.classList.add('bg-slate-100', 'text-slate-600');
-        }
-      });
+      const sel = document.getElementById('regionSelect');
+      if (sel && sel.value !== region) {
+        sel.value = region;
+      }
       applyFilters();
     }
 
@@ -16198,29 +16190,11 @@
 
     function setBudgetFilter(budget) {
       currentBudget = budget;
-      document.querySelectorAll('.filter-budget-btn').forEach(btn => {
-        if (btn.dataset.budget === budget) {
-          btn.classList.add('bg-slate-900', 'text-white');
-          btn.classList.remove('bg-slate-100', 'text-slate-600');
-        } else {
-          btn.classList.remove('bg-slate-900', 'text-white');
-          btn.classList.add('bg-slate-100', 'text-slate-600');
-        }
-      });
       applyFilters();
     }
 
     function setFacilityFilter(facility) {
       currentFacility = facility;
-      document.querySelectorAll('.filter-facility-btn').forEach(btn => {
-        if (btn.dataset.facility === facility) {
-          btn.classList.add('bg-slate-900', 'text-white');
-          btn.classList.remove('bg-slate-100', 'text-slate-600');
-        } else {
-          btn.classList.remove('bg-slate-900', 'text-white');
-          btn.classList.add('bg-slate-100', 'text-slate-600');
-        }
-      });
       applyFilters();
     }
 
@@ -16244,7 +16218,7 @@
         const matchBudget = (currentBudget === 'all' || cardBudget === currentBudget);
         const matchFacility = (currentFacility === 'all' || cardFacility === currentFacility);
 
-        const textToSearch = `${f.nombre} ${f.pais} ${f.ciudad_sede} ${f.software} ${f.tagline} ${f.modelo}`.toLowerCase();
+        const textToSearch = `${f.nombre} ${f.pais} ${f.ciudad_sede} ${f.tagline} ${f.modelo}`.toLowerCase();
         const matchQuery = !query || textToSearch.includes(query);
 
         const isVisible = matchRegion && matchModel && matchBudget && matchFacility && matchQuery;

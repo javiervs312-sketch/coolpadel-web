@@ -65,16 +65,16 @@ def render_html():
     total_franquicias = len(FRANQUICIAS)
     paises_unicos = len(set(f["pais"] for f in FRANQUICIAS))
 
-    # Generación dinámica de botones de región con recuento exacto
-    region_buttons_html = ""
+    # Generación dinámica de opciones para el desplegable de región
+    region_options_html = ""
     for reg_code, reg_label, reg_flag in REGIONES_CONFIG:
         if reg_code == "all":
             cnt = total_franquicias
-            btn_cls = "filter-region-btn active px-3 py-1 rounded-lg text-xs font-bold bg-[#f2920b] text-slate-950 transition"
+            label_text = f"{reg_flag} Todos los países ({cnt})"
         else:
             cnt = sum(1 for f in FRANQUICIAS if f.get("region_filtro") == reg_code)
-            btn_cls = "filter-region-btn px-3 py-1 rounded-lg text-xs font-bold bg-slate-100 text-slate-600 hover:bg-slate-200 transition"
-        region_buttons_html += f'<button onclick="setRegionFilter(\'{reg_code}\')" class="{btn_cls}" data-region="{reg_code}">{reg_flag} {reg_label} ({cnt})</button>\n'
+            label_text = f"{reg_flag} {reg_label} ({cnt})"
+        region_options_html += f'<option value="{reg_code}">{label_text}</option>\n'
 
     # Cards HTML para el grid
     cards_html = ""
@@ -104,7 +104,7 @@ def render_html():
                  data-model="{tipo_cat}"
                  data-budget="{budget_tier}"
                  data-facility="{facility_type}"
-                 data-search="{nombre.lower()} {pais.lower()} {ciudad.lower()} {software.lower()} {modelo.lower()}"
+                 data-search="{nombre.lower()} {pais.lower()} {ciudad.lower()} {modelo.lower()}"
                  onclick="openDrawer('{fid}')">
           <div>
             <div class="flex items-start justify-between gap-3 mb-4">
@@ -290,30 +290,96 @@ def render_html():
 </head>
 <body class="bg-[#f8fafc] text-slate-800 antialiased selection:bg-[#f2920b] selection:text-slate-950 min-h-screen flex flex-col">
 
-  <!-- HEADER OFICIAL -->
-  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-xs">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between">
-      <a href="../" class="flex items-center gap-2 group">
-        <img src="../assets/images/coolpadel-mascot-hd.png" alt="Mascota CoolPadel Studios" class="h-8 sm:h-11 w-auto object-contain">
-        <img src="../assets/images/coolpadel-typography-hd.png" alt="CoolPadel Studios" class="h-5 sm:h-7 w-auto object-contain">
-      </a>
+  <!-- NAVBAR BLANCA UNIFICADA COOLPADEL -->
+  <header class="sticky top-0 z-40 bg-white text-slate-900 border-b border-slate-200 shadow-sm w-full">
+    <div class="w-full max-w-[1700px] mx-auto px-3 sm:px-6 lg:px-10 py-1.5 sm:py-0 h-auto sm:h-16 lg:h-18">
       
-      <div class="flex items-center gap-2 sm:gap-4">
-        <a href="../#llaveros" class="hidden lg:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition">Llaveros</a>
-        <a href="../camaras/" class="hidden lg:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition">Cámaras</a>
-        <a href="../blog/" class="hidden md:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition">Blog</a>
-        
-        <!-- CTA Dar de Alta / Reclamar Franquicia -->
-        <button onclick="openOnboardingModal()" class="inline-flex items-center gap-1.5 px-3 sm:px-4 py-2 rounded-full bg-slate-900 hover:bg-slate-800 text-white font-heading font-black text-[11px] sm:text-xs uppercase tracking-wider transition shadow-sm">
-          <i data-lucide="building-2" class="w-3.5 h-3.5 text-[#f2920b]"></i>
-          <span>Alta / Reclamar Ficha</span>
-        </button>
+      <!-- DESKTOP NAVBAR (3 COLUMNAS) -->
+      <div class="hidden sm:grid grid-cols-[1fr_auto_1fr] items-center h-full w-full gap-2 lg:gap-4">
+        <div class="flex items-center justify-between min-w-0 h-full">
+          <a href="../" class="group py-1 inline-flex items-center shrink-0">
+            <img src="../assets/images/eyes-thumb.png?v=fixed_eyes" alt="CoolPadel Eyes" style="height: 24px; max-height: 24px; width: auto;" class="object-contain group-hover:scale-110 transition duration-300">
+          </a>
+          <div class="flex-1 flex items-center justify-center px-2 gap-2 lg:gap-3.5">
+            <a href="../#llaveros" class="font-heading font-black text-xs lg:text-[13px] tracking-wider uppercase text-slate-950 hover:text-[#f2920b] transition select-none whitespace-nowrap">
+              Llaveros
+            </a>
+            <span class="text-slate-300 font-bold select-none">•</span>
+            <a href="../blog/" class="font-heading font-black text-xs lg:text-[13px] tracking-wider uppercase text-slate-950 hover:text-[#f2920b] transition select-none whitespace-nowrap">
+              Blog
+            </a>
+            <span class="text-slate-300 font-bold select-none">•</span>
+            <a href="../camaras/" class="font-heading font-black text-xs lg:text-[13px] tracking-wider uppercase text-slate-950 hover:text-[#f2920b] transition select-none whitespace-nowrap">
+              Cámaras pistas
+            </a>
+            <span class="text-slate-300 font-bold select-none">•</span>
+            <a href="./" class="font-heading font-black text-xs lg:text-[13px] tracking-wider uppercase text-[#f2920b] transition select-none whitespace-nowrap border-b-2 border-[#f2920b] pb-0.5">
+              Cadenas de clubs
+            </a>
+          </div>
+        </div>
 
-        <a href="https://wa.me/34680317486?text=Hola%20Javier%2C%20estoy%20viendo%20el%20directorio%20global%20de%20franquicias%20de%20p%C3%A1del%20y%20quiero%20hacerte%20una%20consulta" target="_blank" class="inline-flex items-center gap-1.5 px-3.5 sm:px-4 py-2 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] text-slate-950 font-heading font-black text-xs sm:text-sm tracking-wider uppercase transition shadow-sm">
-          <i data-lucide="message-circle" class="w-3.5 h-3.5 stroke-[3]"></i>
-          <span class="hidden sm:inline">WhatsApp</span>
-        </a>
+        <div class="flex items-center justify-center shrink-0 px-2 lg:px-4">
+          <a href="../" class="flex items-center justify-center gap-2 sm:gap-3 group py-1">
+            <img src="../assets/images/coolpadel-mascot-hd.png" alt="Mascota CoolPadel" style="height: 46px; max-height: 46px; width: auto;" class="object-contain group-hover:scale-105 transition">
+            <img src="../assets/images/coolpadel-typography-hd.png" alt="CoolPadel" style="height: 26px; max-height: 26px; width: auto;" class="object-contain">
+          </a>
+        </div>
+
+        <div class="flex items-center justify-end min-w-0 h-full gap-2 sm:gap-3 lg:gap-5">
+          <a href="https://wa.me/34680317486?text=Hola%20Javier%2C%20estoy%20viendo%20el%20directorio%20global%20de%20franquicias%20de%20p%C3%A1del" target="_blank" class="group relative inline-flex items-center gap-1.5 px-3 sm:px-3.5 lg:px-4 py-1.5 sm:py-2 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] active:bg-[#76d3f6] text-slate-950 active:scale-95 font-heading font-black text-xs sm:text-xs lg:text-sm tracking-wider uppercase transition-all duration-300 shadow-[0_4px_12px_rgba(242,146,11,0.2)] hover:scale-105 shrink-0 overflow-hidden">
+            <span class="font-black">Contactar</span>
+            <div class="w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-slate-950/10 group-hover:bg-slate-950 group-hover:text-white flex items-center justify-center transition-all duration-300 shrink-0">
+              <i data-lucide="arrow-up-right" class="w-2.5 h-2.5 sm:w-3 sm:h-3 stroke-[3]"></i>
+            </div>
+          </a>
+          <a href="../" class="group py-1 inline-flex items-center shrink-0">
+            <img src="../assets/images/eyes-thumb.png?v=fixed_eyes" alt="CoolPadel Eyes" style="height: 24px; max-height: 24px; width: auto;" class="object-contain group-hover:scale-110 transition duration-300">
+          </a>
+        </div>
       </div>
+
+      <!-- MÓVIL NAVBAR -->
+      <div class="flex sm:hidden flex-col gap-1.5 py-1.5 w-full">
+        <div class="flex items-center justify-between w-full px-1">
+          <a href="../" class="py-0.5 inline-flex items-center shrink-0">
+            <img src="../assets/images/eyes-thumb.png?v=fixed_eyes" alt="CoolPadel Eyes" style="height: 18px; max-height: 18px; width: auto;" class="object-contain">
+          </a>
+          <a href="../" class="flex items-center justify-center gap-1.5 py-0.5">
+            <img src="../assets/images/coolpadel-mascot-hd.png" alt="Mascota CoolPadel" style="height: 28px; max-height: 28px; width: auto;" class="object-contain">
+            <img src="../assets/images/coolpadel-typography-hd.png" alt="CoolPadel" style="height: 18px; max-height: 18px; width: auto;" class="object-contain">
+          </a>
+          <a href="../" class="py-0.5 inline-flex items-center shrink-0">
+            <img src="../assets/images/eyes-thumb.png?v=fixed_eyes" alt="CoolPadel Eyes" style="height: 18px; max-height: 18px; width: auto;" class="object-contain">
+          </a>
+        </div>
+        <div class="flex items-center justify-between w-full gap-1 pt-1 border-t border-slate-100 px-1 overflow-x-auto">
+          <div class="flex items-center gap-1.5 shrink-0">
+            <a href="../#llaveros" class="font-heading font-black text-[10px] tracking-wider uppercase text-slate-950 hover:text-[#f2920b] transition whitespace-nowrap">
+              Llaveros
+            </a>
+            <span class="text-slate-300 font-bold select-none">•</span>
+            <a href="../blog/" class="font-heading font-black text-[10px] tracking-wider uppercase text-slate-950 hover:text-[#f2920b] transition whitespace-nowrap">
+              Blog
+            </a>
+            <span class="text-slate-300 font-bold select-none">•</span>
+            <a href="../camaras/" class="font-heading font-black text-[10px] tracking-wider uppercase text-slate-950 hover:text-[#f2920b] transition whitespace-nowrap">
+              Cámaras pistas
+            </a>
+            <span class="text-slate-300 font-bold select-none">•</span>
+            <a href="./" class="font-heading font-black text-[10px] tracking-wider uppercase text-[#f2920b] whitespace-nowrap border-b border-[#f2920b]">
+              Cadenas de clubs
+            </a>
+          </div>
+          <a href="https://wa.me/34680317486?text=Hola%20Javier%2C%20estoy%20viendo%20el%20directorio%20global%20de%20franquicias%20de%20p%C3%A1del" target="_blank" class="group relative inline-flex items-center justify-center gap-1 px-2.5 py-1 rounded-full bg-[#f2920b] active:bg-[#76d3f6] text-slate-950 active:scale-95 font-heading font-black text-[10px] uppercase tracking-wider transition shadow-xs shrink-0">
+            <span class="font-black">Contactar</span>
+            <div class="w-3 h-3 rounded-full bg-slate-950/10 flex items-center justify-center">
+              <i data-lucide="arrow-up-right" class="w-2 h-2 stroke-[3]"></i>
+            </div>
+          </a>
+        </div>
+      </div>
+
     </div>
   </header>
 
@@ -324,64 +390,44 @@ def render_html():
     <section class="py-12 sm:py-16 bg-gradient-to-b from-white via-slate-50 to-[#f8fafc] border-b border-slate-200">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        <!-- Breadcrumbs -->
-        <nav class="flex items-center gap-2 text-xs font-bold text-slate-500 mb-6 uppercase tracking-wider">
-          <a href="../" class="hover:text-slate-900 transition">Inicio</a>
-          <span>/</span>
-          <span class="text-[#f2920b]">Cadenas y Franquicias de Pádel</span>
-        </nav>
-
         <div class="max-w-4xl space-y-4">
-          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900 text-white font-heading font-bold text-xs uppercase tracking-wider">
-            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-            <span>PORTAL B2B DE INVERSIÓN Y COMPARADOR OFICIAL (+1 SEDE)</span>
-          </div>
-
           <h1 class="font-heading font-black text-3xl sm:text-5xl lg:text-6xl text-slate-950 leading-[1.08] uppercase tracking-tight">
             Directorio y Comparador de Franquicias de Pádel
           </h1>
 
           <p class="text-base sm:text-xl text-slate-600 font-medium leading-relaxed">
-            El censo internacional más exhaustivo para operadores y clubes que quieren franquiciarse: <strong>{total_franquicias} cadenas y franquicias analizadas</strong> en {paises_unicos} países. Compara requisitos de nave, inversión inicial, royalties, software de reservas y exclusividad territorial.
+            El directorio para operadores y clubes que quieren franquiciarse:<br>
+            Ponte en contacto con más de 153 cadenas y franquicias de más de 25 países.<br>
+            Infórmate, compara y encuentra el modelo que tu club necesita.
           </p>
 
-          <!-- Acciones Principales Hero -->
-          <div class="flex flex-wrap items-center gap-3 pt-3">
-            <button onclick="openOnboardingModal()" class="inline-flex items-center gap-2 px-5 py-3 rounded-2xl bg-[#f2920b] hover:bg-[#d97f08] text-slate-950 font-heading font-black text-xs uppercase tracking-wider transition shadow-md hover:scale-105 active:scale-95">
+          <!-- Acciones Principales Hero: Botón Alta de Franquicia fuera de la barra -->
+          <div class="pt-2">
+            <button onclick="openOnboardingModal()" class="inline-flex items-center gap-2 px-6 py-3.5 rounded-2xl bg-[#f2920b] hover:bg-[#d97f08] text-slate-950 font-heading font-black text-xs sm:text-sm uppercase tracking-wider transition shadow-md hover:scale-105 active:scale-95">
               <i data-lucide="plus-circle" class="w-4 h-4 stroke-[2.5]"></i>
               <span>¿Tienes una Franquicia? Date de Alta / Reclama tu Ficha</span>
-            </button>
-            <button onclick="focusComparatorTip()" class="inline-flex items-center gap-2 px-5 py-3 rounded-2xl bg-white hover:bg-slate-100 text-slate-800 border border-slate-300 font-heading font-black text-xs uppercase tracking-wider transition shadow-xs">
-              <i data-lucide="scale" class="w-4 h-4 text-[#f2920b] stroke-[2.5]"></i>
-              <span>Cómo Comparar Cara a Cara</span>
             </button>
           </div>
         </div>
 
-        <!-- KPI BANNER -->
-        <div class="grid grid-cols-2 lg:grid-cols-4 gap-3.5 sm:gap-6 mt-8 sm:mt-10 pt-8 border-t border-slate-200/80">
-          <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-xs">
+        <!-- KPI BANNER (3 TARJETAS) -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 mt-8 sm:mt-10 pt-8 border-t border-slate-200/80">
+          <div class="bg-white p-5 sm:p-6 rounded-2xl border border-slate-200/80 shadow-xs">
             <span class="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">Cadenas / Franquicias</span>
-            <span class="font-heading font-black text-3xl sm:text-4xl text-slate-950">{total_franquicias}</span>
-            <span class="text-xs text-slate-500 font-medium">Con +1 club abierto</span>
+            <span class="font-heading font-black text-3xl sm:text-4xl text-slate-950">+153</span>
+            <span class="text-xs text-slate-500 font-medium block mt-1">Con +1 club abierto</span>
           </div>
           
-          <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-xs">
+          <div class="bg-white p-5 sm:p-6 rounded-2xl border border-slate-200/80 shadow-xs">
             <span class="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">Pistas Totales</span>
-            <span class="font-heading font-black text-3xl sm:text-4xl text-slate-950">+8.500</span>
-            <span class="text-xs text-slate-500 font-medium">Bajo gestión analizada</span>
+            <span class="font-heading font-black text-3xl sm:text-4xl text-slate-950">+8.500 pistas</span>
+            <span class="text-xs text-slate-500 font-medium block mt-1">Bajo gestión analizada</span>
           </div>
 
-          <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-xs">
+          <div class="bg-white p-5 sm:p-6 rounded-2xl border border-slate-200/80 shadow-xs">
             <span class="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">Presencia Global</span>
-            <span class="font-heading font-black text-3xl sm:text-4xl text-slate-950">{paises_unicos} Países</span>
-            <span class="text-xs text-slate-500 font-medium">Europa, América, Oriente Medio, África y Oceanía</span>
-          </div>
-
-          <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-xs">
-            <span class="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">Herramienta B2B</span>
-            <span class="font-heading font-black text-3xl sm:text-4xl text-[#f2920b]">Cara a Cara</span>
-            <span class="text-xs text-slate-500 font-medium">Contrasta hasta 3 franquicias</span>
+            <span class="font-heading font-black text-3xl sm:text-4xl text-slate-950">+25 países</span>
+            <span class="text-xs text-slate-500 font-medium block mt-1">Europa, América, Oriente Medio, África y Oceanía</span>
           </div>
         </div>
 
@@ -398,33 +444,38 @@ def render_html():
         <div class="flex flex-col md:flex-row gap-4 items-stretch md:items-center justify-between">
           <div class="relative flex-1">
             <i data-lucide="search" class="w-5 h-5 text-slate-400 absolute left-4 top-1/2 -translate-y-1/2"></i>
-            <input type="text" id="searchInput" placeholder="Buscar por cadena, club, ciudad, país o software (ej. PadelStars, The Padel Hub, Playtomic, Spector, Arenal, Pàdel 7)..."
+            <input type="text" id="searchInput" placeholder="Buscar por cadena, club, ciudad o país (ej. PadelStars, The Padel Hub, Barcelona, Londres, Madrid)..."
                    class="w-full pl-12 pr-4 py-3.5 rounded-2xl bg-slate-50 border border-slate-200 text-slate-950 placeholder-slate-400 font-medium text-sm focus:outline-none focus:ring-2 focus:ring-[#f2920b] focus:bg-white transition"
                    oninput="applyFilters()">
           </div>
 
-          <div class="flex items-center gap-2 self-end md:self-auto">
+          <div class="flex items-center gap-2 self-end md:self-auto shrink-0">
             <button id="viewGridBtn" onclick="switchView('grid')" class="px-4 py-2.5 rounded-xl text-xs font-bold font-heading uppercase tracking-wider bg-slate-900 text-white transition flex items-center gap-1.5 shadow-xs">
-              <i data-lucide="layout-grid" class="w-4 h-4"></i>
-              <span>Tarjetas & Mapa</span>
+              <i data-lucide="map" class="w-4 h-4"></i>
+              <span>Mapa</span>
             </button>
             <button id="viewTableBtn" onclick="switchView('table')" class="px-4 py-2.5 rounded-xl text-xs font-bold font-heading uppercase tracking-wider bg-slate-100 text-slate-700 hover:bg-slate-200 transition flex items-center gap-1.5">
               <i data-lucide="table" class="w-4 h-4"></i>
-              <span>Tabla Comparativa</span>
+              <span>Tabla</span>
             </button>
           </div>
         </div>
 
-        <!-- Filtros por Región/País, Categoría, Presupuesto e Instalación -->
+        <!-- Filtros por Región/País (Desplegable) y Categoría -->
         <div class="flex flex-col gap-4 pt-3 border-t border-slate-100">
           
-          <!-- Filtro Región / País -->
-          <div class="flex items-center gap-1.5 flex-wrap">
-            <span class="text-xs font-bold uppercase text-slate-400 mr-1 flex items-center gap-1">
-              <i data-lucide="globe" class="w-3.5 h-3.5"></i>
-              <span>Región:</span>
-            </span>
-            {region_buttons_html}
+          <!-- Filtro Región / País en Dropdown Desplegable -->
+          <div class="flex items-center gap-3 flex-wrap">
+            <label for="regionSelect" class="text-xs font-bold uppercase text-slate-500 flex items-center gap-1.5 shrink-0">
+              <i data-lucide="globe" class="w-4 h-4 text-[#f2920b]"></i>
+              <span>Región / País:</span>
+            </label>
+            <div class="relative">
+              <select id="regionSelect" onchange="setRegionFilter(this.value)" class="appearance-none pl-3.5 pr-9 py-2 rounded-xl bg-slate-50 hover:bg-slate-100 border border-slate-200 text-slate-900 text-xs font-bold focus:outline-none focus:ring-2 focus:ring-[#f2920b] transition cursor-pointer">
+                {region_options_html}
+              </select>
+              <i data-lucide="chevron-down" class="w-3.5 h-3.5 text-slate-500 absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none stroke-[2.5]"></i>
+            </div>
           </div>
 
           <!-- Filtro Modelo / Tipo de Operador -->
@@ -439,35 +490,6 @@ def render_html():
             <button onclick="setModelFilter('franquicia')" class="filter-model-btn px-3 py-1 rounded-lg text-xs font-bold bg-slate-100 text-slate-600 hover:bg-slate-200 transition" data-model="franquicia">Franquicia Llave en Mano</button>
             <button onclick="setModelFilter('automatizado')" class="filter-model-btn px-3 py-1 rounded-lg text-xs font-bold bg-slate-100 text-slate-600 hover:bg-slate-200 transition" data-model="automatizado">Club Automatizado 24/7</button>
             <button onclick="setModelFilter('boutique')" class="filter-model-btn px-3 py-1 rounded-lg text-xs font-bold bg-slate-100 text-slate-600 hover:bg-slate-200 transition" data-model="boutique">Boutique & Lujo</button>
-          </div>
-
-          <!-- Filtros de Inversión y Formato de Nave -->
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-3 pt-2 border-t border-slate-100 text-xs">
-            
-            <!-- Rango de Presupuesto (CAPEX) -->
-            <div class="flex items-center gap-1.5 flex-wrap">
-              <span class="font-bold uppercase text-slate-400 flex items-center gap-1">
-                <i data-lucide="wallet" class="w-3.5 h-3.5"></i>
-                <span>Inversión CAPEX:</span>
-              </span>
-              <button onclick="setBudgetFilter('all')" class="filter-budget-btn active px-2.5 py-1 rounded-lg font-bold bg-slate-900 text-white transition" data-budget="all">Cualquiera</button>
-              <button onclick="setBudgetFilter('low')" class="filter-budget-btn px-2.5 py-1 rounded-lg font-bold bg-slate-100 text-slate-600 hover:bg-slate-200 transition" data-budget="low">&lt; 400.000 €</button>
-              <button onclick="setBudgetFilter('mid')" class="filter-budget-btn px-2.5 py-1 rounded-lg font-bold bg-slate-100 text-slate-600 hover:bg-slate-200 transition" data-budget="mid">400k – 850k €</button>
-              <button onclick="setBudgetFilter('high')" class="filter-budget-btn px-2.5 py-1 rounded-lg font-bold bg-slate-100 text-slate-600 hover:bg-slate-200 transition" data-budget="high">&gt; 850.000 €</button>
-            </div>
-
-            <!-- Tipo de Espacio / Nave -->
-            <div class="flex items-center gap-1.5 flex-wrap">
-              <span class="font-bold uppercase text-slate-400 flex items-center gap-1">
-                <i data-lucide="warehouse" class="w-3.5 h-3.5"></i>
-                <span>Instalación:</span>
-              </span>
-              <button onclick="setFacilityFilter('all')" class="filter-facility-btn active px-2.5 py-1 rounded-lg font-bold bg-slate-900 text-white transition" data-facility="all">Todas</button>
-              <button onclick="setFacilityFilter('indoor')" class="filter-facility-btn px-2.5 py-1 rounded-lg font-bold bg-slate-100 text-slate-600 hover:bg-slate-200 transition" data-facility="indoor">Nave Indoor Cubierta</button>
-              <button onclick="setFacilityFilter('outdoor')" class="filter-facility-btn px-2.5 py-1 rounded-lg font-bold bg-slate-100 text-slate-600 hover:bg-slate-200 transition" data-facility="outdoor">Outdoor / Exterior</button>
-              <button onclick="setFacilityFilter('hybrid')" class="filter-facility-btn px-2.5 py-1 rounded-lg font-bold bg-slate-100 text-slate-600 hover:bg-slate-200 transition" data-facility="hybrid">Híbrido (Indoor+Outdoor)</button>
-            </div>
-
           </div>
 
         </div>
@@ -485,26 +507,12 @@ def render_html():
 
       <!-- MAPA INTERACTIVO -->
       <div id="mapContainer" class="bg-white p-3 sm:p-4 rounded-3xl border border-slate-200/90 shadow-sm mb-10 relative">
-        <div class="flex flex-col sm:flex-row sm:items-center justify-between px-3 py-2 mb-2 gap-2">
+        <div class="flex items-center justify-between px-3 py-2 mb-2">
           <div class="flex items-center gap-2">
             <span class="w-2.5 h-2.5 rounded-full bg-[#f2920b]"></span>
             <h2 class="font-heading font-black text-sm sm:text-base text-slate-900 uppercase tracking-wider">
-              Mapa Mundial de Sedes Principales & Cadenas
+              Mapa mundial de principales cadenas de clubs
             </h2>
-          </div>
-          <div class="flex items-center gap-1.5 text-xs font-bold flex-wrap">
-            <button onclick="resetMapView()" class="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 transition">Mundo</button>
-            <button onclick="zoomToUK()" class="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 transition">🇬🇧 UK</button>
-            <button onclick="zoomToSpain()" class="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 transition">🇪🇸 España</button>
-            <button onclick="zoomToFrance()" class="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 transition">🇫🇷 Francia</button>
-            <button onclick="zoomToItaly()" class="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 transition">🇮🇹 Italia</button>
-            <button onclick="zoomToBenelux()" class="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 transition">🇳🇱 Benelux</button>
-            <button onclick="zoomToDACH()" class="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 transition">🇩🇪 DACH</button>
-            <button onclick="zoomToNordics()" class="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 transition">🇸🇪 Nórdicos</button>
-            <button onclick="zoomToUSA()" class="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 transition">🇺🇸 EE.UU.</button>
-            <button onclick="zoomToLatam()" class="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 transition">🇲🇽 Latam</button>
-            <button onclick="zoomToMiddleEast()" class="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 transition">🇦🇪 O. Medio</button>
-            <button onclick="zoomToSouthAfrica()" class="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 transition">🇿🇦 Sudáfrica</button>
           </div>
         </div>
 
@@ -1078,9 +1086,9 @@ def render_html():
         scrollWheelZoom: false
       }});
 
-      L.tileLayer('https://{{s}}.basemaps.cartocdn.com/rastertiles/voyager/{{z}}/{{x}}/{{y}}{{r}}.png', {{
-        attribution: '&copy; <a href="https://carto.com/">CARTO</a> | CoolPadel Studios',
-        maxZoom: 18
+      L.tileLayer('https://tile.openstreetmap.org/{{z}}/{{x}}/{{y}}.png', {{
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors | CoolPadel Studios',
+        maxZoom: 19
       }}).addTo(map);
 
       markersLayer = L.layerGroup().addTo(map);
@@ -1143,30 +1151,14 @@ def render_html():
 
     // Vistas de mapa
     function resetMapView() {{ map.setView([35.0, 10.0], 3); }}
-    function zoomToUK() {{ map.setView([53.0, -1.8], 6); }}
-    function zoomToSpain() {{ map.setView([40.2, -3.7], 6); }}
-    function zoomToFrance() {{ map.setView([46.5, 2.5], 6); }}
-    function zoomToItaly() {{ map.setView([42.5, 12.5], 6); }}
-    function zoomToBenelux() {{ map.setView([51.5, 4.5], 7); }}
-    function zoomToDACH() {{ map.setView([48.5, 11.0], 6); }}
-    function zoomToNordics() {{ map.setView([60.0, 15.0], 5); }}
-    function zoomToUSA() {{ map.setView([37.0, -95.0], 4); }}
-    function zoomToLatam() {{ map.setView([-15.0, -60.0], 3); }}
-    function zoomToMiddleEast() {{ map.setView([25.0, 50.0], 5); }}
-    function zoomToSouthAfrica() {{ map.setView([-29.0, 24.0], 5); }}
 
     // Filtros
     function setRegionFilter(region) {{
       currentRegion = region;
-      document.querySelectorAll('.filter-region-btn').forEach(btn => {{
-        if (btn.dataset.region === region) {{
-          btn.classList.add('bg-[#f2920b]', 'text-slate-950');
-          btn.classList.remove('bg-slate-100', 'text-slate-600');
-        }} else {{
-          btn.classList.remove('bg-[#f2920b]', 'text-slate-950');
-          btn.classList.add('bg-slate-100', 'text-slate-600');
-        }}
-      }});
+      const sel = document.getElementById('regionSelect');
+      if (sel && sel.value !== region) {{
+        sel.value = region;
+      }}
       applyFilters();
     }}
 
@@ -1186,29 +1178,11 @@ def render_html():
 
     function setBudgetFilter(budget) {{
       currentBudget = budget;
-      document.querySelectorAll('.filter-budget-btn').forEach(btn => {{
-        if (btn.dataset.budget === budget) {{
-          btn.classList.add('bg-slate-900', 'text-white');
-          btn.classList.remove('bg-slate-100', 'text-slate-600');
-        }} else {{
-          btn.classList.remove('bg-slate-900', 'text-white');
-          btn.classList.add('bg-slate-100', 'text-slate-600');
-        }}
-      }});
       applyFilters();
     }}
 
     function setFacilityFilter(facility) {{
       currentFacility = facility;
-      document.querySelectorAll('.filter-facility-btn').forEach(btn => {{
-        if (btn.dataset.facility === facility) {{
-          btn.classList.add('bg-slate-900', 'text-white');
-          btn.classList.remove('bg-slate-100', 'text-slate-600');
-        }} else {{
-          btn.classList.remove('bg-slate-900', 'text-white');
-          btn.classList.add('bg-slate-100', 'text-slate-600');
-        }}
-      }});
       applyFilters();
     }}
 
@@ -1232,7 +1206,7 @@ def render_html():
         const matchBudget = (currentBudget === 'all' || cardBudget === currentBudget);
         const matchFacility = (currentFacility === 'all' || cardFacility === currentFacility);
 
-        const textToSearch = `${{f.nombre}} ${{f.pais}} ${{f.ciudad_sede}} ${{f.software}} ${{f.tagline}} ${{f.modelo}}`.toLowerCase();
+        const textToSearch = `${{f.nombre}} ${{f.pais}} ${{f.ciudad_sede}} ${{f.tagline}} ${{f.modelo}}`.toLowerCase();
         const matchQuery = !query || textToSearch.includes(query);
 
         const isVisible = matchRegion && matchModel && matchBudget && matchFacility && matchQuery;
