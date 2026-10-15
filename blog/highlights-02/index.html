@@ -95,18 +95,20 @@
         <!-- DESKTOP NAVBAR (3 COLUMNAS: IZQUIERDA + CENTRO 100% + DERECHA) -->
         <div class="hidden sm:grid grid-cols-[1fr_auto_1fr] items-center h-full w-full gap-2 lg:gap-4">
           
-          <!-- COLUMNA 1: OJOS + LLAVEROS Y CÁMARAS PISTAS A LA IZQUIERDA DEL LOGO -->
+          <!-- COLUMNA 1: OJOS + LLAVEROS, CÁMARAS PISTAS Y BLOG A LA IZQUIERDA DEL LOGO -->
           <div class="flex items-center justify-between min-w-0 h-full">
             <a href="../../" class="group py-1 inline-flex items-center shrink-0">
               <img src="../../assets/images/eyes-thumb.png?v=fixed_eyes" alt="CoolPadel Eyes" style="height: 24px; max-height: 24px; width: auto;" class="object-contain group-hover:scale-110 transition duration-300">
             </a>
-            <div class="flex-1 flex items-center justify-center px-2 gap-3 lg:gap-5">
+            <div class="flex-1 flex items-center justify-center px-2 gap-3.5 lg:gap-6">
               <a href="../../#llaveros" class="font-heading font-black text-xs lg:text-[13px] tracking-wider uppercase text-slate-950 hover:text-[#f2920b] transition select-none whitespace-nowrap">
                 Llaveros
               </a>
-              <span class="text-slate-300 font-bold select-none">•</span>
               <a href="../../camaras/" class="font-heading font-black text-xs lg:text-[13px] tracking-wider uppercase text-slate-950 hover:text-[#f2920b] transition select-none whitespace-nowrap">
                 Cámaras pistas
+              </a>
+              <a href="../" class="font-heading font-black text-xs lg:text-[13px] tracking-wider uppercase text-[#f2920b] transition select-none whitespace-nowrap border-b-2 border-[#f2920b] pb-0.5">
+                Blog
               </a>
             </div>
           </div>
@@ -119,33 +121,30 @@
             </a>
           </div>
 
-          <!-- COLUMNA 3: CADENAS DE CLUBS + BLOG A LA DERECHA DEL LOGO + CONTACTAR + OJOS -->
-          <div class="flex items-center justify-end min-w-0 h-full gap-2 sm:gap-3 lg:gap-5">
-            <div class="flex items-center gap-2.5 lg:gap-3.5 mr-1">
+          <!-- COLUMNA 3: CADENAS DE CLUBS + [CONTACTAR DESPLAZADO A LA DERECHA DEL TODO] -->
+          <div class="flex items-center justify-between min-w-0 h-full gap-2 sm:gap-3 lg:gap-4">
+            <div class="flex items-center pl-1 sm:pl-2">
               <a href="../../franquicias-padel/" class="font-heading font-black text-xs lg:text-[13px] tracking-wider uppercase text-slate-950 hover:text-[#f2920b] transition select-none whitespace-nowrap">
                 Cadenas de clubs
               </a>
-              <span class="text-slate-300 font-bold select-none">•</span>
-              <a href="../" class="font-heading font-black text-xs lg:text-[13px] tracking-wider uppercase text-[#f2920b] transition select-none whitespace-nowrap border-b-2 border-[#f2920b] pb-0.5">
-                Blog
-              </a>
             </div>
 
-            <a href="https://wa.me/34680317486?text=Hola%20Javier" target="_blank" class="group relative inline-flex items-center gap-1.5 px-3 sm:px-3.5 lg:px-4 py-1.5 sm:py-2 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] active:bg-[#76d3f6] text-slate-950 active:scale-95 font-heading font-black text-xs sm:text-xs lg:text-sm tracking-wider uppercase transition-all duration-300 shadow-[0_4px_12px_rgba(242,146,11,0.2)] hover:scale-105 shrink-0 overflow-hidden">
-              <span class="font-black">Contactar</span>
-              <div class="w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-slate-950/10 group-hover:bg-slate-950 group-hover:text-white flex items-center justify-center transition-all duration-300 shrink-0">
-                <i data-lucide="arrow-up-right" class="w-2.5 h-2.5 sm:w-3 sm:h-3 stroke-[3]"></i>
-              </div>
-            </a>
-            <a href="../../" class="group py-1 inline-flex items-center shrink-0">
-              <img src="../../assets/images/eyes-thumb.png?v=fixed_eyes" alt="CoolPadel Eyes" style="height: 24px; max-height: 24px; width: auto;" class="object-contain group-hover:scale-110 transition duration-300">
-            </a>
+            <!-- BLOQUE A LA DERECHA DEL TODO: CONTACTAR (SIN OJOS) -->
+            <div class="flex items-center ml-auto">
+              <a href="https://wa.me/34680317486?text=Hola%20Javier" target="_blank" class="group relative inline-flex items-center gap-1.5 px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] active:bg-[#76d3f6] text-slate-950 active:scale-95 font-heading font-black text-xs sm:text-xs lg:text-sm tracking-wider uppercase transition-all duration-300 shadow-[0_4px_12px_rgba(242,146,11,0.2)] hover:scale-105 shrink-0 overflow-hidden">
+                <span class="font-black">Contactar</span>
+                <div class="w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-slate-950/10 group-hover:bg-slate-950 group-hover:text-white flex items-center justify-center transition-all duration-300 shrink-0">
+                  <i data-lucide="arrow-up-right" class="w-2.5 h-2.5 sm:w-3 sm:h-3 stroke-[3]"></i>
+                </div>
+              </a>
+            </div>
           </div>
         </div>
 
         <!-- MÓVIL NAVBAR -->
         <div class="flex sm:hidden flex-col gap-1.5 py-1.5 w-full">
-          <div class="flex items-center justify-between w-full px-1">
+          <!-- FILA 1: LOGO CENTRADO (SIN OJOS A LA DERECHA) -->
+          <div class="flex items-center justify-between w-full px-2">
             <a href="../../" class="py-0.5 inline-flex items-center shrink-0">
               <img src="../../assets/images/eyes-thumb.png?v=fixed_eyes" alt="CoolPadel Eyes" style="height: 18px; max-height: 18px; width: auto;" class="object-contain">
             </a>
@@ -153,26 +152,22 @@
               <img src="../../assets/images/coolpadel-mascot-hd.png" alt="Mascota CoolPadel" style="height: 28px; max-height: 28px; width: auto;" class="object-contain">
               <img src="../../assets/images/coolpadel-typography-hd.png" alt="CoolPadel" style="height: 18px; max-height: 18px; width: auto;" class="object-contain">
             </a>
-            <a href="../../" class="py-0.5 inline-flex items-center shrink-0">
-              <img src="../../assets/images/eyes-thumb.png?v=fixed_eyes" alt="CoolPadel Eyes" style="height: 18px; max-height: 18px; width: auto;" class="object-contain">
-            </a>
+            <div class="w-[18px]"></div>
           </div>
+          <!-- FILA 2: LLAVEROS + CÁMARAS PISTAS + BLOG + CADENAS DE CLUBS + CONTACTAR -->
           <div class="flex items-center justify-between w-full gap-1 pt-1 border-t border-slate-100 px-1 overflow-x-auto">
-            <div class="flex items-center gap-1.5 shrink-0">
+            <div class="flex items-center gap-2 shrink-0">
               <a href="../../#llaveros" class="font-heading font-black text-[10px] tracking-wider uppercase text-slate-950 hover:text-[#f2920b] transition whitespace-nowrap">
                 Llaveros
               </a>
-              <span class="text-slate-300 font-bold select-none">•</span>
               <a href="../../camaras/" class="font-heading font-black text-[10px] tracking-wider uppercase text-slate-950 hover:text-[#f2920b] transition whitespace-nowrap">
                 Cámaras pistas
               </a>
-              <span class="text-slate-300 font-bold select-none">•</span>
-              <a href="../../franquicias-padel/" class="font-heading font-black text-[10px] tracking-wider uppercase text-slate-950 hover:text-[#f2920b] transition whitespace-nowrap">
-                Cadenas de clubs
-              </a>
-              <span class="text-slate-300 font-bold select-none">•</span>
               <a href="../" class="font-heading font-black text-[10px] tracking-wider uppercase text-[#f2920b] whitespace-nowrap border-b border-[#f2920b]">
                 Blog
+              </a>
+              <a href="../../franquicias-padel/" class="font-heading font-black text-[10px] tracking-wider uppercase text-slate-950 hover:text-[#f2920b] transition whitespace-nowrap">
+                Cadenas de clubs
               </a>
             </div>
             <a href="https://wa.me/34680317486?text=Hola%20Javier" target="_blank" class="group relative inline-flex items-center justify-center gap-1 px-2.5 py-1 rounded-full bg-[#f2920b] active:bg-[#76d3f6] text-slate-950 active:scale-95 font-heading font-black text-[10px] uppercase tracking-wider transition shadow-xs shrink-0">
