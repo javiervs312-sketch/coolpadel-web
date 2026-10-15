@@ -177,7 +177,7 @@ def render_html():
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Directorio de Cadenas de Clubs y Franquicias de Pádel | CoolPadel Studios">
-  <meta name="twitter:description" content="Censo internacional de 126 cadenas de pádel con varias sedes bajo el mismo nombre y franquicias en más de 20 países.">
+  <meta name="twitter:description" content="Censo internacional de 153 cadenas de pádel con varias sedes bajo el mismo nombre y franquicias en más de 20 países.">
   <meta name="twitter:image" content="https://coolpadelstudios.com/assets/images/savemyplay-1.jpg">
 
   <!-- Fuentes & Estilos -->
@@ -310,7 +310,7 @@ def render_html():
           
           <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-xs">
             <span class="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">Pistas Totales</span>
-            <span class="font-heading font-black text-3xl sm:text-4xl text-slate-950">+6.800</span>
+            <span class="font-heading font-black text-3xl sm:text-4xl text-slate-950">+8.500</span>
             <span class="text-xs text-slate-500 font-medium">Bajo gestión analizada</span>
           </div>
 

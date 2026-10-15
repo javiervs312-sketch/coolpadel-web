@@ -721,6 +721,171 @@ DATASET = [
             "inversion_media": "250.000£ a 500.000£ por centro"
         },
         "diferencial": "Coste de adquisición de cliente bajísimo gracias al tráfico constante de compradores de Decathlon."
+    },
+    {
+        "id": "atmos-padel",
+        "nombre": "Atmos Padel",
+        "pais": "Reino Unido",
+        "pais_codigo": "GB",
+        "region_filtro": "GB",
+        "bandera": "🇬🇧",
+        "ciudad_sede": "Chesterfield / Darlington",
+        "coords": [53.2350, -1.4280],
+        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
+        "tipo_categoria": "cadena",
+        "escala": "media",
+        "num_clubs": "6 centros en UK",
+        "num_pistas": "24+ pistas",
+        "software": "Playtomic",
+        "fundadores": "Atmos Padel Group UK",
+        "web": "https://atmospadel.com",
+        "tagline": "Cadena multiclub all-weather en rápido crecimiento en el norte y Midlands ingleses.",
+        "resumen": "Atmos Padel opera una red de clubes con cubiertas tensadas y pistas panorámicas en Chesterfield, Darlington, Lowther Gardens, Potters Bar y South Shields, con escuelas para adultos y torneos de fin de semana.",
+        "sedes_principales": [
+            "Atmos Padel Chesterfield",
+            "Atmos Padel Darlington",
+            "Atmos Padel Lowther Gardens (Lytham St Annes)",
+            "Atmos Padel Potters Bar",
+            "Atmos Padel South Shields"
+        ],
+        "tecnologia_pistas": {
+            "pistas": "Pistas panorámicas con cubierta textil tensada para lluvia y viento",
+            "software": "Playtomic",
+            "domotica": "Acceso QR automatizado y luces LED",
+            "grabacion": "Cámaras en pista para torneos locales",
+            "restauracion": "Clubhouse café con bebidas y pro-shop"
+        },
+        "modelo_expansion": {
+            "tipo_contrato": "Centros propios y alianzas con clubes locales",
+            "perfil_club": "Parcelas deportivas de 3 a 6 pistas",
+            "canon_royalties": "Operación directa",
+            "inversion_media": "300.000£ a 650.000£ por centro"
+        },
+        "diferencial": "Especialistas en cubrir pistas en zonas climáticas difíciles del norte británico."
+    },
+    {
+        "id": "padel-100-ireland",
+        "nombre": "Padel 100",
+        "pais": "Irlanda",
+        "pais_codigo": "IE",
+        "region_filtro": "GB",
+        "bandera": "🇮🇪",
+        "ciudad_sede": "Dublín / Waterford / Donegal",
+        "coords": [53.3498, -6.2603],
+        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
+        "tipo_categoria": "cadena",
+        "escala": "media",
+        "num_clubs": "5 complejos en Irlanda",
+        "num_pistas": "20+ pistas",
+        "software": "Playtomic",
+        "fundadores": "Padel 100 Ireland",
+        "web": "https://padel100.ie",
+        "tagline": "La cadena multiclub que está impulsando el pádel en los clubes de fútbol y GAA de Irlanda.",
+        "resumen": "Padel 100 ha tejido alianzas con clubes de fútbol y de la GAA (Gaelic Athletic Association) en toda la República de Irlanda: Bohemians FC en Waterford, Coralstown Kinnegad GAA Club, Finn Valley AC en Donegal, Bloom HQ y Monaghan United FC.",
+        "sedes_principales": [
+            "Padel 100 Bloom HQ Padel Club",
+            "Padel 100 Bohemians FC (Waterford)",
+            "Padel 100 Coralstown Kinnegad GAA Club",
+            "Padel 100 Finn Valley AC (Donegal)",
+            "Padel 100 Monaghan United FC"
+        ],
+        "tecnologia_pistas": {
+            "pistas": "Pistas panorámicas all-weather con césped texturizado",
+            "software": "Playtomic",
+            "domotica": "Acceso QR y taquillas electrónicas",
+            "grabacion": "Sistemas para ligas irlandesas",
+            "restauracion": "Sinergia con las casas club de los equipos de fútbol y GAA"
+        },
+        "modelo_expansion": {
+            "tipo_contrato": "Alianzas de suelo con clubes deportivos tradicionales irlandeses",
+            "perfil_club": "Instalaciones deportivas comunitarias",
+            "canon_royalties": "Reparto de ingresos",
+            "inversion_media": "150.000€ a 400.000€ por club"
+        },
+        "diferencial": "Alianza pionera con la federación de fútbol y la Asociación Atlética Gaélica (GAA)."
+    },
+    {
+        "id": "padel-plus-play",
+        "nombre": "Padel + Play",
+        "pais": "Reino Unido",
+        "pais_codigo": "GB",
+        "region_filtro": "GB",
+        "bandera": "🇬🇧",
+        "ciudad_sede": "Burntwood / Telford (West Midlands)",
+        "coords": [52.6800, -1.9300],
+        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
+        "tipo_categoria": "cadena",
+        "escala": "media",
+        "num_clubs": "2 centros en Midlands",
+        "num_pistas": "10+ pistas",
+        "software": "Playtomic",
+        "fundadores": "Padel + Play UK",
+        "web": "https://padelplusplay.co.uk",
+        "tagline": "Pádel social y torneos comunitarios en el cinturón de Birmingham y West Midlands.",
+        "resumen": "Cadena que opera en Staffordshire y Shropshire (Burntwood y Telford), ofreciendo pistas cubiertas y exteriores con un enfoque social y de iniciación.",
+        "sedes_principales": [
+            "Padel + Play Burntwood (Staffordshire)",
+            "Padel + Play Telford (Shropshire)"
+        ],
+        "tecnologia_pistas": {
+            "pistas": "Pistas panorámicas con iluminación LED",
+            "software": "Playtomic",
+            "domotica": "Acceso por app",
+            "grabacion": "Vídeo en torneos",
+            "restauracion": "Clubhouse café y pro-shop"
+        },
+        "modelo_expansion": {
+            "tipo_contrato": "Centros propios",
+            "perfil_club": "Parcelas periurbanas",
+            "canon_royalties": "Operación directa",
+            "inversion_media": "250.000£ a 500.000£"
+        },
+        "diferencial": "Fuerte comunidad local en el corazón de las Midlands inglesas."
+    },
+    {
+        "id": "padel-tree",
+        "nombre": "Padel Tree",
+        "pais": "Reino Unido",
+        "pais_codigo": "GB",
+        "region_filtro": "GB",
+        "bandera": "🇬🇧",
+        "ciudad_sede": "Londres (Arkley / Finchley / Brentford)",
+        "coords": [51.6500, -0.2200],
+        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
+        "tipo_categoria": "cadena",
+        "escala": "media",
+        "num_clubs": "5 sedes en Londres y Berlín",
+        "num_pistas": "18+ pistas",
+        "software": "Playtomic",
+        "fundadores": "Padel Tree International",
+        "web": "https://padeltree.com",
+        "tagline": "Pistas boutique integradas en entornos verdes y clubes exclusivos de Londres.",
+        "resumen": "Cadena con presencia en Arkley, Brentford, Bushey, Finchley y Berlín, que destaca por diseñar clubes sostenibles rodeados de vegetación con materiales ecológicos y café de comercio justo.",
+        "sedes_principales": [
+            "Padel Tree Arkley (Londres Norte)",
+            "Padel Tree Brentford (Oeste de Londres)",
+            "Padel Tree Bushey",
+            "Padel Tree Finchley",
+            "Padel Tree Berlín"
+        ],
+        "tecnologia_pistas": {
+            "pistas": "Pistas panorámicas de madera tratada y acero reciclable con césped texturizado",
+            "software": "Playtomic",
+            "domotica": "Acceso QR y taquillas inteligentes",
+            "grabacion": "Cámaras en pista",
+            "restauracion": "Café orgánico, kombucha y terraza ajardinada"
+        },
+        "modelo_expansion": {
+            "tipo_contrato": "Centros boutique propios y asociaciones con clubes de campo",
+            "perfil_club": "Espacios verdes urbanos",
+            "canon_royalties": "Operación directa",
+            "inversion_media": "350.000£ a 750.000£"
+        },
+        "diferencial": "Compromiso de sostenibilidad ecológica y clubes rodeados de árboles centenarios en Londres."
     }
 ]
 
