@@ -14,20 +14,30 @@ from dataset_scraper_new import (
     NEW_UK_LIST, NEW_NORDIC_LIST, NEW_DACH_LIST, NEW_BENELUX_LIST,
     NEW_PT_LIST, NEW_LATAM_LIST, NEW_WORLD_LIST
 )
+from dataset_expansion_new import EXPANSION_OPERATORS
 
-# Agrupaciones completas
-FINAL_UK = UK_LIST + NEW_UK_LIST
-FINAL_ES = ES_LIST
-FINAL_FR = FR_LIST
-FINAL_IT = IT_LIST
-FINAL_BE_NL = BE_NL_LIST + NEW_BENELUX_LIST
-FINAL_DACH = DACH_LIST + NEW_DACH_LIST + [x for x in NEW_WORLD_LIST if x.get("region_filtro") == "DE"]
-FINAL_NORDIC = NORDIC_LIST + NEW_NORDIC_LIST
-FINAL_PT = PT_LIST + NEW_PT_LIST
-FINAL_US = US_LIST
-FINAL_LATAM = LATAM_LIST + NEW_LATAM_LIST
-FINAL_ME = ME_LIST
-FINAL_ZA_AU = ZA_AU_LIST + [x for x in NEW_WORLD_LIST if x.get("region_filtro") == "ZA"]
+# Agrupaciones completas con todas las fuentes
+FINAL_UK = UK_LIST + NEW_UK_LIST + [x for x in EXPANSION_OPERATORS if x.get("region_filtro") == "GB"]
+FINAL_ES = ES_LIST + [x for x in EXPANSION_OPERATORS if x.get("region_filtro") == "ES"]
+FINAL_FR = FR_LIST + [x for x in EXPANSION_OPERATORS if x.get("region_filtro") == "FR"]
+FINAL_IT = IT_LIST + [x for x in EXPANSION_OPERATORS if x.get("region_filtro") == "IT"]
+FINAL_BE_NL = BE_NL_LIST + NEW_BENELUX_LIST + [x for x in EXPANSION_OPERATORS if x.get("region_filtro") == "NL"]
+FINAL_DACH = (
+    DACH_LIST +
+    NEW_DACH_LIST +
+    [x for x in NEW_WORLD_LIST if x.get("region_filtro") == "DE"] +
+    [x for x in EXPANSION_OPERATORS if x.get("region_filtro") == "DE"]
+)
+FINAL_NORDIC = NORDIC_LIST + NEW_NORDIC_LIST + [x for x in EXPANSION_OPERATORS if x.get("region_filtro") == "SE"]
+FINAL_PT = PT_LIST + NEW_PT_LIST + [x for x in EXPANSION_OPERATORS if x.get("region_filtro") == "PT"]
+FINAL_US = US_LIST + [x for x in EXPANSION_OPERATORS if x.get("region_filtro") == "US"]
+FINAL_LATAM = LATAM_LIST + NEW_LATAM_LIST + [x for x in EXPANSION_OPERATORS if x.get("region_filtro") == "MX"]
+FINAL_ME = ME_LIST + [x for x in EXPANSION_OPERATORS if x.get("region_filtro") == "AE"]
+FINAL_ZA_AU = (
+    ZA_AU_LIST +
+    [x for x in NEW_WORLD_LIST if x.get("region_filtro") == "ZA"] +
+    [x for x in EXPANSION_OPERATORS if x.get("region_filtro") == "ZA"]
+)
 
 ALL_OPERATORS = (
     FINAL_UK +
@@ -66,7 +76,7 @@ def main():
     print(f"  PT Portugal: {len(FINAL_PT)}")
     print(f"  US Estados Unidos: {len(FINAL_US)}")
     print(f"  MX Latinoamerica (Mexico, Chile, AR, BR): {len(FINAL_LATAM)}")
-    print(f"  AE Oriente Medio (EAU, Catar, Kuwait): {len(FINAL_ME)}")
+    print(f"  AE Oriente Medio (EAU, Catar, Kuwait, SA): {len(FINAL_ME)}")
     print(f"  ZA Sudafrica & Australia: {len(FINAL_ZA_AU)}")
 
 if __name__ == "__main__":
