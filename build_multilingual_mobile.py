@@ -33,6 +33,8 @@ CLUB_NAMES_MAP = {
 
 def get_base_html(active_lang="es", is_subfolder=False):
     t = TRANSLATIONS[active_lang]
+    # Diccionario limpio de etiquetas HTML para Schema JSON-LD
+    t_clean = {k: v.replace('<br>', ' ') if isinstance(v, str) else v for k, v in t.items()}
     asset_prefix = "../" if is_subfolder else ""
     
     ticker_items = []
@@ -336,82 +338,82 @@ def get_base_html(active_lang="es", is_subfolder=False):
         "mainEntity": [
           {{
             "@type": "Question",
-            "name": "{t['faq_q1']}",
+            "name": "{t_clean['faq_q1']}",
             "acceptedAnswer": {{
               "@type": "Answer",
-              "text": "{t['faq_a1']}"
+              "text": "{t_clean['faq_a1']}"
             }}
           }},
           {{
             "@type": "Question",
-            "name": "{t['faq_q2']}",
+            "name": "{t_clean['faq_q2']}",
             "acceptedAnswer": {{
               "@type": "Answer",
-              "text": "{t['faq_a2']}"
+              "text": "{t_clean['faq_a2']}"
             }}
           }},
           {{
             "@type": "Question",
-            "name": "{t['faq_q3']}",
+            "name": "{t_clean['faq_q3']}",
             "acceptedAnswer": {{
               "@type": "Answer",
-              "text": "{t['faq_a3']}"
+              "text": "{t_clean['faq_a3']}"
             }}
           }},
           {{
             "@type": "Question",
-            "name": "{t['faq_q4']}",
+            "name": "{t_clean['faq_q4']}",
             "acceptedAnswer": {{
               "@type": "Answer",
-              "text": "{t['faq_a4']}"
+              "text": "{t_clean['faq_a4']}"
             }}
           }},
           {{
             "@type": "Question",
-            "name": "{t['faq_q5']}",
+            "name": "{t_clean['faq_q5']}",
             "acceptedAnswer": {{
               "@type": "Answer",
-              "text": "{t['faq_a5']}"
+              "text": "{t_clean['faq_a5']}"
             }}
           }},
           {{
             "@type": "Question",
-            "name": "{t['faq_q6']}",
+            "name": "{t_clean['faq_q6']}",
             "acceptedAnswer": {{
               "@type": "Answer",
-              "text": "{t['faq_a6']}"
+              "text": "{t_clean['faq_a6']}"
             }}
           }},
           {{
             "@type": "Question",
-            "name": "{t['faq_q7']}",
+            "name": "{t_clean['faq_q7']}",
             "acceptedAnswer": {{
               "@type": "Answer",
-              "text": "{t['faq_a7']}"
+              "text": "{t_clean['faq_a7']}"
             }}
           }},
           {{
             "@type": "Question",
-            "name": "{t['faq_q8']}",
+            "name": "{t_clean['faq_q8']}",
             "acceptedAnswer": {{
               "@type": "Answer",
-              "text": "{t['faq_a8']}"
+              "text": "{t_clean['faq_a8']}"
             }}
           }},
           {{
             "@type": "Question",
-            "name": "{t['faq_q9']}",
+            "name": "{t_clean['faq_q9']}",
             "acceptedAnswer": {{
               "@type": "Answer",
-              "text": "{t['faq_a9']}"
+              "text": "{t_clean['faq_a9']}"
             }}
           }},
           {{
             "@type": "Question",
-            "name": "{t['faq_q10']}",
+            "name": "{t_clean['faq_q10']}",
             "acceptedAnswer": {{
               "@type": "Answer",
-              "text": "{t['faq_a10']}"
+              "text": "{t_clean['faq_a10']}"
             }}
           }}
         ]
