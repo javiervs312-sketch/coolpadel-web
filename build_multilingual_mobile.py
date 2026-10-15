@@ -1063,21 +1063,21 @@ def get_base_html(active_lang="es", is_subfolder=False):
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch pt-4">
           
           <!-- MAPA LEAFLET INTERACTIVO PANNABLE/ZOOMABLE -->
-          <div class="lg:col-span-8 relative bg-[#5b99cb] rounded-2xl border border-slate-200/90 overflow-hidden shadow-inner min-h-[380px] sm:min-h-[500px]">
-            <div id="coolpadel-leaflet-map" class="w-full h-full min-h-[380px] sm:min-h-[500px] z-10" style="min-height: 500px; width: 100%; background: #5b99cb;"></div>
+          <div class="lg:col-span-8 relative bg-[#508db8] rounded-2xl border border-slate-200/90 overflow-hidden shadow-inner min-h-[380px] sm:min-h-[500px]">
+            <div id="coolpadel-leaflet-map" class="w-full h-full min-h-[380px] sm:min-h-[500px] z-10" style="min-height: 500px; width: 100%; background: #508db8;"></div>
             
             <!-- SELECTOR DE PROPUESTAS DE MAPA (4 PROPUESTAS: 0 RELIEVE, MAR PLANO Y SOLO PAÍSES) -->
             <div class="absolute top-3 right-3 z-[400] bg-white/95 backdrop-blur-md p-1 rounded-xl border border-slate-200/90 shadow-md flex items-center gap-1 text-[10px] sm:text-[11px] font-bold overflow-x-auto max-w-[92%]">
-              <button type="button" onclick="setMapVectorTheme('arena')" id="theme-btn-arena" class="px-2.5 py-1 rounded-lg transition text-slate-950 font-black bg-[#f2920b] shadow-xs cursor-pointer whitespace-nowrap" title="Propuesta 1: Arena cálida mediterránea y mar azul plano">
-                🏝️ Arena Cálida
-              </button>
-              <button type="button" onclick="setMapVectorTheme('salvia')" id="theme-btn-salvia" class="px-2.5 py-1 rounded-lg transition text-slate-700 hover:text-slate-950 hover:bg-slate-100 cursor-pointer font-bold whitespace-nowrap" title="Propuesta 2: Verde salvia natural y mar marino plano">
+              <button type="button" onclick="setMapVectorTheme('salvia')" id="theme-btn-salvia" class="px-2.5 py-1 rounded-lg transition text-slate-950 font-black bg-[#f2920b] shadow-xs cursor-pointer whitespace-nowrap" title="Verde salvia natural y mar marino plano">
                 🌿 Verde Salvia
               </button>
-              <button type="button" onclick="setMapVectorTheme('terracota')" id="theme-btn-terracota" class="px-2.5 py-1 rounded-lg transition text-slate-700 hover:text-slate-950 hover:bg-slate-100 cursor-pointer font-bold whitespace-nowrap" title="Propuesta 3: Terracota suave y mar celeste plano">
+              <button type="button" onclick="setMapVectorTheme('arena')" id="theme-btn-arena" class="px-2.5 py-1 rounded-lg transition text-slate-700 hover:text-slate-950 hover:bg-slate-100 cursor-pointer font-bold whitespace-nowrap" title="Arena cálida mediterránea y mar azul plano">
+                🏝️ Arena Cálida
+              </button>
+              <button type="button" onclick="setMapVectorTheme('terracota')" id="theme-btn-terracota" class="px-2.5 py-1 rounded-lg transition text-slate-700 hover:text-slate-950 hover:bg-slate-100 cursor-pointer font-bold whitespace-nowrap" title="Terracota suave y mar celeste plano">
                 🏛️ Terracota Suave
               </button>
-              <button type="button" onclick="setMapVectorTheme('nautico')" id="theme-btn-nautico" class="px-2.5 py-1 rounded-lg transition text-slate-700 hover:text-slate-950 hover:bg-slate-100 cursor-pointer font-bold whitespace-nowrap" title="Propuesta 4: Marfil náutico y azul cobalto plano">
+              <button type="button" onclick="setMapVectorTheme('nautico')" id="theme-btn-nautico" class="px-2.5 py-1 rounded-lg transition text-slate-700 hover:text-slate-950 hover:bg-slate-100 cursor-pointer font-bold whitespace-nowrap" title="Marfil náutico y azul cobalto plano">
                 ☀️ Náutico & Marfil
               </button>
             </div>
@@ -1853,17 +1853,9 @@ def get_base_html(active_lang="es", is_subfolder=False):
     let mapMarkersList = [];
     let vectorGeoJsonLayer = null;
     let countryLabelsLayerGroup = null;
-    let currentMapThemeKey = 'arena';
+    let currentMapThemeKey = 'salvia';
 
     const MAP_VECTOR_THEMES = {{
-      arena: {{
-        id: 'arena',
-        name: 'Arena Cálida',
-        seaColor: '#5b99cb',
-        landColor: '#eae0d0',
-        borderColor: '#ffffff',
-        labelColor: '#1e293b'
-      }},
       salvia: {{
         id: 'salvia',
         name: 'Verde Salvia',
@@ -1871,6 +1863,14 @@ def get_base_html(active_lang="es", is_subfolder=False):
         landColor: '#dbe6d6',
         borderColor: '#ffffff',
         labelColor: '#143322'
+      }},
+      arena: {{
+        id: 'arena',
+        name: 'Arena Cálida',
+        seaColor: '#5b99cb',
+        landColor: '#eae0d0',
+        borderColor: '#ffffff',
+        labelColor: '#1e293b'
       }},
       terracota: {{
         id: 'terracota',
@@ -1891,6 +1891,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
     }};
 
     const COUNTRY_LABELS_DATA = [
+      // Países de Europa
       {{ name: 'ESPAÑA', lat: 40.2, lng: -3.7 }},
       {{ name: 'FRANCIA', lat: 46.8, lng: 2.3 }},
       {{ name: 'ITALIA', lat: 42.6, lng: 12.6 }},
@@ -1906,9 +1907,14 @@ def get_base_html(active_lang="es", is_subfolder=False):
       {{ name: 'NORUEGA', lat: 61.0, lng: 8.5 }},
       {{ name: 'POLONIA', lat: 52.0, lng: 19.4 }},
       {{ name: 'IRLANDA', lat: 53.4, lng: -8.0 }},
+      {{ name: 'GRECIA', lat: 39.0, lng: 22.0 }},
+      {{ name: 'CROACIA', lat: 45.1, lng: 15.5 }},
+      // Países que están debajo de Europa (Norte de África y Mediterráneo sur)
       {{ name: 'MARRUECOS', lat: 31.8, lng: -7.0 }},
       {{ name: 'ARGELIA', lat: 32.0, lng: 3.0 }},
-      {{ name: 'TÚNEZ', lat: 34.0, lng: 9.5 }}
+      {{ name: 'TÚNEZ', lat: 34.0, lng: 9.5 }},
+      {{ name: 'LIBIA', lat: 27.5, lng: 17.5 }},
+      {{ name: 'EGIPTO', lat: 26.8, lng: 30.0 }}
     ];
 
     window.setMapVectorTheme = function(themeKey) {{
@@ -1934,7 +1940,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
         el.style.color = theme.labelColor;
       }});
 
-      ['arena', 'salvia', 'terracota', 'nautico'].forEach(k => {{
+      ['salvia', 'arena', 'terracota', 'nautico'].forEach(k => {{
         const btn = document.getElementById('theme-btn-' + k);
         if (!btn) return;
         if (k === themeKey) {{
@@ -1962,7 +1968,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
         leafletMapInstance.on('click', () => leafletMapInstance.scrollWheelZoom.enable());
 
         const countryPane = leafletMapInstance.createPane('countryLabelsPane');
-        countryPane.style.zIndex = '350';
+        countryPane.style.zIndex = '450';
         countryPane.style.pointerEvents = 'none';
 
         const initialTheme = MAP_VECTOR_THEMES[currentMapThemeKey];
