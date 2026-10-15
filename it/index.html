@@ -566,13 +566,32 @@
       -webkit-tap-highlight-color: transparent;
     }
 
-    /* Estilos Leaflet Map Pins y Popup */
+    /* Estilos Leaflet Map Vectorial sin relieve */
     #coolpadel-leaflet-map {
-      background: #5b99cb !important;
+      background: #5b99cb;
+      transition: background-color 0.3s ease;
     }
-    .tile-satellite-soft {
-      filter: brightness(1.12) saturate(0.68) contrast(0.88);
-      opacity: 0.95;
+    .country-map-label {
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+      display: flex !important;
+      align-items: center;
+      justify-content: center;
+      pointer-events: none !important;
+    }
+    .country-map-label span {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #1e293b;
+      text-shadow: 0 1px 3px rgba(255, 255, 255, 0.9), 0 0 8px rgba(255, 255, 255, 0.7);
+      pointer-events: none;
+      white-space: nowrap;
+      user-select: none;
+      transition: color 0.3s ease;
     }
     .custom-pin-container {
       position: relative;
@@ -990,16 +1009,19 @@
           <div class="lg:col-span-8 relative bg-[#5b99cb] rounded-2xl border border-slate-200/90 overflow-hidden shadow-inner min-h-[380px] sm:min-h-[500px]">
             <div id="coolpadel-leaflet-map" class="w-full h-full min-h-[380px] sm:min-h-[500px] z-10" style="min-height: 500px; width: 100%; background: #5b99cb;"></div>
             
-            <!-- SELECTOR DE FORMATO VISUAL DEL MAPA (3 OPCIONES CON NOMBRES DE PAÍSES CLAROS) -->
+            <!-- SELECTOR DE PROPUESTAS DE MAPA (4 PROPUESTAS: 0 RELIEVE, MAR PLANO Y SOLO PAÍSES) -->
             <div class="absolute top-3 right-3 z-[400] bg-white/95 backdrop-blur-md p-1 rounded-xl border border-slate-200/90 shadow-md flex items-center gap-1 text-[10px] sm:text-[11px] font-bold overflow-x-auto max-w-[92%]">
-              <button type="button" onclick="setMapTileStyle('natgeo')" id="style-btn-natgeo" class="px-2.5 py-1 rounded-lg transition text-slate-950 font-black bg-[#f2920b] shadow-xs cursor-pointer whitespace-nowrap" title="Estilo National Geographic clásico: mar azul suave, tierra cálida y nombres de países">
-                🌍 NatGeo <span class="hidden sm:inline">Cartográfico</span>
+              <button type="button" onclick="setMapVectorTheme('arena')" id="theme-btn-arena" class="px-2.5 py-1 rounded-lg transition text-slate-950 font-black bg-[#f2920b] shadow-xs cursor-pointer whitespace-nowrap" title="Propuesta 1: Arena cálida mediterránea y mar azul plano">
+                🏝️ Arena Cálida
               </button>
-              <button type="button" onclick="setMapTileStyle('physical')" id="style-btn-physical" class="px-2.5 py-1 rounded-lg transition text-slate-700 hover:text-slate-950 hover:bg-slate-100 cursor-pointer font-bold whitespace-nowrap" title="Relieve físico natural con nombres de países">
-                🗺️ Relieve <span class="hidden sm:inline">+ Países</span>
+              <button type="button" onclick="setMapVectorTheme('salvia')" id="theme-btn-salvia" class="px-2.5 py-1 rounded-lg transition text-slate-700 hover:text-slate-950 hover:bg-slate-100 cursor-pointer font-bold whitespace-nowrap" title="Propuesta 2: Verde salvia natural y mar marino plano">
+                🌿 Verde Salvia
               </button>
-              <button type="button" onclick="setMapTileStyle('satellite_soft')" id="style-btn-satellite_soft" class="px-2.5 py-1 rounded-lg transition text-slate-700 hover:text-slate-950 hover:bg-slate-100 cursor-pointer font-bold whitespace-nowrap" title="Satélite fotográfico suave atenuado con nombres de países">
-                🛰️ Satélite <span class="hidden sm:inline">Suave</span>
+              <button type="button" onclick="setMapVectorTheme('terracota')" id="theme-btn-terracota" class="px-2.5 py-1 rounded-lg transition text-slate-700 hover:text-slate-950 hover:bg-slate-100 cursor-pointer font-bold whitespace-nowrap" title="Propuesta 3: Terracota suave y mar celeste plano">
+                🏛️ Terracota Suave
+              </button>
+              <button type="button" onclick="setMapVectorTheme('nautico')" id="theme-btn-nautico" class="px-2.5 py-1 rounded-lg transition text-slate-700 hover:text-slate-950 hover:bg-slate-100 cursor-pointer font-bold whitespace-nowrap" title="Propuesta 4: Marfil náutico y azul cobalto plano">
+                ☀️ Náutico & Marfil
               </button>
             </div>
 
@@ -1772,64 +1794,93 @@
 
     let leafletMapInstance = null;
     let mapMarkersList = [];
-    let currentMapTileLayer = null;
-    let currentOverlayTileLayer = null;
+    let vectorGeoJsonLayer = null;
+    let countryLabelsLayerGroup = null;
+    let currentMapThemeKey = 'arena';
 
-    const MAP_TILE_CONFIGS = {
-      natgeo: {
-        url: 'https://server.arcgisonline.com/ArcGIS/rest/services/NatGeo_World_Map/MapServer/tile/{z}/{y}/{x}',
-        options: {
-          maxZoom: 16,
-          attribution: 'Tiles &copy; National Geographic, Esri'
-        },
-        overlayUrl: null
+    const MAP_VECTOR_THEMES = {
+      arena: {
+        id: 'arena',
+        name: 'Arena Cálida',
+        seaColor: '#5b99cb',
+        landColor: '#eae0d0',
+        borderColor: '#ffffff',
+        labelColor: '#1e293b'
       },
-      physical: {
-        url: 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Physical_Map/MapServer/tile/{z}/{y}/{x}',
-        options: {
-          maxZoom: 18,
-          maxNativeZoom: 9,
-          attribution: 'Tiles &copy; Esri &mdash; World Physical Map'
-        },
-        overlayUrl: 'https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Boundaries_and_Places/MapServer/tile/{z}/{y}/{x}'
+      salvia: {
+        id: 'salvia',
+        name: 'Verde Salvia',
+        seaColor: '#508db8',
+        landColor: '#dbe6d6',
+        borderColor: '#ffffff',
+        labelColor: '#143322'
       },
-      satellite_soft: {
-        url: 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
-        options: {
-          maxZoom: 18,
-          className: 'tile-satellite-soft',
-          attribution: 'Tiles &copy; Esri &mdash; Satellite Imagery'
-        },
-        overlayUrl: 'https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Boundaries_and_Places/MapServer/tile/{z}/{y}/{x}'
+      terracota: {
+        id: 'terracota',
+        name: 'Terracota Suave',
+        seaColor: '#629cc7',
+        landColor: '#f3e4d7',
+        borderColor: '#ffffff',
+        labelColor: '#362117'
+      },
+      nautico: {
+        id: 'nautico',
+        name: 'Náutico & Marfil',
+        seaColor: '#4a83ab',
+        landColor: '#f5eedc',
+        borderColor: '#ffffff',
+        labelColor: '#0a1c36'
       }
     };
 
-    window.setMapTileStyle = function(styleKey) {
-      if (!leafletMapInstance || !MAP_TILE_CONFIGS[styleKey]) return;
-      if (currentMapTileLayer) {
-        leafletMapInstance.removeLayer(currentMapTileLayer);
-        currentMapTileLayer = null;
-      }
-      if (currentOverlayTileLayer) {
-        leafletMapInstance.removeLayer(currentOverlayTileLayer);
-        currentOverlayTileLayer = null;
+    const COUNTRY_LABELS_DATA = [
+      { name: 'ESPAÑA', lat: 40.2, lng: -3.7 },
+      { name: 'FRANCIA', lat: 46.8, lng: 2.3 },
+      { name: 'ITALIA', lat: 42.6, lng: 12.6 },
+      { name: 'PORTUGAL', lat: 39.5, lng: -8.2 },
+      { name: 'BÉLGICA', lat: 50.6, lng: 4.7 },
+      { name: 'ALEMANIA', lat: 51.2, lng: 10.4 },
+      { name: 'REINO UNIDO', lat: 53.5, lng: -2.2 },
+      { name: 'SUIZA', lat: 46.8, lng: 8.2 },
+      { name: 'AUSTRIA', lat: 47.6, lng: 14.5 },
+      { name: 'PAÍSES BAJOS', lat: 52.3, lng: 5.5 },
+      { name: 'DINAMARCA', lat: 55.8, lng: 9.5 },
+      { name: 'SUECIA', lat: 60.1, lng: 15.0 },
+      { name: 'NORUEGA', lat: 61.0, lng: 8.5 },
+      { name: 'POLONIA', lat: 52.0, lng: 19.4 },
+      { name: 'IRLANDA', lat: 53.4, lng: -8.0 },
+      { name: 'MARRUECOS', lat: 31.8, lng: -7.0 },
+      { name: 'ARGELIA', lat: 32.0, lng: 3.0 },
+      { name: 'TÚNEZ', lat: 34.0, lng: 9.5 }
+    ];
+
+    window.setMapVectorTheme = function(themeKey) {
+      if (!MAP_VECTOR_THEMES[themeKey]) return;
+      currentMapThemeKey = themeKey;
+      const theme = MAP_VECTOR_THEMES[themeKey];
+
+      const mapContainer = document.getElementById('coolpadel-leaflet-map');
+      if (mapContainer) {
+        mapContainer.style.backgroundColor = theme.seaColor;
       }
 
-      const cfg = MAP_TILE_CONFIGS[styleKey];
-      currentMapTileLayer = L.tileLayer(cfg.url, cfg.options).addTo(leafletMapInstance);
-
-      if (cfg.overlayUrl) {
-        currentOverlayTileLayer = L.tileLayer(cfg.overlayUrl, {
-          maxZoom: 18,
-          pane: 'overlayPane',
-          opacity: 0.95
-        }).addTo(leafletMapInstance);
+      if (vectorGeoJsonLayer) {
+        vectorGeoJsonLayer.setStyle({
+          fillColor: theme.landColor,
+          fillOpacity: 1,
+          color: theme.borderColor,
+          weight: 1.2
+        });
       }
 
-      ['natgeo', 'physical', 'satellite_soft'].forEach(k => {
-        const btn = document.getElementById('style-btn-' + k);
+      document.querySelectorAll('.country-map-label span').forEach(el => {
+        el.style.color = theme.labelColor;
+      });
+
+      ['arena', 'salvia', 'terracota', 'nautico'].forEach(k => {
+        const btn = document.getElementById('theme-btn-' + k);
         if (!btn) return;
-        if (k === styleKey) {
+        if (k === themeKey) {
           btn.className = 'px-2.5 py-1 rounded-lg transition text-slate-950 font-black bg-[#f2920b] shadow-xs cursor-pointer whitespace-nowrap';
         } else {
           btn.className = 'px-2.5 py-1 rounded-lg transition text-slate-700 hover:text-slate-950 hover:bg-slate-100 cursor-pointer font-bold whitespace-nowrap';
@@ -1846,15 +1897,51 @@
           center: [44.0, 4.0],
           zoom: 5,
           minZoom: 4,
-          maxZoom: 18,
+          maxZoom: 12,
           scrollWheelZoom: false
         });
 
         leafletMapInstance.on('focus', () => leafletMapInstance.scrollWheelZoom.enable());
         leafletMapInstance.on('click', () => leafletMapInstance.scrollWheelZoom.enable());
 
-        // Carga por defecto: NatGeo (fondo azul limpio sin relieve submarino, tierra cálida orgánica, nombres de países destacados)
-        setMapTileStyle('natgeo');
+        const countryPane = leafletMapInstance.createPane('countryLabelsPane');
+        countryPane.style.zIndex = '350';
+        countryPane.style.pointerEvents = 'none';
+
+        const initialTheme = MAP_VECTOR_THEMES[currentMapThemeKey];
+        mapContainer.style.backgroundColor = initialTheme.seaColor;
+
+        fetch(ASSET_PREFIX + 'assets/data/world_smooth.json')
+          .then(res => res.json())
+          .then(geoData => {
+            vectorGeoJsonLayer = L.geoJSON(geoData, {
+              style: function() {
+                const t = MAP_VECTOR_THEMES[currentMapThemeKey];
+                return {
+                  fillColor: t.landColor,
+                  fillOpacity: 1,
+                  color: t.borderColor,
+                  weight: 1.2
+                };
+              }
+            }).addTo(leafletMapInstance);
+
+            countryLabelsLayerGroup = L.layerGroup().addTo(leafletMapInstance);
+            COUNTRY_LABELS_DATA.forEach(c => {
+              const labelIcon = L.divIcon({
+                className: 'country-map-label',
+                html: `<span style="color: ${initialTheme.labelColor};">${c.name}</span>`,
+                iconSize: [120, 24],
+                iconAnchor: [60, 12]
+              });
+              L.marker([c.lat, c.lng], {
+                icon: labelIcon,
+                pane: 'countryLabelsPane',
+                interactive: false
+              }).addTo(countryLabelsLayerGroup);
+            });
+          })
+          .catch(e => console.warn('Error loading countries GeoJSON:', e));
 
         const createPinIcon = () => L.divIcon({
           className: 'custom-pin',
