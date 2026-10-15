@@ -4,11 +4,12 @@
 Generador Maestro del Directorio Global de Franquicias y Cadenas de Pádel (+1 Club)
 para CoolPadel Studios (https://coolpadelstudios.com/franquicias-padel/).
 
-Censo exhaustivo de 126 cadenas de clubes con varias sedes abiertas bajo el mismo nombre
-y franquicias de pádel en más de 20 países:
-Reino Unido, España, Francia, Italia, Portugal, Suecia, Noruega, Dinamarca, Finlandia,
-Países Bajos, Bélgica, Alemania, Austria, Suiza, Estados Unidos, México, Chile, Argentina,
-Brasil, Catar, Emiratos Árabes Unidos, Kuwait, Sudáfrica y Australia.
+Incluye:
+1. Directorio exhaustivo de 153 cadenas multiclub y franquicias en más de 20 países.
+2. Comparador interactivo Cara a Cara (Side-by-Side Matrix) para inversores y clubes.
+3. Formulario interactivo multi-paso de Onboarding y Homologación B2B ("Reclamar Ficha").
+4. Barra flotante de selección y filtros avanzados por Presupuesto (CAPEX) e Instalación.
+5. Mapa interactivo Leaflet y Drawer lateral con especificaciones técnicas completas.
 """
 
 import os
@@ -34,6 +35,30 @@ REGIONES_CONFIG = [
     ("AE", "Oriente Medio", "🇦🇪"),
     ("ZA", "Sudáfrica & Australia", "🇿🇦"),
 ]
+
+
+def get_budget_tier(inv_str):
+    if not inv_str:
+        return "mid"
+    s = inv_str.lower()
+    import re
+    nums = [int(n.replace('.', '')) for n in re.findall(r'\d+(?:\.\d+)?', s.replace('€', '').replace('$', '').replace('£', ''))]
+    max_num = max(nums) if nums else 500000
+    if max_num < 400000:
+        return "low"
+    elif max_num <= 850000:
+        return "mid"
+    else:
+        return "high"
+
+
+def get_facility_type(tech_dict):
+    pistas_str = tech_dict.get("pistas", "").lower() if isinstance(tech_dict, dict) else ""
+    if "outdoor" in pistas_str or "exterior" in pistas_str or "descubiert" in pistas_str:
+        if "indoor" in pistas_str or "cubiert" in pistas_str or "nave" in pistas_str:
+            return "hybrid"
+        return "outdoor"
+    return "indoor"
 
 
 def render_html():
@@ -67,12 +92,18 @@ def render_html():
         software = f["software"]
         tipo_cat = f["tipo_categoria"]
         region_f = f.get("region_filtro", f["pais_codigo"])
+        
+        # Filtros adicionales calculados
+        budget_tier = get_budget_tier(f.get("modelo_expansion", {}).get("inversion_media", ""))
+        facility_type = get_facility_type(f.get("tecnologia_pistas", {}))
 
         cards_html += f"""
-        <article class="franchise-card group bg-white rounded-3xl p-6 border border-slate-200/90 shadow-xs hover:shadow-xl hover:border-[#f2920b]/40 transition-all duration-300 flex flex-col justify-between cursor-pointer"
+        <article class="franchise-card group bg-white rounded-3xl p-6 border border-slate-200/90 shadow-xs hover:shadow-xl hover:border-[#f2920b]/40 transition-all duration-300 flex flex-col justify-between cursor-pointer relative"
                  data-id="{fid}"
                  data-region="{region_f}"
                  data-model="{tipo_cat}"
+                 data-budget="{budget_tier}"
+                 data-facility="{facility_type}"
                  data-search="{nombre.lower()} {pais.lower()} {ciudad.lower()} {software.lower()} {modelo.lower()}"
                  onclick="openDrawer('{fid}')">
           <div>
@@ -80,7 +111,14 @@ def render_html():
               <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold border {badge_cls}">
                 {modelo}
               </span>
-              <span class="text-2xl" title="{pais}">{bandera}</span>
+              <div class="flex items-center gap-2" onclick="event.stopPropagation()">
+                <button onclick="toggleCompare('{fid}')" id="compare-btn-{fid}"
+                        class="compare-card-btn inline-flex items-center gap-1 px-2.5 py-1 rounded-lg text-[11px] font-bold border border-slate-200 bg-white text-slate-600 hover:border-[#f2920b] hover:text-[#f2920b] transition">
+                  <i data-lucide="scale" class="w-3.5 h-3.5"></i>
+                  <span class="compare-label">Comparar</span>
+                </button>
+                <span class="text-2xl" title="{pais}">{bandera}</span>
+              </div>
             </div>
 
             <h3 class="font-heading font-black text-2xl text-slate-950 group-hover:text-[#f2920b] transition-colors mb-1.5 flex items-center justify-between">
@@ -126,8 +164,15 @@ def render_html():
     # Filas para tabla comparativa
     table_rows_html = ""
     for f in FRANQUICIAS:
+        fid = f["id"]
         table_rows_html += f"""
-        <tr class="hover:bg-slate-50/80 transition-colors cursor-pointer border-b border-slate-200/70" onclick="openDrawer('{f['id']}')">
+        <tr class="hover:bg-slate-50/80 transition-colors cursor-pointer border-b border-slate-200/70" onclick="openDrawer('{fid}')">
+          <td class="py-4 px-3 text-center" onclick="event.stopPropagation()">
+            <button onclick="toggleCompare('{fid}')" id="table-compare-btn-{fid}" class="compare-card-btn inline-flex items-center gap-1 px-2.5 py-1 rounded-lg text-[11px] font-bold border border-slate-200 bg-white text-slate-600 hover:border-[#f2920b] hover:text-[#f2920b] transition">
+              <i data-lucide="scale" class="w-3.5 h-3.5"></i>
+              <span class="compare-label">Comparar</span>
+            </button>
+          </td>
           <td class="py-4 px-4 font-heading font-black text-slate-950 flex items-center gap-2">
             <span class="text-lg">{f['bandera']}</span>
             <span>{f['nombre']}</span>
@@ -156,28 +201,26 @@ def render_html():
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Directorio de Cadenas de Clubs y Franquicias de Pádel (+1 Club) | CoolPadel Studios</title>
-  <meta name="description" content="Directorio y mapa de las mayores cadenas de clubs con varias sedes abiertas bajo el mismo nombre y franquicias de pádel (+1 club). Datos de sedes, modelos, software e inversión.">
-  <meta name="author" content="CoolPadel Studios">
-  <meta name="robots" content="index, follow, max-image-preview:large">
+  <title>Directorio y Comparador de Franquicias y Cadenas de Pádel (+1 Club) | CoolPadel Studios</title>
+  <meta name="description" content="Directorio interactivo, mapa y comparador cara a cara de {total_franquicias} cadenas de clubs y franquicias de pádel (+1 club abierto). Requisitos de nave, inversión CAPEX, royalties, software y retorno para inversores.">
   <link rel="canonical" href="https://coolpadelstudios.com/franquicias-padel/">
-  <link rel="icon" type="image/png" href="../assets/images/favicon_transparente.png?v=transp3">
-  <link rel="apple-touch-icon" sizes="180x180" href="../assets/images/favicon_transparente.png?v=transp3">
-  <meta name="theme-color" content="#0b1626">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="../assets/images/coolpadel-mascot-hd.png">
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:locale" content="es_ES">
   <meta property="og:site_name" content="CoolPadel Studios">
   <meta property="og:url" content="https://coolpadelstudios.com/franquicias-padel/">
-  <meta property="og:title" content="Directorio de Cadenas de Clubs y Franquicias de Pádel (+1 Club) | Censo Mundial">
-  <meta property="og:description" content="Guía de operadores multi-club y cadenas con varias sedes abiertas bajo el mismo nombre en España, Reino Unido, Europa, América y Golfo Pérsico.">
+  <meta property="og:title" content="Directorio y Comparador B2B de Cadenas y Franquicias de Pádel | {total_franquicias} Operadores">
+  <meta property="og:description" content="Guía y comparador cara a cara para inversores y clubes: contrasta royalties, requisitos de nave, software y modelos de negocio en {paises_unicos} países.">
   <meta property="og:image" content="https://coolpadelstudios.com/assets/images/savemyplay-1.jpg">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Directorio de Cadenas de Clubs y Franquicias de Pádel | CoolPadel Studios">
-  <meta name="twitter:description" content="Censo internacional de 153 cadenas de pádel con varias sedes bajo el mismo nombre y franquicias en más de 20 países.">
+  <meta name="twitter:title" content="Directorio y Comparador de Franquicias de Pádel | CoolPadel Studios">
+  <meta name="twitter:description" content="Censo internacional de {total_franquicias} cadenas de pádel con varias sedes bajo el mismo nombre y franquicias en más de 20 países.">
   <meta name="twitter:image" content="https://coolpadelstudios.com/assets/images/savemyplay-1.jpg">
 
   <!-- Fuentes & Estilos -->
@@ -255,17 +298,20 @@ def render_html():
         <img src="../assets/images/coolpadel-typography-hd.png" alt="CoolPadel Studios" class="h-5 sm:h-7 w-auto object-contain">
       </a>
       
-      <div class="flex items-center gap-2.5 sm:gap-6">
-        <a href="../#llaveros" class="hidden md:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition">Llaveros</a>
-        <a href="../camaras/" class="hidden md:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition">Cámaras Pistas</a>
-        <a href="../blog/" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition">Blog</a>
-        <span class="inline-block px-3 py-1 rounded-full bg-[#f2920b]/15 text-[#f2920b] font-heading font-black text-[11px] sm:text-xs uppercase tracking-wider border border-[#f2920b]/20">
-          Directorio Global
-        </span>
+      <div class="flex items-center gap-2 sm:gap-4">
+        <a href="../#llaveros" class="hidden lg:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition">Llaveros</a>
+        <a href="../camaras/" class="hidden lg:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition">Cámaras</a>
+        <a href="../blog/" class="hidden md:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition">Blog</a>
         
-        <a href="https://wa.me/34680317486?text=Hola%20Javier%2C%20estoy%20viendo%20el%20directorio%20global%20de%20cadenas%20de%20p%C3%A1del%20y%20me%20gustar%C3%ADa%20hacerte%20una%20consulta" target="_blank" class="inline-flex items-center gap-2 px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] text-slate-950 font-heading font-black text-xs sm:text-sm tracking-wider uppercase transition shadow-sm hover:scale-105 active:scale-95">
-          <span>Consultar</span>
+        <!-- CTA Dar de Alta / Reclamar Franquicia -->
+        <button onclick="openOnboardingModal()" class="inline-flex items-center gap-1.5 px-3 sm:px-4 py-2 rounded-full bg-slate-900 hover:bg-slate-800 text-white font-heading font-black text-[11px] sm:text-xs uppercase tracking-wider transition shadow-sm">
+          <i data-lucide="building-2" class="w-3.5 h-3.5 text-[#f2920b]"></i>
+          <span>Alta / Reclamar Ficha</span>
+        </button>
+
+        <a href="https://wa.me/34680317486?text=Hola%20Javier%2C%20estoy%20viendo%20el%20directorio%20global%20de%20franquicias%20de%20p%C3%A1del%20y%20quiero%20hacerte%20una%20consulta" target="_blank" class="inline-flex items-center gap-1.5 px-3.5 sm:px-4 py-2 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] text-slate-950 font-heading font-black text-xs sm:text-sm tracking-wider uppercase transition shadow-sm">
           <i data-lucide="message-circle" class="w-3.5 h-3.5 stroke-[3]"></i>
+          <span class="hidden sm:inline">WhatsApp</span>
         </a>
       </div>
     </div>
@@ -288,16 +334,28 @@ def render_html():
         <div class="max-w-4xl space-y-4">
           <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900 text-white font-heading font-bold text-xs uppercase tracking-wider">
             <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-            <span>CENSO MUNDIAL B2B · CADENAS DE CLUBS CON EL MISMO NOMBRE Y FRANQUICIAS (+1 SEDE)</span>
+            <span>PORTAL B2B DE INVERSIÓN Y COMPARADOR OFICIAL (+1 SEDE)</span>
           </div>
 
           <h1 class="font-heading font-black text-3xl sm:text-5xl lg:text-6xl text-slate-950 leading-[1.08] uppercase tracking-tight">
-            Directorio de Cadenas de Clubs y Franquicias de Pádel
+            Directorio y Comparador de Franquicias de Pádel
           </h1>
 
           <p class="text-base sm:text-xl text-slate-600 font-medium leading-relaxed">
-            El censo internacional más exhaustivo para operadores y propietarios: <strong>{total_franquicias} cadenas de clubes con varios centros abiertos bajo el mismo nombre</strong> y franquicias analizadas en {paises_unicos} países. Sedes activas, requisitos de inversión, software de gestión y modelos de rentabilidad.
+            El censo internacional más exhaustivo para operadores y clubes que quieren franquiciarse: <strong>{total_franquicias} cadenas y franquicias analizadas</strong> en {paises_unicos} países. Compara requisitos de nave, inversión inicial, royalties, software de reservas y exclusividad territorial.
           </p>
+
+          <!-- Acciones Principales Hero -->
+          <div class="flex flex-wrap items-center gap-3 pt-3">
+            <button onclick="openOnboardingModal()" class="inline-flex items-center gap-2 px-5 py-3 rounded-2xl bg-[#f2920b] hover:bg-[#d97f08] text-slate-950 font-heading font-black text-xs uppercase tracking-wider transition shadow-md hover:scale-105 active:scale-95">
+              <i data-lucide="plus-circle" class="w-4 h-4 stroke-[2.5]"></i>
+              <span>¿Tienes una Franquicia? Date de Alta / Reclama tu Ficha</span>
+            </button>
+            <button onclick="focusComparatorTip()" class="inline-flex items-center gap-2 px-5 py-3 rounded-2xl bg-white hover:bg-slate-100 text-slate-800 border border-slate-300 font-heading font-black text-xs uppercase tracking-wider transition shadow-xs">
+              <i data-lucide="scale" class="w-4 h-4 text-[#f2920b] stroke-[2.5]"></i>
+              <span>Cómo Comparar Cara a Cara</span>
+            </button>
+          </div>
         </div>
 
         <!-- KPI BANNER -->
@@ -321,9 +379,9 @@ def render_html():
           </div>
 
           <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-xs">
-            <span class="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">Tipologías</span>
-            <span class="font-heading font-black text-3xl sm:text-4xl text-[#f2920b]">Mismo Nombre</span>
-            <span class="text-xs text-slate-500 font-medium">Cadenas multiclub y franquicias</span>
+            <span class="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">Herramienta B2B</span>
+            <span class="font-heading font-black text-3xl sm:text-4xl text-[#f2920b]">Cara a Cara</span>
+            <span class="text-xs text-slate-500 font-medium">Contrasta hasta 3 franquicias</span>
           </div>
         </div>
 
@@ -334,14 +392,14 @@ def render_html():
     <section class="py-10 sm:py-14 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <!-- CONTROLES Y FILTROS -->
-      <div class="bg-white rounded-3xl p-5 sm:p-7 border border-slate-200/90 shadow-sm mb-8 space-y-5">
+      <div class="bg-white rounded-3xl p-5 sm:p-7 border border-slate-200/90 shadow-sm mb-8 space-y-5" id="filtrosContainer">
         
         <!-- Barra de búsqueda y vista -->
         <div class="flex flex-col md:flex-row gap-4 items-stretch md:items-center justify-between">
           <div class="relative flex-1">
             <i data-lucide="search" class="w-5 h-5 text-slate-400 absolute left-4 top-1/2 -translate-y-1/2"></i>
             <input type="text" id="searchInput" placeholder="Buscar por cadena, club, ciudad, país o software (ej. PadelStars, The Padel Hub, Playtomic, Spector, Arenal, Pàdel 7)..."
-                   class="w-full pl-12 pr-4 py-3.5 rounded-2xl bg-slate-50 border border-slate-200 text-slate-900 placeholder-slate-400 font-medium text-sm focus:outline-none focus:ring-2 focus:ring-[#f2920b] focus:bg-white transition"
+                   class="w-full pl-12 pr-4 py-3.5 rounded-2xl bg-slate-50 border border-slate-200 text-slate-950 placeholder-slate-400 font-medium text-sm focus:outline-none focus:ring-2 focus:ring-[#f2920b] focus:bg-white transition"
                    oninput="applyFilters()">
           </div>
 
@@ -357,7 +415,7 @@ def render_html():
           </div>
         </div>
 
-        <!-- Filtros por Región/País y Categoría -->
+        <!-- Filtros por Región/País, Categoría, Presupuesto e Instalación -->
         <div class="flex flex-col gap-4 pt-3 border-t border-slate-100">
           
           <!-- Filtro Región / País -->
@@ -373,23 +431,54 @@ def render_html():
           <div class="flex items-center gap-1.5 flex-wrap">
             <span class="text-xs font-bold uppercase text-slate-400 mr-1 flex items-center gap-1">
               <i data-lucide="tag" class="w-3.5 h-3.5"></i>
-              <span>Tipo de Operador:</span>
+              <span>Modelo:</span>
             </span>
             <button onclick="setModelFilter('all')" class="filter-model-btn active px-3 py-1 rounded-lg text-xs font-bold bg-slate-900 text-white transition" data-model="all">Todos</button>
             <button onclick="setModelFilter('cadena')" class="filter-model-btn px-3 py-1 rounded-lg text-xs font-bold bg-slate-100 text-slate-600 hover:bg-slate-200 transition" data-model="cadena">Cadena Multiclub (Mismo Nombre)</button>
             <button onclick="setModelFilter('corporativo')" class="filter-model-btn px-3 py-1 rounded-lg text-xs font-bold bg-slate-100 text-slate-600 hover:bg-slate-200 transition" data-model="corporativo">Red Corporativa Propia</button>
             <button onclick="setModelFilter('franquicia')" class="filter-model-btn px-3 py-1 rounded-lg text-xs font-bold bg-slate-100 text-slate-600 hover:bg-slate-200 transition" data-model="franquicia">Franquicia Llave en Mano</button>
-            <button onclick="setModelFilter('automatizado')" class="filter-model-btn px-3 py-1 rounded-lg text-xs font-bold bg-slate-100 text-slate-600 hover:bg-slate-200 transition" data-model="automatizado">Club 100% Automatizado 24/7</button>
-            <button onclick="setModelFilter('boutique')" class="filter-model-btn px-3 py-1 rounded-lg text-xs font-bold bg-slate-100 text-slate-600 hover:bg-slate-200 transition" data-model="boutique">Boutique & Ultra-Lujo</button>
-            <button onclick="setModelFilter('licencia')" class="filter-model-btn px-3 py-1 rounded-lg text-xs font-bold bg-slate-100 text-slate-600 hover:bg-slate-200 transition" data-model="licencia">Academia / Pro-Shop</button>
+            <button onclick="setModelFilter('automatizado')" class="filter-model-btn px-3 py-1 rounded-lg text-xs font-bold bg-slate-100 text-slate-600 hover:bg-slate-200 transition" data-model="automatizado">Club Automatizado 24/7</button>
+            <button onclick="setModelFilter('boutique')" class="filter-model-btn px-3 py-1 rounded-lg text-xs font-bold bg-slate-100 text-slate-600 hover:bg-slate-200 transition" data-model="boutique">Boutique & Lujo</button>
+          </div>
+
+          <!-- Filtros de Inversión y Formato de Nave -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-3 pt-2 border-t border-slate-100 text-xs">
+            
+            <!-- Rango de Presupuesto (CAPEX) -->
+            <div class="flex items-center gap-1.5 flex-wrap">
+              <span class="font-bold uppercase text-slate-400 flex items-center gap-1">
+                <i data-lucide="wallet" class="w-3.5 h-3.5"></i>
+                <span>Inversión CAPEX:</span>
+              </span>
+              <button onclick="setBudgetFilter('all')" class="filter-budget-btn active px-2.5 py-1 rounded-lg font-bold bg-slate-900 text-white transition" data-budget="all">Cualquiera</button>
+              <button onclick="setBudgetFilter('low')" class="filter-budget-btn px-2.5 py-1 rounded-lg font-bold bg-slate-100 text-slate-600 hover:bg-slate-200 transition" data-budget="low">&lt; 400.000 €</button>
+              <button onclick="setBudgetFilter('mid')" class="filter-budget-btn px-2.5 py-1 rounded-lg font-bold bg-slate-100 text-slate-600 hover:bg-slate-200 transition" data-budget="mid">400k – 850k €</button>
+              <button onclick="setBudgetFilter('high')" class="filter-budget-btn px-2.5 py-1 rounded-lg font-bold bg-slate-100 text-slate-600 hover:bg-slate-200 transition" data-budget="high">&gt; 850.000 €</button>
+            </div>
+
+            <!-- Tipo de Espacio / Nave -->
+            <div class="flex items-center gap-1.5 flex-wrap">
+              <span class="font-bold uppercase text-slate-400 flex items-center gap-1">
+                <i data-lucide="warehouse" class="w-3.5 h-3.5"></i>
+                <span>Instalación:</span>
+              </span>
+              <button onclick="setFacilityFilter('all')" class="filter-facility-btn active px-2.5 py-1 rounded-lg font-bold bg-slate-900 text-white transition" data-facility="all">Todas</button>
+              <button onclick="setFacilityFilter('indoor')" class="filter-facility-btn px-2.5 py-1 rounded-lg font-bold bg-slate-100 text-slate-600 hover:bg-slate-200 transition" data-facility="indoor">Nave Indoor Cubierta</button>
+              <button onclick="setFacilityFilter('outdoor')" class="filter-facility-btn px-2.5 py-1 rounded-lg font-bold bg-slate-100 text-slate-600 hover:bg-slate-200 transition" data-facility="outdoor">Outdoor / Exterior</button>
+              <button onclick="setFacilityFilter('hybrid')" class="filter-facility-btn px-2.5 py-1 rounded-lg font-bold bg-slate-100 text-slate-600 hover:bg-slate-200 transition" data-facility="hybrid">Híbrido (Indoor+Outdoor)</button>
+            </div>
+
           </div>
 
         </div>
 
-        <!-- Contador de resultados -->
+        <!-- Contador de resultados y Tip -->
         <div class="flex items-center justify-between text-xs font-semibold text-slate-500 pt-2 border-t border-slate-100">
           <span id="resultsCount">Mostrando {total_franquicias} cadenas y franquicias</span>
-          <span class="text-slate-400 hidden sm:inline">Haz clic en cualquier tarjeta o chincheta del mapa para ver el dossier completo</span>
+          <span class="text-slate-500 hidden sm:inline flex items-center gap-1">
+            <i data-lucide="info" class="w-3.5 h-3.5 text-[#f2920b]"></i>
+            Pulsa el botón <strong>'Comparar'</strong> en cualquier ficha para contrastar hasta 3 franquicias cara a cara
+          </span>
         </div>
 
       </div>
@@ -404,42 +493,18 @@ def render_html():
             </h2>
           </div>
           <div class="flex items-center gap-1.5 text-xs font-bold flex-wrap">
-            <button onclick="resetMapView()" class="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 transition">
-              Mundo
-            </button>
-            <button onclick="zoomToUK()" class="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 transition">
-              🇬🇧 UK
-            </button>
-            <button onclick="zoomToSpain()" class="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 transition">
-              🇪🇸 España
-            </button>
-            <button onclick="zoomToFrance()" class="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 transition">
-              🇫🇷 Francia
-            </button>
-            <button onclick="zoomToItaly()" class="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 transition">
-              🇮🇹 Italia
-            </button>
-            <button onclick="zoomToBenelux()" class="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 transition">
-              🇳🇱 Benelux
-            </button>
-            <button onclick="zoomToDACH()" class="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 transition">
-              🇩🇪 DACH
-            </button>
-            <button onclick="zoomToNordics()" class="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 transition">
-              🇸🇪 Nórdicos
-            </button>
-            <button onclick="zoomToUSA()" class="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 transition">
-              🇺🇸 EE.UU.
-            </button>
-            <button onclick="zoomToLatam()" class="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 transition">
-              🇲🇽 Latam
-            </button>
-            <button onclick="zoomToMiddleEast()" class="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 transition">
-              🇦🇪 Oriente Medio
-            </button>
-            <button onclick="zoomToSouthAfrica()" class="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 transition">
-              🇿🇦 Sudáfrica
-            </button>
+            <button onclick="resetMapView()" class="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 transition">Mundo</button>
+            <button onclick="zoomToUK()" class="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 transition">🇬🇧 UK</button>
+            <button onclick="zoomToSpain()" class="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 transition">🇪🇸 España</button>
+            <button onclick="zoomToFrance()" class="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 transition">🇫🇷 Francia</button>
+            <button onclick="zoomToItaly()" class="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 transition">🇮🇹 Italia</button>
+            <button onclick="zoomToBenelux()" class="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 transition">🇳🇱 Benelux</button>
+            <button onclick="zoomToDACH()" class="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 transition">🇩🇪 DACH</button>
+            <button onclick="zoomToNordics()" class="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 transition">🇸🇪 Nórdicos</button>
+            <button onclick="zoomToUSA()" class="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 transition">🇺🇸 EE.UU.</button>
+            <button onclick="zoomToLatam()" class="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 transition">🇲🇽 Latam</button>
+            <button onclick="zoomToMiddleEast()" class="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 transition">🇦🇪 O. Medio</button>
+            <button onclick="zoomToSouthAfrica()" class="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 transition">🇿🇦 Sudáfrica</button>
           </div>
         </div>
 
@@ -452,8 +517,7 @@ def render_html():
           <span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-full bg-[#2563eb]"></span> Red Corporativa</span>
           <span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-full bg-[#4f46e5]"></span> Franquicia</span>
           <span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-full bg-[#059669]"></span> Automatizado 24/7</span>
-          <span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-full bg-[#9333ea]"></span> Boutique / Lujo</span>
-          <span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-full bg-[#d97706]"></span> Academia / Pro-Shop</span>
+          <span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-full bg-[#9333ea]"></span> Boutique Lujo</span>
         </div>
       </div>
 
@@ -468,6 +532,7 @@ def render_html():
           <table class="w-full text-left text-sm">
             <thead class="bg-slate-900 text-white font-heading font-black text-xs uppercase tracking-wider">
               <tr>
+                <th class="py-4 px-3 text-center">Comparar</th>
                 <th class="py-4 px-4">Operador / Cadena</th>
                 <th class="py-4 px-4">Modelo</th>
                 <th class="py-4 px-4">Sede Principal</th>
@@ -575,10 +640,63 @@ def render_html():
         <a href="../#llaveros" class="hover:text-white transition">Llaveros</a>
         <a href="../camaras/" class="hover:text-white transition">Cámaras Pistas</a>
         <a href="../blog/" class="hover:text-white transition">Blog</a>
-        <a href="https://wa.me/34680317486" target="_blank" class="text-[#f2920b] hover:underline font-bold">WhatsApp: +34 680 31 74 86</a>
+        <button onclick="openOnboardingModal()" class="text-[#f2920b] hover:underline font-bold">Alta de Franquicia</button>
+        <a href="https://wa.me/34680317486" target="_blank" class="text-white hover:underline font-bold">WhatsApp: +34 680 31 74 86</a>
       </div>
     </div>
   </footer>
+
+  <!-- BARRA FLOTANTE DE COMPARACIÓN CARA A CARA (BOTTOM BAR) -->
+  <div id="compareFloatingBar" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-40 w-[95%] max-w-4xl bg-slate-950/95 backdrop-blur-md text-white rounded-3xl p-4 sm:p-5 border border-slate-700 shadow-2xl transition-all duration-300 transform translate-y-32 opacity-0 pointer-events-none flex flex-col sm:flex-row items-center justify-between gap-4">
+    <div class="flex items-center gap-3 flex-wrap">
+      <div class="flex items-center gap-1.5 px-3 py-1.5 bg-[#f2920b] text-slate-950 rounded-xl font-heading font-black text-xs uppercase tracking-wider">
+        <i data-lucide="scale" class="w-4 h-4"></i>
+        <span id="compareCountPill">0 / 3</span>
+      </div>
+      <span class="text-xs font-bold text-slate-300 hidden md:inline">Seleccionadas:</span>
+      <div id="compareChips" class="flex items-center gap-2 flex-wrap">
+        <!-- Chips dinámicos -->
+      </div>
+    </div>
+
+    <div class="flex items-center gap-2.5 w-full sm:w-auto justify-end">
+      <button onclick="clearCompare()" class="px-3 py-2 rounded-xl text-xs font-bold text-slate-400 hover:text-white transition">
+        Limpiar
+      </button>
+      <button onclick="openCompareModal()" class="px-5 py-2.5 rounded-xl bg-[#f2920b] hover:bg-[#d97f08] text-slate-950 font-heading font-black text-xs uppercase tracking-wider transition shadow-md flex items-center gap-1.5 hover:scale-105 active:scale-95">
+        <span>Comparar Cara a Cara</span>
+        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+      </button>
+    </div>
+  </div>
+
+  <!-- MODAL COMPARADOR CARA A CARA (SIDE-BY-SIDE MATRIX) -->
+  <div id="compareModalOverlay" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-50 transition-opacity opacity-0 pointer-events-none flex items-center justify-center p-3 sm:p-6" onclick="closeCompareModal()">
+    <div id="compareModal" class="bg-white w-full max-w-6xl max-h-[92vh] rounded-3xl shadow-2xl border border-slate-200 overflow-hidden flex flex-col transform scale-95 transition-transform duration-300" onclick="event.stopPropagation()">
+      
+      <!-- Header Modal -->
+      <div class="p-5 sm:p-6 bg-slate-900 text-white flex items-center justify-between border-b border-slate-800 shrink-0">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-2xl bg-[#f2920b]/20 text-[#f2920b] flex items-center justify-center shrink-0">
+            <i data-lucide="scale" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <h2 class="font-heading font-black text-xl sm:text-2xl text-white uppercase tracking-tight">Comparativa Cara a Cara de Franquicias</h2>
+            <p class="text-xs text-slate-400 font-medium">Contraste de requisitos inmobiliarios, cánones económicos, tecnología y retorno para inversores y clubes</p>
+          </div>
+        </div>
+        <button onclick="closeCompareModal()" class="w-9 h-9 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-white flex items-center justify-center transition shrink-0">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <!-- Body Modal: Dynamic Matrix Table -->
+      <div id="compareModalContent" class="p-4 sm:p-8 overflow-y-auto overflow-x-auto flex-1 space-y-6 text-sm">
+        <!-- Se inyecta la tabla comparativa por JS -->
+      </div>
+
+    </div>
+  </div>
 
   <!-- SLIDE-OVER DRAWER MODAL (DOSSIER COMPLETO DE LA FRANQUICIA) -->
   <div id="drawerOverlay" class="fixed inset-0 bg-slate-950/60 backdrop-blur-xs z-50 transition-opacity opacity-0 pointer-events-none" onclick="closeDrawer()"></div>
@@ -604,6 +722,23 @@ def render_html():
     <!-- Drawer Body -->
     <div class="p-6 sm:p-8 overflow-y-auto flex-1 space-y-6 text-sm">
       
+      <!-- Banner Reclamar Ficha dentro del Drawer -->
+      <div class="p-4 bg-gradient-to-r from-amber-50 to-orange-50 border border-amber-200/80 rounded-2xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 shadow-2xs">
+        <div class="space-y-0.5">
+          <div class="flex items-center gap-1.5 text-xs font-bold text-amber-950">
+            <i data-lucide="shield-check" class="w-4 h-4 text-[#f2920b]"></i>
+            <span>¿Eres el Responsable de Expansión de esta Cadena?</span>
+          </div>
+          <p class="text-[11px] text-amber-800 leading-tight">
+            Reclama tu ficha, actualiza tus requisitos de nave y cánones, y recibe solicitudes directas de inversores cualificados.
+          </p>
+        </div>
+        <button onclick="claimCurrentFranchise()" class="shrink-0 inline-flex items-center gap-1 px-3.5 py-2 rounded-xl bg-[#f2920b] hover:bg-[#d97f08] text-slate-950 font-heading font-black text-xs uppercase tracking-wider transition shadow-xs">
+          <span>Reclamar Ficha</span>
+          <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+        </button>
+      </div>
+
       <!-- Tagline -->
       <div class="p-4 bg-amber-50/70 border border-amber-200 rounded-2xl text-amber-900 font-semibold italic text-sm" id="drawerTagline">
       </div>
@@ -675,7 +810,245 @@ def render_html():
 
   </div>
 
-  <!-- SCRIPT DE FILTRADO, MAPA Y MODAL -->
+  <!-- MODAL ONBOARDING / RECLAMAR FICHA (4 PASOS B2B) -->
+  <div id="onboardingModalOverlay" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-50 transition-opacity opacity-0 pointer-events-none flex items-center justify-center p-3 sm:p-6" onclick="closeOnboardingModal()">
+    <div id="onboardingModal" class="bg-white w-full max-w-2xl max-h-[94vh] rounded-3xl shadow-2xl border border-slate-200 overflow-hidden flex flex-col transform scale-95 transition-transform duration-300" onclick="event.stopPropagation()">
+      
+      <!-- Modal Header -->
+      <div class="p-6 bg-slate-900 text-white flex items-start justify-between border-b border-slate-800 shrink-0">
+        <div>
+          <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#f2920b]/20 text-[#f2920b] text-[11px] font-bold uppercase tracking-wider mb-2">
+            <i data-lucide="badge-check" class="w-3.5 h-3.5"></i>
+            <span>Homologación B2B Censo Oficial 2026</span>
+          </div>
+          <h2 id="onboardingModalTitle" class="font-heading font-black text-2xl text-white uppercase tracking-tight">
+            Alta / Reclamar Ficha de Franquicia
+          </h2>
+          <p class="text-xs text-slate-400 mt-1">
+            Completa los requisitos clave para contrastar tu modelo frente a inversores y clubes candidatos.
+          </p>
+        </div>
+        <button onclick="closeOnboardingModal()" class="w-9 h-9 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-white flex items-center justify-center transition shrink-0">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <!-- Steps Indicator -->
+      <div class="px-6 py-3 bg-slate-100 border-b border-slate-200 grid grid-cols-4 gap-2 text-[11px] font-bold shrink-0">
+        <div id="step-indicator-1" class="text-center py-1 rounded-lg bg-[#f2920b] text-slate-950 transition">1. Responsable</div>
+        <div id="step-indicator-2" class="text-center py-1 rounded-lg bg-slate-200 text-slate-600 transition">2. Espacio & Nave</div>
+        <div id="step-indicator-3" class="text-center py-1 rounded-lg bg-slate-200 text-slate-600 transition">3. Cánones & ROI</div>
+        <div id="step-indicator-4" class="text-center py-1 rounded-lg bg-slate-200 text-slate-600 transition">4. Tecnología</div>
+      </div>
+
+      <!-- Modal Form Content -->
+      <form id="onboardingForm" onsubmit="submitOnboarding(event)" class="p-6 sm:p-8 overflow-y-auto flex-1 space-y-6">
+        
+        <!-- PASO 1: RESPONSABLE & MARCA -->
+        <div id="onboardingStep1" class="space-y-4">
+          <h3 class="font-heading font-black text-base text-slate-900 uppercase">1. Identificación y Contacto de Expansión</h3>
+          
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-bold text-slate-700 mb-1">Nombre de la Franquicia / Cadena *</label>
+              <input type="text" id="ob_nombre" required placeholder="Ej. Bela Padel Center" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 text-sm focus:ring-2 focus:ring-[#f2920b] focus:outline-none">
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-slate-700 mb-1">Sitio Web Oficial *</label>
+              <input type="url" id="ob_web" required placeholder="https://..." class="w-full px-4 py-2.5 rounded-xl border border-slate-300 text-sm focus:ring-2 focus:ring-[#f2920b] focus:outline-none">
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-bold text-slate-700 mb-1">País y Ciudad Sede *</label>
+              <input type="text" id="ob_sede" required placeholder="Ej. Madrid, España" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 text-sm focus:ring-2 focus:ring-[#f2920b] focus:outline-none">
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-slate-700 mb-1">Nº Actual de Clubes Operativos *</label>
+              <input type="number" id="ob_num_clubs" min="1" required placeholder="Ej. 6" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 text-sm focus:ring-2 focus:ring-[#f2920b] focus:outline-none">
+            </div>
+          </div>
+
+          <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200 space-y-3">
+            <span class="text-xs font-bold uppercase text-slate-600 block">Datos del Responsable de Expansión (Para Inversores)</span>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+              <div>
+                <label class="block text-[11px] font-bold text-slate-600 mb-1">Responsable *</label>
+                <input type="text" id="ob_contacto_nombre" required placeholder="Nombre y Apellidos" class="w-full px-3 py-2 rounded-lg border border-slate-300 text-xs focus:ring-2 focus:ring-[#f2920b] focus:outline-none">
+              </div>
+              <div>
+                <label class="block text-[11px] font-bold text-slate-600 mb-1">Cargo *</label>
+                <input type="text" id="ob_contacto_cargo" required placeholder="Director de Expansión" class="w-full px-3 py-2 rounded-lg border border-slate-300 text-xs focus:ring-2 focus:ring-[#f2920b] focus:outline-none">
+              </div>
+              <div>
+                <label class="block text-[11px] font-bold text-slate-600 mb-1">Email Corporativo *</label>
+                <input type="email" id="ob_contacto_email" required placeholder="expansion@marca.com" class="w-full px-3 py-2 rounded-lg border border-slate-300 text-xs focus:ring-2 focus:ring-[#f2920b] focus:outline-none">
+              </div>
+            </div>
+            <div>
+              <label class="block text-[11px] font-bold text-slate-600 mb-1">Teléfono Directo / WhatsApp de Expansión *</label>
+              <input type="tel" id="ob_contacto_tel" required placeholder="+34 600 000 000" class="w-full px-3 py-2 rounded-lg border border-slate-300 text-xs focus:ring-2 focus:ring-[#f2920b] focus:outline-none">
+            </div>
+          </div>
+        </div>
+
+        <!-- PASO 2: ESPACIO & NAVE -->
+        <div id="onboardingStep2" class="space-y-4 hidden">
+          <h3 class="font-heading font-black text-base text-slate-900 uppercase">2. Requisitos de Espacio e Instalación</h3>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-bold text-slate-700 mb-1">Tipo de Instalación Admitida *</label>
+              <select id="ob_tipo_instalacion" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 text-sm focus:ring-2 focus:ring-[#f2920b] focus:outline-none">
+                <option value="indoor">Exclusivamente Nave Indoor Cubierta</option>
+                <option value="outdoor">Outdoor / Cubierta Ligera Tensada</option>
+                <option value="hibrido">Híbrido (Indoor + Outdoor)</option>
+                <option value="ambos">Abierto a cualquier formato viable</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-slate-700 mb-1">Altura Libre Mínima de Techo *</label>
+              <select id="ob_altura_minima" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 text-sm focus:ring-2 focus:ring-[#f2920b] focus:outline-none">
+                <option value="8.0m">8.0 metros (mínimo estándar)</option>
+                <option value="8.5m">8.5 metros</option>
+                <option value="9.0m">9.0 metros (recomendado competición)</option>
+                <option value="10.0m+">10.0 metros o más (World Padel standard)</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-bold text-slate-700 mb-1">Número Mínimo de Pistas por Club *</label>
+              <input type="number" id="ob_pistas_minimas" min="2" max="30" value="4" required class="w-full px-4 py-2.5 rounded-xl border border-slate-300 text-sm focus:ring-2 focus:ring-[#f2920b] focus:outline-none">
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-slate-700 mb-1">Metros Cuadrados Mínimos de Parcela/Nave</label>
+              <input type="text" id="ob_m2_minimos" placeholder="Ej. 1.800 m² nave + parking" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 text-sm focus:ring-2 focus:ring-[#f2920b] focus:outline-none">
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1">Ubicación Preferente</label>
+            <input type="text" id="ob_ubicacion_perfil" placeholder="Ej. Polígono periurbano con accesos rápidos, retail parks o clubes deportivos consolidados" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 text-sm focus:ring-2 focus:ring-[#f2920b] focus:outline-none">
+          </div>
+        </div>
+
+        <!-- PASO 3: CÁNONES & INVERSIÓN -->
+        <div id="onboardingStep3" class="space-y-4 hidden">
+          <h3 class="font-heading font-black text-base text-slate-900 uppercase">3. Condiciones Económicas y Modelo de Franquicia</h3>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-bold text-slate-700 mb-1">Canon de Entrada (Franchise Fee) *</label>
+              <input type="text" id="ob_canon_entrada" required placeholder="Ej. 18.000 € o Sin canon inicial" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 text-sm focus:ring-2 focus:ring-[#f2920b] focus:outline-none">
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-slate-700 mb-1">Royalty Mensual de Operación *</label>
+              <input type="text" id="ob_royalty_mensual" required placeholder="Ej. 5% de facturación bruta o 400€/pista/mes" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 text-sm focus:ring-2 focus:ring-[#f2920b] focus:outline-none">
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-bold text-slate-700 mb-1">Canon de Marketing Corporativo</label>
+              <input type="text" id="ob_canon_marketing" placeholder="Ej. 1% facturación o Incluido en el royalty" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 text-sm focus:ring-2 focus:ring-[#f2920b] focus:outline-none">
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-slate-700 mb-1">Inversión Media Llave en Mano (CAPEX) *</label>
+              <input type="text" id="ob_inversion_media" required placeholder="Ej. 450.000 € a 850.000 € para 6 pistas" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 text-sm focus:ring-2 focus:ring-[#f2920b] focus:outline-none">
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-bold text-slate-700 mb-1">Plazo de Retorno Estimado (Payback)</label>
+              <input type="text" id="ob_payback" placeholder="Ej. 24 a 36 meses" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 text-sm focus:ring-2 focus:ring-[#f2920b] focus:outline-none">
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-slate-700 mb-1">Exclusividad Territorial Garantizada *</label>
+              <input type="text" id="ob_exclusividad" required placeholder="Ej. 10 km de radio o término municipal protegido" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 text-sm focus:ring-2 focus:ring-[#f2920b] focus:outline-none">
+            </div>
+          </div>
+        </div>
+
+        <!-- PASO 4: TECNOLOGÍA & SERVICIOS -->
+        <div id="onboardingStep4" class="space-y-4 hidden">
+          <h3 class="font-heading font-black text-base text-slate-900 uppercase">4. Tecnología, Domótica y Operativa</h3>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-bold text-slate-700 mb-1">Software de Reservas Obligatorio *</label>
+              <input type="text" id="ob_software" required placeholder="Ej. Playtomic, Matchi, App Propia o Libre" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 text-sm focus:ring-2 focus:ring-[#f2920b] focus:outline-none">
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-slate-700 mb-1">Nivel de Domótica & Accesos</label>
+              <input type="text" id="ob_domotica" placeholder="Ej. Tornos QR automáticos, encendido domótico de focos" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 text-sm focus:ring-2 focus:ring-[#f2920b] focus:outline-none">
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1">Cámaras de Grabación en Pista / Streaming</label>
+            <input type="text" id="ob_camaras" placeholder="Ej. Homologado para Save my Play / CoolPadel o cámaras en pistas centrales" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 text-sm focus:ring-2 focus:ring-[#f2920b] focus:outline-none">
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1">Servicios Centralizados que Aporta la Franquicia</label>
+            <textarea id="ob_servicios" rows="2" placeholder="Ej. Central de compras con descuentos en palas y bolas, metodología oficial de escuela, asesoría en licencia de obras" class="w-full px-4 py-2 rounded-xl border border-slate-300 text-sm focus:ring-2 focus:ring-[#f2920b] focus:outline-none"></textarea>
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1">Factor Diferencial / Ventaja Competitiva</label>
+            <textarea id="ob_diferencial" rows="2" placeholder="¿Por qué un inversor debería elegir vuestra marca antes que a otra?" class="w-full px-4 py-2 rounded-xl border border-slate-300 text-sm focus:ring-2 focus:ring-[#f2920b] focus:outline-none"></textarea>
+          </div>
+        </div>
+
+        <!-- PANTALLA DE ÉXITO -->
+        <div id="onboardingSuccess" class="space-y-4 py-6 text-center hidden">
+          <div class="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto mb-3">
+            <i data-lucide="check" class="w-8 h-8 stroke-[3]"></i>
+          </div>
+          <h3 class="font-heading font-black text-2xl text-slate-900 uppercase">¡Expediente de Homologación Recibido!</h3>
+          <p class="text-sm text-slate-600 max-w-md mx-auto">
+            Hemos registrado tu solicitud con el código <strong id="successTicket" class="text-slate-950"></strong>. Nuestro equipo validará el dominio corporativo en menos de 24 horas y tu marca recibirá el distintivo <strong>'Franquicia Verificada 2026'</strong>.
+          </p>
+          <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200 max-w-md mx-auto text-xs text-slate-600">
+            Los datos económicos y de nave introducidos se volcarán automáticamente en el comparador para inversores de tu región.
+          </div>
+          <div class="pt-4 flex justify-center gap-3">
+            <a id="successWaBtn" href="#" target="_blank" class="px-5 py-2.5 rounded-xl bg-[#f2920b] hover:bg-[#d97f08] text-slate-950 font-heading font-black text-xs uppercase tracking-wider transition inline-flex items-center gap-2">
+              <i data-lucide="message-circle" class="w-4 h-4"></i>
+              <span>Confirmar por WhatsApp con Javier</span>
+            </a>
+            <button type="button" onclick="closeOnboardingModal()" class="px-5 py-2.5 rounded-xl bg-slate-200 hover:bg-slate-300 text-slate-800 font-bold text-xs transition">
+              Cerrar
+            </button>
+          </div>
+        </div>
+
+        <!-- BOTONES DE NAVEGACIÓN -->
+        <div id="onboardingNavBtns" class="pt-4 border-t border-slate-200 flex items-center justify-between">
+          <button type="button" id="obPrevBtn" onclick="prevStep()" class="px-4 py-2 rounded-xl text-xs font-bold text-slate-600 hover:text-slate-900 transition disabled:opacity-30" disabled>
+            ← Anterior
+          </button>
+          
+          <div class="flex items-center gap-2">
+            <button type="button" id="obNextBtn" onclick="nextStep()" class="px-6 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-heading font-black text-xs uppercase tracking-wider transition">
+              Siguiente →
+            </button>
+            <button type="submit" id="obSubmitBtn" class="px-6 py-2.5 rounded-xl bg-[#f2920b] hover:bg-[#d97f08] text-slate-950 font-heading font-black text-xs uppercase tracking-wider transition hidden shadow-sm">
+              Enviar Homologación Oficial
+            </button>
+          </div>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+
+  <!-- SCRIPT DE FILTRADO, MAPA, COMPARADOR Y ONBOARDING -->
   <script>
     lucide.createIcons();
 
@@ -683,9 +1056,17 @@ def render_html():
 
     let currentRegion = 'all';
     let currentModel = 'all';
+    let currentBudget = 'all';
+    let currentFacility = 'all';
     let currentView = 'grid';
     let map = null;
     let markersLayer = null;
+
+    let selectedFranchises = [];
+    let currentStep = 1;
+    let currentDrawerId = null;
+
+    const WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbxnF9JmVrikeAW7PdLc02r_1kkuSJVz1Ncl71ZeVGT37H0ji5DQ3DVw60122pcuYnxCgA/exec';
 
     // Inicializar mapa
     function initMap() {{
@@ -743,9 +1124,14 @@ def render_html():
               <span style="background: #fef3c7; color: #92400e; padding: 2px 6px; border-radius: 6px;">${{f.num_pistas}}</span>
             </div>
             <p style="font-size: 11px; color: #475569; margin-bottom: 8px; line-height: 1.3;">${{f.tagline}}</p>
-            <button onclick="openDrawer('${{f.id}}')" style="width: 100%; background: #0f172a; color: #ffffff; border: none; padding: 6px 10px; border-radius: 8px; font-size: 11px; font-weight: 800; cursor: pointer;">
-              Ver Dossier Completo →
-            </button>
+            <div style="display: flex; gap: 6px;">
+              <button onclick="openDrawer('${{f.id}}')" style="flex: 1; background: #0f172a; color: #ffffff; border: none; padding: 6px 10px; border-radius: 8px; font-size: 11px; font-weight: 800; cursor: pointer;">
+                Dossier →
+              </button>
+              <button onclick="toggleCompare('${{f.id}}')" style="background: #f2920b; color: #0f172a; border: none; padding: 6px 8px; border-radius: 8px; font-size: 11px; font-weight: 800; cursor: pointer;">
+                Comparar
+              </button>
+            </div>
           </div>
         `;
 
@@ -755,54 +1141,21 @@ def render_html():
       }});
     }}
 
-    function resetMapView() {{
-      map.setView([35.0, 10.0], 3);
-    }}
+    // Vistas de mapa
+    function resetMapView() {{ map.setView([35.0, 10.0], 3); }}
+    function zoomToUK() {{ map.setView([53.0, -1.8], 6); }}
+    function zoomToSpain() {{ map.setView([40.2, -3.7], 6); }}
+    function zoomToFrance() {{ map.setView([46.5, 2.5], 6); }}
+    function zoomToItaly() {{ map.setView([42.5, 12.5], 6); }}
+    function zoomToBenelux() {{ map.setView([51.5, 4.5], 7); }}
+    function zoomToDACH() {{ map.setView([48.5, 11.0], 6); }}
+    function zoomToNordics() {{ map.setView([60.0, 15.0], 5); }}
+    function zoomToUSA() {{ map.setView([37.0, -95.0], 4); }}
+    function zoomToLatam() {{ map.setView([-15.0, -60.0], 3); }}
+    function zoomToMiddleEast() {{ map.setView([25.0, 50.0], 5); }}
+    function zoomToSouthAfrica() {{ map.setView([-29.0, 24.0], 5); }}
 
-    function zoomToUK() {{
-      map.setView([53.0, -1.8], 6);
-    }}
-
-    function zoomToSpain() {{
-      map.setView([40.2, -3.7], 6);
-    }}
-
-    function zoomToFrance() {{
-      map.setView([46.5, 2.5], 6);
-    }}
-
-    function zoomToItaly() {{
-      map.setView([42.5, 12.5], 6);
-    }}
-
-    function zoomToBenelux() {{
-      map.setView([51.5, 4.5], 7);
-    }}
-
-    function zoomToDACH() {{
-      map.setView([48.5, 11.0], 6);
-    }}
-
-    function zoomToNordics() {{
-      map.setView([60.0, 15.0], 5);
-    }}
-
-    function zoomToUSA() {{
-      map.setView([37.0, -95.0], 4);
-    }}
-
-    function zoomToLatam() {{
-      map.setView([-15.0, -60.0], 3);
-    }}
-
-    function zoomToMiddleEast() {{
-      map.setView([25.0, 50.0], 5);
-    }}
-
-    function zoomToSouthAfrica() {{
-      map.setView([-29.0, 24.0], 5);
-    }}
-
+    // Filtros
     function setRegionFilter(region) {{
       currentRegion = region;
       document.querySelectorAll('.filter-region-btn').forEach(btn => {{
@@ -831,9 +1184,36 @@ def render_html():
       applyFilters();
     }}
 
+    function setBudgetFilter(budget) {{
+      currentBudget = budget;
+      document.querySelectorAll('.filter-budget-btn').forEach(btn => {{
+        if (btn.dataset.budget === budget) {{
+          btn.classList.add('bg-slate-900', 'text-white');
+          btn.classList.remove('bg-slate-100', 'text-slate-600');
+        }} else {{
+          btn.classList.remove('bg-slate-900', 'text-white');
+          btn.classList.add('bg-slate-100', 'text-slate-600');
+        }}
+      }});
+      applyFilters();
+    }}
+
+    function setFacilityFilter(facility) {{
+      currentFacility = facility;
+      document.querySelectorAll('.filter-facility-btn').forEach(btn => {{
+        if (btn.dataset.facility === facility) {{
+          btn.classList.add('bg-slate-900', 'text-white');
+          btn.classList.remove('bg-slate-100', 'text-slate-600');
+        }} else {{
+          btn.classList.remove('bg-slate-900', 'text-white');
+          btn.classList.add('bg-slate-100', 'text-slate-600');
+        }}
+      }});
+      applyFilters();
+    }}
+
     function applyFilters() {{
       const query = document.getElementById('searchInput').value.toLowerCase().trim();
-      
       const cards = document.querySelectorAll('.franchise-card');
       const tableRows = document.querySelectorAll('#tableView tbody tr');
       
@@ -845,10 +1225,17 @@ def render_html():
         const matchRegion = (currentRegion === 'all' || regionCode === currentRegion);
         const matchModel = (currentModel === 'all' || f.tipo_categoria === currentModel);
         
+        const cardElem = cards[idx];
+        const cardBudget = cardElem ? cardElem.dataset.budget : 'mid';
+        const cardFacility = cardElem ? cardElem.dataset.facility : 'indoor';
+
+        const matchBudget = (currentBudget === 'all' || cardBudget === currentBudget);
+        const matchFacility = (currentFacility === 'all' || cardFacility === currentFacility);
+
         const textToSearch = `${{f.nombre}} ${{f.pais}} ${{f.ciudad_sede}} ${{f.software}} ${{f.tagline}} ${{f.modelo}}`.toLowerCase();
         const matchQuery = !query || textToSearch.includes(query);
 
-        const isVisible = matchRegion && matchModel && matchQuery;
+        const isVisible = matchRegion && matchModel && matchBudget && matchFacility && matchQuery;
 
         if (cards[idx]) {{
           cards[idx].style.display = isVisible ? 'flex' : 'none';
@@ -894,9 +1281,349 @@ def render_html():
       }}
     }}
 
+    // =========================================================================
+    // COMPARADOR CARA A CARA (SIDE-BY-SIDE MATRIX)
+    // =========================================================================
+    function toggleCompare(id) {{
+      const index = selectedFranchises.indexOf(id);
+      if (index > -1) {{
+        selectedFranchises.splice(index, 1);
+      }} else {{
+        if (selectedFranchises.length >= 3) {{
+          alert("Puedes comparar un máximo de 3 franquicias a la vez. Desmarca una de las seleccionadas para añadir otra.");
+          return;
+        }}
+        selectedFranchises.push(id);
+      }}
+      updateCompareUI();
+    }}
+
+    function updateCompareUI() {{
+      // Actualizar botones de tarjetas
+      document.querySelectorAll('.compare-card-btn').forEach(btn => {{
+        const btnId = btn.id.replace('compare-btn-', '').replace('table-compare-btn-', '');
+        const isSelected = selectedFranchises.includes(btnId);
+        const label = btn.querySelector('.compare-label');
+        
+        if (isSelected) {{
+          btn.classList.add('bg-slate-900', 'text-white', 'border-slate-900');
+          btn.classList.remove('bg-white', 'text-slate-600', 'border-slate-200');
+          if (label) label.textContent = '✓ Seleccionada';
+        }} else {{
+          btn.classList.remove('bg-slate-900', 'text-white', 'border-slate-900');
+          btn.classList.add('bg-white', 'text-slate-600', 'border-slate-200');
+          if (label) label.textContent = 'Comparar';
+        }}
+      }});
+
+      // Actualizar Barra Flotante
+      const bar = document.getElementById('compareFloatingBar');
+      const countPill = document.getElementById('compareCountPill');
+      const chipsContainer = document.getElementById('compareChips');
+
+      if (selectedFranchises.length > 0) {{
+        countPill.textContent = `${{selectedFranchises.length}} / 3`;
+        chipsContainer.innerHTML = selectedFranchises.map(fid => {{
+          const f = FRANQUICIAS.find(x => x.id === fid);
+          if (!f) return '';
+          return `
+            <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-800 text-slate-200 text-xs font-bold border border-slate-700">
+              <span>${{f.bandera}}</span>
+              <span class="max-w-[120px] truncate">${{f.nombre}}</span>
+              <button onclick="toggleCompare('${{f.id}}')" class="text-slate-400 hover:text-white font-black ml-1">&times;</button>
+            </div>
+          `;
+        }}).join('');
+
+        bar.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-32');
+        bar.classList.add('opacity-100', 'pointer-events-auto', 'translate-y-0');
+      }} else {{
+        bar.classList.add('opacity-0', 'pointer-events-none', 'translate-y-32');
+        bar.classList.remove('opacity-100', 'pointer-events-auto', 'translate-y-0');
+      }}
+      lucide.createIcons();
+    }}
+
+    function clearCompare() {{
+      selectedFranchises = [];
+      updateCompareUI();
+    }}
+
+    function focusComparatorTip() {{
+      const filtros = document.getElementById('filtrosContainer');
+      filtros.scrollIntoView({{ behavior: 'smooth' }});
+    }}
+
+    function openCompareModal() {{
+      if (selectedFranchises.length === 0) return;
+      const items = selectedFranchises.map(fid => FRANQUICIAS.find(x => x.id === fid)).filter(Boolean);
+
+      const modalContent = document.getElementById('compareModalContent');
+      
+      const gridCols = items.length === 1 ? 'grid-cols-1' : (items.length === 2 ? 'grid-cols-1 md:grid-cols-2' : 'grid-cols-1 md:grid-cols-3');
+
+      modalContent.innerHTML = `
+        <div class="grid ${{gridCols}} gap-6">
+          ${{items.map(f => `
+            <div class="bg-slate-50 rounded-3xl p-6 border border-slate-200 flex flex-col justify-between space-y-6">
+              
+              <!-- Cabecera Franquicia -->
+              <div>
+                <div class="flex items-center justify-between gap-2 mb-3">
+                  <span class="inline-block px-3 py-1 rounded-full text-xs font-bold border ${{f.modelo_badge}}">
+                    ${{f.modelo}}
+                  </span>
+                  <span class="text-2xl">${{f.bandera}}</span>
+                </div>
+                <h3 class="font-heading font-black text-2xl text-slate-950 mb-1">${{f.nombre}}</h3>
+                <p class="text-xs font-semibold text-slate-500 mb-3 flex items-center gap-1">
+                  <i data-lucide="map-pin" class="w-3.5 h-3.5 text-slate-400"></i>
+                  <span>${{f.ciudad_sede}}, ${{f.pais}}</span>
+                </p>
+                <p class="text-xs text-slate-600 italic bg-white p-3 rounded-xl border border-slate-200">
+                  "${{f.tagline}}"
+                </p>
+              </div>
+
+              <!-- Bloque 1: Cánones Económicos y Retorno -->
+              <div class="p-4 bg-white rounded-2xl border border-slate-200 space-y-2.5 text-xs">
+                <span class="font-heading font-black text-xs uppercase text-slate-900 block border-b pb-1.5 flex items-center gap-1.5">
+                  <i data-lucide="coins" class="w-4 h-4 text-[#f2920b]"></i> Cánones & Inversión
+                </span>
+                <div><strong class="text-slate-500">Inversión Estimada:</strong> <span class="font-bold text-slate-900">${{f.modelo_expansion.inversion_media}}</span></div>
+                <div><strong class="text-slate-500">Canon & Royalties:</strong> <span class="font-bold text-slate-900">${{f.modelo_expansion.canon_royalties}}</span></div>
+                <div><strong class="text-slate-500">Tipo de Contrato:</strong> <span class="text-slate-800">${{f.modelo_expansion.tipo_contrato}}</span></div>
+                <div><strong class="text-slate-500">Perfil Idóneo:</strong> <span class="text-slate-800">${{f.modelo_expansion.perfil_club}}</span></div>
+              </div>
+
+              <!-- Bloque 2: Requisitos de Instalación -->
+              <div class="p-4 bg-white rounded-2xl border border-slate-200 space-y-2.5 text-xs">
+                <span class="font-heading font-black text-xs uppercase text-slate-900 block border-b pb-1.5 flex items-center gap-1.5">
+                  <i data-lucide="warehouse" class="w-4 h-4 text-[#f2920b]"></i> Instalación & Pistas
+                </span>
+                <div><strong class="text-slate-500">Pistas y Cubierta:</strong> <span class="text-slate-800">${{f.tecnologia_pistas.pistas}}</span></div>
+                <div><strong class="text-slate-500">Software de Reservas:</strong> <span class="font-bold text-slate-900">${{f.software}}</span></div>
+                <div><strong class="text-slate-500">Domótica y Acceso:</strong> <span class="text-slate-800">${{f.tecnologia_pistas.domotica}}</span></div>
+                <div><strong class="text-slate-500">Grabación en Pista:</strong> <span class="text-slate-800">${{f.tecnologia_pistas.grabacion}}</span></div>
+                <div><strong class="text-slate-500">Restauración:</strong> <span class="text-slate-800">${{f.tecnologia_pistas.restauracion}}</span></div>
+              </div>
+
+              <!-- Bloque 3: Diferencial -->
+              <div class="p-4 bg-amber-50/70 rounded-2xl border border-amber-200 text-xs space-y-1">
+                <span class="font-heading font-black text-[11px] uppercase text-amber-900 block">Ventaja Competitiva</span>
+                <p class="text-amber-950 leading-relaxed font-medium">${{f.diferencial}}</p>
+              </div>
+
+              <!-- Acciones de Conversión -->
+              <div class="pt-2 space-y-2">
+                <a href="https://wa.me/34680317486?text=Hola%20Javier%2C%20estoy%20usando%20el%20comparador%20y%20quiero%20el%20dossier%20completo%20de%20inversi%C3%B3n%20de%20${{encodeURIComponent(f.nombre)}}" target="_blank"
+                   class="w-full py-3 rounded-xl bg-[#f2920b] hover:bg-[#d97f08] text-slate-950 font-heading font-black text-xs uppercase tracking-wider transition text-center flex items-center justify-center gap-1.5 shadow-xs">
+                  <i data-lucide="file-text" class="w-4 h-4"></i>
+                  <span>Solicitar Dossier de Inversión</span>
+                </a>
+                <a href="${{f.web}}" target="_blank" class="w-full py-2.5 rounded-xl bg-white border border-slate-300 hover:bg-slate-100 text-slate-700 font-bold text-xs transition text-center flex items-center justify-center gap-1">
+                  <span>Web Oficial</span>
+                  <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                </a>
+              </div>
+
+            </div>
+          `).join('')}}
+        </div>
+      `;
+
+      document.getElementById('compareModalOverlay').classList.remove('opacity-0', 'pointer-events-none');
+      document.getElementById('compareModal').classList.remove('scale-95');
+      document.body.classList.add('drawer-open');
+      lucide.createIcons();
+    }}
+
+    function closeCompareModal() {{
+      document.getElementById('compareModalOverlay').classList.add('opacity-0', 'pointer-events-none');
+      document.getElementById('compareModal').classList.add('scale-95');
+      document.body.classList.remove('drawer-open');
+    }}
+
+    // =========================================================================
+    // ONBOARDING / RECLAMAR FICHA (WIZARD 4 PASOS)
+    // =========================================================================
+    function openOnboardingModal(prefillId = null) {{
+      const form = document.getElementById('onboardingForm');
+      form.reset();
+      
+      const successBox = document.getElementById('onboardingSuccess');
+      const navBtns = document.getElementById('onboardingNavBtns');
+      successBox.classList.add('hidden');
+      navBtns.classList.remove('hidden');
+
+      if (prefillId) {{
+        const f = FRANQUICIAS.find(x => x.id === prefillId);
+        if (f) {{
+          document.getElementById('onboardingModalTitle').textContent = `Reclamar Ficha: ${{f.nombre}}`;
+          document.getElementById('ob_nombre').value = f.nombre;
+          document.getElementById('ob_web').value = f.web;
+          document.getElementById('ob_sede').value = `${{f.ciudad_sede}}, ${{f.pais}}`;
+          document.getElementById('ob_num_clubs').value = parseInt(f.num_clubs) || 2;
+          document.getElementById('ob_software').value = f.software;
+          document.getElementById('ob_inversion_media').value = f.modelo_expansion.inversion_media;
+          document.getElementById('ob_canon_entrada').value = f.modelo_expansion.canon_royalties;
+        }}
+      }} else {{
+        document.getElementById('onboardingModalTitle').textContent = "Alta / Reclamar Ficha de Franquicia";
+      }}
+
+      goToStep(1);
+
+      document.getElementById('onboardingModalOverlay').classList.remove('opacity-0', 'pointer-events-none');
+      document.getElementById('onboardingModal').classList.remove('scale-95');
+      document.body.classList.add('drawer-open');
+      lucide.createIcons();
+    }}
+
+    function claimCurrentFranchise() {{
+      const fid = currentDrawerId;
+      closeDrawer();
+      setTimeout(() => {{
+        openOnboardingModal(fid);
+      }}, 200);
+    }}
+
+    function closeOnboardingModal() {{
+      document.getElementById('onboardingModalOverlay').classList.add('opacity-0', 'pointer-events-none');
+      document.getElementById('onboardingModal').classList.add('scale-95');
+      document.body.classList.remove('drawer-open');
+    }}
+
+    function goToStep(step) {{
+      currentStep = step;
+      
+      for (let i = 1; i <= 4; i++) {{
+        const stepDiv = document.getElementById(`onboardingStep${{i}}`);
+        const indicator = document.getElementById(`step-indicator-${{i}}`);
+        
+        if (i === step) {{
+          stepDiv.classList.remove('hidden');
+          indicator.className = "text-center py-1 rounded-lg bg-[#f2920b] text-slate-950 font-black transition";
+        }} else if (i < step) {{
+          stepDiv.classList.add('hidden');
+          indicator.className = "text-center py-1 rounded-lg bg-emerald-100 text-emerald-800 font-bold transition";
+        }} else {{
+          stepDiv.classList.add('hidden');
+          indicator.className = "text-center py-1 rounded-lg bg-slate-200 text-slate-600 font-bold transition";
+        }}
+      }}
+
+      const prevBtn = document.getElementById('obPrevBtn');
+      const nextBtn = document.getElementById('obNextBtn');
+      const submitBtn = document.getElementById('obSubmitBtn');
+
+      prevBtn.disabled = (step === 1);
+
+      if (step === 4) {{
+        nextBtn.classList.add('hidden');
+        submitBtn.classList.remove('hidden');
+      }} else {{
+        nextBtn.classList.remove('hidden');
+        submitBtn.classList.add('hidden');
+      }}
+    }}
+
+    function nextStep() {{
+      // Validaciones básicas de paso
+      if (currentStep === 1) {{
+        const nom = document.getElementById('ob_nombre').value.trim();
+        const web = document.getElementById('ob_web').value.trim();
+        const email = document.getElementById('ob_contacto_email').value.trim();
+        const tel = document.getElementById('ob_contacto_tel').value.trim();
+        if (!nom || !web || !email || !tel) {{
+          alert("Por favor completa los campos obligatorios del Responsable de Expansión.");
+          return;
+        }}
+      }}
+      if (currentStep < 4) {{
+        goToStep(currentStep + 1);
+      }}
+    }}
+
+    function prevStep() {{
+      if (currentStep > 1) {{
+        goToStep(currentStep - 1);
+      }}
+    }}
+
+    async function submitOnboarding(e) {{
+      e.preventDefault();
+      
+      const submitBtn = document.getElementById('obSubmitBtn');
+      submitBtn.disabled = true;
+      submitBtn.textContent = "Registrando expediente...";
+
+      const ticketId = `CP-FRQ-2026-${{Math.floor(1000 + Math.random() * 9000)}}`;
+
+      const payload = {{
+        tipo: "onboarding_franquicia",
+        evento: "alta_homologacion_franquicia",
+        ticket: ticketId,
+        fecha: new Date().toISOString(),
+        nombre_franquicia: document.getElementById('ob_nombre').value,
+        web: document.getElementById('ob_web').value,
+        sede: document.getElementById('ob_sede').value,
+        num_clubs: document.getElementById('ob_num_clubs').value,
+        responsable_nombre: document.getElementById('ob_contacto_nombre').value,
+        responsable_cargo: document.getElementById('ob_contacto_cargo').value,
+        responsable_email: document.getElementById('ob_contacto_email').value,
+        responsable_tel: document.getElementById('ob_contacto_tel').value,
+        tipo_instalacion: document.getElementById('ob_tipo_instalacion').value,
+        altura_minima: document.getElementById('ob_altura_minima').value,
+        pistas_minimas: document.getElementById('ob_pistas_minimas').value,
+        m2_minimos: document.getElementById('ob_m2_minimos').value,
+        canon_entrada: document.getElementById('ob_canon_entrada').value,
+        royalty_mensual: document.getElementById('ob_royalty_mensual').value,
+        inversion_media: document.getElementById('ob_inversion_media').value,
+        payback: document.getElementById('ob_payback').value,
+        exclusividad: document.getElementById('ob_exclusividad').value,
+        software: document.getElementById('ob_software').value,
+        domotica: document.getElementById('ob_domotica').value,
+        camaras: document.getElementById('ob_camaras').value,
+        servicios: document.getElementById('ob_servicios').value,
+        diferencial: document.getElementById('ob_diferencial').value,
+      }};
+
+      try {{
+        // Envío asíncrono al Webhook oficial de CoolPadel
+        fetch(WEBHOOK_URL, {{
+          method: 'POST',
+          mode: 'no-cors',
+          headers: {{ 'Content-Type': 'application/json' }},
+          body: JSON.stringify(payload)
+        }}).catch(err => console.log('Webhook dispatched:', err));
+      }} catch (err) {{
+        console.error('Error enviando webhook:', err);
+      }}
+
+      // Ocultar pasos y mostrar pantalla de éxito
+      for (let i = 1; i <= 4; i++) {{
+        document.getElementById(`onboardingStep${{i}}`).classList.add('hidden');
+      }}
+      document.getElementById('onboardingNavBtns').classList.add('hidden');
+      
+      const successBox = document.getElementById('onboardingSuccess');
+      document.getElementById('successTicket').textContent = ticketId;
+      
+      const msgWa = `Hola Javier, acabo de registrar la homologación de mi franquicia ${{payload.nombre_franquicia}} con el ticket ${{ticketId}}. Mi email es ${{payload.responsable_email}}`;
+      document.getElementById('successWaBtn').href = `https://wa.me/34680317486?text=${{encodeURIComponent(msgWa)}}`;
+      
+      successBox.classList.remove('hidden');
+      lucide.createIcons();
+    }}
+
+    // =========================================================================
+    // SLIDE-OVER DRAWER LOGIC
+    // =========================================================================
     function openDrawer(id) {{
       const f = FRANQUICIAS.find(item => item.id === id);
       if (!f) return;
+      currentDrawerId = id;
 
       document.getElementById('drawerTitle').textContent = f.nombre;
       document.getElementById('drawerFlag').textContent = f.bandera;
@@ -953,9 +1680,13 @@ def render_html():
       document.body.classList.remove('drawer-open');
     }}
 
-    // Cerrar con Escape
+    // Cerrar modales con Escape
     document.addEventListener('keydown', function(e) {{
-      if (e.key === 'Escape') closeDrawer();
+      if (e.key === 'Escape') {{
+        closeDrawer();
+        closeCompareModal();
+        closeOnboardingModal();
+      }}
     }});
 
     // Inicializar mapa al cargar
@@ -978,7 +1709,7 @@ def main():
     with open(target_file, "w", encoding="utf-8") as f:
         f.write(html_content)
 
-    print(f"Directorio de franquicias y cadenas generado con éxito en: {target_file}")
+    print(f"Directorio de franquicias y cadenas generado con exito en: {target_file}")
     print(f"Total de entidades incluidas: {len(FRANQUICIAS)}")
 
 
