@@ -3,10 +3,11 @@
 Generador Maestro del Directorio Global de Franquicias y Cadenas de Pádel (+1 Club)
 para CoolPadel Studios (https://coolpadelstudios.com/franquicias-padel/).
 
-Censo exhaustivo de 54 operadores multi-club y franquicias en 18 países:
+Censo exhaustivo de 67 cadenas de clubes con varias sedes abiertas bajo el mismo nombre
+y franquicias de pádel en 18 países:
 España, Francia, Italia, Portugal, Suecia, Noruega, Dinamarca, Finlandia,
-Países Bajos, Bélgica, Alemania, Reino Unido, Estados Unidos, México,
-Chile, Argentina, Emiratos Árabes Unidos, Catar y Kuwait.
+Países Bajos, Bélgica, Alemania, Austria, Reino Unido, Estados Unidos, México,
+Chile, Argentina, Brasil, Emiratos Árabes Unidos, Catar y Kuwait.
 """
 
 import os
@@ -16,8 +17,132 @@ from datetime import datetime
 
 FRANQUICIAS = [
     # ─────────────────────────────────────────────────────────────
-    # 🇪🇸 ESPAÑA (11 Operadores)
+    # 🇪🇸 ESPAÑA (13 Cadenas y Franquicias)
     # ─────────────────────────────────────────────────────────────
+    {
+        "id": "padel-7",
+        "nombre": "Pàdel 7",
+        "pais": "España",
+        "pais_codigo": "ES",
+        "region_filtro": "ES",
+        "bandera": "🇪🇸",
+        "ciudad_sede": "Barcelona",
+        "coords": [41.3980, 2.1900],
+        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
+        "tipo_categoria": "cadena",
+        "escala": "media",
+        "num_clubs": "5 clubes con el mismo nombre",
+        "num_pistas": "45+ pistas",
+        "software": "Playtomic / CourtBrain",
+        "fundadores": "Grup Pàdel 7 Barcelona",
+        "web": "https://padel7santmarti.com",
+        "tagline": "La cadena histórica de clubes de pádel urbanos de Barcelona y el Maresme.",
+        "resumen": "Pàdel 7 es una de las marcas más reconocidas de Cataluña. Opera múltiples clubes bajo la misma enseña Pàdel 7 en Barcelona capital y comarcas colindantes: Pàdel 7 Glòries (con pistas en azotea rooftop y naves cubiertas), Pàdel 7 Sant Martí/Poblenou (100% indoor en nave industrial), Pàdel 7 Malgrat de Mar (13 pistas en el Maresme), además de sedes en Terrassa y Sant Andreu.",
+        "sedes_principales": [
+            "Pàdel 7 Glòries (Barcelona - 11 pistas: indoor y rooftop outdoor)",
+            "Pàdel 7 Sant Martí / Poblenou (Barcelona - 11 pistas cubiertas)",
+            "Pàdel 7 Malgrat (Malgrat de Mar, Maresme - 13 pistas: 8 cubiertas + 5 outdoor)",
+            "Pàdel 7 Terrassa (Barcelona)",
+            "Pàdel 7 Sant Andreu (Barcelona)"
+        ],
+        "tecnologia_pistas": {
+            "pistas": "Pistas panorámicas cubiertas, descubiertas y en azoteas (rooftops urbanos)",
+            "software": "Playtomic y CourtBrain para reservas y ligas",
+            "domotica": "Acceso por tornos electrónicos y código de socio",
+            "grabacion": "Pistas preparadas para streaming en torneos locales",
+            "restauracion": "Terrazas chill-out con vistas urbanas, cafetería y venta de material"
+        },
+        "modelo_expansion": {
+            "tipo_contrato": "Cadena de clubes propios bajo la marca unificada Pàdel 7",
+            "perfil_club": "Naves industriales urbanas y parcelas periurbanas de 6 a 14 pistas",
+            "canon_royalties": "Operador directo de cadena",
+            "inversion_media": "500.000€ a 1.200.000€ por apertura"
+        },
+        "diferencial": "Ubicación en los barrios más cotizados de Barcelona (Poblenou, Glòries) y comunidad histórica de miles de jugadores habituales."
+    },
+    {
+        "id": "padel-people",
+        "nombre": "Padel People",
+        "pais": "España",
+        "pais_codigo": "ES",
+        "region_filtro": "ES",
+        "bandera": "🇪🇸",
+        "ciudad_sede": "Torrelodones (Madrid)",
+        "coords": [40.5756, -3.9303],
+        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
+        "tipo_categoria": "cadena",
+        "escala": "boutique",
+        "num_clubs": "2 centros con el mismo nombre",
+        "num_pistas": "14+ pistas",
+        "software": "Playtomic",
+        "fundadores": "Padel People Sports Group",
+        "web": "https://padelpeopletorrelodones.com",
+        "tagline": "Clubes de pádel cubierto de referencia en el noroeste de Madrid.",
+        "resumen": "Cadena de centros con la misma marca en la sierra noroeste de Madrid. Su buque insignia en Torrelodones cuenta con 8 pistas (7 cubiertas bajo nave y 1 central exterior), con un fuerte arraigo en escuelas de tecnificación, gimnasio propio y cafetería social con terraza.",
+        "sedes_principales": [
+            "Padel People Torrelodones (Madrid - 8 pistas: 7 cubiertas + 1 outdoor)",
+            "Instalaciones satélites asociadas en la sierra de Guadarrama"
+        ],
+        "tecnologia_pistas": {
+            "pistas": "Pistas de cristal con iluminación LED y césped monofilamento azul",
+            "software": "Playtomic",
+            "domotica": "Check-in digitalizado y reservas automáticas",
+            "grabacion": "Grabación de partidos de liga social y torneos de la FMP",
+            "restauracion": "Cafetería restaurante con terraza de verano y zona fitness"
+        },
+        "modelo_expansion": {
+            "tipo_contrato": "Explotación propia bajo la marca Padel People",
+            "perfil_club": "Centros cubiertos de 6 a 10 pistas en zonas residenciales",
+            "canon_royalties": "Gestión directa",
+            "inversion_media": "400.000€ a 800.000€"
+        },
+        "diferencial": "Excelente reputación formativa en la sierra de Madrid y ambiente familiar y acogedor."
+    },
+    {
+        "id": "forus-padel",
+        "nombre": "Forus Padel",
+        "pais": "España y Portugal",
+        "pais_codigo": "ES",
+        "region_filtro": "ES",
+        "bandera": "🇪🇸",
+        "ciudad_sede": "Madrid",
+        "coords": [40.4500, -3.6800],
+        "modelo": "Cadena de Complejos Multideporte y Pádel",
+        "modelo_badge": "bg-blue-100 text-blue-800 border-blue-200",
+        "tipo_categoria": "corporativo",
+        "escala": "mega",
+        "num_clubs": "15+ centros con pádel bajo la misma marca",
+        "num_pistas": "50+ pistas",
+        "software": "Resasports / Playtomic",
+        "fundadores": "Ignacio Triana (Forus Deporte y Ocio)",
+        "web": "https://forus.es",
+        "tagline": "Uno de los mayores operadores deportivos de la península ibérica.",
+        "resumen": "Forus opera más de 60 centros en España, Portugal e Italia. En más de 15 de sus mayores complejos cuenta con secciones especializadas de pádel con múltiples pistas cubiertas y exteriores bajo la misma marca Forus, combinando el pádel con gimnasio, spa y piscinas.",
+        "sedes_principales": [
+            "Forus Chamartín (Madrid)",
+            "Forus Alcalá de Henares (Madrid)",
+            "Forus Coslada (Madrid)",
+            "Forus Jaén (Andalucía)",
+            "Forus Elche (Alicante)",
+            "Forus Segovia, Forus Valencia y centros en Oporto (Portugal)"
+        ],
+        "tecnologia_pistas": {
+            "pistas": "Pistas panorámicas de cristal y césped sintético",
+            "software": "Resasports y Playtomic",
+            "domotica": "Tornos de acceso con pulsera RFID para abonados",
+            "grabacion": "Grabación en finales de ligas internas",
+            "restauracion": "Cafeterías Forus con menús saludables para deportistas"
+        },
+        "modelo_expansion": {
+            "tipo_contrato": "Concesiones administrativas a 25-40 años y centros privados",
+            "perfil_club": "Macrocomplejos de ocio y fitness con área de raqueta",
+            "canon_royalties": "Operador institucional",
+            "inversion_media": "3M€ a 7M€ por complejo deportivo"
+        },
+        "diferencial": "Alianza con ayuntamientos y más de 200.000 abonados en su red que alimentan las pistas de pádel."
+    },
     {
         "id": "bamvolea",
         "nombre": "BamVolea",
@@ -72,17 +197,17 @@ FRANQUICIAS = [
         "bandera": "🇪🇸",
         "ciudad_sede": "Sant Cugat del Vallès (Barcelona)",
         "coords": [41.4674, 2.0818],
-        "modelo": "Red Corporativa Propia",
-        "modelo_badge": "bg-blue-100 text-blue-800 border-blue-200",
-        "tipo_categoria": "boutique",
+        "modelo": "Cadena Multiclub Boutique (Mismo Nombre)",
+        "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
+        "tipo_categoria": "cadena",
         "escala": "media",
-        "num_clubs": "7+ centros",
+        "num_clubs": "7+ centros con el mismo nombre",
         "num_pistas": "85+ pistas",
         "software": "Playtomic",
         "fundadores": "Marta Marrero (ex Nº 1 mundial), Jon Grau, Daniel Osés",
         "web": "https://aurialpadel.com",
         "tagline": "Clubes de pádel experienciales de alta gama con metodología de Nº 1 del mundo.",
-        "resumen": "Referente de clubes boutique en Cataluña. Combina pistas de competición con gimnasios boutique, su propia marca gastronómica 'Desbario' y la Aurial Padel Academy.",
+        "resumen": "Cadena de clubes bajo el mismo nombre Aurial Padel en Cataluña. Combina pistas de competición con gimnasios boutique, su propia marca gastronómica 'Desbario' y la Aurial Padel Academy.",
         "sedes_principales": [
             "Aurial Augusta Sant Cugat (Sant Cugat, Barcelona - 14 pistas)",
             "Aurial Pàdel Cornellà (Cornellà, Barcelona - 14 pistas)",
@@ -98,7 +223,7 @@ FRANQUICIAS = [
             "restauracion": "Restaurantes 'Desbario': gastronomía cuidada, menú saludable y cócteles"
         },
         "modelo_expansion": {
-            "tipo_contrato": "Gestión directa corporativa, joint-ventures y licencias de academia",
+            "tipo_contrato": "Gestión directa corporativa bajo la misma enseña",
             "perfil_club": "Instalaciones de alto nivel de 8 a 15 pistas con espacio para gimnasio y restaurante",
             "canon_royalties": "Acuerdos individualizados de marca y metodología",
             "inversion_media": "600.000€ a 1.800.000€"
@@ -114,21 +239,21 @@ FRANQUICIAS = [
         "bandera": "🇪🇸",
         "ciudad_sede": "Barcelona",
         "coords": [41.3879, 2.1699],
-        "modelo": "Centro Insignia y Licencia de Academia",
-        "modelo_badge": "bg-purple-100 text-purple-800 border-purple-200",
-        "tipo_categoria": "boutique",
+        "modelo": "Cadena de Centros Insignia (Mismo Nombre)",
+        "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
+        "tipo_categoria": "cadena",
         "escala": "media",
-        "num_clubs": "4 centros insignia",
+        "num_clubs": "4 centros con el mismo nombre",
         "num_pistas": "45+ pistas",
         "software": "Playtomic",
         "fundadores": "Fernando Belasteguín (16 años Nº 1 del mundo), One16 Sports",
         "web": "https://belapadelcenter.com",
         "tagline": "La escuela y templo del mayor jugador de la historia del pádel.",
-        "resumen": "Grandes clubes propios de alta gama (Barcelona con 20 pistas, Alicante con 14) combinados con la exportación internacional de su metodología Bela-Sciorilli a clubes licenciatarios en Argentina, México e Italia.",
+        "resumen": "Grandes clubes propios de alta gama (BPC Barcelona con 20 pistas, BPC Alicante con 14) combinados con la exportación internacional de su metodología Bela-Sciorilli a clubes licenciatarios en Argentina, México e Italia.",
         "sedes_principales": [
-            "BPC Barcelona (Barcelona - 20 pistas indoor/outdoor)",
-            "BPC Alicante (Playa de San Juan, Alicante - 14 pistas)",
-            "Buenos Aires (Argentina)",
+            "Bela Padel Center Barcelona (20 pistas indoor/outdoor)",
+            "Bela Padel Center Alicante (Playa de San Juan - 14 pistas)",
+            "Bela Padel Center Buenos Aires (Argentina)",
             "Centros licenciados en expansión en México y Oriente Medio"
         ],
         "tecnologia_pistas": {
@@ -276,11 +401,11 @@ FRANQUICIAS = [
         "bandera": "🇪🇸",
         "ciudad_sede": "Barcelona",
         "coords": [41.3851, 2.1734],
-        "modelo": "Red Multideporte y Pádel en Concesión",
+        "modelo": "Cadena Multideporte y Pádel en Concesión",
         "modelo_badge": "bg-blue-100 text-blue-800 border-blue-200",
         "tipo_categoria": "corporativo",
         "escala": "media",
-        "num_clubs": "10+ complejos",
+        "num_clubs": "10+ complejos con pádel",
         "num_pistas": "65+ pistas",
         "software": "Resasports / Playtomic",
         "fundadores": "Grupo Duet",
@@ -318,17 +443,17 @@ FRANQUICIAS = [
         "bandera": "🇪🇸",
         "ciudad_sede": "Málaga",
         "coords": [36.7213, -4.4214],
-        "modelo": "Red Multiclub Provincial Líder",
-        "modelo_badge": "bg-blue-100 text-blue-800 border-blue-200",
-        "tipo_categoria": "corporativo",
+        "modelo": "Cadena Multiclub Provincial (Mismo Nombre)",
+        "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
+        "tipo_categoria": "cadena",
         "escala": "media",
-        "num_clubs": "5 grandes complejos",
+        "num_clubs": "5 grandes complejos con el mismo nombre",
         "num_pistas": "35+ pistas",
         "software": "Playtomic",
         "fundadores": "Grupo Vals Sport Málaga",
         "web": "https://valssport.com",
         "tagline": "El operador deportivo de referencia en la Costa del Sol y la provincia de Málaga.",
-        "resumen": "Vals Sport es el auténtico dominador del pádel y la raqueta en Málaga. Con cinco grandes centros en la capital, vertebran la mayor liga interclubes de Andalucía y escuelas formativas con cientos de alumnos.",
+        "resumen": "Vals Sport es el dominador del pádel y la raqueta en Málaga. Con cinco grandes centros bajo la misma marca Vals Sport en la capital, vertebran la mayor liga interclubes de Andalucía y escuelas formativas con cientos de alumnos.",
         "sedes_principales": [
             "Vals Sport Cónsul (Teatinos - 10 pistas de pádel + fitness)",
             "Vals Sport Teatinos (Málaga)",
@@ -392,45 +517,6 @@ FRANQUICIAS = [
         "diferencial": "Instalaciones 100% blindadas climáticamente con altísima ocupación en meses invernales."
     },
     {
-        "id": "padel-derio-gol",
-        "nombre": "Pádel Derio / Pádel & Gol",
-        "pais": "España",
-        "pais_codigo": "ES",
-        "region_filtro": "ES",
-        "bandera": "🇪🇸",
-        "ciudad_sede": "Bizkaia (Bilbao)",
-        "coords": [43.2965, -2.8872],
-        "modelo": "Macroclubes Indoor Industriales",
-        "modelo_badge": "bg-blue-100 text-blue-800 border-blue-200",
-        "tipo_categoria": "corporativo",
-        "escala": "media",
-        "num_clubs": "2 macrocentros",
-        "num_pistas": "24+ pistas",
-        "software": "Playtomic",
-        "fundadores": "Padel Derio Club",
-        "web": "https://padelderio.com",
-        "tagline": "El templo del pádel cubierto en el País Vasco.",
-        "resumen": "Ubicado junto al aeropuerto de Bilbao en el Txorierri, Pádel Derio es uno de los clubes cubiertos más afamados del norte de España. Junto a complejos hermanos como Pádel & Gol en Santurtzi, representan la respuesta definitiva a la lluvia constante del Cantábrico.",
-        "sedes_principales": [
-            "Pádel Derio Club (Derio, Bizkaia - 14 pistas cubiertas)",
-            "Pádel & Gol (Santurtzi, Bizkaia - 10 pistas indoor)"
-        ],
-        "tecnologia_pistas": {
-            "pistas": "Pistas panorámicas con césped monofilamento azul y salidas de pista amplias",
-            "software": "Playtomic",
-            "domotica": "Iluminación LED optimizada de bajo deslumbramiento",
-            "grabacion": "Grabación en pista para escuela de menores",
-            "restauracion": "Restaurante vasco tradicional con menús de sidrería y pintxos"
-        },
-        "modelo_expansion": {
-            "tipo_contrato": "Operación directa",
-            "perfil_club": "Naves industriales diáfanas de más de 3.500 m²",
-            "canon_royalties": "Gestión propia",
-            "inversion_media": "1M€ a 2M€"
-        },
-        "diferencial": "Cultura gastronómica vasca en el club y actividad frenética los 365 días del año sin verse afectados por la lluvia."
-    },
-    {
         "id": "padel-dos-cero",
         "nombre": "Pádel 2.0",
         "pais": "España",
@@ -439,17 +525,17 @@ FRANQUICIAS = [
         "bandera": "🇪🇸",
         "ciudad_sede": "Móstoles (Madrid)",
         "coords": [40.3232, -3.8649],
-        "modelo": "Red de Centros Indoor de Competición",
-        "modelo_badge": "bg-blue-100 text-blue-800 border-blue-200",
-        "tipo_categoria": "corporativo",
+        "modelo": "Cadena Multiclub Indoor (Mismo Nombre)",
+        "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
+        "tipo_categoria": "cadena",
         "escala": "boutique",
-        "num_clubs": "2 complejos",
+        "num_clubs": "2 centros con el mismo nombre",
         "num_pistas": "18+ pistas",
         "software": "Playtomic",
         "fundadores": "Entrenadores y promotores madrileños",
         "web": "https://padeldospuntocero.com",
         "tagline": "Clubes indoor de alto rendimiento y tecnificación en el sur de Madrid.",
-        "resumen": "Pádel 2.0 es uno de los clubes más respetados de la Comunidad de Madrid por el altísimo nivel de sus escuelas y torneos. Pistas cubiertas cuidadas al milímetro, alturas óptimas y una comunidad de jugadores avanzados y profesionales que entrenan a diario.",
+        "resumen": "Pádel 2.0 es uno de los clubes más respetados de la Comunidad de Madrid por el altísimo nivel de sus escuelas y torneos. Pistas cubiertas con el mismo nombre Pádel 2.0 en Móstoles y Alcorcón, cuidadas al milímetro.",
         "sedes_principales": [
             "Pádel 2.0 Móstoles (Madrid - 9 pistas indoor)",
             "Pádel 2.0 Alcorcón (Madrid - 9 pistas indoor)"
@@ -462,7 +548,7 @@ FRANQUICIAS = [
             "restauracion": "Bar deportivo con comidas rápidas y venta de material"
         },
         "modelo_expansion": {
-            "tipo_contrato": "Operación propia",
+            "tipo_contrato": "Operación propia bajo marca unificada",
             "perfil_club": "Naves en polígonos del área metropolitana de Madrid de 8 a 10 pistas",
             "canon_royalties": "Gestión directa",
             "inversion_media": "500.000€ a 900.000€"
@@ -471,7 +557,1140 @@ FRANQUICIAS = [
     },
 
     # ─────────────────────────────────────────────────────────────
-    # 🇮🇹 ITALIA (5 Operadores)
+    # 🇫🇷 FRANCIA (7 Cadenas y Franquicias)
+    # ─────────────────────────────────────────────────────────────
+    {
+        "id": "all-in-padel",
+        "nombre": "All In Padel (Jo-Wilfried Tsonga)",
+        "pais": "Francia",
+        "pais_codigo": "FR",
+        "region_filtro": "FR",
+        "bandera": "🇫🇷",
+        "ciudad_sede": "Lyon / Grasse",
+        "coords": [45.7640, 4.8357],
+        "modelo": "Cadena de Clubs de Alto Nivel (Mismo Nombre)",
+        "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
+        "tipo_categoria": "cadena",
+        "escala": "media",
+        "num_clubs": "6 complejos con el mismo nombre",
+        "num_pistas": "40+ pistas",
+        "software": "Doinsport",
+        "fundadores": "Jo-Wilfried Tsonga (ex Top 5 ATP) y Thierry Ascione (All In Group)",
+        "web": "https://allin-padel.com",
+        "tagline": "La cadena de pádel de élite creada por leyendas del tenis francés.",
+        "resumen": "All In Group es una potencia deportiva en Francia fundada por el extenista Jo-Wilfried Tsonga y Thierry Ascione. Cuentan con centros de pádel premium bajo la enseña All In Padel en Lyon OL Vallée (junto al estadio del Olympique de Lyon), Grasse en la Costa Azul, Mougins, Mâcon, Villefranche y Portes-lès-Valence.",
+        "sedes_principales": [
+            "All In Country Club Lyon (OL Vallée, Décines - macrocomplejo de pádel y tenis)",
+            "All In Padel Grasse (Côte d'Azur - uno de los mayores complejos de Francia)",
+            "All In Padel Mougins (Grasse)",
+            "All In Padel Mâcon",
+            "All In Padel Villefranche-sur-Saône",
+            "All In Padel Portes-lès-Valence"
+        ],
+        "tecnologia_pistas": {
+            "pistas": "Pistas panorámicas cubiertas y exteriores con moqueta WPT de alta densidad",
+            "software": "Doinsport",
+            "domotica": "Acceso digitalizado, climatización y domótica de iluminación",
+            "grabacion": "Cámaras profesionales para tecnificación y streaming",
+            "restauracion": "Bistrot deportivo con cocina gourmet francesa, spa, piscina y pro-shop"
+        },
+        "modelo_expansion": {
+            "tipo_contrato": "Desarrollo propio del grupo All In bajo la misma marca",
+            "perfil_club": "Macrocomplejos de raqueta de más de 6 a 12 pistas con academia",
+            "canon_royalties": "Cadena propia",
+            "inversion_media": "1M€ a 3M€ por complejo"
+        },
+        "diferencial": "El carisma e implicación de Jo-Wilfried Tsonga y estándares dignos del circuito ATP/Premier Padel."
+    },
+    {
+        "id": "casa-padel",
+        "nombre": "Casa Padel",
+        "pais": "Francia",
+        "pais_codigo": "FR",
+        "region_filtro": "FR",
+        "bandera": "🇫🇷",
+        "ciudad_sede": "París (Saint-Denis / Asnières)",
+        "coords": [48.9244, 2.3431],
+        "modelo": "Cadena Multiclub Urbana (Mismo Nombre)",
+        "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
+        "tipo_categoria": "cadena",
+        "escala": "boutique",
+        "num_clubs": "2 centros emblemáticos",
+        "num_pistas": "18+ pistas",
+        "software": "Doinsport",
+        "fundadores": "Loïc Le Panse y socios parisinos",
+        "web": "https://casapadel.fr",
+        "tagline": "Pioneros del pádel indoor en el norte de París con gastronomía mediterránea.",
+        "resumen": "Casa Padel abrió en Saint-Denis el primer macrocomplejo cubierto del Gran París (12 pistas indoor). Posteriormente ampliaron la marca a Casa Padel Dos en Asnières-sur-Seine. Se distinguen por su restaurante mediterráneo, salas de osteopatía y torneos de empresas.",
+        "sedes_principales": [
+            "Casa Padel Uno (Saint-Denis, París - 12 pistas indoor)",
+            "Casa Padel Dos (Asnières-sur-Seine, París - 6 pistas cubiertas)"
+        ],
+        "tecnologia_pistas": {
+            "pistas": "Pistas cubiertas con 10 metros de altura libre",
+            "software": "Doinsport",
+            "domotica": "Control digital de iluminación y clima",
+            "grabacion": "Cámaras de streaming para torneos FFT",
+            "restauracion": "Restaurante de cocina española e italiana, terraza y espacio wellness"
+        },
+        "modelo_expansion": {
+            "tipo_contrato": "Operación directa",
+            "perfil_club": "Naves periurbanas de gran tamaño conectadas con el metro de París",
+            "canon_royalties": "Propiedad privada",
+            "inversion_media": "1M€ a 2M€"
+        },
+        "diferencial": "Marca de culto en París por ser la pionera y por su ambiente festivo tras el partido."
+    },
+    {
+        "id": "esprit-padel",
+        "nombre": "Esprit Padel",
+        "pais": "Francia",
+        "pais_codigo": "FR",
+        "region_filtro": "FR",
+        "bandera": "🇫🇷",
+        "ciudad_sede": "Lyon (Saint-Priest)",
+        "coords": [45.6960, 4.9450],
+        "modelo": "Cadena Multiclub de Especialidad (Mismo Nombre)",
+        "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
+        "tipo_categoria": "cadena",
+        "escala": "boutique",
+        "num_clubs": "2 centros con el mismo nombre",
+        "num_pistas": "14+ pistas",
+        "software": "Doinsport",
+        "fundadores": "Sébastien Cornet",
+        "web": "https://espritpadel.com",
+        "tagline": "El club cubierto de pura pasión y escuela de competición en la región de Lyon.",
+        "resumen": "Cadena lionesa dedicada al pádel cubierto. Su centro en Saint-Priest es un referente nacional francés por la calidad de su escuela, su bistrot con productos frescos locales y sus torneos P1000 y P2000.",
+        "sedes_principales": [
+            "Esprit Padel Lyon (Saint-Priest - 8 pistas indoor)",
+            "Esprit Padel Lyon 2 (centro anexo)"
+        ],
+        "tecnologia_pistas": {
+            "pistas": "Pistas panorámicas cubiertas con moqueta azul de competición",
+            "software": "Doinsport",
+            "domotica": "Gestión automática de iluminación",
+            "grabacion": "Cámaras de partido y corrección en pista",
+            "restauracion": "Bistrot gastronómico con platos caseros y cervezas de barril"
+        },
+        "modelo_expansion": {
+            "tipo_contrato": "Operación directa",
+            "perfil_club": "Naves de 6 a 10 pistas en el área metropolitana de Lyon",
+            "canon_royalties": "Gestión directa",
+            "inversion_media": "600.000€ a 1.200.000€"
+        },
+        "diferencial": "Fuerte identidad comunitaria y el club con mayor ratio de fidelidad de jugadores de Lyon."
+    },
+    {
+        "id": "4padel",
+        "nombre": "4PADEL (Groupe LE FIVE)",
+        "pais": "Francia",
+        "pais_codigo": "FR",
+        "region_filtro": "FR",
+        "bandera": "🇫🇷",
+        "ciudad_sede": "París",
+        "coords": [48.9100, 2.3300],
+        "modelo": "Cadena Multiclub Líder (Mismo Nombre)",
+        "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
+        "tipo_categoria": "cadena",
+        "escala": "grande",
+        "num_clubs": "22+ centros con el mismo nombre",
+        "num_pistas": "135+ pistas",
+        "software": "Doinsport / My4Padel",
+        "fundadores": "Damien Pelle, Guillaume Debelmas, Joseph Viéville",
+        "web": "https://4padel.fr",
+        "tagline": "El líder indiscutible del pádel indoor en Francia con ADN deportivo y festivo.",
+        "resumen": "División de pádel de LE FIVE, líder del fútbol 5 en Francia. 22 centros operativos todos con la misma marca 4PADEL: Burdeos, Estrasburgo, Toulouse, Ruan, París. Pistas Babolat oficiales y torneos homologados FFT P100 a P2000.",
+        "sedes_principales": [
+            "4PADEL Estrasburgo (14 pistas indoor)",
+            "4PADEL Burdeos (Bordeaux-Lac - 7 pistas)",
+            "4PADEL Toulouse-Colomiers (11 pistas)",
+            "4PADEL París-Marville y Montreuil",
+            "4PADEL Ruan, Limoges, Metz, Valenciennes, Dunkerque"
+        ],
+        "tecnologia_pistas": {
+            "pistas": "Pistas Babolat de última generación, césped texturizado y pistas individuales",
+            "software": "App My4Padel sobre motor Doinsport",
+            "domotica": "Marcadores digitales y control de pistas",
+            "grabacion": "Sistemas de vídeo en pista para descarga de highlights",
+            "restauracion": "Sports Bar con cervezas artesanales y pantallas para partidos"
+        },
+        "modelo_expansion": {
+            "tipo_contrato": "Explotación propia bajo la misma marca 4PADEL",
+            "perfil_club": "Superficies de 2.500 a 5.000 m² con techos de más de 8 metros",
+            "canon_royalties": "Operador integrado",
+            "inversion_media": "1M€ a 2.5M€ por complejo"
+        },
+        "diferencial": "Sinergia con los miles de futbolistas de LE FIVE y ambiente social inmejorable."
+    },
+    {
+        "id": "urbanpadel",
+        "nombre": "UrbanPadel (Groupe UrbanSoccer)",
+        "pais": "Francia",
+        "pais_codigo": "FR",
+        "region_filtro": "FR",
+        "bandera": "🇫🇷",
+        "ciudad_sede": "París",
+        "coords": [48.8566, 2.3522],
+        "modelo": "Cadena Multiclub Urbana (Mismo Nombre)",
+        "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
+        "tipo_categoria": "cadena",
+        "escala": "media",
+        "num_clubs": "16+ centros con el mismo nombre",
+        "num_pistas": "75+ pistas",
+        "software": "UrbanPadel App",
+        "fundadores": "UrbanSoccer (Compagnie des Alpes)",
+        "web": "https://urbanpadel.fr",
+        "tagline": "El gigante francés del fútbol reducido llevando el pádel a las periferias urbanas.",
+        "resumen": "Brazo de pádel de UrbanSoccer con 16 centros todos con la marca UrbanPadel: Lille, Lyon, Nantes, Puteaux. Pistas cubiertas dentro de sus complejos multideporte en grandes ciudades con academias formativas y ligas de empresa.",
+        "sedes_principales": [
+            "UrbanPadel Lille-Lezennes",
+            "UrbanPadel Lyon-Baraban",
+            "UrbanPadel Nantes-Carquefou",
+            "UrbanPadel Toulouse-Montaudran",
+            "UrbanPadel Rennes (Vern-sur-Seiche)",
+            "UrbanPadel París-Puteaux (Île de Puteaux)"
+        ],
+        "tecnologia_pistas": {
+            "pistas": "Pistas panorámicas indoor cubiertas con césped monofilamento azul",
+            "software": "App oficial de reservas UrbanPadel",
+            "domotica": "Control de acceso sincronizado con la reserva",
+            "grabacion": "Cámaras para análisis de entrenamiento y clínics",
+            "restauracion": "Clubhouse con restauración rápida y pantallas deportivas"
+        },
+        "modelo_expansion": {
+            "tipo_contrato": "Desarrollo propio sobre activos inmobiliarios de UrbanSoccer",
+            "perfil_club": "Centros multideporte de 3 a 8 pistas anexas al fútbol",
+            "canon_royalties": "Operación directa",
+            "inversion_media": "300.000€ a 700.000€"
+        },
+        "diferencial": "Ubicaciones metropolitanas clave y bases de datos consolidadas de deportistas corporativos."
+    },
+    {
+        "id": "padelshot",
+        "nombre": "PadelShot",
+        "pais": "Francia",
+        "pais_codigo": "FR",
+        "region_filtro": "FR",
+        "bandera": "🇫🇷",
+        "ciudad_sede": "Caen",
+        "coords": [49.1828, -0.3707],
+        "modelo": "Cadena Multiactividad (Mismo Nombre)",
+        "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
+        "tipo_categoria": "cadena",
+        "escala": "media",
+        "num_clubs": "5 centros con el mismo nombre",
+        "num_pistas": "36+ pistas",
+        "software": "Doinsport",
+        "fundadores": "Jérôme Doligé",
+        "web": "https://padelshot.fr",
+        "tagline": "El concepto 'Lieu de Vie' donde el pádel convive con el bádminton, la petanca y el ocio social.",
+        "resumen": "5 centros todos bajo la marca PadelShot: Caen, Saint-Étienne, Metz, Lyon Craponne, Reims. Combina pádel cubierto con bádminton, petanca interior y billar, con restaurante deportivo donde la hostelería genera más del 40% de ingresos.",
+        "sedes_principales": [
+            "PadelShot Caen (Mondeville - centro insignia)",
+            "PadelShot Saint-Étienne",
+            "PadelShot Metz",
+            "PadelShot Lyon (Craponne)",
+            "PadelShot Reims"
+        ],
+        "tecnologia_pistas": {
+            "pistas": "Pistas panorámicas con salidas de pista autorizadas y moqueta WPT",
+            "software": "Doinsport para reservas cruzadas multideporte",
+            "domotica": "Marcadores digitales en pista",
+            "grabacion": "Cámaras para torneos FFT P500 y P1000",
+            "restauracion": "Restaurante con platos del día y zonas de seminario para empresas"
+        },
+        "modelo_expansion": {
+            "tipo_contrato": "Desarrollo propio corporativo",
+            "perfil_club": "Naves de 3.000 a 6.000 m² con capacidad para 6-10 pistas más ocio",
+            "canon_royalties": "Operador directo",
+            "inversion_media": "1M€ a 2M€ por complejo"
+        },
+        "diferencial": "Excepcional facturación en hostelería y eventos corporativos para grupos grandes."
+    },
+    {
+        "id": "padel-tolosa",
+        "nombre": "Padel Tolosa",
+        "pais": "Francia",
+        "pais_codigo": "FR",
+        "region_filtro": "FR",
+        "bandera": "🇫🇷",
+        "ciudad_sede": "Toulouse / Montauban",
+        "coords": [43.6047, 1.4442],
+        "modelo": "Cadena Multiclub Regional (Mismo Nombre)",
+        "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
+        "tipo_categoria": "cadena",
+        "escala": "boutique",
+        "num_clubs": "4 complejos con el mismo nombre",
+        "num_pistas": "20+ pistas",
+        "software": "Doinsport",
+        "fundadores": "Jérôme Cauchy y socios",
+        "web": "https://padeltolosa.fr",
+        "tagline": "La cadena de referencia en el suroeste de Francia.",
+        "resumen": "Cadena de clubes bajo el nombre Padel Tolosa en Toulouse, Montauban, Albi y Rodez combinando deporte con gastronomía regional del suroeste (tapas y pato).",
+        "sedes_principales": [
+            "Padel Tolosa Toulouse",
+            "Padel Tolosa Montauban",
+            "Padel Tolosa Albi",
+            "Padel Tolosa Rodez"
+        ],
+        "tecnologia_pistas": {
+            "pistas": "Pistas indoor y semicubiertas homologadas por la FFT",
+            "software": "Doinsport",
+            "domotica": "Check-in móvil y taquillas",
+            "grabacion": "Sistemas de vídeo en pista",
+            "restauracion": "Tapas bar con embutidos locales y vinos de la región"
+        },
+        "modelo_expansion": {
+            "tipo_contrato": "Franquicia regional y clubes propios",
+            "perfil_club": "Ciudades medianas del sur de Francia con 4 a 6 pistas",
+            "canon_royalties": "Canon de adhesión ~15.000€ y 4% royalties",
+            "inversion_media": "300.000€ a 600.000€"
+        },
+        "diferencial": "Conocimiento exhaustivo del mercado del sur de Francia y cultura de club muy cercana."
+    },
+
+    # ─────────────────────────────────────────────────────────────
+    # 🇬🇧 REINO UNIDO (6 Cadenas y Franquicias)
+    # ─────────────────────────────────────────────────────────────
+    {
+        "id": "rocket-padel",
+        "nombre": "Rocket Padel",
+        "pais": "Reino Unido y Dinamarca",
+        "pais_codigo": "GB",
+        "region_filtro": "GB",
+        "bandera": "🇬🇧",
+        "ciudad_sede": "Bristol / Londres",
+        "coords": [51.4545, -2.5879],
+        "modelo": "Cadena de Macroarenas Cubiertas (Mismo Nombre)",
+        "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
+        "tipo_categoria": "cadena",
+        "escala": "media",
+        "num_clubs": "5 macrocentros con el mismo nombre",
+        "num_pistas": "45+ pistas indoor",
+        "software": "Matchi / Padel Mates",
+        "fundadores": "Rocket Padel Group (UK & Escandinavia)",
+        "web": "https://rocketpadel.com",
+        "tagline": "Las macroarenas cubiertas más monumentales del Reino Unido.",
+        "resumen": "Rocket Padel opera bajo su misma marca algunos de los mayores complejos indoor de Gran Bretaña. Su sede de Bristol (St. Annes Park) cuenta con 14 pistas cubiertas, bistro y gimnasio. En Londres operan en Battersea Power Station (CUPRA Arena), Ilford (12 pistas panorámicas) y Beckton.",
+        "sedes_principales": [
+            "Rocket Padel Bristol (14 pistas panorámicas cubiertas, bistro y gimnasio)",
+            "Rocket Padel Battersea London (CUPRA Arena, Battersea Power Station)",
+            "Rocket Padel Ilford (Londres - 12 pistas indoor panorámicas)",
+            "Rocket Padel Beckton (Londres - con 'The Lab' gym y coworking)",
+            "Rocket Padel Dinamarca (Copenhague)"
+        ],
+        "tecnologia_pistas": {
+            "pistas": "Pistas panorámicas de competición con alturas libres de más de 10 metros",
+            "software": "Matchi y Padel Mates",
+            "domotica": "Check-in digitalizado, apertura automática e iluminación LED inteligente",
+            "grabacion": "Sistemas de vídeo en pista para clínics y streaming",
+            "restauracion": "Bistros con café artesanal, cerveza de grifo, comida saludable y pro-shop"
+        },
+        "modelo_expansion": {
+            "tipo_contrato": "Desarrollo propio corporativo bajo la marca Rocket Padel",
+            "perfil_club": "Macroarenas industriales de 10 a 16 pistas cubiertas",
+            "canon_royalties": "Cadena propia",
+            "inversion_media": "1.5M£ a 3.5M£ por macrocentro"
+        },
+        "diferencial": "Escala monumental bajo techo (14 pistas en un solo centro) y alianzas con marcas como CUPRA."
+    },
+    {
+        "id": "game4padel",
+        "nombre": "Game4Padel",
+        "pais": "Reino Unido",
+        "pais_codigo": "GB",
+        "region_filtro": "GB",
+        "bandera": "🇬🇧",
+        "ciudad_sede": "Edimburgo / Londres",
+        "coords": [55.9533, -3.1883],
+        "modelo": "Inversión y Franquicia Llave en Mano",
+        "modelo_badge": "bg-emerald-100 text-emerald-800 border-emerald-200",
+        "tipo_categoria": "franquicia",
+        "escala": "media",
+        "num_clubs": "25+ sedes",
+        "num_pistas": "65+ pistas",
+        "software": "Matchi",
+        "fundadores": "Jim Fairlie (CEO), Sir Andy Murray (Inversor), Virgil van Dijk (Embajador)",
+        "web": "https://game4padel.com",
+        "tagline": "El mayor desarrollador de infraestructuras de pádel de Gran Bretaña.",
+        "resumen": "Asumen el 100% del capital (CAPEX) para diseñar, tramitar licencias y construir pistas en clubes de tenis tradicionales, universidades y centros comerciales a cambio de concesiones con reparto de ingresos.",
+        "sedes_principales": [
+            "Westfield London (Centro comercial en Shepherd's Bush, Londres)",
+            "Edimburgo (Thistle Tennis Club)",
+            "Glasgow y Aberdeen",
+            "Windsor, Shropshire, Cardiff (Gales)"
+        ],
+        "tecnologia_pistas": {
+            "pistas": "Pistas con cubiertas tensadas resistentes al clima británico",
+            "software": "Matchi",
+            "domotica": "Acceso desasistido 24/7 con código PIN e iluminación sincronizada",
+            "grabacion": "Cámaras conectadas para torneos corporativos",
+            "restauracion": "Aprovechan hostelería del club anfitrión o quioscos"
+        },
+        "modelo_expansion": {
+            "tipo_contrato": "Concesión de terreno con reparto de ingresos (Revenue Share)",
+            "perfil_club": "Clubes de tenis con espacio para 2 a 6 pistas",
+            "canon_royalties": "El club no gasta dinero; Game4Padel financia la obra",
+            "inversion_media": "150.000€ a 450.000€ financiado por Game4Padel"
+        },
+        "diferencial": "Respaldo de Sir Andy Murray, sin riesgo financiero para el club anfitrión."
+    },
+    {
+        "id": "the-padel-club-uk",
+        "nombre": "The Padel Club",
+        "pais": "Reino Unido",
+        "pais_codigo": "GB",
+        "region_filtro": "GB",
+        "bandera": "🇬🇧",
+        "ciudad_sede": "Wilmslow / Mánchester",
+        "coords": [53.3283, -2.2295],
+        "modelo": "Cadena Multiclub Boutique (Mismo Nombre)",
+        "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
+        "tipo_categoria": "cadena",
+        "escala": "boutique",
+        "num_clubs": "3 centros con el mismo nombre",
+        "num_pistas": "20+ pistas",
+        "software": "Playtomic / Matchi",
+        "fundadores": "Kristopher Ball",
+        "web": "https://thepadelclub.co.uk",
+        "tagline": "El club de pádel boutique de diseño y gastronomía de referencia en Mánchester.",
+        "resumen": "Cadena boutique bajo el nombre The Padel Club. Centro en TraffordCity (Mánchester) con 11 pistas cubiertas, techos acristalados, bar con cócteles y eventos sociales con DJ.",
+        "sedes_principales": [
+            "The Padel Club TraffordCity (Mánchester - 11 pistas indoor)",
+            "The Padel Club Wilmslow (Cheshire - 4 pistas)",
+            "The Padel Club Gloucester (en desarrollo)"
+        ],
+        "tecnologia_pistas": {
+            "pistas": "Pistas panorámicas de cristal templado continuo",
+            "software": "Playtomic y Matchi",
+            "domotica": "Sonido envolvente Bose en pistas y lounge",
+            "grabacion": "Grabación de partidos en alta definición",
+            "restauracion": "Clubhouse con cafetería de autor y batidos energéticos"
+        },
+        "modelo_expansion": {
+            "tipo_contrato": "Crecimiento propio en grandes destinos de ocio",
+            "perfil_club": "Grandes recintos de alto tráfico y zonas prémium",
+            "canon_royalties": "Operación directa",
+            "inversion_media": "1.5M£ a 3M£"
+        },
+        "diferencial": "Experiencia premium de juego, ocio y ambiente social sofisticado."
+    },
+    {
+        "id": "soul-padel",
+        "nombre": "Soul Padel",
+        "pais": "Reino Unido",
+        "pais_codigo": "GB",
+        "region_filtro": "GB",
+        "bandera": "🇬🇧",
+        "ciudad_sede": "Mánchester / Stockport",
+        "coords": [53.4808, -2.2426],
+        "modelo": "Cadena Multiclub Comunitaria (Mismo Nombre)",
+        "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
+        "tipo_categoria": "cadena",
+        "escala": "boutique",
+        "num_clubs": "4 centros con el mismo nombre",
+        "num_pistas": "18+ pistas",
+        "software": "Matchi",
+        "fundadores": "Mark Hewlett",
+        "web": "https://soulpadel.co.uk",
+        "tagline": "Pádel accesible y amigable en el corazón de las comunidades del norte de Inglaterra.",
+        "resumen": "Cadena que opera bajo la marca Soul Padel en parques comerciales y polideportivos (Wigan, Mánchester). Precios asequibles y alquiler gratuito para novatos.",
+        "sedes_principales": [
+            "Soul Padel Mánchester (Urban Exchange)",
+            "Soul Padel Wigan (Robin Park Sports Zone)",
+            "Soul Padel Preston",
+            "Soul Padel Cheshire"
+        ],
+        "tecnologia_pistas": {
+            "pistas": "Pistas panorámicas con cubiertas resistentes al viento",
+            "software": "Matchi",
+            "domotica": "Iluminación eficiente LED y apertura digital",
+            "grabacion": "Grabación de jugadas en torneos locales",
+            "restauracion": "Puntos de café y snacks saludables"
+        },
+        "modelo_expansion": {
+            "tipo_contrato": "Alianzas y franquicia con consejos municipales",
+            "perfil_club": "Suelos en desuso de 1.000 a 2.500 m² para 3 a 5 pistas",
+            "canon_royalties": "Modelo flexible de franquicia social",
+            "inversion_media": "180.000£ a 350.000£"
+        },
+        "diferencial": "Atracción masiva de británicos novatos mediante programas comunitarios."
+    },
+    {
+        "id": "pure-padel-uk",
+        "nombre": "Pure Padel",
+        "pais": "Reino Unido",
+        "pais_codigo": "GB",
+        "region_filtro": "GB",
+        "bandera": "🇬🇧",
+        "ciudad_sede": "Mánchester / Cheshire",
+        "coords": [53.3031, -2.2350],
+        "modelo": "Cadena Multiclub Indoor Pura (Mismo Nombre)",
+        "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
+        "tipo_categoria": "cadena",
+        "escala": "boutique",
+        "num_clubs": "3 centros con el mismo nombre",
+        "num_pistas": "15+ pistas",
+        "software": "Playtomic",
+        "fundadores": "Sammy Arora",
+        "web": "https://purepadelclubs.co.uk",
+        "tagline": "La nueva ola de clubes 100% dedicados al pádel indoor en el Reino Unido.",
+        "resumen": "Cadena en el noroeste inglés que opera centros indoor dedicados exclusivamente al pádel bajo la marca Pure Padel con cafetería social, zona de calentamiento y pro-shop.",
+        "sedes_principales": [
+            "Pure Padel Alderley Edge (Cheshire - centro insignia)",
+            "Pure Padel Mánchester Centro",
+            "Pure Padel Birmingham"
+        ],
+        "tecnologia_pistas": {
+            "pistas": "Pistas panorámicas de cristal de 12 mm y moqueta WPT",
+            "software": "Playtomic",
+            "domotica": "Apertura por código QR y check-in digital",
+            "grabacion": "Cámaras inteligentes en pista",
+            "restauracion": "Café de barista y batidos de proteínas"
+        },
+        "modelo_expansion": {
+            "tipo_contrato": "Desarrollo propio corporativo",
+            "perfil_club": "Naves de 4 a 8 pistas en áreas residenciales del noroeste inglés",
+            "canon_royalties": "Operación directa",
+            "inversion_media": "400.000£ a 800.000£"
+        },
+        "diferencial": "Compromiso de juego garantizado los 365 días bajo techo climatizado."
+    },
+    {
+        "id": "pdl-united-uk",
+        "nombre": "PDL Padel United UK",
+        "pais": "Reino Unido",
+        "pais_codigo": "GB",
+        "region_filtro": "GB",
+        "bandera": "🇬🇧",
+        "ciudad_sede": "Maldon, Essex",
+        "coords": [51.7311, 0.6749],
+        "modelo": "Cadena de Clubes Comunitarios (Mismo Nombre)",
+        "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
+        "tipo_categoria": "cadena",
+        "escala": "media",
+        "num_clubs": "14+ centros con el mismo nombre",
+        "num_pistas": "55+ pistas",
+        "software": "Matchi / Playtomic",
+        "fundadores": "Richard Jackson (CEO UK), bajo paraguas Padel United",
+        "web": "https://padeluniteduk.com",
+        "tagline": "Construyendo comunidades de pádel inclusivas en todo el Reino Unido.",
+        "resumen": "Operador británico con mayor arraigo social. Clubes dedicados con programación intensiva de dinamización: clínics de novatos, mañanas de veteranos y torneos amateur constantes.",
+        "sedes_principales": [
+            "Padel United Maldon (Essex - centro insignia)",
+            "Padel United Bushey (North London - Bushey Grove Leisure Centre)",
+            "Padel United Colchester y Chelmsford",
+            "Padel United The Wirral (Port Sunlight)",
+            "Padel United Torbay, Plymouth, Cambridge"
+        ],
+        "tecnologia_pistas": {
+            "pistas": "Pistas cubiertas con naves o marquesinas para lluvia",
+            "software": "Matchi y Playtomic",
+            "domotica": "Control de accesos y material automático",
+            "grabacion": "Dispositivos para grabaciones técnicas",
+            "restauracion": "Cafetería social y tienda con palas de prueba"
+        },
+        "modelo_expansion": {
+            "tipo_contrato": "Franquicia de gestión y clubes propios",
+            "perfil_club": "Zonas urbanas o suburbanas británicas de más de 3 pistas",
+            "canon_royalties": "Canon ~15.000£ y royalties operativos del 5%",
+            "inversion_media": "200.000£ a 600.000£"
+        },
+        "diferencial": "Retención comunitaria récord con alta ocupación matinal entre semana."
+    },
+
+    # ─────────────────────────────────────────────────────────────
+    # 🇸🇪 SUECIA Y NÓRDICOS (8 Cadenas y Franquicias)
+    # ─────────────────────────────────────────────────────────────
+    {
+        "id": "interpadel-norway",
+        "nombre": "InterPadel",
+        "pais": "Noruega",
+        "pais_codigo": "NO",
+        "region_filtro": "SE",
+        "bandera": "🇳🇴",
+        "ciudad_sede": "Oslo / Stavanger",
+        "coords": [59.9139, 10.7522],
+        "modelo": "Cadena Multiclub Líder en Noruega (Mismo Nombre)",
+        "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
+        "tipo_categoria": "cadena",
+        "escala": "media",
+        "num_clubs": "6 macrocentros con el mismo nombre",
+        "num_pistas": "45+ pistas",
+        "software": "Matchi",
+        "fundadores": "Jan Frode Andersen (Exjugador de Copa Davis noruego)",
+        "web": "https://interpadel.no",
+        "tagline": "Norges største padel kjede: La mayor cadena de centros de pádel de Noruega.",
+        "resumen": "InterPadel es la cadena nacional noruega por excelencia. Fundada por el extenista Jan Frode Andersen, opera grandes centros indoor todos con la marca InterPadel en Oslo, Forus, Sandnes, Letohallen (con una altura de techo récord de 15 metros) y Os en Bergen.",
+        "sedes_principales": [
+            "InterPadel Oslo (8 pistas: 6 dobles + 2 individuales, 9m de altura)",
+            "InterPadel Letohallen (8 pistas con 15 metros de altura libre récord)",
+            "InterPadel Os (Bergen - 13 pistas: 10 dobles + 3 individuales)",
+            "InterPadel Forus (Stavanger - 7 pistas)",
+            "InterPadel Sandnes (Trim Towers)"
+        ],
+        "tecnologia_pistas": {
+            "pistas": "Pistas panorámicas dobles e individuales de competición con techos de 9 a 15 metros",
+            "software": "Matchi",
+            "domotica": "Acceso desatendido 24/7 y calefacción automatizada",
+            "grabacion": "Cámaras táctiles en pista para análisis de juego",
+            "restauracion": "Pro-shops completas con las mejores marcas y zonas de descanso"
+        },
+        "modelo_expansion": {
+            "tipo_contrato": "Cadena corporativa con la misma marca InterPadel",
+            "perfil_club": "Macroarenas de 6 a 14 pistas en ciudades clave noruegas",
+            "canon_royalties": "Cadena unificada",
+            "inversion_media": "800.000€ a 1.800.000€"
+        },
+        "diferencial": "Alturas de techo incomparables (hasta 15 metros) y el liderazgo de Jan Frode Andersen."
+    },
+    {
+        "id": "padelpadel-denmark",
+        "nombre": "PadelPadel",
+        "pais": "Dinamarca",
+        "pais_codigo": "DK",
+        "region_filtro": "SE",
+        "bandera": "🇩🇰",
+        "ciudad_sede": "Odense / Aarhus",
+        "coords": [55.4038, 10.4024],
+        "modelo": "Cadena Multiclub Danesa (Mismo Nombre)",
+        "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
+        "tipo_categoria": "cadena",
+        "escala": "media",
+        "num_clubs": "3 macrocentros con el mismo nombre",
+        "num_pistas": "26+ pistas",
+        "software": "Matchi",
+        "fundadores": "PadelPadel ApS",
+        "web": "https://padelpadel.dk",
+        "tagline": "Pistas cubiertas de diseño nórdico en las mayores ciudades de Dinamarca.",
+        "resumen": "Cadena de clubes danesa que opera centros cubiertos modernos bajo la marca PadelPadel en Odense, Aarhus y Aalborg. Foco en la comodidad del jugador: aparcamiento gratuito, taquillas electrónicas, calefacción y pistas de nivel WPT.",
+        "sedes_principales": [
+            "PadelPadel Odense (10 pistas indoor)",
+            "PadelPadel Aarhus (8 pistas indoor)",
+            "PadelPadel Aalborg (8 pistas indoor)"
+        ],
+        "tecnologia_pistas": {
+            "pistas": "Pistas panorámicas con césped texturizado de competición y techos altos",
+            "software": "Matchi",
+            "domotica": "Acceso 100% digitalizado por código",
+            "grabacion": "Cámaras conectadas para partidos",
+            "restauracion": "Lounge nórdico con café y bebidas isotónicas"
+        },
+        "modelo_expansion": {
+            "tipo_contrato": "Operación directa bajo la marca PadelPadel",
+            "perfil_club": "Naves de 8 a 12 pistas cubiertas",
+            "canon_royalties": "Cadena unificada",
+            "inversion_media": "700.000€ a 1.400.000€"
+        },
+        "diferencial": "Estandarización absoluta de la experiencia de juego en las tres grandes ciudades danesas fuera de Copenhague."
+    },
+    {
+        "id": "ledap-wap",
+        "nombre": "LeDap / We Are Padel (WAP)",
+        "pais": "Internacional (Suecia / Europa)",
+        "pais_codigo": "SE",
+        "region_filtro": "SE",
+        "bandera": "🇸🇪",
+        "ciudad_sede": "Estocolmo",
+        "coords": [59.3293, 18.0686],
+        "modelo": "Red Corporativa Propia",
+        "modelo_badge": "bg-blue-100 text-blue-800 border-blue-200",
+        "tipo_categoria": "corporativo",
+        "escala": "mega",
+        "num_clubs": "90+ centros",
+        "num_pistas": "650+ pistas",
+        "software": "LeDap App / Matchi / Playtomic",
+        "fundadores": "Triton Partners / Pontus Gustafsson",
+        "web": "https://ledap.com",
+        "tagline": "El gigante pan-europeo del pádel indoor respaldado por capital institucional.",
+        "resumen": "La mayor plataforma internacional de pádel: integró We Are Padel (Suecia y Alemania), Just Padel (Noruega), Padel Club Finland y Padel Zone (Austria), con presencia en UK, Polonia y España.",
+        "sedes_principales": [
+            "Suecia: Más de 40 centros en Estocolmo, Gotemburgo, Malmö",
+            "Alemania: Berlín, Bremen, Düsseldorf",
+            "Reino Unido: Derby, Bristol",
+            "Finlandia y Noruega: Red en Helsinki, Tampere, Oslo",
+            "Austria: Viena y Graz (Padel Zone)",
+            "España: LeDap Madrid"
+        ],
+        "tecnologia_pistas": {
+            "pistas": "Pistas panorámicas indoor de 8 a 12 metros de altura",
+            "software": "App propia LeDap integrada con Matchi y Playtomic",
+            "domotica": "Check-in digital, apertura remota con código PIN",
+            "grabacion": "Cámaras conectadas en pistas seleccionadas",
+            "restauracion": "Lounge corners con vending automatizado y cafetería"
+        },
+        "modelo_expansion": {
+            "tipo_contrato": "Consolidación corporativa y aperturas propias",
+            "perfil_club": "Instalaciones indoor con mínimo 6 a 12 pistas",
+            "canon_royalties": "Operación directa corporativa",
+            "inversion_media": "600.000€ a 1.500.000€"
+        },
+        "diferencial": "Capacidad de escala paneuropea, estandarización y app unificada."
+    },
+    {
+        "id": "pdl-center-united",
+        "nombre": "PDL Center / Padel United",
+        "pais": "Suecia y Reino Unido",
+        "pais_codigo": "SE",
+        "region_filtro": "SE",
+        "bandera": "🇸🇪",
+        "ciudad_sede": "Estocolmo",
+        "coords": [59.3400, 18.0700],
+        "modelo": "Cadena de Megacentros Nórdicos (Mismo Nombre)",
+        "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
+        "tipo_categoria": "cadena",
+        "escala": "mega",
+        "num_clubs": "80+ centros",
+        "num_pistas": "500+ pistas",
+        "software": "Matchi",
+        "fundadores": "Henrik Söderberg, Jonas Björkman (Extenista), Måns Zelmerlöw / Markus Hellqvist",
+        "web": "https://padelunited.se",
+        "tagline": "Pioneros del pádel en Suecia que fusionaron dos imperios para dominar el norte de Europa.",
+        "resumen": "PDL Center (fundado por la leyenda del tenis Jonas Björkman y el cantante Måns Zelmerlöw) opera decenas de complejos bajo la marca PDL Center en Suecia y Padel United en UK. Cuentan con centros insignia de más de 20 pistas como PDL Frihamnen en Estocolmo.",
+        "sedes_principales": [
+            "PDL Center Frihamnen (Estocolmo - 22 pistas)",
+            "PDL Center Kvarnholmen y Västberga",
+            "Gotemburgo, Malmö, Jönköping",
+            "Red en Reino Unido bajo PDL Padel United UK"
+        ],
+        "tecnologia_pistas": {
+            "pistas": "Pistas de fabricantes líderes europeos con moqueta Mondo Supercourt",
+            "software": "Matchi (el estándar sueco)",
+            "domotica": "Acceso 100% automatizado fuera de horario de recepción",
+            "grabacion": "Sistemas de cámaras con pantalla táctil en pista para repeticiones",
+            "restauracion": "Clubhouse con cafetería, zonas de calentamiento y pro-shop completa"
+        },
+        "modelo_expansion": {
+            "tipo_contrato": "Propiedad corporativa y adquisiciones selectas",
+            "perfil_club": "Centros de más de 8 pistas cubiertas",
+            "canon_royalties": "Grupo integrado",
+            "inversion_media": "800.000€ a 2M€"
+        },
+        "diferencial": "El prestigio de Jonas Björkman y la implantación de la cultura del pádel en toda la sociedad sueca."
+    },
+    {
+        "id": "every-padel",
+        "nombre": "Every Padel",
+        "pais": "Suecia",
+        "pais_codigo": "SE",
+        "region_filtro": "SE",
+        "bandera": "🇸🇪",
+        "ciudad_sede": "Gotemburgo / Estocolmo",
+        "coords": [57.7089, 11.9746],
+        "modelo": "Cadena de Macroarenas de Medios (Mismo Nombre)",
+        "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
+        "tipo_categoria": "cadena",
+        "escala": "media",
+        "num_clubs": "5 macroarenas con el mismo nombre",
+        "num_pistas": "60+ pistas",
+        "software": "Matchi",
+        "fundadores": "Everysport Media Group (ESMG)",
+        "web": "https://everypadel.com",
+        "tagline": "Grandes recintos de pádel integrados con el mayor grupo de medios deportivos sueco.",
+        "resumen": "Cadena bajo la marca Every Padel. Construyeron una de las instalaciones de pádel más espectaculares del planeta dentro de la Åby Arena en Gotemburgo (con 25 pistas bajo un mismo techo), además de centros en Kista (Estocolmo) y Norrköping.",
+        "sedes_principales": [
+            "Every Padel Åby Arena (Gotemburgo - 25 pistas)",
+            "Every Padel Kista (Estocolmo)",
+            "Every Padel Norrköping",
+            "Every Padel Jönköping"
+        ],
+        "tecnologia_pistas": {
+            "pistas": "Pistas panorámicas WPT dentro de arenas feriales y hoteleras",
+            "software": "Matchi",
+            "domotica": "Sistemas acústicos especiales y control de flujo de jugadores",
+            "grabacion": "Streaming profesional integrado con portales de noticias deportivas",
+            "restauracion": "Sinergia con los hoteles y restaurantes de la arena"
+        },
+        "modelo_expansion": {
+            "tipo_contrato": "Explotación en grandes recintos feriales y deportivos",
+            "perfil_club": "Grandes complejos de más de 12 pistas",
+            "canon_royalties": "Operación corporativa",
+            "inversion_media": "1.5M€ a 3.5M€"
+        },
+        "diferencial": "Cobertura mediática en prensa sueca y capacidad para organizar los torneos más multitudinarios."
+    },
+    {
+        "id": "padel-zenter",
+        "nombre": "Padel Zenter",
+        "pais": "Suecia e Italia",
+        "pais_codigo": "SE",
+        "region_filtro": "SE",
+        "bandera": "🇸🇪",
+        "ciudad_sede": "Estocolmo",
+        "coords": [59.2970, 18.0820],
+        "modelo": "Cadena de Macrocomplejos de Ultra-Lujo (Mismo Nombre)",
+        "modelo_badge": "bg-purple-100 text-purple-800 border-purple-200",
+        "tipo_categoria": "boutique",
+        "escala": "media",
+        "num_clubs": "6 macrocentros con el mismo nombre",
+        "num_pistas": "65+ pistas",
+        "software": "Matchi / Proprietary",
+        "fundadores": "Zlatan Ibrahimović y Thomas Sandström",
+        "web": "https://padelzenter.se",
+        "tagline": "La experiencia arquitectónica y de juego más exigente del mundo del pádel.",
+        "resumen": "Creado por Zlatan Ibrahimović todos bajo la marca Padel Zenter con especificaciones extremas: alturas de 12 metros sin columnas, moqueta oficial WPT, insonorización acústica e iluminación indirecta sin deslumbramiento. Macrocomplejo en Milán-Segrate.",
+        "sedes_principales": [
+            "Padel Zenter Milán (Segrate, Italia - 9 pistas)",
+            "Padel Zenter Estocolmo (Ársta)",
+            "Padel Zenter Jönköping y Skövde",
+            "Padel Zenter Örebro y Uppsala"
+        ],
+        "tecnologia_pistas": {
+            "pistas": "Pistas AFP Courts aprobadas por la FIP, cristal templado de 12 mm y césped WPT",
+            "software": "Matchi en Suecia y reservas online en Milán",
+            "domotica": "Climatización y control inteligente de ventilación",
+            "grabacion": "Sistemas de televisión y streaming para torneos",
+            "restauracion": "Restaurantes de calidad superior y pro-shop PZ"
+        },
+        "modelo_expansion": {
+            "tipo_contrato": "Propiedad directa y alianzas selectas",
+            "perfil_club": "Macrocomplejos diseñados desde cimientos con mínimo 8 a 15 pistas",
+            "canon_royalties": "No es franquicia abierta al público",
+            "inversion_media": "3M€ a 8M€"
+        },
+        "diferencial": "El carisma y exigencia de Zlatan, acabados de hotel 5 estrellas y acústica sin eco."
+    },
+    {
+        "id": "just-padel-norway",
+        "nombre": "Just Padel Norway",
+        "pais": "Noruega",
+        "pais_codigo": "NO",
+        "region_filtro": "SE",
+        "bandera": "🇳🇴",
+        "ciudad_sede": "Kristiansand / Oslo",
+        "coords": [58.1467, 7.9956],
+        "modelo": "Cadena Multiclub en Noruega (Mismo Nombre)",
+        "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
+        "tipo_categoria": "cadena",
+        "escala": "media",
+        "num_clubs": "12+ centros con el mismo nombre",
+        "num_pistas": "60+ pistas",
+        "software": "Matchi",
+        "fundadores": "Jesper Mathisen (Exfutbolista) y socios (adquirido por LeDap)",
+        "web": "https://justpadel.no",
+        "tagline": "El operador que introdujo y consolidó el pádel indoor en Noruega.",
+        "resumen": "Just Padel es una de las principales cadenas noruegas con centros cubiertos todos operando bajo el nombre Just Padel en Oslo, Kristiansand, Stavanger y Bergen con calefacción optimizada para el invierno nórdico.",
+        "sedes_principales": [
+            "Just Padel Kristiansand (centro insignia)",
+            "Just Padel Oslo y Drammen",
+            "Just Padel Stavanger y Sandnes",
+            "Just Padel Bergen y Skien"
+        ],
+        "tecnologia_pistas": {
+            "pistas": "Pistas panorámicas con climatización de alto rendimiento",
+            "software": "Matchi",
+            "domotica": "Acceso desatendido por código PIN e iluminación sincronizada",
+            "grabacion": "Cámaras en pistas centrales",
+            "restauracion": "Lounge con máquinas de autoservicio y café noruego"
+        },
+        "modelo_expansion": {
+            "tipo_contrato": "Operación directa bajo el paraguas del grupo LeDap",
+            "perfil_club": "Naves industriales aisladas de 4 a 8 pistas",
+            "canon_royalties": "Corporativo",
+            "inversion_media": "500.000€ a 1.200.000€"
+        },
+        "diferencial": "Adaptación técnica al frío extremo de Noruega y gran capilaridad en ciudades costeras."
+    },
+    {
+        "id": "racket-club-denmark",
+        "nombre": "Racket Club",
+        "pais": "Dinamarca",
+        "pais_codigo": "DK",
+        "region_filtro": "SE",
+        "bandera": "🇩🇰",
+        "ciudad_sede": "Copenhague",
+        "coords": [55.6761, 12.5683],
+        "modelo": "Cadena de Diseño Escandinavo (Mismo Nombre)",
+        "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
+        "tipo_categoria": "cadena",
+        "escala": "boutique",
+        "num_clubs": "4 complejos con el mismo nombre",
+        "num_pistas": "30+ pistas",
+        "software": "Matchi",
+        "fundadores": "Emprendedores daneses del diseño y el deporte",
+        "web": "https://racketclub.dk",
+        "tagline": "Pádel de estética puramente escandinava en el corazón de Copenhague.",
+        "resumen": "Cadena bajo la marca Racket Club en antiguas naves industriales de Copenhague (Kløvermarken, Taastrup, Dragør) con diseño minimalista danés: maderas claras, iluminación cálida y café de especialidad.",
+        "sedes_principales": [
+            "Racket Club Kløvermarken (Copenhague)",
+            "Racket Club Taastrup (Copenhague)",
+            "Racket Club Dragør",
+            "Racket Club Slagelse"
+        ],
+        "tecnologia_pistas": {
+            "pistas": "Pistas WPT con estructuras en gris antracita y césped azul nórdico",
+            "software": "Matchi",
+            "domotica": "Check-in sin contacto por smartphone",
+            "grabacion": "Cámaras discretas para análisis de juego",
+            "restauracion": "Cafetería nórdica con bollería danesa artesanal, smørrebrød y zumos naturales"
+        },
+        "modelo_expansion": {
+            "tipo_contrato": "Crecimiento propio en áreas urbanas de alta densidad danesas",
+            "perfil_club": "Naves de valor arquitectónico de 6 a 10 pistas",
+            "canon_royalties": "Propiedad privada",
+            "inversion_media": "800.000€ a 1.800.000€"
+        },
+        "diferencial": "El concepto estético más elegante de Dinamarca con atmósfera hygge incomparable."
+    },
+
+    # ─────────────────────────────────────────────────────────────
+    # 🇳🇱 PAÍSES BAJOS, BÉLGICA, ALEMANIA Y AUSTRIA (6 Cadenas)
+    # ─────────────────────────────────────────────────────────────
+    {
+        "id": "padel-zone-austria",
+        "nombre": "Padel Zone Austria",
+        "pais": "Austria",
+        "pais_codigo": "AT",
+        "region_filtro": "NL",
+        "bandera": "🇦🇹",
+        "ciudad_sede": "Viena / Graz",
+        "coords": [48.2082, 16.3738],
+        "modelo": "Cadena Multiclub Líder en Austria (Mismo Nombre)",
+        "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
+        "tipo_categoria": "cadena",
+        "escala": "media",
+        "num_clubs": "6 centros con el mismo nombre",
+        "num_pistas": "35+ pistas",
+        "software": "Playtomic / Matchi",
+        "fundadores": "Padel Zone GmbH (Grupo LeDap)",
+        "web": "https://padelzone.at",
+        "tagline": "La cadena pionera y líder absoluta del pádel en Austria.",
+        "resumen": "Padel Zone es la marca de referencia indiscutible en Austria. Opera complejos cubiertos bajo la misma enseña Padel Zone en Viena, Graz, Wiener Neustadt, Traiskirchen y Eisenstadt. Fueron adquiridos por el grupo europeo LeDap manteniendo su identidad de marca líder austríaca.",
+        "sedes_principales": [
+            "Padel Zone Wien Süssenbrunn (Viena)",
+            "Padel Zone Graz",
+            "Padel Zone Wiener Neustadt",
+            "Padel Zone Traiskirchen",
+            "Padel Zone Eisenstadt"
+        ],
+        "tecnologia_pistas": {
+            "pistas": "Pistas panorámicas cubiertas preparadas para temperaturas invernales bajo cero",
+            "software": "Playtomic y Matchi",
+            "domotica": "Acceso desatendido por código PIN fuera de horas de recepción",
+            "grabacion": "Grabación en torneos de la Federación Austríaca",
+            "restauracion": "Lounge austríaco con cafetería y venta de material"
+        },
+        "modelo_expansion": {
+            "tipo_contrato": "Cadena propia integrada en la red europea LeDap",
+            "perfil_club": "Naves de 4 a 8 pistas en áreas urbanas austríacas",
+            "canon_royalties": "Cadena unificada",
+            "inversion_media": "500.000€ a 1.200.000€"
+        },
+        "diferencial": "Pioneros absolutos en Austria con casi el 50% de la cuota de mercado del pádel indoor nacional."
+    },
+    {
+        "id": "the-padellers",
+        "nombre": "The Padellers",
+        "pais": "Países Bajos y Alemania",
+        "pais_codigo": "NL",
+        "region_filtro": "NL",
+        "bandera": "🇳🇱",
+        "ciudad_sede": "Ámsterdam",
+        "coords": [52.3676, 4.9041],
+        "modelo": "Cadena Multiclub en Expansión (Mismo Nombre)",
+        "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
+        "tipo_categoria": "cadena",
+        "escala": "grande",
+        "num_clubs": "26+ centros con el mismo nombre",
+        "num_pistas": "145+ pistas",
+        "software": "BookaBall / Playtomic",
+        "fundadores": "Philippe van Ellis, Bas Smit",
+        "web": "https://thepadellers.nl",
+        "tagline": "La cadena más dinámica de Países Bajos en plena conquista de Alemania.",
+        "resumen": "Democratización del pádel sin cuotas obligatorias con enorme foco en el tercer tiempo ('borrel'). 26 clubes todos bajo el nombre The Padellers en Holanda y Alemania (Essen, Frankfurt, Herdecke).",
+        "sedes_principales": [
+            "The Padellers Ámsterdam (Amstelpark, West, Zuid)",
+            "The Padellers Breda (2 complejos)",
+            "The Padellers Groningen (2 complejos)",
+            "The Padellers Hengelo, Roermond, Valkenswaard, Venlo",
+            "The Padellers Alemania: Essen, Frankfurt, Herdecke, Troisdorf"
+        ],
+        "tecnologia_pistas": {
+            "pistas": "Pistas panorámicas con iluminación LED optimizada",
+            "software": "BookaBall con integración en Playtomic",
+            "domotica": "Apertura por QR y check-in automatizado",
+            "grabacion": "Cámaras en pistas centrales para eventos de empresa",
+            "restauracion": "Bares temáticos con cervezas locales y snacks calientes"
+        },
+        "modelo_expansion": {
+            "tipo_contrato": "Franquicia operativa, joint-venture y centros propios",
+            "perfil_club": "Naves de mínimo 5 pistas cubiertas con zona lounge",
+            "canon_royalties": "Canon ~25.000€ y 4-5% de royalty sobre facturación",
+            "inversion_media": "350.000€ a 800.000€"
+        },
+        "diferencial": "Marketing viral en Países Bajos, eventos corporativos de gran escala y ambiente social."
+    },
+    {
+        "id": "peakz-padel",
+        "nombre": "Peakz Padel",
+        "pais": "Países Bajos y Alemania",
+        "pais_codigo": "NL",
+        "region_filtro": "NL",
+        "bandera": "🇳🇱",
+        "ciudad_sede": "Utrecht",
+        "coords": [52.0907, 5.1214],
+        "modelo": "Cadena Multiclub Comunitaria (Mismo Nombre)",
+        "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
+        "tipo_categoria": "cadena",
+        "escala": "grande",
+        "num_clubs": "17+ centros con el mismo nombre",
+        "num_pistas": "110+ pistas",
+        "software": "Playtomic",
+        "fundadores": "Marc Kuijpers",
+        "web": "https://peakzpadel.nl",
+        "tagline": "Pioneros del concepto 'Pay & Play' comunitario con diseño nórdico e industrial.",
+        "resumen": "Cadena de clubes bajo la marca Peakz Padel en naves de alta densidad. Sin cuotas de socio; famoso por su torneo semanal 'King of the Court'.",
+        "sedes_principales": [
+            "Peakz Padel Ámsterdam Zuidoost (14 pistas)",
+            "Peakz Padel Ámsterdam Olympiaplein",
+            "Peakz Padel Utrecht Vechtsebanen (14 pistas indoor)",
+            "Peakz Padel Utrecht Zeehaenkade",
+            "Peakz Padel Róterdam, Eindhoven",
+            "Peakz Padel Alemania: Kleve (7 pistas), Hagen (10), Paderborn (8), Tönisvorst (10)"
+        ],
+        "tecnologia_pistas": {
+            "pistas": "Pistas dobles e individuales ('singles') de alta competición",
+            "software": "Playtomic",
+            "domotica": "Taquillas electrónicas, check-in digital y quioscos táctiles",
+            "grabacion": "Streaming en torneos 'Peakz Tour'",
+            "restauracion": "Clubhouse con café de especialidad y cervezas locales"
+        },
+        "modelo_expansion": {
+            "tipo_contrato": "Crecimiento corporativo y alianzas con dueños de naves",
+            "perfil_club": "Recintos industriales de mínimo 6 a 12 pistas",
+            "canon_royalties": "Operación directa",
+            "inversion_media": "500.000€ a 1.200.000€"
+        },
+        "diferencial": "Cultura de club consolidada y torneos King of the Court semanales masivos."
+    },
+    {
+        "id": "plaza-padel",
+        "nombre": "Plaza Padel",
+        "pais": "Países Bajos",
+        "pais_codigo": "NL",
+        "region_filtro": "NL",
+        "bandera": "🇳🇱",
+        "ciudad_sede": "Ámsterdam",
+        "coords": [52.3888, 4.8450],
+        "modelo": "Cadena de Clubes de Negocios (Mismo Nombre)",
+        "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
+        "tipo_categoria": "cadena",
+        "escala": "media",
+        "num_clubs": "5 complejos con el mismo nombre",
+        "num_pistas": "42+ pistas",
+        "software": "Playtomic",
+        "fundadores": "John van Lottum (Extenista ATP)",
+        "web": "https://plazapadel.com",
+        "tagline": "El punto de encuentro entre el pádel de alto nivel y el networking empresarial.",
+        "resumen": "Cadena de clubes bajo el nombre Plaza Padel en Ámsterdam, Almelo, Enschede, Heiloo y Waalwijk. Salas de reuniones de empresa, catering de negocios y clínics impartidos por exprofesionales.",
+        "sedes_principales": [
+            "Plaza Padel Ámsterdam (Rhoneweg - 9 pistas)",
+            "Plaza Padel Almelo",
+            "Plaza Padel Enschede",
+            "Plaza Padel Heiloo",
+            "Plaza Padel Waalwijk"
+        ],
+        "tecnologia_pistas": {
+            "pistas": "Pistas indoor homologadas con alturas libres de más de 9 metros",
+            "software": "Playtomic con paquetes B2B",
+            "domotica": "Check-in digital y pantallas de torneos",
+            "grabacion": "Grabación para análisis de clínics y eventos de empresa",
+            "restauracion": "Restaurante con menú ejecutivo y terrazas cubiertas"
+        },
+        "modelo_expansion": {
+            "tipo_contrato": "Crecimiento corporativo en parques empresariales",
+            "perfil_club": "Complejos de 7 a 10 pistas con salas de conferencias",
+            "canon_royalties": "Operación directa",
+            "inversion_media": "700.000€ a 1.400.000€"
+        },
+        "diferencial": "Liderazgo de John van Lottum y gran cartera de patrocinadores corporativos."
+    },
+    {
+        "id": "garrincha-belgium",
+        "nombre": "Garrincha",
+        "pais": "Bélgica",
+        "pais_codigo": "BE",
+        "region_filtro": "NL",
+        "bandera": "🇧🇪",
+        "ciudad_sede": "Gante / Amberes",
+        "coords": [51.0543, 3.7174],
+        "modelo": "Cadena Multiclub Urbana (Mismo Nombre)",
+        "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
+        "tipo_categoria": "cadena",
+        "escala": "media",
+        "num_clubs": "4 grandes centros con el mismo nombre",
+        "num_pistas": "25+ pistas",
+        "software": "Playtomic",
+        "fundadores": "Garrincha Sports NV",
+        "web": "https://garrincha.be",
+        "tagline": "Los macrocomplejos deportivos urbanos más vanguardistas de Flandes y Bruselas.",
+        "resumen": "Cadena que opera bajo la enseña Garrincha en Gante, Amberes y Bruselas. Combinan fútbol reducido con pádel indoor de diseño industrial contemporáneo y terrazas cerveceras con cervezas de abadía.",
+        "sedes_principales": [
+            "Garrincha Gent (Gante - 8 pistas indoor)",
+            "Garrincha Antwerpen (Amberes)",
+            "Garrincha Brussels (Bruselas)",
+            "Garrincha Charleroi"
+        ],
+        "tecnologia_pistas": {
+            "pistas": "Pistas panorámicas de competición cubiertas",
+            "software": "Playtomic",
+            "domotica": "Control digital de iluminación por pista y tornos automáticos",
+            "grabacion": "Cámaras en pista para torneos corporativos",
+            "restauracion": "Gran Sports Bar belga con amplia carta de cervezas y hamburguesas gourmet"
+        },
+        "modelo_expansion": {
+            "tipo_contrato": "Desarrollo propio corporativo",
+            "perfil_club": "Naves de más de 3.000 m² en accesos a grandes ciudades belgas",
+            "canon_royalties": "Operador integrado",
+            "inversion_media": "1M€ a 2.5M€"
+        },
+        "diferencial": "Fusión del fútbol urbano y el pádel en un ambiente belga cervecero de máxima rentabilidad."
+    },
+    {
+        "id": "padel-city",
+        "nombre": "Padel City",
+        "pais": "Alemania",
+        "pais_codigo": "DE",
+        "region_filtro": "DE",
+        "bandera": "🇩🇪",
+        "ciudad_sede": "Fürth / Múnich",
+        "coords": [49.4774, 10.9886],
+        "modelo": "Cadena Multiclub en Alemania (Mismo Nombre)",
+        "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
+        "tipo_categoria": "cadena",
+        "escala": "media",
+        "num_clubs": "12+ centros con el mismo nombre",
+        "num_pistas": "50+ pistas",
+        "software": "Playtomic / CourtBrain",
+        "fundadores": "PadelCity Deutschland GmbH",
+        "web": "https://padelcity.de",
+        "tagline": "La cadena alemana de mayor capilaridad y crecimiento rápido.",
+        "resumen": "12 complejos cubiertos todos bajo la marca Padel City: Dortmund, Frankfurt, Fürth, Leipzig, Múnich. Pistas cubiertas y semicubiertas asociándose con polideportivos o rehabilitando naves logísticas.",
+        "sedes_principales": [
+            "Padel City Dortmund (Indoor y outdoor)",
+            "Padel City Frankfurt am Main",
+            "Padel City Fürth y Heilsbronn (Baviera)",
+            "Padel City Leipzig y Múnich",
+            "Centros en Renania del Norte-Westfalia"
+        ],
+        "tecnologia_pistas": {
+            "pistas": "Pistas homologadas con cubiertas para nieve e invierno",
+            "software": "Playtomic y CourtBrain",
+            "domotica": "Acceso 100% digitalizado por código numérico",
+            "grabacion": "Preparadas para análisis técnico en escuelas",
+            "restauracion": "Clubhouse funcional con bebidas y vestuarios"
+        },
+        "modelo_expansion": {
+            "tipo_contrato": "Franquicia de marca y gestión de instalaciones",
+            "perfil_club": "Centros de 3 a 6 pistas con automatización",
+            "canon_royalties": "Canon ~18.000€ y 4% de royalties sobre pistas",
+            "inversion_media": "250.000€ a 550.000€"
+        },
+        "diferencial": "Pioneros en Alemania, adaptación al frío y modelo eficiente de costes."
+    },
+
+    # ─────────────────────────────────────────────────────────────
+    # 🇮🇹 ITALIA (5 Cadenas y Franquicias)
     # ─────────────────────────────────────────────────────────────
     {
         "id": "country-sport-village",
@@ -521,20 +1740,20 @@ FRANQUICIAS = [
         "bandera": "🇮🇹",
         "ciudad_sede": "Milán",
         "coords": [45.4930, 9.2150],
-        "modelo": "Club Social & Gastronómico de Celebridades",
+        "modelo": "Cadena Boutique & Gastronómica (Mismo Nombre)",
         "modelo_badge": "bg-purple-100 text-purple-800 border-purple-200",
         "tipo_categoria": "boutique",
         "escala": "boutique",
-        "num_clubs": "2 centros",
+        "num_clubs": "2 centros con el mismo nombre",
         "num_pistas": "12+ pistas",
         "software": "Playtomic",
         "fundadores": "Alessandro Borghese (Chef), Diletta Leotta, Max Giusti, Junior Cally",
         "web": "https://padelpalace.it",
         "tagline": "Donde el pádel milanés se fusiona con la alta gastronomía y el espectáculo.",
-        "resumen": "El club más mediático y chic de Milán. Fundado por el chef Alessandro Borghese (quien gestiona el bistrot interno ABKS Break Time), la estrella televisiva Diletta Leotta y artistas italianos. Pistas cubiertas dobles e individuales con una estética elegante y el mejor post-partido gourmet de Italia.",
+        "resumen": "Cadena de clubes bajo el nombre Padel Palace en Milán. Fundado por el chef Alessandro Borghese (con su bistrot interno ABKS Break Time), Diletta Leotta y artistas italianos. Pistas cubiertas dobles e individuales con una estética elegante y cocina gourmet.",
         "sedes_principales": [
-            "Milano Via Privata Flumendosa (Crescenzago)",
-            "Nueva sede metropolitana en desarrollo"
+            "Padel Palace Milano (Via Flumendosa, Crescenzago)",
+            "Padel Palace 2 (Milán metropolitana)"
         ],
         "tecnologia_pistas": {
             "pistas": "Pistas panorámicas cubiertas y climatizadas todo el año",
@@ -570,7 +1789,7 @@ FRANQUICIAS = [
         "fundadores": "Demetrio Albertini, Pierluigi Casiraghi / Alianza Golden Goose",
         "web": "https://citypadelmilano.it",
         "tagline": "Premiado como el Mejor Club de Italia en los Italian Padel Awards.",
-        "resumen": "Ubicado junto a los rascacielos de CityLife en Milán, City Padel Milano (promovido por ex futbolistas de élite como Demetrio Albertini) se unió a la marca de lujo veneciana Golden Goose para crear la 'Golden Goose Arena'. Estética minimalista total black, vestuarios de mármol y clientela de élite.",
+        "resumen": "Ubicado junto a los rascacielos de CityLife en Milán, City Padel Milano (promovido por Demetrio Albertini) se unió a la marca de lujo veneciana Golden Goose para crear la 'Golden Goose Arena'. Estética minimalista total black, vestuarios de mármol y clientela de élite.",
         "sedes_principales": [
             "CityLife Viale Duilio (Milán)",
             "Polos satélites de entrenamiento"
@@ -599,19 +1818,19 @@ FRANQUICIAS = [
         "bandera": "🇮🇹",
         "ciudad_sede": "Milán / Lombardía",
         "coords": [45.3667, 9.1833],
-        "modelo": "Red de Clubes de Raqueta & Golf",
-        "modelo_badge": "bg-blue-100 text-blue-800 border-blue-200",
-        "tipo_categoria": "corporativo",
+        "modelo": "Cadena Multiclub en Campos de Golf (Mismo Nombre)",
+        "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
+        "tipo_categoria": "cadena",
         "escala": "media",
-        "num_clubs": "3 centros",
+        "num_clubs": "3 centros con el mismo nombre",
         "num_pistas": "18+ pistas",
         "software": "Playtomic",
         "fundadores": "Joy Padel Group",
         "web": "https://joypadelclub.it",
         "tagline": "Clubes de pádel integrados en entornos residenciales y de golf de alto poder adquisitivo.",
-        "resumen": "Joy Padel Club opera instalaciones de pádel en el histórico Castello di Tolcinasco Golf Club y otras zonas selectas del sur de Milán. Su propuesta combina la elegancia de los clubes de golf con naves cubiertas para jugar todo el año.",
+        "resumen": "Cadena bajo la enseña Joy Padel en el Castello di Tolcinasco Golf Club y otras zonas selectas del sur de Milán. Combina la elegancia de los clubes de golf con naves cubiertas para jugar todo el año.",
         "sedes_principales": [
-            "Castello di Tolcinasco (Pieve Emanuele, Milán - 8 pistas)",
+            "Joy Padel Castello di Tolcinasco (Milán - 8 pistas)",
             "Joy Padel Rozzano",
             "Joy Padel San Donato"
         ],
@@ -671,218 +1890,7 @@ FRANQUICIAS = [
     },
 
     # ─────────────────────────────────────────────────────────────
-    # 🇫🇷 FRANCIA (5 Operadores)
-    # ─────────────────────────────────────────────────────────────
-    {
-        "id": "4padel",
-        "nombre": "4PADEL (Groupe LE FIVE)",
-        "pais": "Francia",
-        "pais_codigo": "FR",
-        "region_filtro": "FR",
-        "bandera": "🇫🇷",
-        "ciudad_sede": "París",
-        "coords": [48.9100, 2.3300],
-        "modelo": "Red Corporativa Propia",
-        "modelo_badge": "bg-blue-100 text-blue-800 border-blue-200",
-        "tipo_categoria": "corporativo",
-        "escala": "grande",
-        "num_clubs": "22+ centros",
-        "num_pistas": "135+ pistas",
-        "software": "Doinsport / My4Padel",
-        "fundadores": "Damien Pelle, Guillaume Debelmas, Joseph Viéville",
-        "web": "https://4padel.fr",
-        "tagline": "El líder indiscutible del pádel indoor en Francia con ADN deportivo y festivo.",
-        "resumen": "División de pádel de LE FIVE, líder del fútbol 5 en Francia. Complejos híbridos y naves 100% pádel con pistas Babolat oficiales y torneos homologados FFT P100 a P2000.",
-        "sedes_principales": [
-            "Estrasburgo (14 pistas indoor)",
-            "Burdeos (Bordeaux-Lac - 7 pistas)",
-            "Toulouse-Colomiers (11 pistas)",
-            "París-Marville y Montreuil",
-            "Ruan, Limoges, Metz, Valenciennes, Dunkerque"
-        ],
-        "tecnologia_pistas": {
-            "pistas": "Pistas Babolat de última generación, césped texturizado y pistas individuales",
-            "software": "App My4Padel sobre motor Doinsport",
-            "domotica": "Marcadores digitales y control de pistas",
-            "grabacion": "Sistemas de vídeo en pista para descarga de highlights",
-            "restauracion": "Sports Bar con cervezas artesanales y pantallas para partidos"
-        },
-        "modelo_expansion": {
-            "tipo_contrato": "Explotación propia y desarrollo en centros propios del grupo",
-            "perfil_club": "Superficies de 2.500 a 5.000 m² con techos de más de 8 metros",
-            "canon_royalties": "Operador integrado",
-            "inversion_media": "1M€ a 2.5M€ por complejo"
-        },
-        "diferencial": "Sinergia con los miles de futbolistas de LE FIVE y ambiente social inmejorable."
-    },
-    {
-        "id": "urbanpadel",
-        "nombre": "UrbanPadel (Groupe UrbanSoccer)",
-        "pais": "Francia",
-        "pais_codigo": "FR",
-        "region_filtro": "FR",
-        "bandera": "🇫🇷",
-        "ciudad_sede": "París",
-        "coords": [48.8566, 2.3522],
-        "modelo": "Red Corporativa Propia",
-        "modelo_badge": "bg-blue-100 text-blue-800 border-blue-200",
-        "tipo_categoria": "corporativo",
-        "escala": "media",
-        "num_clubs": "16+ centros",
-        "num_pistas": "75+ pistas",
-        "software": "UrbanPadel App",
-        "fundadores": "UrbanSoccer (Compagnie des Alpes)",
-        "web": "https://urbanpadel.fr",
-        "tagline": "El gigante francés del fútbol reducido llevando el pádel a las periferias urbanas.",
-        "resumen": "Brazo de pádel de UrbanSoccer. Pistas cubiertas dentro de sus complejos multideporte en grandes ciudades con academias formativas y ligas de empresa.",
-        "sedes_principales": [
-            "Lille-Lezennes",
-            "Lyon-Baraban",
-            "Nantes-Carquefou",
-            "Toulouse-Montaudran",
-            "Rennes (Vern-sur-Seiche)",
-            "París-Puteaux (Île de Puteaux)"
-        ],
-        "tecnologia_pistas": {
-            "pistas": "Pistas panorámicas indoor cubiertas con césped monofilamento azul",
-            "software": "App oficial de reservas UrbanPadel",
-            "domotica": "Control de acceso sincronizado con la reserva",
-            "grabacion": "Cámaras para análisis de entrenamiento y clínics",
-            "restauracion": "Clubhouse con restauración rápida y pantallas deportivas"
-        },
-        "modelo_expansion": {
-            "tipo_contrato": "Desarrollo propio sobre activos inmobiliarios de UrbanSoccer",
-            "perfil_club": "Centros multideporte de 3 a 8 pistas anexas al fútbol",
-            "canon_royalties": "Operación directa",
-            "inversion_media": "300.000€ a 700.000€"
-        },
-        "diferencial": "Ubicaciones metropolitanas clave y bases de datos consolidadas de deportistas corporativos."
-    },
-    {
-        "id": "padelshot",
-        "nombre": "PadelShot",
-        "pais": "Francia",
-        "pais_codigo": "FR",
-        "region_filtro": "FR",
-        "bandera": "🇫🇷",
-        "ciudad_sede": "Caen",
-        "coords": [49.1828, -0.3707],
-        "modelo": "Complejos Multiactividad y Ocio Indoor",
-        "modelo_badge": "bg-blue-100 text-blue-800 border-blue-200",
-        "tipo_categoria": "corporativo",
-        "escala": "media",
-        "num_clubs": "5 centros",
-        "num_pistas": "36+ pistas",
-        "software": "Doinsport",
-        "fundadores": "Jérôme Doligé",
-        "web": "https://padelshot.fr",
-        "tagline": "El concepto 'Lieu de Vie' donde el pádel convive con el bádminton, la petanca y el ocio social.",
-        "resumen": "Combina pádel cubierto con bádminton, petanca interior y billar, todo vertebrado por un restaurante deportivo con cervezas artesanales y cocina local. Más del 40% de ingresos provienen de la restauración.",
-        "sedes_principales": [
-            "Caen (Mondeville - centro insignia)",
-            "Saint-Étienne",
-            "Metz",
-            "Lyon (Craponne)",
-            "Reims"
-        ],
-        "tecnologia_pistas": {
-            "pistas": "Pistas panorámicas con salidas de pista autorizadas y moqueta WPT",
-            "software": "Doinsport para reservas cruzadas multideporte",
-            "domotica": "Marcadores digitales en pista",
-            "grabacion": "Cámaras para torneos FFT P500 y P1000",
-            "restauracion": "Restaurante con platos del día y zonas de seminario para empresas"
-        },
-        "modelo_expansion": {
-            "tipo_contrato": "Desarrollo propio corporativo",
-            "perfil_club": "Naves de 3.000 a 6.000 m² con capacidad para 6-10 pistas más ocio",
-            "canon_royalties": "Operador directo",
-            "inversion_media": "1M€ a 2M€ por complejo"
-        },
-        "diferencial": "Excepcional facturación en hostelería y eventos corporativos para grupos grandes."
-    },
-    {
-        "id": "padel-horizon",
-        "nombre": "Padel Horizon",
-        "pais": "Francia",
-        "pais_codigo": "FR",
-        "region_filtro": "FR",
-        "bandera": "🇫🇷",
-        "ciudad_sede": "París (Sucy-en-Brie)",
-        "coords": [48.7719, 2.5233],
-        "modelo": "Red de Raquetas Indoor en Isla de Francia",
-        "modelo_badge": "bg-blue-100 text-blue-800 border-blue-200",
-        "tipo_categoria": "corporativo",
-        "escala": "boutique",
-        "num_clubs": "2 centros emblemáticos",
-        "num_pistas": "14+ pistas",
-        "software": "Doinsport",
-        "fundadores": "Padel Horizon / Groupe Now Padel",
-        "web": "https://padel-horizon.com",
-        "tagline": "Uno de los primeros y mayores complejos cubiertos de pádel de París.",
-        "resumen": "Pionero del pádel en la región parisina. Sus instalaciones en Sucy-en-Brie y Fontenay-sous-Bois albergan pistas cubiertas de gran altura, pistas de squash, bádminton y un animado club house con terraza.",
-        "sedes_principales": [
-            "Padel Horizon Sucy-en-Brie (IDF - 6 pistas pádel + 4 squash + 4 bádminton)",
-            "Centros metropolitanos en Val-de-Marne"
-        ],
-        "tecnologia_pistas": {
-            "pistas": "Pistas panorámicas cubiertas con techos de 10 metros",
-            "software": "Doinsport",
-            "domotica": "Control digital de iluminación y reserva",
-            "grabacion": "Grabación de jugadas en torneos P1000",
-            "restauracion": "Bar restaurante con terraza y servicio de catering"
-        },
-        "modelo_expansion": {
-            "tipo_contrato": "Operación directa",
-            "perfil_club": "Naves periurbanas en París con acceso a RER y transporte",
-            "canon_royalties": "Propiedad privada",
-            "inversion_media": "800.000€ a 1.500.000€"
-        },
-        "diferencial": "Comunidad fiel en el este parisino y torneos con máxima afluencia de jugadores del circuito nacional."
-    },
-    {
-        "id": "padel-tolosa",
-        "nombre": "Padel Tolosa",
-        "pais": "Francia",
-        "pais_codigo": "FR",
-        "region_filtro": "FR",
-        "bandera": "🇫🇷",
-        "ciudad_sede": "Toulouse / Montauban",
-        "coords": [43.6047, 1.4442],
-        "modelo": "Cadena Regional de Occitania",
-        "modelo_badge": "bg-indigo-100 text-indigo-800 border-indigo-200",
-        "tipo_categoria": "franquicia",
-        "escala": "boutique",
-        "num_clubs": "4 complejos",
-        "num_pistas": "20+ pistas",
-        "software": "Doinsport",
-        "fundadores": "Jérôme Cauchy y socios",
-        "web": "https://padeltolosa.fr",
-        "tagline": "La cadena de referencia en el suroeste de Francia.",
-        "resumen": "Toulouse es la capital histórica del pádel francés (por su cercanía a España). Padel Tolosa ha desarrollado una red de clubes en Toulouse, Montauban, Albi y Rodez combinando deporte con gastronomía regional del suroeste (tapas y pato).",
-        "sedes_principales": [
-            "Padel Tolosa Toulouse",
-            "Padel Tolosa Montauban",
-            "Padel Tolosa Albi",
-            "Padel Tolosa Rodez"
-        ],
-        "tecnologia_pistas": {
-            "pistas": "Pistas indoor y semicubiertas homologadas por la FFT",
-            "software": "Doinsport",
-            "domotica": "Check-in móvil y taquillas",
-            "grabacion": "Sistemas de vídeo en pista",
-            "restauracion": "Tapas bar con embutidos locales y vinos de la región"
-        },
-        "modelo_expansion": {
-            "tipo_contrato": "Franquicia regional y clubes propios",
-            "perfil_club": "Ciudades medianas del sur de Francia con 4 a 6 pistas",
-            "canon_royalties": "Canon de adhesión ~15.000€ y 4% royalties",
-            "inversion_media": "300.000€ a 600.000€"
-        },
-        "diferencial": "Conocimiento exhaustivo del mercado del sur de Francia y cultura de club muy cercana."
-    },
-
-    # ─────────────────────────────────────────────────────────────
-    # 🇵🇹 PORTUGAL (2 Operadores)
+    # 🇵🇹 PORTUGAL (2 Cadenas)
     # ─────────────────────────────────────────────────────────────
     {
         "id": "rackets-pro",
@@ -893,20 +1901,20 @@ FRANQUICIAS = [
         "bandera": "🇵🇹",
         "ciudad_sede": "Lisboa",
         "coords": [38.7223, -9.1393],
-        "modelo": "Líder de Clubes de Raqueta en Lisboa",
-        "modelo_badge": "bg-blue-100 text-blue-800 border-blue-200",
-        "tipo_categoria": "corporativo",
+        "modelo": "Cadena Multiclub en Lisboa (Mismo Nombre)",
+        "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
+        "tipo_categoria": "cadena",
         "escala": "media",
-        "num_clubs": "6 grandes complejos",
+        "num_clubs": "6 grandes complejos con el mismo nombre",
         "num_pistas": "45+ pistas",
         "software": "AirCourts / Playtomic",
         "fundadores": "Rackets Pro Gestão de Clubes",
         "web": "https://racketspro.pt",
         "tagline": "El operador deportivo de raqueta más prestigioso de Lisboa y Cascais.",
-        "resumen": "Rackets Pro gestiona las instalaciones de raqueta más icónicas del área metropolitana de Lisboa: el Estádio Universitário (EUL, con 12 pistas de pádel), Nacional Padel en pleno centro lisboeta, Quinta da Marinha en Cascais y centros universitarios.",
+        "resumen": "Cadena de clubes bajo la marca Rackets Pro: el Estádio Universitário (EUL, con 12 pistas), Nacional Padel en pleno centro lisboeta, Quinta da Marinha en Cascais y centros universitarios.",
         "sedes_principales": [
             "Rackets Pro EUL - Estádio Universitário de Lisboa (12 pistas)",
-            "Nacional Padel (Lisboa - junto al Clube Nacional de Natação)",
+            "Rackets Pro Nacional Padel (Lisboa Centro)",
             "Rackets Pro Quinta da Marinha (Cascais)",
             "Rackets Pro Saldanha (Lisboa Centro)",
             "Rackets Pro Nova - Campus Nova FCT (Caparica - 10 pistas cubiertas)"
@@ -935,17 +1943,17 @@ FRANQUICIAS = [
         "bandera": "🇵🇹",
         "ciudad_sede": "Oporto",
         "coords": [41.1579, -8.6291],
-        "modelo": "Red Pionera y Líder del Norte de Portugal",
-        "modelo_badge": "bg-blue-100 text-blue-800 border-blue-200",
-        "tipo_categoria": "corporativo",
+        "modelo": "Cadena Multiclub del Norte de Portugal (Mismo Nombre)",
+        "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
+        "tipo_categoria": "cadena",
         "escala": "media",
-        "num_clubs": "5 centros",
+        "num_clubs": "5 centros con el mismo nombre",
         "num_pistas": "35+ pistas",
         "software": "AirCourts / Playtomic",
         "fundadores": "Pioneros del pádel en el Gran Oporto",
         "web": "https://top-padel.pt",
         "tagline": "Pioneros absolutos del pádel indoor en el norte de Portugal.",
-        "resumen": "Top-Padel inauguró el primer club cubierto de Portugal en Foz do Douro (Top-Padel Fluvial). Hoy operan macrocentros en la Zona Industrial de Oporto, Gaia, Maia y Guimarães, con pistas de especificación World Padel Tour.",
+        "resumen": "Cadena pionera que opera bajo la enseña Top-Padel / AZ Padel. Abrieron el primer club indoor de Portugal junto a la desembocadura del río Duero (Top-Padel Fluvial) y macrocentros en la Zona Industrial de Oporto y Maia.",
         "sedes_principales": [
             "Top-Padel Industrial (Zona Industrial do Porto)",
             "Top-Padel Fluvial (Foz do Douro, junto al río Duero)",
@@ -970,681 +1978,47 @@ FRANQUICIAS = [
     },
 
     # ─────────────────────────────────────────────────────────────
-    # 🇸🇪 SUECIA Y NÓRDICOS (6 Operadores)
+    # 🇺🇸 ESTADOS UNIDOS (6 Cadenas y Franquicias)
     # ─────────────────────────────────────────────────────────────
     {
-        "id": "ledap-wap",
-        "nombre": "LeDap / We Are Padel (WAP)",
-        "pais": "Internacional (Suecia / Europa)",
-        "pais_codigo": "SE",
-        "region_filtro": "SE",
-        "bandera": "🇸🇪",
-        "ciudad_sede": "Estocolmo",
-        "coords": [59.3293, 18.0686],
-        "modelo": "Red Corporativa Propia",
-        "modelo_badge": "bg-blue-100 text-blue-800 border-blue-200",
-        "tipo_categoria": "corporativo",
-        "escala": "mega",
-        "num_clubs": "90+ centros",
-        "num_pistas": "650+ pistas",
-        "software": "LeDap App / Matchi / Playtomic",
-        "fundadores": "Triton Partners / Pontus Gustafsson",
-        "web": "https://ledap.com",
-        "tagline": "El gigante pan-europeo del pádel indoor respaldado por capital institucional.",
-        "resumen": "La mayor plataforma internacional de pádel: integró We Are Padel (Suecia y Alemania), Just Padel (Noruega), Padel Club Finland y Padel Zone (Austria), con presencia en UK, Polonia y España.",
-        "sedes_principales": [
-            "Suecia: Más de 40 centros en Estocolmo, Gotemburgo, Malmö",
-            "Alemania: Berlín, Bremen, Düsseldorf",
-            "Reino Unido: Derby, Bristol",
-            "Finlandia y Noruega: Red en Helsinki, Tampere, Oslo",
-            "Austria: Viena y Graz (Padel Zone)",
-            "España: LeDap Madrid"
-        ],
-        "tecnologia_pistas": {
-            "pistas": "Pistas panorámicas indoor de 8 a 12 metros de altura",
-            "software": "App propia LeDap integrada con Matchi y Playtomic",
-            "domotica": "Check-in digital, apertura remota con código PIN",
-            "grabacion": "Cámaras conectadas en pistas seleccionadas",
-            "restauracion": "Lounge corners con vending automatizado y cafetería"
-        },
-        "modelo_expansion": {
-            "tipo_contrato": "Consolidación corporativa y aperturas propias",
-            "perfil_club": "Instalaciones indoor con mínimo 6 a 12 pistas",
-            "canon_royalties": "Operación directa corporativa",
-            "inversion_media": "600.000€ a 1.500.000€"
-        },
-        "diferencial": "Capacidad de escala paneuropea, estandarización y app unificada."
-    },
-    {
-        "id": "pdl-center-united",
-        "nombre": "PDL Center / Padel United",
-        "pais": "Suecia y Reino Unido",
-        "pais_codigo": "SE",
-        "region_filtro": "SE",
-        "bandera": "🇸🇪",
-        "ciudad_sede": "Estocolmo",
-        "coords": [59.3400, 18.0700],
-        "modelo": "Red de Megacentros Nórdicos y Expansión en UK",
-        "modelo_badge": "bg-blue-100 text-blue-800 border-blue-200",
-        "tipo_categoria": "corporativo",
-        "escala": "mega",
-        "num_clubs": "80+ centros",
-        "num_pistas": "500+ pistas",
-        "software": "Matchi",
-        "fundadores": "Henrik Söderberg, Jonas Björkman (Extenista), Måns Zelmerlöw / Markus Hellqvist",
-        "web": "https://padelunited.se",
-        "tagline": "Pioneros del pádel en Suecia que fusionaron dos imperios para dominar el norte de Europa.",
-        "resumen": "PDL Center (fundado por la leyenda del tenis Jonas Björkman y el cantante Måns Zelmerlöw) se fusionó con Padel United de los hermanos Hellqvist creando una de las mayores fuerzas deportivas de Europa. Cuentan con centros insignia de más de 20 pistas como PDL Frihamnen en Estocolmo.",
-        "sedes_principales": [
-            "PDL Center Frihamnen (Estocolmo - 22 pistas)",
-            "PDL Center Kvarnholmen y Västberga",
-            "Gotemburgo, Malmö, Jönköping",
-            "Red en Reino Unido bajo PDL Padel United UK"
-        ],
-        "tecnologia_pistas": {
-            "pistas": "Pistas de fabricantes líderes europeos con moqueta Mondo Supercourt",
-            "software": "Matchi (el estándar sueco)",
-            "domotica": "Acceso 100% automatizado fuera de horario de recepción",
-            "grabacion": "Sistemas de cámaras con pantalla táctil en pista para repeticiones",
-            "restauracion": "Clubhouse con cafetería, zonas de calentamiento y pro-shop completa"
-        },
-        "modelo_expansion": {
-            "tipo_contrato": "Propiedad corporativa y adquisiciones selectas",
-            "perfil_club": "Centros de más de 8 pistas cubiertas",
-            "canon_royalties": "Grupo integrado",
-            "inversion_media": "800.000€ a 2M€"
-        },
-        "diferencial": "El prestigio de Jonas Björkman y la implantación de la cultura del pádel en toda la sociedad sueca."
-    },
-    {
-        "id": "every-padel",
-        "nombre": "Every Padel",
-        "pais": "Suecia",
-        "pais_codigo": "SE",
-        "region_filtro": "SE",
-        "bandera": "🇸🇪",
-        "ciudad_sede": "Gotemburgo / Estocolmo",
-        "coords": [57.7089, 11.9746],
-        "modelo": "Macroarenas de Espectáculo y Medios",
-        "modelo_badge": "bg-blue-100 text-blue-800 border-blue-200",
-        "tipo_categoria": "corporativo",
-        "escala": "media",
-        "num_clubs": "5 macroarenas",
-        "num_pistas": "60+ pistas",
-        "software": "Matchi",
-        "fundadores": "Everysport Media Group (ESMG)",
-        "web": "https://everypadel.com",
-        "tagline": "Grandes recintos de pádel integrados con el mayor grupo de medios deportivos sueco.",
-        "resumen": "División de pádel de Everysport Media Group. Construyeron una de las instalaciones de pádel más espectaculares del planeta dentro de la Åby Arena en Gotemburgo (con 25 pistas bajo un mismo techo), además de centros en Kista (Estocolmo) y Norrköping.",
-        "sedes_principales": [
-            "Every Padel Åby Arena (Gotemburgo - 25 pistas)",
-            "Every Padel Kista (Estocolmo)",
-            "Every Padel Norrköping",
-            "Every Padel Jönköping"
-        ],
-        "tecnologia_pistas": {
-            "pistas": "Pistas panorámicas WPT dentro de arenas feriales y hoteleras",
-            "software": "Matchi",
-            "domotica": "Sistemas acústicos especiales y control de flujo de jugadores",
-            "grabacion": "Streaming profesional integrado con portales de noticias deportivas",
-            "restauracion": "Sinergia con los hoteles y restaurantes de la arena"
-        },
-        "modelo_expansion": {
-            "tipo_contrato": "Explotación en grandes recintos feriales y deportivos",
-            "perfil_club": "Grandes complejos de más de 12 pistas",
-            "canon_royalties": "Operación corporativa",
-            "inversion_media": "1.5M€ a 3.5M€"
-        },
-        "diferencial": "Cobertura mediática en prensa sueca y capacidad para organizar los torneos más multitudinarios."
-    },
-    {
-        "id": "padel-zenter",
-        "nombre": "Padel Zenter",
-        "pais": "Suecia e Italia",
-        "pais_codigo": "SE",
-        "region_filtro": "SE",
-        "bandera": "🇸🇪",
-        "ciudad_sede": "Estocolmo",
-        "coords": [59.2970, 18.0820],
-        "modelo": "Macrocomplejos Propios de Ultra-Lujo",
-        "modelo_badge": "bg-purple-100 text-purple-800 border-purple-200",
-        "tipo_categoria": "boutique",
-        "escala": "media",
-        "num_clubs": "6 macrocentros",
-        "num_pistas": "65+ pistas",
-        "software": "Matchi / Proprietary",
-        "fundadores": "Zlatan Ibrahimović y Thomas Sandström",
-        "web": "https://padelzenter.se",
-        "tagline": "La experiencia arquitectónica y de juego más exigente del mundo del pádel.",
-        "resumen": "Creado por Zlatan Ibrahimović con especificaciones extremas: alturas de 12 metros sin columnas, moqueta oficial WPT, insonorización acústica e iluminación indirecta sin deslumbramiento. Macrocomplejo en Milán-Segrate.",
-        "sedes_principales": [
-            "Milán (Segrate, Italia - 9 pistas)",
-            "Estocolmo (Ársta)",
-            "Jönköping y Skövde",
-            "Örebro y Uppsala"
-        ],
-        "tecnologia_pistas": {
-            "pistas": "Pistas AFP Courts aprobadas por la FIP, cristal templado de 12 mm y césped WPT",
-            "software": "Matchi en Suecia y reservas online en Milán",
-            "domotica": "Climatización y control inteligente de ventilación",
-            "grabacion": "Sistemas de televisión y streaming para torneos",
-            "restauracion": "Restaurantes de calidad superior y pro-shop PZ"
-        },
-        "modelo_expansion": {
-            "tipo_contrato": "Propiedad directa y alianzas selectas",
-            "perfil_club": "Macrocomplejos diseñados desde cimientos con mínimo 8 a 15 pistas",
-            "canon_royalties": "No es franquicia abierta al público",
-            "inversion_media": "3M€ a 8M€"
-        },
-        "diferencial": "El carisma y exigencia de Zlatan, acabados de hotel 5 estrellas y acústica sin eco."
-    },
-    {
-        "id": "just-padel-norway",
-        "nombre": "Just Padel Norway",
-        "pais": "Noruega",
-        "pais_codigo": "NO",
-        "region_filtro": "SE",
-        "bandera": "🇳🇴",
-        "ciudad_sede": "Kristiansand / Oslo",
-        "coords": [58.1467, 7.9956],
-        "modelo": "Cadena Líder de Noruega",
-        "modelo_badge": "bg-blue-100 text-blue-800 border-blue-200",
-        "tipo_categoria": "corporativo",
-        "escala": "media",
-        "num_clubs": "12+ centros indoor",
-        "num_pistas": "60+ pistas",
-        "software": "Matchi",
-        "fundadores": "Jesper Mathisen (Exfutbolista) y socios (adquirido por LeDap)",
-        "web": "https://justpadel.no",
-        "tagline": "El operador que introdujo y consolidó el pádel indoor en Noruega.",
-        "resumen": "Just Padel es el principal operador noruego. Fundado en Kristiansand por personalidades del fútbol como Jesper Mathisen, se expandió rápidamente por Oslo, Stavanger y Bergen con centros cubiertos de calefacción optimizada para el invierno nórdico.",
-        "sedes_principales": [
-            "Kristiansand (centro insignia)",
-            "Oslo y Drammen",
-            "Stavanger y Sandnes",
-            "Bergen y Skien"
-        ],
-        "tecnologia_pistas": {
-            "pistas": "Pistas panorámicas con climatización de alto rendimiento",
-            "software": "Matchi",
-            "domotica": "Acceso desatendido por código PIN e iluminación sincronizada",
-            "grabacion": "Cámaras en pistas centrales",
-            "restauracion": "Lounge con máquinas de autoservicio y café noruego"
-        },
-        "modelo_expansion": {
-            "tipo_contrato": "Operación directa bajo el paraguas del grupo LeDap",
-            "perfil_club": "Naves industriales aisladas de 4 a 8 pistas",
-            "canon_royalties": "Corporativo",
-            "inversion_media": "500.000€ a 1.200.000€"
-        },
-        "diferencial": "Adaptación técnica al frío extremo de Noruega y gran capilaridad en ciudades costeras."
-    },
-    {
-        "id": "racket-club-denmark",
-        "nombre": "Racket Club",
-        "pais": "Dinamarca",
-        "pais_codigo": "DK",
-        "region_filtro": "SE",
-        "bandera": "🇩🇰",
-        "ciudad_sede": "Copenhague",
-        "coords": [55.6761, 12.5683],
-        "modelo": "Clubes de Diseño Escandinavo",
-        "modelo_badge": "bg-purple-100 text-purple-800 border-purple-200",
-        "tipo_categoria": "boutique",
+        "id": "park-padel",
+        "nombre": "Park Padel",
+        "pais": "Estados Unidos",
+        "pais_codigo": "US",
+        "region_filtro": "US",
+        "bandera": "🇺🇸",
+        "ciudad_sede": "San Francisco (California)",
+        "coords": [37.7749, -122.4194],
+        "modelo": "Cadena Urbana en San Francisco (Mismo Nombre)",
+        "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
+        "tipo_categoria": "cadena",
         "escala": "boutique",
-        "num_clubs": "4 complejos",
-        "num_pistas": "30+ pistas",
-        "software": "Matchi",
-        "fundadores": "Emprendedores daneses del diseño y el deporte",
-        "web": "https://racketclub.dk",
-        "tagline": "Pádel de estética puramente escandinava en el corazón de Copenhague.",
-        "resumen": "Racket Club convirtió antiguas naves portuarias e industriales de Copenhague (como Kløvermarken y Taastrup) en templos del diseño minimalista danés: maderas claras, iluminación cálida, café de especialidad y pistas de competición impecables.",
+        "num_clubs": "2 centros con el mismo nombre",
+        "num_pistas": "8+ pistas",
+        "software": "Playtomic USA",
+        "fundadores": "Katie Blodgett y Jessica Talbert (Empresarias californianas)",
+        "web": "https://parkpadel.com",
+        "tagline": "Pioneras en llevar el pádel al corazón de San Francisco y Silicon Valley.",
+        "resumen": "Park Padel es la primera cadena de pádel de San Francisco, fundada por mujeres empresarias en localizaciones icónicas frente a la bahía: en el histórico Palace of Fine Arts y en el Embarcadero Plaza. Foco en la comunidad tecnológica y clases de iniciación.",
         "sedes_principales": [
-            "Racket Club Kløvermarken (Copenhague)",
-            "Racket Club Taastrup (Copenhague)",
-            "Racket Club Dragør",
-            "Racket Club Slagelse"
+            "Park Padel Embarcadero Plaza (San Francisco)",
+            "Park Padel Palace of Fine Arts (Marina District, San Francisco)"
         ],
         "tecnologia_pistas": {
-            "pistas": "Pistas WPT con estructuras en gris antracita y césped azul nórdico",
-            "software": "Matchi",
-            "domotica": "Check-in sin contacto por smartphone",
-            "grabacion": "Cámaras discretas para análisis de juego",
-            "restauracion": "Cafetería nórdica con bollería danesa artesanal, smørrebrød y zumos naturales"
+            "pistas": "Pistas panorámicas de cristal de diseño integradas en monumentos históricos",
+            "software": "Playtomic USA",
+            "domotica": "Check-in digitalizado y reserva por app",
+            "grabacion": "Grabación de jugadas para compartir en redes",
+            "restauracion": "Puntos de café artesanal californiano y refrescos orgánicos"
         },
         "modelo_expansion": {
-            "tipo_contrato": "Crecimiento propio en áreas urbanas de alta densidad danesas",
-            "perfil_club": "Naves de valor arquitectónico de 6 a 10 pistas",
-            "canon_royalties": "Propiedad privada",
-            "inversion_media": "800.000€ a 1.800.000€"
+            "tipo_contrato": "Concesiones de espacios emblemáticos con autoridades portuarias y parques de SF",
+            "perfil_club": "Suelos urbanos icónicos en San Francisco y el Área de la Bahía",
+            "canon_royalties": "Cadena propia",
+            "inversion_media": "500.000$ a 1.200.000$"
         },
-        "diferencial": "El concepto estético más elegante de Dinamarca con atmósfera hygge incomparable."
+        "diferencial": "Ubicación en los lugares más turísticos y exclusivos de San Francisco con un público tech de alto poder adquisitivo."
     },
-
-    # ─────────────────────────────────────────────────────────────
-    # 🇳🇱 PAÍSES BAJOS, BÉLGICA Y ALEMANIA (5 Operadores)
-    # ─────────────────────────────────────────────────────────────
-    {
-        "id": "the-padellers",
-        "nombre": "The Padellers",
-        "pais": "Países Bajos y Alemania",
-        "pais_codigo": "NL",
-        "region_filtro": "NL",
-        "bandera": "🇳🇱",
-        "ciudad_sede": "Ámsterdam",
-        "coords": [52.3676, 4.9041],
-        "modelo": "Red Corporativa y Franquicia",
-        "modelo_badge": "bg-indigo-100 text-indigo-800 border-indigo-200",
-        "tipo_categoria": "franquicia",
-        "escala": "grande",
-        "num_clubs": "26+ centros",
-        "num_pistas": "145+ pistas",
-        "software": "BookaBall / Playtomic",
-        "fundadores": "Philippe van Ellis, Bas Smit",
-        "web": "https://thepadellers.nl",
-        "tagline": "La cadena más dinámica de Países Bajos en plena conquista de Alemania.",
-        "resumen": "Democratización del pádel sin cuotas obligatorias con enorme foco en el tercer tiempo ('borrel'). Expansión activa en Alemania (Essen, Frankfurt, Herdecke) combinando centros propios y franquicias.",
-        "sedes_principales": [
-            "Ámsterdam (Amstelpark, West, Zuid)",
-            "Breda (2 complejos)",
-            "Groningen (2 complejos)",
-            "Hengelo, Roermond, Valkenswaard, Venlo",
-            "Alemania: Essen, Frankfurt, Herdecke, Troisdorf"
-        ],
-        "tecnologia_pistas": {
-            "pistas": "Pistas panorámicas con iluminación LED optimizada",
-            "software": "BookaBall con integración en Playtomic",
-            "domotica": "Apertura por QR y check-in automatizado",
-            "grabacion": "Cámaras en pistas centrales para eventos de empresa",
-            "restauracion": "Bares temáticos con cervezas locales y snacks calientes"
-        },
-        "modelo_expansion": {
-            "tipo_contrato": "Franquicia operativa, joint-venture y centros propios",
-            "perfil_club": "Naves de mínimo 5 pistas cubiertas con zona lounge",
-            "canon_royalties": "Canon ~25.000€ y 4-5% de royalty sobre facturación",
-            "inversion_media": "350.000€ a 800.000€"
-        },
-        "diferencial": "Marketing viral en Países Bajos, eventos corporativos de gran escala y ambiente social."
-    },
-    {
-        "id": "peakz-padel",
-        "nombre": "Peakz Padel",
-        "pais": "Países Bajos y Alemania",
-        "pais_codigo": "NL",
-        "region_filtro": "NL",
-        "bandera": "🇳🇱",
-        "ciudad_sede": "Utrecht",
-        "coords": [52.0907, 5.1214],
-        "modelo": "Red Corporativa Propia",
-        "modelo_badge": "bg-blue-100 text-blue-800 border-blue-200",
-        "tipo_categoria": "corporativo",
-        "escala": "grande",
-        "num_clubs": "17+ centros",
-        "num_pistas": "110+ pistas",
-        "software": "Playtomic",
-        "fundadores": "Marc Kuijpers",
-        "web": "https://peakzpadel.nl",
-        "tagline": "Pioneros del concepto 'Pay & Play' comunitario con diseño nórdico e industrial.",
-        "resumen": "Naves en zonas de alta densidad, pistas de máxima calidad y atmósfera relajada ('gezellig'). Sin cuotas de socio; famoso por su torneo semanal 'King of the Court'.",
-        "sedes_principales": [
-            "Ámsterdam Zuidoost (14 pistas)",
-            "Ámsterdam Olympiaplein",
-            "Utrecht Vechtsebanen (14 pistas indoor)",
-            "Utrecht Zeehaenkade",
-            "Róterdam, Eindhoven",
-            "Alemania: Kleve (7 pistas), Hagen (10), Paderborn (8), Tönisvorst (10)"
-        ],
-        "tecnologia_pistas": {
-            "pistas": "Pistas dobles e individuales ('singles') de alta competición",
-            "software": "Playtomic",
-            "domotica": "Taquillas electrónicas, check-in digital y quioscos táctiles",
-            "grabacion": "Streaming en torneos 'Peakz Tour'",
-            "restauracion": "Clubhouse con café de especialidad y cervezas locales"
-        },
-        "modelo_expansion": {
-            "tipo_contrato": "Crecimiento corporativo y alianzas con dueños de naves",
-            "perfil_club": "Recintos industriales de mínimo 6 a 12 pistas",
-            "canon_royalties": "Operación directa",
-            "inversion_media": "500.000€ a 1.200.000€"
-        },
-        "diferencial": "Cultura de club consolidada y torneos King of the Court semanales masivos."
-    },
-    {
-        "id": "plaza-padel",
-        "nombre": "Plaza Padel",
-        "pais": "Países Bajos",
-        "pais_codigo": "NL",
-        "region_filtro": "NL",
-        "bandera": "🇳🇱",
-        "ciudad_sede": "Ámsterdam",
-        "coords": [52.3888, 4.8450],
-        "modelo": "Red Corporativa y Club de Negocios",
-        "modelo_badge": "bg-blue-100 text-blue-800 border-blue-200",
-        "tipo_categoria": "corporativo",
-        "escala": "media",
-        "num_clubs": "5 complejos",
-        "num_pistas": "42+ pistas",
-        "software": "Playtomic",
-        "fundadores": "John van Lottum (Extenista ATP)",
-        "web": "https://plazapadel.com",
-        "tagline": "El punto de encuentro entre el pádel de alto nivel y el networking empresarial.",
-        "resumen": "Fundado por el extenista John van Lottum. Clubes diseñados con salas de reuniones de empresa, catering de negocios y clínics impartidos por exprofesionales.",
-        "sedes_principales": [
-            "Plaza Padel Ámsterdam (Rhoneweg - 9 pistas)",
-            "Plaza Padel Almelo",
-            "Plaza Padel Enschede",
-            "Plaza Padel Heiloo",
-            "Plaza Padel Waalwijk"
-        ],
-        "tecnologia_pistas": {
-            "pistas": "Pistas indoor homologadas con alturas libres de más de 9 metros",
-            "software": "Playtomic con paquetes B2B",
-            "domotica": "Check-in digital y pantallas de torneos",
-            "grabacion": "Grabación para análisis de clínics y eventos de empresa",
-            "restauracion": "Restaurante con menú ejecutivo y terrazas cubiertas"
-        },
-        "modelo_expansion": {
-            "tipo_contrato": "Crecimiento corporativo en parques empresariales",
-            "perfil_club": "Complejos de 7 a 10 pistas con salas de conferencias",
-            "canon_royalties": "Operación directa",
-            "inversion_media": "700.000€ a 1.400.000€"
-        },
-        "diferencial": "Liderazgo de John van Lottum y gran cartera de patrocinadores corporativos."
-    },
-    {
-        "id": "garrincha-belgium",
-        "nombre": "Garrincha",
-        "pais": "Bélgica",
-        "pais_codigo": "BE",
-        "region_filtro": "NL",
-        "bandera": "🇧🇪",
-        "ciudad_sede": "Gante / Amberes",
-        "coords": [51.0543, 3.7174],
-        "modelo": "Red de Complejos Urbanos de Pádel y Fútbol 5",
-        "modelo_badge": "bg-blue-100 text-blue-800 border-blue-200",
-        "tipo_categoria": "corporativo",
-        "escala": "media",
-        "num_clubs": "4 grandes centros",
-        "num_pistas": "25+ pistas",
-        "software": "Playtomic",
-        "fundadores": "Garrincha Sports NV",
-        "web": "https://garrincha.be",
-        "tagline": "Los macrocomplejos deportivos urbanos más vanguardistas de Flandes y Bruselas.",
-        "resumen": "Garrincha es la cadena reina del ocio deportivo cubierto en Bélgica. Combinan campos de fútbol reducido con naves de pádel indoor de diseño industrial contemporáneo, vestuarios premium y terrazas cerveceras con cervezas belgas de abadía.",
-        "sedes_principales": [
-            "Garrincha Gent (Gante - 8 pistas indoor)",
-            "Garrincha Antwerpen (Amberes)",
-            "Garrincha Brussels (Bruselas)",
-            "Garrincha Charleroi"
-        ],
-        "tecnologia_pistas": {
-            "pistas": "Pistas panorámicas de competición cubiertas",
-            "software": "Playtomic",
-            "domotica": "Control digital de iluminación por pista y tornos automáticos",
-            "grabacion": "Cámaras en pista para torneos corporativos",
-            "restauracion": "Gran Sports Bar belga con amplia carta de cervezas y hamburguesas gourmet"
-        },
-        "modelo_expansion": {
-            "tipo_contrato": "Desarrollo propio corporativo",
-            "perfil_club": "Naves de más de 3.000 m² en accesos a grandes ciudades belgas",
-            "canon_royalties": "Operador integrado",
-            "inversion_media": "1M€ a 2.5M€"
-        },
-        "diferencial": "Fusión del fútbol urbano y el pádel en un ambiente belga cervecero de máxima rentabilidad."
-    },
-    {
-        "id": "padel-city",
-        "nombre": "Padel City",
-        "pais": "Alemania",
-        "pais_codigo": "DE",
-        "region_filtro": "DE",
-        "bandera": "🇩🇪",
-        "ciudad_sede": "Fürth / Múnich",
-        "coords": [49.4774, 10.9886],
-        "modelo": "Red de Franquicias y Pistas Modulares",
-        "modelo_badge": "bg-indigo-100 text-indigo-800 border-indigo-200",
-        "tipo_categoria": "franquicia",
-        "escala": "media",
-        "num_clubs": "12+ centros",
-        "num_pistas": "50+ pistas",
-        "software": "Playtomic / CourtBrain",
-        "fundadores": "PadelCity Deutschland GmbH",
-        "web": "https://padelcity.de",
-        "tagline": "La cadena alemana de mayor capilaridad y crecimiento rápido.",
-        "resumen": "Motor de la introducción del pádel en Alemania. Pistas cubiertas y semicubiertas asociándose con polideportivos de tenis ya existentes o rehabilitando naves logísticas.",
-        "sedes_principales": [
-            "Dortmund (Indoor y outdoor)",
-            "Frankfurt am Main",
-            "Fürth y Heilsbronn (Baviera)",
-            "Leipzig y Múnich",
-            "Centros en Renania del Norte-Westfalia"
-        ],
-        "tecnologia_pistas": {
-            "pistas": "Pistas homologadas con cubiertas para nieve e invierno",
-            "software": "Playtomic y CourtBrain",
-            "domotica": "Acceso 100% digitalizado por código numérico",
-            "grabacion": "Preparadas para análisis técnico en escuelas",
-            "restauracion": "Clubhouse funcional con bebidas y vestuarios"
-        },
-        "modelo_expansion": {
-            "tipo_contrato": "Franquicia de marca y gestión de instalaciones",
-            "perfil_club": "Centros de 3 a 6 pistas con automatización",
-            "canon_royalties": "Canon ~18.000€ y 4% de royalties sobre pistas",
-            "inversion_media": "250.000€ a 550.000€"
-        },
-        "diferencial": "Pioneros en Alemania, adaptación al frío y modelo eficiente de costes."
-    },
-
-    # ─────────────────────────────────────────────────────────────
-    # 🇬🇧 REINO UNIDO (5 Operadores)
-    # ─────────────────────────────────────────────────────────────
-    {
-        "id": "game4padel",
-        "nombre": "Game4Padel",
-        "pais": "Reino Unido",
-        "pais_codigo": "GB",
-        "region_filtro": "GB",
-        "bandera": "🇬🇧",
-        "ciudad_sede": "Edimburgo / Londres",
-        "coords": [55.9533, -3.1883],
-        "modelo": "Inversión y Franquicia Llave en Mano",
-        "modelo_badge": "bg-emerald-100 text-emerald-800 border-emerald-200",
-        "tipo_categoria": "franquicia",
-        "escala": "media",
-        "num_clubs": "25+ sedes",
-        "num_pistas": "65+ pistas",
-        "software": "Matchi",
-        "fundadores": "Jim Fairlie (CEO), Sir Andy Murray (Inversor), Virgil van Dijk (Embajador)",
-        "web": "https://game4padel.com",
-        "tagline": "El mayor desarrollador de infraestructuras de pádel de Gran Bretaña.",
-        "resumen": "Asumen el 100% del capital (CAPEX) para diseñar, tramitar licencias y construir pistas en clubes de tenis tradicionales, universidades y centros comerciales a cambio de concesiones con reparto de ingresos.",
-        "sedes_principales": [
-            "Westfield London (Centro comercial en Shepherd's Bush, Londres)",
-            "Edimburgo (Thistle Tennis Club)",
-            "Glasgow y Aberdeen",
-            "Windsor, Shropshire, Cardiff (Gales)"
-        ],
-        "tecnologia_pistas": {
-            "pistas": "Pistas con cubiertas tensadas resistentes al clima británico",
-            "software": "Matchi",
-            "domotica": "Acceso desasistido 24/7 con código PIN e iluminación sincronizada",
-            "grabacion": "Cámaras conectadas para torneos corporativos",
-            "restauracion": "Aprovechan hostelería del club anfitrión o quioscos"
-        },
-        "modelo_expansion": {
-            "tipo_contrato": "Concesión de terreno con reparto de ingresos (Revenue Share)",
-            "perfil_club": "Clubes de tenis con espacio para 2 a 6 pistas",
-            "canon_royalties": "El club no gasta dinero; Game4Padel financia la obra",
-            "inversion_media": "150.000€ a 450.000€ financiado por Game4Padel"
-        },
-        "diferencial": "Respaldo de Sir Andy Murray, sin riesgo financiero para el club anfitrión."
-    },
-    {
-        "id": "pdl-united-uk",
-        "nombre": "PDL Padel United UK",
-        "pais": "Reino Unido",
-        "pais_codigo": "GB",
-        "region_filtro": "GB",
-        "bandera": "🇬🇧",
-        "ciudad_sede": "Maldon, Essex",
-        "coords": [51.7311, 0.6749],
-        "modelo": "Red de Clubes Comunitarios",
-        "modelo_badge": "bg-indigo-100 text-indigo-800 border-indigo-200",
-        "tipo_categoria": "franquicia",
-        "escala": "media",
-        "num_clubs": "14+ centros",
-        "num_pistas": "55+ pistas",
-        "software": "Matchi / Playtomic",
-        "fundadores": "Richard Jackson (CEO UK), bajo paraguas Padel United",
-        "web": "https://padeluniteduk.com",
-        "tagline": "Construyendo comunidades de pádel inclusivas en todo el Reino Unido.",
-        "resumen": "Operador británico con mayor arraigo social. Clubes dedicados con programación intensiva de dinamización: clínics de novatos, mañanas de veteranos y torneos amateur constantes.",
-        "sedes_principales": [
-            "Maldon (Essex - centro insignia)",
-            "Bushey (North London - Bushey Grove Leisure Centre)",
-            "Colchester y Chelmsford",
-            "The Wirral (Port Sunlight)",
-            "Torbay, Plymouth, Cambridge"
-        ],
-        "tecnologia_pistas": {
-            "pistas": "Pistas cubiertas con naves o marquesinas para lluvia",
-            "software": "Matchi y Playtomic",
-            "domotica": "Control de accesos y material automático",
-            "grabacion": "Dispositivos para grabaciones técnicas",
-            "restauracion": "Cafetería social y tienda con palas de prueba"
-        },
-        "modelo_expansion": {
-            "tipo_contrato": "Franquicia de gestión y clubes propios",
-            "perfil_club": "Zonas urbanas o suburbanas británicas de más de 3 pistas",
-            "canon_royalties": "Canon ~15.000£ y royalties operativos del 5%",
-            "inversion_media": "200.000£ a 600.000£"
-        },
-        "diferencial": "Retención comunitaria récord con alta ocupación matinal entre semana."
-    },
-    {
-        "id": "the-padel-club-uk",
-        "nombre": "The Padel Club",
-        "pais": "Reino Unido",
-        "pais_codigo": "GB",
-        "region_filtro": "GB",
-        "bandera": "🇬🇧",
-        "ciudad_sede": "Wilmslow / Mánchester",
-        "coords": [53.3283, -2.2295],
-        "modelo": "Club Boutique de Alta Calidad",
-        "modelo_badge": "bg-purple-100 text-purple-800 border-purple-200",
-        "tipo_categoria": "boutique",
-        "escala": "boutique",
-        "num_clubs": "3 centros insignia",
-        "num_pistas": "20+ pistas",
-        "software": "Playtomic / Matchi",
-        "fundadores": "Kristopher Ball",
-        "web": "https://thepadelclub.co.uk",
-        "tagline": "El club de pádel boutique de diseño y gastronomía de referencia en Mánchester.",
-        "resumen": "Diseño contemporáneo británico. Centro en TraffordCity (Mánchester) con 11 pistas cubiertas, techos acristalados, bar con cócteles y eventos sociales con DJ.",
-        "sedes_principales": [
-            "TraffordCity (Mánchester - 11 pistas indoor de alto nivel)",
-            "Wilmslow (Cheshire - 4 pistas)",
-            "Gloucester (en desarrollo)"
-        ],
-        "tecnologia_pistas": {
-            "pistas": "Pistas panorámicas de cristal templado continuo",
-            "software": "Playtomic y Matchi",
-            "domotica": "Sonido envolvente Bose en pistas y lounge",
-            "grabacion": "Grabación de partidos en alta definición",
-            "restauracion": "Clubhouse con cafetería de autor y batidos energéticos"
-        },
-        "modelo_expansion": {
-            "tipo_contrato": "Crecimiento propio en grandes destinos de ocio",
-            "perfil_club": "Grandes recintos de alto tráfico y zonas prémium",
-            "canon_royalties": "Operación directa",
-            "inversion_media": "1.5M£ a 3M£"
-        },
-        "diferencial": "Experiencia premium de juego, ocio y ambiente social sofisticado."
-    },
-    {
-        "id": "soul-padel",
-        "nombre": "Soul Padel",
-        "pais": "Reino Unido",
-        "pais_codigo": "GB",
-        "region_filtro": "GB",
-        "bandera": "🇬🇧",
-        "ciudad_sede": "Mánchester / Stockport",
-        "coords": [53.4808, -2.2426],
-        "modelo": "Franquicia Comunitaria y Parques Comerciales",
-        "modelo_badge": "bg-indigo-100 text-indigo-800 border-indigo-200",
-        "tipo_categoria": "franquicia",
-        "escala": "boutique",
-        "num_clubs": "4 centros",
-        "num_pistas": "18+ pistas",
-        "software": "Matchi",
-        "fundadores": "Mark Hewlett",
-        "web": "https://soulpadel.co.uk",
-        "tagline": "Pádel accesible y amigable en el corazón de las comunidades del norte de Inglaterra.",
-        "resumen": "Democratiza el pádel en el norte de Inglaterra ubicando pistas en parques comerciales y polideportivos (Wigan, Mánchester). Precios asequibles y alquiler gratuito para novatos.",
-        "sedes_principales": [
-            "Mánchester (Urban Exchange)",
-            "Wigan (Robin Park Sports Zone)",
-            "Preston y Cheshire"
-        ],
-        "tecnologia_pistas": {
-            "pistas": "Pistas panorámicas con cubiertas resistentes al viento",
-            "software": "Matchi",
-            "domotica": "Iluminación eficiente LED y apertura digital",
-            "grabacion": "Grabación de jugadas en torneos locales",
-            "restauracion": "Puntos de café y snacks saludables"
-        },
-        "modelo_expansion": {
-            "tipo_contrato": "Alianzas y franquicia con consejos municipales",
-            "perfil_club": "Suelos en desuso de 1.000 a 2.500 m² para 3 a 5 pistas",
-            "canon_royalties": "Modelo flexible de franquicia social",
-            "inversion_media": "180.000£ a 350.000£"
-        },
-        "diferencial": "Atracción masiva de británicos novatos mediante programas comunitarios."
-    },
-    {
-        "id": "pure-padel-uk",
-        "nombre": "Pure Padel",
-        "pais": "Reino Unido",
-        "pais_codigo": "GB",
-        "region_filtro": "GB",
-        "bandera": "🇬🇧",
-        "ciudad_sede": "Mánchester / Cheshire",
-        "coords": [53.3031, -2.2350],
-        "modelo": "Red de Centros Indoor Puros",
-        "modelo_badge": "bg-blue-100 text-blue-800 border-blue-200",
-        "tipo_categoria": "corporativo",
-        "escala": "boutique",
-        "num_clubs": "3 centros",
-        "num_pistas": "15+ pistas",
-        "software": "Playtomic",
-        "fundadores": "Sammy Arora",
-        "web": "https://purepadelclubs.co.uk",
-        "tagline": "La nueva ola de clubes 100% dedicados al pádel indoor en el Reino Unido.",
-        "resumen": "Pure Padel nació para evitar las pistas descubiertas batidas por la lluvia británica. Construyen centros indoor dedicados exclusivamente al pádel con cafetería social, zona de calentamiento y pro-shop completa.",
-        "sedes_principales": [
-            "Alderley Edge (Cheshire - centro insignia)",
-            "Mánchester Centro (en obras)",
-            "Birmingham (proyectado)"
-        ],
-        "tecnologia_pistas": {
-            "pistas": "Pistas panorámicas de cristal de 12 mm y moqueta WPT",
-            "software": "Playtomic",
-            "domotica": "Apertura por código QR y check-in digital",
-            "grabacion": "Cámaras inteligentes en pista",
-            "restauracion": "Café de barista y batidos de proteínas"
-        },
-        "modelo_expansion": {
-            "tipo_contrato": "Desarrollo propio corporativo",
-            "perfil_club": "Naves de 4 a 8 pistas en áreas residenciales del noroeste inglés",
-            "canon_royalties": "Operación directa",
-            "inversion_media": "400.000£ a 800.000£"
-        },
-        "diferencial": "Compromiso de juego garantizado los 365 días bajo techo climatizado."
-    },
-
-    # ─────────────────────────────────────────────────────────────
-    # 🇺🇸 ESTADOS UNIDOS (5 Operadores)
-    # ─────────────────────────────────────────────────────────────
     {
         "id": "padel-haus",
         "nombre": "Padel Haus",
@@ -1654,23 +2028,23 @@ FRANQUICIAS = [
         "bandera": "🇺🇸",
         "ciudad_sede": "Nueva York",
         "coords": [40.7128, -73.9600],
-        "modelo": "Social & Athletic Club Urbano de Diseño",
-        "modelo_badge": "bg-purple-100 text-purple-800 border-purple-200",
-        "tipo_categoria": "boutique",
+        "modelo": "Cadena Social & Athletic Club (Mismo Nombre)",
+        "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
+        "tipo_categoria": "cadena",
         "escala": "media",
-        "num_clubs": "5 centros en NY (+3 en obras)",
+        "num_clubs": "5 centros en NY con el mismo nombre (+3 en obras)",
         "num_pistas": "32+ pistas",
         "software": "Padel Haus App",
         "fundadores": "Santiago Gomez (Empresario hostelero)",
         "web": "https://padel.haus",
         "tagline": "El club social de pádel que está conquistando Nueva York y las grandes urbes de EE.UU.",
-        "resumen": "Fundado por Santiago Gomez. Pionero en llevar el pádel a NY con posicionamiento atlético y social de alto standing. Pistas de diseño, barra orgánica Juice Haus, saunas de contraste y vestuarios estilo Equinox.",
+        "resumen": "Cadena bajo la marca Padel Haus creada por Santiago Gomez. Pionero en NY con posicionamiento atlético y social: pistas de diseño, cafetería orgánica Juice Haus, saunas de contraste y vestuarios estilo Equinox.",
         "sedes_principales": [
-            "Williamsburg South (Brooklyn, NY - insignia)",
-            "Williamsburg North (Brooklyn, NY)",
-            "DUMBO (Washington St, Brooklyn)",
-            "Greenpoint (Berry St, Brooklyn - macrocentro)",
-            "Aperturas: Nashville, Denver y Atlanta"
+            "Padel Haus Williamsburg South (Brooklyn, NY - insignia)",
+            "Padel Haus Williamsburg North (Brooklyn, NY)",
+            "Padel Haus DUMBO (Washington St, Brooklyn)",
+            "Padel Haus Greenpoint (Berry St, Brooklyn - macrocentro)",
+            "Padel Haus Nashville, Denver y Atlanta (en obras)"
         ],
         "tecnologia_pistas": {
             "pistas": "Pistas de diseño AFP Courts personalizadas con colores de marca",
@@ -1696,22 +2070,22 @@ FRANQUICIAS = [
         "bandera": "🇺🇸",
         "ciudad_sede": "Miami",
         "coords": [25.7617, -80.1918],
-        "modelo": "Club de Ultra-Lujo y Eventos VIP",
+        "modelo": "Cadena de Ultra-Lujo (Mismo Nombre)",
         "modelo_badge": "bg-purple-100 text-purple-800 border-purple-200",
         "tipo_categoria": "boutique",
         "escala": "boutique",
-        "num_clubs": "4 centros exclusivos",
+        "num_clubs": "4 centros exclusivos con el mismo nombre",
         "num_pistas": "22+ pistas",
         "software": "Reserve Padel App",
         "fundadores": "Wayne Boich",
         "web": "https://reservepadel.com",
         "tagline": "El epicentro del pádel de ultra-lujo, celebridades y la Reserve Cup.",
-        "resumen": "Pádel exclusivo en EE.UU. Creado por Wayne Boich con pop-ups en el Miami Design District y el Seaplane Base (Miami), atrayendo a Beckham o Jimmy Butler. Organizan la Reserve Cup, el torneo de mayor bolsa económica del mundo.",
+        "resumen": "Cadena bajo el nombre Reserve Padel creada por Wayne Boich en Miami y NY. Pop-ups y centros fijos en Miami Design District, Seaplane Base y Hudson Yards Manhattan, atrayendo a Beckham o Jimmy Butler. Organizan la Reserve Cup.",
         "sedes_principales": [
-            "Reserve SoLé Mia (North Miami, FL - permanente)",
-            "Reserve Miami Design District (Miami)",
-            "Reserve Miami Seaplane Base (MacArthur Causeway)",
-            "Hudson Yards (Manhattan, NY - 360 10th Ave)"
+            "Reserve Padel SoLé Mia (North Miami, FL - permanente)",
+            "Reserve Padel Miami Design District (Miami)",
+            "Reserve Padel Miami Seaplane Base (MacArthur Causeway)",
+            "Reserve Padel Hudson Yards (Manhattan, NY - 360 10th Ave)"
         ],
         "tecnologia_pistas": {
             "pistas": "Pistas panorámicas 'all black' con iluminación de diseño",
@@ -1737,17 +2111,17 @@ FRANQUICIAS = [
         "bandera": "🇺🇸",
         "ciudad_sede": "Miami",
         "coords": [25.8290, -80.1900],
-        "modelo": "Macrocomplejo y Hub Deportivo",
-        "modelo_badge": "bg-blue-100 text-blue-800 border-blue-200",
-        "tipo_categoria": "corporativo",
+        "modelo": "Cadena de Macrocomplejos (Mismo Nombre)",
+        "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
+        "tipo_categoria": "cadena",
         "escala": "grande",
-        "num_clubs": "2 macrocomplejos",
+        "num_clubs": "2 macrocomplejos con el mismo nombre",
         "num_pistas": "38+ pistas",
         "software": "Playtomic USA",
         "fundadores": "Moisés Cohen",
         "web": "https://ultrapadelclub.com",
         "tagline": "El macrocomplejo de pádel más grande de los Estados Unidos.",
-        "resumen": "En Magic City / Little River (Miami), construyó el complejo al aire libre y cubierto más extenso de Norteamérica (casi 30 pistas en una sola sede). Motor de la explosión del pádel en Florida y sede de la USPA.",
+        "resumen": "Cadena bajo la marca Ultra Padel en Magic City y Biscayne (Miami). Casi 30 pistas en una sola sede al aire libre y cubiertas, motor de la explosión del pádel en Florida y sede oficial de torneos USPA.",
         "sedes_principales": [
             "Ultra Padel Little River (Magic City, Miami - 29 pistas)",
             "Ultra Padel Biscayne (Miami, Florida)"
@@ -1776,21 +2150,21 @@ FRANQUICIAS = [
         "bandera": "🇺🇸",
         "ciudad_sede": "San Diego / Los Ángeles",
         "coords": [32.7157, -117.1611],
-        "modelo": "Pioneros del Pádel en la Costa Oeste de EE.UU.",
-        "modelo_badge": "bg-blue-100 text-blue-800 border-blue-200",
-        "tipo_categoria": "corporativo",
+        "modelo": "Cadena Multiclub en California (Mismo Nombre)",
+        "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
+        "tipo_categoria": "cadena",
         "escala": "media",
-        "num_clubs": "3 grandes centros",
+        "num_clubs": "3 centros con el mismo nombre",
         "num_pistas": "18+ pistas",
         "software": "Playtomic USA",
         "fundadores": "Gabriel Pérez Krieb, Armando Rodiel, Ryan Redondo",
         "web": "https://taktikapadel.com",
         "tagline": "Llevando el pádel a los mayores centros de tenis de California.",
-        "resumen": "Taktika Padel lidera la expansión en California. Instalaron complejos de pádel en el legendario Barnes Tennis Center de San Diego y en el Dignity Health Sports Park de Los Ángeles (sede de LA Galaxy), atrayendo tanto a extenistas como a público de Silicon Valley y Hollywood.",
+        "resumen": "Cadena bajo la marca Taktika Padel en California. Instalaron complejos en el Barnes Tennis Center de San Diego y en el Dignity Health Sports Park de Los Ángeles (sede de LA Galaxy), atrayendo a público tech y de Hollywood.",
         "sedes_principales": [
-            "Barnes Tennis Center (San Diego, CA - 7 pistas)",
-            "Dignity Health Sports Park (Carson, Los Ángeles, CA)",
-            "Pacific Beach (San Diego - en expansión)"
+            "Taktika Padel Barnes Tennis Center (San Diego, CA - 7 pistas)",
+            "Taktika Padel Dignity Health Sports Park (Carson, Los Ángeles, CA)",
+            "Taktika Padel Pacific Beach (San Diego)"
         ],
         "tecnologia_pistas": {
             "pistas": "Pistas panorámicas con césped texturizado Mondo azul",
@@ -1848,8 +2222,88 @@ FRANQUICIAS = [
     },
 
     # ─────────────────────────────────────────────────────────────
-    # 🇲🇽 MÉXICO Y LATINOAMÉRICA (6 Operadores)
+    # 🇲🇽 MÉXICO Y SUDAMÉRICA (8 Cadenas)
     # ─────────────────────────────────────────────────────────────
+    {
+        "id": "padel-park-chile",
+        "nombre": "Padel Park Chile",
+        "pais": "Chile",
+        "pais_codigo": "CL",
+        "region_filtro": "MX",
+        "bandera": "🇨🇱",
+        "ciudad_sede": "Santiago de Chile",
+        "coords": [-33.3800, -70.6600],
+        "modelo": "Cadena Multiclub Recreativa (Mismo Nombre)",
+        "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
+        "tipo_categoria": "cadena",
+        "escala": "media",
+        "num_clubs": "4 centros con el mismo nombre",
+        "num_pistas": "24+ pistas",
+        "software": "EasyCanchas",
+        "fundadores": "Padel Park Chile SpA",
+        "web": "https://padelpark.cl",
+        "tagline": "Complejos deportivos familiares y escuelas con el mismo sello en Santiago y regiones.",
+        "resumen": "Cadena de recintos bajo la misma marca Padel Park en comunas clave de Santiago (Huechuraba, Peñalolén) y centros en regiones como Concepción. Canchas panorámicas cubiertas y exteriores con un enfoque familiar y quinchos para asados.",
+        "sedes_principales": [
+            "Padel Park Huechuraba (Santiago - 8 canchas)",
+            "Padel Park Peñalolén (Santiago)",
+            "Padel Park Concepción",
+            "Padel Park Viña del Mar"
+        ],
+        "tecnologia_pistas": {
+            "pistas": "Canchas panorámicas de cristal templado y césped azul",
+            "software": "EasyCanchas",
+            "domotica": "Control digital de iluminación nocturna",
+            "grabacion": "Grabación en torneos locales",
+            "restauracion": "Quinchos para celebraciones familiares y bar deportivo"
+        },
+        "modelo_expansion": {
+            "tipo_contrato": "Cadena propia bajo la marca Padel Park",
+            "perfil_club": "Parcelas periurbanas de 4 a 8 canchas",
+            "canon_royalties": "Cadena unificada",
+            "inversion_media": "350.000$ a 700.000$"
+        },
+        "diferencial": "Excelente ambiente familiar y torneos de fin de semana para jugadores amateur de todos los niveles."
+    },
+    {
+        "id": "brava-padel-brasil",
+        "nombre": "Brava Padel",
+        "pais": "Brasil",
+        "pais_codigo": "BR",
+        "region_filtro": "MX",
+        "bandera": "🇧🇷",
+        "ciudad_sede": "Balneário Camboriú / Itajaí",
+        "coords": [-26.9926, -48.6352],
+        "modelo": "Cadena Costera de Alto Nivel (Mismo Nombre)",
+        "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
+        "tipo_categoria": "cadena",
+        "escala": "boutique",
+        "num_clubs": "2 macrocentros con el mismo nombre",
+        "num_pistas": "16+ pistas",
+        "software": "Let's Padel / WhatsApp",
+        "fundadores": "Emprendedores de Santa Catarina",
+        "web": "https://bravapadel.com.br",
+        "tagline": "La cadena de pádel más famosa y vibrante del litoral sur de Brasil.",
+        "resumen": "Balneário Camboriú y Praia Brava son el epicentro del lujo costero en Brasil. Brava Padel opera dos macrocomplejos con el mismo nombre donde el pádel convive con música en directo, comida brasileña de playa y torneos con los mejores jugadores del país.",
+        "sedes_principales": [
+            "Brava Padel Balneário Camboriú (Santa Catarina - 10 canchas)",
+            "Brava Padel Itajaí (Praia Brava - 6 canchas panorámicas)"
+        ],
+        "tecnologia_pistas": {
+            "pistas": "Canchas panorámicas cubiertas bajo naves de madera laminada y lonas tensadas",
+            "software": "Let's Padel",
+            "domotica": "Iluminación de discoteca y sonido profesional en canchas",
+            "grabacion": "Cámaras para transmisión en streaming de torneos de la COBRAPA",
+            "restauracion": "Bar de playa con açai, caipirinhas, sushi y carnes a la brasa"
+        },
+        "modelo_expansion": {
+            "tipo_contrato": "Operación directa",
+            "perfil_club": "Emplazamientos costeros y turísticos en el sur de Brasil",
+            "canon_royalties": "Cadena privada",
+            "inversion_media": "600.000$ a 1.200.000$"
+        },
+        "diferencial": "Ambiente festivo de playa único en el mundo con altísima asistencia de turistas y deportistas de élite."
+    },
     {
         "id": "padel-co-mexico",
         "nombre": "Padel Co (Padel Company)",
@@ -1859,22 +2313,22 @@ FRANQUICIAS = [
         "bandera": "🇲🇽",
         "ciudad_sede": "Ciudad de México",
         "coords": [19.4326, -99.1332],
-        "modelo": "Cadena Líder de Clubes Urbanos en CDMX",
-        "modelo_badge": "bg-blue-100 text-blue-800 border-blue-200",
-        "tipo_categoria": "corporativo",
+        "modelo": "Cadena Multiclub Urbana (Mismo Nombre)",
+        "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
+        "tipo_categoria": "cadena",
         "escala": "media",
-        "num_clubs": "4 centros (+3 en obras)",
+        "num_clubs": "4 centros con el mismo nombre (+3 en obras)",
         "num_pistas": "22+ pistas",
         "software": "Playtomic",
         "fundadores": "Padel Company México",
         "web": "https://padelco.mx",
         "tagline": "La cadena de pádel más moderna y concurrida de la capital mexicana.",
-        "resumen": "México es el país donde nació el pádel en 1969. Padel Co ha liderado la profesionalización moderna en CDMX, con clubes en Polanco y Paseo de la Reforma combinando canchas cubiertas y semi-indoor con servicio de bar y terraza social.",
+        "resumen": "Padel Co lidera la profesionalización en CDMX con clubes todos bajo la marca Padel Co en Polanco, Reforma y Santa Fe, combinando canchas cubiertas y semi-indoor con servicio de bar y terraza social.",
         "sedes_principales": [
             "Padel Co Polanco (CDMX)",
             "Padel Co Reforma (CDMX)",
             "Padel Co Santa Fe (CDMX)",
-            "Sedes en San Miguel Chapultepec y Tacubaya"
+            "Padel Co San Miguel Chapultepec y Tacubaya"
         ],
         "tecnologia_pistas": {
             "pistas": "Canchas panorámicas con cubiertas térmicas de lona tensada",
@@ -1884,7 +2338,7 @@ FRANQUICIAS = [
             "restauracion": "Restaurante con comida mexicana de autor, micheladas y coctelería"
         },
         "modelo_expansion": {
-            "tipo_contrato": "Desarrollo propio corporativo e inversión conjunta",
+            "tipo_contrato": "Desarrollo propio corporativo bajo la misma marca",
             "perfil_club": "Terrenos urbanos en colonias de alto poder adquisitivo de CDMX",
             "canon_royalties": "Operación directa",
             "inversion_media": "800.000$ a 1.800.000$ por club"
@@ -1900,17 +2354,17 @@ FRANQUICIAS = [
         "bandera": "🇲🇽",
         "ciudad_sede": "Ciudad de México / Querétaro",
         "coords": [19.3089, -99.2014],
-        "modelo": "Red Nacional de Clubes de Competición",
-        "modelo_badge": "bg-blue-100 text-blue-800 border-blue-200",
-        "tipo_categoria": "corporativo",
+        "modelo": "Cadena Nacional de Competición (Mismo Nombre)",
+        "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
+        "tipo_categoria": "cadena",
         "escala": "media",
-        "num_clubs": "4 centros",
+        "num_clubs": "4 centros con el mismo nombre",
         "num_pistas": "20+ pistas",
         "software": "Playtomic",
         "fundadores": "Altapadel Group México",
         "web": "https://altapadel.com.mx",
         "tagline": "Canchas avaladas por federaciones con la mejor escuela técnica de México.",
-        "resumen": "Con sede insignia en el Pedregal de San Ángel (sur de CDMX) y presencia en Querétaro y Puebla, Altapadel es sinónimo de rigor técnico, canchas con cristal de 12 mm y preparación de jóvenes promesas mexicanas.",
+        "resumen": "Cadena bajo la marca Altapadel en el Pedregal de San Ángel (CDMX), Interlomas, Querétaro y Puebla. Estándares federativos de la FEMEPA, canchas con cristal de 12 mm y preparación de promesas.",
         "sedes_principales": [
             "Altapadel Pedregal (CDMX - 6 canchas)",
             "Altapadel Interlomas",
@@ -1941,17 +2395,17 @@ FRANQUICIAS = [
         "bandera": "🇲🇽",
         "ciudad_sede": "Ciudad de México (Santa Fe)",
         "coords": [19.3580, -99.2610],
-        "modelo": "Club Boutique de Estilo de Vida",
+        "modelo": "Cadena Boutique de Estilo de Vida (Mismo Nombre)",
         "modelo_badge": "bg-purple-100 text-purple-800 border-purple-200",
         "tipo_categoria": "boutique",
         "escala": "boutique",
-        "num_clubs": "2 centros",
+        "num_clubs": "2 centros con el mismo nombre",
         "num_pistas": "12+ pistas",
         "software": "Playtomic",
         "fundadores": "Contrapared Club SAPI",
         "web": "https://contrapared.mx",
         "tagline": "La experiencia de pádel más sofisticada y social del poniente de CDMX.",
-        "resumen": "Ubicado junto al distrito corporativo de Santa Fe, Contrapared fue diseñado como un club donde cerrar negocios y pasar el fin de semana. Canchas cubiertas de primer orden, bar de mixología, vestuarios con spa y pro shop.",
+        "resumen": "Cadena en Santa Fe e Interlomas. Canchas cubiertas de primer orden, bar de mixología, vestuarios con spa y pro shop.",
         "sedes_principales": [
             "Contrapared Santa Fe (CDMX - 6 canchas)",
             "Contrapared Bosques (CDMX - 6 canchas)"
@@ -1980,22 +2434,22 @@ FRANQUICIAS = [
         "bandera": "🇨🇱",
         "ciudad_sede": "Santiago de Chile",
         "coords": [-33.4489, -70.6693],
-        "modelo": "La Mayor Cadena de Clubes de Pádel de Chile",
-        "modelo_badge": "bg-blue-100 text-blue-800 border-blue-200",
-        "tipo_categoria": "corporativo",
+        "modelo": "Cadena Multiclub Líder en Chile (Mismo Nombre)",
+        "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
+        "tipo_categoria": "cadena",
         "escala": "media",
-        "num_clubs": "5 grandes complejos",
+        "num_clubs": "5 grandes complejos con el mismo nombre",
         "num_pistas": "32+ pistas",
         "software": "EasyCanchas",
         "fundadores": "Conecta Padel Group Chile",
         "web": "https://clubconecta.cl",
         "tagline": "La red de clubes multisede líder indiscutible en el mercado chileno.",
-        "resumen": "Chile ha vivido la mayor explosión de pádel per cápita de Sudamérica. Club Conecta es la cadena con mayor número de canchas en el sector oriente de Santiago (La Dehesa, Las Condes, Chicureo), organizando los mayores torneos amateur del país.",
+        "resumen": "Cadena con la misma marca Club Conecta en el sector oriente de Santiago (La Dehesa, Las Condes, Chicureo). El 40% del tiempo se pasa en el quincho de asados tras el partido.",
         "sedes_principales": [
-            "Conecta La Dehesa (Santiago - 10 canchas)",
-            "Conecta Las Condes (Santiago)",
-            "Conecta Chicureo (Colina)",
-            "Conecta Lo Barnechea",
+            "Club Conecta La Dehesa (Santiago - 10 canchas)",
+            "Club Conecta Las Condes (Santiago)",
+            "Club Conecta Chicureo (Colina)",
+            "Club Conecta Lo Barnechea",
             "Sedes en regiones"
         ],
         "tecnologia_pistas": {
@@ -2022,17 +2476,17 @@ FRANQUICIAS = [
         "bandera": "🇨🇱",
         "ciudad_sede": "Santiago de Chile",
         "coords": [-33.4500, -70.6800],
-        "modelo": "Red de Complejos Urbanos Cubiertos",
-        "modelo_badge": "bg-blue-100 text-blue-800 border-blue-200",
-        "tipo_categoria": "corporativo",
+        "modelo": "Cadena Multiclub Urbana (Mismo Nombre)",
+        "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
+        "tipo_categoria": "cadena",
         "escala": "media",
-        "num_clubs": "3 centros",
+        "num_clubs": "3 centros con el mismo nombre",
         "num_pistas": "18+ pistas",
         "software": "EasyCanchas",
         "fundadores": "Capital Padel SpA",
         "web": "https://capitalpadel.cl",
         "tagline": "Pádel cubierto en el corazón urbano de Santiago de Chile.",
-        "resumen": "Capital Padel llevó el deporte fuera del exclusivo sector oriente hacia el centro neurálgico de Santiago (Santiago Centro, Estación Central, Maipú). Canchas cubiertas para jugar con lluvia o calor estival, con tarifas accesibles.",
+        "resumen": "Cadena bajo la marca Capital Padel en el centro neurálgico de Santiago (Santiago Centro, Estación Central, Maipú). Canchas cubiertas para jugar con lluvia o calor estival con tarifas accesibles.",
         "sedes_principales": [
             "Capital Padel Santiago Centro (8 canchas cubiertas)",
             "Capital Padel Estación Central",
@@ -2072,7 +2526,7 @@ FRANQUICIAS = [
         "fundadores": "Pioneros históricos del pádel argentino en los años 90",
         "web": "https://elmonasteriopadel.com.ar",
         "tagline": "El templo donde se forjaron las mayores leyendas mundiales del pádel.",
-        "resumen": "Argentina es la madre patria competitiva del pádel mundial (de donde salieron Bela, Sanyo, Tapia, Stupaczuk, Di Nenno). El Monasterio es una institución mítica en Buenos Aires, modernizada con pistas de cristal panorámico y una cantera inagotable de talento.",
+        "resumen": "El Monasterio es una institución mítica en Buenos Aires con dos sedes históricas bajo el mismo nombre. De aquí salieron leyendas mundiales; canchas de cristal y cantera inagotable.",
         "sedes_principales": [
             "El Monasterio Almagro (Buenos Aires - 8 pistas)",
             "El Monasterio Norte (Buenos Aires - 6 pistas)"
@@ -2094,7 +2548,7 @@ FRANQUICIAS = [
     },
 
     # ─────────────────────────────────────────────────────────────
-    # 🇦🇪 ORIENTE MEDIO (4 Operadores)
+    # 🇦🇪 ORIENTE MEDIO (4 Cadenas y Franquicias)
     # ─────────────────────────────────────────────────────────────
     {
         "id": "padel-in-gulf",
@@ -2105,17 +2559,17 @@ FRANQUICIAS = [
         "bandera": "🇶🇦",
         "ciudad_sede": "Doha / Kuwait / Riad",
         "coords": [25.2854, 51.5310],
-        "modelo": "La Mayor Franquicia del Golfo Pérsico",
-        "modelo_badge": "bg-indigo-100 text-indigo-800 border-indigo-200",
-        "tipo_categoria": "franquicia",
+        "modelo": "Cadena Multiclub del Golfo (Mismo Nombre)",
+        "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
+        "tipo_categoria": "cadena",
         "escala": "grande",
-        "num_clubs": "15+ centros",
+        "num_clubs": "15+ centros con el mismo nombre",
         "num_pistas": "70+ pistas cubiertas",
         "software": "App Propia Padel IN",
         "fundadores": "Empresarios cataríes y kuwaitíes vinculados al deporte",
         "web": "https://padelin.com",
         "tagline": "La red de clubes cubiertos climatizados más extensa de Oriente Medio.",
-        "resumen": "Padel IN es el líder indiscutible en los países del Golfo. El calor extremo del desierto (>45°C en verano) exige naves climatizadas de escala monumental. Sus centros en Aspire Zone (Doha), Kuwait City y Arabia Saudí acogen a miles de miembros y torneos oficiales del circuito FIP.",
+        "resumen": "Cadena que opera bajo la marca Padel IN en Catar, Kuwait y Arabia Saudí. Naves monumentales climatizadas a 21°C para jugar bajo los 48°C del desierto. Sede insignia en Aspire Zone (Doha).",
         "sedes_principales": [
             "Padel IN Aspire Zone (Doha, Catar - sede insignia de torneos)",
             "Padel IN Al Khor y Al Wakrah (Catar)",
@@ -2130,7 +2584,7 @@ FRANQUICIAS = [
             "restauracion": "Cafeterías premium con zumos naturales, café árabe de especialidad y zonas VIP"
         },
         "modelo_expansion": {
-            "tipo_contrato": "Máster franquicia nacional y centros propios",
+            "tipo_contrato": "Máster franquicia nacional y centros propios con el mismo nombre",
             "perfil_club": "Megagolfos y naves industriales de 6 a 12 pistas con gran altura",
             "canon_royalties": "Canon de máster franquicia regional y 5% de royalties",
             "inversion_media": "1.5M$ a 4M$ por complejo"
@@ -2146,17 +2600,17 @@ FRANQUICIAS = [
         "bandera": "🇦🇪",
         "ciudad_sede": "Dubái (Al Quoz)",
         "coords": [25.1430, 55.2280],
-        "modelo": "Centros Insignia de Alto Rendimiento y Franquicia",
-        "modelo_badge": "bg-purple-100 text-purple-800 border-purple-200",
-        "tipo_categoria": "boutique",
+        "modelo": "Cadena de Academias de Alto Rendimiento (Mismo Nombre)",
+        "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
+        "tipo_categoria": "cadena",
         "escala": "media",
-        "num_clubs": "4 grandes academias",
+        "num_clubs": "4 grandes academias con el mismo nombre",
         "num_pistas": "35+ pistas",
         "software": "Playtomic / WPA App",
         "fundadores": "Ali Al-Arif y socios emiratíes",
         "web": "https://worldpadelacademy.com",
         "tagline": "El estándar de oro en academias de pádel y pistas cubiertas en Dubái.",
-        "resumen": "WPA es la academia y centro de pádel de referencia en los Emiratos Árabes Unidos. Su sede central en el distrito de Al Quoz en Dubái cuenta con pistas cubiertas climatizadas de alta competición, entrenadores traídos de España y una escuela que forma a la selección nacional emiratí.",
+        "resumen": "Cadena de academias bajo el nombre World Padel Academy (WPA) en Dubái (Al Quoz), Sharjah y Bahréin. Pistas cubiertas de alta competición climatizadas y entrenadores españoles de élite.",
         "sedes_principales": [
             "WPA Dubai Flagship (Al Quoz 1, Dubái - 10 pistas indoor)",
             "WPA Sharjah (Emiratos Árabes Unidos)",
@@ -2187,17 +2641,17 @@ FRANQUICIAS = [
         "bandera": "🇦🇪",
         "ciudad_sede": "Dubái",
         "coords": [25.2048, 55.2708],
-        "modelo": "Red de Clubes Urbanos en Dubái",
-        "modelo_badge": "bg-blue-100 text-blue-800 border-blue-200",
-        "tipo_categoria": "corporativo",
+        "modelo": "Cadena Multiclub Urbana en Dubái (Mismo Nombre)",
+        "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
+        "tipo_categoria": "cadena",
         "escala": "media",
-        "num_clubs": "4 clubes",
+        "num_clubs": "4 clubes con el mismo nombre",
         "num_pistas": "20+ pistas",
         "software": "Playtomic",
         "fundadores": "Hussein El-Reda y socios",
         "web": "https://padelpro.ae",
         "tagline": "Pioneros del pádel en Dubái con sedes en los distritos financieros y residenciales.",
-        "resumen": "Padel Pro fue una de las primeras marcas en popularizar el pádel en Dubái. Con clubes en Al Quoz, One Central (junto al World Trade Centre), Jumeirah Park y Mirdif, son el destino predilecto de expatriados europeos y residentes locales para partidos diarios.",
+        "resumen": "Cadena con 4 clubes todos bajo la marca Padel Pro en Dubái: Al Quoz, One Central (junto al World Trade Centre), Jumeirah Park y Mirdif. Destino de expatriados y profesionales.",
         "sedes_principales": [
             "Padel Pro Al Quoz (Dubái)",
             "Padel Pro One Central (DWTCA - World Trade Centre, Dubái)",
@@ -2228,17 +2682,17 @@ FRANQUICIAS = [
         "bandera": "🇦🇪",
         "ciudad_sede": "Dubái",
         "coords": [25.2600, 55.3000],
-        "modelo": "Clubes Pop-up y Destinos de Ocio",
-        "modelo_badge": "bg-blue-100 text-blue-800 border-blue-200",
-        "tipo_categoria": "corporativo",
+        "modelo": "Cadena de Clubs en Destinos de Ocio (Mismo Nombre)",
+        "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
+        "tipo_categoria": "cadena",
         "escala": "media",
-        "num_clubs": "5 ubicaciones",
+        "num_clubs": "5 ubicaciones con el mismo nombre",
         "num_pistas": "22+ pistas",
         "software": "Playtomic / Padel Mates",
         "fundadores": "Just Padel Sports Services",
         "web": "https://justpadel.ae",
         "tagline": "Pistas en los destinos costeros y de compras más vibrantes de Dubái.",
-        "resumen": "Just Padel instaló pistas en lugares icónicos de Dubái como el puerto histórico de Mina Rashid, Dubai Festival City y parques gastronómicos como Ripe Market, convirtiendo el pádel en un plan familiar y de fin de semana.",
+        "resumen": "Cadena bajo la marca Just Padel en lugares icónicos de Dubái como el puerto de Mina Rashid, Dubai Festival City y Ripe Market, integrando el deporte en planes familiares.",
         "sedes_principales": [
             "Just Padel Mina Rashid (Dubái)",
             "Just Padel Dubai Festival City",
@@ -2375,8 +2829,8 @@ def render_html():
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Directorio Global de Franquicias y Cadenas de Pádel (+1 Club) | CoolPadel Studios</title>
-  <meta name="description" content="Directorio y mapa mundial de las mayores franquicias y operadores de pádel (+1 club). Datos de sedes, modelos de negocio, inversión, software y tecnología de pista en España, Europa, América y Golfo Pérsico.">
+  <title>Directorio de Cadenas de Clubs y Franquicias de Pádel (+1 Club) | CoolPadel Studios</title>
+  <meta name="description" content="Directorio y mapa de las mayores cadenas de clubs con varias sedes abiertas bajo el mismo nombre y franquicias de pádel (+1 club). Datos de sedes, modelos, software e inversión.">
   <meta name="author" content="CoolPadel Studios">
   <meta name="robots" content="index, follow, max-image-preview:large">
   <link rel="canonical" href="https://coolpadelstudios.com/franquicias-padel/">
@@ -2389,14 +2843,14 @@ def render_html():
   <meta property="og:locale" content="es_ES">
   <meta property="og:site_name" content="CoolPadel Studios">
   <meta property="og:url" content="https://coolpadelstudios.com/franquicias-padel/">
-  <meta property="og:title" content="Directorio Global de Franquicias y Cadenas de Pádel (+1 Club) | 54 Operadores Mundiales">
-  <meta property="og:description" content="Guía exhaustiva de los operadores multi-club de pádel en España, Europa, América y Oriente Medio. Requisitos de franquicia, tecnología, software de reservas y modelos de rentabilidad.">
+  <meta property="og:title" content="Directorio de Cadenas de Clubs y Franquicias de Pádel (+1 Club) | Censo Mundial">
+  <meta property="og:description" content="Guía de operadores multi-club y cadenas con varias sedes abiertas bajo el mismo nombre en España, Europa, América y Golfo Pérsico.">
   <meta property="og:image" content="https://coolpadelstudios.com/assets/images/savemyplay-1.jpg">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Directorio Global de Franquicias y Cadenas de Pádel (+1 Club)">
-  <meta name="twitter:description" content="Guía exhaustiva de los operadores multi-club de pádel en España, Europa, América y Oriente Medio.">
+  <meta name="twitter:title" content="Directorio de Cadenas y Franquicias de Pádel (+1 Club)">
+  <meta name="twitter:description" content="Censo mundial de cadenas de clubs con varias sedes abiertas con el mismo nombre y franquicias en 18 países.">
   <meta name="twitter:image" content="https://coolpadelstudios.com/assets/images/savemyplay-1.jpg">
 
   <!-- Leaflet CSS -->
@@ -2437,15 +2891,15 @@ def render_html():
           {{
             "@type": "ListItem",
             "position": 2,
-            "name": "Franquicias de Pádel",
+            "name": "Cadenas y Franquicias de Pádel",
             "item": "https://coolpadelstudios.com/franquicias-padel/"
           }}
         ]
       }},
       {{
         "@type": "ItemList",
-        "name": "Directorio Global de Franquicias y Cadenas de Pádel (+1 Club)",
-        "description": "Censo internacional exhaustivo de 54 grandes operadores multi-club, franquicias llave en mano y cadenas de pádel en 18 países.",
+        "name": "Directorio de Cadenas de Clubs y Franquicias de Pádel (+1 Club)",
+        "description": "Censo internacional exhaustivo de {total_franquicias} cadenas de clubes con varios centros abiertos bajo el mismo nombre y franquicias en 18 países.",
         "numberOfItems": {total_franquicias}
       }},
       {{
@@ -2453,26 +2907,18 @@ def render_html():
         "mainEntity": [
           {{
             "@type": "Question",
-            "name": "¿Cuánto cuesta abrir una franquicia de pádel?",
+            "name": "¿Qué cuenta como cadena de clubs de pádel?",
             "acceptedAnswer": {{
               "@type": "Answer",
-              "text": "La inversión inicial para un club de pádel franquiciado oscila entre 180.000 € y 800.000 € según el número de pistas y el modelo operativo: los clubes 100% automatizados 24/7 sin personal presencial requieren menor inversión, mientras que los clubes boutique o con sports bar y fitness superan el millón de euros. El canon de entrada se sitúa entre 12.000 € y 30.000 €, con royalties del 3% al 5%."
+              "text": "Incluye tanto franquicias tradicionales como operadores y cadenas de clubes que tienen más de un club abierto y en funcionamiento bajo el mismo nombre comercial o enseña de marca (ej. Pàdel 7, All In Padel, Rocket Padel, InterPadel, PadelHaus, etc.)."
             }}
           }},
           {{
             "@type": "Question",
-            "name": "¿Cuáles son las mayores cadenas de pádel del mundo por número de pistas?",
+            "name": "¿Cuáles son las mayores cadenas de pádel del mundo?",
             "acceptedAnswer": {{
               "@type": "Answer",
-              "text": "Entre los líderes destacan LeDap / We Are Padel (con más de 650 pistas en Europa), BamVolea en España (más de 260 pistas agrupadas en macrocomplejos), PDL Padel United (más de 500 pistas en Suecia y Reino Unido), The Padellers (más de 145 pistas en Países Bajos y Alemania), 4PADEL en Francia (más de 135 pistas) y Padel IN en los países del Golfo Pérsico (más de 70 pistas cubiertas)."
-            }}
-          }},
-          {{
-            "@type": "Question",
-            "name": "¿Qué software utilizan las franquicias de pádel en cada país?",
-            "acceptedAnswer": {{
-              "@type": "Answer",
-              "text": "Playtomic es el estándar dominante en España, Italia, Estados Unidos y gran parte de Europa continental. En los países nórdicos y Reino Unido predomina Matchi. En Francia el software líder es Doinsport, en Portugal AirCourts, y en Chile EasyCanchas."
+              "text": "Entre las cadenas más grandes destacan LeDap / We Are Padel (+650 pistas), BamVolea (+260 pistas), PDL Padel United (+500 pistas), The Padellers (+145 pistas), 4PADEL (+135 pistas), Peakz Padel (+110 pistas) y Padel IN (+70 pistas cubiertas)."
             }}
           }}
         ]
@@ -2531,7 +2977,7 @@ def render_html():
           Directorio Global
         </span>
         
-        <a href="https://wa.me/34680317486?text=Hola%20Javier%2C%20estoy%20viendo%20el%20directorio%20global%20de%20franquicias%20de%20p%C3%A1del%20y%20me%20gustar%C3%ADa%20hacerte%20una%20consulta" target="_blank" class="inline-flex items-center gap-2 px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] text-slate-950 font-heading font-black text-xs sm:text-sm tracking-wider uppercase transition shadow-sm hover:scale-105 active:scale-95">
+        <a href="https://wa.me/34680317486?text=Hola%20Javier%2C%20estoy%20viendo%20el%20directorio%20global%20de%20cadenas%20de%20p%C3%A1del%20y%20me%20gustar%C3%ADa%20hacerte%20una%20consulta" target="_blank" class="inline-flex items-center gap-2 px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] text-slate-950 font-heading font-black text-xs sm:text-sm tracking-wider uppercase transition shadow-sm hover:scale-105 active:scale-95">
           <span>Consultar</span>
           <i data-lucide="message-circle" class="w-3.5 h-3.5 stroke-[3]"></i>
         </a>
@@ -2550,35 +2996,35 @@ def render_html():
         <nav class="flex items-center gap-2 text-xs font-bold text-slate-500 mb-6 uppercase tracking-wider">
           <a href="../" class="hover:text-slate-900 transition">Inicio</a>
           <span>/</span>
-          <span class="text-[#f2920b]">Franquicias de Pádel</span>
+          <span class="text-[#f2920b]">Cadenas y Franquicias de Pádel</span>
         </nav>
 
         <div class="max-w-4xl space-y-4">
           <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900 text-white font-heading font-bold text-xs uppercase tracking-wider">
             <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-            <span>CENSO MUNDIAL B2B · OPERADORES MULTI-CLUB (+1 SEDE)</span>
+            <span>CENSO MUNDIAL B2B · CADENAS DE CLUBS CON EL MISMO NOMBRE Y FRANQUICIAS (+1 SEDE)</span>
           </div>
 
           <h1 class="font-heading font-black text-3xl sm:text-5xl lg:text-6xl text-slate-950 leading-[1.08] uppercase tracking-tight">
-            Directorio Global de Franquicias y Cadenas de Pádel
+            Directorio de Cadenas de Clubs y Franquicias de Pádel
           </h1>
 
           <p class="text-base sm:text-xl text-slate-600 font-medium leading-relaxed">
-            El censo internacional más exhaustivo de la industria: <strong>{total_franquicias} operadores multi-club y franquicias</strong> analizados en 18 países. Requisitos de inversión, software de reservas, especificaciones de pista y modelos de rentabilidad para propietarios e inversores deportivos.
+            El censo internacional más exhaustivo para operadores y propietarios: <strong>{total_franquicias} cadenas de clubes con varios centros abiertos bajo el mismo nombre</strong> y franquicias analizadas en 18 países. Sedes activas, requisitos de inversión, software de gestión y modelos de rentabilidad.
           </p>
         </div>
 
         <!-- KPI BANNER -->
         <div class="grid grid-cols-2 lg:grid-cols-4 gap-3.5 sm:gap-6 mt-8 sm:mt-10 pt-8 border-t border-slate-200/80">
           <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-xs">
-            <span class="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">Franquicias / Cadenas</span>
+            <span class="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">Cadenas / Franquicias</span>
             <span class="font-heading font-black text-3xl sm:text-4xl text-slate-950">{total_franquicias}</span>
-            <span class="text-xs text-slate-500 font-medium">Con +1 club operativo</span>
+            <span class="text-xs text-slate-500 font-medium">Con +1 club abierto</span>
           </div>
           
           <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-xs">
             <span class="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">Pistas Totales</span>
-            <span class="font-heading font-black text-3xl sm:text-4xl text-slate-950">+3.400</span>
+            <span class="font-heading font-black text-3xl sm:text-4xl text-slate-950">+3.750</span>
             <span class="text-xs text-slate-500 font-medium">Bajo gestión analizada</span>
           </div>
 
@@ -2589,9 +3035,9 @@ def render_html():
           </div>
 
           <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-xs">
-            <span class="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">Modelos Operativos</span>
-            <span class="font-heading font-black text-3xl sm:text-4xl text-[#f2920b]">5 Vías</span>
-            <span class="text-xs text-slate-500 font-medium">Propio, Franquicia, 24/7, Boutique y Licencia</span>
+            <span class="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">Tipologías</span>
+            <span class="font-heading font-black text-3xl sm:text-4xl text-[#f2920b]">Mismo Nombre</span>
+            <span class="text-xs text-slate-500 font-medium">Cadenas de marca y franquicias</span>
           </div>
         </div>
 
@@ -2608,7 +3054,7 @@ def render_html():
         <div class="flex flex-col md:flex-row gap-4 items-stretch md:items-center justify-between">
           <div class="relative flex-1">
             <i data-lucide="search" class="w-5 h-5 text-slate-400 absolute left-4 top-1/2 -translate-y-1/2"></i>
-            <input type="text" id="searchInput" placeholder="Buscar por franquicia, ciudad, país o software (ej. Milán, Playtomic, Matchi, 24/7, Dubái)..."
+            <input type="text" id="searchInput" placeholder="Buscar por cadena, club, ciudad, país o software (ej. Padel 7, Playtomic, Tsonga, Bristol, EasyCanchas)..."
                    class="w-full pl-12 pr-4 py-3.5 rounded-2xl bg-slate-50 border border-slate-200 text-slate-900 placeholder-slate-400 font-medium text-sm focus:outline-none focus:ring-2 focus:ring-[#f2920b] focus:bg-white transition"
                    oninput="applyFilters()">
           </div>
@@ -2635,27 +3081,28 @@ def render_html():
               <span>Región:</span>
             </span>
             <button onclick="setRegionFilter('all')" class="filter-region-btn active px-3 py-1 rounded-lg text-xs font-bold bg-[#f2920b] text-slate-950 transition" data-region="all">Todos ({total_franquicias})</button>
-            <button onclick="setRegionFilter('ES')" class="filter-region-btn px-3 py-1 rounded-lg text-xs font-bold bg-slate-100 text-slate-600 hover:bg-slate-200 transition" data-region="ES">🇪🇸 España (11)</button>
+            <button onclick="setRegionFilter('ES')" class="filter-region-btn px-3 py-1 rounded-lg text-xs font-bold bg-slate-100 text-slate-600 hover:bg-slate-200 transition" data-region="ES">🇪🇸 España (13)</button>
+            <button onclick="setRegionFilter('FR')" class="filter-region-btn px-3 py-1 rounded-lg text-xs font-bold bg-slate-100 text-slate-600 hover:bg-slate-200 transition" data-region="FR">🇫🇷 Francia (7)</button>
             <button onclick="setRegionFilter('IT')" class="filter-region-btn px-3 py-1 rounded-lg text-xs font-bold bg-slate-100 text-slate-600 hover:bg-slate-200 transition" data-region="IT">🇮🇹 Italia (5)</button>
-            <button onclick="setRegionFilter('FR')" class="filter-region-btn px-3 py-1 rounded-lg text-xs font-bold bg-slate-100 text-slate-600 hover:bg-slate-200 transition" data-region="FR">🇫🇷 Francia (5)</button>
             <button onclick="setRegionFilter('PT')" class="filter-region-btn px-3 py-1 rounded-lg text-xs font-bold bg-slate-100 text-slate-600 hover:bg-slate-200 transition" data-region="PT">🇵🇹 Portugal (2)</button>
-            <button onclick="setRegionFilter('SE')" class="filter-region-btn px-3 py-1 rounded-lg text-xs font-bold bg-slate-100 text-slate-600 hover:bg-slate-200 transition" data-region="SE">🇸🇪 Nórdicos (6)</button>
-            <button onclick="setRegionFilter('NL')" class="filter-region-btn px-3 py-1 rounded-lg text-xs font-bold bg-slate-100 text-slate-600 hover:bg-slate-200 transition" data-region="NL">🇳🇱 Países Bajos & BE (4)</button>
+            <button onclick="setRegionFilter('SE')" class="filter-region-btn px-3 py-1 rounded-lg text-xs font-bold bg-slate-100 text-slate-600 hover:bg-slate-200 transition" data-region="SE">🇸🇪 Nórdicos (8)</button>
+            <button onclick="setRegionFilter('NL')" class="filter-region-btn px-3 py-1 rounded-lg text-xs font-bold bg-slate-100 text-slate-600 hover:bg-slate-200 transition" data-region="NL">🇳🇱 Países Bajos, BE & AT (5)</button>
             <button onclick="setRegionFilter('DE')" class="filter-region-btn px-3 py-1 rounded-lg text-xs font-bold bg-slate-100 text-slate-600 hover:bg-slate-200 transition" data-region="DE">🇩🇪 Alemania (1)</button>
-            <button onclick="setRegionFilter('GB')" class="filter-region-btn px-3 py-1 rounded-lg text-xs font-bold bg-slate-100 text-slate-600 hover:bg-slate-200 transition" data-region="GB">🇬🇧 Reino Unido (5)</button>
-            <button onclick="setRegionFilter('US')" class="filter-region-btn px-3 py-1 rounded-lg text-xs font-bold bg-slate-100 text-slate-600 hover:bg-slate-200 transition" data-region="US">🇺🇸 EE.UU. (5)</button>
-            <button onclick="setRegionFilter('MX')" class="filter-region-btn px-3 py-1 rounded-lg text-xs font-bold bg-slate-100 text-slate-600 hover:bg-slate-200 transition" data-region="MX">🇲🇽 México & Latam (6)</button>
+            <button onclick="setRegionFilter('GB')" class="filter-region-btn px-3 py-1 rounded-lg text-xs font-bold bg-slate-100 text-slate-600 hover:bg-slate-200 transition" data-region="GB">🇬🇧 Reino Unido (6)</button>
+            <button onclick="setRegionFilter('US')" class="filter-region-btn px-3 py-1 rounded-lg text-xs font-bold bg-slate-100 text-slate-600 hover:bg-slate-200 transition" data-region="US">🇺🇸 EE.UU. (6)</button>
+            <button onclick="setRegionFilter('MX')" class="filter-region-btn px-3 py-1 rounded-lg text-xs font-bold bg-slate-100 text-slate-600 hover:bg-slate-200 transition" data-region="MX">🇲🇽 México, CL, AR, BR (8)</button>
             <button onclick="setRegionFilter('AE')" class="filter-region-btn px-3 py-1 rounded-lg text-xs font-bold bg-slate-100 text-slate-600 hover:bg-slate-200 transition" data-region="AE">🇦🇪 Oriente Medio (4)</button>
           </div>
 
-          <!-- Filtro Modelo de Negocio -->
+          <!-- Filtro Modelo / Tipo de Operador -->
           <div class="flex items-center gap-1.5 flex-wrap">
             <span class="text-xs font-bold uppercase text-slate-400 mr-1 flex items-center gap-1">
               <i data-lucide="tag" class="w-3.5 h-3.5"></i>
-              <span>Modelo:</span>
+              <span>Tipo de Operador:</span>
             </span>
             <button onclick="setModelFilter('all')" class="filter-model-btn active px-3 py-1 rounded-lg text-xs font-bold bg-slate-900 text-white transition" data-model="all">Todos</button>
-            <button onclick="setModelFilter('corporativo')" class="filter-model-btn px-3 py-1 rounded-lg text-xs font-bold bg-slate-100 text-slate-600 hover:bg-slate-200 transition" data-model="corporativo">Red Propia / Corporativa</button>
+            <button onclick="setModelFilter('cadena')" class="filter-model-btn px-3 py-1 rounded-lg text-xs font-bold bg-slate-100 text-slate-600 hover:bg-slate-200 transition" data-model="cadena">Cadena Multiclub (Mismo Nombre)</button>
+            <button onclick="setModelFilter('corporativo')" class="filter-model-btn px-3 py-1 rounded-lg text-xs font-bold bg-slate-100 text-slate-600 hover:bg-slate-200 transition" data-model="corporativo">Red Corporativa Propia</button>
             <button onclick="setModelFilter('franquicia')" class="filter-model-btn px-3 py-1 rounded-lg text-xs font-bold bg-slate-100 text-slate-600 hover:bg-slate-200 transition" data-model="franquicia">Franquicia Llave en Mano</button>
             <button onclick="setModelFilter('automatizado')" class="filter-model-btn px-3 py-1 rounded-lg text-xs font-bold bg-slate-100 text-slate-600 hover:bg-slate-200 transition" data-model="automatizado">Club 100% Automatizado 24/7</button>
             <button onclick="setModelFilter('boutique')" class="filter-model-btn px-3 py-1 rounded-lg text-xs font-bold bg-slate-100 text-slate-600 hover:bg-slate-200 transition" data-model="boutique">Boutique & Ultra-Lujo</button>
@@ -2666,7 +3113,7 @@ def render_html():
 
         <!-- Contador de resultados -->
         <div class="flex items-center justify-between text-xs font-semibold text-slate-500 pt-2 border-t border-slate-100">
-          <span id="resultsCount">Mostrando {total_franquicias} franquicias y operadores</span>
+          <span id="resultsCount">Mostrando {total_franquicias} cadenas y franquicias</span>
           <span class="text-slate-400 hidden sm:inline">Haz clic en cualquier tarjeta o chincheta del mapa para ver el dossier completo</span>
         </div>
 
@@ -2678,7 +3125,7 @@ def render_html():
           <div class="flex items-center gap-2">
             <span class="w-2.5 h-2.5 rounded-full bg-[#f2920b]"></span>
             <h2 class="font-heading font-black text-sm sm:text-base text-slate-900 uppercase tracking-wider">
-              Mapa Mundial de Sedes Principales & Sedes Corporativas
+              Mapa Mundial de Sedes Principales & Cadenas
             </h2>
           </div>
           <div class="flex items-center gap-1.5 text-xs font-bold flex-wrap">
@@ -2687,6 +3134,9 @@ def render_html():
             </button>
             <button onclick="zoomToSpain()" class="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 transition">
               España
+            </button>
+            <button onclick="zoomToFrance()" class="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 transition">
+              Francia
             </button>
             <button onclick="zoomToItaly()" class="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 transition">
               Italia
@@ -2706,6 +3156,7 @@ def render_html():
         <div id="map"></div>
 
         <div class="flex items-center justify-center gap-4 flex-wrap pt-3 text-[11px] font-bold text-slate-500">
+          <span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-full bg-[#0284c7]"></span> Cadena Mismo Nombre</span>
           <span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-full bg-[#2563eb]"></span> Red Corporativa</span>
           <span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-full bg-[#4f46e5]"></span> Franquicia</span>
           <span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-full bg-[#059669]"></span> 24/7 Automatizado</span>
@@ -2725,7 +3176,7 @@ def render_html():
           <table class="w-full text-left border-collapse">
             <thead>
               <tr class="bg-slate-900 text-white text-[11px] uppercase font-heading font-black tracking-wider">
-                <th class="py-4 px-4">Franquicia / Operador</th>
+                <th class="py-4 px-4">Cadena / Franquicia</th>
                 <th class="py-4 px-4">Modelo</th>
                 <th class="py-4 px-4">Sede / País</th>
                 <th class="py-4 px-4">Clubes</th>
@@ -2753,10 +3204,10 @@ def render_html():
             ANÁLISIS ESTRATÉGICO PARA INVERSORES
           </span>
           <h2 class="font-heading font-black text-2xl sm:text-4xl text-slate-950 uppercase tracking-tight">
-            ¿Qué Modelo de Franquicia de Pádel es el Más Rentable?
+            ¿Qué Modelo de Cadena o Franquicia es el Más Rentable?
           </h2>
           <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
-            El sector del pádel ha dejado atrás la era amateur. Hoy existen 5 fórmulas consolidadas para operar múltiples clubes con alta rentabilidad sobre el capital invertido (ROIC).
+            El sector del pádel ha dejado atrás la era amateur. Hoy existen modelos consolidados para operar múltiples clubes con alta rentabilidad sobre el capital invertido (ROIC).
           </p>
         </div>
 
@@ -2764,15 +3215,15 @@ def render_html():
           
           <!-- Bloque 1 -->
           <div class="bg-slate-50 p-6 sm:p-8 rounded-3xl border border-slate-200/90 hover:shadow-md transition">
-            <div class="w-10 h-10 rounded-xl bg-blue-600 text-white flex items-center justify-center font-heading font-black text-lg mb-4">
+            <div class="w-10 h-10 rounded-xl bg-sky-600 text-white flex items-center justify-center font-heading font-black text-lg mb-4">
               1
             </div>
-            <h3 class="font-heading font-black text-xl text-slate-950 mb-2">Red Corporativa / Alianza de Escala</h3>
+            <h3 class="font-heading font-black text-xl text-slate-950 mb-2">Cadena Multiclub con el Mismo Nombre</h3>
             <p class="text-slate-600 text-sm leading-relaxed mb-4">
-              Modelos como <strong>BamVolea</strong> en España, <strong>LeDap / We Are Padel</strong> en el norte de Europa o <strong>4PADEL</strong> en Francia no franquician a inversores noveles: compran complejos existentes o integran clubes de más de 10-15 pistas. La ventaja es el poder de negociación en patrocinios, compras masivas de material y circuitos unificados de torneos.
+              Cadenas como <strong>Pàdel 7</strong> en Barcelona, <strong>All In Padel</strong> en Francia o <strong>InterPadel</strong> en Noruega abren varios centros bajo su propia marca comercial. No cobran royalties a terceros; reinvierten su flujo de caja en abrir nuevas naves en barrios estratégicos para dominar una provincia o país.
             </p>
-            <div class="text-xs font-bold text-blue-700 bg-blue-50 p-3 rounded-xl border border-blue-100">
-              💡 Ideal para: Propietarios de clubes grandes que buscan liquidez o asociarse a un operador dominante.
+            <div class="text-xs font-bold text-sky-700 bg-sky-50 p-3 rounded-xl border border-sky-100">
+              💡 Ventaja: Control absoluto de la experiencia de marca y economías de escala locales en personal y marketing.
             </div>
           </div>
 
@@ -2829,15 +3280,15 @@ def render_html():
       
       <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center space-y-6">
         <span class="inline-block px-3.5 py-1 rounded-full bg-[#f2920b]/20 text-[#f2920b] font-heading font-black text-xs uppercase tracking-wider border border-[#f2920b]/30">
-          TECNOLOGÍA & MERCHANDISING PARA FRANQUICIAS Y CLUBES
+          TECNOLOGÍA & MERCHANDISING PARA CADENAS Y FRANQUICIAS
         </span>
 
         <h2 class="font-heading font-black text-2xl sm:text-4xl lg:text-5xl uppercase tracking-tight max-w-3xl mx-auto">
-          ¿Tienes Más de un Club o Quieres Franquiciar tu Marca?
+          ¿Gestionas Varios Clubs o Estás Expandiendo tu Marca?
         </h2>
 
         <p class="text-slate-300 text-base sm:text-lg max-w-2xl mx-auto font-medium leading-relaxed">
-          En <strong>CoolPadel Studios</strong> ayudamos a operadores multi-club y franquicias con dos soluciones probadas en más de 25 complejos deportivos de Europa:
+          En <strong>CoolPadel Studios</strong> ayudamos a operadores multi-club y cadenas con dos soluciones probadas en más de 25 complejos deportivos de Europa:
         </p>
 
         <div class="grid sm:grid-cols-2 gap-6 text-left max-w-3xl mx-auto pt-4">
@@ -2861,7 +3312,7 @@ def render_html():
               <span>Llaveros 3D Oficiales</span>
             </div>
             <p class="text-sm text-slate-300 leading-relaxed">
-              Fabricación directa de llaveros de goma en relieve 3D con el logo oficial de tu franquicia para la pro-shop, abonados y torneos del club. Muestra física previa 15€.
+              Fabricación directa de llaveros de goma en relieve 3D con el logo oficial de tu cadena para la pro-shop, abonados y torneos del club. Muestra física previa 15€.
             </p>
             <a href="../llaveros-padel-personalizados/" class="inline-flex items-center gap-1.5 text-xs font-bold text-[#f2920b] hover:underline mt-3">
               <span>Ver llaveros para clubs</span>
@@ -2871,7 +3322,7 @@ def render_html():
         </div>
 
         <div class="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
-          <a href="https://wa.me/34680317486?text=Hola%20Javier%2C%20tengo%20un%20club%20de%20p%C3%A1del%20(o%20varios)%20y%20quiero%20hablar%20contigo%20sobre%20tecnolog%C3%ADa%20y%20merchandising" target="_blank"
+          <a href="https://wa.me/34680317486?text=Hola%20Javier%2C%20tengo%20una%20cadena%20de%20clubs%20de%20p%C3%A1del%20(o%20varios%20centros)%20y%20quiero%20hablar%20contigo%20sobre%20tecnolog%C3%ADa%20y%20merchandising" target="_blank"
              class="inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-2xl bg-[#25D366] hover:bg-[#20ba59] text-white font-heading font-black text-base uppercase tracking-wider shadow-lg hover:scale-105 active:scale-95 transition w-full sm:w-auto">
             <i data-lucide="message-circle" class="w-5 h-5"></i>
             <span>Hablar con Javier por WhatsApp</span>
@@ -2991,7 +3442,7 @@ def render_html():
       <div>
         <h4 class="font-heading font-black text-sm uppercase text-slate-400 tracking-wider mb-2.5 flex items-center gap-1.5">
           <i data-lucide="briefcase" class="w-4 h-4 text-[#f2920b]"></i>
-          <span>Modelo de Franquicia, Inversión & Expansión</span>
+          <span>Modelo de Cadena, Inversión & Expansión</span>
         </h4>
         <div class="space-y-2 text-xs bg-slate-50 p-4 rounded-2xl border border-slate-100" id="drawerExpansion"></div>
       </div>
@@ -3043,6 +3494,7 @@ def render_html():
 
     function getMarkerColor(categoria) {{
       switch(categoria) {{
+        case 'cadena': return '#0284c7'; // Azul cielo intenso para cadenas con el mismo nombre
         case 'corporativo': return '#2563eb';
         case 'franquicia': return '#4f46e5';
         case 'automatizado': return '#059669';
@@ -3115,6 +3567,10 @@ def render_html():
 
     function zoomToSpain() {{
       map.setView([40.2, -3.7], 6);
+    }}
+
+    function zoomToFrance() {{
+      map.setView([46.5, 2.5], 6);
     }}
 
     function zoomToItaly() {{
@@ -3193,7 +3649,7 @@ def render_html():
         }}
       }});
 
-      document.getElementById('resultsCount').textContent = `Mostrando ${{visibleCount}} de ${{FRANQUICIAS.length}} franquicias y operadores`;
+      document.getElementById('resultsCount').textContent = `Mostrando ${{visibleCount}} de ${{FRANQUICIAS.length}} cadenas y franquicias`;
       renderMarkers(filteredData);
     }}
 
@@ -3257,7 +3713,7 @@ def render_html():
       // Expansion
       const expBox = document.getElementById('drawerExpansion');
       expBox.innerHTML = `
-        <div><strong>Tipo de Contrato:</strong> ${{f.modelo_expansion.tipo_contrato}}</div>
+        <div><strong>Tipo de Contrato / Expansión:</strong> ${{f.modelo_expansion.tipo_contrato}}</div>
         <div><strong>Perfil de Club Idóneo:</strong> ${{f.modelo_expansion.perfil_club}}</div>
         <div><strong>Canon & Royalties:</strong> ${{f.modelo_expansion.canon_royalties}}</div>
         <div><strong>Inversión Estimada:</strong> ${{f.modelo_expansion.inversion_media}}</div>
@@ -3303,8 +3759,8 @@ def main():
     with open(target_file, "w", encoding="utf-8") as f:
         f.write(html_content)
 
-    print(f"Directorio de franquicias generado con éxito en: {target_file}")
-    print(f"Total de franquicias incluidas: {len(FRANQUICIAS)}")
+    print(f"Directorio de franquicias y cadenas generado con éxito en: {target_file}")
+    print(f"Total de entidades incluidas: {len(FRANQUICIAS)}")
 
 
 if __name__ == "__main__":
