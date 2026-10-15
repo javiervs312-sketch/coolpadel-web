@@ -42,6 +42,6 @@ Allow: /
 
 # Sitemap & LLMs Manifests
 Sitemap: https://coolpadelstudios.com/sitemap.xml
-# LLMs: https://coolpadelstudios.com/llms.txt
-# LLMs Full: https://coolpadelstudios.com/llms-full.txt
+LLMs: https://coolpadelstudios.com/llms.txt
+LLMs-Full: https://coolpadelstudios.com/llms-full.txt
 

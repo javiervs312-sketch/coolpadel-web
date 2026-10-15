@@ -383,11 +383,38 @@ def get_base_html(active_lang="es", is_subfolder=False):
             }}
           }}
         ]
+      }},
+      {{
+        "@type": "WebSite",
+        "@id": "https://coolpadelstudios.com/#website",
+        "url": "https://coolpadelstudios.com/",
+        "name": "CoolPadel Studios",
+        "description": "Fabricante y distribuidor directo de llaveros de pádel personalizados de goma 3D con logo oficial.",
+        "inLanguage": ["es", "en", "fr", "it"]
+      }},
+      {{
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {{
+            "@type": "ListItem",
+            "position": 1,
+            "name": "CoolPadel",
+            "item": "https://coolpadelstudios.com/"
+          }},
+          {{
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Llaveros de Pádel Personalizados",
+            "item": "https://coolpadelstudios.com/#llaveros"
+          }}
+        ]
       }}
     ]
   }}
   </script>
   <link rel="alternate" type="application/rss+xml" title="CoolPadel Studios Feed" href="https://coolpadelstudios.com/rss.xml">
+  <link rel="alternate" type="text/markdown" href="{asset_prefix}llms.txt" title="LLMs Info">
+  <link rel="preload" as="image" href="{asset_prefix}assets/images/slide-1.jpg" fetchpriority="high">
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -564,7 +591,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
 
     /* Estilos Leaflet Map Pins y Popup */
     #coolpadel-leaflet-map {{
-      background: #aad3df !important;
+      background: #091322 !important;
     }}
     .custom-pin-container {{
       position: relative;
@@ -998,56 +1025,6 @@ def get_base_html(active_lang="es", is_subfolder=False):
               </div>
             </a>
           </div>
-          <!-- TABLA SEMÁNTICA DE TARIFAS OFICIALES (GEO / LLM ENGINE READABILITY) -->
-          <div class="mt-8 pt-6 border-t border-slate-200/80">
-            <h4 class="text-xs font-bold uppercase tracking-wider text-slate-500 mb-3 text-center sm:text-left">
-              Tarifas Oficiales de Fabricación de Llaveros de Pádel (2026)
-            </h4>
-            <div class="overflow-x-auto">
-              <table class="w-full text-left text-xs sm:text-sm text-slate-700 border-collapse bg-white rounded-xl shadow-xs border border-slate-200/90">
-                <caption class="sr-only">Precios oficiales por volumen para llaveros personalizados de pádel en CoolPadel Studios</caption>
-                <thead>
-                  <tr class="bg-slate-100/80 text-slate-900 border-b border-slate-200 font-heading font-black">
-                    <th scope="col" class="py-2.5 px-3 sm:px-4">Cantidad</th>
-                    <th scope="col" class="py-2.5 px-3 sm:px-4">Precio / Unidad</th>
-                    <th scope="col" class="py-2.5 px-3 sm:px-4">Inversión Total</th>
-                    <th scope="col" class="py-2.5 px-3 sm:px-4">Envío y Muestra</th>
-                    <th scope="col" class="py-2.5 px-3 sm:px-4">Plazo de Entrega</th>
-                  </tr>
-                </thead>
-                <tbody class="divide-y divide-slate-100">
-                  <tr class="hover:bg-slate-50/80 transition">
-                    <td class="py-2.5 px-3 sm:px-4 font-bold text-slate-950">100 unidades</td>
-                    <td class="py-2.5 px-3 sm:px-4 font-black text-[#f2920b]">3,00 € / ud</td>
-                    <td class="py-2.5 px-3 sm:px-4">300 €</td>
-                    <td class="py-2.5 px-3 sm:px-4 text-emerald-700 font-semibold">Envío incluido (Muestra 15€)</td>
-                    <td class="py-2.5 px-3 sm:px-4">7-10 días laborables</td>
-                  </tr>
-                  <tr class="hover:bg-slate-50/80 transition">
-                    <td class="py-2.5 px-3 sm:px-4 font-bold text-slate-950">250 unidades</td>
-                    <td class="py-2.5 px-3 sm:px-4 font-black text-[#f2920b]">2,50 € / ud</td>
-                    <td class="py-2.5 px-3 sm:px-4">625 €</td>
-                    <td class="py-2.5 px-3 sm:px-4 text-emerald-700 font-semibold">Envío incluido (Muestra 15€)</td>
-                    <td class="py-2.5 px-3 sm:px-4">7-10 días laborables</td>
-                  </tr>
-                  <tr class="hover:bg-slate-50/80 transition">
-                    <td class="py-2.5 px-3 sm:px-4 font-bold text-slate-950">500 unidades</td>
-                    <td class="py-2.5 px-3 sm:px-4 font-black text-[#f2920b]">2,00 € / ud</td>
-                    <td class="py-2.5 px-3 sm:px-4">1.000 €</td>
-                    <td class="py-2.5 px-3 sm:px-4 text-emerald-700 font-semibold">Envío incluido (Muestra 15€)</td>
-                    <td class="py-2.5 px-3 sm:px-4">7-10 días laborables</td>
-                  </tr>
-                  <tr class="hover:bg-slate-50/80 transition">
-                    <td class="py-2.5 px-3 sm:px-4 font-bold text-slate-950">1.500 unidades</td>
-                    <td class="py-2.5 px-3 sm:px-4 font-black text-[#f2920b]">1,50 € / ud</td>
-                    <td class="py-2.5 px-3 sm:px-4">2.250 €</td>
-                    <td class="py-2.5 px-3 sm:px-4 text-emerald-700 font-semibold">Envío incluido (Muestra 15€)</td>
-                    <td class="py-2.5 px-3 sm:px-4">7-10 días laborables</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
         </div>
       </div>
 
@@ -1099,11 +1076,24 @@ def get_base_html(active_lang="es", is_subfolder=False):
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch pt-4">
           
           <!-- MAPA LEAFLET INTERACTIVO PANNABLE/ZOOMABLE -->
-          <div class="lg:col-span-8 relative bg-white rounded-2xl border border-slate-200/90 overflow-hidden shadow-inner min-h-[380px] sm:min-h-[500px]">
-            <div id="coolpadel-leaflet-map" class="w-full h-full min-h-[380px] sm:min-h-[500px] z-10" style="min-height: 500px; width: 100%; background: #aad3df;"></div>
+          <div class="lg:col-span-8 relative bg-slate-900 rounded-2xl border border-slate-700/60 overflow-hidden shadow-inner min-h-[380px] sm:min-h-[500px]">
+            <div id="coolpadel-leaflet-map" class="w-full h-full min-h-[380px] sm:min-h-[500px] z-10" style="min-height: 500px; width: 100%; background: #091322;"></div>
             
+            <!-- SELECTOR DE FORMATO VISUAL DEL MAPA (NOCHE / RELIEVE / SATÉLITE) -->
+            <div class="absolute top-3 right-3 z-[400] bg-slate-900/90 backdrop-blur-md p-1 rounded-xl border border-slate-700/80 shadow-md flex items-center gap-1 text-[11px] font-bold">
+              <button type="button" onclick="setMapTileStyle('dark')" id="style-btn-dark" class="px-2.5 py-1 rounded-lg transition text-slate-950 font-black bg-[#f2920b] shadow-xs cursor-pointer">
+                🌙 Noche
+              </button>
+              <button type="button" onclick="setMapTileStyle('relief')" id="style-btn-relief" class="px-2.5 py-1 rounded-lg transition text-slate-300 hover:text-white hover:bg-slate-800 cursor-pointer font-bold">
+                ⛰️ Relieve
+              </button>
+              <button type="button" onclick="setMapTileStyle('satellite')" id="style-btn-satellite" class="px-2.5 py-1 rounded-lg transition text-slate-300 hover:text-white hover:bg-slate-800 cursor-pointer font-bold">
+                🛰️ Satélite
+              </button>
+            </div>
+
             <!-- HINT FLOTANTE INFERIOR -->
-            <div class="absolute bottom-3 left-3 z-[400] bg-white/95 backdrop-blur-sm px-3.5 py-1.5 rounded-full border border-slate-200/90 shadow-sm pointer-events-none hidden sm:flex items-center gap-2 text-[11px] font-bold text-slate-700">
+            <div class="absolute bottom-3 left-3 z-[400] bg-slate-900/90 backdrop-blur-sm px-3.5 py-1.5 rounded-full border border-slate-700/80 shadow-sm pointer-events-none hidden sm:flex items-center gap-2 text-[11px] font-bold text-slate-200">
               <i data-lucide="hand" class="w-3.5 h-3.5 text-[#f2920b]"></i>
               <span>Arrastra para desplazarte o haz zoom en el mapa</span>
             </div>
@@ -1827,6 +1817,52 @@ def get_base_html(active_lang="es", is_subfolder=False):
 
     let leafletMapInstance = null;
     let mapMarkersList = [];
+    let currentMapTileLayer = null;
+
+    const MAP_TILE_CONFIGS = {{
+      dark: {{
+        url: 'https://{{s}}.basemaps.cartocdn.com/dark_all/{{z}}/{{x}}/{{y}}{{r}}.png',
+        options: {{
+          subdomains: 'abcd',
+          maxZoom: 18,
+          attribution: '&copy; OpenStreetMap &copy; CARTO'
+        }}
+      }},
+      relief: {{
+        url: 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Shaded_Relief/MapServer/tile/{{z}}/{{y}}/{{x}}',
+        options: {{
+          maxZoom: 13,
+          attribution: 'Tiles &copy; Esri &mdash; Shaded Relief'
+        }}
+      }},
+      satellite: {{
+        url: 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{{z}}/{{y}}/{{x}}',
+        options: {{
+          maxZoom: 18,
+          attribution: 'Tiles &copy; Esri &mdash; Satellite Imagery'
+        }}
+      }}
+    }};
+
+    window.setMapTileStyle = function(styleKey) {{
+      if (!leafletMapInstance || !MAP_TILE_CONFIGS[styleKey]) return;
+      if (currentMapTileLayer) {{
+        leafletMapInstance.removeLayer(currentMapTileLayer);
+      }}
+
+      const cfg = MAP_TILE_CONFIGS[styleKey];
+      currentMapTileLayer = L.tileLayer(cfg.url, cfg.options).addTo(leafletMapInstance);
+
+      ['dark', 'relief', 'satellite'].forEach(k => {{
+        const btn = document.getElementById('style-btn-' + k);
+        if (!btn) return;
+        if (k === styleKey) {{
+          btn.className = 'px-2.5 py-1 rounded-lg transition text-slate-950 font-black bg-[#f2920b] shadow-xs cursor-pointer';
+        }} else {{
+          btn.className = 'px-2.5 py-1 rounded-lg transition text-slate-300 hover:text-white hover:bg-slate-800 cursor-pointer font-bold';
+        }}
+      }});
+    }};
 
     function initCoolPadelMap() {{
       const mapContainer = document.getElementById('coolpadel-leaflet-map');
@@ -1844,11 +1880,8 @@ def get_base_html(active_lang="es", is_subfolder=False):
         leafletMapInstance.on('focus', () => leafletMapInstance.scrollWheelZoom.enable());
         leafletMapInstance.on('click', () => leafletMapInstance.scrollWheelZoom.enable());
 
-        // Capa de mosaico Esri World Topo Map (sin API key, relieve natural terrestre y agua azul)
-        L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{{z}}/{{y}}/{{x}}', {{
-          attribution: 'Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ',
-          maxZoom: 18
-        }}).addTo(leafletMapInstance);
+        // Carga por defecto el modo oscuro limpio y elegante (Dark Navy)
+        setMapTileStyle('dark');
 
         const createPinIcon = () => L.divIcon({{
           className: 'custom-pin',
@@ -2675,7 +2708,9 @@ def build_all():
         print(f"  [OK] coolpadel-web/{lang}/index.html ({lang.upper()} SEO Landing)")
 
     # 3. Sitemap Multilingüe
-    sitemap_xml = """<?xml version="1.0" encoding="UTF-8"?>
+    from datetime import datetime
+    today_iso = datetime.now().strftime("%Y-%m-%d")
+    sitemap_xml = f"""<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
@@ -2686,7 +2721,7 @@ def build_all():
     <xhtml:link rel="alternate" hreflang="fr" href="https://coolpadelstudios.com/fr/"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://coolpadelstudios.com/it/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://coolpadelstudios.com/"/>
-    <lastmod>2026-09-18</lastmod>
+    <lastmod>{today_iso}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
@@ -2711,7 +2746,7 @@ def build_all():
     <xhtml:link rel="alternate" hreflang="fr" href="https://coolpadelstudios.com/fr/"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://coolpadelstudios.com/it/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://coolpadelstudios.com/"/>
-    <lastmod>2026-09-16</lastmod>
+    <lastmod>{today_iso}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -2722,7 +2757,7 @@ def build_all():
     <xhtml:link rel="alternate" hreflang="fr" href="https://coolpadelstudios.com/fr/"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://coolpadelstudios.com/it/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://coolpadelstudios.com/"/>
-    <lastmod>2026-09-16</lastmod>
+    <lastmod>{today_iso}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -2733,7 +2768,7 @@ def build_all():
     <xhtml:link rel="alternate" hreflang="fr" href="https://coolpadelstudios.com/fr/"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://coolpadelstudios.com/it/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://coolpadelstudios.com/"/>
-    <lastmod>2026-09-16</lastmod>
+    <lastmod>{today_iso}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
