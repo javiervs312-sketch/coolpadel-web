@@ -571,8 +571,8 @@
       background: #5b99cb !important;
     }
     .tile-satellite-soft {
-      filter: brightness(1.15) saturate(0.72) contrast(0.92);
-      opacity: 0.92;
+      filter: brightness(1.12) saturate(0.68) contrast(0.88);
+      opacity: 0.95;
     }
     .custom-pin-container {
       position: relative;
@@ -990,16 +990,16 @@
           <div class="lg:col-span-8 relative bg-[#5b99cb] rounded-2xl border border-slate-200/90 overflow-hidden shadow-inner min-h-[380px] sm:min-h-[500px]">
             <div id="coolpadel-leaflet-map" class="w-full h-full min-h-[380px] sm:min-h-[500px] z-10" style="min-height: 500px; width: 100%; background: #5b99cb;"></div>
             
-            <!-- SELECTOR DE FORMATO VISUAL DEL MAPA (FÍSICO NATURAL / SATÉLITE SUAVE / OCÉANO & RELIEVE) -->
-            <div class="absolute top-3 right-3 z-[400] bg-white/95 backdrop-blur-md p-1 rounded-xl border border-slate-200/90 shadow-md flex items-center gap-1 text-[11px] font-bold">
-              <button type="button" onclick="setMapTileStyle('physical')" id="style-btn-physical" class="px-2.5 py-1 rounded-lg transition text-slate-950 font-black bg-[#f2920b] shadow-xs cursor-pointer">
-                🗺️ Físico Natural
+            <!-- SELECTOR DE FORMATO VISUAL DEL MAPA (3 OPCIONES CON NOMBRES DE PAÍSES CLAROS) -->
+            <div class="absolute top-3 right-3 z-[400] bg-white/95 backdrop-blur-md p-1 rounded-xl border border-slate-200/90 shadow-md flex items-center gap-1 text-[10px] sm:text-[11px] font-bold overflow-x-auto max-w-[92%]">
+              <button type="button" onclick="setMapTileStyle('natgeo')" id="style-btn-natgeo" class="px-2.5 py-1 rounded-lg transition text-slate-950 font-black bg-[#f2920b] shadow-xs cursor-pointer whitespace-nowrap" title="Estilo National Geographic clásico: mar azul suave, tierra cálida y nombres de países">
+                🌍 NatGeo <span class="hidden sm:inline">Cartográfico</span>
               </button>
-              <button type="button" onclick="setMapTileStyle('satellite_soft')" id="style-btn-satellite_soft" class="px-2.5 py-1 rounded-lg transition text-slate-700 hover:text-slate-950 hover:bg-slate-100 cursor-pointer font-bold">
-                🛰️ Satélite Suave
+              <button type="button" onclick="setMapTileStyle('physical')" id="style-btn-physical" class="px-2.5 py-1 rounded-lg transition text-slate-700 hover:text-slate-950 hover:bg-slate-100 cursor-pointer font-bold whitespace-nowrap" title="Relieve físico natural con nombres de países">
+                🗺️ Relieve <span class="hidden sm:inline">+ Países</span>
               </button>
-              <button type="button" onclick="setMapTileStyle('ocean')" id="style-btn-ocean" class="px-2.5 py-1 rounded-lg transition text-slate-700 hover:text-slate-950 hover:bg-slate-100 cursor-pointer font-bold">
-                🌊 Océano & Relieve
+              <button type="button" onclick="setMapTileStyle('satellite_soft')" id="style-btn-satellite_soft" class="px-2.5 py-1 rounded-lg transition text-slate-700 hover:text-slate-950 hover:bg-slate-100 cursor-pointer font-bold whitespace-nowrap" title="Satélite fotográfico suave atenuado con nombres de países">
+                🛰️ Satélite <span class="hidden sm:inline">Suave</span>
               </button>
             </div>
 
@@ -1773,14 +1773,25 @@
     let leafletMapInstance = null;
     let mapMarkersList = [];
     let currentMapTileLayer = null;
+    let currentOverlayTileLayer = null;
 
     const MAP_TILE_CONFIGS = {
+      natgeo: {
+        url: 'https://server.arcgisonline.com/ArcGIS/rest/services/NatGeo_World_Map/MapServer/tile/{z}/{y}/{x}',
+        options: {
+          maxZoom: 16,
+          attribution: 'Tiles &copy; National Geographic, Esri'
+        },
+        overlayUrl: null
+      },
       physical: {
         url: 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Physical_Map/MapServer/tile/{z}/{y}/{x}',
         options: {
-          maxZoom: 9,
+          maxZoom: 18,
+          maxNativeZoom: 9,
           attribution: 'Tiles &copy; Esri &mdash; World Physical Map'
-        }
+        },
+        overlayUrl: 'https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Boundaries_and_Places/MapServer/tile/{z}/{y}/{x}'
       },
       satellite_soft: {
         url: 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
@@ -1788,14 +1799,8 @@
           maxZoom: 18,
           className: 'tile-satellite-soft',
           attribution: 'Tiles &copy; Esri &mdash; Satellite Imagery'
-        }
-      },
-      ocean: {
-        url: 'https://server.arcgisonline.com/ArcGIS/rest/services/Ocean/World_Ocean_Base/MapServer/tile/{z}/{y}/{x}',
-        options: {
-          maxZoom: 13,
-          attribution: 'Tiles &copy; Esri &mdash; World Ocean Base'
-        }
+        },
+        overlayUrl: 'https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Boundaries_and_Places/MapServer/tile/{z}/{y}/{x}'
       }
     };
 
@@ -1803,18 +1808,31 @@
       if (!leafletMapInstance || !MAP_TILE_CONFIGS[styleKey]) return;
       if (currentMapTileLayer) {
         leafletMapInstance.removeLayer(currentMapTileLayer);
+        currentMapTileLayer = null;
+      }
+      if (currentOverlayTileLayer) {
+        leafletMapInstance.removeLayer(currentOverlayTileLayer);
+        currentOverlayTileLayer = null;
       }
 
       const cfg = MAP_TILE_CONFIGS[styleKey];
       currentMapTileLayer = L.tileLayer(cfg.url, cfg.options).addTo(leafletMapInstance);
 
-      ['physical', 'satellite_soft', 'ocean'].forEach(k => {
+      if (cfg.overlayUrl) {
+        currentOverlayTileLayer = L.tileLayer(cfg.overlayUrl, {
+          maxZoom: 18,
+          pane: 'overlayPane',
+          opacity: 0.95
+        }).addTo(leafletMapInstance);
+      }
+
+      ['natgeo', 'physical', 'satellite_soft'].forEach(k => {
         const btn = document.getElementById('style-btn-' + k);
         if (!btn) return;
         if (k === styleKey) {
-          btn.className = 'px-2.5 py-1 rounded-lg transition text-slate-950 font-black bg-[#f2920b] shadow-xs cursor-pointer';
+          btn.className = 'px-2.5 py-1 rounded-lg transition text-slate-950 font-black bg-[#f2920b] shadow-xs cursor-pointer whitespace-nowrap';
         } else {
-          btn.className = 'px-2.5 py-1 rounded-lg transition text-slate-700 hover:text-slate-950 hover:bg-slate-100 cursor-pointer font-bold';
+          btn.className = 'px-2.5 py-1 rounded-lg transition text-slate-700 hover:text-slate-950 hover:bg-slate-100 cursor-pointer font-bold whitespace-nowrap';
         }
       });
     };
@@ -1835,8 +1853,8 @@
         leafletMapInstance.on('focus', () => leafletMapInstance.scrollWheelZoom.enable());
         leafletMapInstance.on('click', () => leafletMapInstance.scrollWheelZoom.enable());
 
-        // Carga por defecto: Físico Natural (mar azul limpio sin relieve submarino, tierra cálida suave, cero textos)
-        setMapTileStyle('physical');
+        // Carga por defecto: NatGeo (fondo azul limpio sin relieve submarino, tierra cálida orgánica, nombres de países destacados)
+        setMapTileStyle('natgeo');
 
         const createPinIcon = () => L.divIcon({
           className: 'custom-pin',
