@@ -251,6 +251,7 @@ def generate_blog_index():
               <div class="w-3 h-3 rounded-full bg-slate-950/10 flex items-center justify-center">
                 <i data-lucide="arrow-up-right" class="w-2 h-2 stroke-[3]"></i>
               </div>
+            </a>
           </div>
         </div>
 
