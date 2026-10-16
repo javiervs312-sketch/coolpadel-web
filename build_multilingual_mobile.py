@@ -3096,6 +3096,24 @@ def build_all():
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://coolpadelstudios.com/blog/rentabilidad-camaras-pistas-padel/</loc>
+    <lastmod>2026-10-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://coolpadelstudios.com/blog/welcome-pack-torneo-padel-ideas/</loc>
+    <lastmod>2026-10-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://coolpadelstudios.com/blog/sistemas-grabacion-pistas-padel-comparativa/</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://coolpadelstudios.com/camaras/</loc>
     <xhtml:link rel="alternate" hreflang="es" href="https://coolpadelstudios.com/camaras/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://coolpadelstudios.com/en/camaras/"/>
@@ -3251,6 +3269,27 @@ def build_all():
       <guid>https://coolpadelstudios.com/blog/highlights-03/</guid>
       <description>Análisis del crecimiento de oferta y demanda en la industria del pádel, academias y modelos de negocio de clubes.</description>
       <pubDate>Wed, 14 Oct 2026 10:00:00 +0200</pubDate>
+    </item>
+    <item>
+      <title>¿Cuánto cuesta instalar cámaras en una pista de pádel y cómo se amortizan?</title>
+      <link>https://coolpadelstudios.com/blog/rentabilidad-camaras-pistas-padel/</link>
+      <guid>https://coolpadelstudios.com/blog/rentabilidad-camaras-pistas-padel/</guid>
+      <description>Desglose real de costes: hardware de 180 € y 45 €/mes. Los 3 modelos para amortizar la inversión: pago por descarga, incremento de tarifa o patrocinio.</description>
+      <pubDate>Thu, 15 Oct 2026 09:00:00 +0200</pubDate>
+    </item>
+    <item>
+      <title>Qué regalar en el Welcome Pack de un torneo de pádel para dejar huella</title>
+      <link>https://coolpadelstudios.com/blog/welcome-pack-torneo-padel-ideas/</link>
+      <guid>https://coolpadelstudios.com/blog/welcome-pack-torneo-padel-ideas/</guid>
+      <description>Por qué las camisetas genéricas acaban en el fondo del cajón y cómo los llaveros de pala a escala 3D autofinanciados por patrocinadores multiplican el impacto.</description>
+      <pubDate>Wed, 14 Oct 2026 09:00:00 +0200</pubDate>
+    </item>
+    <item>
+      <title>Comparativa: Cámaras fijas con pulsador vs grabación manual con trípode móvil</title>
+      <link>https://coolpadelstudios.com/blog/sistemas-grabacion-pistas-padel-comparativa/</link>
+      <guid>https://coolpadelstudios.com/blog/sistemas-grabacion-pistas-padel-comparativa/</guid>
+      <description>Análisis técnico, legal (RGPD) y de experiencia de usuario: riesgos de trípodes en pista y cómo el buffer circular de 25 segundos ahorra horas de edición.</description>
+      <pubDate>Tue, 13 Oct 2026 09:00:00 +0200</pubDate>
     </item>
   </channel>
 </rss>
