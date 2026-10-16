@@ -906,13 +906,12 @@ def get_base_html(active_lang="es", is_subfolder=False):
               </div>
             </div>
 
-            <!-- BOTÓN CONTACTAR -->
-            <a id="nav-contact-btn" href="https://wa.me/34680317486?text={wa_prefilled_encoded}" 
-               target="_blank" rel="noopener noreferrer"
-               class="group relative inline-flex items-center gap-1.5 px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] active:bg-[#76d3f6] text-slate-950 active:scale-95 font-heading font-black text-xs sm:text-xs lg:text-sm tracking-wider uppercase transition-all duration-300 shadow-[0_4px_12px_rgba(242,146,11,0.2)] hover:scale-105 shrink-0 overflow-hidden">
+            <!-- BOTÓN CONTACTAR (SCROLL A SECCIÓN CONTACTO) -->
+            <a id="nav-contact-btn" href="{asset_prefix}#contacto" 
+               class="group relative inline-flex items-center gap-1.5 px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] active:bg-[#76d3f6] text-slate-950 active:scale-95 font-heading font-black text-xs sm:text-xs lg:text-sm tracking-wider uppercase transition-all duration-300 shadow-[0_4px_12px_rgba(242,146,11,0.2)] hover:scale-105 shrink-0 overflow-hidden cursor-pointer">
               <span data-i18n="nav_contact" class="font-black">{t['nav_contact']}</span>
               <div class="w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-slate-950/10 group-hover:bg-slate-950 group-hover:text-white flex items-center justify-center transition-all duration-300 shrink-0">
-                <i data-lucide="arrow-up-right" class="w-2.5 h-2.5 sm:w-3 sm:h-3 stroke-[3] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300"></i>
+                <i data-lucide="arrow-down" class="w-2.5 h-2.5 sm:w-3 sm:h-3 stroke-[3] group-hover:translate-y-0.5 transition-transform duration-300"></i>
               </div>
             </a>
           </div>
@@ -974,9 +973,14 @@ def get_base_html(active_lang="es", is_subfolder=False):
               </div>
             </div>
 
-            <a id="nav-contact-btn-mob" href="https://wa.me/34680317486?text={wa_prefilled_encoded}" 
-               target="_blank" rel="noopener noreferrer"
-               class="group relative inline-flex items-center justify-center gap-1 px-2.5 py-1 rounded-full bg-[#f2920b] active:bg-[#76d3f6] text-slate-950 active:scale-95 font-heading font-black text-[10px] uppercase tracking-wider transition-all duration-300 shadow-xs shrink-0">
+            <!-- BOTÓN CONTACTAR MÓVIL (SCROLL A SECCIÓN CONTACTO) -->
+            <a id="nav-contact-btn-mob" href="{asset_prefix}#contacto" 
+               class="group relative inline-flex items-center justify-center gap-1 px-2.5 py-1 rounded-full bg-[#f2920b] active:bg-[#76d3f6] text-slate-950 active:scale-95 font-heading font-black text-[10px] uppercase tracking-wider transition-all duration-300 shadow-xs shrink-0 cursor-pointer">
+              <span data-i18n="nav_contact" class="font-black">{t['nav_contact']}</span>
+              <div class="w-3 h-3 rounded-full bg-slate-950/10 flex items-center justify-center">
+                <i data-lucide="arrow-down" class="w-2 h-2 stroke-[3]"></i>
+              </div>
+            </a>
               <span data-i18n="nav_contact" class="font-black">{t['nav_contact']}</span>
               <div class="w-3 h-3 rounded-full bg-slate-950/10 flex items-center justify-center">
                 <i data-lucide="arrow-up-right" class="w-2 h-2 stroke-[3]"></i>
