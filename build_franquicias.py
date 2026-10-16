@@ -628,7 +628,7 @@ def render_html():
             <!-- BUSCADOR INTEGRADO DENTRO DE LA PARTE DEL MAPA MUNDIAL -->
             <div class="relative flex-1 max-w-xl min-w-[240px]" id="searchContainer">
               <i data-lucide="search" class="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none"></i>
-              <input type="text" id="searchInput" placeholder="Buscar cadena, club, ciudad o país..."
+              <input type="text" id="searchInput" placeholder="Buscar cadenas, clubs, países o ciudades..."
                      class="w-full pl-9 pr-9 py-2 rounded-xl bg-slate-50 border border-slate-200 text-slate-950 placeholder-slate-400 font-medium text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-[#f2920b] focus:bg-white transition"
                      autocomplete="off"
                      oninput="handleSearchInput(event)"

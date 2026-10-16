@@ -114,9 +114,17 @@ TRANSLATIONS = {
         "popup_btn": "Descargar Informe (PDF)",
         "popup_btn_success": "¡Descargando Informe!",
 
-        # Contacto & WhatsApp
-        "contact_title": "Contacto",
-        "contact_wa_btn": "WhatsApp Directo",
+        # Contacto & WhatsApp / Email (Estilo ITAC con QR)
+        "contact_title": "Contáctanos y hablemos de tu club",
+        "contact_subtitle": "Atención directa y personalizada para equipar tus pistas con Save my Play o fabricar tus llaveros 3D oficiales.",
+        "contact_wa_title": "WhatsApp Directo",
+        "contact_wa_desc": "Atención inmediata para resolver dudas técnicas, coordinar muestras físicas o calcular presupuestos a medida.",
+        "contact_wa_btn": "Chatear por WhatsApp",
+        "contact_wa_qr_hint": "Escanea con la cámara de tu móvil para chatear directamente",
+        "contact_mail_title": "Correo Electrónico",
+        "contact_mail_desc": "Envíanos el escudo de tu club vectorizado para preparar tu render 3D gratis o solicitar el dossier técnico.",
+        "contact_mail_btn": "Enviar Email a Javier",
+        "contact_mail_qr_hint": "Escanea para abrir tu gestor de correo electrónico",
         "wa_floating_tooltip": "¿Hablamos?",
         "wa_prefilled_msg": "Hola Javier"
     },
