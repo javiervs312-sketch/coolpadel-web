@@ -658,94 +658,94 @@ def generate_blog_index():
           </p>
         </div>
 
-        <!-- 3 NEWSLETTERS EN FILA DE IZQ A DCHA (MÁS ANCHAS Y LEGIBLES) -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 max-w-[1700px] w-full mx-auto">
+        <!-- 3 NEWSLETTERS EN FILA DE IZQ A DCHA (COMPACTAS) -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5 max-w-[1700px] w-full mx-auto">
           
           <!-- 1. HIGHLIGHTS #03 (IZQUIERDA - MÁS RECIENTE) -->
-          <div class="bg-white border border-slate-200/90 rounded-3xl p-6 sm:p-7 shadow-[0_20px_45px_-12px_rgba(0,0,0,0.14)] hover:shadow-[0_30px_60px_-10px_rgba(0,0,0,0.22)] transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1">
-            <div class="space-y-4">
-              <a href="./highlights-03/" class="block aspect-[16/9] rounded-2xl overflow-hidden bg-slate-900 border border-slate-200/90 shadow-[0_15px_30px_-10px_rgba(0,0,0,0.35)] relative">
-                <img src="../assets/images/cover_highlights_03.jpg" alt="Highlights #03: ¿Cómo crece realmente la industria del pádel?" width="800" height="450" class="w-full h-full object-cover group-hover:scale-105 transition duration-700" loading="eager" decoding="async">
+          <div class="bg-white border border-slate-200/90 rounded-2xl p-4 sm:p-5 shadow-2xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between group hover:-translate-y-0.5">
+            <div class="space-y-3">
+              <a href="./highlights-03/" class="block aspect-[16/9] rounded-xl overflow-hidden bg-slate-900 border border-slate-200/90 shadow-sm relative">
+                <img src="../assets/images/cover_highlights_03.jpg" alt="Highlights #03: ¿Cómo crece realmente la industria del pádel?" width="800" height="450" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="eager" decoding="async">
               </a>
 
-              <div class="pt-1">
-                <span class="block text-xs sm:text-sm font-extrabold text-[#f2920b] uppercase tracking-wider mb-1">Highlights #03:</span>
-                <h2 class="font-sans font-extrabold text-lg sm:text-xl lg:text-2xl text-slate-900 leading-snug tracking-tight">
+              <div>
+                <span class="block text-[11px] sm:text-xs font-extrabold text-[#f2920b] uppercase tracking-wider mb-0.5">Highlights #03:</span>
+                <h2 class="font-sans font-extrabold text-sm sm:text-base lg:text-lg text-slate-900 leading-snug tracking-tight">
                   ¿Cómo crece realmente la industria del pádel?
                 </h2>
-                <p class="text-slate-600 text-xs sm:text-sm font-normal leading-relaxed mt-2 line-clamp-2">
+                <p class="text-slate-600 text-xs font-normal leading-relaxed mt-1.5 line-clamp-2">
                   Nuevas oportunidades en mercados emergentes, desafíos en mercados maduros y las 5 etapas del desarrollo del pádel.
                 </p>
               </div>
             </div>
 
             <!-- BOTÓN ABRIR ARTÍCULO -->
-            <div class="pt-5 border-t border-slate-100 mt-5">
+            <div class="pt-3.5 border-t border-slate-100 mt-4">
               <a href="./highlights-03/" 
-                 class="group relative w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] active:bg-[#76d3f6] text-slate-950 active:scale-95 font-heading font-black text-xs sm:text-sm uppercase tracking-wider transition-all duration-300 shadow-[0_4px_15px_rgba(242,146,11,0.25)] hover:shadow-[0_8px_25px_rgba(118,211,246,0.35)] hover:scale-[1.01] overflow-hidden">
+                 class="group relative w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] active:bg-[#76d3f6] text-slate-950 active:scale-95 font-heading font-black text-xs uppercase tracking-wider transition-all duration-300 shadow-xs hover:shadow-md hover:scale-[1.01] overflow-hidden">
                 <span class="font-black">Leer Highlights #03</span>
-                <div class="w-5 h-5 rounded-full bg-slate-950/10 group-hover:bg-slate-950 group-hover:text-white flex items-center justify-center transition-all duration-300">
-                  <i data-lucide="arrow-right" class="w-3.5 h-3.5 stroke-[3] group-hover:translate-x-0.5 transition-transform duration-300"></i>
+                <div class="w-4 h-4 rounded-full bg-slate-950/10 group-hover:bg-slate-950 group-hover:text-white flex items-center justify-center transition-all duration-300">
+                  <i data-lucide="arrow-right" class="w-3 h-3 stroke-[3] group-hover:translate-x-0.5 transition-transform duration-300"></i>
                 </div>
               </a>
             </div>
           </div>
 
           <!-- 2. HIGHLIGHTS #02 (CENTRO) -->
-          <div class="bg-white border border-slate-200/90 rounded-3xl p-6 sm:p-7 shadow-[0_20px_45px_-12px_rgba(0,0,0,0.14)] hover:shadow-[0_30px_60px_-10px_rgba(0,0,0,0.22)] transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1">
-            <div class="space-y-4">
-              <a href="./highlights-02/" class="block aspect-[16/9] rounded-2xl overflow-hidden bg-slate-900 border border-slate-200/90 shadow-[0_15px_30px_-10px_rgba(0,0,0,0.35)] relative">
-                <img src="../assets/images/cover_highlights_02.jpg" alt="Highlights #02: El Pádel debería estar lejos de ser un deporte olímpico" width="800" height="450" class="w-full h-full object-cover group-hover:scale-105 transition duration-700" loading="lazy" decoding="async">
+          <div class="bg-white border border-slate-200/90 rounded-2xl p-4 sm:p-5 shadow-2xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between group hover:-translate-y-0.5">
+            <div class="space-y-3">
+              <a href="./highlights-02/" class="block aspect-[16/9] rounded-xl overflow-hidden bg-slate-900 border border-slate-200/90 shadow-sm relative">
+                <img src="../assets/images/cover_highlights_02.jpg" alt="Highlights #02: El Pádel debería estar lejos de ser un deporte olímpico" width="800" height="450" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
               </a>
 
-              <div class="pt-1">
-                <span class="block text-xs sm:text-sm font-extrabold text-[#f2920b] uppercase tracking-wider mb-1">Highlights #02:</span>
-                <h2 class="font-sans font-extrabold text-lg sm:text-xl lg:text-2xl text-slate-900 leading-snug tracking-tight">
+              <div>
+                <span class="block text-[11px] sm:text-xs font-extrabold text-[#f2920b] uppercase tracking-wider mb-0.5">Highlights #02:</span>
+                <h2 class="font-sans font-extrabold text-sm sm:text-base lg:text-lg text-slate-900 leading-snug tracking-tight">
                   El Pádel debería estar lejos de ser un deporte olímpico. ¿Por qué?
                 </h2>
-                <p class="text-slate-600 text-xs sm:text-sm font-normal leading-relaxed mt-2 line-clamp-2">
+                <p class="text-slate-600 text-xs font-normal leading-relaxed mt-1.5 line-clamp-2">
                   Por qué la cultura del pádel necesita consolidarse fuera de los países tradicionales antes de dar el salto olímpico.
                 </p>
               </div>
             </div>
 
             <!-- BOTÓN ABRIR ARTÍCULO -->
-            <div class="pt-5 border-t border-slate-100 mt-5">
+            <div class="pt-3.5 border-t border-slate-100 mt-4">
               <a href="./highlights-02/" 
-                 class="group relative w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] active:bg-[#76d3f6] text-slate-950 active:scale-95 font-heading font-black text-xs sm:text-sm uppercase tracking-wider transition-all duration-300 shadow-[0_4px_15px_rgba(242,146,11,0.25)] hover:shadow-[0_8px_25px_rgba(118,211,246,0.35)] hover:scale-[1.01] overflow-hidden">
+                 class="group relative w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] active:bg-[#76d3f6] text-slate-950 active:scale-95 font-heading font-black text-xs uppercase tracking-wider transition-all duration-300 shadow-xs hover:shadow-md hover:scale-[1.01] overflow-hidden">
                 <span class="font-black">Leer Highlights #02</span>
-                <div class="w-5 h-5 rounded-full bg-slate-950/10 group-hover:bg-slate-950 group-hover:text-white flex items-center justify-center transition-all duration-300">
-                  <i data-lucide="arrow-right" class="w-3.5 h-3.5 stroke-[3] group-hover:translate-x-0.5 transition-transform duration-300"></i>
+                <div class="w-4 h-4 rounded-full bg-slate-950/10 group-hover:bg-slate-950 group-hover:text-white flex items-center justify-center transition-all duration-300">
+                  <i data-lucide="arrow-right" class="w-3 h-3 stroke-[3] group-hover:translate-x-0.5 transition-transform duration-300"></i>
                 </div>
               </a>
             </div>
           </div>
 
           <!-- 3. HIGHLIGHTS #01 (DERECHA) -->
-          <div class="bg-white border border-slate-200/90 rounded-3xl p-6 sm:p-7 shadow-[0_20px_45px_-12px_rgba(0,0,0,0.14)] hover:shadow-[0_30px_60px_-10px_rgba(0,0,0,0.22)] transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1">
-            <div class="space-y-4">
-              <a href="./highlights-01/" class="block aspect-[16/9] rounded-2xl overflow-hidden bg-slate-900 border border-slate-200/90 shadow-[0_15px_30px_-10px_rgba(0,0,0,0.35)] relative">
-                <img src="../assets/images/cover_highlights_01.jpg" alt="Highlights #01: Padel World Summit 2026: Startup Recap" width="800" height="450" class="w-full h-full object-cover group-hover:scale-105 transition duration-700" loading="lazy" decoding="async">
+          <div class="bg-white border border-slate-200/90 rounded-2xl p-4 sm:p-5 shadow-2xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between group hover:-translate-y-0.5">
+            <div class="space-y-3">
+              <a href="./highlights-01/" class="block aspect-[16/9] rounded-xl overflow-hidden bg-slate-900 border border-slate-200/90 shadow-sm relative">
+                <img src="../assets/images/cover_highlights_01.jpg" alt="Highlights #01: Padel World Summit 2026: Startup Recap" width="800" height="450" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
               </a>
 
-              <div class="pt-1">
-                <span class="block text-xs sm:text-sm font-extrabold text-[#f2920b] uppercase tracking-wider mb-1">Highlights #01:</span>
-                <h2 class="font-sans font-extrabold text-lg sm:text-xl lg:text-2xl text-slate-900 leading-snug tracking-tight">
+              <div>
+                <span class="block text-[11px] sm:text-xs font-extrabold text-[#f2920b] uppercase tracking-wider mb-0.5">Highlights #01:</span>
+                <h2 class="font-sans font-extrabold text-sm sm:text-base lg:text-lg text-slate-900 leading-snug tracking-tight">
                   Padel World Summit 2026: Startup Recap
                 </h2>
-                <p class="text-slate-600 text-xs sm:text-sm font-normal leading-relaxed mt-2 line-clamp-2">
+                <p class="text-slate-600 text-xs font-normal leading-relaxed mt-1.5 line-clamp-2">
                   Conversaciones una a una con las 20 startups del Innovation Arena: software, pistas inteligentes y diferenciación real.
                 </p>
               </div>
             </div>
 
             <!-- BOTÓN ABRIR ARTÍCULO -->
-            <div class="pt-5 border-t border-slate-100 mt-5">
+            <div class="pt-3.5 border-t border-slate-100 mt-4">
               <a href="./highlights-01/" 
-                 class="group relative w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] active:bg-[#76d3f6] text-slate-950 active:scale-95 font-heading font-black text-xs sm:text-sm uppercase tracking-wider transition-all duration-300 shadow-[0_4px_15px_rgba(242,146,11,0.25)] hover:shadow-[0_8px_25px_rgba(118,211,246,0.35)] hover:scale-[1.01] overflow-hidden">
+                 class="group relative w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] active:bg-[#76d3f6] text-slate-950 active:scale-95 font-heading font-black text-xs uppercase tracking-wider transition-all duration-300 shadow-xs hover:shadow-md hover:scale-[1.01] overflow-hidden">
                 <span class="font-black">Leer Highlights #01</span>
-                <div class="w-5 h-5 rounded-full bg-slate-950/10 group-hover:bg-slate-950 group-hover:text-white flex items-center justify-center transition-all duration-300">
-                  <i data-lucide="arrow-right" class="w-3.5 h-3.5 stroke-[3] group-hover:translate-x-0.5 transition-transform duration-300"></i>
+                <div class="w-4 h-4 rounded-full bg-slate-950/10 group-hover:bg-slate-950 group-hover:text-white flex items-center justify-center transition-all duration-300">
+                  <i data-lucide="arrow-right" class="w-3 h-3 stroke-[3] group-hover:translate-x-0.5 transition-transform duration-300"></i>
                 </div>
               </a>
             </div>
@@ -753,351 +753,345 @@ def generate_blog_index():
 
         </div>
 
-        <!-- DEBAJO AL DESLIZAR: REPORTAJE DE LA INDUSTRIA DEL PÁDEL CENTRADO -->
-        <div class="max-w-2xl mx-auto mt-14 sm:mt-20">
-          <div class="bg-white border border-slate-200/90 rounded-3xl p-5 sm:p-7 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.18)] hover:shadow-[0_35px_65px_-10px_rgba(0,0,0,0.28)] transition-all duration-300 flex flex-col justify-between group">
-            <div class="space-y-4">
-              <div class="aspect-[16/10] rounded-2xl overflow-hidden bg-slate-900 border border-slate-200/90 shadow-[0_20px_40px_-10px_rgba(0,0,0,0.4)] group-hover:scale-[1.01] transition duration-500 relative">
-                <img src="../assets/images/foto-reportaje.jpg" alt="Informe PDF sobre tendencias de la industria del padel 2026" width="800" height="450" class="w-full h-full object-cover group-hover:scale-105 transition duration-700" loading="lazy" decoding="async">
-                <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
-                <span class="absolute bottom-3 left-3 text-[11px] font-black uppercase tracking-wider px-3 py-1 rounded-full bg-white text-slate-950 shadow-md">
-                  Reportaje Oficial
-                </span>
-              </div>
-
-              <div class="space-y-1.5 pt-1 text-center sm:text-left">
-                <h2 class="font-heading font-black text-xl sm:text-2xl text-slate-950">
-                  Reportaje de la Industria del Pádel 2026
-                </h2>
-                <p class="text-xs sm:text-sm text-slate-600 font-medium leading-relaxed">
-                  ¿Hacia dónde va la industria del pádel? Radiografía de 116 empresas del sector: pistas, software, tendencias y proyección internacional.
-                </p>
-              </div>
+        <!-- DEBAJO: REPORTAJE DE LA INDUSTRIA DEL PÁDEL (MUCHO MÁS PEQUEÑO Y COMPACTO) -->
+        <div class="max-w-3xl mx-auto mt-6 sm:mt-8">
+          <div class="bg-white border border-slate-200/90 rounded-2xl p-3.5 sm:p-4 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col sm:flex-row items-center gap-3.5 sm:gap-5 group">
+            <div class="w-full sm:w-40 md:w-48 aspect-[16/10] sm:aspect-[4/3] rounded-xl overflow-hidden bg-slate-900 border border-slate-200/90 shadow-2xs shrink-0 relative">
+              <img src="../assets/images/foto-reportaje.jpg" alt="Informe PDF sobre tendencias de la industria del padel 2026" width="400" height="300" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
+              <span class="absolute bottom-1.5 left-1.5 text-[9px] font-black uppercase tracking-wider px-2 py-0.5 rounded-full bg-white text-slate-950 shadow-xs">
+                Informe PDF
+              </span>
             </div>
 
-            <!-- FORMULARIO DESCARGA PDF -->
-            <div class="pt-4 border-t border-slate-200 mt-5">
-              <form onsubmit="handleReportDownload(event)" class="space-y-2.5">
-                <div class="relative">
-                  <input type="email" id="report-email-input" required placeholder="Introduce tu email para recibir el reportaje..." class="w-full px-4 sm:px-5 py-2.5 sm:py-3 rounded-full bg-white border border-slate-300 text-slate-950 text-xs sm:text-sm font-medium focus:outline-none focus:border-[#f2920b] shadow-inner transition">
-                </div>
-                <button type="submit" id="report-btn" class="group relative w-full inline-flex items-center justify-center gap-2.5 px-6 py-3 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] active:bg-[#76d3f6] text-slate-950 active:scale-95 font-heading font-black text-xs sm:text-sm uppercase tracking-wider transition-all duration-300 shadow-[0_4px_15px_rgba(242,146,11,0.25)] hover:shadow-[0_8px_25px_rgba(118,211,246,0.35)] hover:scale-[1.01] overflow-hidden cursor-pointer">
-                  <span id="report-btn-text">Descargar Reportaje PDF</span>
-                  <div class="w-6 h-6 rounded-full bg-slate-950/10 group-hover:bg-slate-950 group-hover:text-white flex items-center justify-center transition-all duration-300">
-                    <i data-lucide="download" class="w-3.5 h-3.5 stroke-[3] group-hover:translate-y-0.5 transition-transform duration-300"></i>
-                  </div>
+            <div class="flex-1 min-w-0 space-y-1.5 text-center sm:text-left w-full">
+              <div>
+                <h2 class="font-heading font-black text-sm sm:text-base text-slate-950 leading-tight">
+                  Reportaje de la Industria del Pádel 2026
+                </h2>
+                <p class="text-xs text-slate-600 font-medium leading-relaxed mt-0.5 line-clamp-2">
+                  Radiografía de 116 empresas del sector: pistas, software, tendencias y proyección internacional.
+                </p>
+              </div>
+
+              <!-- FORMULARIO DESCARGA PDF COMPACTO -->
+              <form onsubmit="handleReportDownload(event)" class="flex flex-col sm:flex-row gap-2 pt-0.5">
+                <input type="email" id="report-email-input" required placeholder="Introduce tu email..." class="flex-1 px-3 py-1.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-950 text-xs font-medium focus:outline-none focus:border-[#f2920b] focus:bg-white transition">
+                <button type="submit" id="report-btn" class="inline-flex items-center justify-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-[#f2920b] hover:bg-[#76d3f6] active:bg-[#76d3f6] text-slate-950 font-heading font-black text-xs uppercase tracking-wider transition shadow-2xs hover:scale-102 shrink-0 cursor-pointer">
+                  <span id="report-btn-text">Descargar PDF</span>
+                  <i data-lucide="download" class="w-3.5 h-3.5 stroke-[2.5]"></i>
                 </button>
               </form>
             </div>
           </div>
         </div>
 
-        <!-- GUÍAS TÉCNICAS Y RECURSOS PARA CLUBES Y TORNEOS (AEO / GEO) -->
-        <div class="mt-16 sm:mt-24 pt-12 border-t border-slate-200">
-          <div class="max-w-3xl mx-auto text-center space-y-2 mb-10 sm:mb-14">
-            <span class="inline-block px-3 py-1 rounded-full bg-slate-100 text-slate-800 text-[11px] font-bold uppercase tracking-wider">
+        <!-- GUÍAS TÉCNICAS Y RECURSOS PARA CLUBES Y TORNEOS (AEO / GEO - COMPACTOS) -->
+        <div class="mt-10 sm:mt-14 pt-8 border-t border-slate-200">
+          <div class="max-w-3xl mx-auto text-center space-y-1.5 mb-6 sm:mb-8">
+            <span class="inline-block px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-800 text-[10px] font-bold uppercase tracking-wider">
               Guías Técnicas y Recursos para Clubes
             </span>
-            <h2 class="text-2xl sm:text-4xl font-black font-heading text-slate-950 uppercase tracking-tight">
+            <h2 class="text-xl sm:text-2xl lg:text-3xl font-black font-heading text-slate-950 uppercase tracking-tight">
               Artículos y Recursos de Gestión
             </h2>
-            <p class="text-slate-600 text-xs sm:text-base font-medium">
+            <p class="text-slate-600 text-xs sm:text-sm font-medium">
               Respuestas directas, números reales y análisis de expertos sobre tecnología, rentabilidad y merchandising para instalaciones de pádel.
             </p>
           </div>
 
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 max-w-[1700px] w-full mx-auto">
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 max-w-[1700px] w-full mx-auto">
             
             <!-- GUÍA 1: RENTABILIDAD CÁMARAS -->
-            <div class="bg-white border border-slate-200/90 rounded-3xl p-6 sm:p-7 shadow-[0_20px_45px_-12px_rgba(0,0,0,0.14)] hover:shadow-[0_30px_60px_-10px_rgba(0,0,0,0.22)] transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1">
-              <div class="space-y-4">
-                <div class="aspect-[16/10] rounded-2xl overflow-hidden bg-slate-900 border border-slate-200/90 shadow-[0_15px_30px_-10px_rgba(0,0,0,0.3)] group-hover:scale-[1.02] transition duration-500 relative">
-                  <img src="../assets/images/savemyplay-1.jpg" alt="Instalación de cámaras fijas en pista de pádel" width="600" height="375" class="w-full h-full object-cover group-hover:scale-105 transition duration-700" loading="lazy" decoding="async">
+            <div class="bg-white border border-slate-200/90 rounded-2xl p-4 sm:p-5 shadow-2xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between group hover:-translate-y-0.5">
+              <div class="space-y-3">
+                <div class="aspect-[16/10] rounded-xl overflow-hidden bg-slate-900 border border-slate-200/90 shadow-2xs relative">
+                  <img src="../assets/images/savemyplay-1.jpg" alt="Instalación de cámaras fijas en pista de pádel" width="600" height="375" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
                   <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
-                  <span class="absolute bottom-3 left-3 text-[10px] font-black uppercase tracking-wider px-2.5 py-1 rounded-full bg-[#f2920b] text-slate-950 shadow-md">
+                  <span class="absolute bottom-2 left-2 text-[9px] font-black uppercase tracking-wider px-2 py-0.5 rounded-full bg-[#f2920b] text-slate-950 shadow-xs">
                     Guía Económica
                   </span>
                 </div>
 
-                <div class="space-y-2">
-                  <div class="flex items-center gap-2 text-[11px] font-bold text-slate-400">
+                <div class="space-y-1">
+                  <div class="flex items-center gap-1.5 text-[10px] font-bold text-slate-400">
                     <span>Octubre 2026</span>
                     <span>•</span>
                     <span>Lectura 5 min</span>
                   </div>
-                  <h3 class="font-heading font-black text-lg sm:text-xl text-slate-950 leading-snug group-hover:text-[#f2920b] transition">
+                  <h3 class="font-heading font-black text-sm sm:text-base text-slate-950 leading-snug group-hover:text-[#f2920b] transition">
                     ¿Cuánto cuesta instalar cámaras en una pista de pádel y cómo se amortizan?
                   </h3>
-                  <p class="text-xs sm:text-sm text-slate-600 font-medium leading-relaxed">
-                    Desglose real de costes: hardware de 180 € y cuota de 45 €/mes. Los 3 modelos para amortizar la inversión: pago por descarga, incremento de alquiler o patrocinio de tótems.
+                  <p class="text-xs text-slate-600 font-medium leading-relaxed line-clamp-2">
+                    Desglose real de costes: hardware de 180 € y cuota de 45 €/mes. Los 3 modelos para amortizar la inversión.
                   </p>
                 </div>
               </div>
 
-              <div class="pt-5 border-t border-slate-100 mt-6">
+              <div class="pt-3.5 border-t border-slate-100 mt-4">
                 <a href="./rentabilidad-camaras-pistas-padel/"
-                   class="group relative w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full bg-slate-900 hover:bg-[#f2920b] text-white hover:text-slate-950 active:scale-95 font-heading font-black text-xs uppercase tracking-wider transition-all duration-300 shadow-sm">
+                   class="group relative w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-full bg-slate-900 hover:bg-[#f2920b] text-white hover:text-slate-950 active:scale-95 font-heading font-black text-xs uppercase tracking-wider transition-all duration-300 shadow-2xs">
                   <span>Leer Guía Completa</span>
-                  <div class="w-5 h-5 rounded-full bg-white/20 group-hover:bg-slate-950/20 flex items-center justify-center transition-all duration-300">
-                    <i data-lucide="arrow-right" class="w-3.5 h-3.5 stroke-[3] group-hover:translate-x-0.5 transition-transform duration-300"></i>
+                  <div class="w-4 h-4 rounded-full bg-white/20 group-hover:bg-slate-950/20 flex items-center justify-center transition-all duration-300">
+                    <i data-lucide="arrow-right" class="w-3 h-3 stroke-[3] group-hover:translate-x-0.5 transition-transform duration-300"></i>
                   </div>
                 </a>
               </div>
             </div>
 
             <!-- GUÍA 2: WELCOME PACKS TORNEOS -->
-            <div class="bg-white border border-slate-200/90 rounded-3xl p-6 sm:p-7 shadow-[0_20px_45px_-12px_rgba(0,0,0,0.14)] hover:shadow-[0_30px_60px_-10px_rgba(0,0,0,0.22)] transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1">
-              <div class="space-y-4">
-                <div class="aspect-[16/10] rounded-2xl overflow-hidden bg-slate-900 border border-slate-200/90 shadow-[0_15px_30px_-10px_rgba(0,0,0,0.3)] group-hover:scale-[1.02] transition duration-500 relative">
-                  <img src="../assets/images/llaveros-1.jpg" alt="Llaveros de pala personalizados para welcome packs" width="600" height="375" class="w-full h-full object-cover group-hover:scale-105 transition duration-700" loading="lazy" decoding="async">
+            <div class="bg-white border border-slate-200/90 rounded-2xl p-4 sm:p-5 shadow-2xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between group hover:-translate-y-0.5">
+              <div class="space-y-3">
+                <div class="aspect-[16/10] rounded-xl overflow-hidden bg-slate-900 border border-slate-200/90 shadow-2xs relative">
+                  <img src="../assets/images/llaveros-1.jpg" alt="Llaveros de pala personalizados para welcome packs" width="600" height="375" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
                   <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
-                  <span class="absolute bottom-3 left-3 text-[10px] font-black uppercase tracking-wider px-2.5 py-1 rounded-full bg-[#f2920b] text-slate-950 shadow-md">
+                  <span class="absolute bottom-2 left-2 text-[9px] font-black uppercase tracking-wider px-2 py-0.5 rounded-full bg-[#f2920b] text-slate-950 shadow-xs">
                     Torneos & Merch
                   </span>
                 </div>
 
-                <div class="space-y-2">
-                  <div class="flex items-center gap-2 text-[11px] font-bold text-slate-400">
+                <div class="space-y-1">
+                  <div class="flex items-center gap-1.5 text-[10px] font-bold text-slate-400">
                     <span>Octubre 2026</span>
                     <span>•</span>
                     <span>Lectura 4 min</span>
                   </div>
-                  <h3 class="font-heading font-black text-lg sm:text-xl text-slate-950 leading-snug group-hover:text-[#f2920b] transition">
+                  <h3 class="font-heading font-black text-sm sm:text-base text-slate-950 leading-snug group-hover:text-[#f2920b] transition">
                     Qué regalar en el Welcome Pack de un torneo de pádel para dejar huella
                   </h3>
-                  <p class="text-xs sm:text-sm text-slate-600 font-medium leading-relaxed">
-                    Por qué las camisetas genéricas acaban en el fondo del cajón y cómo los llaveros de pala a escala 3D autofinanciados por patrocinadores multiplican el impacto de marca.
+                  <p class="text-xs text-slate-600 font-medium leading-relaxed line-clamp-2">
+                    Por qué las camisetas genéricas se olvidan y cómo los llaveros de pala 3D autofinanciados multiplican el impacto.
                   </p>
                 </div>
               </div>
 
-              <div class="pt-5 border-t border-slate-100 mt-6">
+              <div class="pt-3.5 border-t border-slate-100 mt-4">
                 <a href="./welcome-pack-torneo-padel-ideas/"
-                   class="group relative w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full bg-slate-900 hover:bg-[#f2920b] text-white hover:text-slate-950 active:scale-95 font-heading font-black text-xs uppercase tracking-wider transition-all duration-300 shadow-sm">
+                   class="group relative w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-full bg-slate-900 hover:bg-[#f2920b] text-white hover:text-slate-950 active:scale-95 font-heading font-black text-xs uppercase tracking-wider transition-all duration-300 shadow-2xs">
                   <span>Leer Guía Completa</span>
-                  <div class="w-5 h-5 rounded-full bg-white/20 group-hover:bg-slate-950/20 flex items-center justify-center transition-all duration-300">
-                    <i data-lucide="arrow-right" class="w-3.5 h-3.5 stroke-[3] group-hover:translate-x-0.5 transition-transform duration-300"></i>
+                  <div class="w-4 h-4 rounded-full bg-white/20 group-hover:bg-slate-950/20 flex items-center justify-center transition-all duration-300">
+                    <i data-lucide="arrow-right" class="w-3 h-3 stroke-[3] group-hover:translate-x-0.5 transition-transform duration-300"></i>
                   </div>
                 </a>
               </div>
             </div>
 
             <!-- GUÍA 3: COMPARATIVA CÁMARAS VS TRÍPODE MÓVIL -->
-            <div class="bg-white border border-slate-200/90 rounded-3xl p-6 sm:p-7 shadow-[0_20px_45px_-12px_rgba(0,0,0,0.14)] hover:shadow-[0_30px_60px_-10px_rgba(0,0,0,0.22)] transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1">
-              <div class="space-y-4">
-                <div class="aspect-[16/10] rounded-2xl overflow-hidden bg-slate-900 border border-slate-200/90 shadow-[0_15px_30px_-10px_rgba(0,0,0,0.3)] group-hover:scale-[1.02] transition duration-500 relative">
-                  <img src="../assets/images/savemyplay-2.jpg" alt="Pulsador físico en la red de la pista de pádel" width="600" height="375" class="w-full h-full object-cover group-hover:scale-105 transition duration-700" loading="lazy" decoding="async">
+            <div class="bg-white border border-slate-200/90 rounded-2xl p-4 sm:p-5 shadow-2xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between group hover:-translate-y-0.5">
+              <div class="space-y-3">
+                <div class="aspect-[16/10] rounded-xl overflow-hidden bg-slate-900 border border-slate-200/90 shadow-2xs relative">
+                  <img src="../assets/images/savemyplay-2.jpg" alt="Pulsador físico en la red de la pista de pádel" width="600" height="375" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
                   <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
-                  <span class="absolute bottom-3 left-3 text-[10px] font-black uppercase tracking-wider px-2.5 py-1 rounded-full bg-[#f2920b] text-slate-950 shadow-md">
+                  <span class="absolute bottom-2 left-2 text-[9px] font-black uppercase tracking-wider px-2 py-0.5 rounded-full bg-[#f2920b] text-slate-950 shadow-xs">
                     Tecnología & RGPD
                   </span>
                 </div>
 
-                <div class="space-y-2">
-                  <div class="flex items-center gap-2 text-[11px] font-bold text-slate-400">
+                <div class="space-y-1">
+                  <div class="flex items-center gap-1.5 text-[10px] font-bold text-slate-400">
                     <span>Octubre 2026</span>
                     <span>•</span>
                     <span>Lectura 5 min</span>
                   </div>
-                  <h3 class="font-heading font-black text-lg sm:text-xl text-slate-950 leading-snug group-hover:text-[#f2920b] transition">
+                  <h3 class="font-heading font-black text-sm sm:text-base text-slate-950 leading-snug group-hover:text-[#f2920b] transition">
                     Comparativa: Cámaras fijas con pulsador vs grabación manual con trípode
                   </h3>
-                  <p class="text-xs sm:text-sm text-slate-600 font-medium leading-relaxed">
-                    Análisis técnico, legal (RGPD) y de experiencia de usuario: por qué los trípodes en pista conllevan riesgos y cómo el buffer circular de 25 s ahorra horas de edición.
+                  <p class="text-xs text-slate-600 font-medium leading-relaxed line-clamp-2">
+                    Análisis técnico y legal (RGPD): por qué los trípodes tienen riesgos y cómo el buffer de 25s ahorra horas de edición.
                   </p>
                 </div>
               </div>
 
-              <div class="pt-5 border-t border-slate-100 mt-6">
+              <div class="pt-3.5 border-t border-slate-100 mt-4">
                 <a href="./sistemas-grabacion-pistas-padel-comparativa/"
-                   class="group relative w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full bg-slate-900 hover:bg-[#f2920b] text-white hover:text-slate-950 active:scale-95 font-heading font-black text-xs uppercase tracking-wider transition-all duration-300 shadow-sm">
+                   class="group relative w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-full bg-slate-900 hover:bg-[#f2920b] text-white hover:text-slate-950 active:scale-95 font-heading font-black text-xs uppercase tracking-wider transition-all duration-300 shadow-2xs">
                   <span>Leer Guía Completa</span>
-                  <div class="w-5 h-5 rounded-full bg-white/20 group-hover:bg-slate-950/20 flex items-center justify-center transition-all duration-300">
-                    <i data-lucide="arrow-right" class="w-3.5 h-3.5 stroke-[3] group-hover:translate-x-0.5 transition-transform duration-300"></i>
+                  <div class="w-4 h-4 rounded-full bg-white/20 group-hover:bg-slate-950/20 flex items-center justify-center transition-all duration-300">
+                    <i data-lucide="arrow-right" class="w-3 h-3 stroke-[3] group-hover:translate-x-0.5 transition-transform duration-300"></i>
                   </div>
                 </a>
               </div>
             </div>
 
             <!-- GUÍA 4: REGALOS EVENTOS PÁDEL Y CENAS DE SOCIOS -->
-            <div class="bg-white border border-slate-200/90 rounded-3xl p-6 sm:p-7 shadow-[0_20px_45px_-12px_rgba(0,0,0,0.14)] hover:shadow-[0_30px_60px_-10px_rgba(0,0,0,0.22)] transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1">
-              <div class="space-y-4">
-                <div class="aspect-[16/10] rounded-2xl overflow-hidden bg-slate-900 border border-slate-200/90 shadow-[0_15px_30px_-10px_rgba(0,0,0,0.3)] group-hover:scale-[1.02] transition duration-500 relative">
-                  <img src="../assets/images/llaveros-2.jpg" alt="Regalos y llaveros personalizados para cenas de socios y eventos de pádel" width="600" height="375" class="w-full h-full object-cover group-hover:scale-105 transition duration-700" loading="lazy" decoding="async">
+            <div class="bg-white border border-slate-200/90 rounded-2xl p-4 sm:p-5 shadow-2xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between group hover:-translate-y-0.5">
+              <div class="space-y-3">
+                <div class="aspect-[16/10] rounded-xl overflow-hidden bg-slate-900 border border-slate-200/90 shadow-2xs relative">
+                  <img src="../assets/images/llaveros-2.jpg" alt="Regalos y llaveros personalizados para cenas de socios y eventos de pádel" width="600" height="375" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
                   <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
-                  <span class="absolute bottom-3 left-3 text-[10px] font-black uppercase tracking-wider px-2.5 py-1 rounded-full bg-[#f2920b] text-slate-950 shadow-md">
+                  <span class="absolute bottom-2 left-2 text-[9px] font-black uppercase tracking-wider px-2 py-0.5 rounded-full bg-[#f2920b] text-slate-950 shadow-xs">
                     Eventos & Socios
                   </span>
                 </div>
 
-                <div class="space-y-2">
-                  <div class="flex items-center gap-2 text-[11px] font-bold text-slate-400">
+                <div class="space-y-1">
+                  <div class="flex items-center gap-1.5 text-[10px] font-bold text-slate-400">
                     <span>Octubre 2026</span>
                     <span>•</span>
                     <span>Lectura 4 min</span>
                   </div>
-                  <h3 class="font-heading font-black text-lg sm:text-xl text-slate-950 leading-snug group-hover:text-[#f2920b] transition">
+                  <h3 class="font-heading font-black text-sm sm:text-base text-slate-950 leading-snug group-hover:text-[#f2920b] transition">
                     Regalos para eventos de pádel y cenas de socios: para qué sirven los llaveros de club
                   </h3>
-                  <p class="text-xs sm:text-sm text-slate-600 font-medium leading-relaxed">
-                    Por qué los trofeos convencionales y el vino no crean comunidad y cómo los llaveros de pala 3D personalizados se convierten en el símbolo de pertenencia de tus abonados.
+                  <p class="text-xs text-slate-600 font-medium leading-relaxed line-clamp-2">
+                    Por qué los trofeos convencionales no crean comunidad y cómo los llaveros 3D fidelizan a tus abonados.
                   </p>
                 </div>
               </div>
 
-              <div class="pt-5 border-t border-slate-100 mt-6">
+              <div class="pt-3.5 border-t border-slate-100 mt-4">
                 <a href="./regalos-eventos-padel-cenas-socios-llaveros/"
-                   class="group relative w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full bg-slate-900 hover:bg-[#f2920b] text-white hover:text-slate-950 active:scale-95 font-heading font-black text-xs uppercase tracking-wider transition-all duration-300 shadow-sm">
+                   class="group relative w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-full bg-slate-900 hover:bg-[#f2920b] text-white hover:text-slate-950 active:scale-95 font-heading font-black text-xs uppercase tracking-wider transition-all duration-300 shadow-2xs">
                   <span>Leer Guía Completa</span>
-                  <div class="w-5 h-5 rounded-full bg-white/20 group-hover:bg-slate-950/20 flex items-center justify-center transition-all duration-300">
-                    <i data-lucide="arrow-right" class="w-3.5 h-3.5 stroke-[3] group-hover:translate-x-0.5 transition-transform duration-300"></i>
+                  <div class="w-4 h-4 rounded-full bg-white/20 group-hover:bg-slate-950/20 flex items-center justify-center transition-all duration-300">
+                    <i data-lucide="arrow-right" class="w-3 h-3 stroke-[3] group-hover:translate-x-0.5 transition-transform duration-300"></i>
                   </div>
                 </a>
               </div>
             </div>
 
             <!-- GUÍA 5: VENDER LLAVEROS EN LA TIENDA DEL CLUB / PRO-SHOP -->
-            <div class="bg-white border border-slate-200/90 rounded-3xl p-6 sm:p-7 shadow-[0_20px_45px_-12px_rgba(0,0,0,0.14)] hover:shadow-[0_30px_60px_-10px_rgba(0,0,0,0.22)] transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1">
-              <div class="space-y-4">
-                <div class="aspect-[16/10] rounded-2xl overflow-hidden bg-slate-900 border border-slate-200/90 shadow-[0_15px_30px_-10px_rgba(0,0,0,0.3)] group-hover:scale-[1.02] transition duration-500 relative">
-                  <img src="../assets/images/gallery-padel-3.jpg" alt="Venta de llaveros de pádel personalizados en recepción y tienda pro-shop" width="600" height="375" class="w-full h-full object-cover group-hover:scale-105 transition duration-700" loading="lazy" decoding="async">
+            <div class="bg-white border border-slate-200/90 rounded-2xl p-4 sm:p-5 shadow-2xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between group hover:-translate-y-0.5">
+              <div class="space-y-3">
+                <div class="aspect-[16/10] rounded-xl overflow-hidden bg-slate-900 border border-slate-200/90 shadow-2xs relative">
+                  <img src="../assets/images/gallery-padel-3.jpg" alt="Venta de llaveros de pádel personalizados en recepción y tienda pro-shop" width="600" height="375" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
                   <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
-                  <span class="absolute bottom-3 left-3 text-[10px] font-black uppercase tracking-wider px-2.5 py-1 rounded-full bg-[#f2920b] text-slate-950 shadow-md">
+                  <span class="absolute bottom-2 left-2 text-[9px] font-black uppercase tracking-wider px-2 py-0.5 rounded-full bg-[#f2920b] text-slate-950 shadow-xs">
                     Pro-Shop & Retail
                   </span>
                 </div>
 
-                <div class="space-y-2">
-                  <div class="flex items-center gap-2 text-[11px] font-bold text-slate-400">
+                <div class="space-y-1">
+                  <div class="flex items-center gap-1.5 text-[10px] font-bold text-slate-400">
                     <span>Octubre 2026</span>
                     <span>•</span>
                     <span>Lectura 5 min</span>
                   </div>
-                  <h3 class="font-heading font-black text-lg sm:text-xl text-slate-950 leading-snug group-hover:text-[#f2920b] transition">
+                  <h3 class="font-heading font-black text-sm sm:text-base text-slate-950 leading-snug group-hover:text-[#f2920b] transition">
                     Cómo vender llaveros en la pro-shop de tu club: producto de impulso con +60% de margen
                   </h3>
-                  <p class="text-xs sm:text-sm text-slate-600 font-medium leading-relaxed">
-                    Evita el stock muerto de palas y ropa cara: coste desde 1,50 €, PVP recomendado de 5 € a 6 € y rotación constante junto al mostrador de pago.
+                  <p class="text-xs text-slate-600 font-medium leading-relaxed line-clamp-2">
+                    Evita el stock muerto: coste desde 1,50 €, PVP recomendado de 5 € a 6 € y rotación constante junto al mostrador.
                   </p>
                 </div>
               </div>
 
-              <div class="pt-5 border-t border-slate-100 mt-6">
+              <div class="pt-3.5 border-t border-slate-100 mt-4">
                 <a href="./vender-llaveros-tienda-club-padel-pro-shop/"
-                   class="group relative w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full bg-slate-900 hover:bg-[#f2920b] text-white hover:text-slate-950 active:scale-95 font-heading font-black text-xs uppercase tracking-wider transition-all duration-300 shadow-sm">
+                   class="group relative w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-full bg-slate-900 hover:bg-[#f2920b] text-white hover:text-slate-950 active:scale-95 font-heading font-black text-xs uppercase tracking-wider transition-all duration-300 shadow-2xs">
                   <span>Leer Guía Completa</span>
-                  <div class="w-5 h-5 rounded-full bg-white/20 group-hover:bg-slate-950/20 flex items-center justify-center transition-all duration-300">
-                    <i data-lucide="arrow-right" class="w-3.5 h-3.5 stroke-[3] group-hover:translate-x-0.5 transition-transform duration-300"></i>
+                  <div class="w-4 h-4 rounded-full bg-white/20 group-hover:bg-slate-950/20 flex items-center justify-center transition-all duration-300">
+                    <i data-lucide="arrow-right" class="w-3 h-3 stroke-[3] group-hover:translate-x-0.5 transition-transform duration-300"></i>
                   </div>
                 </a>
               </div>
             </div>
+
             <!-- GUÍA 6: POLÍTICA DE REGALOS EN FERIAS Y TORNEOS (MARCAS) -->
-            <div class="bg-white border border-slate-200/90 rounded-3xl p-6 sm:p-7 shadow-[0_20px_45px_-12px_rgba(0,0,0,0.14)] hover:shadow-[0_30px_60px_-10px_rgba(0,0,0,0.22)] transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1">
-              <div class="space-y-4">
-                <div class="aspect-[16/10] rounded-2xl overflow-hidden bg-slate-900 border border-slate-200/90 shadow-[0_15px_30px_-10px_rgba(0,0,0,0.3)] group-hover:scale-[1.02] transition duration-500 relative">
-                  <img src="../assets/images/foto-reportaje.jpg" alt="Política de regalos y merchandising en ferias de pádel" width="600" height="375" class="w-full h-full object-cover group-hover:scale-105 transition duration-700" loading="lazy" decoding="async">
+            <div class="bg-white border border-slate-200/90 rounded-2xl p-4 sm:p-5 shadow-2xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between group hover:-translate-y-0.5">
+              <div class="space-y-3">
+                <div class="aspect-[16/10] rounded-xl overflow-hidden bg-slate-900 border border-slate-200/90 shadow-2xs relative">
+                  <img src="../assets/images/foto-reportaje.jpg" alt="Política de regalos y merchandising en ferias de pádel" width="600" height="375" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
                   <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
-                  <span class="absolute bottom-3 left-3 text-[10px] font-black uppercase tracking-wider px-2.5 py-1 rounded-full bg-[#f2920b] text-slate-950 shadow-md">
+                  <span class="absolute bottom-2 left-2 text-[9px] font-black uppercase tracking-wider px-2.5 py-1 rounded-full bg-[#f2920b] text-slate-950 shadow-xs">
                     Ferias &amp; Marcas
                   </span>
                 </div>
 
-                <div class="space-y-2">
-                  <div class="flex items-center gap-2 text-[11px] font-bold text-slate-400">
+                <div class="space-y-1">
+                  <div class="flex items-center gap-1.5 text-[10px] font-bold text-slate-400">
                     <span>Octubre 2026</span>
                     <span>•</span>
                     <span>Lectura 5 min</span>
                   </div>
-                  <h3 class="font-heading font-black text-lg sm:text-xl text-slate-950 leading-snug group-hover:text-[#f2920b] transition">
-                    Política de regalos en ferias y torneos: por qué no regalar bolígrafos, camisetas baratas ni jamón
+                  <h3 class="font-heading font-black text-sm sm:text-base text-slate-950 leading-snug group-hover:text-[#f2920b] transition">
+                    Política de regalos en ferias y torneos: por qué no regalar bolígrafos ni jamón
                   </h3>
-                  <p class="text-xs sm:text-sm text-slate-600 font-medium leading-relaxed">
-                    Analizamos más de 120 stands en PWS y RacquetX: cómo invertir tu presupuesto de merchandising en recuerdos de alto valor percibido que no acaben en la papelera.
+                  <p class="text-xs text-slate-600 font-medium leading-relaxed line-clamp-2">
+                    Cómo invertir tu presupuesto de merchandising en recuerdos de alto valor percibido que no acaben en la papelera.
                   </p>
                 </div>
               </div>
 
-              <div class="pt-5 border-t border-slate-100 mt-6">
+              <div class="pt-3.5 border-t border-slate-100 mt-4">
                 <a href="./merchandising-ferias-torneos-padel-regalos-marcas/"
-                   class="group relative w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full bg-slate-900 hover:bg-[#f2920b] text-white hover:text-slate-950 active:scale-95 font-heading font-black text-xs uppercase tracking-wider transition-all duration-300 shadow-sm">
+                   class="group relative w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-full bg-slate-900 hover:bg-[#f2920b] text-white hover:text-slate-950 active:scale-95 font-heading font-black text-xs uppercase tracking-wider transition-all duration-300 shadow-2xs">
                   <span>Leer Guía Completa</span>
-                  <div class="w-5 h-5 rounded-full bg-white/20 group-hover:bg-slate-950/20 flex items-center justify-center transition-all duration-300">
-                    <i data-lucide="arrow-right" class="w-3.5 h-3.5 stroke-[3] group-hover:translate-x-0.5 transition-transform duration-300"></i>
+                  <div class="w-4 h-4 rounded-full bg-white/20 group-hover:bg-slate-950/20 flex items-center justify-center transition-all duration-300">
+                    <i data-lucide="arrow-right" class="w-3 h-3 stroke-[3] group-hover:translate-x-0.5 transition-transform duration-300"></i>
                   </div>
                 </a>
               </div>
             </div>
 
             <!-- GUÍA 7: RETRANSMISIÓN DE TORNEOS EN DIRECTO (STREAMING Y MONETIZACIÓN) -->
-            <div class="bg-white border border-slate-200/90 rounded-3xl p-6 sm:p-7 shadow-[0_20px_45px_-12px_rgba(0,0,0,0.14)] hover:shadow-[0_30px_60px_-10px_rgba(0,0,0,0.22)] transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1">
-              <div class="space-y-4">
-                <div class="aspect-[16/10] rounded-2xl overflow-hidden bg-slate-900 border border-slate-200/90 shadow-[0_15px_30px_-10px_rgba(0,0,0,0.3)] group-hover:scale-[1.02] transition duration-500 relative">
-                  <img src="../assets/images/savemyplay-3.jpg" alt="Retransmisión en directo de torneos de pádel en YouTube con Save my Play" width="600" height="375" class="w-full h-full object-cover group-hover:scale-105 transition duration-700" loading="lazy" decoding="async">
+            <div class="bg-white border border-slate-200/90 rounded-2xl p-4 sm:p-5 shadow-2xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between group hover:-translate-y-0.5">
+              <div class="space-y-3">
+                <div class="aspect-[16/10] rounded-xl overflow-hidden bg-slate-900 border border-slate-200/90 shadow-2xs relative">
+                  <img src="../assets/images/savemyplay-3.jpg" alt="Retransmisión en directo de torneos de pádel en YouTube con Save my Play" width="600" height="375" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
                   <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
-                  <span class="absolute bottom-3 left-3 text-[10px] font-black uppercase tracking-wider px-2.5 py-1 rounded-full bg-[#f2920b] text-slate-950 shadow-md">
+                  <span class="absolute bottom-2 left-2 text-[9px] font-black uppercase tracking-wider px-2.5 py-1 rounded-full bg-[#f2920b] text-slate-950 shadow-xs">
                     Streaming &amp; Clubs
                   </span>
                 </div>
 
-                <div class="space-y-2">
-                  <div class="flex items-center gap-2 text-[11px] font-bold text-slate-400">
+                <div class="space-y-1">
+                  <div class="flex items-center gap-1.5 text-[10px] font-bold text-slate-400">
                     <span>Octubre 2026</span>
                     <span>•</span>
                     <span>Lectura 6 min</span>
                   </div>
-                  <h3 class="font-heading font-black text-lg sm:text-xl text-slate-950 leading-snug group-hover:text-[#f2920b] transition">
-                    Cómo retransmitir torneos de pádel en directo por YouTube sin operadores de cámara
+                  <h3 class="font-heading font-black text-sm sm:text-base text-slate-950 leading-snug group-hover:text-[#f2920b] transition">
+                    Cómo retransmitir torneos de pádel en directo por YouTube sin operadores
                   </h3>
-                  <p class="text-xs sm:text-sm text-slate-600 font-medium leading-relaxed">
-                    Emisión Full HD autónoma a 4 m de altura, inserción de patrocinadores locales en pantalla y monetización de las finales de tu club sin unidades móviles.
+                  <p class="text-xs text-slate-600 font-medium leading-relaxed line-clamp-2">
+                    Emisión Full HD autónoma a 4 m, patrocinadores locales en pantalla y monetización de las finales de tu club.
                   </p>
                 </div>
               </div>
 
-              <div class="pt-5 border-t border-slate-100 mt-6">
+              <div class="pt-3.5 border-t border-slate-100 mt-4">
                 <a href="./retransmitir-torneos-padel-streaming-youtube-camaras/"
-                   class="group relative w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full bg-slate-900 hover:bg-[#f2920b] text-white hover:text-slate-950 active:scale-95 font-heading font-black text-xs uppercase tracking-wider transition-all duration-300 shadow-sm">
+                   class="group relative w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-full bg-slate-900 hover:bg-[#f2920b] text-white hover:text-slate-950 active:scale-95 font-heading font-black text-xs uppercase tracking-wider transition-all duration-300 shadow-2xs">
                   <span>Leer Guía Completa</span>
-                  <div class="w-5 h-5 rounded-full bg-white/20 group-hover:bg-slate-950/20 flex items-center justify-center transition-all duration-300">
-                    <i data-lucide="arrow-right" class="w-3.5 h-3.5 stroke-[3] group-hover:translate-x-0.5 transition-transform duration-300"></i>
+                  <div class="w-4 h-4 rounded-full bg-white/20 group-hover:bg-slate-950/20 flex items-center justify-center transition-all duration-300">
+                    <i data-lucide="arrow-right" class="w-3 h-3 stroke-[3] group-hover:translate-x-0.5 transition-transform duration-300"></i>
                   </div>
                 </a>
               </div>
             </div>
 
             <!-- GUÍA 8: PISTAS INTELIGENTES (SMART COURTS) Y HORAS VALLE -->
-            <div class="bg-white border border-slate-200/90 rounded-3xl p-6 sm:p-7 shadow-[0_20px_45px_-12px_rgba(0,0,0,0.14)] hover:shadow-[0_30px_60px_-10px_rgba(0,0,0,0.22)] transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1">
-              <div class="space-y-4">
-                <div class="aspect-[16/10] rounded-2xl overflow-hidden bg-slate-900 border border-slate-200/90 shadow-[0_15px_30px_-10px_rgba(0,0,0,0.3)] group-hover:scale-[1.02] transition duration-500 relative">
-                  <img src="../assets/images/savemyplay-2.jpg" alt="Pista de pádel inteligente Smart Court con grabación y domótica" width="600" height="375" class="w-full h-full object-cover group-hover:scale-105 transition duration-700" loading="lazy" decoding="async">
+            <div class="bg-white border border-slate-200/90 rounded-2xl p-4 sm:p-5 shadow-2xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between group hover:-translate-y-0.5">
+              <div class="space-y-3">
+                <div class="aspect-[16/10] rounded-xl overflow-hidden bg-slate-900 border border-slate-200/90 shadow-2xs relative">
+                  <img src="../assets/images/savemyplay-2.jpg" alt="Pista de pádel inteligente Smart Court con grabación y domótica" width="600" height="375" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
                   <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
-                  <span class="absolute bottom-3 left-3 text-[10px] font-black uppercase tracking-wider px-2.5 py-1 rounded-full bg-[#f2920b] text-slate-950 shadow-md">
+                  <span class="absolute bottom-2 left-2 text-[9px] font-black uppercase tracking-wider px-2.5 py-1 rounded-full bg-[#f2920b] text-slate-950 shadow-xs">
                     Smart Courts &amp; Gestión
                   </span>
                 </div>
 
-                <div class="space-y-2">
-                  <div class="flex items-center gap-2 text-[11px] font-bold text-slate-400">
+                <div class="space-y-1">
+                  <div class="flex items-center gap-1.5 text-[10px] font-bold text-slate-400">
                     <span>Octubre 2026</span>
                     <span>•</span>
                     <span>Lectura 5 min</span>
                   </div>
-                  <h3 class="font-heading font-black text-lg sm:text-xl text-slate-950 leading-snug group-hover:text-[#f2920b] transition">
-                    Qué es una pista de pádel inteligente (Smart Court) y cómo ayuda a llenar horas valle
+                  <h3 class="font-heading font-black text-sm sm:text-base text-slate-950 leading-snug group-hover:text-[#f2920b] transition">
+                    Qué es una pista de pádel inteligente (Smart Court) y cómo llenar horas valle
                   </h3>
-                  <p class="text-xs sm:text-sm text-slate-600 font-medium leading-relaxed">
-                    Los 4 pilares tecnológicos que reducen costes operativos y transforman una pista convencional en un centro de experiencia deportiva para clases y torneos.
+                  <p class="text-xs text-slate-600 font-medium leading-relaxed line-clamp-2">
+                    Los 4 pilares tecnológicos que reducen costes operativos y transforman una pista convencional en centro de experiencia.
                   </p>
                 </div>
               </div>
 
-              <div class="pt-5 border-t border-slate-100 mt-6">
+              <div class="pt-3.5 border-t border-slate-100 mt-4">
                 <a href="./smart-courts-pistas-inteligentes-padel-horas-valle/"
-                   class="group relative w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full bg-slate-900 hover:bg-[#f2920b] text-white hover:text-slate-950 active:scale-95 font-heading font-black text-xs uppercase tracking-wider transition-all duration-300 shadow-sm">
+                   class="group relative w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-full bg-slate-900 hover:bg-[#f2920b] text-white hover:text-slate-950 active:scale-95 font-heading font-black text-xs uppercase tracking-wider transition-all duration-300 shadow-2xs">
                   <span>Leer Guía Completa</span>
-                  <div class="w-5 h-5 rounded-full bg-white/20 group-hover:bg-slate-950/20 flex items-center justify-center transition-all duration-300">
-                    <i data-lucide="arrow-right" class="w-3.5 h-3.5 stroke-[3] group-hover:translate-x-0.5 transition-transform duration-300"></i>
+                  <div class="w-4 h-4 rounded-full bg-white/20 group-hover:bg-slate-950/20 flex items-center justify-center transition-all duration-300">
+                    <i data-lucide="arrow-right" class="w-3 h-3 stroke-[3] group-hover:translate-x-0.5 transition-transform duration-300"></i>
                   </div>
                 </a>
               </div>

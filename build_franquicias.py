@@ -105,7 +105,7 @@ def render_html():
         facility_type = get_facility_type(f.get("tecnologia_pistas", {}))
 
         cards_html += f"""
-        <article class="franchise-card group bg-white rounded-3xl p-6 border border-slate-200/90 shadow-xs hover:shadow-xl hover:border-[#f2920b]/40 transition-all duration-300 flex flex-col justify-between cursor-pointer relative"
+        <article class="franchise-card group bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/90 shadow-2xs hover:shadow-lg hover:border-[#f2920b]/40 transition-all duration-300 flex flex-col justify-between cursor-pointer relative"
                  data-id="{fid}"
                  data-region="{region_f}"
                  data-model="{tipo_cat}"
@@ -114,57 +114,57 @@ def render_html():
                  data-search="{nombre.lower()} {pais.lower()} {ciudad.lower()} {modelo.lower()}"
                  onclick="openDrawer('{fid}')">
           <div>
-            <div class="flex items-start justify-between gap-3 mb-4">
-              <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold border {badge_cls}">
+            <div class="flex items-start justify-between gap-2 mb-2.5">
+              <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[11px] font-bold border {badge_cls}">
                 {modelo}
               </span>
-              <div class="flex items-center gap-2" onclick="event.stopPropagation()">
+              <div class="flex items-center gap-1.5" onclick="event.stopPropagation()">
                 <button onclick="toggleCompare('{fid}')" id="compare-btn-{fid}"
-                        class="compare-card-btn inline-flex items-center gap-1 px-2.5 py-1 rounded-lg text-[11px] font-bold border border-slate-200 bg-white text-slate-600 hover:border-[#f2920b] hover:text-[#f2920b] transition">
-                  <i data-lucide="scale" class="w-3.5 h-3.5"></i>
+                        class="compare-card-btn inline-flex items-center gap-1 px-2 py-0.5 rounded-lg text-[10px] font-bold border border-slate-200 bg-white text-slate-600 hover:border-[#f2920b] hover:text-[#f2920b] transition">
+                  <i data-lucide="scale" class="w-3 h-3"></i>
                   <span class="compare-label">Comparar</span>
                 </button>
-                <span class="text-2xl" title="{pais}">{bandera}</span>
+                <span class="text-xl" title="{pais}">{bandera}</span>
               </div>
             </div>
 
-            <h3 class="font-heading font-black text-2xl text-slate-950 group-hover:text-[#f2920b] transition-colors mb-1.5 flex items-center justify-between">
+            <h3 class="font-heading font-black text-lg sm:text-xl text-slate-950 group-hover:text-[#f2920b] transition-colors mb-1 flex items-center justify-between">
               <span>{nombre}</span>
-              <i data-lucide="chevron-right" class="w-5 h-5 text-slate-400 group-hover:text-[#f2920b] group-hover:translate-x-1 transition-all"></i>
+              <i data-lucide="chevron-right" class="w-4 h-4 text-slate-400 group-hover:text-[#f2920b] group-hover:translate-x-0.5 transition-all"></i>
             </h3>
             
-            <p class="text-xs font-semibold text-slate-500 mb-3 flex items-center gap-1.5">
-              <i data-lucide="map-pin" class="w-3.5 h-3.5 text-slate-400"></i>
+            <p class="text-[11px] font-semibold text-slate-500 mb-2 flex items-center gap-1">
+              <i data-lucide="map-pin" class="w-3 h-3 text-slate-400"></i>
               <span>{ciudad}, {pais}</span>
             </p>
 
-            <p class="text-slate-600 text-sm leading-relaxed mb-5 line-clamp-2">
+            <p class="text-slate-600 text-xs leading-relaxed mb-3 line-clamp-2">
               {tagline}
             </p>
 
-            <!-- Grid de métricas clave -->
-            <div class="grid grid-cols-3 gap-2 py-3 px-3.5 bg-slate-50 rounded-2xl border border-slate-100 mb-5">
+            <!-- Grid de métricas clave compacto -->
+            <div class="grid grid-cols-3 gap-1.5 py-2 px-2.5 bg-slate-50 rounded-xl border border-slate-100 mb-3">
               <div>
-                <span class="block text-[10px] uppercase font-bold text-slate-400">Clubes</span>
-                <span class="font-heading font-black text-sm text-slate-900">{num_clubs}</span>
+                <span class="block text-[9px] uppercase font-bold text-slate-400">Clubes</span>
+                <span class="font-heading font-black text-xs sm:text-sm text-slate-900">{num_clubs}</span>
               </div>
               <div>
-                <span class="block text-[10px] uppercase font-bold text-slate-400">Pistas</span>
-                <span class="font-heading font-black text-sm text-slate-900">{num_pistas}</span>
+                <span class="block text-[9px] uppercase font-bold text-slate-400">Pistas</span>
+                <span class="font-heading font-black text-xs sm:text-sm text-slate-900">{num_pistas}</span>
               </div>
               <div>
-                <span class="block text-[10px] uppercase font-bold text-slate-400">Software</span>
-                <span class="font-heading font-bold text-xs text-slate-800 truncate block" title="{software}">{software.split('/')[0].strip()}</span>
+                <span class="block text-[9px] uppercase font-bold text-slate-400">Software</span>
+                <span class="font-heading font-bold text-[11px] text-slate-800 truncate block" title="{software}">{software.split('/')[0].strip()}</span>
               </div>
             </div>
           </div>
 
           <div class="pt-2 border-t border-slate-100 flex items-center justify-between">
-            <a href="./{fid}/" onclick="event.stopPropagation()" class="text-xs font-bold text-slate-500 hover:text-[#f2920b] transition flex items-center gap-1">
+            <a href="./{fid}/" onclick="event.stopPropagation()" class="text-[11px] font-bold text-slate-500 hover:text-[#f2920b] transition flex items-center gap-1">
               <span>Ver Ficha & Dossier</span>
             </a>
-            <a href="./{fid}/" onclick="event.stopPropagation()" class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-slate-100 group-hover:bg-[#f2920b] group-hover:text-white transition" title="Ver ficha completa de {nombre}">
-              <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+            <a href="./{fid}/" onclick="event.stopPropagation()" class="inline-flex items-center justify-center w-7 h-7 rounded-full bg-slate-100 group-hover:bg-[#f2920b] group-hover:text-white transition" title="Ver ficha completa de {nombre}">
+              <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
             </a>
           </div>
         </article>
@@ -346,9 +346,9 @@ def render_html():
 
   <style>
     #franchiseMap {{
-      height: 480px;
+      height: 360px;
       width: 100%;
-      border-radius: 1.5rem;
+      border-radius: 1.25rem;
       z-index: 10;
       touch-action: none !important;
       -webkit-user-select: none;
@@ -609,8 +609,8 @@ def render_html():
     <!-- INTERACTIVE SECTION (CONECTADO SIN SALTO EXCESIVO) -->
     <section class="pt-4 pb-12 sm:pt-6 sm:pb-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
-      <!-- MAPA INTERACTIVO CON BUSCADOR Y FILTROS INTEGRADOS -->
-      <div id="mapContainer" class="bg-white p-3.5 sm:p-5 rounded-3xl border border-slate-200/90 shadow-sm mb-8 relative">
+      <!-- MAPA INTERACTIVO CON BUSCADOR Y FILTROS INTEGRADOS (COMPACTO) -->
+      <div id="mapContainer" class="bg-white p-3 sm:p-4 rounded-2xl border border-slate-200/90 shadow-2xs mb-5 relative">
         <div id="filtrosContainer">
           <!-- FILA SUPERIOR: TÍTULO + BUSCADOR INTEGRADO + REGIONES + VISTA MAPA/TABLA -->
           <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-3 mb-3">
@@ -749,8 +749,8 @@ def render_html():
         </div>
       </div>
 
-      <!-- VISTA GRID (TARJETAS) -->
-      <div id="gridView" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- VISTA GRID (TARJETAS COMPACTAS) -->
+      <div id="gridView" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
         {cards_html}
       </div>
 
