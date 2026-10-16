@@ -2177,9 +2177,11 @@ def generate_guide_page(slug, category_badge, title, subtitle, meta_desc, date_s
           <img src="../../assets/images/{cover_img}" alt="{title}" width="800" height="450" class="w-full h-full object-cover">
         </div>
 
+        {toc_html}
+
         <!-- CUERPO DE TEXTO -->
         <div class="space-y-5 text-slate-800 text-base sm:text-lg leading-relaxed pt-2">
-          {content_html}
+          {processed_content_html}
         </div>
 
         {download_box_html}
@@ -2190,7 +2192,7 @@ def generate_guide_page(slug, category_badge, title, subtitle, meta_desc, date_s
             <span class="text-[11px] font-black uppercase tracking-wider text-[#f2920b]">
               Respuestas directas
             </span>
-            <h2 class="font-heading font-black text-2xl sm:text-3xl text-slate-950 tracking-tight">
+            <h2 id="preguntas-frecuentes" class="scroll-mt-24 font-heading font-black text-2xl sm:text-3xl text-slate-950 tracking-tight">
               Preguntas Frecuentes
             </h2>
           </div>
@@ -2218,28 +2220,7 @@ def generate_guide_page(slug, category_badge, title, subtitle, meta_desc, date_s
     </main>
   </div>
 
-  <!-- FOOTER AZUL LLAVEROS #3478a6 -->
-  <footer class="bg-[#3478a6] text-white py-8 border-t border-[#2c668d] text-xs">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col items-center justify-between gap-4">
-      <div class="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-white/90 font-semibold">
-        <a href="../../" class="hover:text-white transition">Inicio</a>
-        <a href="../../llaveros-padel-personalizados/" class="hover:text-white transition">Llaveros de Pádel</a>
-        <a href="../../llaveros-tenis-personalizados/" class="hover:text-white transition">Llaveros de Tenis</a>
-        <a href="../../welcome-packs-torneos-padel/" class="hover:text-white transition">Welcome Packs Torneos</a>
-        <a href="../../llaveros-personalizados-clubs-padel/" class="hover:text-white transition">Merchandising Clubs</a>
-        <a href="../../camaras/" class="hover:text-white transition">Cámaras Save my Play</a>
-        <a href="../../franquicias-padel/" class="hover:text-white transition">Directorio Franquicias</a>
-        <a href="../" class="hover:text-white transition">Blog</a>
-        <a href="../../politica-de-devoluciones.html" class="hover:text-white transition">Política de Devoluciones</a>
-      </div>
-      <div class="flex items-center gap-3">
-        <img src="../../assets/images/coolpadel-mascot-hd.png" alt="CoolPadel" width="32" height="32" class="h-8 w-auto">
-        <span class="font-bold text-white/90">© 2026 CoolPadel Studios · All rights reserved</span>
-        <span>·</span>
-        <a href="https://www.instagram.com/coolpadel_/" target="_blank" rel="noopener noreferrer" class="opacity-60 hover:opacity-100 text-[11px] text-white/80 transition">@coolpadel_</a>
-      </div>
-    </div>
-  </footer>
+  {get_silo_footer_html(root_prefix)}
 
   {COMMON_TRACKING_JS}
 </body>

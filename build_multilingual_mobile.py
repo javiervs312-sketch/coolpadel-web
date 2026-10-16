@@ -3734,6 +3734,12 @@ def build_all():
     except Exception as e:
         print(f"  [ERROR] Al generar Blog: {e}")
 
+    try:
+        from build_barometro import build_barometro
+        build_barometro()
+    except Exception as e:
+        print(f"  [ERROR] Al generar Barómetro: {e}")
+
     # 2.6. Landings B2B Transaccionales (Pádel, Tenis, Torneos, Clubs)
     try:
         from build_landing_pages import build_all_landings

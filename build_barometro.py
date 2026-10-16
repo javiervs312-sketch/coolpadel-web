@@ -7,12 +7,21 @@ con Schema.org Dataset, Article, BreadcrumbList y FAQPage para máxima citación
 """
 
 import os
+import sys
 
-OUTPUT_DIR = os.path.join(os.path.dirname(__file__), "blog", "barometro-camaras-padel-2026")
+_DIR = os.path.dirname(__file__)
+if _DIR not in sys.path:
+    sys.path.insert(0, _DIR)
+
+from build_blog import get_silo_footer_html
+
+OUTPUT_DIR = os.path.join(_DIR, "blog", "barometro-camaras-padel-2026")
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 OUTPUT_FILE = os.path.join(OUTPUT_DIR, "index.html")
 
-HTML_CONTENT = """<!DOCTYPE html>
+def build_barometro():
+    footer_html = get_silo_footer_html("../../")
+    html_content = """<!DOCTYPE html>
 <html lang="es" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
@@ -602,7 +611,7 @@ HTML_CONTENT = """<!DOCTYPE html>
           Te enviamos la simulación de ingresos para tu número de pistas, resolvemos tus dudas sobre RGPD y te mostramos vídeos reales de puntos grabados con Save my Play.
         </p>
         <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <a href="https://api.whatsapp.com/send?phone=34658145887&text=Hola%20Javier,%20he%20visto%20el%20Bar%C3%B3metro%202026%20y%20quiero%20hacer%20una%20prueba%20de%20Save%20my%20Play%20en%20mi%20club" 
+          <a href="https://api.whatsapp.com/send?phone=34680317486&text=Hola%20Javier,%20he%20visto%20el%20Bar%C3%B3metro%202026%20y%20quiero%20hacer%20una%20prueba%20de%20Save%20my%20Play%20en%20mi%20club" 
              target="_blank" rel="noopener"
              class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-[#25D366] hover:bg-[#20ba5a] text-slate-950 font-black px-8 py-4 rounded-2xl text-base transition transform hover:-translate-y-0.5 shadow-xl shadow-[#25D366]/30">
             <i data-lucide="message-circle" class="w-5 h-5"></i>
@@ -640,26 +649,7 @@ HTML_CONTENT = """<!DOCTYPE html>
 
   </article>
 
-  <!-- Footer Oficial -->
-  <footer class="border-t border-slate-800/80 bg-[#070e18] py-12 mt-12 text-xs text-slate-500">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-6">
-      <div class="flex items-center gap-3">
-        <img src="../../assets/images/coolpadel-mascot-hd.png" alt="CoolPadel Studios" class="w-8 h-8 object-contain">
-        <div>
-          <span class="font-heading font-black text-sm text-white">COOLPADEL STUDIOS</span>
-          <span class="block text-[11px] text-slate-400">Distribuidor Oficial Save my Play · Madrid (España)</span>
-        </div>
-      </div>
-      <div class="flex flex-wrap justify-center gap-6 text-slate-400">
-        <a href="/" class="hover:text-white transition">Inicio</a>
-        <a href="/camaras/" class="hover:text-white transition">Cámaras Pistas Pádel</a>
-        <a href="/franquicias-padel/" class="hover:text-white transition">Directorio Franquicias (+167)</a>
-        <a href="/blog/" class="hover:text-white transition">Blog</a>
-        <a href="https://coolpadelstudios.com/llms.txt" class="hover:text-white transition">LLMs.txt</a>
-      </div>
-      <p class="text-[11px]">© 2026 CoolPadel Studios. Todos los derechos reservados.</p>
-    </div>
-  </footer>
+  <!-- SILO_FOOTER_PLACEHOLDER -->
 
   <script>
     lucide.createIcons();
@@ -668,7 +658,12 @@ HTML_CONTENT = """<!DOCTYPE html>
 </html>
 """
 
-with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
-    f.write(HTML_CONTENT)
+    html_content = html_content.replace("<!-- SILO_FOOTER_PLACEHOLDER -->", footer_html)
 
-print(f"✅ Barómetro 2026 generado con éxito en: {OUTPUT_FILE} ({len(HTML_CONTENT)} bytes)")
+    with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
+        f.write(html_content)
+
+    print(f"  [OK] {OUTPUT_FILE}")
+
+if __name__ == "__main__":
+    build_barometro()
