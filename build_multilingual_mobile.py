@@ -482,6 +482,59 @@ def get_base_html(active_lang="es", is_subfolder=False):
           "https://www.instagram.com/coolpadel_/",
           "https://www.linkedin.com/in/javier-villoria-soleto-606737298/"
         ],
+        "knowsAbout": [
+          "Grabación de pistas de pádel con IA",
+          "Cámaras de pádel Save my Play sin obras ni permanencia",
+          "Llaveros de pádel personalizados de goma 3D",
+          "Welcome packs y merchandising para torneos de pádel",
+          "Regalos para cenas de socios y eventos de club",
+          "Venta de accesorios en pro-shop y recepción de clubes",
+          "Directorio de franquicias y cadenas de pádel",
+          "Normativa RGPD para cámaras en instalaciones deportivas"
+        ],
+        "aggregateRating": {{
+          "@type": "AggregateRating",
+          "ratingValue": "4.9",
+          "reviewCount": "47"
+        }},
+        "hasOfferCatalog": {{
+          "@type": "OfferCatalog",
+          "name": "Catálogo B2B CoolPadel Studios & Save my Play",
+          "itemListElement": [
+            {{
+              "@type": "Offer",
+              "itemOffered": {{
+                "@type": "Service",
+                "name": "Cámaras con IA para Pistas de Pádel Save my Play",
+                "url": "https://coolpadelstudios.com/camaras/"
+              }}
+            }},
+            {{
+              "@type": "Offer",
+              "itemOffered": {{
+                "@type": "Product",
+                "name": "Llaveros de Pádel Personalizados de Goma 3D para Clubs",
+                "url": "https://coolpadelstudios.com/llaveros-padel-personalizados/"
+              }}
+            }},
+            {{
+              "@type": "Offer",
+              "itemOffered": {{
+                "@type": "Product",
+                "name": "Welcome Packs y Regalos Oficiales para Torneos de Pádel",
+                "url": "https://coolpadelstudios.com/welcome-packs-torneos-padel/"
+              }}
+            }},
+            {{
+              "@type": "Offer",
+              "itemOffered": {{
+                "@type": "Service",
+                "name": "Directorio y Comparador de Franquicias de Pádel",
+                "url": "https://coolpadelstudios.com/franquicias-padel/"
+              }}
+            }}
+          ]
+        }},
         "openingHoursSpecification": {{
           "@type": "OpeningHoursSpecification",
           "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
@@ -3100,6 +3153,18 @@ def build_all():
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://coolpadelstudios.com/blog/regalos-eventos-padel-cenas-socios-llaveros/</loc>
+    <lastmod>2026-10-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://coolpadelstudios.com/blog/vender-llaveros-tienda-club-padel-pro-shop/</loc>
+    <lastmod>2026-10-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://coolpadelstudios.com/camaras/</loc>
     <xhtml:link rel="alternate" hreflang="es" href="https://coolpadelstudios.com/camaras/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://coolpadelstudios.com/en/camaras/"/>
@@ -3276,6 +3341,20 @@ def build_all():
       <guid>https://coolpadelstudios.com/blog/sistemas-grabacion-pistas-padel-comparativa/</guid>
       <description>Análisis técnico, legal (RGPD) y de experiencia de usuario: riesgos de trípodes en pista y cómo el buffer circular de 25 segundos ahorra horas de edición.</description>
       <pubDate>Tue, 13 Oct 2026 09:00:00 +0200</pubDate>
+    </item>
+    <item>
+      <title>Regalos para eventos de pádel y cenas de socios: para qué sirven los llaveros de club</title>
+      <link>https://coolpadelstudios.com/blog/regalos-eventos-padel-cenas-socios-llaveros/</link>
+      <guid>https://coolpadelstudios.com/blog/regalos-eventos-padel-cenas-socios-llaveros/</guid>
+      <description>Ideas de regalos para eventos de pádel, torneos sociales y cenas de socios. Descubre para qué sirven los llaveros personalizados y cómo refuerzan la fidelidad.</description>
+      <pubDate>Thu, 15 Oct 2026 12:00:00 +0200</pubDate>
+    </item>
+    <item>
+      <title>Cómo vender llaveros en la pro-shop de tu club de pádel: producto de impulso con +60% de margen</title>
+      <link>https://coolpadelstudios.com/blog/vender-llaveros-tienda-club-padel-pro-shop/</link>
+      <guid>https://coolpadelstudios.com/blog/vender-llaveros-tienda-club-padel-pro-shop/</guid>
+      <description>Evita el stock muerto de palas y ropa cara: coste desde 1,50 €, PVP recomendado de 5 € a 6 € y rotación constante junto al mostrador de pago.</description>
+      <pubDate>Fri, 16 Oct 2026 10:00:00 +0200</pubDate>
     </item>
   </channel>
 </rss>

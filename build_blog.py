@@ -576,7 +576,7 @@ def generate_blog_index():
             </p>
           </div>
 
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 max-w-[1700px] w-full mx-auto">
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 max-w-[1700px] w-full mx-auto">
             
             <!-- GUÍA 1: RENTABILIDAD CÁMARAS -->
             <div class="bg-white border border-slate-200/90 rounded-3xl p-6 sm:p-7 shadow-[0_20px_45px_-12px_rgba(0,0,0,0.14)] hover:shadow-[0_30px_60px_-10px_rgba(0,0,0,0.22)] transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1">
@@ -689,7 +689,79 @@ def generate_blog_index():
               </div>
             </div>
 
-          </div>
+            <!-- GUÍA 4: REGALOS EVENTOS PÁDEL Y CENAS DE SOCIOS -->
+            <div class="bg-white border border-slate-200/90 rounded-3xl p-6 sm:p-7 shadow-[0_20px_45px_-12px_rgba(0,0,0,0.14)] hover:shadow-[0_30px_60px_-10px_rgba(0,0,0,0.22)] transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1">
+              <div class="space-y-4">
+                <div class="aspect-[16/10] rounded-2xl overflow-hidden bg-slate-900 border border-slate-200/90 shadow-[0_15px_30px_-10px_rgba(0,0,0,0.3)] group-hover:scale-[1.02] transition duration-500 relative">
+                  <img src="../assets/images/llaveros-2.jpg" alt="Regalos y llaveros personalizados para cenas de socios y eventos de pádel" width="600" height="375" class="w-full h-full object-cover group-hover:scale-105 transition duration-700" loading="lazy" decoding="async">
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
+                  <span class="absolute bottom-3 left-3 text-[10px] font-black uppercase tracking-wider px-2.5 py-1 rounded-full bg-[#f2920b] text-slate-950 shadow-md">
+                    Eventos & Socios
+                  </span>
+                </div>
+
+                <div class="space-y-2">
+                  <div class="flex items-center gap-2 text-[11px] font-bold text-slate-400">
+                    <span>Octubre 2026</span>
+                    <span>•</span>
+                    <span>Lectura 4 min</span>
+                  </div>
+                  <h3 class="font-heading font-black text-lg sm:text-xl text-slate-950 leading-snug group-hover:text-[#f2920b] transition">
+                    Regalos para eventos de pádel y cenas de socios: para qué sirven los llaveros de club
+                  </h3>
+                  <p class="text-xs sm:text-sm text-slate-600 font-medium leading-relaxed">
+                    Por qué los trofeos convencionales y el vino no crean comunidad y cómo los llaveros de pala 3D personalizados se convierten en el símbolo de pertenencia de tus abonados.
+                  </p>
+                </div>
+              </div>
+
+              <div class="pt-5 border-t border-slate-100 mt-6">
+                <a href="./regalos-eventos-padel-cenas-socios-llaveros/"
+                   class="group relative w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full bg-slate-900 hover:bg-[#f2920b] text-white hover:text-slate-950 active:scale-95 font-heading font-black text-xs uppercase tracking-wider transition-all duration-300 shadow-sm">
+                  <span>Leer Guía Completa</span>
+                  <div class="w-5 h-5 rounded-full bg-white/20 group-hover:bg-slate-950/20 flex items-center justify-center transition-all duration-300">
+                    <i data-lucide="arrow-right" class="w-3.5 h-3.5 stroke-[3] group-hover:translate-x-0.5 transition-transform duration-300"></i>
+                  </div>
+                </a>
+              </div>
+            </div>
+
+            <!-- GUÍA 5: VENDER LLAVEROS EN LA TIENDA DEL CLUB / PRO-SHOP -->
+            <div class="bg-white border border-slate-200/90 rounded-3xl p-6 sm:p-7 shadow-[0_20px_45px_-12px_rgba(0,0,0,0.14)] hover:shadow-[0_30px_60px_-10px_rgba(0,0,0,0.22)] transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1">
+              <div class="space-y-4">
+                <div class="aspect-[16/10] rounded-2xl overflow-hidden bg-slate-900 border border-slate-200/90 shadow-[0_15px_30px_-10px_rgba(0,0,0,0.3)] group-hover:scale-[1.02] transition duration-500 relative">
+                  <img src="../assets/images/gallery-padel-3.jpg" alt="Venta de llaveros de pádel personalizados en recepción y tienda pro-shop" width="600" height="375" class="w-full h-full object-cover group-hover:scale-105 transition duration-700" loading="lazy" decoding="async">
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
+                  <span class="absolute bottom-3 left-3 text-[10px] font-black uppercase tracking-wider px-2.5 py-1 rounded-full bg-[#f2920b] text-slate-950 shadow-md">
+                    Pro-Shop & Retail
+                  </span>
+                </div>
+
+                <div class="space-y-2">
+                  <div class="flex items-center gap-2 text-[11px] font-bold text-slate-400">
+                    <span>Octubre 2026</span>
+                    <span>•</span>
+                    <span>Lectura 5 min</span>
+                  </div>
+                  <h3 class="font-heading font-black text-lg sm:text-xl text-slate-950 leading-snug group-hover:text-[#f2920b] transition">
+                    Cómo vender llaveros en la pro-shop de tu club: producto de impulso con +60% de margen
+                  </h3>
+                  <p class="text-xs sm:text-sm text-slate-600 font-medium leading-relaxed">
+                    Evita el stock muerto de palas y ropa cara: coste desde 1,50 €, PVP recomendado de 5 € a 6 € y rotación constante junto al mostrador de pago.
+                  </p>
+                </div>
+              </div>
+
+              <div class="pt-5 border-t border-slate-100 mt-6">
+                <a href="./vender-llaveros-tienda-club-padel-pro-shop/"
+                   class="group relative w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full bg-slate-900 hover:bg-[#f2920b] text-white hover:text-slate-950 active:scale-95 font-heading font-black text-xs uppercase tracking-wider transition-all duration-300 shadow-sm">
+                  <span>Leer Guía Completa</span>
+                  <div class="w-5 h-5 rounded-full bg-white/20 group-hover:bg-slate-950/20 flex items-center justify-center transition-all duration-300">
+                    <i data-lucide="arrow-right" class="w-3.5 h-3.5 stroke-[3] group-hover:translate-x-0.5 transition-transform duration-300"></i>
+                  </div>
+                </a>
+              </div>
+            </div>
         </div>
 
       </div>
@@ -2006,6 +2078,291 @@ def generate_all():
         content_html=content_camaras_comparativa,
         faqs=faqs_camaras_comparativa,
         cta_type="camaras"
+    )
+
+    # 7. Guía AEO 4: Regalos para Eventos de Pádel y Cenas de Socios
+    content_eventos_cenas = """
+    <p class="text-lg sm:text-xl font-bold text-slate-950 leading-snug">
+      Organizar la cena de fin de temporada, el torneo social de Navidad o la fiesta de aniversario del club suele terminar con el mismo dilema presupuestario: comprar trofeos genéricos de plástico que los jugadores abandonan o gastar en botellas de vino que se consumen y olvidan al día siguiente. Un regalo de club debe cumplir una triple función: generar sentido de pertenencia, tener utilidad real diaria y pasear el escudo de tu club fuera de las instalaciones. Aquí analizamos por qué los llaveros de pala a escala 3D personalizados se han convertido en el detalle estrella de las cenas y eventos sociales.
+    </p>
+
+    <h2 class="text-xl sm:text-2xl font-black font-heading text-slate-950 pt-6">
+      1. El problema de los regalos perecederos y los trofeos convencionales
+    </h2>
+    <p>
+      En la mayoría de eventos sociales de club ocurren dos situaciones que frustran a directores y gerentes:
+    </p>
+    <ul class="space-y-2 list-disc pl-6 text-slate-700">
+      <li><strong>Trofeos de copa o plástico (18 € a 35 €/ud):</strong> Solo se entregan a los cuatro finalistas de primera categoría. El 90% de los socios que pagan su cubierto o su inscripción en cuadros de consolación se van con las manos vacías. Además, en los hogares modernos nadie tiene espacio para acumular copas doradas impersonales.</li>
+      <li><strong>Botellas de vino o embutido:</strong> Son agradables en el momento, pero se descorchan ese fin de semana y el lunes nadie recuerda quién las regaló. El club no obtiene retorno de marca ni recuerdo acumulado.</li>
+    </ul>
+
+    <h2 class="text-xl sm:text-2xl font-black font-heading text-slate-950 pt-6">
+      2. ¿Para qué sirven realmente los llaveros de pádel personalizados en un club?
+    </h2>
+    <p>
+      Un llavero de pala a escala 3D de alta densidad no es un simple souvenir barato de bazar. Cuando un club fabrica una tirada exclusiva con su escudo en relieve y colores oficiales, el objeto cumple cuatro funciones estratégicas inmediatas:
+    </p>
+
+    <div class="space-y-4 my-4">
+      <div class="bg-slate-50 border border-slate-200/90 rounded-2xl p-5 space-y-1.5">
+        <h3 class="font-heading font-black text-slate-950 text-base sm:text-lg flex items-center gap-2">
+          <span class="w-6 h-6 rounded-full bg-[#f2920b] text-slate-950 flex items-center justify-center text-xs font-black">1</span>
+          <span>Identificador inconfundible de paleteros idénticos</span>
+        </h3>
+        <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+          En las gradas o la terraza de cualquier club coinciden decenas de paleteros Bullpadel, Nox, Babolat o Head exactamente del mismo modelo y color. Colgar el llavero de pala de goma 3D en la cremallera principal permite a cada jugador identificar su bolsa en medio segundo, evitando confusiones y pérdidas.
+        </p>
+      </div>
+
+      <div class="bg-slate-50 border border-slate-200/90 rounded-2xl p-5 space-y-1.5">
+        <h3 class="font-heading font-black text-slate-950 text-base sm:text-lg flex items-center gap-2">
+          <span class="w-6 h-6 rounded-full bg-[#f2920b] text-slate-950 flex items-center justify-center text-xs font-black">2</span>
+          <span>Símbolo de pertenencia y estatus de abonado</span>
+        </h3>
+        <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+          Llevar el llavero en las llaves del coche o en la mochila del gimnasio funciona exactamente igual que el pin de solapa de un club de golf o la pegatina de un club náutico: proyecta orgullo de pertenencia a una comunidad deportiva selecta. Los socios lo exhiben en su día a día fuera de las pistas.
+        </p>
+      </div>
+
+      <div class="bg-slate-50 border border-slate-200/90 rounded-2xl p-5 space-y-1.5">
+        <h3 class="font-heading font-black text-slate-950 text-base sm:text-lg flex items-center gap-2">
+          <span class="w-6 h-6 rounded-full bg-[#f2920b] text-slate-950 flex items-center justify-center text-xs font-black">3</span>
+          <span>Coste por impacto publicitario prácticamente cero</span>
+        </h3>
+        <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+          Una persona promedio manipula sus llaves entre 8 y 15 veces al día (casa, oficina, coche). A lo largo de 3 años de vida útil del llavero de goma de alta resistencia, el socio y su entorno reciben más de 10.000 impactos visuales de la marca del club. Dividiendo el coste de fabricación (1,50 € a 2,00 €) entre esos impactos, el coste publicitario es insignificante.
+        </p>
+      </div>
+
+      <div class="bg-slate-50 border border-slate-200/90 rounded-2xl p-5 space-y-1.5">
+        <h3 class="font-heading font-black text-slate-950 text-base sm:text-lg flex items-center gap-2">
+          <span class="w-6 h-6 rounded-full bg-[#f2920b] text-slate-950 flex items-center justify-center text-xs font-black">4</span>
+          <span>Kit de bienvenida (Welcome Pack) para nuevos abonados</span>
+        </h3>
+        <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+          Entregar el carnet de socio junto a un llavero oficial de pala 3D el día que un jugador se da de alta transforma un trámite administrativo frío en un momento de bienvenida memorable. Transmite profesionalidad y cuidado por los detalles.
+        </p>
+      </div>
+    </div>
+
+    <h2 class="text-xl sm:text-2xl font-black font-heading text-slate-950 pt-6">
+      3. Cómo calcular el presupuesto para una cena o torneo social
+    </h2>
+    <p>
+      Frente al modelo clásico de gastar 300 € en 8 trofeos para unos pocos ganadores, el modelo inclusivo de CoolPadel Studios permite que los 100 o 150 comensales de la cena reciban un detalle premium personalizado:
+    </p>
+
+    <div class="overflow-x-auto my-6">
+      <table class="w-full text-left text-xs sm:text-sm border-collapse border border-slate-200 rounded-2xl overflow-hidden shadow-xs">
+        <thead class="bg-slate-900 text-white font-heading font-black uppercase text-[11px] tracking-wider">
+          <tr>
+            <th class="p-3 sm:p-4">Opción de Regalo</th>
+            <th class="p-3 sm:p-4">Coste por Asistente</th>
+            <th class="p-3 sm:p-4">Quién lo Recibe</th>
+            <th class="p-3 sm:p-4 bg-[#f2920b] text-slate-950">Vida Útil y Recuerdo</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-slate-200 text-slate-700">
+          <tr class="hover:bg-slate-50">
+            <td class="p-3 sm:p-4 font-bold text-slate-950">Trofeos metálicos / resina</td>
+            <td class="p-3 sm:p-4 text-slate-600 font-medium">18 € – 35 € por trofeo</td>
+            <td class="p-3 sm:p-4 text-red-600 font-bold">Solo los 4 finalistas</td>
+            <td class="p-3 sm:p-4 text-slate-500">Coge polvo en una estantería</td>
+          </tr>
+          <tr class="hover:bg-slate-50">
+            <td class="p-3 sm:p-4 font-bold text-slate-950">Botella de vino / licor</td>
+            <td class="p-3 sm:p-4 text-slate-600 font-medium">8 € – 15 € por botella</td>
+            <td class="p-3 sm:p-4 text-slate-700">Todos los asistentes</td>
+            <td class="p-3 sm:p-4 text-slate-500">Se consume en 48 horas</td>
+          </tr>
+          <tr class="hover:bg-slate-50 bg-amber-50/50">
+            <td class="p-3 sm:p-4 font-black text-slate-950">Llavero Pala 3D CoolPadel</td>
+            <td class="p-3 sm:p-4 text-emerald-700 font-black">1,50 € – 2,50 € por unidad</td>
+            <td class="p-3 sm:p-4 text-emerald-700 font-black">100% de los socios</td>
+            <td class="p-3 sm:p-4 text-slate-950 font-bold bg-amber-100/60">+3 años visible a diario en llaves y paletero</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="bg-amber-50 border-l-4 border-[#f2920b] p-4 sm:p-5 rounded-r-2xl my-6">
+      <p class="font-bold text-slate-950 text-sm sm:text-base">
+        💡 Consejo para cenas conmemorativas:
+      </p>
+      <p class="text-xs sm:text-sm text-slate-700 mt-1">
+        En una cara de la pala colocamos el logotipo del club y en el reverso grabamos la leyenda del evento: <em>"Cena de Navidad 2026"</em> o <em>"X Aniversario del Club"</em>. Al ser una tirada limitada anual, muchos socios coleccionan los llaveros de cada temporada como si fueran insignias históricas.
+      </p>
+    </div>
+    """
+    faqs_eventos_cenas = [
+        {
+            "q": "¿Qué se suele regalar en una cena de socios o fiesta de club de pádel?",
+            "a": "Lo más efectivo para crear comunidad y agradecer la fidelidad es entregar un detalle exclusivo personalizado con el escudo oficial del club para el 100% de los asistentes, como llaveros de pala a escala 3D de alta densidad, en lugar de gastar el presupuesto solo en trofeos para los ganadores."
+        },
+        {
+            "q": "¿Para qué sirven los llaveros de pádel personalizados en un club deportivo?",
+            "a": "Cumplen cuatro funciones clave: 1) Identificar paleteros idénticos en las gradas de un vistazo; 2) Actuar como símbolo de estatus y pertenencia al club; 3) Generar más de 10.000 impactos de marca diarios en llaves y mochilas; y 4) Servir como kit de bienvenida para nuevos abonados."
+        },
+        {
+            "q": "¿Cuál es el pedido mínimo para un evento social o cena de club?",
+            "a": "El pedido mínimo de fabricación en CoolPadel Studios es de 100 unidades (3,00 €/ud), escalando a 2,50 € para 250 uds, 2,00 € para 500 uds y 1,50 € para 1.500 uds, con diseño 3D previo gratuito y muestra física de validación por 15 €."
+        },
+        {
+            "q": "¿Se puede personalizar el llavero con la fecha o el nombre del evento?",
+            "a": "Sí. Al ser moldes tridimensionales personalizados, podemos incluir el escudo oficial del club en el anverso y la edición o fecha conmemorativa (ej. 'Cena Anual 2026') o el logo del patrocinador del evento en el reverso."
+        }
+    ]
+    generate_guide_page(
+        slug="regalos-eventos-padel-cenas-socios-llaveros",
+        category_badge="Eventos & Fidelización · Socios",
+        title="Regalos para eventos de pádel y cenas de socios: para qué sirven los llaveros de club",
+        subtitle="Por qué los trofeos convencionales y el vino no crean comunidad y cómo los llaveros de pala 3D personalizados se convierten en el símbolo de pertenencia de tus abonados.",
+        meta_desc="Descubre las mejores ideas de regalos para eventos de pádel, cenas de socios y aniversarios de club. Guía práctica sobre el valor y utilidad de los llaveros de pala 3D.",
+        date_str="Octubre 2026",
+        date_iso="2026-10-15",
+        read_time="Lectura 4 min",
+        cover_img="llaveros-2.jpg",
+        content_html=content_eventos_cenas,
+        faqs=faqs_eventos_cenas,
+        cta_type="llaveros"
+    )
+
+    # 8. Guía AEO 5: Vender Llaveros en la Tienda del Club / Pro-Shop
+    content_tienda_proshop = """
+    <p class="text-lg sm:text-xl font-bold text-slate-950 leading-snug">
+      La mayoría de tiendas de clubes de pádel (pro-shops) cometen un error financiero recurrente: inmovilizar entre 4.000 € y 10.000 € en palas de gama alta y colecciones de ropa técnica que se deprecian en cuanto las marcas sacan la colección del año siguiente. Frente a ese riesgo, los productos de compra por impulso situados junto al datáfono de recepción son los que generan mayor rentabilidad neta por metro cuadrado. Los llaveros de pala personalizados con el escudo del club tienen un coste de producción de 1,50 € a 2,50 €, se venden fácilmente a 5,00 € o 6,00 € y dejan un margen bruto superior al 60% sin problemas de tallas ni obsolescencia.
+    </p>
+
+    <h2 class="text-xl sm:text-2xl font-black font-heading text-slate-950 pt-6">
+      1. La trampa de la pro-shop tradicional: Palas caras vs Compra por Impulso
+    </h2>
+    <p>
+      Competir en venta de palas de gama alta (modelos de 250 € a 350 €) contra los grandes gigantes de internet (Padel Nuestro, TiendaPadel, Decathlon) es una batalla casi imposible para un club de pádel independiente:
+    </p>
+    <ul class="space-y-2 list-disc pl-6 text-slate-700">
+      <li><strong>Márgenes comerciales reducidos:</strong> Tras los descuentos obligatorios para igualar precios online, el margen neto suele quedar entre el 15% y el 20%.</li>
+      <li><strong>Riesgo de stock muerto:</strong> Una pala que no se vende en 6 meses se devalúa drásticamente cuando la marca anuncia la versión del año siguiente.</li>
+      <li><strong>El calvario de las tallas de ropa:</strong> Comprar polos y faldas técnicas implica tener stock de S, M, L y XL. Las tallas intermedias vuelan y las tallas extremas se quedan ocupando espacio en el almacén durante años.</li>
+    </ul>
+
+    <h2 class="text-xl sm:text-2xl font-black font-heading text-slate-950 pt-6">
+      2. Los números reales: Márgenes del 50% al 70% en el mostrador
+    </h2>
+    <p>
+      En el comercio minorista deportivo, la mayor rentabilidad por metro cuadrado no la dan los lineales de pared, sino los <strong>productos de caja o mostrador de cobro</strong>. Los jugadores que acuden a jugar un partido ya tienen la cartera o el teléfono en la mano para abonar su pista o tomarse un café en el bar.
+    </p>
+    <p>
+      Veamos la rentabilidad directa de vender los llaveros oficiales de pala 3D de CoolPadel en recepción:
+    </p>
+
+    <div class="bg-slate-50 border border-slate-200/90 rounded-2xl p-5 sm:p-6 space-y-3 my-4">
+      <div class="flex justify-between items-center border-b border-slate-200 pb-2 text-sm font-bold text-slate-950">
+        <span>Volumen del Pedido</span>
+        <span>Coste Unitario</span>
+        <span>PVP Venta Público</span>
+        <span class="text-right">Beneficio Neto / Margen</span>
+      </div>
+      <div class="flex justify-between items-center text-xs sm:text-sm text-slate-700 border-b border-slate-100 py-1.5">
+        <span>100 unidades (Mínimo)</span>
+        <span class="font-medium">3,00 €</span>
+        <span class="font-bold text-slate-950">6,00 €</span>
+        <span class="font-black text-emerald-600 text-right">+3,00 € / ud (50% margen)</span>
+      </div>
+      <div class="flex justify-between items-center text-xs sm:text-sm text-slate-700 border-b border-slate-100 py-1.5">
+        <span>250 unidades</span>
+        <span class="font-medium">2,50 €</span>
+        <span class="font-bold text-slate-950">6,00 €</span>
+        <span class="font-black text-emerald-600 text-right">+3,50 € / ud (58% margen)</span>
+      </div>
+      <div class="flex justify-between items-center text-xs sm:text-sm text-slate-700 border-b border-slate-100 py-1.5">
+        <span>500 unidades (Recomendado)</span>
+        <span class="font-medium">2,00 €</span>
+        <span class="font-bold text-slate-950">5,00 € – 6,00 €</span>
+        <span class="font-black text-emerald-600 text-right">+3,00 € a +4,00 € / ud (60-66%)</span>
+      </div>
+      <div class="flex justify-between items-center text-xs sm:text-sm text-slate-700 py-1.5">
+        <span>1.500 unidades (Cadenas)</span>
+        <span class="font-medium">1,50 €</span>
+        <span class="font-bold text-slate-950">5,00 €</span>
+        <span class="font-black text-emerald-600 text-right">+3,50 € / ud (70% margen)</span>
+      </div>
+    </div>
+
+    <div class="bg-amber-50 border-l-4 border-[#f2920b] p-4 sm:p-5 rounded-r-2xl my-6">
+      <p class="font-bold text-slate-950 text-sm sm:text-base">
+        💰 Simulación de rotación en un club medio (4 a 8 pistas):
+      </p>
+      <p class="text-xs sm:text-sm text-slate-700 mt-1">
+        Con un expositor de sobremesa de 20x20 cm en recepción con 40 llaveros, la rotación media observada en clubes asociados es de <strong>40 a 60 llaveros al mes</strong>. Esto supone entre <strong>140 € y 240 € de beneficio neto limpio cada mes</strong> en una superficie de apenas un palmo de mostrador, sin gastos de personal extra ni espacio de almacén.
+      </p>
+    </div>
+
+    <h2 class="text-xl sm:text-2xl font-black font-heading text-slate-950 pt-6">
+      3. Las 4 claves de merchandising visual para maximizar las ventas
+    </h2>
+    <p>
+      Los clubes que agotan sus pedidos de llaveros en menos de 60 días aplican estas cuatro tácticas sencillas en el punto de venta:
+    </p>
+
+    <ul class="space-y-3 list-none pl-0 text-slate-700 my-4">
+      <li class="flex items-start gap-3">
+        <div class="w-6 h-6 rounded-full bg-slate-950 text-white flex items-center justify-center shrink-0 text-xs font-black mt-0.5">1</div>
+        <div>
+          <strong class="text-slate-950">Ubicación junto al datáfono (Zona de pago):</strong> Nunca coloques los llaveros en una vitrina cerrada o en una estantería alta. Deben estar colocados exactamente junto al terminal de tarjeta o la pantalla del ordenador de recepción para que el cliente pueda tocarlos y sentir el relieve de goma mientras espera su turno.
+        </div>
+      </li>
+      <li class="flex items-start gap-3">
+        <div class="w-6 h-6 rounded-full bg-slate-950 text-white flex items-center justify-center shrink-0 text-xs font-black mt-0.5">2</div>
+        <div>
+          <strong class="text-slate-950">Packaging individual termosellado transparente:</strong> Todos los llaveros de CoolPadel se entregan en blíster termosellado individual. Esto protege el acabado de arañazos y polvo, y transmite una sensación de producto oficial impecable similar a la mercancía de una tienda de club de fútbol de Primera División.
+        </div>
+      </li>
+      <li class="flex items-start gap-3">
+        <div class="w-6 h-6 rounded-full bg-slate-950 text-white flex items-center justify-center shrink-0 text-xs font-black mt-0.5">3</div>
+        <div>
+          <strong class="text-slate-950">Precio redondo sin cambio suelto (5,00 €):</strong> Un billete de 5 € o añadir 5 € a la tarjeta es el ticket impulsivo ideal. Muchas veces el socio lo compra como detalle para su pareja de pádel, para sus hijos o para renovar el llavero desgastado de su paletero.
+        </div>
+      </li>
+      <li class="flex items-start gap-3">
+        <div class="w-6 h-6 rounded-full bg-slate-950 text-white flex items-center justify-center shrink-0 text-xs font-black mt-0.5">4</div>
+        <div>
+          <strong class="text-slate-950">Cross-selling en escuela de menores y torneos de fin de semana:</strong> En las semanas de torneos o en los días de escuela infantil, las ventas se triplican. Los niños y adolescentes adoran colgar la pala en miniatura en sus mochilas escolares.
+        </div>
+      </li>
+    </ul>
+    """
+    faqs_tienda_proshop = [
+        {
+            "q": "¿Qué margen de beneficio deja la venta de llaveros en la pro-shop de un club de pádel?",
+            "a": "El margen bruto se sitúa entre el 50% y el 70%. Con un coste de fabricación de 1,50 € a 2,50 € por unidad según volumen, el club los vende habitualmente en el mostrador a un PVP de 5,00 € a 6,00 €, generando entre 3,00 € y 4,00 € de beneficio neto por cada venta."
+        },
+        {
+            "q": "¿Cuál es el precio de venta al público (PVP) recomendado para llaveros de pádel 3D?",
+            "a": "El precio recomendado en España y la Unión Europea es de 5,00 € o 6,00 € por unidad. En clubes de Reino Unido y Estados Unidos el precio habitual de venta en mostrador es de 8 £ y 10 $ respectivamente."
+        },
+        {
+            "q": "¿Por qué los llaveros son más rentables que la ropa o las palas en la tienda del club?",
+            "a": "Porque es un producto de compra por impulso de talla única que no sufre obsolescencia de temporada ni requiere inmovilizar miles de euros en stock. No hay devoluciones por tallaje y se vende directamente junto a la caja o datáfono de recepción."
+        },
+        {
+            "q": "¿Cómo puede un club ver una muestra con su logo antes de hacer el pedido de tienda?",
+            "a": "En CoolPadel Studios elaboramos un diseño digital 3D gratuito sin compromiso. Tras aprobar el render, fabricamos y enviamos una muestra física real terminada por 15 € en unos 15 días laborables, importe que se descuenta al 100% de la factura del pedido final."
+        }
+    ]
+    generate_guide_page(
+        slug="vender-llaveros-tienda-club-padel-pro-shop",
+        category_badge="Pro-Shop & Retail · Ingresos",
+        title="Cómo vender llaveros en la pro-shop de tu club: producto de impulso con +60% de margen",
+        subtitle="Evita el stock muerto de palas y ropa cara: coste desde 1,50 €, PVP recomendado de 5 € a 6 € y rotación constante junto al mostrador de pago.",
+        meta_desc="Guía práctica para rentabilizar la pro-shop y recepción de tu club de pádel vendiendo llaveros personalizados de pala 3D. Márgenes de beneficio, precios y merchandising.",
+        date_str="Octubre 2026",
+        date_iso="2026-10-16",
+        read_time="Lectura 5 min",
+        cover_img="gallery-padel-3.jpg",
+        content_html=content_tienda_proshop,
+        faqs=faqs_tienda_proshop,
+        cta_type="llaveros"
     )
 
 generate_blog_html = generate_all
