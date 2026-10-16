@@ -109,7 +109,7 @@ LANDINGS = [
     {
         "slug": "camaras-grabacion-pistas-padel",
         "title": "Cámaras y Grabación de Partidos para Pistas de Pádel | Save My Play",
-        "meta_desc": "Sistema de grabación inteligente y repetición en vídeo para pistas de pádel. Instalación en 5 minutos sin obras ni zanjas, pulsador físico en poste y entrega vía WhatsApp.",
+        "meta_desc": "Sistema de grabación inteligente y repetición en vídeo para pistas de pádel Save My Play. Instalación en 5 minutos sin obras, pulsador físico en poste y descarga por código QR.",
         "badge": "TECNOLOGÍA DE CLUB · SAVE MY PLAY",
         "h1": "Cámaras Inteligentes para Pistas de Pádel sin Obras",
         "subtitle": "La tecnología de repetición y analítica en pista que fideliza a tus jugadores y genera ingresos recurrentes para tu club de pádel o tenis. Sin permanencia, sin zanjas y montado en 5 minutos.",
@@ -159,6 +159,74 @@ def render_landing(landing):
           <h3 class="font-heading font-black text-xl sm:text-2xl text-slate-950 mb-2">{title}</h3>
           <p class="text-slate-600 text-sm sm:text-base leading-relaxed">{desc}</p>
         </div>"""
+
+    # Dynamic Product / Service Schema per landing type
+    if landing["slug"] == "camaras-grabacion-pistas-padel":
+        product_schema_json = f"""{{
+        "@type": ["Product", "Service"],
+        "name": "{landing['h1']} - Save My Play",
+        "description": "{landing['meta_desc']}",
+        "image": "https://coolpadelstudios.com/{landing['hero_img']}",
+        "brand": {{
+          "@type": "Brand",
+          "name": "Save My Play"
+        }},
+        "offers": [
+          {{
+            "@type": "Offer",
+            "name": "Hardware Cámara de Pista (Inversión inicial única)",
+            "priceCurrency": "EUR",
+            "price": "180.00",
+            "priceValidUntil": "2027-12-31",
+            "availability": "https://schema.org/InStock"
+          }},
+          {{
+            "@type": "Offer",
+            "name": "Plan B - Highlights & Streaming (Cuota mensual)",
+            "priceCurrency": "EUR",
+            "price": "45.00",
+            "priceValidUntil": "2027-12-31",
+            "availability": "https://schema.org/InStock"
+          }},
+          {{
+            "@type": "Offer",
+            "name": "Plan A - Analítica IA Avanzada (Cuota mensual)",
+            "priceCurrency": "EUR",
+            "price": "136.00",
+            "priceValidUntil": "2027-12-31",
+            "availability": "https://schema.org/InStock"
+          }}
+        ]
+      }}"""
+    else:
+        product_schema_json = f"""{{
+        "@type": "Product",
+        "name": "{landing['h1']} - CoolPadel Studios",
+        "description": "{landing['meta_desc']}",
+        "image": "https://coolpadelstudios.com/{landing['hero_img']}",
+        "brand": {{
+          "@type": "Brand",
+          "name": "CoolPadel Studios"
+        }},
+        "offers": [
+          {{
+            "@type": "Offer",
+            "name": "Tirada oficial para clubes (desde 100 unidades)",
+            "priceCurrency": "EUR",
+            "price": "3.00",
+            "priceValidUntil": "2027-12-31",
+            "availability": "https://schema.org/MadeToOrder"
+          }},
+          {{
+            "@type": "Offer",
+            "name": "Muestra física previa con logo real",
+            "priceCurrency": "EUR",
+            "price": "15.00",
+            "priceValidUntil": "2027-12-31",
+            "availability": "https://schema.org/InStock"
+          }}
+        ]
+      }}"""
 
     faq_html = ""
     for idx, (q, a) in enumerate(landing["faqs"]):
@@ -227,34 +295,7 @@ def render_landing(landing):
           }}
         ]
       }},
-      {{
-        "@type": "Product",
-        "name": "{landing['h1']} - CoolPadel Studios",
-        "description": "{landing['meta_desc']}",
-        "image": "https://coolpadelstudios.com/{landing['hero_img']}",
-        "brand": {{
-          "@type": "Brand",
-          "name": "CoolPadel Studios"
-        }},
-        "offers": [
-          {{
-            "@type": "Offer",
-            "name": "Tirada oficial para clubes (desde 100 unidades)",
-            "priceCurrency": "EUR",
-            "price": "3.00",
-            "priceValidUntil": "2027-12-31",
-            "availability": "https://schema.org/MadeToOrder"
-          }},
-          {{
-            "@type": "Offer",
-            "name": "Muestra física previa con logo real",
-            "priceCurrency": "EUR",
-            "price": "15.00",
-            "priceValidUntil": "2027-12-31",
-            "availability": "https://schema.org/InStock"
-          }}
-        ]
-      }},
+      {product_schema_json},
       {{
         "@type": "FAQPage",
         "mainEntity": [{faq_schema_json}
@@ -303,7 +344,7 @@ def render_landing(landing):
         <a href="../blog/" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition">Blog</a>
         <a href="../franquicias-padel/" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition">Cadenas de clubs</a>
         
-        <a href="https://wa.me/34680317486?text={wa_encoded}" target="_blank" class="inline-flex items-center gap-1.5 px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] text-slate-950 font-heading font-black text-xs uppercase tracking-wider transition shadow-sm hover:scale-105 active:scale-95">
+        <a href="https://wa.me/34680317486?text={wa_encoded}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] text-slate-950 font-heading font-black text-xs uppercase tracking-wider transition shadow-sm hover:scale-105 active:scale-95">
           <span>Pedir Presupuesto</span>
           <i data-lucide="arrow-up-right" class="w-3 h-3 stroke-[3]"></i>
         </a>
@@ -337,7 +378,7 @@ def render_landing(landing):
             </p>
 
             <div class="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5">
-              <a href="https://wa.me/34680317486?text={wa_encoded}" target="_blank" class="inline-flex items-center justify-center gap-2.5 px-7 py-4 rounded-2xl bg-[#25D366] hover:bg-[#20ba59] text-white font-heading font-black text-base uppercase tracking-wider shadow-lg hover:scale-105 active:scale-95 transition">
+              <a href="https://wa.me/34680317486?text={wa_encoded}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2.5 px-7 py-4 rounded-2xl bg-[#25D366] hover:bg-[#20ba59] text-white font-heading font-black text-base uppercase tracking-wider shadow-lg hover:scale-105 active:scale-95 transition">
                 <i data-lucide="message-circle" class="w-5 h-5"></i>
                 <span>Solicitar Muestra / Cotización</span>
               </a>
@@ -442,7 +483,7 @@ def render_landing(landing):
           
           <div class="mt-6 pt-5 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-4">
             <span class="text-xs text-slate-500">* Precios sin IVA. Envíos incluidos a toda España peninsular y Unión Europea.</span>
-            <a href="https://wa.me/34680317486?text={wa_encoded}" target="_blank" class="px-6 py-3 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] text-slate-950 font-heading font-black text-xs uppercase tracking-wider transition">
+            <a href="https://wa.me/34680317486?text={wa_encoded}" target="_blank" rel="noopener noreferrer" class="px-6 py-3 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] text-slate-950 font-heading font-black text-xs uppercase tracking-wider transition">
               Pedir Presupuesto por WhatsApp
             </a>
           </div>
@@ -498,7 +539,7 @@ def render_landing(landing):
           Escríbeme directamente por WhatsApp. Te respondo personalmente para ver tu diseño y enviarte la muestra física.
         </p>
         <div class="pt-2 flex flex-col sm:flex-row items-center justify-center gap-4">
-          <a href="https://wa.me/34680317486?text={wa_encoded}" target="_blank" class="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-[#25D366] hover:bg-[#20ba59] text-white font-heading font-black text-base uppercase tracking-wider shadow-lg hover:scale-105 active:scale-95 transition">
+          <a href="https://wa.me/34680317486?text={wa_encoded}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-[#25D366] hover:bg-[#20ba59] text-white font-heading font-black text-base uppercase tracking-wider shadow-lg hover:scale-105 active:scale-95 transition">
             <i data-lucide="message-circle" class="w-5 h-5"></i>
             <span>Hablar por WhatsApp</span>
           </a>
