@@ -583,7 +583,7 @@
     body { font-family: 'Plus Jakarta Sans', sans-serif; }
     h1, h2, h3, h4, .font-heading { font-family: 'Outfit', sans-serif; }
 
-    /* Marca de agua fija estilo Itaca Academia para toda la web */
+    /* Marca de agua fija estilo Itaca Academia para la parte blanca de la web */
     body::before {
       content: "";
       position: fixed;
@@ -596,16 +596,16 @@
       background-repeat: no-repeat;
       background-position: center;
       background-size: contain;
-      opacity: 0.095;
+      opacity: 0.085;
       pointer-events: none;
-      z-index: 35;
+      z-index: 1;
       will-change: transform;
     }
     @media (max-width: 640px) {
       body::before {
         width: min(88vw, 360px);
         height: min(88vw, 360px);
-        opacity: 0.075;
+        opacity: 0.07;
       }
     }
     
@@ -1003,7 +1003,7 @@
   </section>
 
   <!-- 5. SECCIÓN DETALLADA: LLAVEROS PARA CLUBS (FONDO CELESTE #3478a6 CON TEXTURA CANVA) -->
-  <section id="llaveros" itemscope itemtype="https://schema.org/Product" class="py-6 sm:py-8 lg:py-10 bg-[#3478a6] bg-textured-blue relative border-b border-sky-700/40 text-white overflow-hidden">
+  <section id="llaveros" itemscope itemtype="https://schema.org/Product" class="py-6 sm:py-8 lg:py-10 bg-[#3478a6] bg-textured-blue relative z-20 border-b border-sky-700/40 text-white overflow-hidden">
     <!-- GEO & Generative AI Semantic Microdata Block (Invisible visually, accessible to Screen Readers and AI Crawlers) -->
     <div class="sr-only">
       <h2 itemprop="name">Llaveros de Pádel Personalizados 3D CoolPadel Studios</h2>
@@ -1487,7 +1487,7 @@
   </section>
 
   <!-- 9. FOOTER INFERIOR (FONDO AZUL CORPORATIVO CON CAJA BLANCA Y TEXTO NEGRO PARA MÁXIMA LEGIBILIDAD) -->
-  <footer class="relative bg-[#3478a6] bg-textured-blue text-slate-900 py-10 sm:py-14 border-t border-sky-700/40 text-xs sm:text-[13px]">
+  <footer class="relative z-20 bg-[#3478a6] bg-textured-blue text-slate-900 py-10 sm:py-14 border-t border-sky-700/40 text-xs sm:text-[13px]">
     <div class="max-w-[1700px] mx-auto px-4 sm:px-6">
       
       <!-- CAJA BLANCA CON TEXTO NEGRO -->
