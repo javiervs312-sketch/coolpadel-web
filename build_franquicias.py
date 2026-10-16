@@ -626,11 +626,22 @@ def render_html():
             </div>
 
             <!-- BUSCADOR INTEGRADO DENTRO DE LA PARTE DEL MAPA MUNDIAL -->
-            <div class="relative flex-1 max-w-xl min-w-[240px]">
-              <i data-lucide="search" class="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2"></i>
+            <div class="relative flex-1 max-w-xl min-w-[240px]" id="searchContainer">
+              <i data-lucide="search" class="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none"></i>
               <input type="text" id="searchInput" placeholder="Buscar cadena, club, ciudad o país..."
-                     class="w-full pl-9 pr-3.5 py-2 rounded-xl bg-slate-50 border border-slate-200 text-slate-950 placeholder-slate-400 font-medium text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-[#f2920b] focus:bg-white transition"
-                     oninput="applyFilters()">
+                     class="w-full pl-9 pr-9 py-2 rounded-xl bg-slate-50 border border-slate-200 text-slate-950 placeholder-slate-400 font-medium text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-[#f2920b] focus:bg-white transition"
+                     autocomplete="off"
+                     oninput="handleSearchInput(event)"
+                     onfocus="handleSearchFocus(event)"
+                     onkeydown="handleSearchKeyDown(event)">
+              <button type="button" id="searchClearBtn" onclick="clearSearchInput()" class="hidden absolute right-2.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-700 p-1 rounded-full hover:bg-slate-200 transition cursor-pointer" title="Borrar búsqueda">
+                <i data-lucide="x" class="w-3.5 h-3.5"></i>
+              </button>
+
+              <!-- MENÚ DESPLEGABLE DE SUGERENCIAS / AUTOCOMPLETADO TÍPICO DE BUSCADOR -->
+              <div id="searchSuggestionsMenu" class="hidden absolute left-0 right-0 top-full mt-2 bg-white rounded-2xl shadow-[0_18px_45px_rgba(0,0,0,0.18)] border border-slate-200/90 overflow-hidden z-[1000] max-h-80 overflow-y-auto transition-all">
+                <!-- Generado dinámicamente -->
+              </div>
             </div>
 
             <div class="flex items-center gap-2 self-start lg:self-auto shrink-0">
@@ -1740,7 +1751,327 @@ def render_html():
         styleMenu.classList.add('hidden');
         if (styleArrow) styleArrow.classList.remove('rotate-180');
       }}
+
+      const searchContainer = document.getElementById('searchContainer');
+      const suggestionsMenu = document.getElementById('searchSuggestionsMenu');
+      if (searchContainer && !searchContainer.contains(e.target) && suggestionsMenu && !suggestionsMenu.classList.contains('hidden')) {{
+        hideSearchSuggestions();
+      }}
     }});
+
+    // =========================================================================
+    // AUTOCOMPLETADO Y SUGERENCIAS DEL BUSCADOR (TÍPICO DE BUSCADOR)
+    // =========================================================================
+    let currentRenderedSuggestions = [];
+    let selectedSuggestionIndex = -1;
+
+    function handleSearchInput(e) {{
+      const query = (e ? e.target.value : document.getElementById('searchInput').value).trim();
+      const clearBtn = document.getElementById('searchClearBtn');
+      if (clearBtn) {{
+        if (query.length > 0) {{
+          clearBtn.classList.remove('hidden');
+        }} else {{
+          clearBtn.classList.add('hidden');
+        }}
+      }}
+      applyFilters();
+      renderSearchSuggestions(query);
+    }}
+
+    function handleSearchFocus(e) {{
+      const query = document.getElementById('searchInput').value.trim();
+      renderSearchSuggestions(query);
+    }}
+
+    function clearSearchInput() {{
+      const input = document.getElementById('searchInput');
+      if (input) {{
+        input.value = '';
+        input.focus();
+      }}
+      const clearBtn = document.getElementById('searchClearBtn');
+      if (clearBtn) clearBtn.classList.add('hidden');
+      hideSearchSuggestions();
+      applyFilters();
+    }}
+
+    function hideSearchSuggestions() {{
+      const menu = document.getElementById('searchSuggestionsMenu');
+      if (menu) menu.classList.add('hidden');
+      selectedSuggestionIndex = -1;
+    }}
+
+    function renderSearchSuggestions(query) {{
+      const menu = document.getElementById('searchSuggestionsMenu');
+      if (!menu) return;
+
+      const q = (query || '').toLowerCase().trim();
+      let suggestions = [];
+
+      if (!q) {{
+        // Si está vacío al hacer foco: mostrar cadenas más destacadas
+        const destacadas = FRANQUICIAS.filter(f => f.destacado || (f.clubs_abiertos && f.clubs_abiertos >= 15)).slice(0, 5);
+        if (destacadas.length > 0) {{
+          let html = `
+            <div class="px-3.5 py-1.5 text-[10px] font-black uppercase tracking-wider text-slate-400 bg-slate-50 border-b border-slate-100 flex items-center justify-between">
+              <span>Cadenas más buscadas</span>
+              <span class="text-slate-400 font-semibold text-[9px]">Sugerencias</span>
+            </div>
+          `;
+          destacadas.forEach((f, idx) => {{
+            html += `
+              <div class="search-suggestion-item flex items-center justify-between px-3.5 py-2.5 hover:bg-amber-50 cursor-pointer transition border-b border-slate-50 last:border-0"
+                   onclick="executeSearchSuggestion(${{idx}})"
+                   data-index="${{idx}}">
+                <div class="flex items-center gap-2.5 min-w-0">
+                  <span class="w-7 h-7 rounded-xl bg-slate-100 border border-slate-200 flex items-center justify-center text-xs shrink-0">🏢</span>
+                  <div class="truncate">
+                    <div class="text-xs font-bold text-slate-900 truncate">${{f.nombre}}</div>
+                    <div class="text-[10px] text-slate-500 font-medium truncate">${{f.ciudad_sede ? f.ciudad_sede + ' · ' : ''}}${{f.pais}} (${{f.clubs_abiertos || 1}} clubs)</div>
+                  </div>
+                </div>
+                <span class="text-[11px] font-bold text-amber-600 shrink-0 ml-2">Ver →</span>
+              </div>
+            `;
+          }});
+          currentRenderedSuggestions = destacadas.map(f => ({{
+            type: 'franchise',
+            id: f.id,
+            title: f.nombre,
+            entity: f
+          }}));
+          menu.innerHTML = html;
+          menu.classList.remove('hidden');
+          return;
+        }}
+        hideSearchSuggestions();
+        return;
+      }}
+
+      // 1. Coincidencias en Cadenas / Franquicias
+      const matchFranchises = FRANQUICIAS.filter(f => {{
+        return (f.nombre && f.nombre.toLowerCase().includes(q)) || 
+               (f.tagline && f.tagline.toLowerCase().includes(q));
+      }}).slice(0, 5);
+
+      matchFranchises.forEach(f => {{
+        suggestions.push({{
+          type: 'franchise',
+          id: f.id,
+          title: f.nombre,
+          subtitle: `${{f.ciudad_sede ? f.ciudad_sede + ' · ' : ''}}${{f.pais}} · ${{f.clubs_abiertos || 1}} clubs · ${{f.pistas_totales || ''}} pistas`,
+          icon: '🏢',
+          badge: f.tipo_categoria ? f.tipo_categoria.toUpperCase() : 'CADENA',
+          entity: f
+        }});
+      }});
+
+      // 2. Coincidencias en Ciudades / Países únicos
+      const locationMap = new Map();
+      FRANQUICIAS.forEach(f => {{
+        if (f.ciudad_sede && f.ciudad_sede.toLowerCase().includes(q)) {{
+          const key = f.ciudad_sede.toLowerCase();
+          if (!locationMap.has(key)) {{
+            locationMap.set(key, {{ name: f.ciudad_sede, context: f.pais, type: 'ciudad', count: 1, sample: f }});
+          }} else {{
+            locationMap.get(key).count++;
+          }}
+        }}
+        if (f.pais && f.pais.toLowerCase().includes(q)) {{
+          const key = f.pais.toLowerCase();
+          if (!locationMap.has(key)) {{
+            locationMap.set(key, {{ name: f.pais, context: 'País', type: 'pais', count: 1, sample: f }});
+          }} else {{
+            locationMap.get(key).count++;
+          }}
+        }}
+      }});
+
+      Array.from(locationMap.values()).slice(0, 3).forEach(loc => {{
+        suggestions.push({{
+          type: 'location',
+          name: loc.name,
+          title: loc.name,
+          subtitle: `${{loc.context}} · ${{loc.count}} cadenas con presencia`,
+          icon: '📍',
+          badge: loc.type.toUpperCase(),
+          sample: loc.sample
+        }});
+      }});
+
+      // 3. Coincidencias en Sub-clubes individuales si existen
+      let subClubMatches = [];
+      FRANQUICIAS.forEach(f => {{
+        if (f.sub_clubs && f.sub_clubs.length > 0) {{
+          f.sub_clubs.forEach(sub => {{
+            if ((sub.nombre && sub.nombre.toLowerCase().includes(q)) || (sub.ciudad && sub.ciudad.toLowerCase().includes(q))) {{
+              subClubMatches.push({{
+                type: 'sub_club',
+                franchiseId: f.id,
+                franchiseName: f.nombre,
+                title: sub.nombre,
+                subtitle: `Red ${{f.nombre}} · ${{sub.ciudad || ''}} (${{sub.pistas || 'Pistas'}})`,
+                icon: '🎾',
+                badge: 'CLUB',
+                sub: sub,
+                parent: f
+              }});
+            }}
+          }});
+        }}
+      }});
+
+      subClubMatches.slice(0, 3).forEach(sm => suggestions.push(sm));
+
+      if (suggestions.length === 0) {{
+        menu.innerHTML = `
+          <div class="px-4 py-3 text-center text-xs text-slate-500 font-medium">
+            No se encontraron coincidencias para "<span class="font-bold text-slate-800">${{escapeHtml(query)}}</span>"
+          </div>
+        `;
+        menu.classList.remove('hidden');
+        currentRenderedSuggestions = [];
+        return;
+      }}
+
+      // Renderizar lista de sugerencias interactivas
+      let html = `
+        <div class="px-3.5 py-1.5 text-[10px] font-black uppercase tracking-wider text-slate-400 bg-slate-50 border-b border-slate-100 flex items-center justify-between">
+          <span>Opciones encontradas (${{suggestions.length}})</span>
+          <span class="text-slate-400 font-semibold text-[9px]">Pulsa para seleccionar</span>
+        </div>
+      `;
+
+      suggestions.slice(0, 7).forEach((item, idx) => {{
+        const highlightedTitle = highlightMatch(item.title, q);
+        html += `
+          <div class="search-suggestion-item flex items-center justify-between px-3.5 py-2.5 hover:bg-amber-50 cursor-pointer transition border-b border-slate-50 last:border-0"
+               data-index="${{idx}}"
+               onclick="executeSearchSuggestion(${{idx}})">
+            <div class="flex items-center gap-2.5 min-w-0">
+              <span class="w-7 h-7 rounded-xl bg-slate-100 border border-slate-200 flex items-center justify-center text-xs shrink-0">${{item.icon}}</span>
+              <div class="truncate">
+                <div class="text-xs font-bold text-slate-900 truncate flex items-center gap-1.5">
+                  <span>${{highlightedTitle}}</span>
+                  <span class="text-[9px] px-1.5 py-0.2 rounded bg-slate-100 text-slate-600 font-extrabold uppercase">${{item.badge}}</span>
+                </div>
+                <div class="text-[10px] text-slate-500 font-medium truncate">${{item.subtitle}}</div>
+              </div>
+            </div>
+            <span class="text-[11px] font-bold text-amber-600 shrink-0 ml-2">Ver →</span>
+          </div>
+        `;
+      }});
+
+      currentRenderedSuggestions = suggestions.slice(0, 7);
+      menu.innerHTML = html;
+      menu.classList.remove('hidden');
+      selectedSuggestionIndex = -1;
+    }}
+
+    function executeSearchSuggestion(index) {{
+      if (!currentRenderedSuggestions || !currentRenderedSuggestions[index]) return;
+      const item = currentRenderedSuggestions[index];
+      const searchInput = document.getElementById('searchInput');
+
+      if (item.type === 'franchise') {{
+        const f = item.entity || FRANQUICIAS.find(x => x.id === item.id);
+        if (searchInput && f) searchInput.value = f.nombre;
+        hideSearchSuggestions();
+        applyFilters();
+
+        if (f) {{
+          zoomToClubRegion(f, f.id);
+          setTimeout(() => {{
+            if (markersById[f.id]) {{
+              markersById[f.id].openPopup();
+            }}
+          }}, 600);
+        }}
+      }} else if (item.type === 'location') {{
+        if (searchInput) searchInput.value = item.name;
+        hideSearchSuggestions();
+        applyFilters();
+
+        if (item.sample) {{
+          zoomToClubRegion(item.sample, item.sample.id);
+        }}
+      }} else if (item.type === 'sub_club') {{
+        if (searchInput) searchInput.value = item.title;
+        hideSearchSuggestions();
+        applyFilters();
+
+        const parent = item.parent;
+        if (parent) {{
+          deploySubClubs(parent);
+          if (item.sub && item.sub.coords && map) {{
+            map.flyTo(item.sub.coords, 12, {{ animate: true, duration: 1.2 }});
+          }}
+        }}
+      }}
+
+      const clearBtn = document.getElementById('searchClearBtn');
+      if (clearBtn) clearBtn.classList.remove('hidden');
+    }}
+
+    function handleSearchKeyDown(e) {{
+      const menu = document.getElementById('searchSuggestionsMenu');
+      if (!menu || menu.classList.contains('hidden')) {{
+        if (e.key === 'Enter') {{
+          applyFilters();
+        }}
+        return;
+      }}
+
+      const items = menu.querySelectorAll('.search-suggestion-item');
+      if (items.length === 0) return;
+
+      if (e.key === 'ArrowDown') {{
+        e.preventDefault();
+        selectedSuggestionIndex = (selectedSuggestionIndex + 1) % items.length;
+        updateActiveSuggestion(items);
+      }} else if (e.key === 'ArrowUp') {{
+        e.preventDefault();
+        selectedSuggestionIndex = (selectedSuggestionIndex - 1 + items.length) % items.length;
+        updateActiveSuggestion(items);
+      }} else if (e.key === 'Enter') {{
+        e.preventDefault();
+        if (selectedSuggestionIndex >= 0 && selectedSuggestionIndex < items.length) {{
+          executeSearchSuggestion(selectedSuggestionIndex);
+        }} else if (items.length > 0) {{
+          executeSearchSuggestion(0);
+        }}
+      }} else if (e.key === 'Escape') {{
+        hideSearchSuggestions();
+      }}
+    }}
+
+    function updateActiveSuggestion(items) {{
+      items.forEach((item, idx) => {{
+        if (idx === selectedSuggestionIndex) {{
+          item.classList.add('bg-amber-100/70', 'ring-1', 'ring-amber-400');
+          item.scrollIntoView({{ block: 'nearest' }});
+        }} else {{
+          item.classList.remove('bg-amber-100/70', 'ring-1', 'ring-amber-400');
+        }}
+      }});
+    }}
+
+    function highlightMatch(text, query) {{
+      if (!query) return text;
+      const idx = text.toLowerCase().indexOf(query.toLowerCase());
+      if (idx === -1) return text;
+      const before = text.substring(0, idx);
+      const match = text.substring(idx, idx + query.length);
+      const after = text.substring(idx + query.length);
+      return `${{before}}<span class="bg-amber-100 text-amber-900 font-extrabold rounded-xs px-0.5">${{match}}</span>${{after}}`;
+    }}
+
+    function escapeHtml(str) {{
+      if (!str) return '';
+      return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+    }}
 
     function selectRegion(code, label, flag) {{
       currentRegion = code;

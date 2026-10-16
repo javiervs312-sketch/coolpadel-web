@@ -615,7 +615,7 @@ def generate_blog_index():
 
 def generate_article_page(slug, edition_num, title, date_str, read_time, cover_img, paragraphs):
     root_prefix = "../../"
-    html_paragraphs = "".join([f'<p class="text-slate-800 text-base sm:text-lg leading-relaxed">{p}</p>' if not p.startswith('<h') and not p.startswith('<ul') and not p.startswith('<ol') and not p.startswith('<div') else p for p in paragraphs])
+    html_paragraphs = "".join([f'<p class="text-slate-800 text-base sm:text-lg leading-relaxed">{p}</p>' if not p.startswith('<h') and not p.startswith('<ul') and not p.startswith('<ol') and not p.startswith('<div') and not p.startswith('<p') else p for p in paragraphs])
 
     date_iso_map = {
         "01": "2026-08-15",
@@ -876,13 +876,18 @@ def generate_article_page(slug, edition_num, title, date_str, read_time, cover_i
           </h1>
 
           <div class="flex items-center gap-3 pt-2 border-t border-slate-100">
-            <div class="w-10 h-10 rounded-full bg-slate-950 text-white font-heading font-black flex items-center justify-center text-sm">
-              JV
-            </div>
-            <div>
-              <div class="font-heading font-black text-sm text-slate-950">Javier Villoria</div>
-              <div class="text-xs text-slate-500 font-medium">Fundador de CoolPadel Studios</div>
-            </div>
+            <a href="https://www.linkedin.com/in/javier-villoria-soleto-606737298/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 group">
+              <div class="w-10 h-10 rounded-full bg-slate-950 text-white font-heading font-black flex items-center justify-center text-sm group-hover:bg-[#f2920b] transition">
+                JV
+              </div>
+              <div>
+                <div class="font-heading font-black text-sm text-slate-950 group-hover:text-[#f2920b] transition flex items-center gap-1.5">
+                  <span>Javier Villoria</span>
+                  <i data-lucide="linkedin" class="w-3.5 h-3.5 text-sky-600"></i>
+                </div>
+                <div class="text-xs text-slate-500 font-medium">Fundador de CoolPadel Studios · Ver en LinkedIn</div>
+              </div>
+            </a>
           </div>
         </div>
 
@@ -892,7 +897,7 @@ def generate_article_page(slug, edition_num, title, date_str, read_time, cover_i
         </div>
 
         <!-- CUERPO DE TEXTO -->
-        <div class="space-y-5 text-slate-800 text-base sm:text-lg leading-relaxed pt-2">
+        <div class="space-y-4 sm:space-y-5 text-slate-800 text-base sm:text-lg leading-relaxed pt-2">
           {html_paragraphs}
         </div>
 
