@@ -16885,132 +16885,337 @@
       selectedSuggestionIndex = -1;
     }
 
+    let currentSuggestionTab = 'all';
+
+    function setSuggestionTab(tabName, event) {
+      if (event) event.stopPropagation();
+      currentSuggestionTab = tabName;
+      const q = (document.getElementById('searchInput').value || '').trim();
+      renderSearchSuggestions(q);
+    }
+
+    function flyToCity(cityName, coords, sample) {
+      if (!map) return;
+      const c = (cityName || '').toLowerCase();
+
+      // Búsqueda en CCAA españolas
+      if (c.includes('madrid')) { map.flyToBounds(CCAA_BOUNDS['madrid'], { padding: [40, 40], maxZoom: 10, duration: 1.2 }); return; }
+      if (c.includes('barcelona') || c.includes('girona') || c.includes('lleida') || c.includes('tarragona') || c.includes('catalun')) { map.flyToBounds(CCAA_BOUNDS['catalunya'], { padding: [40, 40], maxZoom: 10, duration: 1.2 }); return; }
+      if (c.includes('valencia') || c.includes('alicante') || c.includes('castellón') || c.includes('castellon') || c.includes('elche')) { map.flyToBounds(CCAA_BOUNDS['valencia'], { padding: [40, 40], maxZoom: 10, duration: 1.2 }); return; }
+      if (c.includes('málaga') || c.includes('malaga') || c.includes('sevilla') || c.includes('granada') || c.includes('córdoba') || c.includes('cordoba') || c.includes('marbella') || c.includes('almería') || c.includes('cadiz') || c.includes('cádiz') || c.includes('jaen') || c.includes('jaén') || c.includes('huelva')) { map.flyToBounds(CCAA_BOUNDS['andalucia'], { padding: [40, 40], maxZoom: 10, duration: 1.2 }); return; }
+      if (c.includes('bilbao') || c.includes('donostia') || c.includes('san sebastián') || c.includes('san sebastian') || c.includes('vitoria') || c.includes('bizkaia') || c.includes('vizcaya')) { map.flyToBounds(CCAA_BOUNDS['pais_vasco'], { padding: [40, 40], maxZoom: 10, duration: 1.2 }); return; }
+      if (c.includes('vigo') || c.includes('coruña') || c.includes('pontevedra') || c.includes('ourense') || c.includes('lugo') || c.includes('galicia')) { map.flyToBounds(CCAA_BOUNDS['galicia'], { padding: [40, 40], maxZoom: 10, duration: 1.2 }); return; }
+      if (c.includes('zaragoza') || c.includes('huesca') || c.includes('teruel') || c.includes('aragon')) { map.flyToBounds(CCAA_BOUNDS['aragon'], { padding: [40, 40], maxZoom: 10, duration: 1.2 }); return; }
+      if (c.includes('palma') || c.includes('mallorca') || c.includes('ibiza') || c.includes('menorca') || c.includes('baleares')) { map.flyToBounds(CCAA_BOUNDS['baleares'], { padding: [40, 40], maxZoom: 10, duration: 1.2 }); return; }
+      if (c.includes('canarias') || c.includes('tenerife') || c.includes('palmas')) { map.flyToBounds(CCAA_BOUNDS['canarias'], { padding: [40, 40], maxZoom: 10, duration: 1.2 }); return; }
+      if (c.includes('murcia') || c.includes('cartagena')) { map.flyToBounds(CCAA_BOUNDS['murcia'], { padding: [40, 40], maxZoom: 10, duration: 1.2 }); return; }
+      if (c.includes('asturias') || c.includes('gijón') || c.includes('gijon') || c.includes('oviedo')) { map.flyToBounds(CCAA_BOUNDS['asturias'], { padding: [40, 40], maxZoom: 10, duration: 1.2 }); return; }
+      if (c.includes('cantabria') || c.includes('santander')) { map.flyToBounds(CCAA_BOUNDS['cantabria'], { padding: [40, 40], maxZoom: 10, duration: 1.2 }); return; }
+      if (c.includes('pamplona') || c.includes('navarra')) { map.flyToBounds(CCAA_BOUNDS['navarra'], { padding: [40, 40], maxZoom: 10, duration: 1.2 }); return; }
+      if (c.includes('valladolid') || c.includes('burgos') || c.includes('salamanca') || c.includes('león') || c.includes('leon')) { map.flyToBounds(CCAA_BOUNDS['castilla_leon'], { padding: [40, 40], maxZoom: 10, duration: 1.2 }); return; }
+      if (c.includes('toledo') || c.includes('albacete') || c.includes('cuenca') || c.includes('ciudad real')) { map.flyToBounds(CCAA_BOUNDS['castilla_mancha'], { padding: [40, 40], maxZoom: 10, duration: 1.2 }); return; }
+      if (c.includes('badajoz') || c.includes('cáceres') || c.includes('caceres') || c.includes('mérida') || c.includes('merida')) { map.flyToBounds(CCAA_BOUNDS['extremadura'], { padding: [40, 40], maxZoom: 10, duration: 1.2 }); return; }
+
+      // Coordenadas directas
+      if (coords && coords.length === 2) {
+        map.flyTo(coords, 12, { animate: true, duration: 1.2 });
+        return;
+      }
+
+      if (sample && sample.coords) {
+        zoomToClubRegion(sample, sample.id);
+      }
+    }
+
     function renderSearchSuggestions(query) {
       const menu = document.getElementById('searchSuggestionsMenu');
       if (!menu) return;
 
       const q = (query || '').toLowerCase().trim();
-      let suggestions = [];
 
       if (!q) {
-        // Si está vacío al hacer foco: mostrar cadenas más destacadas
-        const destacadas = FRANQUICIAS.filter(f => f.destacado || (f.clubs_abiertos && f.clubs_abiertos >= 15)).slice(0, 5);
-        if (destacadas.length > 0) {
-          let html = `
-            <div class="px-3.5 py-1.5 text-[10px] font-black uppercase tracking-wider text-slate-400 bg-slate-50 border-b border-slate-100 flex items-center justify-between">
-              <span>Cadenas más buscadas</span>
-              <span class="text-slate-400 font-semibold text-[9px]">Sugerencias</span>
+        currentSuggestionTab = 'all';
+        // Si está vacío al hacer foco: mostrar muestra rápida de las 4 categorías
+        const destacadas = FRANQUICIAS.filter(f => f.destacado || (f.clubs_abiertos && f.clubs_abiertos >= 15)).slice(0, 3);
+        const subClubSample = [];
+        FRANQUICIAS.forEach(f => {
+          if (f.sub_clubs && f.sub_clubs.length > 0 && subClubSample.length < 2) {
+            f.sub_clubs.slice(0, 1).forEach(s => {
+              subClubSample.push({ parent: f, sub: s });
+            });
+          }
+        });
+
+        let html = `
+          <div class="px-3.5 py-1.5 text-[10px] font-black uppercase tracking-wider text-slate-400 bg-slate-50 border-b border-slate-100 flex items-center justify-between">
+            <span>Explorar por Cadenas, Clubs, Países o Ciudades</span>
+            <span class="text-slate-400 font-semibold text-[9px]">Sugerencias</span>
+          </div>
+        `;
+
+        let sampleList = [];
+        destacadas.forEach(f => {
+          sampleList.push({
+            type: 'cadena',
+            title: f.nombre,
+            searchQuery: f.nombre,
+            subtitle: `${f.ciudad_sede ? f.ciudad_sede + ' · ' : ''}${f.pais} (${f.clubs_abiertos || 1} clubs)`,
+            icon: '🏢',
+            badge: 'CADENA',
+            badgeClass: 'bg-sky-100 text-sky-800',
+            entity: f
+          });
+        });
+
+        subClubSample.forEach(sc => {
+          sampleList.push({
+            type: 'club',
+            title: sc.sub.nombre,
+            searchQuery: sc.sub.nombre,
+            subtitle: `Red ${sc.parent.nombre} · ${sc.sub.ciudad || ''} (${sc.sub.pistas || 'Pistas'})`,
+            icon: '🎾',
+            badge: 'CLUB',
+            badgeClass: 'bg-emerald-100 text-emerald-800',
+            coords: sc.sub.coords,
+            parent: sc.parent,
+            sub: sc.sub
+          });
+        });
+
+        sampleList.push({
+          type: 'pais',
+          name: 'España',
+          title: 'España 🇪🇸',
+          searchQuery: 'España',
+          subtitle: 'Más de 115 cadenas y redes activas',
+          icon: '🌍',
+          badge: 'PAÍS',
+          badgeClass: 'bg-purple-100 text-purple-800',
+          code: 'ES',
+          flag: '🇪🇸'
+        });
+
+        sampleList.push({
+          type: 'ciudad',
+          name: 'Madrid',
+          title: 'Madrid',
+          searchQuery: 'Madrid',
+          subtitle: 'Comunidad de Madrid · Mayor concentración de pistas',
+          icon: '📍',
+          badge: 'CIUDAD',
+          badgeClass: 'bg-amber-100 text-amber-900',
+          coords: [40.4168, -3.7038]
+        });
+
+        sampleList.forEach((item, idx) => {
+          html += `
+            <div class="search-suggestion-item flex items-center justify-between px-3.5 py-2.5 hover:bg-amber-50 cursor-pointer transition border-b border-slate-50 last:border-0"
+                 onclick="executeSearchSuggestion(${idx})"
+                 data-index="${idx}">
+              <div class="flex items-center gap-2.5 min-w-0">
+                <span class="w-7 h-7 rounded-xl bg-slate-100 border border-slate-200 flex items-center justify-center text-xs shrink-0">${item.icon}</span>
+                <div class="truncate">
+                  <div class="text-xs font-bold text-slate-900 truncate flex items-center gap-1.5">
+                    <span>${item.title}</span>
+                    <span class="text-[9px] px-1.5 py-0.2 rounded font-extrabold uppercase ${item.badgeClass}">${item.badge}</span>
+                  </div>
+                  <div class="text-[10px] text-slate-500 font-medium truncate">${item.subtitle}</div>
+                </div>
+              </div>
+              <span class="text-[11px] font-bold text-amber-600 shrink-0 ml-2">Ver →</span>
             </div>
           `;
-          destacadas.forEach((f, idx) => {
-            html += `
-              <div class="search-suggestion-item flex items-center justify-between px-3.5 py-2.5 hover:bg-amber-50 cursor-pointer transition border-b border-slate-50 last:border-0"
-                   onclick="executeSearchSuggestion(${idx})"
-                   data-index="${idx}">
-                <div class="flex items-center gap-2.5 min-w-0">
-                  <span class="w-7 h-7 rounded-xl bg-slate-100 border border-slate-200 flex items-center justify-center text-xs shrink-0">🏢</span>
-                  <div class="truncate">
-                    <div class="text-xs font-bold text-slate-900 truncate">${f.nombre}</div>
-                    <div class="text-[10px] text-slate-500 font-medium truncate">${f.ciudad_sede ? f.ciudad_sede + ' · ' : ''}${f.pais} (${f.clubs_abiertos || 1} clubs)</div>
-                  </div>
-                </div>
-                <span class="text-[11px] font-bold text-amber-600 shrink-0 ml-2">Ver →</span>
-              </div>
-            `;
-          });
-          currentRenderedSuggestions = destacadas.map(f => ({
-            type: 'franchise',
-            id: f.id,
-            title: f.nombre,
-            entity: f
-          }));
-          menu.innerHTML = html;
-          menu.classList.remove('hidden');
-          return;
-        }
-        hideSearchSuggestions();
+        });
+
+        currentRenderedSuggestions = sampleList;
+        menu.innerHTML = html;
+        menu.classList.remove('hidden');
         return;
       }
 
-      // 1. Coincidencias en Cadenas / Franquicias
-      const matchFranchises = FRANQUICIAS.filter(f => {
-        return (f.nombre && f.nombre.toLowerCase().includes(q)) || 
-               (f.tagline && f.tagline.toLowerCase().includes(q));
-      }).slice(0, 5);
-
-      matchFranchises.forEach(f => {
-        suggestions.push({
-          type: 'franchise',
-          id: f.id,
-          title: f.nombre,
-          subtitle: `${f.ciudad_sede ? f.ciudad_sede + ' · ' : ''}${f.pais} · ${f.clubs_abiertos || 1} clubs · ${f.pistas_totales || ''} pistas`,
-          icon: '🏢',
-          badge: f.tipo_categoria ? f.tipo_categoria.toUpperCase() : 'CADENA',
-          entity: f
-        });
-      });
-
-      // 2. Coincidencias en Ciudades / Países únicos
-      const locationMap = new Map();
+      // =======================================================================
+      // 1. COINCIDENCIAS EN CADENAS (🏢)
+      // =======================================================================
+      const cadenas = [];
       FRANQUICIAS.forEach(f => {
-        if (f.ciudad_sede && f.ciudad_sede.toLowerCase().includes(q)) {
-          const key = f.ciudad_sede.toLowerCase();
-          if (!locationMap.has(key)) {
-            locationMap.set(key, { name: f.ciudad_sede, context: f.pais, type: 'ciudad', count: 1, sample: f });
-          } else {
-            locationMap.get(key).count++;
-          }
-        }
-        if (f.pais && f.pais.toLowerCase().includes(q)) {
-          const key = f.pais.toLowerCase();
-          if (!locationMap.has(key)) {
-            locationMap.set(key, { name: f.pais, context: 'País', type: 'pais', count: 1, sample: f });
-          } else {
-            locationMap.get(key).count++;
-          }
+        if ((f.nombre && f.nombre.toLowerCase().includes(q)) || 
+            (f.tagline && f.tagline.toLowerCase().includes(q)) ||
+            (f.software && f.software.toLowerCase().includes(q))) {
+          cadenas.push({
+            type: 'cadena',
+            id: f.id,
+            title: f.nombre,
+            searchQuery: f.nombre,
+            subtitle: `${f.ciudad_sede ? f.ciudad_sede + ' · ' : ''}${f.pais} · ${f.clubs_abiertos || 1} clubs · ${f.pistas_totales || ''} pistas`,
+            icon: '🏢',
+            badge: (f.tipo_categoria || 'CADENA').toUpperCase(),
+            badgeClass: 'bg-sky-100 text-sky-800',
+            entity: f
+          });
         }
       });
 
-      Array.from(locationMap.values()).slice(0, 3).forEach(loc => {
-        suggestions.push({
-          type: 'location',
-          name: loc.name,
-          title: loc.name,
-          subtitle: `${loc.context} · ${loc.count} cadenas con presencia`,
-          icon: '📍',
-          badge: loc.type.toUpperCase(),
-          sample: loc.sample
-        });
-      });
-
-      // 3. Coincidencias en Sub-clubes individuales si existen
-      let subClubMatches = [];
+      // =======================================================================
+      // 2. COINCIDENCIAS EN CLUBS Y SEDES (🎾)
+      // =======================================================================
+      const clubs = [];
+      const seenClubs = new Set();
+      
+      // A) Sub-clubs estructurados con coordenadas
       FRANQUICIAS.forEach(f => {
         if (f.sub_clubs && f.sub_clubs.length > 0) {
           f.sub_clubs.forEach(sub => {
-            if ((sub.nombre && sub.nombre.toLowerCase().includes(q)) || (sub.ciudad && sub.ciudad.toLowerCase().includes(q))) {
-              subClubMatches.push({
-                type: 'sub_club',
-                franchiseId: f.id,
-                franchiseName: f.nombre,
-                title: sub.nombre,
-                subtitle: `Red ${f.nombre} · ${sub.ciudad || ''} (${sub.pistas || 'Pistas'})`,
-                icon: '🎾',
-                badge: 'CLUB',
-                sub: sub,
-                parent: f
-              });
+            const nameMatch = sub.nombre && sub.nombre.toLowerCase().includes(q);
+            const cityMatch = sub.ciudad && sub.ciudad.toLowerCase().includes(q);
+            if (nameMatch || cityMatch) {
+              const key = (sub.nombre || '').toLowerCase();
+              if (!seenClubs.has(key)) {
+                seenClubs.add(key);
+                clubs.push({
+                  type: 'club',
+                  title: sub.nombre,
+                  searchQuery: sub.nombre,
+                  subtitle: `Red ${f.nombre} · ${sub.ciudad || ''} (${sub.pistas || 'Pistas'})`,
+                  icon: '🎾',
+                  badge: 'CLUB',
+                  badgeClass: 'bg-emerald-100 text-emerald-800',
+                  coords: sub.coords,
+                  parent: f,
+                  sub: sub
+                });
+              }
             }
           });
         }
       });
 
-      subClubMatches.slice(0, 3).forEach(sm => suggestions.push(sm));
+      // B) Sedes principales detalladas
+      FRANQUICIAS.forEach(f => {
+        if (f.sedes_principales && f.sedes_principales.length > 0) {
+          f.sedes_principales.forEach(sedeStr => {
+            if (sedeStr.toLowerCase().includes(q)) {
+              const cleanTitle = sedeStr.split('(')[0].trim();
+              const key = cleanTitle.toLowerCase();
+              if (!seenClubs.has(key) && cleanTitle.length > 3) {
+                seenClubs.add(key);
+                clubs.push({
+                  type: 'club',
+                  title: cleanTitle,
+                  searchQuery: cleanTitle,
+                  subtitle: `Red ${f.nombre} · ${f.ciudad_sede || f.pais}`,
+                  icon: '🎾',
+                  badge: 'SEDE',
+                  badgeClass: 'bg-emerald-100 text-emerald-800',
+                  coords: f.coords,
+                  parent: f,
+                  sub: null
+                });
+              }
+            }
+          });
+        }
+      });
 
-      if (suggestions.length === 0) {
+      // =======================================================================
+      // 3. COINCIDENCIAS EN PAÍSES (🌍)
+      // =======================================================================
+      const paisesMap = new Map();
+      FRANQUICIAS.forEach(f => {
+        const pName = f.pais || '';
+        const pCode = (f.pais_codigo || '').toLowerCase();
+        if (pName.toLowerCase().includes(q) || pCode === q) {
+          const key = pName.toLowerCase();
+          if (!paisesMap.has(key)) {
+            paisesMap.set(key, {
+              type: 'pais',
+              name: pName,
+              code: f.region_filtro || f.pais_codigo,
+              flag: f.bandera || '🌍',
+              title: `${pName} ${f.bandera || ''}`.trim(),
+              searchQuery: pName,
+              count: 1,
+              sample: f
+            });
+          } else {
+            paisesMap.get(key).count++;
+          }
+        }
+      });
+
+      const paises = Array.from(paisesMap.values()).map(p => ({
+        ...p,
+        subtitle: `${p.count} ${p.count === 1 ? 'cadena con presencia' : 'cadenas y franquicias con presencia'}`,
+        icon: '🌍',
+        badge: 'PAÍS',
+        badgeClass: 'bg-purple-100 text-purple-800'
+      }));
+
+      // =======================================================================
+      // 4. COINCIDENCIAS EN CIUDADES (📍)
+      // =======================================================================
+      const ciudadesMap = new Map();
+      FRANQUICIAS.forEach(f => {
+        if (f.ciudad_sede && f.ciudad_sede.toLowerCase().includes(q)) {
+          const rawCities = f.ciudad_sede.split(/[\/,]/).map(c => c.trim()).filter(Boolean);
+          rawCities.forEach(cName => {
+            if (cName.toLowerCase().includes(q)) {
+              const key = cName.toLowerCase();
+              if (!ciudadesMap.has(key)) {
+                ciudadesMap.set(key, {
+                  type: 'ciudad',
+                  name: cName,
+                  title: cName,
+                  searchQuery: cName,
+                  country: f.pais,
+                  count: 1,
+                  coords: f.coords,
+                  sample: f
+                });
+              } else {
+                ciudadesMap.get(key).count++;
+              }
+            }
+          });
+        }
+
+        if (f.sub_clubs) {
+          f.sub_clubs.forEach(sub => {
+            if (sub.ciudad && sub.ciudad.toLowerCase().includes(q)) {
+              const key = sub.ciudad.toLowerCase();
+              if (!ciudadesMap.has(key)) {
+                ciudadesMap.set(key, {
+                  type: 'ciudad',
+                  name: sub.ciudad,
+                  title: sub.ciudad,
+                  searchQuery: sub.ciudad,
+                  country: f.pais,
+                  count: 1,
+                  coords: sub.coords,
+                  sample: f
+                });
+              } else {
+                ciudadesMap.get(key).count++;
+              }
+            }
+          });
+        }
+      });
+
+      const ciudades = Array.from(ciudadesMap.values()).map(c => ({
+        ...c,
+        subtitle: `${c.country} · ${c.count} ${c.count === 1 ? 'red/club vinculado' : 'redes/clubs vinculados'}`,
+        icon: '📍',
+        badge: 'CIUDAD',
+        badgeClass: 'bg-amber-100 text-amber-900'
+      }));
+
+      const totalMatches = cadenas.length + clubs.length + paises.length + ciudades.length;
+
+      if (totalMatches === 0) {
         menu.innerHTML = `
-          <div class="px-4 py-3 text-center text-xs text-slate-500 font-medium">
-            No se encontraron coincidencias para "<span class="font-bold text-slate-800">${escapeHtml(query)}</span>"
+          <div class="px-4 py-4 text-center">
+            <div class="text-sm font-bold text-slate-700 mb-1">No se encontraron resultados para "${escapeHtml(query)}"</div>
+            <div class="text-xs text-slate-500">Prueba a buscar por <span class="font-bold text-slate-700">cadena</span> (ej: BamVolea), <span class="font-bold text-slate-700">club</span> (ej: Las Rozas), <span class="font-bold text-slate-700">país</span> (ej: España) o <span class="font-bold text-slate-700">ciudad</span> (ej: Madrid).</div>
           </div>
         `;
         menu.classList.remove('hidden');
@@ -17018,36 +17223,123 @@
         return;
       }
 
-      // Renderizar lista de sugerencias interactivas
+      // Si la pestaña activa no tiene resultados, volver a 'all'
+      if (currentSuggestionTab === 'cadenas' && cadenas.length === 0) currentSuggestionTab = 'all';
+      if (currentSuggestionTab === 'clubs' && clubs.length === 0) currentSuggestionTab = 'all';
+      if (currentSuggestionTab === 'paises' && paises.length === 0) currentSuggestionTab = 'all';
+      if (currentSuggestionTab === 'ciudades' && ciudades.length === 0) currentSuggestionTab = 'all';
+
+      // =======================================================================
+      // RENDERIZAR TABS DE CATEGORÍA
+      // =======================================================================
       let html = `
-        <div class="px-3.5 py-1.5 text-[10px] font-black uppercase tracking-wider text-slate-400 bg-slate-50 border-b border-slate-100 flex items-center justify-between">
-          <span>Opciones encontradas (${suggestions.length})</span>
-          <span class="text-slate-400 font-semibold text-[9px]">Pulsa para seleccionar</span>
+        <div class="flex items-center gap-1.5 px-3 py-2 bg-slate-50 border-b border-slate-100 overflow-x-auto text-[10px] font-extrabold">
+          <button type="button" onclick="setSuggestionTab('all', event)" class="px-2.5 py-1 rounded-lg shrink-0 transition ${currentSuggestionTab === 'all' ? 'bg-slate-900 text-white shadow-xs' : 'bg-white text-slate-600 border border-slate-200 hover:bg-slate-100'}">
+            Todos (${totalMatches})
+          </button>
+          ${cadenas.length > 0 ? `
+            <button type="button" onclick="setSuggestionTab('cadenas', event)" class="px-2 py-1 rounded-lg shrink-0 transition flex items-center gap-1 ${currentSuggestionTab === 'cadenas' ? 'bg-[#f2920b] text-slate-950 font-black shadow-xs' : 'bg-white text-slate-600 border border-slate-200 hover:bg-slate-100'}">
+              <span>🏢 Cadenas</span>
+              <span class="text-[9px] opacity-80">(${cadenas.length})</span>
+            </button>
+          ` : ''}
+          ${clubs.length > 0 ? `
+            <button type="button" onclick="setSuggestionTab('clubs', event)" class="px-2 py-1 rounded-lg shrink-0 transition flex items-center gap-1 ${currentSuggestionTab === 'clubs' ? 'bg-[#f2920b] text-slate-950 font-black shadow-xs' : 'bg-white text-slate-600 border border-slate-200 hover:bg-slate-100'}">
+              <span>🎾 Clubs</span>
+              <span class="text-[9px] opacity-80">(${clubs.length})</span>
+            </button>
+          ` : ''}
+          ${paises.length > 0 ? `
+            <button type="button" onclick="setSuggestionTab('paises', event)" class="px-2 py-1 rounded-lg shrink-0 transition flex items-center gap-1 ${currentSuggestionTab === 'paises' ? 'bg-[#f2920b] text-slate-950 font-black shadow-xs' : 'bg-white text-slate-600 border border-slate-200 hover:bg-slate-100'}">
+              <span>🌍 Países</span>
+              <span class="text-[9px] opacity-80">(${paises.length})</span>
+            </button>
+          ` : ''}
+          ${ciudades.length > 0 ? `
+            <button type="button" onclick="setSuggestionTab('ciudades', event)" class="px-2 py-1 rounded-lg shrink-0 transition flex items-center gap-1 ${currentSuggestionTab === 'ciudades' ? 'bg-[#f2920b] text-slate-950 font-black shadow-xs' : 'bg-white text-slate-600 border border-slate-200 hover:bg-slate-100'}">
+              <span>📍 Ciudades</span>
+              <span class="text-[9px] opacity-80">(${ciudades.length})</span>
+            </button>
+          ` : ''}
         </div>
       `;
 
-      suggestions.slice(0, 7).forEach((item, idx) => {
-        const highlightedTitle = highlightMatch(item.title, q);
-        html += `
-          <div class="search-suggestion-item flex items-center justify-between px-3.5 py-2.5 hover:bg-amber-50 cursor-pointer transition border-b border-slate-50 last:border-0"
-               data-index="${idx}"
-               onclick="executeSearchSuggestion(${idx})">
-            <div class="flex items-center gap-2.5 min-w-0">
-              <span class="w-7 h-7 rounded-xl bg-slate-100 border border-slate-200 flex items-center justify-center text-xs shrink-0">${item.icon}</span>
-              <div class="truncate">
-                <div class="text-xs font-bold text-slate-900 truncate flex items-center gap-1.5">
-                  <span>${highlightedTitle}</span>
-                  <span class="text-[9px] px-1.5 py-0.2 rounded bg-slate-100 text-slate-600 font-extrabold uppercase">${item.badge}</span>
-                </div>
-                <div class="text-[10px] text-slate-500 font-medium truncate">${item.subtitle}</div>
-              </div>
-            </div>
-            <span class="text-[11px] font-bold text-amber-600 shrink-0 ml-2">Ver →</span>
-          </div>
-        `;
-      });
+      let itemsToRender = [];
 
-      currentRenderedSuggestions = suggestions.slice(0, 7);
+      if (currentSuggestionTab === 'all') {
+        // Vista agrupada 'Todos': muestra hasta 3 de cada categoría con encabezados claros
+        const sections = [
+          { key: 'cadenas', title: '🏢 Cadenas y Franquicias', list: cadenas.slice(0, 3) },
+          { key: 'clubs', title: '🎾 Clubs y Sedes', list: clubs.slice(0, 3) },
+          { key: 'paises', title: '🌍 Países y Mercados', list: paises.slice(0, 2) },
+          { key: 'ciudades', title: '📍 Ciudades', list: ciudades.slice(0, 3) }
+        ];
+
+        let globalIndex = 0;
+        sections.forEach(sec => {
+          if (sec.list.length > 0) {
+            html += `
+              <div class="px-3.5 py-1 text-[9px] font-black uppercase tracking-wider text-slate-400 bg-slate-100/60 border-b border-slate-100 flex items-center justify-between">
+                <span>${sec.title}</span>
+                <span class="text-[9px] font-bold text-slate-400">${sec.list.length} sugerencias</span>
+              </div>
+            `;
+            sec.list.forEach(item => {
+              const currentIdx = globalIndex++;
+              itemsToRender.push(item);
+              const highlightedTitle = highlightMatch(item.title, q);
+              html += `
+                <div class="search-suggestion-item flex items-center justify-between px-3.5 py-2.5 hover:bg-amber-50 cursor-pointer transition border-b border-slate-50 last:border-0"
+                     data-index="${currentIdx}"
+                     onclick="executeSearchSuggestion(${currentIdx})">
+                  <div class="flex items-center gap-2.5 min-w-0">
+                    <span class="w-7 h-7 rounded-xl bg-slate-100 border border-slate-200 flex items-center justify-center text-xs shrink-0">${item.icon}</span>
+                    <div class="truncate">
+                      <div class="text-xs font-bold text-slate-900 truncate flex items-center gap-1.5">
+                        <span>${highlightedTitle}</span>
+                        <span class="text-[8px] px-1.5 py-0.2 rounded font-extrabold uppercase ${item.badgeClass}">${item.badge}</span>
+                      </div>
+                      <div class="text-[10px] text-slate-500 font-medium truncate">${item.subtitle}</div>
+                    </div>
+                  </div>
+                  <span class="text-[10px] font-extrabold text-[#f2920b] shrink-0 ml-2">Seleccionar →</span>
+                </div>
+              `;
+            });
+          }
+        });
+      } else {
+        // Vista filtrada por una categoría específica
+        let sourceList = [];
+        if (currentSuggestionTab === 'cadenas') sourceList = cadenas;
+        else if (currentSuggestionTab === 'clubs') sourceList = clubs;
+        else if (currentSuggestionTab === 'paises') sourceList = paises;
+        else if (currentSuggestionTab === 'ciudades') sourceList = ciudades;
+
+        itemsToRender = sourceList.slice(0, 10);
+        itemsToRender.forEach((item, idx) => {
+          const highlightedTitle = highlightMatch(item.title, q);
+          html += `
+            <div class="search-suggestion-item flex items-center justify-between px-3.5 py-2.5 hover:bg-amber-50 cursor-pointer transition border-b border-slate-50 last:border-0"
+                 data-index="${idx}"
+                 onclick="executeSearchSuggestion(${idx})">
+              <div class="flex items-center gap-2.5 min-w-0">
+                <span class="w-7 h-7 rounded-xl bg-slate-100 border border-slate-200 flex items-center justify-center text-xs shrink-0">${item.icon}</span>
+                <div class="truncate">
+                  <div class="text-xs font-bold text-slate-900 truncate flex items-center gap-1.5">
+                    <span>${highlightedTitle}</span>
+                    <span class="text-[8px] px-1.5 py-0.2 rounded font-extrabold uppercase ${item.badgeClass}">${item.badge}</span>
+                  </div>
+                  <div class="text-[10px] text-slate-500 font-medium truncate">${item.subtitle}</div>
+                </div>
+              </div>
+              <span class="text-[10px] font-extrabold text-[#f2920b] shrink-0 ml-2">Seleccionar →</span>
+            </div>
+          `;
+        });
+      }
+
+      currentRenderedSuggestions = itemsToRender;
       menu.innerHTML = html;
       menu.classList.remove('hidden');
       selectedSuggestionIndex = -1;
@@ -17058,44 +17350,50 @@
       const item = currentRenderedSuggestions[index];
       const searchInput = document.getElementById('searchInput');
 
-      if (item.type === 'franchise') {
-        const f = item.entity || FRANQUICIAS.find(x => x.id === item.id);
-        if (searchInput && f) searchInput.value = f.nombre;
-        hideSearchSuggestions();
-        applyFilters();
+      if (searchInput) {
+        searchInput.value = item.searchQuery || item.title;
+      }
+      hideSearchSuggestions();
+      applyFilters();
 
+      const clearBtn = document.getElementById('searchClearBtn');
+      if (clearBtn) clearBtn.classList.remove('hidden');
+
+      if (item.type === 'cadena') {
+        const f = item.entity || FRANQUICIAS.find(x => x.id === item.id);
         if (f) {
           zoomToClubRegion(f, f.id);
+          if (f.sub_clubs && f.sub_clubs.length > 0) {
+            deploySubClubs(f);
+          }
           setTimeout(() => {
             if (markersById[f.id]) {
               markersById[f.id].openPopup();
             }
-          }, 600);
+          }, 500);
         }
-      } else if (item.type === 'location') {
-        if (searchInput) searchInput.value = item.name;
-        hideSearchSuggestions();
-        applyFilters();
-
-        if (item.sample) {
-          zoomToClubRegion(item.sample, item.sample.id);
-        }
-      } else if (item.type === 'sub_club') {
-        if (searchInput) searchInput.value = item.title;
-        hideSearchSuggestions();
-        applyFilters();
-
-        const parent = item.parent;
-        if (parent) {
-          deploySubClubs(parent);
-          if (item.sub && item.sub.coords && map) {
-            map.flyTo(item.sub.coords, 12, { animate: true, duration: 1.2 });
+      } else if (item.type === 'club') {
+        if (item.parent) {
+          deploySubClubs(item.parent);
+          if (item.coords && map) {
+            map.flyTo(item.coords, 14, { animate: true, duration: 1.2 });
+          } else if (item.parent.coords && map) {
+            map.flyTo(item.parent.coords, 13, { animate: true, duration: 1.2 });
           }
         }
+      } else if (item.type === 'pais') {
+        if (item.code && REGION_BOUNDS[item.code]) {
+          selectRegion(item.code, item.name, item.flag || '🌍');
+        } else {
+          applyFilters();
+          if (item.sample) {
+            zoomToClubRegion(item.sample, item.sample.id);
+          }
+        }
+      } else if (item.type === 'ciudad') {
+        flyToCity(item.name, item.coords, item.sample);
+        applyFilters();
       }
-
-      const clearBtn = document.getElementById('searchClearBtn');
-      if (clearBtn) clearBtn.classList.remove('hidden');
     }
 
     function handleSearchKeyDown(e) {

@@ -228,6 +228,16 @@ def get_base_html(active_lang="es", is_subfolder=False):
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="CoolPadel Studios">
 
+  <!-- LLM & AI Search Engine Discovery (llmstxt.org) -->
+  <link rel="alternate" type="text/markdown" href="https://coolpadelstudios.com/llms.txt" title="LLMs.txt">
+  <link rel="alternate" type="text/markdown" href="https://coolpadelstudios.com/llms-full.txt" title="LLMs-Full.txt">
+
+  <!-- Geo Tags for Local SEO & GEO (Madrid, Spain / Europe / Worldwide) -->
+  <meta name="geo.region" content="ES-MD">
+  <meta name="geo.placename" content="Madrid">
+  <meta name="geo.position" content="40.4168;-3.7038">
+  <meta name="ICBM" content="40.4168, -3.7038">
+
   <!-- Etiquetas Hreflang para SEO Internacional Multilingüe -->
   <link rel="alternate" hreflang="es" href="https://coolpadelstudios.com/">
   <link rel="alternate" hreflang="en" href="https://coolpadelstudios.com/en/">
@@ -572,8 +582,10 @@ def get_base_html(active_lang="es", is_subfolder=False):
   <link rel="preload" as="image" href="{asset_prefix}assets/images/slide-1.jpg" fetchpriority="high">
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  </noscript>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {{
