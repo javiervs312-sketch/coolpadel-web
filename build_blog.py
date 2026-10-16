@@ -337,11 +337,8 @@ def generate_blog_index():
               </div>
 
               <!-- BOTÓN CONTACTAR -->
-              <a href="../#contacto" class="group relative inline-flex items-center gap-1.5 px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] active:bg-[#76d3f6] text-slate-950 active:scale-95 font-heading font-black text-xs sm:text-xs lg:text-sm tracking-wider uppercase transition-all duration-300 shadow-[0_4px_12px_rgba(242,146,11,0.2)] hover:scale-105 shrink-0 overflow-hidden cursor-pointer">
+              <a href="../#contacto" class="group relative inline-flex items-center justify-center px-4 sm:px-5 py-1.5 sm:py-2 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] active:bg-[#76d3f6] text-slate-950 active:scale-95 font-heading font-black text-xs sm:text-xs lg:text-sm tracking-wider uppercase transition-all duration-300 shadow-[0_4px_12px_rgba(242,146,11,0.2)] hover:scale-105 shrink-0 overflow-hidden cursor-pointer">
                 <span class="font-black">Contactar</span>
-                <div class="w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-slate-950/10 group-hover:bg-slate-950 group-hover:text-white flex items-center justify-center transition-all duration-300 shrink-0">
-                  <i data-lucide="arrow-down" class="w-2.5 h-2.5 sm:w-3 sm:h-3 stroke-[3] group-hover:translate-y-0.5 transition-transform duration-300"></i>
-                </div>
               </a>
             </div>
           </div>
@@ -401,11 +398,8 @@ def generate_blog_index():
               </div>
 
               <!-- BOTÓN CONTACTAR MÓVIL -->
-              <a href="../#contacto" class="group relative inline-flex items-center justify-center gap-1 px-2.5 py-1 rounded-full bg-[#f2920b] active:bg-[#76d3f6] text-slate-950 active:scale-95 font-heading font-black text-[10px] uppercase tracking-wider transition shadow-xs shrink-0 cursor-pointer">
+              <a href="../#contacto" class="group relative inline-flex items-center justify-center px-3 py-1 rounded-full bg-[#f2920b] active:bg-[#76d3f6] text-slate-950 active:scale-95 font-heading font-black text-[10px] uppercase tracking-wider transition shadow-xs shrink-0 cursor-pointer">
                 <span class="font-black">Contactar</span>
-                <div class="w-3 h-3 rounded-full bg-slate-950/10 flex items-center justify-center">
-                  <i data-lucide="arrow-down" class="w-2 h-2 stroke-[3]"></i>
-                </div>
               </a>
             </div>
           </div>
@@ -1003,11 +997,8 @@ def generate_article_page(slug, edition_num, title, date_str, read_time, cover_i
               </div>
 
               <!-- BOTÓN CONTACTAR -->
-              <a href="../../#contacto" class="group relative inline-flex items-center gap-1.5 px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] active:bg-[#76d3f6] text-slate-950 active:scale-95 font-heading font-black text-xs sm:text-xs lg:text-sm tracking-wider uppercase transition-all duration-300 shadow-[0_4px_12px_rgba(242,146,11,0.2)] hover:scale-105 shrink-0 overflow-hidden cursor-pointer">
+              <a href="../../#contacto" class="group relative inline-flex items-center justify-center px-4 sm:px-5 py-1.5 sm:py-2 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] active:bg-[#76d3f6] text-slate-950 active:scale-95 font-heading font-black text-xs sm:text-xs lg:text-sm tracking-wider uppercase transition-all duration-300 shadow-[0_4px_12px_rgba(242,146,11,0.2)] hover:scale-105 shrink-0 overflow-hidden cursor-pointer">
                 <span class="font-black">Contactar</span>
-                <div class="w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-slate-950/10 group-hover:bg-slate-950 group-hover:text-white flex items-center justify-center transition-all duration-300 shrink-0">
-                  <i data-lucide="arrow-down" class="w-2.5 h-2.5 sm:w-3 sm:h-3 stroke-[3]"></i>
-                </div>
               </a>
             </div>
           </div>
@@ -1067,11 +1058,8 @@ def generate_article_page(slug, edition_num, title, date_str, read_time, cover_i
               </div>
 
               <!-- BOTÓN CONTACTAR MÓVIL -->
-              <a href="../../#contacto" class="group relative inline-flex items-center justify-center gap-1 px-2.5 py-1 rounded-full bg-[#f2920b] active:bg-[#76d3f6] text-slate-950 active:scale-95 font-heading font-black text-[10px] uppercase tracking-wider transition shadow-xs shrink-0 cursor-pointer">
+              <a href="../../#contacto" class="group relative inline-flex items-center justify-center px-3 py-1 rounded-full bg-[#f2920b] active:bg-[#76d3f6] text-slate-950 active:scale-95 font-heading font-black text-[10px] uppercase tracking-wider transition shadow-xs shrink-0 cursor-pointer">
                 <span class="font-black">Contactar</span>
-                <div class="w-3 h-3 rounded-full bg-slate-950/10 flex items-center justify-center">
-                  <i data-lucide="arrow-down" class="w-2 h-2 stroke-[3]"></i>
-                </div>
               </a>
             </div>
           </div>
@@ -1435,11 +1423,8 @@ def generate_guide_page(slug, category_badge, title, subtitle, meta_desc, date_s
               </div>
 
               <!-- BOTÓN CONTACTAR -->
-              <a href="../../#contacto" class="group relative inline-flex items-center gap-1.5 px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] active:bg-[#76d3f6] text-slate-950 active:scale-95 font-heading font-black text-xs sm:text-xs lg:text-sm tracking-wider uppercase transition-all duration-300 shadow-[0_4px_12px_rgba(242,146,11,0.2)] hover:scale-105 shrink-0 overflow-hidden cursor-pointer">
+              <a href="../../#contacto" class="group relative inline-flex items-center justify-center px-4 sm:px-5 py-1.5 sm:py-2 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] active:bg-[#76d3f6] text-slate-950 active:scale-95 font-heading font-black text-xs sm:text-xs lg:text-sm tracking-wider uppercase transition-all duration-300 shadow-[0_4px_12px_rgba(242,146,11,0.2)] hover:scale-105 shrink-0 overflow-hidden cursor-pointer">
                 <span class="font-black">Contactar</span>
-                <div class="w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-slate-950/10 group-hover:bg-slate-950 group-hover:text-white flex items-center justify-center transition-all duration-300 shrink-0">
-                  <i data-lucide="arrow-down" class="w-2.5 h-2.5 sm:w-3 sm:h-3 stroke-[3]"></i>
-                </div>
               </a>
             </div>
           </div>
@@ -1480,11 +1465,8 @@ def generate_guide_page(slug, category_badge, title, subtitle, meta_desc, date_s
               </div>
 
               <!-- BOTÓN CONTACTAR MÓVIL -->
-              <a href="../../#contacto" class="group relative inline-flex items-center justify-center gap-1 px-2.5 py-1 rounded-full bg-[#f2920b] active:bg-[#76d3f6] text-slate-950 active:scale-95 font-heading font-black text-[10px] uppercase tracking-wider transition shadow-xs shrink-0 cursor-pointer">
+              <a href="../../#contacto" class="group relative inline-flex items-center justify-center px-3 py-1 rounded-full bg-[#f2920b] active:bg-[#76d3f6] text-slate-950 active:scale-95 font-heading font-black text-[10px] uppercase tracking-wider transition shadow-xs shrink-0 cursor-pointer">
                 <span class="font-black">Contactar</span>
-                <div class="w-3 h-3 rounded-full bg-slate-950/10 flex items-center justify-center">
-                  <i data-lucide="arrow-down" class="w-2 h-2 stroke-[3]"></i>
-                </div>
               </a>
             </div>
           </div>
