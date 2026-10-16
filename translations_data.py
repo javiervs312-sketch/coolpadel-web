@@ -239,9 +239,17 @@ TRANSLATIONS = {
         "popup_btn": "Download Report (PDF)",
         "popup_btn_success": "Downloading Report!",
 
-        # Contacto & WhatsApp
-        "contact_title": "Contact",
-        "contact_wa_btn": "Direct WhatsApp",
+        # Contacto & WhatsApp / Email (ITAC Style with QR)
+        "contact_title": "Contact Us & Let's Talk About Your Club",
+        "contact_subtitle": "Direct and personal support to equip your courts with Save my Play or manufacture official 3D custom keychains.",
+        "contact_wa_title": "Direct WhatsApp",
+        "contact_wa_desc": "Instant support for technical inquiries, custom quotes or physical sample requests within 24 hours.",
+        "contact_wa_btn": "Chat on WhatsApp",
+        "contact_wa_qr_hint": "Scan with your phone camera to chat directly on WhatsApp",
+        "contact_mail_title": "Official Email",
+        "contact_mail_desc": "Send us your vector club logo for a free 3D digital mockup or request our full technical dossier.",
+        "contact_mail_btn": "Send Email to Javier",
+        "contact_mail_qr_hint": "Scan to open your default email client",
         "wa_floating_tooltip": "Let's talk",
         "wa_prefilled_msg": "Hello Javier"
     },
@@ -356,9 +364,17 @@ TRANSLATIONS = {
         "popup_btn": "Télécharger le Rapport (PDF)",
         "popup_btn_success": "Téléchargement en cours !",
 
-        # Contacto & WhatsApp
-        "contact_title": "Contact",
-        "contact_wa_btn": "WhatsApp Direct",
+        # Contacto & WhatsApp / Email (Style ITAC avec QR)
+        "contact_title": "Contactez-nous pour votre club",
+        "contact_subtitle": "Accompagnement direct pour équiper vos terrains avec Save my Play ou fabriquer vos porte-clés 3D officiels.",
+        "contact_wa_title": "WhatsApp Direct",
+        "contact_wa_desc": "Assistance immédiate pour vos questions techniques, échantillons physiques ou devis sur mesure sous 24h.",
+        "contact_wa_btn": "Discuter sur WhatsApp",
+        "contact_wa_qr_hint": "Scannez avec votre smartphone pour ouvrir WhatsApp directement",
+        "contact_mail_title": "Email Officiel",
+        "contact_mail_desc": "Envoyez-nous le logo vectoriel de votre club pour un rendu 3D gratuit ou demander le dossier technique.",
+        "contact_mail_btn": "Envoyer un Email à Javier",
+        "contact_mail_qr_hint": "Scannez pour ouvrir votre application de messagerie",
         "wa_floating_tooltip": "Discutons",
         "wa_prefilled_msg": "Bonjour Javier"
     },
@@ -473,9 +489,17 @@ TRANSLATIONS = {
         "popup_btn": "Scarica il Report (PDF)",
         "popup_btn_success": "Download in corso!",
 
-        # Contacto & WhatsApp
-        "contact_title": "Contatto",
-        "contact_wa_btn": "WhatsApp Diretto",
+        # Contacto & WhatsApp / Email (Stile ITAC con QR)
+        "contact_title": "Contattaci per il tuo Club",
+        "contact_subtitle": "Assistenza diretta e personalizzata per installare Save my Play sui tuoi campi o produrre i tuoi portachiavi 3D ufficiali.",
+        "contact_wa_title": "WhatsApp Diretto",
+        "contact_wa_desc": "Supporto immediato per chiarire dubbi tecnici, campioni fisici o preventivi su misura in meno di 24 ore.",
+        "contact_wa_btn": "Chatta su WhatsApp",
+        "contact_wa_qr_hint": "Scansiona con la fotocamera del tuo smartphone per aprire WhatsApp",
+        "contact_mail_title": "Email Ufficiale",
+        "contact_mail_desc": "Inviaci il logo vettoriale del tuo club per un render 3D gratuito o richiedere il dossier completo.",
+        "contact_mail_btn": "Invia un'Email a Javier",
+        "contact_mail_qr_hint": "Scansiona per aprire il tuo client di posta",
         "wa_floating_tooltip": "Parliamo?",
         "wa_prefilled_msg": "Ciao Javier"
     }
