@@ -1505,14 +1505,11 @@ def get_base_html(active_lang="es", is_subfolder=False):
             <div class="pt-2 pb-1">
               <div class="p-2.5 bg-white border border-slate-200 rounded-2xl shadow-xs inline-block group-hover:border-emerald-300 transition">
                 <img src="{asset_prefix}assets/images/qr_whatsapp_coolpadel.png" 
-                     alt="{t['contact_wa_qr_hint']}" 
+                     alt="WhatsApp CoolPadel" 
                      width="128" height="128" 
                      class="w-24 h-24 sm:w-28 sm:h-28 object-contain" 
                      loading="lazy">
               </div>
-              <p data-i18n="contact_wa_qr_hint" class="text-[11px] text-slate-600 mt-1.5 font-medium">
-                {t['contact_wa_qr_hint']}
-              </p>
             </div>
           </div>
 
@@ -1545,14 +1542,11 @@ def get_base_html(active_lang="es", is_subfolder=False):
             <div class="pt-2 pb-1">
               <div class="p-2.5 bg-white border border-slate-200 rounded-2xl shadow-xs inline-block group-hover:border-sky-300 transition">
                 <img src="{asset_prefix}assets/images/qr_email_coolpadel.png" 
-                     alt="{t['contact_mail_qr_hint']}" 
+                     alt="Email CoolPadel" 
                      width="128" height="128" 
                      class="w-24 h-24 sm:w-28 sm:h-28 object-contain" 
                      loading="lazy">
               </div>
-              <p data-i18n="contact_mail_qr_hint" class="text-[11px] text-slate-600 mt-1.5 font-medium">
-                {t['contact_mail_qr_hint']}
-              </p>
             </div>
           </div>
 
