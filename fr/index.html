@@ -582,6 +582,32 @@
     }
     body { font-family: 'Plus Jakarta Sans', sans-serif; }
     h1, h2, h3, h4, .font-heading { font-family: 'Outfit', sans-serif; }
+
+    /* Marca de agua fija estilo Itaca Academia para la parte blanca de la web */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: min(85vw, 720px);
+      height: min(85vh, 720px);
+      background-image: url('../assets/images/branding/logo-watermark.webp');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+      opacity: 0.065;
+      pointer-events: none;
+      z-index: 1;
+      will-change: transform;
+    }
+    @media (max-width: 640px) {
+      body::before {
+        width: min(88vw, 360px);
+        height: min(88vw, 360px);
+        opacity: 0.05;
+      }
+    }
     
     .ticker-wrap {
       width: 100%;
@@ -591,6 +617,15 @@
     .ticker-content {
       display: inline-flex;
       white-space: nowrap;
+    }
+
+    /* Textura editorial oficial CoolPadel (Estilo Canva / Identidad de Marca) */
+    .bg-textured-blue {
+      background-color: #3478a6;
+      background-image: url('../assets/images/branding/textura_editorial_coolpadel.webp');
+      background-blend-mode: soft-light;
+      background-size: cover;
+      background-position: center;
     }
 
     /* Coverflow 3D Styles */
@@ -773,7 +808,7 @@
     }
   </style>
 </head>
-<body class="bg-[#0b1626] text-slate-100 min-h-screen relative selection:bg-cool-orange selection:text-white overflow-x-hidden w-full">
+<body class="bg-white text-slate-900 min-h-screen relative selection:bg-cool-orange selection:text-white overflow-x-hidden w-full">
 
   <!-- 2. NAVBAR BLANCA RESPONSIVE: SELECTOR DESPLEGABLE DE IDIOMA + LOGOS + CONTACTAR -->
   <header class="sticky top-0 z-40 bg-white text-slate-900 border-b border-slate-200 shadow-sm w-full">
@@ -923,7 +958,7 @@
     <div class="w-full max-w-6xl mx-auto px-3 sm:px-6">
       
       <!-- HERO CARD EN GRANDE -->
-      <div id="coverflow-0" class="relative w-full h-[340px] sm:h-[420px] lg:h-[480px] xl:h-[520px] rounded-3xl sm:rounded-[2.2rem] overflow-hidden bg-neutral-900 shadow-[0_20px_50px_-12px_rgba(0,0,0,0.35)] border border-slate-200/80 group">
+      <div id="coverflow-0" class="relative z-10 w-full h-[340px] sm:h-[420px] lg:h-[480px] xl:h-[520px] rounded-3xl sm:rounded-[2.2rem] overflow-hidden bg-neutral-900 shadow-[0_20px_50px_-12px_rgba(0,0,0,0.35)] border border-slate-200/80 group">
         <img src="../assets/images/slide-1.jpg" alt="Llaveros de pádel personalizados para clubs y comunidades CoolPadel" width="1920" height="1080" class="w-full h-full object-cover group-hover:scale-[1.015] transition-transform duration-700 ease-out" fetchpriority="high" decoding="async">
         
         <!-- Degradado inferior para máxima legibilidad -->
@@ -946,7 +981,7 @@
       </div>
 
       <!-- TEXTO EN ZONA DEBAJO DE LA FOTO (TRABAJAMOS CON CLUBS...) -->
-      <div class="mt-3 sm:mt-5 mb-0 text-center px-4">
+      <div class="mt-3 sm:mt-5 mb-0 text-center px-4 relative z-10">
         <p data-i18n="trusted_text" class="text-[12px] sm:text-[15px] lg:text-[17px] font-heading font-extrabold uppercase tracking-widest text-slate-950 leading-snug">
           Nous travaillons avec des <span class="text-[#76d3f6]">clubs</span>, <span class="text-[#f2920b]">marques</span> et <span class="text-[#3478a6]">fédérations</span> du monde entier
         </p>
@@ -964,8 +999,8 @@
     </div>
   </section>
 
-  <!-- 5. SECCIÓN DETALLADA: LLAVEROS PARA CLUBS (FONDO CELESTE #3478a6) -->
-  <section id="llaveros" itemscope itemtype="https://schema.org/Product" class="py-14 sm:py-20 bg-[#3478a6] relative border-b border-sky-700/40 text-white overflow-hidden">
+  <!-- 5. SECCIÓN DETALLADA: LLAVEROS PARA CLUBS (FONDO CELESTE #3478a6 CON TEXTURA CANVA) -->
+  <section id="llaveros" itemscope itemtype="https://schema.org/Product" class="py-14 sm:py-20 bg-[#3478a6] bg-textured-blue relative z-10 border-b border-sky-700/40 text-white overflow-hidden">
     <!-- GEO & Generative AI Semantic Microdata Block (Invisible visually, accessible to Screen Readers and AI Crawlers) -->
     <div class="sr-only">
       <h2 itemprop="name">Porte-clés de Padel Personnalisés 3D CoolPadel Studios</h2>
@@ -1653,8 +1688,8 @@
     </div>
   </section>
 
-  <!-- 9. FOOTER INFERIOR (COLOR CELESTE LLAVEROS #3478a6: BRANDING COOLPADEL, SILOS TEMÁTICOS SEO Y COPYRIGHT) -->
-  <footer class="bg-[#3478a6] text-white pt-14 pb-10 border-t border-sky-700/40 text-xs">
+  <!-- 9. FOOTER INFERIOR (COLOR CELESTE LLAVEROS #3478a6 CON TEXTURA CANVA: BRANDING COOLPADEL, SILOS TEMÁTICOS SEO Y COPYRIGHT) -->
+  <footer class="relative z-10 bg-[#3478a6] bg-textured-blue text-white pt-14 pb-10 border-t border-sky-700/40 text-xs">
     <div class="max-w-[1700px] mx-auto px-4 sm:px-8 space-y-10">
       
       <!-- TOP: BRANDING Y DESCRIPCIÓN B2B -->

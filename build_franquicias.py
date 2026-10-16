@@ -160,10 +160,12 @@ def render_html():
           </div>
 
           <div class="pt-2 border-t border-slate-100 flex items-center justify-between">
-            <span class="text-xs font-bold text-slate-500 group-hover:text-slate-900 transition">Ver Ficha & Dossier</span>
-            <span class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-slate-100 group-hover:bg-[#f2920b] group-hover:text-white transition">
+            <a href="./{fid}/" onclick="event.stopPropagation()" class="text-xs font-bold text-slate-500 hover:text-[#f2920b] transition flex items-center gap-1">
+              <span>Ver Ficha & Dossier</span>
+            </a>
+            <a href="./{fid}/" onclick="event.stopPropagation()" class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-slate-100 group-hover:bg-[#f2920b] group-hover:text-white transition" title="Ver ficha completa de {nombre}">
               <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
-            </span>
+            </a>
           </div>
         </article>
         """
@@ -194,11 +196,11 @@ def render_html():
           <td class="py-4 px-4 text-sm font-bold text-slate-800">{f['num_pistas']}</td>
           <td class="py-4 px-4 text-xs font-semibold text-slate-600">{f['software']}</td>
           <td class="py-4 px-4 text-xs text-slate-600 max-w-xs truncate">{f['tagline']}</td>
-          <td class="py-4 px-4 text-right">
-            <button class="inline-flex items-center gap-1 text-xs font-bold text-[#f2920b] hover:text-[#d97f08] transition">
-              <span>Dossier</span>
+          <td class="py-4 px-4 text-right" onclick="event.stopPropagation()">
+            <a href="./{fid}/" class="inline-flex items-center gap-1 text-xs font-bold text-[#f2920b] hover:text-[#d97f08] transition">
+              <span>Ficha</span>
               <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
-            </button>
+            </a>
           </td>
         </tr>
         """
@@ -1033,14 +1035,20 @@ def render_html():
     </div>
 
     <!-- Drawer Footer (Acciones) -->
-    <div class="p-5 border-t border-slate-200/90 bg-slate-50 flex items-center justify-between gap-3">
-      <a id="drawerWebBtn" href="#" target="_blank" class="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-white border border-slate-200 hover:bg-slate-100 text-slate-800 text-xs font-bold transition" rel="noopener noreferrer">
-        <span>Visitar Web Oficial</span>
-        <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
-      </a>
+    <div class="p-5 border-t border-slate-200/90 bg-slate-50 flex items-center justify-between gap-2 sm:gap-3 flex-wrap">
+      <div class="flex items-center gap-2">
+        <a id="drawerPageBtn" href="#" class="inline-flex items-center gap-1.5 px-3.5 sm:px-4 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold transition">
+          <span>Ver Ficha Completa</span>
+          <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+        </a>
+        <a id="drawerWebBtn" href="#" target="_blank" class="inline-flex items-center gap-1.5 px-3 sm:px-3.5 py-2.5 rounded-xl bg-white border border-slate-200 hover:bg-slate-100 text-slate-800 text-xs font-bold transition" rel="noopener noreferrer">
+          <span>Web</span>
+          <i data-lucide="external-link" class="w-3 h-3 text-slate-400"></i>
+        </a>
+      </div>
 
-      <a id="drawerWaBtn" href="#" target="_blank" class="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-xl bg-[#f2920b] hover:bg-[#76d3f6] text-slate-950 text-xs font-heading font-black uppercase tracking-wider transition" rel="noopener noreferrer">
-        <span>Consultar con Javier</span>
+      <a id="drawerWaBtn" href="#" target="_blank" class="inline-flex items-center gap-1.5 px-4 sm:px-5 py-2.5 rounded-xl bg-[#f2920b] hover:bg-[#76d3f6] text-slate-950 text-xs font-heading font-black uppercase tracking-wider transition" rel="noopener noreferrer">
+        <span>Consultar</span>
         <i data-lucide="message-circle" class="w-3.5 h-3.5 stroke-[2.5]"></i>
       </a>
     </div>
@@ -2916,6 +2924,7 @@ def render_html():
 
       // Botones
       document.getElementById('drawerWebBtn').href = f.web;
+      document.getElementById('drawerPageBtn').href = `./${{f.id}}/`;
       document.getElementById('drawerWaBtn').href = `https://wa.me/34680317486?text=Hola%20Javier%2C%20estoy%20viendo%20la%20ficha%20de%20${{encodeURIComponent(f.nombre)}}%20en%20el%20directorio%20y%20quiero%20hacerte%20una%20consulta`;
 
       // Mostrar

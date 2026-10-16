@@ -645,6 +645,13 @@ def render_landing(landing):
   <style>
     body {{ font-family: 'Plus Jakarta Sans', sans-serif; }}
     h1, h2, h3, h4, .font-heading {{ font-family: 'Outfit', sans-serif; }}
+    .bg-textured-blue {{
+      background-color: #3478a6;
+      background-image: url('../assets/images/branding/textura_editorial_coolpadel.webp');
+      background-blend-mode: soft-light;
+      background-size: cover;
+      background-position: center;
+    }}
   </style>
 </head>
 <body class="bg-[#f8fafc] text-slate-800 antialiased selection:bg-[#f2920b] selection:text-slate-950 min-h-screen flex flex-col">
@@ -744,8 +751,8 @@ def render_landing(landing):
       </div>
     </section>
 
-    <!-- TARIFAS & PROCESO -->
-    <section id="precios" class="py-14 sm:py-20 bg-[#3478a6] text-white border-b border-sky-700/40">
+    <!-- TARIFAS & PROCESO (FONDO AZUL TEXTURIZADO CANVA) -->
+    <section id="precios" class="py-14 sm:py-20 bg-[#3478a6] bg-textured-blue text-white border-b border-sky-700/40">
       <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div class="text-center max-w-2xl mx-auto mb-10 space-y-2">
@@ -809,8 +816,8 @@ def render_landing(landing):
     </section>
   </main>
 
-  <!-- FOOTER -->
-  <footer class="bg-[#3478a6] text-white/90 py-8 border-t border-sky-700/40 text-center text-xs">
+  <!-- FOOTER EN AZUL TEXTURIZADO CANVA -->
+  <footer class="bg-[#3478a6] bg-textured-blue text-white/90 py-8 border-t border-sky-700/40 text-center text-xs">
     <div class="max-w-7xl mx-auto px-4 space-y-3">
       <div class="flex flex-wrap items-center justify-center gap-x-3 gap-y-1.5">
         <a href="../" class="text-white hover:text-[#f2920b] font-bold transition">CoolPadel Studios</a>
