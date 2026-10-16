@@ -590,13 +590,13 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      width: min(85vw, 720px);
-      height: min(85vh, 720px);
+      width: min(85vw, 750px);
+      height: min(85vh, 750px);
       background-image: url('assets/images/branding/logo-watermark.webp');
       background-repeat: no-repeat;
       background-position: center;
       background-size: contain;
-      opacity: 0.065;
+      opacity: 0.08;
       pointer-events: none;
       z-index: 1;
       will-change: transform;
@@ -605,7 +605,7 @@
       body::before {
         width: min(88vw, 360px);
         height: min(88vw, 360px);
-        opacity: 0.05;
+        opacity: 0.06;
       }
     }
     
@@ -619,11 +619,11 @@
       white-space: nowrap;
     }
 
-    /* Textura editorial oficial CoolPadel (Estilo Canva / Identidad de Marca) */
+    /* Textura editorial oficial CoolPadel (Estilo Canva / Identidad de Marca Suave) */
     .bg-textured-blue {
       background-color: #3478a6;
-      background-image: url('assets/images/branding/textura_editorial_coolpadel.webp');
-      background-blend-mode: soft-light;
+      background-image: linear-gradient(rgba(52, 120, 166, 0.40), rgba(52, 120, 166, 0.40)), url('assets/images/branding/textura_editorial_coolpadel.webp');
+      background-blend-mode: normal, soft-light;
       background-size: cover;
       background-position: center;
     }
@@ -810,8 +810,8 @@
 </head>
 <body class="bg-white text-slate-900 min-h-screen relative selection:bg-cool-orange selection:text-white overflow-x-hidden w-full">
 
-  <!-- 2. NAVBAR BLANCA RESPONSIVE: SELECTOR DESPLEGABLE DE IDIOMA + LOGOS + CONTACTAR -->
-  <header class="sticky top-0 z-40 bg-white text-slate-900 border-b border-slate-200 shadow-sm w-full">
+  <!-- 2. NAVBAR BLANCA RESPONSIVE: SELECTOR DESPLEGABLE DE IDIOMA + LOGOS + CONTACTAR (FIJA AL HACER SCROLL) -->
+  <header class="fixed top-0 left-0 w-full z-40 bg-white/95 backdrop-blur-md text-slate-900 border-b border-slate-200 shadow-xs">
     <div class="w-full max-w-[1700px] mx-auto px-3 sm:px-6 lg:px-10 py-1.5 sm:py-0 h-auto sm:h-16 lg:h-18">
       
       <!-- DESKTOP NAVBAR (3 COLUMNAS: IZQUIERDA + CENTRO 100% + DERECHA) -->
@@ -952,6 +952,9 @@
 
     </div>
   </header>
+
+  <!-- Espaciador para compensar el header fijo -->
+  <div class="h-[76px] sm:h-16 lg:h-18 w-full shrink-0" aria-hidden="true"></div>
 
   <!-- 3. HERO PRINCIPAL: FOTO GRANDE LLAVEROS PARA TU CLUB / COMUNIDAD -->
   <section class="relative bg-white select-none pt-2 sm:pt-4 pb-2 sm:pb-3">
@@ -1385,262 +1388,57 @@
     </div>
   </section>
 
-  <!-- SECCIÓN: TESTIMONIOS Y RESEÑAS VERIFICADAS DE DIRECTORES DE CLUB -->
-  <section class="py-14 sm:py-20 bg-slate-50 border-t border-slate-200 text-slate-900 relative">
-    <div class="max-w-[1700px] mx-auto px-4 sm:px-6 lg:px-10">
-      
-      <!-- CABECERA -->
-      <div class="max-w-3xl mx-auto text-center space-y-3 mb-12 sm:mb-16">
-        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-50 border border-amber-200 text-amber-700 text-xs font-black uppercase tracking-wider">
-          <span>★★★★★</span>
-          <span>Opiniones de Directores de Club</span>
-        </div>
-        <h2 class="text-2xl sm:text-4xl lg:text-5xl font-black font-heading text-slate-950 uppercase tracking-tight leading-tight">
-          La confianza de más de 48 clubes deportivos
-        </h2>
-        <p class="text-slate-600 text-sm sm:text-base font-medium max-w-2xl mx-auto">
-          Equipamos torneos, pro-shops y pistas de pádel en toda Europa. Esto es lo que opinan los directores y gerentes de instalaciones que ya trabajan con CoolPadel y Save my Play.
-        </p>
-      </div>
 
-      <!-- GRID DE 3 TESTIMONIOS -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 max-w-6xl mx-auto">
-        
-        <!-- TESTIMONIO 1: CARLOS MÉNDEZ (PADEL INDOOR MADRID) -->
-        <div class="bg-white border border-slate-200/90 rounded-3xl p-6 sm:p-8 shadow-[0_12px_35px_rgba(0,0,0,0.06)] flex flex-col justify-between space-y-6">
-          <div class="space-y-4">
-            <div class="flex items-center gap-1 text-amber-400 text-base" aria-label="5 estrellas">
-              ★★★★★
-            </div>
-            <p class="text-slate-700 text-sm sm:text-base leading-relaxed italic">
-              "Pedimos 300 llaveros personalizados con relieve 3D para el torneo de primavera de nuestro club. La calidad del acabado es insuperable y los socios quedaron encantados. Ya son nuestro detalle oficial en cada evento."
-            </p>
-          </div>
-          <div class="flex items-center gap-3.5 pt-4 border-t border-slate-100">
-            <div class="w-11 h-11 rounded-2xl bg-slate-950 text-white font-heading font-black text-sm flex items-center justify-center shrink-0">
-              CM
-            </div>
-            <div>
-              <div class="font-heading font-black text-sm text-slate-950 leading-tight">Carlos Méndez</div>
-              <div class="text-xs text-slate-500 font-medium">Director Deportivo · Pádel Indoor Madrid</div>
-              <div class="inline-flex items-center gap-1 text-[11px] font-bold text-emerald-600 mt-0.5">
-                <span>✓ Pedido Verificado B2B</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- TESTIMONIO 2: MARC FONT (CLUB PÁDEL VALLÈS BARCELONA) -->
-        <div class="bg-white border border-slate-200/90 rounded-3xl p-6 sm:p-8 shadow-[0_12px_35px_rgba(0,0,0,0.06)] flex flex-col justify-between space-y-6">
-          <div class="space-y-4">
-            <div class="flex items-center gap-1 text-amber-400 text-base" aria-label="5 estrellas">
-              ★★★★★
-            </div>
-            <p class="text-slate-700 text-sm sm:text-base leading-relaxed italic">
-              "Instalamos el sistema de grabación Save my Play en dos pistas cubiertas. Los jugadores repiten reserva porque pueden descargarse sus jugadas al instante pulsando el botón sin tocar el móvil. Cero mantenimiento para nosotros."
-            </p>
-          </div>
-          <div class="flex items-center gap-3.5 pt-4 border-t border-slate-100">
-            <div class="w-11 h-11 rounded-2xl bg-[#3478a6] text-white font-heading font-black text-sm flex items-center justify-center shrink-0">
-              MF
-            </div>
-            <div>
-              <div class="font-heading font-black text-sm text-slate-950 leading-tight">Marc Font</div>
-              <div class="text-xs text-slate-500 font-medium">Gerente de Instalaciones · Pádel Vallès (Barcelona)</div>
-              <div class="inline-flex items-center gap-1 text-[11px] font-bold text-emerald-600 mt-0.5">
-                <span>✓ Instalación Verificada</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- TESTIMONIO 3: ROBERTO GÓMEZ (PÁDEL CENTER VALENCIA) -->
-        <div class="bg-white border border-slate-200/90 rounded-3xl p-6 sm:p-8 shadow-[0_12px_35px_rgba(0,0,0,0.06)] flex flex-col justify-between space-y-6">
-          <div class="space-y-4">
-            <div class="flex items-center gap-1 text-amber-400 text-base" aria-label="5 estrellas">
-              ★★★★★
-            </div>
-            <p class="text-slate-700 text-sm sm:text-base leading-relaxed italic">
-              "Excelente producto de impulso para la pro-shop. Los colocamos en el mostrador de recepción y se venden solos a 5 €. El margen comercial para el club es de más del 60% sin arriesgar capital en paleteros o textil caro."
-            </p>
-          </div>
-          <div class="flex items-center gap-3.5 pt-4 border-t border-slate-100">
-            <div class="w-11 h-11 rounded-2xl bg-[#f2920b] text-slate-950 font-heading font-black text-sm flex items-center justify-center shrink-0">
-              RG
-            </div>
-            <div>
-              <div class="font-heading font-black text-sm text-slate-950 leading-tight">Roberto Gómez</div>
-              <div class="text-xs text-slate-500 font-medium">Responsable Pro-Shop &amp; Eventos · Pádel Center Valencia</div>
-              <div class="inline-flex items-center gap-1 text-[11px] font-bold text-emerald-600 mt-0.5">
-                <span>✓ Pedido Verificado B2B</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-    </div>
-  </section>
-
-  <!-- SECCIÓN: GUÍAS E INFORMES B2B PARA CLUBES (CENTRO DE RECURSOS & BLOG) -->
-  <section class="py-14 sm:py-20 bg-white border-t border-slate-200 text-slate-900 relative">
-    <div class="max-w-[1700px] mx-auto px-4 sm:px-6 lg:px-10">
-      
-      <!-- CABECERA DE GUÍAS -->
-      <div class="max-w-3xl mx-auto text-center space-y-3 mb-10 sm:mb-14">
-        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sky-50 border border-sky-200 text-[#3478a6] text-xs font-black uppercase tracking-wider">
-          <i data-lucide="book-open" class="w-3.5 h-3.5"></i>
-          <span>Centro de Conocimiento &amp; Guías Técnicas</span>
-        </div>
-        <h2 class="text-2xl sm:text-4xl lg:text-5xl font-black font-heading text-slate-950 uppercase tracking-tight leading-tight">
-          Guías e Informes para Clubes y Torneos
-        </h2>
-        <p class="text-slate-600 text-sm sm:text-base font-medium max-w-2xl mx-auto">
-          Análisis de costes, rentabilidad de pistas, ideas de welcome pack y estrategias operativas para operadores de pádel.
-        </p>
-      </div>
-
-      <!-- GRID DE 4 GUÍAS DESTACADAS -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
-        
-        <!-- GUÍA 1: RENTABILIDAD CÁMARAS -->
-        <a href="/blog/rentabilidad-camaras-pistas-padel/" class="bg-slate-50 hover:bg-white border border-slate-200 hover:border-[#f2920b]/50 rounded-3xl p-6 shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1 block no-underline text-inherit">
-          <div class="space-y-3">
-            <span class="inline-block px-2.5 py-1 rounded-full bg-orange-100 text-[#f2920b] font-black uppercase text-[10px] tracking-wider">
-              Cámaras &amp; ROI
-            </span>
-            <h3 class="font-sans font-extrabold text-base sm:text-lg text-slate-900 group-hover:text-[#f2920b] transition leading-snug">
-              ¿Cuánto cuesta instalar cámaras en una pista de pádel y cómo se amortizan? [Precios y ROI 2026]
-            </h3>
-            <p class="text-xs sm:text-sm text-slate-600 font-normal leading-relaxed line-clamp-3">
-              Desglose real de costes: 180 € de hardware y 45 €/mes. Los 3 modelos para amortizar la inversión: pago por descarga, suplemento de pista o patrocinio.
-            </p>
-          </div>
-          <div class="pt-4 mt-4 border-t border-slate-200 flex items-center justify-between text-xs font-bold text-slate-500">
-            <span>Lectura 5 min</span>
-            <span class="text-[#3478a6] group-hover:text-[#f2920b] transition font-black">Leer guía →</span>
-          </div>
-        </a>
-
-        <!-- GUÍA 2: WELCOME PACK TORNEOS -->
-        <a href="/blog/welcome-pack-torneo-padel-ideas/" class="bg-slate-50 hover:bg-white border border-slate-200 hover:border-[#f2920b]/50 rounded-3xl p-6 shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1 block no-underline text-inherit">
-          <div class="space-y-3">
-            <span class="inline-block px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-800 font-black uppercase text-[10px] tracking-wider">
-              Welcome Packs
-            </span>
-            <h3 class="font-sans font-extrabold text-base sm:text-lg text-slate-900 group-hover:text-[#f2920b] transition leading-snug">
-              Welcome Pack para Torneos de Pádel: 10 Ideas de Regalos que los Jugadores No Tiran [Checklist PDF]
-            </h3>
-            <p class="text-xs sm:text-sm text-slate-600 font-normal leading-relaxed line-clamp-3">
-              Por qué las camisetas genéricas acaban en el cajón y cómo los llaveros de pala 3D autofinanciados por patrocinadores multiplican el impacto de tu torneo.
-            </p>
-          </div>
-          <div class="pt-4 mt-4 border-t border-slate-200 flex items-center justify-between text-xs font-bold text-slate-500">
-            <span>Lectura 6 min</span>
-            <span class="text-[#3478a6] group-hover:text-[#f2920b] transition font-black">Leer guía →</span>
-          </div>
-        </a>
-
-        <!-- GUÍA 3: CÁMARAS FIJAS VS TRÍPODE -->
-        <a href="/blog/sistemas-grabacion-pistas-padel-comparativa/" class="bg-slate-50 hover:bg-white border border-slate-200 hover:border-[#f2920b]/50 rounded-3xl p-6 shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1 block no-underline text-inherit">
-          <div class="space-y-3">
-            <span class="inline-block px-2.5 py-1 rounded-full bg-sky-100 text-[#3478a6] font-black uppercase text-[10px] tracking-wider">
-              Tecnología &amp; RGPD
-            </span>
-            <h3 class="font-sans font-extrabold text-base sm:text-lg text-slate-900 group-hover:text-[#f2920b] transition leading-snug">
-              Comparativa: Cámaras fijas con pulsador vs grabación manual con trípode [Normativa RGPD]
-            </h3>
-            <p class="text-xs sm:text-sm text-slate-600 font-normal leading-relaxed line-clamp-3">
-              Análisis técnico y legal: riesgos de trípodes en pista, normativa de protección de datos y por qué el pulsador de 25 segundos ahorra horas de edición.
-            </p>
-          </div>
-          <div class="pt-4 mt-4 border-t border-slate-200 flex items-center justify-between text-xs font-bold text-slate-500">
-            <span>Lectura 6 min</span>
-            <span class="text-[#3478a6] group-hover:text-[#f2920b] transition font-black">Leer guía →</span>
-          </div>
-        </a>
-
-        <!-- GUÍA 4: VENTA EN PRO-SHOP -->
-        <a href="/blog/vender-llaveros-tienda-club-padel-pro-shop/" class="bg-slate-50 hover:bg-white border border-slate-200 hover:border-[#f2920b]/50 rounded-3xl p-6 shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1 block no-underline text-inherit">
-          <div class="space-y-3">
-            <span class="inline-block px-2.5 py-1 rounded-full bg-purple-100 text-purple-800 font-black uppercase text-[10px] tracking-wider">
-              Pro-Shop &amp; Margen
-            </span>
-            <h3 class="font-sans font-extrabold text-base sm:text-lg text-slate-900 group-hover:text-[#f2920b] transition leading-snug">
-              Cómo vender llaveros en la pro-shop de tu club: producto de impulso con +60% de margen [Simulador]
-            </h3>
-            <p class="text-xs sm:text-sm text-slate-600 font-normal leading-relaxed line-clamp-3">
-              Evita el stock muerto de palas y ropa cara: coste desde 1,50 €, PVP recomendado de 5 € a 6 € y rotación constante junto al mostrador de pago.
-            </p>
-          </div>
-          <div class="pt-4 mt-4 border-t border-slate-200 flex items-center justify-between text-xs font-bold text-slate-500">
-            <span>Lectura 5 min</span>
-            <span class="text-[#3478a6] group-hover:text-[#f2920b] transition font-black">Leer guía →</span>
-          </div>
-        </a>
-
-      </div>
-
-      <!-- BOTÓN VER TODAS LAS GUÍAS DEL BLOG -->
-      <div class="text-center mt-10 sm:mt-12">
-        <a href="/blog/" class="inline-flex items-center justify-center px-8 py-3.5 rounded-full bg-slate-900 hover:bg-[#3478a6] text-white font-sans font-black text-xs sm:text-sm uppercase tracking-wider transition-all duration-300 shadow-md hover:shadow-xl hover:scale-105 cursor-pointer">
-          <span>Ver Todas las Guías y Artículos del Blog (11 Publicaciones)</span>
-        </a>
-      </div>
-
-    </div>
-  </section>
 
   <!-- 8. SECCIÓN CONTACTO (FORMATO ITAC: TARJETAS WHATSAPP Y EMAIL CON CÓDIGOS QR) -->
-  <section id="contacto" class="pt-12 sm:pt-16 lg:pt-20 pb-14 sm:pb-18 bg-slate-50 relative border-t border-slate-200 text-slate-900 overflow-hidden">
-    <div class="max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-12 relative z-10">
+  <section id="contacto" class="pt-10 sm:pt-14 pb-12 sm:pb-16 bg-slate-50 relative border-t border-slate-200 text-slate-900 overflow-hidden">
+    <div class="max-w-[1200px] mx-auto px-4 sm:px-6 relative z-10">
       
       <!-- CABECERA DE CONTACTO CENTRADA -->
-      <div class="max-w-3xl mx-auto text-center mb-8 sm:mb-12">
-        <h2 data-i18n="contact_title" class="text-2xl sm:text-4xl lg:text-5xl font-black font-heading text-slate-950 uppercase tracking-tight leading-tight">
+      <div class="max-w-2xl mx-auto text-center mb-6 sm:mb-8">
+        <h2 data-i18n="contact_title" class="text-xl sm:text-3xl font-black font-heading text-slate-950 uppercase tracking-tight leading-tight">
           Contáctanos
         </h2>
       </div>
 
       <!-- GRID DE TARJETAS DE CONTACTO (WHATSAPP + EMAIL) -->
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 max-w-4xl mx-auto">
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 max-w-2xl mx-auto">
         
         <!-- TARJETA 1: WHATSAPP DIRECTO (TARJETA COMPLETA CLICABLE) -->
         <a id="contact-wa-btn" href="https://wa.me/34680317486?text=Hola%20Javier" 
            target="_blank" rel="noopener noreferrer"
-           class="bg-white border-2 border-slate-200 hover:border-[#25D366] rounded-3xl p-6 sm:p-8 shadow-[0_12px_35px_rgba(0,0,0,0.06)] hover:shadow-[0_22px_45px_rgba(37,211,102,0.22)] transition-all duration-300 flex flex-col justify-between items-center text-center group hover:-translate-y-1 cursor-pointer block no-underline text-inherit">
-          <div class="flex flex-col items-center space-y-3 w-full">
+           class="bg-white border border-slate-200 hover:border-[#25D366] rounded-2xl p-4 sm:p-5 shadow-xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between items-center text-center group hover:-translate-y-0.5 cursor-pointer block no-underline text-inherit">
+          <div class="flex flex-col items-center space-y-2 w-full">
             <!-- Icono Circular WhatsApp -->
-            <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-emerald-50 text-[#25D366] flex items-center justify-center shadow-inner group-hover:scale-110 group-hover:bg-[#25D366] group-hover:text-white transition-all duration-300">
-              <svg class="w-7 h-7 sm:w-8 sm:h-8 fill-current" viewBox="0 0 24 24">
+            <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-emerald-50 text-[#25D366] flex items-center justify-center shadow-inner group-hover:scale-105 group-hover:bg-[#25D366] group-hover:text-white transition-all duration-300">
+              <svg class="w-5 h-5 sm:w-6 sm:h-6 fill-current" viewBox="0 0 24 24">
                 <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
               </svg>
             </div>
             
-            <h3 data-i18n="contact_wa_title" class="font-heading font-black text-xl sm:text-2xl text-slate-950">
+            <h3 data-i18n="contact_wa_title" class="font-heading font-black text-base sm:text-lg text-slate-950">
               WhatsApp Directo
             </h3>
             
-            <p class="font-mono font-bold text-base sm:text-lg text-emerald-600 tracking-wide">
+            <p class="font-mono font-bold text-xs sm:text-sm text-emerald-600 tracking-wide">
               +34 680 31 74 86
             </p>
 
             <!-- CÓDIGO QR WHATSAPP PARA ESCRITORIO -->
-            <div class="pt-2 pb-1">
-              <div class="p-2.5 bg-white border border-slate-200 rounded-2xl shadow-xs inline-block group-hover:border-emerald-300 transition">
+            <div class="pt-1">
+              <div class="p-1.5 bg-white border border-slate-200 rounded-xl shadow-2xs inline-block group-hover:border-emerald-300 transition">
                 <img src="assets/images/qr_whatsapp_coolpadel.png" 
                      alt="WhatsApp CoolPadel" 
-                     width="128" height="128" 
-                     class="w-24 h-24 sm:w-28 sm:h-28 object-contain" 
+                     width="80" height="80" 
+                     class="w-16 h-16 sm:w-20 sm:h-20 object-contain" 
                      loading="lazy">
               </div>
             </div>
           </div>
 
           <!-- BOTÓN ACCIÓN WHATSAPP -->
-          <div class="w-full pt-4 border-t border-slate-100 mt-4">
-            <div class="w-full inline-flex items-center justify-center px-6 py-3.5 rounded-full bg-[#25D366] group-hover:bg-[#20ba59] active:bg-[#20ba59] text-white font-sans font-black text-xs sm:text-sm tracking-wider uppercase shadow-md group-hover:shadow-xl group-hover:scale-105 active:scale-95 transition-all duration-300">
+          <div class="w-full pt-3 border-t border-slate-100 mt-3">
+            <div class="w-full inline-flex items-center justify-center px-4 py-2 sm:py-2.5 rounded-full bg-[#25D366] group-hover:bg-[#20ba59] active:bg-[#20ba59] text-white font-sans font-black text-xs uppercase tracking-wider shadow-sm group-hover:shadow-md transition-all duration-300">
               <span data-i18n="contact_wa_btn">Chatear por WhatsApp</span>
             </div>
           </div>
@@ -1648,36 +1446,36 @@
 
         <!-- TARJETA 2: EMAIL OFICIAL (TARJETA COMPLETA CLICABLE) -->
         <a id="contact-mail-btn" href="mailto:javier@coolpadelstudios.com?subject=Consulta%20CoolPadel%20/%20Save%20my%20Play" 
-           class="bg-white border-2 border-slate-200 hover:border-[#3478a6] rounded-3xl p-6 sm:p-8 shadow-[0_12px_35px_rgba(0,0,0,0.06)] hover:shadow-[0_22px_45px_rgba(52,120,166,0.22)] transition-all duration-300 flex flex-col justify-between items-center text-center group hover:-translate-y-1 cursor-pointer block no-underline text-inherit">
-          <div class="flex flex-col items-center space-y-3 w-full">
+           class="bg-white border border-slate-200 hover:border-[#3478a6] rounded-2xl p-4 sm:p-5 shadow-xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between items-center text-center group hover:-translate-y-0.5 cursor-pointer block no-underline text-inherit">
+          <div class="flex flex-col items-center space-y-2 w-full">
             <!-- Icono Circular Email -->
-            <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-sky-50 text-[#3478a6] flex items-center justify-center shadow-inner group-hover:scale-110 group-hover:bg-[#3478a6] group-hover:text-white transition-all duration-300">
-              <i data-lucide="mail" class="w-7 h-7 sm:w-8 sm:h-8 stroke-[2.2]"></i>
+            <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-sky-50 text-[#3478a6] flex items-center justify-center shadow-inner group-hover:scale-105 group-hover:bg-[#3478a6] group-hover:text-white transition-all duration-300">
+              <i data-lucide="mail" class="w-5 h-5 sm:w-6 sm:h-6 stroke-[2.2]"></i>
             </div>
             
-            <h3 data-i18n="contact_mail_title" class="font-heading font-black text-xl sm:text-2xl text-slate-950">
+            <h3 data-i18n="contact_mail_title" class="font-heading font-black text-base sm:text-lg text-slate-950">
               Correo Electrónico
             </h3>
             
-            <p class="font-sans font-bold text-sm sm:text-base text-sky-800 tracking-normal break-all">
+            <p class="font-sans font-bold text-xs sm:text-sm text-sky-800 tracking-normal break-all">
               javier@coolpadelstudios.com
             </p>
 
             <!-- CÓDIGO QR EMAIL PARA ESCRITORIO -->
-            <div class="pt-2 pb-1">
-              <div class="p-2.5 bg-white border border-slate-200 rounded-2xl shadow-xs inline-block group-hover:border-sky-300 transition">
+            <div class="pt-1">
+              <div class="p-1.5 bg-white border border-slate-200 rounded-xl shadow-2xs inline-block group-hover:border-sky-300 transition">
                 <img src="assets/images/qr_email_coolpadel.png" 
                      alt="Email CoolPadel" 
-                     width="128" height="128" 
-                     class="w-24 h-24 sm:w-28 sm:h-28 object-contain" 
+                     width="80" height="80" 
+                     class="w-16 h-16 sm:w-20 sm:h-20 object-contain" 
                      loading="lazy">
               </div>
             </div>
           </div>
 
           <!-- BOTÓN ACCIÓN EMAIL -->
-          <div class="w-full pt-4 border-t border-slate-100 mt-4">
-            <div class="w-full inline-flex items-center justify-center px-6 py-3.5 rounded-full bg-[#3478a6] group-hover:bg-[#2c668d] active:bg-[#2c668d] text-white font-sans font-black text-xs sm:text-sm tracking-wider uppercase shadow-md group-hover:shadow-xl group-hover:scale-105 active:scale-95 transition-all duration-300">
+          <div class="w-full pt-3 border-t border-slate-100 mt-3">
+            <div class="w-full inline-flex items-center justify-center px-4 py-2 sm:py-2.5 rounded-full bg-[#3478a6] group-hover:bg-[#2c668d] active:bg-[#2c668d] text-white font-sans font-black text-xs uppercase tracking-wider shadow-sm group-hover:shadow-md transition-all duration-300">
               <span data-i18n="contact_mail_btn">Enviar Email a Javier</span>
             </div>
           </div>
@@ -1688,36 +1486,36 @@
     </div>
   </section>
 
-  <!-- 9. FOOTER INFERIOR (COLOR CELESTE LLAVEROS #3478a6 CON TEXTURA CANVA: BRANDING COOLPADEL, SILOS TEMÁTICOS SEO Y COPYRIGHT) -->
-  <footer class="relative z-10 bg-[#3478a6] bg-textured-blue text-white pt-14 pb-10 border-t border-sky-700/40 text-xs">
-    <div class="max-w-[1700px] mx-auto px-4 sm:px-8 space-y-10">
+  <!-- 9. FOOTER INFERIOR (CONTRASTE ALTO: AZUL MARINO OSCURO #091322 CON TIPOGRAFÍA NÍTIDA) -->
+  <footer class="relative z-10 bg-[#091322] text-slate-200 pt-12 pb-10 border-t border-slate-800 text-xs sm:text-[13px]">
+    <div class="max-w-[1700px] mx-auto px-4 sm:px-8 space-y-8">
       
       <!-- TOP: BRANDING Y DESCRIPCIÓN B2B -->
-      <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pb-8 border-b border-white/20">
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pb-6 border-b border-slate-800">
         <div class="flex items-center gap-3.5">
           <img src="assets/images/coolpadel-mascot-hd.png" alt="CoolPadel Mascota" width="60" height="60" class="h-10 sm:h-12 w-auto object-contain drop-shadow-sm" loading="lazy">
           <img src="assets/images/coolpadel-typography-hd.png" alt="CoolPadel" width="160" height="32" class="h-5 sm:h-6 w-auto object-contain drop-shadow-sm" loading="lazy">
         </div>
-        <p class="text-white/80 text-xs text-center sm:text-right max-w-md font-medium">
+        <p class="text-slate-300 text-xs sm:text-sm text-center sm:text-right max-w-md font-medium">
           Fabricación de llaveros de pádel personalizados 3D y sistemas de cámaras de grabación en pista Save my Play.
         </p>
       </div>
 
       <!-- 4 COLUMNAS DE SILOS TEMÁTICOS SEO -->
-      <nav aria-label="Estructura y Silos SEO de CoolPadel" class="grid grid-cols-2 lg:grid-cols-4 gap-8 text-left">
+      <nav aria-label="Estructura y Silos SEO de CoolPadel" class="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 text-left">
         
         <!-- COLUMNA 1: SOLUCIONES B2B -->
         <div class="space-y-3">
           <div class="font-heading font-black text-sm uppercase tracking-wider text-white">
             Soluciones B2B
           </div>
-          <ul class="space-y-2 text-white/80 font-normal">
-            <li><a href="/llaveros-padel-personalizados/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Llaveros de Pádel 3D</a></li>
-            <li><a href="/llaveros-tenis-personalizados/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Llaveros de Tenis y Pickleball</a></li>
-            <li><a href="/welcome-packs-torneos-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Welcome Packs para Torneos</a></li>
-            <li><a href="/llaveros-personalizados-clubs-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Merchandising para Clubs</a></li>
-            <li><a href="/camaras/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Cámaras Save my Play</a></li>
-            <li><a href="/camaras-grabacion-pistas-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Grabación en Pista de Pádel</a></li>
+          <ul class="space-y-2 text-slate-300 font-medium">
+            <li><a href="/llaveros-padel-personalizados/" class="hover:text-[#7ed5f5] hover:underline underline-offset-2 transition">Llaveros de Pádel 3D</a></li>
+            <li><a href="/llaveros-tenis-personalizados/" class="hover:text-[#7ed5f5] hover:underline underline-offset-2 transition">Llaveros de Tenis y Pickleball</a></li>
+            <li><a href="/welcome-packs-torneos-padel/" class="hover:text-[#7ed5f5] hover:underline underline-offset-2 transition">Welcome Packs para Torneos</a></li>
+            <li><a href="/llaveros-personalizados-clubs-padel/" class="hover:text-[#7ed5f5] hover:underline underline-offset-2 transition">Merchandising para Clubs</a></li>
+            <li><a href="/camaras/" class="hover:text-[#7ed5f5] hover:underline underline-offset-2 transition">Cámaras Save my Play</a></li>
+            <li><a href="/camaras-grabacion-pistas-padel/" class="hover:text-[#7ed5f5] hover:underline underline-offset-2 transition">Grabación en Pista de Pádel</a></li>
           </ul>
         </div>
 
@@ -1726,12 +1524,12 @@
           <div class="font-heading font-black text-sm uppercase tracking-wider text-white">
             Software &amp; Pistas
           </div>
-          <ul class="space-y-2 text-white/80 font-normal">
-            <li><a href="/camaras-padel-playtomic/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Integración con Playtomic</a></li>
-            <li><a href="/camaras-padel-matchi/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Compatibilidad Matchi</a></li>
-            <li><a href="/camaras-padel-resasports/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Conexión Resasports &amp; Syltek</a></li>
-            <li><a href="/blog/smart-courts-pistas-inteligentes-padel-horas-valle/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Smart Courts y Domótica</a></li>
-            <li><a href="/blog/retransmitir-torneos-padel-streaming-youtube-camaras/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Streaming en Directo YouTube</a></li>
+          <ul class="space-y-2 text-slate-300 font-medium">
+            <li><a href="/camaras-padel-playtomic/" class="hover:text-[#7ed5f5] hover:underline underline-offset-2 transition">Integración con Playtomic</a></li>
+            <li><a href="/camaras-padel-matchi/" class="hover:text-[#7ed5f5] hover:underline underline-offset-2 transition">Compatibilidad Matchi</a></li>
+            <li><a href="/camaras-padel-resasports/" class="hover:text-[#7ed5f5] hover:underline underline-offset-2 transition">Conexión Resasports &amp; Syltek</a></li>
+            <li><a href="/blog/smart-courts-pistas-inteligentes-padel-horas-valle/" class="hover:text-[#7ed5f5] hover:underline underline-offset-2 transition">Smart Courts y Domótica</a></li>
+            <li><a href="/blog/retransmitir-torneos-padel-streaming-youtube-camaras/" class="hover:text-[#7ed5f5] hover:underline underline-offset-2 transition">Streaming en Directo YouTube</a></li>
           </ul>
         </div>
 
@@ -1740,12 +1538,12 @@
           <div class="font-heading font-black text-sm uppercase tracking-wider text-white">
             Directorio &amp; Hubs
           </div>
-          <ul class="space-y-2 text-white/80 font-normal">
-            <li><a href="/franquicias-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Directorio Franquicias (+153)</a></li>
-            <li><a href="/camaras-padel-madrid/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Clubes Pádel Madrid</a></li>
-            <li><a href="/camaras-padel-barcelona/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Clubes Pádel Barcelona</a></li>
-            <li><a href="/#cobertura" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Envíos España, USA y Europa</a></li>
-            <li><a href="/#mapa" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Mapa de Clientes Oficiales</a></li>
+          <ul class="space-y-2 text-slate-300 font-medium">
+            <li><a href="/franquicias-padel/" class="hover:text-[#7ed5f5] hover:underline underline-offset-2 transition">Directorio Franquicias (+153)</a></li>
+            <li><a href="/camaras-padel-madrid/" class="hover:text-[#7ed5f5] hover:underline underline-offset-2 transition">Clubes Pádel Madrid</a></li>
+            <li><a href="/camaras-padel-barcelona/" class="hover:text-[#7ed5f5] hover:underline underline-offset-2 transition">Clubes Pádel Barcelona</a></li>
+            <li><a href="/#cobertura" class="hover:text-[#7ed5f5] hover:underline underline-offset-2 transition">Envíos España, USA y Europa</a></li>
+            <li><a href="/#mapa" class="hover:text-[#7ed5f5] hover:underline underline-offset-2 transition">Mapa de Clientes Oficiales</a></li>
           </ul>
         </div>
 
@@ -1754,27 +1552,27 @@
           <div class="font-heading font-black text-sm uppercase tracking-wider text-white">
             Guías &amp; Blog B2B
           </div>
-          <ul class="space-y-2 text-white/80 font-normal">
-            <li><a href="/blog/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition font-bold text-white">Índice del Blog &amp; Newsletter</a></li>
-            <li><a href="/blog/rentabilidad-camaras-pistas-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Precios y ROI de Cámaras</a></li>
-            <li><a href="/blog/welcome-pack-torneo-padel-ideas/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Ideas de Welcome Pack</a></li>
-            <li><a href="/blog/sistemas-grabacion-pistas-padel-comparativa/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Cámaras fijas vs Trípodes (RGPD)</a></li>
-            <li><a href="/blog/vender-llaveros-tienda-club-padel-pro-shop/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Venta de Impulso en Pro-Shop</a></li>
-            <li><a href="/blog/merchandising-ferias-torneos-padel-regalos-marcas/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Merchandising para Ferias</a></li>
+          <ul class="space-y-2 text-slate-300 font-medium">
+            <li><a href="/blog/" class="text-white hover:text-[#7ed5f5] hover:underline underline-offset-2 transition font-bold">Índice del Blog &amp; Newsletter</a></li>
+            <li><a href="/blog/rentabilidad-camaras-pistas-padel/" class="hover:text-[#7ed5f5] hover:underline underline-offset-2 transition">Precios y ROI de Cámaras</a></li>
+            <li><a href="/blog/welcome-pack-torneo-padel-ideas/" class="hover:text-[#7ed5f5] hover:underline underline-offset-2 transition">Ideas de Welcome Pack</a></li>
+            <li><a href="/blog/sistemas-grabacion-pistas-padel-comparativa/" class="hover:text-[#7ed5f5] hover:underline underline-offset-2 transition">Cámaras fijas vs Trípodes (RGPD)</a></li>
+            <li><a href="/blog/vender-llaveros-tienda-club-padel-pro-shop/" class="hover:text-[#7ed5f5] hover:underline underline-offset-2 transition">Venta de Impulso en Pro-Shop</a></li>
+            <li><a href="/blog/merchandising-ferias-torneos-padel-regalos-marcas/" class="hover:text-[#7ed5f5] hover:underline underline-offset-2 transition">Merchandising para Ferias</a></li>
           </ul>
         </div>
 
       </nav>
 
       <!-- BOTTOM: COPYRIGHT Y ENLACES LEGALES -->
-      <div class="pt-8 border-t border-white/20 flex flex-col sm:flex-row items-center justify-between gap-3 text-white/75 text-center sm:text-left">
-        <span id="admin-toggle-trigger" class="hover:text-white/90 transition cursor-pointer" title="Modo Administrador">
+      <div class="pt-6 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-3 text-slate-400 text-center sm:text-left">
+        <span id="admin-toggle-trigger" class="hover:text-slate-200 transition cursor-pointer" title="Modo Administrador">
           © 2026 CoolPadel Studios · All rights reserved
         </span>
         <div class="flex items-center gap-3">
-          <a href="/politica-de-devoluciones.html" class="hover:text-white/90 underline decoration-white/30 underline-offset-2 transition" title="Política de Devoluciones y Garantía">Política de Devoluciones</a>
+          <a href="/politica-de-devoluciones.html" class="hover:text-white underline decoration-slate-600 underline-offset-2 transition" title="Política de Devoluciones y Garantía">Política de Devoluciones</a>
           <span class="opacity-40">·</span>
-          <a href="https://www.instagram.com/coolpadel_/" target="_blank" rel="noopener noreferrer" class="opacity-75 hover:opacity-100 transition text-white" title="Instagram CoolPadel">@coolpadel_</a>
+          <a href="https://www.instagram.com/coolpadel_/" target="_blank" rel="noopener noreferrer" class="hover:text-white transition" title="Instagram CoolPadel">@coolpadel_</a>
         </div>
       </div>
 
