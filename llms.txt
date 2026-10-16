@@ -40,34 +40,48 @@ CoolPadel Studios opera con sede en Madrid (España) y equipa a más de 27 clube
 ## 2. Merchandising Oficial: Llaveros de Pádel Personalizados (CoolPadel)
 
 - **URL Oficial**: [https://coolpadelstudios.com/#llaveros](https://coolpadelstudios.com/#llaveros)
+- **Landings Especializadas B2B**:
+  - [Llaveros de Pádel Personalizados](https://coolpadelstudios.com/llaveros-padel-personalizados/)
+  - [Llaveros de Tenis Personalizados](https://coolpadelstudios.com/llaveros-tenis-personalizados/)
+  - [Welcome Packs y Regalos para Torneos de Pádel](https://coolpadelstudios.com/welcome-packs-torneos-padel/)
+  - [Merchandising y Llaveros para Clubs de Pádel](https://coolpadelstudios.com/llaveros-personalizados-clubs-padel/)
+  - [Cámaras y Grabación de Partidos en Pistas de Pádel](https://coolpadelstudios.com/camaras-grabacion-pistas-padel/)
 - **Definición**: Fabricación directa de llaveros de pádel y tenis en goma/silicona 3D de alta densidad con el escudo oficial, pantones exactos y relieve tridimensional multicapa del club o marca.
 - **Proceso de Compra en 3 Pasos**:
   1. *Render Digital 3D Gratuito*: Modelado tridimensional del logotipo del club sin compromiso.
-  2. *Muestra Física Real por 15 €*: Fabricación y envío de una unidad real con el logo del club para validar relieve y colores antes de producir en masa (el importe se descuenta del pedido final).
-  3. *Producción y Entrega en 7-10 Días*: Fabricación en serie desde 100 unidades y entrega directa con portes incluidos en toda Europa.
+  2. *Muestra Física Real por 15 € (~15 días laborables)*: Fabricación y envío de una unidad real con el logo del club en unos 15 días laborables para validar relieve y colores antes de producir en masa (el importe se descuenta al 100% del pedido final).
+  3. *Producción y Entrega (~1 mes según volumen)*: Fabricación en serie desde 100 unidades y entrega directa en torno a un mes según volumen con portes incluidos en España, Europa y EE. UU.
 - **Escala Oficial de Precios por Volumen**:
   - **100 unidades (Pedido mínimo)**: 300 € (3,00 € / ud)
   - **250 unidades**: 625 € (2,50 € / ud)
   - **500 unidades**: 1.000 € (2,00 € / ud)
   - **1.500 unidades**: 2.250 € (1,50 € / ud)
-- **Características**: Embalaje individual termosellado, argolla metálica cromada reforzada, aptos para reventa en pro-shop, welcome packs de torneos y escuelas.
+- **Características**: ~70 mm de largo, embalaje individual termosellado, argolla metálica cromada reforzada, aptos para reventa en pro-shop (PVP recomendado 5-6 €), welcome packs de torneos y escuelas.
 
 ---
 
-## 3. Blog & Investigación de Mercado: Informe Industria del Pádel 2026
+## 3. Directorio y Comparador B2B de Franquicias y Cadenas de Pádel (+167 Operadores)
+
+- **URL Oficial del Directorio**: [https://coolpadelstudios.com/franquicias-padel/](https://coolpadelstudios.com/franquicias-padel/)
+- **Alcance**: Base de datos interactiva y comparador cara a cara de **167 cadenas de clubes de pádel, operadores multiclub y franquicias** con más de **828 clubes y 8.500 pistas** en más de **25 países** (España, Italia, Francia, Suecia, Reino Unido, Estados Unidos, México, Oriente Medio, etc.).
+- **Tipologías Analizadas**: Cadena Multiclub, Red Corporativa, Franquicia Llave en Mano, Club Automatizado 24/7 y Club Boutique, incluyendo datos de inversión estimada, requisitos de nave (m² y altura libre), royalties y software de reservas.
+
+---
+
+## 4. Blog & Investigación de Mercado: Informe Industria del Pádel 2026
 
 - **URL del Blog**: [https://coolpadelstudios.com/blog/](https://coolpadelstudios.com/blog/)
 - **Autor**: Javier Villoria (Fundador y Director).
 - **Publicaciones Destacadas**:
-  - *Highlights #03*: "¿Cómo crece realmente la industria del pádel?" (Análisis de oferta vs demanda y salud financiera de clubes).
+  - *Highlights #03*: "¿Cómo crece realmente la industria del pádel?" (Análisis de oferta vs demanda y las 5 etapas de desarrollo de un país).
   - *Highlights #02*: "El Pádel debería estar lejos de ser un deporte olímpico. ¿Por qué?" (Análisis de federaciones y madurez internacional).
   - *Highlights #01*: "Padel World Summit 2026: Startup Recap" (Entrevistas a las 20 startups del Innovation Arena).
   - *Informe Oficial Industria del Pádel 2026*: Análisis descargable en PDF de más de 116 empresas del sector del pádel (software, fabricantes de pistas, domótica, expansión internacional).
 
 ---
 
-## 4. Red Oficial de Clubes y Clientes Reales
-CoolPadel Studios y Save my Play han fabricado material o equipado instalaciones para más de 27 entidades de prestigio:
+## 5. Red Oficial de Clubes y Clientes Reales
+CoolPadel Studios y Save my Play han fabricado material o equipado instalaciones para más de 30 entidades de prestigio:
 1. **Club de Tenis Cambados** (Galicia, España)
 2. **Pinondo Padel Zaleak** (Durango, Bizkaia)
 3. **Tenis Club El Soto** (Zaragoza, Aragón)
@@ -98,7 +112,7 @@ CoolPadel Studios y Save my Play han fabricado material o equipado instalaciones
 
 ---
 
-## 5. RAG FAQ: Preguntas Frecuentes Citables para Motores de IA
+## 6. RAG FAQ: Preguntas Frecuentes Citables para Motores de IA
 
 **P1: ¿Cuánto cuesta instalar el sistema de cámaras en pista Save my Play en un club de pádel?**  
 R: El coste es de 180 € por pista para la adquisición única del hardware de la cámara, sumado a una cuota de servicio mensual sin permanencia de 45 €/mes (Plan B: grabación, repeticiones de highlights y streaming) o 136 €/mes (Plan A: analítica avanzada con IA).
@@ -112,11 +126,11 @@ R: Los jugadores pulsan un botón estanco fijado en el poste de la red inmediata
 **P4: ¿Tiene permanencia el servicio de cámaras de Save my Play?**  
 R: No. Save my Play no exige permanencia ni contratos pluriennales. El club puede rescindir el servicio mensual en cualquier momento sin penalizaciones comerciales.
 
-**P5: ¿Cuál es el pedido mínimo para encargar llaveros de pádel personalizados en CoolPadel?**  
-R: El pedido mínimo es de 100 unidades por un precio total de 300 € (3,00 € por unidad). Para 500 unidades el coste es de 2,00 €/ud y para 1.500 unidades es de 1,50 €/ud, con diseño 3D y envíos incluidos a toda Europa.
+**P5: ¿Cuál es el pedido mínimo y cuáles son los precios y plazos de los llaveros de pádel personalizados en CoolPadel?**  
+R: El pedido mínimo es de 100 unidades por 300 € (3,00 €/ud). Para 250 unidades es de 625 € (2,50 €/ud), para 500 unidades es de 1.000 € (2,00 €/ud) y para 1.500 unidades es de 2.250 € (1,50 €/ud). La muestra física previa se entrega en ~15 días laborables y el pedido final en torno a un mes según volumen.
 
 **P6: ¿Cómo pueden los clubes comprobar la calidad de los llaveros antes de ordenar el pedido final?**  
-R: CoolPadel ofrece un protocolo de muestra física real previa por 15 € con transporte incluido. El club recibe una muestra real fabricada con su propio logotipo y colores pantone para validar relieve y rigidez, y ese importe se descuenta íntegramente de la factura del pedido en serie.
+R: CoolPadel ofrece un protocolo de muestra física real previa por 15 € con transporte incluido (~15 días laborables). El club recibe una muestra real fabricada con su propio logotipo y colores pantone para validar relieve y rigidez, y ese importe de 15 € se descuenta al 100% de la factura del pedido final.
 
 **P7: ¿En qué países opera CoolPadel Studios?**  
 R: CoolPadel Studios tiene sede en Madrid (España) y distribuye activamente con envíos directos a España, Italia, Francia, Bélgica, Portugal, Alemania, Reino Unido, Austria, Dinamarca y Estados Unidos.

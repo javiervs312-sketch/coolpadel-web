@@ -555,17 +555,23 @@ def generate_blog_index():
 
   <!-- FOOTER EN AZUL DE LLAVEROS #3478a6 -->
   <footer class="bg-[#3478a6] text-white py-8 border-t border-sky-700/40 text-xs">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-      <div class="flex items-center gap-3">
-        <img src="../assets/images/coolpadel-mascot-hd.png" alt="CoolPadel" class="h-8 w-auto">
-        <span class="font-bold text-white/90">© 2026 CoolPadel Studios · All rights reserved</span>
-      </div>
-      <div class="flex items-center gap-6 text-white/80 font-semibold">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col items-center justify-between gap-4">
+      <div class="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-white/90 font-semibold">
         <a href="../" class="hover:text-white transition">Inicio</a>
-        <a href="../#llaveros" class="hover:text-white transition">Llaveros</a>
+        <a href="../llaveros-padel-personalizados/" class="hover:text-white transition">Llaveros de Pádel</a>
+        <a href="../llaveros-tenis-personalizados/" class="hover:text-white transition">Llaveros de Tenis</a>
+        <a href="../welcome-packs-torneos-padel/" class="hover:text-white transition">Welcome Packs Torneos</a>
+        <a href="../llaveros-personalizados-clubs-padel/" class="hover:text-white transition">Merchandising Clubs</a>
+        <a href="../camaras/" class="hover:text-white transition">Cámaras Save my Play</a>
+        <a href="../franquicias-padel/" class="hover:text-white transition">Directorio Franquicias</a>
         <a href="./" class="hover:text-white transition">Blog</a>
-        <a href="https://wa.me/34680317486?text=Hola%20Javier" target="_blank" rel="noopener noreferrer" class="hover:text-white transition">WhatsApp</a>
-        <a href="https://www.instagram.com/coolpadel_/" target="_blank" rel="noopener noreferrer" class="opacity-40 hover:opacity-100 text-[11px] text-white transition">Instagram</a>
+        <a href="../politica-de-devoluciones.html" class="hover:text-white transition">Política de Devoluciones</a>
+      </div>
+      <div class="flex items-center gap-3">
+        <img src="../assets/images/coolpadel-mascot-hd.png" alt="CoolPadel" width="32" height="32" class="h-8 w-auto">
+        <span class="font-bold text-white/90">© 2026 CoolPadel Studios · All rights reserved</span>
+        <span>·</span>
+        <a href="https://www.instagram.com/coolpadel_/" target="_blank" rel="noopener noreferrer" class="opacity-60 hover:opacity-100 text-[11px] text-white transition">@coolpadel_</a>
       </div>
     </div>
   </footer>
@@ -591,9 +597,12 @@ def generate_blog_index():
         }}).catch(() => {{}});
       }} catch (err) {{}}
 
-      setTimeout(() => {{
-        window.open('https://coolpadelstudios.com/assets/images/foto-reportaje.jpg', '_blank');
-      }}, 500);
+      const link = document.createElement('a');
+      link.href = '../assets/reports/padel-industry-report-es.pdf';
+      link.download = 'CoolPadel-Reportaje-Industria-Padel-2026-ES.pdf';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
     }}
   </script>
 </body>
@@ -630,6 +639,7 @@ def generate_article_page(slug, edition_num, title, date_str, read_time, cover_i
   <meta property="og:title" content="Highlights #{edition_num}: {title}">
   <meta property="og:description" content="Análisis y reflexiones sobre la industria del pádel por Javier Villoria.">
   <meta property="og:image" content="https://coolpadelstudios.com/assets/images/{cover_img}">
+  <meta property="og:image:alt" content="Highlights #{edition_num}: {title}">
   
   <!-- Twitter Cards -->
   <meta name="twitter:card" content="summary_large_image">
@@ -637,7 +647,7 @@ def generate_article_page(slug, edition_num, title, date_str, read_time, cover_i
   <meta name="twitter:description" content="Análisis y reflexiones sobre la industria del pádel por Javier Villoria.">
   <meta name="twitter:image" content="https://coolpadelstudios.com/assets/images/{cover_img}">
 
-  <!-- Schema.org BlogPosting -->
+  <!-- Schema.org BlogPosting & BreadcrumbList -->
   <script type="application/ld+json">
   {{
     "@context": "https://schema.org",
@@ -655,6 +665,7 @@ def generate_article_page(slug, edition_num, title, date_str, read_time, cover_i
         "author": {{
           "@type": "Person",
           "name": "Javier Villoria",
+          "jobTitle": "Founder",
           "url": "https://www.linkedin.com/in/javier-villoria-soleto-606737298/",
           "sameAs": "https://www.linkedin.com/in/javier-villoria-soleto-606737298/"
         }},
@@ -667,6 +678,29 @@ def generate_article_page(slug, edition_num, title, date_str, read_time, cover_i
             "url": "https://coolpadelstudios.com/assets/images/coolpadel-mascot-hd.png"
           }}
         }}
+      }},
+      {{
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {{
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Inicio",
+            "item": "https://coolpadelstudios.com/"
+          }},
+          {{
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Blog",
+            "item": "https://coolpadelstudios.com/blog/"
+          }},
+          {{
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Highlights #{edition_num}: {title}",
+            "item": "https://coolpadelstudios.com/blog/{slug}/"
+          }}
+        ]
       }}
     ]
   }}
@@ -686,7 +720,7 @@ def generate_article_page(slug, edition_num, title, date_str, read_time, cover_i
           <!-- COLUMNA 1: OJOS + LLAVEROS, CÁMARAS PISTAS Y BLOG CENTRADOS ENTRE OJOS Y LOGO -->
           <div class="flex items-center justify-between min-w-0 h-full">
             <a href="../../" class="group py-1 inline-flex items-center shrink-0">
-              <img src="../../assets/images/eyes-thumb.png?v=fixed_eyes" alt="CoolPadel Eyes" style="height: 24px; max-height: 24px; width: auto;" class="object-contain group-hover:scale-110 transition duration-300">
+              <img src="../../assets/images/eyes-thumb.png?v=fixed_eyes" alt="CoolPadel Eyes" width="24" height="24" style="height: 24px; max-height: 24px; width: auto;" class="object-contain group-hover:scale-110 transition duration-300">
             </a>
             <div class="flex-1 flex items-center justify-center min-w-0 gap-5 sm:gap-6 lg:gap-9 xl:gap-11 pl-2 sm:pl-4 lg:pl-6">
               <a href="../../#llaveros" class="font-heading font-black text-xs lg:text-[13px] tracking-wider uppercase text-slate-950 hover:text-[#f2920b] transition select-none whitespace-nowrap">
@@ -704,8 +738,8 @@ def generate_article_page(slug, edition_num, title, date_str, read_time, cover_i
           <!-- COLUMNA 2: MASCOTA + COOLPADEL CENTRADO -->
           <div class="flex items-center justify-center shrink-0 px-2 lg:px-4">
             <a href="../../" class="flex items-center justify-center gap-2 sm:gap-3 group py-1">
-              <img src="../../assets/images/coolpadel-mascot-hd.png" alt="Mascota CoolPadel" style="height: 46px; max-height: 46px; width: auto;" class="object-contain group-hover:scale-105 transition">
-              <img src="../../assets/images/coolpadel-typography-hd.png" alt="CoolPadel" style="height: 26px; max-height: 26px; width: auto;" class="object-contain">
+              <img src="../../assets/images/coolpadel-mascot-hd.png" alt="Mascota CoolPadel" width="46" height="46" style="height: 46px; max-height: 46px; width: auto;" class="object-contain group-hover:scale-105 transition">
+              <img src="../../assets/images/coolpadel-typography-hd.png" alt="CoolPadel" width="130" height="26" style="height: 26px; max-height: 26px; width: auto;" class="object-contain">
             </a>
           </div>
 
@@ -759,11 +793,11 @@ def generate_article_page(slug, edition_num, title, date_str, read_time, cover_i
           <!-- FILA 1: LOGO CENTRADO (SIN OJOS A LA DERECHA) -->
           <div class="flex items-center justify-between w-full px-2">
             <a href="../../" class="py-0.5 inline-flex items-center shrink-0">
-              <img src="../../assets/images/eyes-thumb.png?v=fixed_eyes" alt="CoolPadel Eyes" style="height: 18px; max-height: 18px; width: auto;" class="object-contain">
+              <img src="../../assets/images/eyes-thumb.png?v=fixed_eyes" alt="CoolPadel Eyes" width="18" height="18" style="height: 18px; max-height: 18px; width: auto;" class="object-contain">
             </a>
             <a href="../../" class="flex items-center justify-center gap-1.5 py-0.5">
-              <img src="../../assets/images/coolpadel-mascot-hd.png" alt="Mascota CoolPadel" style="height: 28px; max-height: 28px; width: auto;" class="object-contain">
-              <img src="../../assets/images/coolpadel-typography-hd.png" alt="CoolPadel" style="height: 18px; max-height: 18px; width: auto;" class="object-contain">
+              <img src="../../assets/images/coolpadel-mascot-hd.png" alt="Mascota CoolPadel" width="28" height="28" style="height: 28px; max-height: 28px; width: auto;" class="object-contain">
+              <img src="../../assets/images/coolpadel-typography-hd.png" alt="CoolPadel" width="90" height="18" style="height: 18px; max-height: 18px; width: auto;" class="object-contain">
             </a>
             <div class="w-[18px]"></div>
           </div>
@@ -854,7 +888,7 @@ def generate_article_page(slug, edition_num, title, date_str, read_time, cover_i
 
         <!-- FOTO PORTADA DEL ARTÍCULO -->
         <div class="aspect-[16/9] rounded-3xl overflow-hidden bg-slate-900 border border-slate-200/90 shadow-lg mb-8 sm:mb-12">
-          <img src="../../assets/images/{cover_img}" alt="{title}" class="w-full h-full object-cover">
+          <img src="../../assets/images/{cover_img}" alt="{title}" width="800" height="450" class="w-full h-full object-cover">
         </div>
 
         <!-- CUERPO DE TEXTO -->
@@ -873,9 +907,9 @@ def generate_article_page(slug, edition_num, title, date_str, read_time, cover_i
             <i data-lucide="mail" class="w-6 h-6 stroke-[2.5]"></i>
           </div>
           <div class="space-y-1.5">
-            <h3 class="font-sans font-extrabold text-xl sm:text-2xl text-slate-900 tracking-tight">
+            <h2 class="font-sans font-extrabold text-xl sm:text-2xl text-slate-900 tracking-tight">
               Suscríbete a Highlights by CoolPadel
-            </h3>
+            </h2>
             <p class="text-xs sm:text-sm text-slate-600 font-medium max-w-md mx-auto">
               Perspectivas, reflexiones y opiniones sobre la industria del pádel.
             </p>
@@ -903,17 +937,23 @@ def generate_article_page(slug, edition_num, title, date_str, read_time, cover_i
 
   <!-- FOOTER AZUL LLAVEROS #3478a6 -->
   <footer class="bg-[#3478a6] text-white py-8 border-t border-[#2c668d] text-xs">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-      <div class="flex items-center gap-3">
-        <img src="../../assets/images/coolpadel-mascot-hd.png" alt="CoolPadel" class="h-8 w-auto">
-        <span class="font-bold text-white/90">© 2026 CoolPadel Studios · All rights reserved</span>
-      </div>
-      <div class="flex items-center gap-6 text-white/90 font-semibold">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col items-center justify-between gap-4">
+      <div class="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-white/90 font-semibold">
         <a href="../../" class="hover:text-white transition">Inicio</a>
-        <a href="../../#llaveros" class="hover:text-white transition">Llaveros</a>
+        <a href="../../llaveros-padel-personalizados/" class="hover:text-white transition">Llaveros de Pádel</a>
+        <a href="../../llaveros-tenis-personalizados/" class="hover:text-white transition">Llaveros de Tenis</a>
+        <a href="../../welcome-packs-torneos-padel/" class="hover:text-white transition">Welcome Packs Torneos</a>
+        <a href="../../llaveros-personalizados-clubs-padel/" class="hover:text-white transition">Merchandising Clubs</a>
+        <a href="../../camaras/" class="hover:text-white transition">Cámaras Save my Play</a>
+        <a href="../../franquicias-padel/" class="hover:text-white transition">Directorio Franquicias</a>
         <a href="../" class="hover:text-white transition">Blog</a>
-        <a href="https://wa.me/34680317486?text=Hola%20Javier" target="_blank" rel="noopener noreferrer" class="hover:text-white transition">WhatsApp</a>
-        <a href="https://www.instagram.com/coolpadel_/" target="_blank" rel="noopener noreferrer" class="opacity-60 hover:opacity-100 text-[11px] text-white/80 transition">Instagram</a>
+        <a href="../../politica-de-devoluciones.html" class="hover:text-white transition">Política de Devoluciones</a>
+      </div>
+      <div class="flex items-center gap-3">
+        <img src="../../assets/images/coolpadel-mascot-hd.png" alt="CoolPadel" width="32" height="32" class="h-8 w-auto">
+        <span class="font-bold text-white/90">© 2026 CoolPadel Studios · All rights reserved</span>
+        <span>·</span>
+        <a href="https://www.instagram.com/coolpadel_/" target="_blank" rel="noopener noreferrer" class="opacity-60 hover:opacity-100 text-[11px] text-white/80 transition">@coolpadel_</a>
       </div>
     </div>
   </footer>
@@ -942,10 +982,10 @@ def generate_all():
         "<strong>¿Dónde está la verdadera oportunidad de negocio entonces?</strong>",
         "En los mercados emergentes, donde el pádel crece a gran velocidad.",
         "Pero las marcas internacionales no conocen el mercado local. ¿Cuál es la solución habitual? Encontrar un distribuidor local. Alguien consolidado en ese país, con una red activa de clubes, entrenadores y jugadores que les dé acceso inmediato al mercado.",
-        '<h3 class="font-heading font-black text-xl sm:text-2xl text-slate-950 pt-4">El proceso de desarrollo del pádel en un país</h3>',
+        '<h2 class="font-heading font-black text-xl sm:text-2xl text-slate-950 pt-4">El proceso de desarrollo del pádel en un país</h2>',
         "Normalmente suele seguir siempre el mismo patrón de 5 etapas:",
         '<ol class="list-decimal pl-6 space-y-2 font-medium text-slate-800"><li><strong>Clubes pioneros:</strong> Se construyen las primeras pistas y se introducen los primeros jugadores entusiastas.</li><li><strong>Competencia inicial:</strong> Unas pocas marcas de palas, ropa, software y tecnología compiten por la cuota inicial de mercado.</li><li><strong>Alternativas locales:</strong> Surgen marcas y proyectos locales que compiten con las grandes gracias a su ventaja geográfica y cercanía.</li><li><strong>Profesionalización técnica:</strong> Aparece la necesidad de traer entrenadores y academias internacionales para desarrollar jugadores y elevar el nivel medio.</li><li><strong>Ecosistema maduro:</strong> Llega el resto del ecosistema: agencias de marketing, medios especializados, grandes patrocinadores y torneos Premier Padel.</li></ol>',
-        '<h3 class="font-heading font-black text-xl sm:text-2xl text-slate-950 pt-4">¿A qué velocidad avanza este proceso?</h3>',
+        '<h2 class="font-heading font-black text-xl sm:text-2xl text-slate-950 pt-4">¿A qué velocidad avanza este proceso?</h2>',
         "Necesitas dos cosas fundamentales: <strong>jugadores y capital</strong>. Y tienen que crecer exactamente al mismo ritmo. Ya hemos visto varias veces (como en Suecia o Chile) lo que ocurre cuando la inversión se precipita antes de que exista una base real y fiel de jugadores.",
         "En mercados como Estados Unidos, muchas marcas y clubes están invirtiendo fuerte para posicionarse pronto. Verán el retorno cuando el mercado madure, pero está llevando más tiempo del previsto porque el deporte aún es poco conocido. Todavía no hay suficientes jugadores para rentabilizar inversiones iniciales tan grandes.",
         "Cuando un mercado llega a esa fase de competencia, la batalla pasa al interior del club: retención, experiencia del jugador y diferenciación.",
@@ -967,7 +1007,7 @@ def generate_all():
         "Los Ángeles 2028, Brisbane 2032… o tal vez ya para 2040.",
         "La realidad es que estamos lejos de serlo.",
         "O, al menos, deberíamos estarlo.",
-        "<strong>Te cuento por qué:</strong>",
+        '<h2 class="font-heading font-black text-xl sm:text-2xl text-slate-950 pt-4">¿Por qué un deporte global precede al sueño olímpico?</h2>',
         "Que sí, que el breakdance lo fue en París 2024. Justo por eso no deberíamos precipitarnos.",
         "Para llegar a ser olímpico, antes deberías ser un deporte global. Y no al revés.",
         "Debería ser un premio, más que un medio. O eso pienso yo.",
@@ -992,7 +1032,7 @@ def generate_all():
         "Hablar con las 20 startups del Innovation Arena en el Padel World Summit, una por una, es uno de los mejores termómetros para saber en qué punto real se encuentra la industria del pádel.",
         "En términos generales, el mercado del pádel todavía está en una fase temprana: está fragmentado, es local y es tremendamente dinámico. Cada país tiene sus propios modelos de negocio y, en muchos casos, cuesta ver una diferenciación clara entre soluciones.",
         "Sin embargo, en mercados consolidados como España, unas pocas marcas ya dominan de forma casi indiscutible. Para una startup que empieza, intentar batirlas en su propio terreno es una batalla cuesta arriba.",
-        '<h3 class="font-heading font-black text-xl sm:text-2xl text-slate-950 pt-4">Construir sobre los gigantes vs Intentar reemplazarlos</h3>',
+        '<h2 class="font-heading font-black text-xl sm:text-2xl text-slate-950 pt-4">Construir sobre los gigantes vs Intentar reemplazarlos</h2>',
         "Un ejemplo claro es el software de gestión y reservas: aunque tu herramienta sea algo mejor que Playtomic, desbancarlos de un club consolidado es extremadamente difícil.",
         "Una opción es centrarse en nuevos mercados emergentes, pero las probabilidades juegan en contra. Por eso, los proyectos que más me gustaron fueron los que no intentan reemplazar el sistema existente del club, sino integrarse sobre él aportando un valor claro y diferencial sin fricción técnica.",
         "La clave en esta etapa del pádel no es reinventar la rueda, sino resolver cuellos de botella reales para los gerentes: aumentar la ocupación en horas valle, mejorar la recurrencia de los jugadores y profesionalizar la imagen y el merchandising oficial del club."

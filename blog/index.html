@@ -404,17 +404,23 @@
 
   <!-- FOOTER EN AZUL DE LLAVEROS #3478a6 -->
   <footer class="bg-[#3478a6] text-white py-8 border-t border-sky-700/40 text-xs">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-      <div class="flex items-center gap-3">
-        <img src="../assets/images/coolpadel-mascot-hd.png" alt="CoolPadel" class="h-8 w-auto">
-        <span class="font-bold text-white/90">© 2026 CoolPadel Studios · All rights reserved</span>
-      </div>
-      <div class="flex items-center gap-6 text-white/80 font-semibold">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col items-center justify-between gap-4">
+      <div class="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-white/90 font-semibold">
         <a href="../" class="hover:text-white transition">Inicio</a>
-        <a href="../#llaveros" class="hover:text-white transition">Llaveros</a>
+        <a href="../llaveros-padel-personalizados/" class="hover:text-white transition">Llaveros de Pádel</a>
+        <a href="../llaveros-tenis-personalizados/" class="hover:text-white transition">Llaveros de Tenis</a>
+        <a href="../welcome-packs-torneos-padel/" class="hover:text-white transition">Welcome Packs Torneos</a>
+        <a href="../llaveros-personalizados-clubs-padel/" class="hover:text-white transition">Merchandising Clubs</a>
+        <a href="../camaras/" class="hover:text-white transition">Cámaras Save my Play</a>
+        <a href="../franquicias-padel/" class="hover:text-white transition">Directorio Franquicias</a>
         <a href="./" class="hover:text-white transition">Blog</a>
-        <a href="https://wa.me/34680317486?text=Hola%20Javier" target="_blank" rel="noopener noreferrer" class="hover:text-white transition">WhatsApp</a>
-        <a href="https://www.instagram.com/coolpadel_/" target="_blank" rel="noopener noreferrer" class="opacity-40 hover:opacity-100 text-[11px] text-white transition">Instagram</a>
+        <a href="../politica-de-devoluciones.html" class="hover:text-white transition">Política de Devoluciones</a>
+      </div>
+      <div class="flex items-center gap-3">
+        <img src="../assets/images/coolpadel-mascot-hd.png" alt="CoolPadel" width="32" height="32" class="h-8 w-auto">
+        <span class="font-bold text-white/90">© 2026 CoolPadel Studios · All rights reserved</span>
+        <span>·</span>
+        <a href="https://www.instagram.com/coolpadel_/" target="_blank" rel="noopener noreferrer" class="opacity-60 hover:opacity-100 text-[11px] text-white transition">@coolpadel_</a>
       </div>
     </div>
   </footer>
@@ -573,9 +579,12 @@
         }).catch(() => {});
       } catch (err) {}
 
-      setTimeout(() => {
-        window.open('https://coolpadelstudios.com/assets/images/foto-reportaje.jpg', '_blank');
-      }, 500);
+      const link = document.createElement('a');
+      link.href = '../assets/reports/padel-industry-report-es.pdf';
+      link.download = 'CoolPadel-Reportaje-Industria-Padel-2026-ES.pdf';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
     }
   </script>
 </body>

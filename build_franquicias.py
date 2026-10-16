@@ -266,12 +266,43 @@ def render_html():
         "name": "Directorio y Comparador Global de Franquicias y Cadenas de Pádel (+1 Club)",
         "description": "Censo y matriz comparativa cara a cara de {total_franquicias} cadenas de clubes de pádel en {paises_unicos} países con datos técnicos de naves, inversión requerida, royalties y software de gestión.",
         "url": "https://coolpadelstudios.com/franquicias-padel/",
+        "isAccessibleForFree": true,
+        "license": "https://creativecommons.org/licenses/by/4.0/",
         "creator": {{
           "@type": "Organization",
           "name": "CoolPadel Studios"
         }},
         "keywords": ["franquicias padel", "cadenas clubs padel", "inversion pistas padel", "comparativa franquicias padel", "abrir club padel"],
         "inLanguage": "es"
+      }},
+      {{
+        "@type": "FAQPage",
+        "mainEntity": [
+          {{
+            "@type": "Question",
+            "name": "¿Cuántas cadenas y franquicias de pádel existen en el directorio de CoolPadel?",
+            "acceptedAnswer": {{
+              "@type": "Answer",
+              "text": "El directorio oficial de CoolPadel Studios reúne {total_franquicias} cadenas, operadores multiclub y franquicias de pádel verificadas que gestionan más de 828 clubes y 8.500 pistas en {paises_unicos} países."
+            }}
+          }},
+          {{
+            "@type": "Question",
+            "name": "¿Qué modelos de negocio de clubes de pádel se comparan?",
+            "acceptedAnswer": {{
+              "@type": "Answer",
+              "text": "Se analizan 5 modelos principales: Cadena Multiclub (operadores propios con varias sedes), Red Corporativa, Franquicia Llave en Mano, Club Automatizado 24/7 y Club Boutique de lujo, detallando inversión estimada, requisitos de nave, software de reservas y royalties."
+            }}
+          }},
+          {{
+            "@type": "Question",
+            "name": "¿Qué soluciones B2B ofrece CoolPadel Studios para cadenas y franquicias de pádel?",
+            "acceptedAnswer": {{
+              "@type": "Answer",
+              "text": "CoolPadel Studios equipa a cadenas y clubes con llaveros personalizados en goma 3D (desde 100 uds, muestra física en ~15 días laborables por 15€ descontables y entrega del pedido en ~1 mes) y cámaras de grabación en pista Save My Play sin obras (180 €/pista hardware y desde 45 €/mes software sin permanencia)."
+            }}
+          }}
+        ]
       }}
     ]
   }}
@@ -614,8 +645,8 @@ def render_html():
                 <!-- MENÚ DESPLEGABLE ESTILOS -->
                 <div id="mapstyle-dropdown-menu" class="hidden absolute right-0 mt-2 w-64 bg-white rounded-2xl shadow-[0_12px_30px_rgba(0,0,0,0.15)] border border-slate-200 p-2 z-50 transition-all">
                   <div class="px-2.5 py-1 text-[10px] font-black uppercase tracking-wider text-slate-400 border-b border-slate-100 mb-1.5 flex items-center justify-between">
-                    <span>Propuestas de mapa</span>
-                    <span class="text-[9px] text-amber-600 bg-amber-50 px-1.5 py-0.5 rounded font-extrabold">API Key Activa</span>
+                    <span>Propuestas de diseño</span>
+                    <span class="text-[9px] text-emerald-600 bg-emerald-50 px-1.5 py-0.5 rounded font-bold">5 estilos listos</span>
                   </div>
                   <button type="button" onclick="setMapStyle('voyager')" class="w-full flex items-center justify-between px-2.5 py-2 text-xs font-bold text-slate-800 hover:bg-amber-50 hover:text-amber-900 rounded-xl transition text-left cursor-pointer">
                     <span class="flex items-center gap-2"><span>✨</span> Voyager (Airbnb / SaaS)</span>
@@ -813,20 +844,25 @@ def render_html():
 
   <!-- FOOTER -->
   <footer class="bg-slate-950 text-slate-400 py-12 border-t border-slate-800 text-xs">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-between gap-6">
+      <div class="flex flex-wrap items-center justify-center gap-x-5 gap-y-2">
+        <a href="../" class="hover:text-white transition">Inicio</a>
+        <a href="../llaveros-padel-personalizados/" class="hover:text-white transition">Llaveros de Pádel</a>
+        <a href="../llaveros-tenis-personalizados/" class="hover:text-white transition">Llaveros de Tenis</a>
+        <a href="../welcome-packs-torneos-padel/" class="hover:text-white transition">Welcome Packs Torneos</a>
+        <a href="../llaveros-personalizados-clubs-padel/" class="hover:text-white transition">Merchandising Clubs</a>
+        <a href="../camaras/" class="hover:text-white transition">Cámaras Save my Play</a>
+        <a href="../camaras-grabacion-pistas-padel/" class="hover:text-white transition">Grabación Pistas</a>
+        <a href="../blog/" class="hover:text-white transition">Blog</a>
+        <a href="../politica-de-devoluciones.html" class="hover:text-white transition">Política de Devoluciones</a>
+        <button onclick="openOnboardingModal()" class="text-[#f2920b] hover:underline font-bold">Alta de Franquicia</button>
+      </div>
       <div class="flex items-center gap-3">
         <img src="../assets/images/coolpadel-mascot-hd.png" alt="CoolPadel Studios" width="32" height="32" class="h-8 w-auto">
         <span class="font-heading font-black text-white text-sm">CoolPadel Studios</span>
         <span class="text-slate-600">|</span>
         <span>Censo Internacional de Franquicias y Cadenas de Pádel</span>
-      </div>
-
-      <div class="flex items-center gap-6">
-        <a href="../" class="hover:text-white transition">Inicio</a>
-        <a href="../#llaveros" class="hover:text-white transition">Llaveros</a>
-        <a href="../camaras/" class="hover:text-white transition">Cámaras Pistas</a>
-        <a href="../blog/" class="hover:text-white transition">Blog</a>
-        <button onclick="openOnboardingModal()" class="text-[#f2920b] hover:underline font-bold">Alta de Franquicia</button>
+        <span class="text-slate-600">|</span>
         <a href="https://wa.me/34680317486" target="_blank" class="text-white hover:underline font-bold" rel="noopener noreferrer">WhatsApp: +34 680 31 74 86</a>
       </div>
     </div>
@@ -896,7 +932,7 @@ def render_html():
           <span id="drawerFlag" class="text-2xl"></span>
           <span id="drawerBadge" class="inline-block px-2.5 py-0.5 rounded-full text-xs font-bold border"></span>
         </div>
-        <h2 id="drawerTitle" class="font-heading font-black text-2xl sm:text-3xl text-slate-950"></h2>
+        <h2 id="drawerTitle" class="font-heading font-black text-2xl sm:text-3xl text-slate-950">Ficha Técnica de Cadena de Pádel</h2>
         <div class="flex items-center gap-2.5 pt-1 flex-wrap">
           <p id="drawerCity" class="text-xs font-semibold text-slate-500 flex items-center gap-1"></p>
           <button type="button" onclick="focusClubOnMap(currentDrawerId, true, true)" class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-200/80 hover:bg-[#f2920b] hover:text-slate-950 text-xs font-bold text-slate-800 transition cursor-pointer shadow-2xs" title="Ver en el mapa interactivo">
