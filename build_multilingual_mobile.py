@@ -63,6 +63,150 @@ def get_base_html(active_lang="es", is_subfolder=False):
 
     og_locales = {"es": "es_ES", "en": "en_US", "fr": "fr_FR", "it": "it_IT"}
     og_locale = og_locales.get(active_lang, "es_ES")
+    page_url = f"https://coolpadelstudios.com/{active_lang + '/' if is_subfolder else ''}"
+
+    seo_i18n = {
+        "es": {
+            "og_img_alt": "Llaveros de pádel personalizados en relieve 3D CoolPadel Studios",
+            "org_desc": "Fabricante y distribuidor directo de llaveros de pádel personalizados de goma 3D para clubes deportivos y marcas, y partner oficial de cámaras en pista Save my Play.",
+            "bc_home": "Inicio",
+            "bc_llaveros": "Llaveros de Pádel",
+            "prod_name": "Llaveros de Pádel Personalizados 3D - CoolPadel Studios",
+            "prod_desc": "Llaveros de pádel personalizados de goma 3D de alta densidad con el logotipo oficial del club o comunidad. Muestra física real por 15€ (~15 días laborables, 100% deducible) y pedidos desde 100 unidades con entrega en torno a un mes y envíos incluidos.",
+            "prod_material": "Goma y Silicona PVC 3D de alta densidad con anilla metálica reforzada",
+            "howto_name": "Cómo encargar llaveros de pádel personalizados para tu club",
+            "howto_desc": "Proceso oficial en 3 pasos para diseñar y fabricar llaveros de pádel en relieve 3D con muestra física real previa.",
+            "step1_name": "Envío de logotipo y diseño 3D",
+            "step1_text": "Envíanos el logo de tu club en cualquier formato para preparar el render digital 3D a ordenador sin coste.",
+            "step2_name": "Muestra física real por 15€",
+            "step2_text": "Fabricamos y enviamos una muestra física real con el logo de tu club en ~15 días laborables (15€ descontables al 100% del pedido final).",
+            "step3_name": "Confirmación y fabricación del pedido",
+            "step3_text": "Producción en serie desde 100 unidades (1,50€ a 3,00€/ud) y entrega en torno a un mes según volumen con envíos incluidos.",
+            "sr_h2": "Llaveros de Pádel Personalizados 3D CoolPadel Studios",
+            "sr_p": "Fabricante B2B especializado en llaveros de pádel y tenis personalizados en relieve 3D de goma microinyectada de alta densidad para clubes, torneos y federaciones. Pedidos al por mayor desde 100 unidades con tarifa directa de fábrica de 1,50€ a 3,00€ por unidad (100 uds: 300€ | 250 uds: 625€ | 500 uds: 1.000€ | 1.500 uds: 2.250€). Muestra física real personalizada previa por 15€ en ~15 días laborables (100% reembolsable con el pedido final). Entrega del pedido en torno a un mes según volumen en España, Europa y EE. UU.",
+            "sr_caption": "Tarifas oficiales de fabricación al por mayor de llaveros de pádel personalizados 3D CoolPadel Studios",
+            "sr_th_tier": "Tramo de volumen",
+            "sr_th_unit": "Precio unitario",
+            "sr_th_total": "Importe estimado",
+            "sr_th_cond": "Condiciones y Plazos",
+            "sr_r1_c1": "100 unidades (Pedido mínimo)",
+            "sr_r1_c4": "Muestra física real en ~15 días laborables: 15€ (100% descontable del pedido final)",
+            "sr_r2_c1": "250 unidades",
+            "sr_r2_c4": "Muestra física descontable · Entrega del pedido en ~1 mes",
+            "sr_r3_c1": "500 unidades",
+            "sr_r3_c4": "Muestra física descontable y envíos incluidos · Entrega en ~1 mes",
+            "sr_r4_c1": "1.500 unidades",
+            "sr_r4_c4": "Tarifa directa de fábrica gran volumen · Envíos incluidos",
+            "map_h3": "Clubs y Marcas con Llaveros CoolPadel",
+            "map_p": "Selecciona una zona o haz clic en cualquier marcador para explorar nuestros clubs oficiales",
+            "sr_clubs_h4": "Clubes, academias y federaciones clientes oficiales de CoolPadel Studios:"
+        },
+        "en": {
+            "og_img_alt": "Custom 3D rubber padel keychains for clubs by CoolPadel Studios",
+            "org_desc": "Direct B2B manufacturer of custom 3D rubber padel and tennis keychains for sports clubs, tournaments and brands, and official partner of Save my Play court cameras.",
+            "bc_home": "Home",
+            "bc_llaveros": "Custom Padel Keychains",
+            "prod_name": "Custom 3D Padel Keychains - CoolPadel Studios",
+            "prod_desc": "High-density custom 3D rubber padel keychains featuring your official club or tournament logo. Real physical sample for 15€ (~15 business days, 100% deducted from final order), minimum order from 100 units, delivery in ~1 month with shipping included.",
+            "prod_material": "High-density 3D micro-injected PVC & silicone rubber with reinforced metal keyring",
+            "howto_name": "How to order custom padel keychains for your club",
+            "howto_desc": "Official 3-step guided process to design and manufacture custom 3D padel keychains with a real physical sample.",
+            "step1_name": "Send your logo & free 3D digital mockup",
+            "step1_text": "Send us your club logo in any format to prepare a 3D digital computer mockup at no cost.",
+            "step2_name": "Real physical sample for 15€",
+            "step2_text": "We manufacture and ship a real physical sample with your club logo in ~15 business days (15€ is 100% deducted from the final order).",
+            "step3_name": "Order confirmation & mass manufacturing",
+            "step3_text": "Series production from 100 units (1.50€ to 3.00€/unit) with delivery in about one month depending on volume and shipping included.",
+            "sr_h2": "Custom 3D Padel Keychains CoolPadel Studios",
+            "sr_p": "B2B manufacturer specializing in custom 3D micro-injected rubber padel and tennis keychains for clubs, tournaments and federations. Wholesale orders from 100 units at direct factory pricing from 1.50€ to 3.00€ per unit (100 units: 300€ | 250 units: 625€ | 500 units: 1,000€ | 1,500 units: 2,250€). Real custom physical sample for 15€ delivered in ~15 business days (100% deducted from the final order). Full order delivery in about one month across Spain, Europe and the USA.",
+            "sr_caption": "Official wholesale manufacturing prices for custom 3D padel keychains by CoolPadel Studios",
+            "sr_th_tier": "Volume tier",
+            "sr_th_unit": "Unit price",
+            "sr_th_total": "Estimated total",
+            "sr_th_cond": "Terms & Lead Time",
+            "sr_r1_c1": "100 units (Minimum order)",
+            "sr_r1_c4": "Real physical sample in ~15 business days: 15€ (100% deducted from final order)",
+            "sr_r2_c1": "250 units",
+            "sr_r2_c4": "Deductible physical sample · Full order delivery in ~1 month",
+            "sr_r3_c1": "500 units",
+            "sr_r3_c4": "Deductible physical sample & shipping included · Delivery in ~1 month",
+            "sr_r4_c1": "1,500 units",
+            "sr_r4_c4": "Direct factory high-volume tier · Shipping included",
+            "map_h3": "Clubs & Brands with CoolPadel Keychains",
+            "map_p": "Select a region or click any marker to explore our official client clubs",
+            "sr_clubs_h4": "Official clubs, academies and federations trusting CoolPadel Studios:"
+        },
+        "fr": {
+            "og_img_alt": "Porte-clés de padel personnalisés en relief 3D CoolPadel Studios",
+            "org_desc": "Fabricant B2B direct de porte-clés de padel et tennis personnalisés en gomme 3D pour clubs sportifs et tournois, et partenaire officiel des caméras Save my Play.",
+            "bc_home": "Accueil",
+            "bc_llaveros": "Porte-clés Padel",
+            "prod_name": "Porte-clés Padel Personnalisés 3D - CoolPadel Studios",
+            "prod_desc": "Porte-clés de padel personnalisés en gomme 3D haute densité avec le logo officiel de votre club ou tournoi. Échantillon physique réel pour 15€ (~15 jours ouvrés, 100% déduit de la commande), commande dès 100 unités et livraison en environ un mois avec frais de port inclus.",
+            "prod_material": "Gomme PVC et silicone 3D haute densité avec anneau métallique renforcé",
+            "howto_name": "Comment commander des porte-clés de padel personnalisés pour votre club",
+            "howto_desc": "Processus officiel en 3 étapes pour concevoir et fabriquer des porte-clés de padel en relief 3D avec échantillon physique réel.",
+            "step1_name": "Envoi du logo et modélisation 3D",
+            "step1_text": "Envoyez-nous le logo de votre club pour recevoir une maquette numérique 3D sur ordinateur sans frais.",
+            "step2_name": "Échantillon physique réel pour 15€",
+            "step2_text": "Fabrication et expédition d'un échantillon physique réel avec votre logo sous ~15 jours ouvrés (les 15€ sont déduits à 100% de la commande finale).",
+            "step3_name": "Validation et fabrication de la commande",
+            "step3_text": "Production en série dès 100 unités (1,50€ à 3,00€/unité) et livraison en un mois environ selon le volume, port inclus.",
+            "sr_h2": "Porte-clés de Padel Personnalisés 3D CoolPadel Studios",
+            "sr_p": "Fabricant B2B spécialisé dans les porte-clés de padel et tennis personnalisés en relief 3D pour clubs, tournois et fédérations. Commandes dès 100 unités au tarif direct usine de 1,50€ à 3,00€ par unité (100 u. : 300€ | 250 u. : 625€ | 500 u. : 1 000€ | 1 500 u. : 2 250€). Échantillon physique réel préalable pour 15€ sous ~15 jours ouvrés (100% remboursé sur la commande finale). Livraison de la commande en environ un mois en France, Europe et USA.",
+            "sr_caption": "Tarifs officiels de fabrication en gros de porte-clés de padel personnalisés 3D CoolPadel Studios",
+            "sr_th_tier": "Palier de volume",
+            "sr_th_unit": "Prix unitaire",
+            "sr_th_total": "Montant estimé",
+            "sr_th_cond": "Conditions et Délais",
+            "sr_r1_c1": "100 unités (Commande minimale)",
+            "sr_r1_c4": "Échantillon physique réel sous ~15 jours ouvrés : 15€ (100% déduit de la commande)",
+            "sr_r2_c1": "250 unités",
+            "sr_r2_c4": "Échantillon physique déductible · Livraison en ~1 mois",
+            "sr_r3_c1": "500 unités",
+            "sr_r3_c4": "Échantillon déductible et livraison incluse · Délai ~1 mois",
+            "sr_r4_c1": "1 500 unités",
+            "sr_r4_c4": "Tarif direct usine grand volume · Livraison incluse",
+            "map_h3": "Clubs & Marques avec Porte-clés CoolPadel",
+            "map_p": "Sélectionnez une zone ou cliquez sur un marqueur pour découvrir nos clubs officiels",
+            "sr_clubs_h4": "Clubs, académies et fédérations clientes officielles de CoolPadel Studios :"
+        },
+        "it": {
+            "og_img_alt": "Portachiavi da padel personalizzati in rilievo 3D CoolPadel Studios",
+            "org_desc": "Produttore e distributore diretto B2B di portachiavi da padel e tennis personalizzati in gomma 3D per club sportivi e tornei, e partner ufficiale delle telecamere Save my Play.",
+            "bc_home": "Home",
+            "bc_llaveros": "Portachiavi Padel",
+            "prod_name": "Portachiavi Padel Personalizzati 3D - CoolPadel Studios",
+            "prod_desc": "Portachiavi da padel personalizzati in gomma 3D ad alta densità con il logo ufficiale del club o torneo. Campione fisico reale a 15€ (~15 giorni lavorativi, 100% scalato dall'ordine finale), ordini da 100 unità e consegna in circa un mese con spedizione inclusa.",
+            "prod_material": "Gomma PVC e silicone 3D ad alta densità con anello metallico rinforzato",
+            "howto_name": "Come ordinare portachiavi da padel personalizzati per il tuo club",
+            "howto_desc": "Procedura ufficiale in 3 fasi per progettare e produrre portachiavi da padel in rilievo 3D con campione fisico reale.",
+            "step1_name": "Invio del logo e progettazione 3D",
+            "step1_text": "Inviaci il logo del tuo club per preparare il render digitale 3D al computer senza costi.",
+            "step2_name": "Campione fisico reale a 15€",
+            "step2_text": "Produciamo e spediamo un campione fisico reale con il logo del tuo club in ~15 giorni lavorativi (i 15€ vengono dedotti al 100% dall'ordine finale).",
+            "step3_name": "Conferma e produzione dell'ordine",
+            "step3_text": "Produzione in serie da 100 unità (da 1,50€ a 3,00€/unità) e consegna in circa un mese in base al volume con spedizione inclusa.",
+            "sr_h2": "Portachiavi Padel Personalizzati 3D CoolPadel Studios",
+            "sr_p": "Produttore B2B specializzato in portachiavi da padel e tennis personalizzati in rilievo 3D per club, tornei e federazioni. Ordini all'ingrosso da 100 unità a prezzo diretto di fabbrica da 1,50€ a 3,00€ per unità (100 u.: 300€ | 250 u.: 625€ | 500 u.: 1.000€ | 1.500 u.: 2.250€). Campione fisico reale personalizzato a 15€ in ~15 giorni lavorativi (100% rimborsabile con l'ordine finale). Consegna dell'ordine in circa un mese in Italia, Europa e USA.",
+            "sr_caption": "Tariffe ufficiali di produzione all'ingrosso di portachiavi da padel personalizzati 3D CoolPadel Studios",
+            "sr_th_tier": "Fascia di volume",
+            "sr_th_unit": "Prezzo unitario",
+            "sr_th_total": "Importo stimato",
+            "sr_th_cond": "Condizioni e Tempi",
+            "sr_r1_c1": "100 unità (Ordine minimo)",
+            "sr_r1_c4": "Campione fisico reale in ~15 giorni lavorativi: 15€ (100% dedotto dall'ordine finale)",
+            "sr_r2_c1": "250 unità",
+            "sr_r2_c4": "Campione fisico deducibile · Consegna ordine in ~1 mese",
+            "sr_r3_c1": "500 unità",
+            "sr_r3_c4": "Campione deducibile e spedizione inclusa · Consegna in ~1 mese",
+            "sr_r4_c1": "1.500 unità",
+            "sr_r4_c4": "Tariffa diretta di fabbrica grandi volumi · Spedizione inclusa",
+            "map_h3": "Club e Brand con Portachiavi CoolPadel",
+            "map_p": "Seleziona un'area o clicca su qualsiasi indicatore per esplorare i nostri club ufficiali",
+            "sr_clubs_h4": "Club, accademie e federazioni clienti ufficiali di CoolPadel Studios:"
+        }
+    }[active_lang]
 
     html = f"""<!DOCTYPE html>
 <html lang="{active_lang}" class="scroll-smooth">
@@ -73,7 +217,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
   <meta name="description" content="{t['meta_desc']}">
   <meta name="author" content="CoolPadel Studios">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
-  <link rel="canonical" href="https://coolpadelstudios.com/{active_lang + '/' if is_subfolder else ''}">
+  <link rel="canonical" href="{page_url}">
   <link rel="icon" type="image/png" href="{asset_prefix}assets/images/favicon_transparente.png?v=transp3">
   <link rel="apple-touch-icon" sizes="180x180" href="{asset_prefix}assets/images/favicon_transparente.png?v=transp3">
   <link rel="manifest" href="{asset_prefix}site.webmanifest">
@@ -95,11 +239,11 @@ def get_base_html(active_lang="es", is_subfolder=False):
   <meta property="og:type" content="website">
   <meta property="og:locale" content="{og_locale}">
   <meta property="og:site_name" content="CoolPadel Studios">
-  <meta property="og:url" content="https://coolpadelstudios.com/{active_lang + '/' if is_subfolder else ''}">
+  <meta property="og:url" content="{page_url}">
   <meta property="og:title" content="{t['meta_title']}">
   <meta property="og:description" content="{t['meta_desc']}">
   <meta property="og:image" content="https://coolpadelstudios.com/assets/images/slide-1.jpg">
-  <meta property="og:image:alt" content="Llaveros de pádel personalizados CoolPadel">
+  <meta property="og:image:alt" content="{seo_i18n['og_img_alt']}">
 
   <!-- Twitter / X Cards -->
   <meta name="twitter:card" content="summary_large_image">
@@ -127,7 +271,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
           "name": "Javier Villoria",
           "sameAs": "https://www.linkedin.com/in/javier-villoria-soleto-606737298/"
         }},
-        "description": "Fabricante y distribuidor directo de llaveros de pádel personalizados de goma 3D para clubes deportivos y marcas.",
+        "description": "{seo_i18n['org_desc']}",
         "sameAs": [
           "https://www.instagram.com/coolpadel_/",
           "https://www.linkedin.com/in/javier-villoria-soleto-606737298/",
@@ -146,13 +290,13 @@ def get_base_html(active_lang="es", is_subfolder=False):
         "knowsAbout": [
           "Llaveros de pádel",
           "Llaveros de padel personalizados",
-          "Llaveros de padel para clubs",
-          "Llavero pala de pádel",
+          "Custom padel keychains",
+          "Porte-clés padel personnalisés",
+          "Portachiavi padel personalizzati",
           "Merchandising para clubes de pádel",
-          "Merchandising para clubes deportivos",
-          "Regalos para torneos de pádel",
           "Welcome packs de pádel",
-          "Llaveros de goma 3D personalizados",
+          "Cámaras pistas de pádel Save my Play",
+          "Franquicias y cadenas de clubes de pádel",
           "Industria del padel"
         ],
         "contactPoint": {{
@@ -178,35 +322,36 @@ def get_base_html(active_lang="es", is_subfolder=False):
           {{
             "@type": "ListItem",
             "position": 1,
-            "name": "Inicio",
-            "item": "https://coolpadelstudios.com/"
+            "name": "{seo_i18n['bc_home']}",
+            "item": "{page_url}"
           }},
           {{
             "@type": "ListItem",
             "position": 2,
-            "name": "Llaveros de Pádel",
-            "item": "https://coolpadelstudios.com/#llaveros"
+            "name": "{seo_i18n['bc_llaveros']}",
+            "item": "{page_url}#llaveros"
           }}
         ]
       }},
       {{
         "@type": "Product",
         "@id": "https://coolpadelstudios.com/#product-llaveros-padel",
-        "name": "Llaveros de Pádel Personalizados - CoolPadel Studios",
+        "inLanguage": "{active_lang}",
+        "name": "{seo_i18n['prod_name']}",
         "alternateName": [
           "Llaveros de pádel",
-          "Llaveros de padel",
-          "Llaveros padel",
-          "Llavero pala de pádel",
+          "Llaveros de padel personalizados",
+          "Custom padel keychains",
+          "Porte-clés padel personnalisés",
+          "Portachiavi padel personalizzati",
           "Llaveros personalizados para clubs de pádel",
-          "Llaveros padel 3D",
           "Merchandising para clubs de pádel",
           "Regalos torneos de pádel welcome pack"
         ],
-        "description": "Llaveros de pádel personalizados de goma 3D de alta densidad con el logotipo oficial del club o comunidad. Merchandising oficial, muestras desde 15€, pedidos a partir de 100 unidades y envíos incluidos.",
+        "description": "{seo_i18n['prod_desc']}",
         "category": "Sporting Goods > Racquet Sports > Padel > Accessories > Keychains",
-        "keywords": "llaveros de padel, llaveros padel, llaveros de pádel personalizados, llavero pala de padel, merchandising clubes padel, merchandising padel torneos, welcome pack padel",
-        "material": "Goma y Silicona 3D de alta densidad con anilla metálica reforzada",
+        "keywords": "llaveros de padel, custom padel keychains, porte-clés padel, portachiavi padel, llaveros de pádel personalizados, merchandising clubes padel, welcome pack padel",
+        "material": "{seo_i18n['prod_material']}",
         "image": [
           "https://coolpadelstudios.com/assets/images/llaveros%201.jpg",
           "https://coolpadelstudios.com/assets/images/llaveros%202.jpg",
@@ -250,7 +395,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
             }},
             "shippingDestination": {{
               "@type": "DefinedRegion",
-              "addressCountry": ["ES", "FR", "IT", "PT", "DE", "US"]
+              "addressCountry": ["ES", "FR", "IT", "PT", "DE", "BE", "GB", "US"]
             }},
             "deliveryTime": {{
               "@type": "ShippingDeliveryTime",
@@ -261,14 +406,14 @@ def get_base_html(active_lang="es", is_subfolder=False):
               "cutoffTime": "14:00:00Z",
               "handlingTime": {{
                 "@type": "QuantitativeValue",
-                "minValue": 1,
-                "maxValue": 3,
+                "minValue": 10,
+                "maxValue": 15,
                 "unitCode": "d"
               }},
               "transitTime": {{
                 "@type": "QuantitativeValue",
-                "minValue": 5,
-                "maxValue": 7,
+                "minValue": 10,
+                "maxValue": 15,
                 "unitCode": "d"
               }}
             }}
@@ -277,26 +422,27 @@ def get_base_html(active_lang="es", is_subfolder=False):
       }},
       {{
         "@type": "HowTo",
-        "name": "Cómo encargar llaveros de pádel personalizados para tu club",
-        "description": "Proceso oficial en 3 pasos para diseñar y fabricar llaveros de pádel en relieve 3D con muestra física real previa.",
+        "inLanguage": "{active_lang}",
+        "name": "{seo_i18n['howto_name']}",
+        "description": "{seo_i18n['howto_desc']}",
         "step": [
           {{
             "@type": "HowToStep",
             "position": 1,
-            "name": "Envío de logotipo y diseño 3D",
-            "text": "Envíanos el logo de tu club en cualquier formato para preparar el render digital 3D sin coste."
+            "name": "{seo_i18n['step1_name']}",
+            "text": "{seo_i18n['step1_text']}"
           }},
           {{
             "@type": "HowToStep",
             "position": 2,
-            "name": "Muestra física real por 15€",
-            "text": "Fabricamos y enviamos una muestra real con el logo de tu club para validar relieve y colores."
+            "name": "{seo_i18n['step2_name']}",
+            "text": "{seo_i18n['step2_text']}"
           }},
           {{
             "@type": "HowToStep",
             "position": 3,
-            "name": "Producción del pedido final",
-            "text": "Fabricación en serie desde 100 unidades y entrega directa en 7-10 días laborables con envíos incluidos."
+            "name": "{seo_i18n['step3_name']}",
+            "text": "{seo_i18n['step3_text']}"
           }}
         ]
       }},
@@ -880,11 +1026,11 @@ def get_base_html(active_lang="es", is_subfolder=False):
   <section id="llaveros" itemscope itemtype="https://schema.org/Product" class="py-14 sm:py-20 bg-[#3478a6] relative border-b border-sky-700/40 text-white overflow-hidden">
     <!-- GEO & Generative AI Semantic Microdata Block (Invisible visually, accessible to Screen Readers and AI Crawlers) -->
     <div class="sr-only">
-      <h2 itemprop="name">Llaveros de Pádel Personalizados 3D CoolPadel Studios</h2>
-      <p itemprop="description">Fabricante B2B especializado en llaveros de pádel y tenis personalizados en relieve 3D de goma microinyectada de alta densidad para clubes, torneos y federaciones. Pedidos al por mayor desde 100 unidades con tarifa directa de fábrica de 1,50€ a 3,00€ por unidad. Muestra física real personalizada previa por 15€ con envío incluido (100% reembolsable con el pedido final). Entrega en 7-10 días hábiles en España, Europa y EE. UU. No venta a particulares de unidades sueltas.</p>
+      <h2 itemprop="name">{seo['sr_h2']}</h2>
+      <p itemprop="description">{seo['sr_p']}</p>
       <span itemprop="brand" itemscope itemtype="https://schema.org/Brand"><meta itemprop="name" content="CoolPadel Studios"></span>
       <meta itemprop="category" content="Sporting Goods &gt; Racquet Sports &gt; Padel &gt; Accessories &gt; Keychains">
-      <meta itemprop="material" content="Goma PVC microinyección 3D de alta densidad con anilla metálica reforzada">
+      <meta itemprop="material" content="{seo['prod_material']}">
       <div itemprop="offers" itemscope itemtype="https://schema.org/AggregateOffer">
         <meta itemprop="priceCurrency" content="EUR">
         <meta itemprop="lowPrice" content="1.50">
@@ -910,24 +1056,24 @@ def get_base_html(active_lang="es", is_subfolder=False):
       <div class="grid md:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 max-w-5xl mx-auto mb-12 sm:mb-16">
         
         <!-- CARD IZQUIERDA: TENIS -->
-        <div class="bg-white border border-slate-200/90 rounded-3xl p-5 sm:p-7 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.25)] hover:shadow-[0_35px_65px_-10px_rgba(0,0,0,0.35)] transition-all duration-300 group flex flex-col justify-between hover:-translate-y-1">
+        <a href="/llaveros-tenis-personalizados/" class="bg-white border border-slate-200/90 rounded-3xl p-5 sm:p-7 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.25)] hover:shadow-[0_35px_65px_-10px_rgba(0,0,0,0.35)] transition-all duration-300 group flex flex-col justify-between hover:-translate-y-1">
           <div class="aspect-[4/3] rounded-2xl overflow-hidden mb-4 sm:mb-5 bg-slate-100 shadow-[0_20px_40px_-10px_rgba(0,0,0,0.3)] border border-slate-200/90">
             <img src="{asset_prefix}assets/images/llaveros 2.jpg" alt="Llaveros de tenis y pádel personalizados con relieve 3D para clubs y torneos" width="736" height="1408" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
           </div>
           <h3 data-i18n="card_tenis" class="font-heading font-black text-xl sm:text-2xl lg:text-3xl uppercase tracking-tight text-slate-950 text-center py-1">
             {t['card_tenis']}
           </h3>
-        </div>
+        </a>
 
         <!-- CARD DERECHA: PADEL -->
-        <div class="bg-white border border-slate-200/90 rounded-3xl p-5 sm:p-7 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.25)] hover:shadow-[0_35px_65px_-10px_rgba(0,0,0,0.35)] transition-all duration-300 group flex flex-col justify-between hover:-translate-y-1">
+        <a href="/llaveros-padel-personalizados/" class="bg-white border border-slate-200/90 rounded-3xl p-5 sm:p-7 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.25)] hover:shadow-[0_35px_65px_-10px_rgba(0,0,0,0.35)] transition-all duration-300 group flex flex-col justify-between hover:-translate-y-1">
           <div class="aspect-[4/3] rounded-2xl overflow-hidden mb-4 sm:mb-5 bg-slate-100 shadow-[0_20px_40px_-10px_rgba(0,0,0,0.3)] border border-slate-200/90">
             <img src="{asset_prefix}assets/images/llaveros 1.jpg" alt="Llaveros de pádel de goma 3D personalizados con logo para clubes de pádel" width="768" height="1344" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
           </div>
           <h3 data-i18n="card_padel" class="font-heading font-black text-xl sm:text-2xl lg:text-3xl uppercase tracking-tight text-[#f2920b] text-center py-1">
             {t['card_padel']}
           </h3>
-        </div>
+        </a>
 
       </div>
 
@@ -943,39 +1089,39 @@ def get_base_html(active_lang="es", is_subfolder=False):
           
           <!-- Tabla estática oficial para crawlers de IA y accesibilidad (Sin impacto visual) -->
           <table class="sr-only">
-            <caption>Tarifas oficiales de fabricación al por mayor de llaveros de pádel personalizados 3D CoolPadel Studios</caption>
+            <caption>{seo['sr_caption']}</caption>
             <thead>
               <tr>
-                <th scope="col">Tramo de volumen</th>
-                <th scope="col">Precio unitario</th>
-                <th scope="col">Importe estimado</th>
-                <th scope="col">Condiciones y Muestra</th>
+                <th scope="col">{seo['sr_th_tier']}</th>
+                <th scope="col">{seo['sr_th_unit']}</th>
+                <th scope="col">{seo['sr_th_total']}</th>
+                <th scope="col">{seo['sr_th_cond']}</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td>100 unidades (Pedido mínimo)</td>
+                <td>{seo['sr_r1_c1']}</td>
                 <td>3,00 € / ud</td>
                 <td>300 € (+IVA)</td>
-                <td>Muestra física previa: 15€ (100% reembolsable en el pedido)</td>
+                <td>{seo['sr_r1_c4']}</td>
               </tr>
               <tr>
-                <td>250 unidades</td>
-                <td>2,40 € / ud</td>
-                <td>600 € (+IVA)</td>
-                <td>Muestra física previa incluida y deducible</td>
+                <td>{seo['sr_r2_c1']}</td>
+                <td>2,50 € / ud</td>
+                <td>625 € (+IVA)</td>
+                <td>{seo['sr_r2_c4']}</td>
               </tr>
               <tr>
-                <td>500 unidades</td>
+                <td>{seo['sr_r3_c1']}</td>
                 <td>2,00 € / ud</td>
                 <td>1.000 € (+IVA)</td>
-                <td>Muestra física previa incluida y envíos directos</td>
+                <td>{seo['sr_r3_c4']}</td>
               </tr>
               <tr>
-                <td>1.500 unidades</td>
+                <td>{seo['sr_r4_c1']}</td>
                 <td>1,50 € / ud</td>
                 <td>2.250 € (+IVA)</td>
-                <td>Tarifa directa de fábrica al por mayor</td>
+                <td>{seo['sr_r4_c4']}</td>
               </tr>
             </tbody>
           </table>
@@ -1049,10 +1195,10 @@ def get_base_html(active_lang="es", is_subfolder=False):
       <!-- CABECERA DEL MAPA -->
       <div class="text-center max-w-2xl mx-auto mb-6 sm:mb-8 space-y-2">
         <h3 class="text-xl sm:text-3xl font-black font-heading text-slate-950 uppercase tracking-tight">
-          Clubs y Marcas con Llaveros CoolPadel
+          {seo['map_h3']}
         </h3>
         <p class="text-xs sm:text-sm text-slate-600 font-medium">
-          Selecciona una zona o haz clic en cualquier marcador para explorar nuestros 27 clubs oficiales
+          {seo['map_p']}
         </p>
       </div>
 
@@ -1061,7 +1207,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
         
         <!-- Listado semántico HTML accesible de clubes para indexación de clientes y GEO (sr-only) -->
         <div class="sr-only">
-          <h4>Clubes, academias y federaciones clientes oficiales de CoolPadel Studios:</h4>
+          <h4>{seo['sr_clubs_h4']}</h4>
           <ul>
             {club_list_html}
           </ul>
@@ -1303,17 +1449,34 @@ def get_base_html(active_lang="es", is_subfolder=False):
 
       </div>
 
-      <!-- COPYRIGHT Y TRIGGER DE MODO ADMIN (TRIPLE CLIC) -->
-      <div class="mt-10 pt-6 border-t border-white/10 text-center select-none flex flex-col sm:flex-row items-center justify-center gap-2 text-xs text-white/50">
-        <span id="admin-toggle-trigger" class="hover:text-white/80 transition cursor-pointer" title="Modo Administrador">
-          © 2026 CoolPadel Studios · All rights reserved
-        </span>
-        <span class="hidden sm:inline opacity-30">·</span>
-        <a href="/politica-de-devoluciones.html" class="hover:text-white/80 underline decoration-white/30 underline-offset-2 transition" title="Política de Devoluciones y Garantía">Política de Devoluciones</a>
-        <span class="hidden sm:inline opacity-30">·</span>
-        <a href="/franquicias-padel/" class="hover:text-white/80 underline decoration-white/30 underline-offset-2 transition" title="Directorio de Franquicias de Pádel">Franquicias de Pádel</a>
-        <span class="hidden sm:inline opacity-30">·</span>
-        <a href="https://www.instagram.com/coolpadel_/" target="_blank" rel="noopener noreferrer" class="opacity-30 hover:opacity-75 text-[11px] transition text-white/70" title="Instagram CoolPadel">@coolpadel_</a>
+      <!-- ENLACES INTERNOS SEO Y COPYRIGHT (CON TRIGGER DE MODO ADMIN POR TRIPLE CLIC) -->
+      <div class="mt-10 pt-6 border-t border-white/10 text-center select-none space-y-3 text-xs text-white/60">
+        <nav aria-label="Soluciones y Directorio CoolPadel" class="flex flex-wrap items-center justify-center gap-x-3 gap-y-1.5">
+          <a href="/llaveros-padel-personalizados/" class="hover:text-white underline decoration-white/30 underline-offset-2 transition">Llaveros de Pádel</a>
+          <span class="opacity-30">·</span>
+          <a href="/llaveros-tenis-personalizados/" class="hover:text-white underline decoration-white/30 underline-offset-2 transition">Llaveros de Tenis</a>
+          <span class="opacity-30">·</span>
+          <a href="/welcome-packs-torneos-padel/" class="hover:text-white underline decoration-white/30 underline-offset-2 transition">Welcome Packs Torneos</a>
+          <span class="opacity-30">·</span>
+          <a href="/llaveros-personalizados-clubs-padel/" class="hover:text-white underline decoration-white/30 underline-offset-2 transition">Merchandising Clubs</a>
+          <span class="opacity-30">·</span>
+          <a href="/camaras/" class="hover:text-white underline decoration-white/30 underline-offset-2 transition">Cámaras Save my Play</a>
+          <span class="opacity-30">·</span>
+          <a href="/camaras-grabacion-pistas-padel/" class="hover:text-white underline decoration-white/30 underline-offset-2 transition">Grabación Pistas Pádel</a>
+          <span class="opacity-30">·</span>
+          <a href="/franquicias-padel/" class="hover:text-white underline decoration-white/30 underline-offset-2 transition">Directorio Franquicias Pádel</a>
+          <span class="opacity-30">·</span>
+          <a href="/blog/" class="hover:text-white underline decoration-white/30 underline-offset-2 transition">Blog &amp; Informes</a>
+        </nav>
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-2 text-white/50">
+          <span id="admin-toggle-trigger" class="hover:text-white/80 transition cursor-pointer" title="Modo Administrador">
+            © 2026 CoolPadel Studios · All rights reserved
+          </span>
+          <span class="hidden sm:inline opacity-30">·</span>
+          <a href="/politica-de-devoluciones.html" class="hover:text-white/80 underline decoration-white/30 underline-offset-2 transition" title="Política de Devoluciones y Garantía">Política de Devoluciones</a>
+          <span class="hidden sm:inline opacity-30">·</span>
+          <a href="https://www.instagram.com/coolpadel_/" target="_blank" rel="noopener noreferrer" class="opacity-50 hover:opacity-90 text-[11px] transition text-white/80" title="Instagram CoolPadel">@coolpadel_</a>
+        </div>
       </div>
 
     </div>
@@ -2081,6 +2244,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
         }}
       }});
 
+      if (!leafletMapInstance) initCoolPadelMap();
       if (!leafletMapInstance) return;
 
       if (region === 'all') {{
@@ -2104,10 +2268,25 @@ def get_base_html(active_lang="es", is_subfolder=False):
       }}
     }};
 
+    function setupDeferredMap() {{
+      const mapSec = document.getElementById('mapa-clubs');
+      if (mapSec && 'IntersectionObserver' in window) {{
+        const mapObs = new IntersectionObserver((entries, obs) => {{
+          if (entries.some(e => e.isIntersecting)) {{
+            obs.disconnect();
+            initCoolPadelMap();
+          }}
+        }}, {{ rootMargin: '600px 0px' }});
+        mapObs.observe(mapSec);
+      }} else {{
+        initCoolPadelMap();
+      }}
+    }}
+
     if (document.readyState === 'loading') {{
-      document.addEventListener('DOMContentLoaded', initCoolPadelMap);
+      document.addEventListener('DOMContentLoaded', setupDeferredMap);
     }} else {{
-      initCoolPadelMap();
+      setupDeferredMap();
     }}
 
 
@@ -3019,7 +3198,7 @@ def build_all():
     rss_xml = """<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>CoolPadel Studios | Llaveros de Pádel Personalizados & Blog</title>
+    <title>CoolPadel Studios | Llaveros de Pádel Personalizados &amp; Blog</title>
     <link>https://coolpadelstudios.com</link>
     <description>Fabricante directo de llaveros de pádel personalizados de goma 3D, tecnología Save my Play y Newsletter de la Industria.</description>
     <language>es-es</language>
@@ -3028,14 +3207,28 @@ def build_all():
       <title>Llaveros de Pádel Personalizados para Clubs con Logo Oficial en Relieve 3D</title>
       <link>https://coolpadelstudios.com/llaveros-padel-personalizados/</link>
       <guid>https://coolpadelstudios.com/llaveros-padel-personalizados/</guid>
-      <description>Fabricación de llaveros de pádel de goma 3D personalizados desde 100 unidades con diseño 3D gratis y muestra previa por 15€.</description>
+      <description>Fabricación de llaveros de pádel de goma 3D personalizados desde 100 unidades con diseño 3D gratis, muestra física previa en ~15 días laborables por 15€ (100% descontable) y entrega del pedido en torno a un mes.</description>
       <pubDate>Fri, 18 Sep 2026 10:00:00 +0200</pubDate>
+    </item>
+    <item>
+      <title>Directorio Oficial de Franquicias y Cadenas de Pádel (167 Grupos y +828 Clubs)</title>
+      <link>https://coolpadelstudios.com/franquicias-padel/</link>
+      <guid>https://coolpadelstudios.com/franquicias-padel/</guid>
+      <description>Base de datos verificada de las 167 franquicias, operadores multi-sede y cadenas de clubes de pádel en España, Europa, Estados Unidos y Latinoamérica.</description>
+      <pubDate>Thu, 15 Oct 2026 10:00:00 +0200</pubDate>
     </item>
     <item>
       <title>Highlights #01: Padel World Summit 2026 - Startup Recap por Javier Villoria</title>
       <link>https://coolpadelstudios.com/blog/highlights-01/</link>
       <guid>https://coolpadelstudios.com/blog/highlights-01/</guid>
       <description>Conversaciones una a una con las 20 startups del Innovation Arena: la realidad del mercado de raqueta y cómo diferenciarse.</description>
+      <pubDate>Wed, 14 Oct 2026 10:00:00 +0200</pubDate>
+    </item>
+    <item>
+      <title>Highlights #02: ¿Por qué todos hablan de Estados Unidos y Reino Unido?</title>
+      <link>https://coolpadelstudios.com/blog/highlights-02/</link>
+      <guid>https://coolpadelstudios.com/blog/highlights-02/</guid>
+      <description>Análisis del boom del pádel en EE. UU. y Reino Unido: inversión inmobiliaria, membresías premium y retos de rentabilidad para clubes.</description>
       <pubDate>Wed, 14 Oct 2026 10:00:00 +0200</pubDate>
     </item>
     <item>
@@ -3058,12 +3251,12 @@ def build_all():
   <channel>
     <title>CoolPadel Studios - Catálogo Oficial de Llaveros de Pádel</title>
     <link>https://coolpadelstudios.com</link>
-    <description>Catálogo de llaveros de pádel personalizados para Google Shopping y Google Merchant</description>
+    <description>Catálogo B2B de llaveros de pádel y tenis personalizados en goma 3D para Google Shopping y Google Merchant</description>
     <item>
       <g:id>LLAVERO-PADEL-100</g:id>
-      <g:title>Llaveros de Pádel Personalizados 3D (Pack 100 unidades)</g:title>
-      <g:description>Llaveros de pádel personalizados de goma 3D con logo oficial para clubes de pádel y tenis. Envíos incluidos y muestra previa.</g:description>
-      <g:link>https://coolpadelstudios.com/#llaveros</g:link>
+      <g:title>Llaveros de Pádel Personalizados 3D (Pack 100 unidades - 3,00 €/ud)</g:title>
+      <g:description>Pack de 100 llaveros de pádel personalizados de goma 3D con logo oficial para clubes y torneos. Muestra física previa en ~15 días laborables y entrega en ~1 mes.</g:description>
+      <g:link>https://coolpadelstudios.com/llaveros-padel-personalizados/</g:link>
       <g:image_link>https://coolpadelstudios.com/assets/images/llaveros%201.jpg</g:image_link>
       <g:additional_image_link>https://coolpadelstudios.com/assets/images/slide-1.jpg</g:additional_image_link>
       <g:availability>in_stock</g:availability>
@@ -3073,9 +3266,48 @@ def build_all():
       <g:google_product_category>Sporting Goods &gt; Racquet Sports &gt; Padel</g:google_product_category>
     </item>
     <item>
+      <g:id>LLAVERO-PADEL-250</g:id>
+      <g:title>Llaveros de Pádel Personalizados 3D (Pack 250 unidades - 2,50 €/ud)</g:title>
+      <g:description>Pack de 250 llaveros de pádel personalizados de goma 3D con logo oficial para clubes y torneos (2,50 €/ud). Muestra física previa deducible y envíos incluidos.</g:description>
+      <g:link>https://coolpadelstudios.com/llaveros-padel-personalizados/</g:link>
+      <g:image_link>https://coolpadelstudios.com/assets/images/llaveros%201.jpg</g:image_link>
+      <g:additional_image_link>https://coolpadelstudios.com/assets/images/slide-1.jpg</g:additional_image_link>
+      <g:availability>in_stock</g:availability>
+      <g:price>625.00 EUR</g:price>
+      <g:brand>CoolPadel</g:brand>
+      <g:condition>new</g:condition>
+      <g:google_product_category>Sporting Goods &gt; Racquet Sports &gt; Padel</g:google_product_category>
+    </item>
+    <item>
+      <g:id>LLAVERO-PADEL-500</g:id>
+      <g:title>Llaveros de Pádel Personalizados 3D (Pack 500 unidades - 2,00 €/ud)</g:title>
+      <g:description>Pack de 500 llaveros de pádel personalizados de goma 3D con logo oficial para clubes y welcome packs de torneos (2,00 €/ud). Muestra física previa deducible.</g:description>
+      <g:link>https://coolpadelstudios.com/welcome-packs-torneos-padel/</g:link>
+      <g:image_link>https://coolpadelstudios.com/assets/images/llaveros%201.jpg</g:image_link>
+      <g:additional_image_link>https://coolpadelstudios.com/assets/images/slide-1.jpg</g:additional_image_link>
+      <g:availability>in_stock</g:availability>
+      <g:price>1000.00 EUR</g:price>
+      <g:brand>CoolPadel</g:brand>
+      <g:condition>new</g:condition>
+      <g:google_product_category>Sporting Goods &gt; Racquet Sports &gt; Padel</g:google_product_category>
+    </item>
+    <item>
+      <g:id>LLAVERO-PADEL-1500</g:id>
+      <g:title>Llaveros de Pádel Personalizados 3D (Pack 1.500 unidades - 1,50 €/ud)</g:title>
+      <g:description>Pack mayorista de 1.500 llaveros de pádel personalizados de goma 3D con logo oficial para grandes clubes, cadenas y circuitos (1,50 €/ud).</g:description>
+      <g:link>https://coolpadelstudios.com/llaveros-personalizados-clubs-padel/</g:link>
+      <g:image_link>https://coolpadelstudios.com/assets/images/llaveros%201.jpg</g:image_link>
+      <g:additional_image_link>https://coolpadelstudios.com/assets/images/slide-1.jpg</g:additional_image_link>
+      <g:availability>in_stock</g:availability>
+      <g:price>2250.00 EUR</g:price>
+      <g:brand>CoolPadel</g:brand>
+      <g:condition>new</g:condition>
+      <g:google_product_category>Sporting Goods &gt; Racquet Sports &gt; Padel</g:google_product_category>
+    </item>
+    <item>
       <g:id>LLAVERO-PADEL-MUESTRA</g:id>
-      <g:title>Muestra Física Real Llavero de Pádel Personalizado</g:title>
-      <g:description>Muestra física real de llavero de pádel en relieve 3D con el logotipo de tu club antes de producir el pedido.</g:description>
+      <g:title>Muestra Física Real Llavero de Pádel Personalizado (100% Descontable)</g:title>
+      <g:description>Muestra física real de llavero de pádel en relieve 3D con el logotipo de tu club entregada en ~15 días laborables (100% descontable del pedido final).</g:description>
       <g:link>https://coolpadelstudios.com/#llaveros</g:link>
       <g:image_link>https://coolpadelstudios.com/assets/images/llaveros%202.jpg</g:image_link>
       <g:availability>in_stock</g:availability>
