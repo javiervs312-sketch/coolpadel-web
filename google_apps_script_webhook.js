@@ -19,6 +19,11 @@
 const NOTIFICAR_EMAIL = "javier@coolpadelstudios.com";
 
 function doPost(e) {
+  const lock = LockService.getScriptLock();
+  try {
+    lock.waitLock(10000);
+  } catch (errLock) {}
+
   try {
     if (!e || !e.postData || !e.postData.contents) {
       return ContentService.createTextOutput(JSON.stringify({ status: "error", message: "Sin datos" })).setMimeType(ContentService.MimeType.JSON);
@@ -99,7 +104,8 @@ function doPost(e) {
       const campana = data.campana_utm || data.campana || "";
       const dispositivo = data.dispositivo || data.so || "";
 
-      sheetEmails.appendRow([dia, hora, emailLimpio, origen, leadLabel, campana, dispositivo]);
+      sheetEmails.insertRowBefore(2);
+      sheetEmails.getRange(2, 1, 1, 7).setValues([[dia, hora, emailLimpio, origen, leadLabel, campana, dispositivo]]);
 
       try {
         MailApp.sendEmail({
@@ -184,23 +190,22 @@ function doPost(e) {
     const tiempoActivo = tActivo;
     const scrollMax = sMax;
 
-    // Buscar si ya existe la sesión en las últimas 80 filas para AGRUPAR
+    // Buscar si ya existe la sesión en las primeras 100 filas para AGRUPAR (más recientes arriba)
     let filaExistente = -1;
     const lastRow = sheetAnalitica.getLastRow();
     if (sessionId && lastRow > 1) {
-      const startRow = Math.max(2, lastRow - 80);
-      const numRows = lastRow - startRow + 1;
-      const idsRange = sheetAnalitica.getRange(startRow, 12, numRows, 1).getValues();
-      for (let i = idsRange.length - 1; i >= 0; i--) {
+      const numRows = Math.min(lastRow - 1, 100);
+      const idsRange = sheetAnalitica.getRange(2, 12, numRows, 1).getValues();
+      for (let i = 0; i < idsRange.length; i++) {
         if (idsRange[i][0] === sessionId) {
-          filaExistente = startRow + i;
+          filaExistente = 2 + i;
           break;
         }
       }
     }
 
     if (filaExistente > 1) {
-      // CONSOLIDAR EN LA MISMA FILA
+      // CONSOLIDAR EN LA SESIÓN EXISTENTE
       const filaActual = sheetAnalitica.getRange(filaExistente, 1, 1, 12).getValues()[0];
       
       // Actualizar evento real sin redundancia
@@ -214,7 +219,7 @@ function doPost(e) {
         }
       }
 
-      sheetAnalitica.getRange(filaExistente, 1, 1, 12).setValues([[
+      const filaConsolidada = [
         dia,                                                             // Col 1: Fecha (dd/MM)
         hora,                                                            // Col 2: Hora (HH:mm:ss)
         leadLabel || filaActual[2] || "",                               // Col 3: Lead / Club (en blanco si no se conoce)
@@ -227,11 +232,22 @@ function doPost(e) {
         tiempoActivo !== "0s" ? tiempoActivo : (filaActual[9] || tiempoActivo), // Col 10: Tiempo Activo
         scrollMax !== "0%" ? scrollMax : (filaActual[10] || scrollMax), // Col 11: % Scroll
         sessionId                                                        // Col 12: ID Sesión
-      ]]);
+      ];
+
+      if (filaExistente === 2) {
+        // Ya está en la fila 2 (arriba del todo), actualizar directamente
+        sheetAnalitica.getRange(2, 1, 1, 12).setValues([filaConsolidada]);
+      } else {
+        // Mover a la fila 2 para mantener la sesión más reciente/activa arriba
+        sheetAnalitica.deleteRow(filaExistente);
+        sheetAnalitica.insertRowBefore(2);
+        sheetAnalitica.getRange(2, 1, 1, 12).setValues([filaConsolidada]);
+      }
 
     } else {
-      // NUEVA FILA ÚNICA
-      sheetAnalitica.appendRow([
+      // NUEVA SESIÓN: Insertar en la fila 2 (arriba del todo, debajo del encabezado)
+      sheetAnalitica.insertRowBefore(2);
+      sheetAnalitica.getRange(2, 1, 1, 12).setValues([[
         dia,
         hora,
         leadLabel,
@@ -244,13 +260,17 @@ function doPost(e) {
         tiempoActivo,
         scrollMax,
         sessionId
-      ]);
+      ]]);
     }
 
     return ContentService.createTextOutput(JSON.stringify({ status: "success" })).setMimeType(ContentService.MimeType.JSON);
 
   } catch (error) {
     return ContentService.createTextOutput(JSON.stringify({ status: "error", error: error.toString() })).setMimeType(ContentService.MimeType.JSON);
+  } finally {
+    try {
+      lock.releaseLock();
+    } catch (errRel) {}
   }
 }
 

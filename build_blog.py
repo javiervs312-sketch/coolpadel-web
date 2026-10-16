@@ -261,6 +261,80 @@ def generate_blog_index():
             "item": "https://coolpadelstudios.com/blog/"
           }}
         ]
+      }},
+      {{
+        "@type": "ItemList",
+        "name": "Guías e Informes de la Industria del Pádel - CoolPadel Studios",
+        "description": "Directorio completo de guías de rentabilidad, tecnología de grabación, smart courts, welcome packs y análisis de mercado para directores y operadores de clubes de pádel.",
+        "numberOfItems": 11,
+        "itemListElement": [
+          {{
+            "@type": "ListItem",
+            "position": 1,
+            "name": "¿Cuánto cuesta instalar cámaras en una pista de pádel y cómo se amortizan? [Precios y ROI 2026]",
+            "url": "https://coolpadelstudios.com/blog/rentabilidad-camaras-pistas-padel/"
+          }},
+          {{
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Welcome Pack para Torneos de Pádel: 10 Ideas de Regalos que los Jugadores No Tiran [Checklist PDF]",
+            "url": "https://coolpadelstudios.com/blog/welcome-pack-torneo-padel-ideas/"
+          }},
+          {{
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Comparativa: Cámaras fijas con pulsador vs grabación manual con trípode [Normativa RGPD]",
+            "url": "https://coolpadelstudios.com/blog/sistemas-grabacion-pistas-padel-comparativa/"
+          }},
+          {{
+            "@type": "ListItem",
+            "position": 4,
+            "name": "Pistas de Pádel Inteligentes (Smart Courts): Cómo llenar horas valle de 10:00 a 17:00 [Protocolo PDF]",
+            "url": "https://coolpadelstudios.com/blog/smart-courts-pistas-inteligentes-padel-horas-valle/"
+          }},
+          {{
+            "@type": "ListItem",
+            "position": 5,
+            "name": "Cómo retransmitir torneos de pádel en directo por YouTube sin operadores [Streaming Full HD]",
+            "url": "https://coolpadelstudios.com/blog/retransmitir-torneos-padel-streaming-youtube-camaras/"
+          }},
+          {{
+            "@type": "ListItem",
+            "position": 6,
+            "name": "Cómo vender llaveros en la pro-shop de tu club: producto de impulso con +60% de margen [Simulador]",
+            "url": "https://coolpadelstudios.com/blog/vender-llaveros-tienda-club-padel-pro-shop/"
+          }},
+          {{
+            "@type": "ListItem",
+            "position": 7,
+            "name": "Regalos para eventos de pádel, torneos sociales y cenas de socios [Detalles de Club]",
+            "url": "https://coolpadelstudios.com/blog/regalos-eventos-padel-cenas-socios-llaveros/"
+          }},
+          {{
+            "@type": "ListItem",
+            "position": 8,
+            "name": "Política de regalos en ferias y torneos de pádel: Qué regalar y errores costosos [Guía B2B]",
+            "url": "https://coolpadelstudios.com/blog/merchandising-ferias-torneos-padel-regalos-marcas/"
+          }},
+          {{
+            "@type": "ListItem",
+            "position": 9,
+            "name": "Highlights #03: ¿Cómo crece realmente la industria del pádel? [Mercado y Retención]",
+            "url": "https://coolpadelstudios.com/blog/highlights-03/"
+          }},
+          {{
+            "@type": "ListItem",
+            "position": 10,
+            "name": "Highlights #02: El Pádel debería estar lejos de ser un deporte olímpico [Análisis]",
+            "url": "https://coolpadelstudios.com/blog/highlights-02/"
+          }},
+          {{
+            "@type": "ListItem",
+            "position": 11,
+            "name": "Highlights #01: Padel World Summit 2026: Startup Recap [Tecnología]",
+            "url": "https://coolpadelstudios.com/blog/highlights-01/"
+          }}
+        ]
       }}
     ]
   }}
@@ -934,7 +1008,149 @@ def generate_blog_index():
         f.write(html)
     print("  [OK] coolpadel-web/blog/index.html")
 
-def generate_article_page(slug, edition_num, title, date_str, read_time, cover_img, paragraphs):
+ALL_ARTICLES_CATALOG = {
+    "rentabilidad-camaras-pistas-padel": {
+        "title": "¿Cuánto cuesta instalar cámaras en una pista de pádel y cómo se amortizan? [Precios y ROI 2026]",
+        "badge": "Guía Económica · Cámaras",
+        "url": "../rentabilidad-camaras-pistas-padel/",
+        "img": "savemyplay-1.jpg",
+        "desc": "Hardware a 180 € y software a 45 €/mes. Desglose de 3 modelos de amortización."
+    },
+    "welcome-pack-torneo-padel-ideas": {
+        "title": "Welcome Pack para Torneos de Pádel: 10 Ideas de Regalos que los Jugadores No Tiran [Checklist PDF]",
+        "badge": "Torneos & Regalos",
+        "url": "../welcome-pack-torneo-padel-ideas/",
+        "img": "llaveros-1.jpg",
+        "desc": "Ideas prácticas por menos de 5 € y cómo financiar el 100% con sponsors locales."
+    },
+    "sistemas-grabacion-pistas-padel-comparativa": {
+        "title": "Comparativa: Cámaras fijas con pulsador vs grabación manual con trípode [Normativa RGPD]",
+        "badge": "Tecnología & RGPD",
+        "url": "../sistemas-grabacion-pistas-padel-comparativa/",
+        "img": "savemyplay-2.jpg",
+        "desc": "Por qué los trípodes en pista conllevan riesgos y cómo funciona el buffer circular."
+    },
+    "smart-courts-pistas-inteligentes-padel-horas-valle": {
+        "title": "Pistas de Pádel Inteligentes (Smart Courts): Cómo llenar horas valle de 10:00 a 17:00 [Protocolo PDF]",
+        "badge": "Smart Courts & Negocio",
+        "url": "../smart-courts-pistas-inteligentes-padel-horas-valle/",
+        "img": "savemyplay-2.jpg",
+        "desc": "Los 4 pilares tecnológicos para reducir costes y dinamizar mañanas de 10:00 a 17:00."
+    },
+    "retransmitir-torneos-padel-streaming-youtube-camaras": {
+        "title": "Cómo retransmitir torneos de pádel en directo por YouTube sin operadores [Streaming Full HD]",
+        "badge": "Streaming & YouTube",
+        "url": "../retransmitir-torneos-padel-streaming-youtube-camaras/",
+        "img": "savemyplay-3.jpg",
+        "desc": "Emisión Full HD autónoma a 4m de altura, marcadores e inserción de sponsors."
+    },
+    "vender-llaveros-tienda-club-padel-pro-shop": {
+        "title": "Cómo vender llaveros en la pro-shop de tu club: producto de impulso con +60% de margen [Simulador]",
+        "badge": "Pro-Shop & Retail",
+        "url": "../vender-llaveros-tienda-club-padel-pro-shop/",
+        "img": "gallery-padel-3.jpg",
+        "desc": "Evita stock muerto: coste desde 1,50 €, PVP 5-6 € y rotación junto a recepción."
+    },
+    "regalos-eventos-padel-cenas-socios-llaveros": {
+        "title": "Regalos para eventos de pádel, torneos sociales y cenas de socios [Detalles de Club]",
+        "badge": "Eventos & Socios",
+        "url": "../regalos-eventos-padel-cenas-socios-llaveros/",
+        "img": "llaveros-2.jpg",
+        "desc": "Trofeos útiles y recuerdos con escudo oficial para fidelizar abonados."
+    },
+    "merchandising-ferias-torneos-padel-regalos-marcas": {
+        "title": "Política de regalos en ferias y torneos de pádel: Qué regalar y errores costosos [Guía B2B]",
+        "badge": "Ferias & Marcas B2B",
+        "url": "../merchandising-ferias-torneos-padel-regalos-marcas/",
+        "img": "foto-reportaje.jpg",
+        "desc": "Por qué no regalar bolígrafos baratos ni jamón sin estrategia y qué funciona."
+    },
+    "highlights-03": {
+        "title": "Highlights #03: ¿Cómo crece realmente la industria del pádel? [Mercado y Retención]",
+        "badge": "Newsletter · Industria",
+        "url": "../highlights-03/",
+        "img": "cover_highlights_03.jpg",
+        "desc": "Los 5 pasos de desarrollo de un mercado y la batalla por la retención en el club."
+    },
+    "highlights-02": {
+        "title": "Highlights #02: El Pádel debería estar lejos de ser un deporte olímpico [Análisis]",
+        "badge": "Newsletter · Opinión",
+        "url": "../highlights-02/",
+        "img": "cover_highlights_02.jpg",
+        "desc": "Por qué la cultura del pádel necesita consolidarse antes de dar el salto olímpico."
+    },
+    "highlights-01": {
+        "title": "Highlights #01: Padel World Summit 2026: Startup Recap [Tecnología]",
+        "badge": "Newsletter · Startups",
+        "url": "../highlights-01/",
+        "img": "cover_highlights_01.jpg",
+        "desc": "Conversaciones con las 20 startups del Innovation Arena y lecciones para clubes."
+    }
+}
+
+RELATED_SLUGS_MAP = {
+    "rentabilidad-camaras-pistas-padel": ["sistemas-grabacion-pistas-padel-comparativa", "smart-courts-pistas-inteligentes-padel-horas-valle", "retransmitir-torneos-padel-streaming-youtube-camaras"],
+    "sistemas-grabacion-pistas-padel-comparativa": ["rentabilidad-camaras-pistas-padel", "retransmitir-torneos-padel-streaming-youtube-camaras", "smart-courts-pistas-inteligentes-padel-horas-valle"],
+    "smart-courts-pistas-inteligentes-padel-horas-valle": ["rentabilidad-camaras-pistas-padel", "sistemas-grabacion-pistas-padel-comparativa", "retransmitir-torneos-padel-streaming-youtube-camaras"],
+    "retransmitir-torneos-padel-streaming-youtube-camaras": ["rentabilidad-camaras-pistas-padel", "smart-courts-pistas-inteligentes-padel-horas-valle", "sistemas-grabacion-pistas-padel-comparativa"],
+    "welcome-pack-torneo-padel-ideas": ["vender-llaveros-tienda-club-padel-pro-shop", "regalos-eventos-padel-cenas-socios-llaveros", "merchandising-ferias-torneos-padel-regalos-marcas"],
+    "vender-llaveros-tienda-club-padel-pro-shop": ["welcome-pack-torneo-padel-ideas", "regalos-eventos-padel-cenas-socios-llaveros", "rentabilidad-camaras-pistas-padel"],
+    "regalos-eventos-padel-cenas-socios-llaveros": ["welcome-pack-torneo-padel-ideas", "vender-llaveros-tienda-club-padel-pro-shop", "merchandising-ferias-torneos-padel-regalos-marcas"],
+    "merchandising-ferias-torneos-padel-regalos-marcas": ["welcome-pack-torneo-padel-ideas", "regalos-eventos-padel-cenas-socios-llaveros", "highlights-01"],
+    "highlights-03": ["smart-courts-pistas-inteligentes-padel-horas-valle", "rentabilidad-camaras-pistas-padel", "highlights-01"],
+    "highlights-02": ["highlights-03", "welcome-pack-torneo-padel-ideas", "highlights-01"],
+    "highlights-01": ["smart-courts-pistas-inteligentes-padel-horas-valle", "merchandising-ferias-torneos-padel-regalos-marcas", "highlights-03"]
+}
+
+def generate_related_articles_html(current_slug, root_prefix="../../"):
+    related_slugs = RELATED_SLUGS_MAP.get(current_slug, ["rentabilidad-camaras-pistas-padel", "welcome-pack-torneo-padel-ideas", "smart-courts-pistas-inteligentes-padel-horas-valle"])
+    cards = []
+    for rslug in related_slugs[:3]:
+        item = ALL_ARTICLES_CATALOG.get(rslug)
+        if not item:
+            continue
+        href = f"{root_prefix}blog/{rslug}/"
+        img_src = f"{root_prefix}assets/images/{item['img']}"
+        cards.append(f"""
+        <a href="{href}" class="bg-white border border-slate-200/90 rounded-2xl p-4 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1 block text-inherit no-underline">
+          <div class="space-y-3">
+            <div class="aspect-[16/10] rounded-xl overflow-hidden bg-slate-900 border border-slate-100 relative">
+              <img src="{img_src}" alt="{item['title']}" width="400" height="250" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy">
+              <span class="absolute bottom-2 left-2 text-[10px] font-black uppercase tracking-wider px-2 py-0.5 rounded-full bg-[#f2920b] text-slate-950 shadow-xs">
+                {item['badge']}
+              </span>
+            </div>
+            <h4 class="font-heading font-black text-sm sm:text-base text-slate-950 leading-snug group-hover:text-[#f2920b] transition line-clamp-2">
+              {item['title']}
+            </h4>
+            <p class="text-xs text-slate-600 line-clamp-2">
+              {item['desc']}
+            </p>
+          </div>
+          <div class="pt-3 mt-3 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-slate-900">
+            <span class="text-[#f2920b]">Leer artículo</span>
+            <i data-lucide="arrow-right" class="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform"></i>
+          </div>
+        </a>""")
+    
+    return f"""
+    <!-- ARTÍCULOS Y GUÍAS RELACIONADAS (SILO / INTERNAL LINKING) -->
+    <div class="mt-14 sm:mt-18 pt-10 border-t border-slate-200">
+      <div class="mb-6 space-y-1">
+        <span class="text-[11px] font-black uppercase tracking-wider text-[#f2920b]">
+          Aprende más sobre gestión y tecnología
+        </span>
+        <h2 class="font-heading font-black text-xl sm:text-2xl text-slate-950 tracking-tight">
+          Artículos y Guías Relacionadas
+        </h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-5">
+        {"".join(cards)}
+      </div>
+    </div>
+    """
+
+def generate_article_page(slug, edition_num, title, date_str, read_time, cover_img, paragraphs, faqs=None):
     root_prefix = "../../"
     html_items = []
     for p in paragraphs:
@@ -954,6 +1170,62 @@ def generate_article_page(slug, edition_num, title, date_str, read_time, cover_i
         "03": "2026-10-14"
     }
     date_iso = date_iso_map.get(edition_num, "2026-10-14")
+
+    faq_schema_block = ""
+    faq_html = ""
+    if faqs:
+        faq_schema_items = []
+        for faq in faqs:
+            q_clean = faq['q'].replace('"', '\\"')
+            a_clean = faq['a'].replace('"', '\\"')
+            faq_schema_items.append(f"""      {{
+        "@type": "Question",
+        "name": "{q_clean}",
+        "acceptedAnswer": {{
+          "@type": "Answer",
+          "text": "{a_clean}"
+        }}
+      }}""")
+        faq_schema_json = ",\n".join(faq_schema_items)
+        faq_schema_block = f""",
+      {{
+        "@type": "FAQPage",
+        "mainEntity": [
+{faq_schema_json}
+        ]
+      }}"""
+
+        faqs_html_items = []
+        for faq in faqs:
+            faqs_html_items.append(f"""
+        <div class="bg-slate-50 border border-slate-200/90 rounded-2xl p-5 sm:p-6 space-y-2">
+          <h3 class="font-heading font-black text-base sm:text-lg text-slate-950 flex items-start gap-2.5">
+            <span class="text-[#f2920b] shrink-0 mt-0.5">
+              <i data-lucide="help-circle" class="w-5 h-5 stroke-[2.5]"></i>
+            </span>
+            <span>{faq['q']}</span>
+          </h3>
+          <p class="text-slate-700 text-xs sm:text-base leading-relaxed pl-7">
+            {faq['a']}
+          </p>
+        </div>""")
+        faq_html = f"""
+        <!-- SECCIÓN FAQS / PREGUNTAS FRECUENTES (AEO READY) -->
+        <div class="mt-14 sm:mt-18 pt-10 border-t border-slate-200 space-y-6">
+          <div class="space-y-1">
+            <span class="text-[11px] font-black uppercase tracking-wider text-[#f2920b]">
+              Respuestas directas
+            </span>
+            <h2 class="font-heading font-black text-xl sm:text-2xl text-slate-950 tracking-tight">
+              Preguntas Frecuentes
+            </h2>
+          </div>
+          <div class="space-y-4">
+            {"".join(faqs_html_items)}
+          </div>
+        </div>"""
+
+    related_articles_html = generate_related_articles_html(slug, root_prefix)
 
     html = f"""<!DOCTYPE html>
 <html lang="es" class="scroll-smooth">
@@ -978,7 +1250,7 @@ def generate_article_page(slug, edition_num, title, date_str, read_time, cover_i
   <meta name="twitter:description" content="Análisis y reflexiones sobre la industria del pádel por Javier Villoria.">
   <meta name="twitter:image" content="https://coolpadelstudios.com/assets/images/{cover_img}">
 
-  <!-- Schema.org BlogPosting & BreadcrumbList -->
+  <!-- Schema.org BlogPosting, BreadcrumbList & FAQPage -->
   <script type="application/ld+json">
   {{
     "@context": "https://schema.org",
@@ -1007,7 +1279,23 @@ def generate_article_page(slug, edition_num, title, date_str, read_time, cover_i
           "logo": {{
             "@type": "ImageObject",
             "url": "https://coolpadelstudios.com/assets/images/coolpadel-mascot-hd.png"
-          }}
+          }},
+          "aggregateRating": {{
+            "@type": "AggregateRating",
+            "ratingValue": "4.9",
+            "bestRating": "5",
+            "ratingCount": "48",
+            "reviewCount": "48"
+          }},
+          "knowsAbout": [
+            "Grabación automática de partidos de pádel con IA",
+            "Sistemas de cámaras fijas para pistas de pádel sin obras",
+            "Llaveros de pádel personalizados de goma 3D",
+            "Welcome packs y merchandising para torneos de pádel",
+            "Directorio de franquicias y cadenas de clubes de pádel",
+            "Normativa RGPD para cámaras en instalaciones deportivas",
+            "Modelos de rentabilidad y amortización de clubes de pádel"
+          ]
         }}
       }},
       {{
@@ -1032,7 +1320,7 @@ def generate_article_page(slug, edition_num, title, date_str, read_time, cover_i
             "item": "https://coolpadelstudios.com/blog/{slug}/"
           }}
         ]
-      }}
+      }}{faq_schema_block}
     ]
   }}
   </script>
@@ -1225,6 +1513,10 @@ def generate_article_page(slug, edition_num, title, date_str, read_time, cover_i
         <div class="space-y-4 sm:space-y-5 text-slate-800 text-base sm:text-lg leading-relaxed pt-2">
           {html_paragraphs}
         </div>
+
+        {faq_html}
+
+        {related_articles_html}
 
         <!-- ENLACE DISCRETO A HOME -->
         <div class="pt-6 border-t border-slate-200 mt-10 text-xs text-slate-400 text-center sm:text-left">
@@ -1491,6 +1783,8 @@ def generate_guide_page(slug, category_badge, title, subtitle, meta_desc, date_s
             </a>
           </div>
         </div>"""
+
+    related_articles_html = generate_related_articles_html(slug, root_prefix)
 
     html = f"""<!DOCTYPE html>
 <html lang="es" class="scroll-smooth">
@@ -1785,6 +2079,8 @@ def generate_guide_page(slug, category_badge, title, subtitle, meta_desc, date_s
           </div>
         </div>
 
+        {related_articles_html}
+
         {cta_html}
 
         <!-- ENLACE DISCRETO A HOME -->
@@ -1874,14 +2170,29 @@ def generate_all():
         "",
         '<p class="pt-4 font-bold text-slate-950">📌 Suscríbete para no perderte la próxima edición.</p>'
     ]
+    faqs_p03 = [
+        {
+            "q": "¿En qué países está creciendo más rápido la industria del pádel en 2026?",
+            "a": "El crecimiento más acelerado se concentra en Estados Unidos, Reino Unido, Francia, Alemania y Oriente Medio (Emiratos Árabes y Arabia Saudí), mientras que mercados tradicionales como España y Argentina se encuentran en fase de consolidación y optimización de costes operativos."
+        },
+        {
+            "q": "¿Cuáles son las 5 etapas de expansión del pádel en un nuevo mercado?",
+            "a": "1) Clubes pioneros que introducen el deporte; 2) Competencia inicial entre marcas de palas y pistas; 3) Surgimiento de alternativas y proyectos locales; 4) Profesionalización técnica con entrenadores de nivel internacional; y 5) Ecosistema maduro con torneos profesionales, patrocinadores corporativos y medios especializados."
+        },
+        {
+            "q": "¿Por qué es clave la retención de jugadores en clubes maduros de pádel?",
+            "a": "Porque con la oferta de pistas estabilizada, la rentabilidad depende de maximizar el 'lifetime value' del abonado mediante servicios complementarios: vídeo-análisis con cámaras Save my Play, torneos sociales con welcome packs atractivos y dinamización constante de la comunidad."
+        }
+    ]
     generate_article_page(
         slug="highlights-03",
         edition_num="03",
-        title="¿Cómo crece realmente la industria del pádel?",
+        title="¿Cómo crece realmente la industria del pádel? [Mercado y Retención]",
         date_str="Octubre 2026",
         read_time="Lectura 3 min",
         cover_img="cover_highlights_03.jpg",
-        paragraphs=p03
+        paragraphs=p03,
+        faqs=faqs_p03
     )
 
     # 2. Highlights #02
@@ -1909,14 +2220,29 @@ def generate_all():
         "",
         '<p class="pt-4 font-bold text-slate-950">📌 Suscríbete para no perderte la próxima edición.</p>'
     ]
+    faqs_p02 = [
+        {
+            "q": "¿Por qué el pádel no es deporte olímpico en Los Ángeles 2028?",
+            "a": "Porque el Comité Olímpico Internacional (COI) exige una presencia global consolidada con federaciones activas y campeonatos mundiales en al menos 75 países de 4 continentes para la categoría masculina y 40 países de 3 continentes para la femenina, umbral que el pádel todavía está consolidando internacionalmente."
+        },
+        {
+            "q": "¿Podría ser el pádel deporte olímpico en Brisbane 2032?",
+            "a": "Es el objetivo más realista para la Federación Internacional de Pádel (FIP), siempre que se culmine la expansión federativa en Asia, África y Norteamérica durante este ciclo olímpico."
+        },
+        {
+            "q": "¿Qué deben hacer los clubes de pádel mientras el deporte aspira a ser olímpico?",
+            "a": "Centrarse en las bases: crear escuelas de menores, cuidar la cultura de club social, mejorar la experiencia de juego en pista y profesionalizar la gestión técnica para fidelizar practicantes a largo plazo."
+        }
+    ]
     generate_article_page(
         slug="highlights-02",
         edition_num="02",
-        title="El Pádel debería estar lejos de ser un deporte olímpico. ¿Por qué?",
+        title="El Pádel debería estar lejos de ser un deporte olímpico [Análisis]",
         date_str="Septiembre 2026",
         read_time="Lectura 3 min",
         cover_img="cover_highlights_02.jpg",
-        paragraphs=p02
+        paragraphs=p02,
+        faqs=faqs_p02
     )
 
     # 3. Highlights #01
@@ -1940,14 +2266,29 @@ def generate_all():
         "",
         '<p class="pt-4 font-bold text-slate-950">📌 Suscríbete para no perderte la próxima edición.</p>'
     ]
+    faqs_p01 = [
+        {
+            "q": "¿Cuáles son las principales tendencias tecnológicas en el Padel World Summit 2026?",
+            "a": "Las dos grandes tendencias son la automatización de pistas (Smart Courts con cámaras cenitales IA y domótica integrada) y herramientas analíticas que unifican reservas, contabilidad y experiencia del jugador en un único panel de control."
+        },
+        {
+            "q": "¿Por qué las nuevas startups no sustituyen a software líder como Playtomic?",
+            "a": "Porque la cuota de mercado y el efecto red de plataformas consolidadas son muy fuertes; las startups más exitosas crean valor complementario sobre estos sistemas (como grabación en pista con Save my Play o presurizadores de pelotas) en lugar de competir frontalmente."
+        },
+        {
+            "q": "¿Qué tecnología es la más rentable a corto plazo para un club de pádel?",
+            "a": "Los sistemas de grabación en pista con repetición instantánea por pulsador (Save my Play), ya que tienen un coste de hardware muy accesible (180 €) y se amortizan en menos de 90 días mediante cobro por descarga o patrocinios de tótem."
+        }
+    ]
     generate_article_page(
         slug="highlights-01",
         edition_num="01",
-        title="Padel World Summit 2026: Startup Recap",
+        title="Padel World Summit 2026: Startup Recap [Tecnología]",
         date_str="Agosto 2026",
         read_time="Lectura 4 min",
         cover_img="cover_highlights_01.jpg",
-        paragraphs=p01
+        paragraphs=p01,
+        faqs=faqs_p01
     )
 
     # 4. Guía AEO 1: Rentabilidad Cámaras en Pistas de Pádel
@@ -2053,7 +2394,7 @@ def generate_all():
     generate_guide_page(
         slug="rentabilidad-camaras-pistas-padel",
         category_badge="Guía Económica · Cámaras",
-        title="¿Cuánto cuesta instalar cámaras en una pista de pádel y cómo se amortizan?",
+        title="¿Cuánto cuesta instalar cámaras en una pista de pádel y cómo se amortizan? [Precios y ROI 2026]",
         subtitle="Desglose real de inversión (hardware de 180 € y 45 €/mes) y los 3 modelos para generar ingresos con la grabación de partidos en tu club.",
         meta_desc="Descubre cuánto cuesta instalar cámaras en una pista de pádel (180 € hardware, 45 €/mes) y los 3 modelos probados para amortizarlas en menos de 90 días.",
         date_str="Octubre 2026",
@@ -2170,7 +2511,7 @@ def generate_all():
     generate_guide_page(
         slug="welcome-pack-torneo-padel-ideas",
         category_badge="Organización Torneos · Merch",
-        title="Qué regalar en el Welcome Pack de un torneo de pádel para dejar huella",
+        title="Welcome Pack para Torneos de Pádel: 10 Ideas de Regalos que los Jugadores No Tiran [Checklist PDF]",
         subtitle="Por qué las camisetas genéricas acaban en el fondo del cajón y cómo los llaveros de pala a escala 3D autofinanciados por patrocinadores multiplican el recuerdo de marca.",
         meta_desc="Guía práctica de welcome packs para torneos de pádel: ideas rentables por menos de 5 €, alternativas a la camiseta técnica y cómo financiar el 100% con sponsors.",
         date_str="Octubre 2026",
@@ -2286,7 +2627,7 @@ def generate_all():
     generate_guide_page(
         slug="sistemas-grabacion-pistas-padel-comparativa",
         category_badge="Tecnología & RGPD · Cámaras",
-        title="Comparativa: Cámaras fijas con pulsador vs grabación manual con trípode",
+        title="Comparativa: Cámaras fijas con pulsador vs grabación manual con trípode [Normativa RGPD]",
         subtitle="Análisis técnico, legal (RGPD) y de experiencia de usuario: por qué los trípodes en pista conllevan riesgos y cómo el buffer circular de 25 segundos resuelve la grabación sin edición.",
         meta_desc="Comparativa completa entre grabar con trípode móvil vs cámara fija con pulsador (Save my Play). Análisis de costes, comodidad, riesgos de rotura y cumplimiento RGPD.",
         date_str="Octubre 2026",
@@ -2434,7 +2775,7 @@ def generate_all():
     generate_guide_page(
         slug="regalos-eventos-padel-cenas-socios-llaveros",
         category_badge="Eventos & Fidelización · Socios",
-        title="Regalos para eventos de pádel y cenas de socios: para qué sirven los llaveros de club",
+        title="Regalos para eventos de pádel, torneos sociales y cenas de socios [Detalles de Club]",
         subtitle="Por qué los trofeos convencionales y el vino no crean comunidad y cómo los llaveros de pala 3D personalizados se convierten en el símbolo de pertenencia de tus abonados.",
         meta_desc="Descubre las mejores ideas de regalos para eventos de pádel, cenas de socios y aniversarios de club. Guía práctica sobre el valor y utilidad de los llaveros de pala 3D.",
         date_str="Octubre 2026",
@@ -2571,7 +2912,7 @@ def generate_all():
     generate_guide_page(
         slug="vender-llaveros-tienda-club-padel-pro-shop",
         category_badge="Pro-Shop & Retail · Ingresos",
-        title="Cómo vender llaveros en la pro-shop de tu club: producto de impulso con +60% de margen",
+        title="Cómo vender llaveros en la pro-shop de tu club: producto de impulso con +60% de margen [Simulador]",
         subtitle="Evita el stock muerto de palas y ropa cara: coste desde 1,50 €, PVP recomendado de 5 € a 6 € y rotación constante junto al mostrador de pago.",
         meta_desc="Guía práctica para rentabilizar la pro-shop y recepción de tu club de pádel vendiendo llaveros personalizados de pala 3D. Márgenes de beneficio, precios y merchandising.",
         date_str="Octubre 2026",
@@ -2658,7 +2999,7 @@ def generate_all():
     generate_guide_page(
         slug="merchandising-ferias-torneos-padel-regalos-marcas",
         category_badge="Ferias & Marcas · Estrategia",
-        title="Política de regalos en ferias y torneos de pádel: por qué no regalar bolígrafos, camisetas baratas ni jamón sin estrategia",
+        title="Política de regalos en ferias y torneos de pádel: Qué regalar y errores costosos [Guía B2B]",
         subtitle="Analizamos los errores de más de 120 stands en ferias como PWS y RacquetX: cómo invertir tu presupuesto de merchandising en recuerdos de alto valor percibido que tus clientes no tiren a la basura.",
         meta_desc="Estrategia de merchandising y regalos promocionales para marcas y empresas en ferias y torneos de pádel. Evita errores costosos y maximiza el recuerdo de marca.",
         date_str="Octubre 2026",
@@ -2752,7 +3093,7 @@ def generate_all():
     generate_guide_page(
         slug="retransmitir-torneos-padel-streaming-youtube-camaras",
         category_badge="Streaming & Clubs · Tecnología",
-        title="Cómo retransmitir torneos de pádel en directo por YouTube sin operadores de cámara ni unidades móviles",
+        title="Cómo retransmitir torneos de pádel en directo por YouTube sin operadores [Streaming Full HD]",
         subtitle="Emisión Full HD automatizada a 4 metros de altura, marcador digital e inserción de patrocinadores locales: la guía para profesionalizar las finales de tu club sin arruinarte.",
         meta_desc="Aprende a retransmitir partidos y torneos de pádel en directo por YouTube desde tu club. Sistema autónomo Save my Play sin operadores de cámara ni unidades móviles.",
         date_str="Octubre 2026",
@@ -2834,7 +3175,7 @@ def generate_all():
     generate_guide_page(
         slug="smart-courts-pistas-inteligentes-padel-horas-valle",
         category_badge="Smart Courts & Gestión · Negocio",
-        title="Qué es una pista de pádel inteligente (Smart Court) y cómo ayuda a llenar horas valle",
+        title="Pistas de Pádel Inteligentes (Smart Courts): Cómo llenar horas valle de 10:00 a 17:00 [Protocolo PDF]",
         subtitle="Los 4 pilares tecnológicos que reducen costes operativos y transforman una pista convencional en un centro de experiencia deportiva para clases y torneos.",
         meta_desc="Descubre cómo una pista inteligente (Smart Court) reduce costes operativos y llena horas valle en tu club de pádel mediante domótica y repeticiones en vídeo.",
         date_str="Octubre 2026",
