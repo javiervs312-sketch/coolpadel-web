@@ -3721,11 +3721,32 @@ def build_all():
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
   </url>
-</urlset>
+  <url>
+    <loc>https://coolpadelstudios.com/blog/barometro-camaras-padel-2026/</loc>
+    <lastmod>{today_iso}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
 """
+    # Incorporar dinámicamente las 167 fichas individuales de franquicias al sitemap
+    try:
+        from dataset_franquicias import FRANQUICIAS
+        for fr in FRANQUICIAS:
+            sitemap_xml += f"""  <url>
+    <loc>https://coolpadelstudios.com/franquicias-padel/{fr['id']}/</loc>
+    <lastmod>{today_iso}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+"""
+    except Exception as e:
+        print(f"  [AVISO] No se pudieron cargar franquicias en el sitemap: {e}")
+
+    sitemap_xml += "</urlset>\n"
+
     with open("coolpadel-web/sitemap.xml", "w", encoding="utf-8") as f:
         f.write(sitemap_xml)
-    print("  [OK] coolpadel-web/sitemap.xml (Sitemap XML Multilingüe)")
+    print("  [OK] coolpadel-web/sitemap.xml (Sitemap XML Multilingüe con +200 URLs)")
 
     # 2.5. Página Blog & Newsletter (con Reportaje 2026 y Artículos de LinkedIn)
     try:
