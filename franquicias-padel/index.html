@@ -432,36 +432,40 @@
               <!-- SELECTOR DE FORMATO / ESTILO DE MAPA -->
               <div class="relative inline-block text-left" id="mapstyle-dropdown-container">
                 <button type="button" onclick="toggleMapStyleDropdown(event)" id="mapstyle-dropdown-btn" class="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 border border-slate-200 text-xs font-bold text-slate-900 shadow-xs transition cursor-pointer" aria-expanded="false" aria-haspopup="true" title="Cambiar formato visual del mapa">
-                  <span id="current-mapstyle-icon">✨</span>
-                  <span id="current-mapstyle-label" class="font-black text-slate-900">Voyager (Airbnb)</span>
+                  <span id="current-mapstyle-icon">🗺️</span>
+                  <span id="current-mapstyle-label" class="font-black text-slate-900">Google Maps Clásico</span>
                   <i data-lucide="chevron-down" class="w-3.5 h-3.5 stroke-[2.5] text-slate-600 transition-transform duration-200" id="mapstyle-dropdown-arrow"></i>
                 </button>
 
-                <!-- MENÚ DESPLEGABLE ESTILOS -->
+                <!-- MENÚ DESPLEGABLE ESTILOS (100% LIMPIOS SIN MARCAS) -->
                 <div id="mapstyle-dropdown-menu" class="hidden absolute right-0 mt-2 w-64 bg-white rounded-2xl shadow-[0_12px_30px_rgba(0,0,0,0.15)] border border-slate-200 p-2 z-50 transition-all">
                   <div class="px-2.5 py-1 text-[10px] font-black uppercase tracking-wider text-slate-400 border-b border-slate-100 mb-1.5 flex items-center justify-between">
                     <span>Propuestas de diseño</span>
-                    <span class="text-[9px] text-emerald-600 bg-emerald-50 px-1.5 py-0.5 rounded font-bold">5 estilos listos</span>
+                    <span class="text-[9px] text-emerald-600 bg-emerald-50 px-1.5 py-0.5 rounded font-bold">100% Limpio</span>
                   </div>
-                  <button type="button" onclick="setMapStyle('voyager')" class="w-full flex items-center justify-between px-2.5 py-2 text-xs font-bold text-slate-800 hover:bg-amber-50 hover:text-amber-900 rounded-xl transition text-left cursor-pointer">
-                    <span class="flex items-center gap-2"><span>✨</span> Voyager (Airbnb / SaaS)</span>
-                    <span class="text-[9px] font-extrabold uppercase px-1.5 py-0.5 rounded bg-amber-100 text-amber-800">Recomendado</span>
-                  </button>
                   <button type="button" onclick="setMapStyle('google')" class="w-full flex items-center justify-between px-2.5 py-2 text-xs font-bold text-slate-800 hover:bg-amber-50 hover:text-amber-900 rounded-xl transition text-left cursor-pointer">
                     <span class="flex items-center gap-2"><span>🗺️</span> Google Maps Clásico</span>
-                    <span class="text-[9px] font-bold text-slate-500 bg-slate-100 px-1.5 py-0.5 rounded">Oficial</span>
-                  </button>
-                  <button type="button" onclick="setMapStyle('positron')" class="w-full flex items-center justify-between px-2.5 py-2 text-xs font-bold text-slate-800 hover:bg-amber-50 hover:text-amber-900 rounded-xl transition text-left cursor-pointer">
-                    <span class="flex items-center gap-2"><span>⚪</span> Blanco Minimal (B2B)</span>
-                    <span class="text-[9px] font-bold text-slate-500 bg-slate-100 px-1.5 py-0.5 rounded">Limpio</span>
+                    <span class="text-[9px] font-extrabold uppercase px-1.5 py-0.5 rounded bg-emerald-100 text-emerald-800">Oficial</span>
                   </button>
                   <button type="button" onclick="setMapStyle('satellite')" class="w-full flex items-center justify-between px-2.5 py-2 text-xs font-bold text-slate-800 hover:bg-amber-50 hover:text-amber-900 rounded-xl transition text-left cursor-pointer">
                     <span class="flex items-center gap-2"><span>🛰️</span> Satélite Híbrido HD</span>
                     <span class="text-[9px] font-bold text-slate-500 bg-slate-100 px-1.5 py-0.5 rounded">Aéreo</span>
                   </button>
-                  <button type="button" onclick="setMapStyle('dark')" class="w-full flex items-center justify-between px-2.5 py-2 text-xs font-bold text-slate-800 hover:bg-amber-50 hover:text-amber-900 rounded-xl transition text-left cursor-pointer">
-                    <span class="flex items-center gap-2"><span>🌙</span> Dark Tech (Modo Noche)</span>
-                    <span class="text-[9px] font-bold text-slate-500 bg-slate-100 px-1.5 py-0.5 rounded">Contraste</span>
+                  <button type="button" onclick="setMapStyle('terrain')" class="w-full flex items-center justify-between px-2.5 py-2 text-xs font-bold text-slate-800 hover:bg-amber-50 hover:text-amber-900 rounded-xl transition text-left cursor-pointer">
+                    <span class="flex items-center gap-2"><span>⛰️</span> Google Relieve</span>
+                    <span class="text-[9px] font-bold text-slate-500 bg-slate-100 px-1.5 py-0.5 rounded">Físico</span>
+                  </button>
+                  <button type="button" onclick="setMapStyle('osm_hot')" class="w-full flex items-center justify-between px-2.5 py-2 text-xs font-bold text-slate-800 hover:bg-amber-50 hover:text-amber-900 rounded-xl transition text-left cursor-pointer">
+                    <span class="flex items-center gap-2"><span>🎨</span> OpenStreetMap Pastel</span>
+                    <span class="text-[9px] font-bold text-slate-500 bg-slate-100 px-1.5 py-0.5 rounded">Moderno</span>
+                  </button>
+                  <button type="button" onclick="setMapStyle('esri_light')" class="w-full flex items-center justify-between px-2.5 py-2 text-xs font-bold text-slate-800 hover:bg-amber-50 hover:text-amber-900 rounded-xl transition text-left cursor-pointer">
+                    <span class="flex items-center gap-2"><span>⚪</span> Blanco Minimal B2B</span>
+                    <span class="text-[9px] font-bold text-slate-500 bg-slate-100 px-1.5 py-0.5 rounded">Limpio</span>
+                  </button>
+                  <button type="button" onclick="setMapStyle('osm_std')" class="w-full flex items-center justify-between px-2.5 py-2 text-xs font-bold text-slate-800 hover:bg-amber-50 hover:text-amber-900 rounded-xl transition text-left cursor-pointer">
+                    <span class="flex items-center gap-2"><span>🌐</span> OpenStreetMap Estándar</span>
+                    <span class="text-[9px] font-bold text-slate-500 bg-slate-100 px-1.5 py-0.5 rounded">Global</span>
                   </button>
                 </div>
               </div>
@@ -16384,16 +16388,6 @@
     const GOOGLE_MAPS_API_KEY = 'AIzaSyDGYdWwepJ-wTOCIp9Y5gSXEteD50Ev24c';
 
     const MAP_STYLES = {
-      'voyager': {
-        label: 'Voyager (Airbnb)',
-        icon: '✨',
-        url: 'https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',
-        options: {
-          subdomains: 'abcd',
-          maxZoom: 20,
-          attribution: '&copy; OpenStreetMap contributors &copy; CARTO'
-        }
-      },
       'google': {
         label: 'Google Maps Clásico',
         icon: '🗺️',
@@ -16402,16 +16396,6 @@
           subdomains: ['0', '1', '2', '3'],
           maxZoom: 20,
           attribution: '&copy; Google Maps'
-        }
-      },
-      'positron': {
-        label: 'Blanco Minimal',
-        icon: '⚪',
-        url: 'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',
-        options: {
-          subdomains: 'abcd',
-          maxZoom: 20,
-          attribution: '&copy; OpenStreetMap contributors &copy; CARTO'
         }
       },
       'satellite': {
@@ -16424,23 +16408,55 @@
           attribution: '&copy; Google Maps & Satellite'
         }
       },
-      'dark': {
-        label: 'Dark Tech',
-        icon: '🌙',
-        url: 'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',
+      'terrain': {
+        label: 'Google Relieve',
+        icon: '⛰️',
+        url: 'https://mt{s}.google.com/vt/lyrs=p&x={x}&y={y}&z={z}&key=' + GOOGLE_MAPS_API_KEY,
         options: {
-          subdomains: 'abcd',
+          subdomains: ['0', '1', '2', '3'],
           maxZoom: 20,
-          attribution: '&copy; OpenStreetMap contributors &copy; CARTO'
+          attribution: '&copy; Google Maps Terrain'
+        }
+      },
+      'osm_hot': {
+        label: 'OpenStreetMap Pastel',
+        icon: '🎨',
+        url: 'https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png',
+        options: {
+          subdomains: ['a', 'b', 'c'],
+          maxZoom: 19,
+          attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }
+      },
+      'esri_light': {
+        label: 'Blanco Minimal B2B',
+        icon: '⚪',
+        url: 'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}',
+        options: {
+          maxZoom: 16,
+          attribution: 'Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ'
+        }
+      },
+      'osm_std': {
+        label: 'OpenStreetMap Estándar',
+        icon: '🌐',
+        url: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+        options: {
+          maxZoom: 19,
+          attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         }
       }
     };
 
     let currentTileLayer = null;
-    let currentMapStyle = localStorage.getItem('coolpadel_map_style') || 'voyager';
+    let currentMapStyle = localStorage.getItem('coolpadel_map_style') || 'google';
+    if (!MAP_STYLES[currentMapStyle]) {
+      currentMapStyle = 'google';
+      try { localStorage.setItem('coolpadel_map_style', 'google'); } catch(e) {}
+    }
 
     function setMapStyle(styleKey) {
-      if (!MAP_STYLES[styleKey]) styleKey = 'voyager';
+      if (!MAP_STYLES[styleKey]) styleKey = 'google';
       currentMapStyle = styleKey;
       try {
         localStorage.setItem('coolpadel_map_style', styleKey);
