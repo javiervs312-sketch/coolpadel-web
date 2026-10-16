@@ -48,6 +48,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
             f'<div class="flex items-center justify-center shrink-0 px-2.5 sm:px-5 group"{aria_attr}>'
             f'<img src="{asset_prefix}assets/images/Clubs/client-{str(i).zfill(2)}.png" '
             f'alt="{alt_text}" '
+            f'width="140" height="56" '
             f'class="h-10 sm:h-14 lg:h-16 w-auto max-w-[110px] sm:max-w-[180px] object-contain transition-all duration-300 hover:scale-110" '
             f'loading="lazy" decoding="async"></div>'
         )
@@ -689,7 +690,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
         <!-- COLUMNA 1: OJOS + LLAVEROS, CÁMARAS PISTAS Y BLOG CENTRADOS ENTRE OJOS Y LOGO -->
         <div class="flex items-center justify-between min-w-0 h-full">
           <a href="{asset_prefix}#" class="group py-1 inline-flex items-center shrink-0">
-            <img src="{asset_prefix}assets/images/eyes-thumb.png?v=fixed_eyes" alt="CoolPadel Eyes" style="height: 24px; max-height: 24px; width: auto;" class="object-contain group-hover:scale-110 transition duration-300">
+            <img src="{asset_prefix}assets/images/eyes-thumb.png?v=fixed_eyes" alt="CoolPadel Eyes" width="24" height="24" style="height: 24px; max-height: 24px; width: auto;" class="object-contain group-hover:scale-110 transition duration-300">
           </a>
           <div class="flex-1 flex items-center justify-center min-w-0 gap-5 sm:gap-6 lg:gap-9 xl:gap-11 pl-2 sm:pl-4 lg:pl-6">
             <a href="{asset_prefix}#llaveros" class="font-heading font-black text-xs lg:text-[13px] tracking-wider uppercase text-slate-950 hover:text-[#f2920b] transition select-none whitespace-nowrap">
@@ -707,8 +708,8 @@ def get_base_html(active_lang="es", is_subfolder=False):
         <!-- COLUMNA 2: MASCOTA + COOLPADEL (MATEMÁTICAMENTE 100% CENTRADO EN PANTALLA) -->
         <div class="flex items-center justify-center shrink-0 px-2 lg:px-4">
           <a href="{asset_prefix}#" class="flex items-center justify-center gap-2 sm:gap-3 group py-1">
-            <img src="{asset_prefix}assets/images/coolpadel-mascot-hd.png" alt="Mascota CoolPadel" style="height: 46px; max-height: 46px; width: auto;" class="object-contain group-hover:scale-105 transition">
-            <img src="{asset_prefix}assets/images/coolpadel-typography-hd.png" alt="CoolPadel" style="height: 26px; max-height: 26px; width: auto;" class="object-contain">
+            <img src="{asset_prefix}assets/images/coolpadel-mascot-hd.png" alt="Mascota CoolPadel" width="46" height="46" style="height: 46px; max-height: 46px; width: auto;" class="object-contain group-hover:scale-105 transition">
+            <img src="{asset_prefix}assets/images/coolpadel-typography-hd.png" alt="CoolPadel" width="130" height="26" style="height: 26px; max-height: 26px; width: auto;" class="object-contain">
           </a>
         </div>
 
@@ -765,11 +766,11 @@ def get_base_html(active_lang="es", is_subfolder=False):
         <!-- FILA 1: LOGO CENTRADO (SIN OJOS A LA DERECHA) -->
         <div class="flex items-center justify-between w-full px-2">
           <a href="{asset_prefix}#" class="py-0.5 inline-flex items-center shrink-0" aria-label="CoolPadel Studios Home">
-            <img src="{asset_prefix}assets/images/eyes-thumb.png?v=fixed_eyes" alt="" aria-hidden="true" style="height: 18px; max-height: 18px; width: auto;" class="object-contain">
+            <img src="{asset_prefix}assets/images/eyes-thumb.png?v=fixed_eyes" alt="" aria-hidden="true" width="18" height="18" style="height: 18px; max-height: 18px; width: auto;" class="object-contain">
           </a>
           <a href="{asset_prefix}#" class="flex items-center justify-center gap-1.5 py-0.5">
-            <img src="{asset_prefix}assets/images/coolpadel-mascot-hd.png" alt="Mascota CoolPadel Studios" style="height: 28px; max-height: 28px; width: auto;" class="object-contain">
-            <img src="{asset_prefix}assets/images/coolpadel-typography-hd.png" alt="CoolPadel Studios" style="height: 18px; max-height: 18px; width: auto;" class="object-contain">
+            <img src="{asset_prefix}assets/images/coolpadel-mascot-hd.png" alt="Mascota CoolPadel Studios" width="28" height="28" style="height: 28px; max-height: 28px; width: auto;" class="object-contain">
+            <img src="{asset_prefix}assets/images/coolpadel-typography-hd.png" alt="CoolPadel Studios" width="90" height="18" style="height: 18px; max-height: 18px; width: auto;" class="object-contain">
           </a>
           <div class="w-[18px]"></div>
         </div>
@@ -835,7 +836,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
       
       <!-- HERO CARD EN GRANDE -->
       <div id="coverflow-0" class="relative w-full h-[340px] sm:h-[420px] lg:h-[480px] xl:h-[520px] rounded-3xl sm:rounded-[2.2rem] overflow-hidden bg-neutral-900 shadow-[0_20px_50px_-12px_rgba(0,0,0,0.35)] border border-slate-200/80 group">
-        <img src="{asset_prefix}assets/images/slide-1.jpg" alt="Llaveros de pádel personalizados para clubs y comunidades CoolPadel" class="w-full h-full object-cover group-hover:scale-[1.015] transition-transform duration-700 ease-out" fetchpriority="high" decoding="async">
+        <img src="{asset_prefix}assets/images/slide-1.jpg" alt="Llaveros de pádel personalizados para clubs y comunidades CoolPadel" width="1920" height="1080" class="w-full h-full object-cover group-hover:scale-[1.015] transition-transform duration-700 ease-out" fetchpriority="high" decoding="async">
         
         <!-- Degradado inferior para máxima legibilidad -->
         <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-transparent pointer-events-none"></div>
@@ -911,7 +912,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
         <!-- CARD IZQUIERDA: TENIS -->
         <div class="bg-white border border-slate-200/90 rounded-3xl p-5 sm:p-7 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.25)] hover:shadow-[0_35px_65px_-10px_rgba(0,0,0,0.35)] transition-all duration-300 group flex flex-col justify-between hover:-translate-y-1">
           <div class="aspect-[4/3] rounded-2xl overflow-hidden mb-4 sm:mb-5 bg-slate-100 shadow-[0_20px_40px_-10px_rgba(0,0,0,0.3)] border border-slate-200/90">
-            <img src="{asset_prefix}assets/images/llaveros 2.jpg" alt="Llaveros de tenis y pádel personalizados con relieve 3D para clubs y torneos" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
+            <img src="{asset_prefix}assets/images/llaveros 2.jpg" alt="Llaveros de tenis y pádel personalizados con relieve 3D para clubs y torneos" width="736" height="1408" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
           </div>
           <h3 data-i18n="card_tenis" class="font-heading font-black text-xl sm:text-2xl lg:text-3xl uppercase tracking-tight text-slate-950 text-center py-1">
             {t['card_tenis']}
@@ -921,7 +922,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
         <!-- CARD DERECHA: PADEL -->
         <div class="bg-white border border-slate-200/90 rounded-3xl p-5 sm:p-7 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.25)] hover:shadow-[0_35px_65px_-10px_rgba(0,0,0,0.35)] transition-all duration-300 group flex flex-col justify-between hover:-translate-y-1">
           <div class="aspect-[4/3] rounded-2xl overflow-hidden mb-4 sm:mb-5 bg-slate-100 shadow-[0_20px_40px_-10px_rgba(0,0,0,0.3)] border border-slate-200/90">
-            <img src="{asset_prefix}assets/images/llaveros 1.jpg" alt="Llaveros de pádel de goma 3D personalizados con logo para clubes de pádel" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
+            <img src="{asset_prefix}assets/images/llaveros 1.jpg" alt="Llaveros de pádel de goma 3D personalizados con logo para clubes de pádel" width="768" height="1344" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
           </div>
           <h3 data-i18n="card_padel" class="font-heading font-black text-xl sm:text-2xl lg:text-3xl uppercase tracking-tight text-[#f2920b] text-center py-1">
             {t['card_padel']}
@@ -1109,7 +1110,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
             <div class="w-full flex-1 flex flex-col items-center justify-center p-6 bg-slate-50/70 rounded-2xl border border-slate-200/80 shadow-xs">
               <!-- CONTENEDOR LOGO REAL DEL CLUB -->
               <div class="h-40 sm:h-48 w-full flex items-center justify-center">
-                <img id="club-logo-img" src="{asset_prefix}assets/images/Clubs/client-02.png" alt="Logo Club de Tenis Cambados" class="max-h-36 sm:max-h-44 max-w-[240px] w-auto h-auto object-contain transition-all duration-300">
+                <img id="club-logo-img" src="{asset_prefix}assets/images/Clubs/client-02.png" alt="Logo Club de Tenis Cambados" width="240" height="176" class="max-h-36 sm:max-h-44 max-w-[240px] w-auto h-auto object-contain transition-all duration-300">
               </div>
 
               <!-- NOMBRE Y UBICACIÓN CENTRADOS -->
@@ -1277,8 +1278,8 @@ def get_base_html(active_lang="es", is_subfolder=False):
         
         <!-- COOLPADEL (MASCOTA + TIPOGRAFÍA) -->
         <div class="flex items-center justify-center gap-3.5">
-          <img src="{asset_prefix}assets/images/coolpadel-mascot-hd.png" alt="CoolPadel Mascota" class="h-14 sm:h-18 lg:h-20 w-auto object-contain drop-shadow-md" loading="lazy">
-          <img src="{asset_prefix}assets/images/coolpadel-typography-hd.png" alt="CoolPadel" class="h-7 sm:h-9 lg:h-10 w-auto object-contain drop-shadow-md" loading="lazy">
+          <img src="{asset_prefix}assets/images/coolpadel-mascot-hd.png" alt="CoolPadel Mascota" width="80" height="80" class="h-14 sm:h-18 lg:h-20 w-auto object-contain drop-shadow-md" loading="lazy">
+          <img src="{asset_prefix}assets/images/coolpadel-typography-hd.png" alt="CoolPadel" width="200" height="40" class="h-7 sm:h-9 lg:h-10 w-auto object-contain drop-shadow-md" loading="lazy">
         </div>
 
         <!-- CORREO Y WHATSAPP OFICIAL DE JAVIER -->

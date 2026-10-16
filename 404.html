@@ -3,14 +3,172 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CoolPadel | Redirigiendo a la página principal...</title>
-  <meta http-equiv="refresh" content="0; url=https://coolpadelstudios.com/">
-  <script>
-    // Redirección instantánea hacia la home para cualquier URL antigua de WordPress
-    window.location.replace("https://coolpadelstudios.com/");
-  </script>
+  <title>404 - Página no encontrada | CoolPadel Studios</title>
+  <meta name="description" content="La página que buscas no existe o ha sido movida. Descubre nuestros llaveros personalizados de pádel, cámaras Save My Play y artículos de blog.">
+  <meta name="robots" content="noindex, follow">
+  <link rel="icon" type="image/png" href="/assets/images/favicon_transparente.png?v=transp2">
+  <link rel="apple-touch-icon" href="/assets/images/favicon_transparente.png?v=transp2">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      background-color: #0b1626;
+      color: #ffffff;
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1.5rem;
+      text-align: center;
+    }
+    .container {
+      max-width: 640px;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 28px;
+      padding: 3rem 2rem;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    }
+    .logo-wrap {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 2rem;
+      text-decoration: none;
+    }
+    .logo-mascot {
+      height: 48px;
+      width: auto;
+    }
+    .logo-text {
+      height: 24px;
+      width: auto;
+    }
+    .badge-404 {
+      display: inline-block;
+      font-size: 0.8rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #f2920b;
+      background: rgba(242, 146, 11, 0.12);
+      border: 1px solid rgba(242, 146, 11, 0.3);
+      padding: 6px 16px;
+      border-radius: 9999px;
+      margin-bottom: 1.25rem;
+    }
+    h1 {
+      font-size: clamp(2rem, 5vw, 2.75rem);
+      font-weight: 900;
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+      margin-bottom: 1rem;
+      color: #ffffff;
+    }
+    p {
+      font-size: 1.05rem;
+      line-height: 1.6;
+      color: #94a3b8;
+      margin-bottom: 2.25rem;
+    }
+    .nav-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 12px;
+      margin-bottom: 2rem;
+    }
+    .nav-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 14px 20px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 16px;
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.95rem;
+      transition: all 0.2s ease;
+    }
+    .nav-btn:hover {
+      background: rgba(242, 146, 11, 0.15);
+      border-color: #f2920b;
+      color: #f2920b;
+      transform: translateY(-2px);
+    }
+    .nav-btn-primary {
+      background: #f2920b;
+      border-color: #f2920b;
+      color: #0b1626;
+      font-weight: 800;
+      grid-column: 1 / -1;
+    }
+    .nav-btn-primary:hover {
+      background: #76d3f6;
+      border-color: #76d3f6;
+      color: #0b1626;
+      transform: translateY(-2px);
+    }
+    .footer-help {
+      font-size: 0.85rem;
+      color: #64748b;
+    }
+    .footer-help a {
+      color: #f2920b;
+      text-decoration: none;
+    }
+    .footer-help a:hover {
+      text-decoration: underline;
+    }
+  </style>
 </head>
-<body style="background:#0b1626; color:#ffffff; font-family:sans-serif; text-align:center; padding:50px;">
-  <p>Redirigiendo a <a href="https://coolpadelstudios.com/" style="color:#f2920b;">coolpadelstudios.com</a>...</p>
+<body>
+  <div class="container">
+    <a href="/" class="logo-wrap" title="Ir a la portada">
+      <img src="/assets/images/coolpadel-mascot-hd.png" alt="CoolPadel Mascota" class="logo-mascot" width="48" height="48">
+      <img src="/assets/images/coolpadel-typography-hd.png" alt="CoolPadel Studios" class="logo-text" width="130" height="24">
+    </a>
+
+    <div>
+      <span class="badge-404">Error 404</span>
+    </div>
+
+    <h1>Página no encontrada</h1>
+    <p>La dirección que has abierto no existe o ha sido actualizada. Elige a dónde quieres dirigirte:</p>
+
+    <div class="nav-grid">
+      <a href="/" class="nav-btn nav-btn-primary">
+        <span>← Volver a la portada principal</span>
+      </a>
+      <a href="/#llaveros" class="nav-btn">
+        <span>🎾 Llaveros Personalizados</span>
+      </a>
+      <a href="/camaras/" class="nav-btn">
+        <span>📹 Cámaras Save My Play</span>
+      </a>
+      <a href="/blog/" class="nav-btn">
+        <span>📰 Blog & Informes</span>
+      </a>
+      <a href="/franquicias-padel/" class="nav-btn">
+        <span>🏢 Cadenas y Clubs</span>
+      </a>
+    </div>
+
+    <div class="footer-help">
+      ¿Buscabas información directa? Escríbenos por <a href="https://wa.me/34680317486" target="_blank" rel="noopener noreferrer">WhatsApp (+34 680 31 74 86)</a>.
+    </div>
+  </div>
 </body>
 </html>

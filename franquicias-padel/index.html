@@ -181,7 +181,7 @@
         <!-- COLUMNA 1: OJOS + LLAVEROS, CÁMARAS PISTAS Y BLOG CENTRADOS ENTRE OJOS Y LOGO -->
         <div class="flex items-center justify-between min-w-0 h-full">
           <a href="../" class="group py-1 inline-flex items-center shrink-0">
-            <img src="../assets/images/eyes-thumb.png?v=fixed_eyes" alt="CoolPadel Eyes" style="height: 24px; max-height: 24px; width: auto;" class="object-contain group-hover:scale-110 transition duration-300">
+            <img src="../assets/images/eyes-thumb.png?v=fixed_eyes" alt="CoolPadel Eyes" width="24" height="24" style="height: 24px; max-height: 24px; width: auto;" class="object-contain group-hover:scale-110 transition duration-300">
           </a>
           <div class="flex-1 flex items-center justify-center min-w-0 gap-5 sm:gap-6 lg:gap-9 xl:gap-11 pl-2 sm:pl-4 lg:pl-6">
             <a href="../#llaveros" class="font-heading font-black text-xs lg:text-[13px] tracking-wider uppercase text-slate-950 hover:text-[#f2920b] transition select-none whitespace-nowrap">
@@ -199,8 +199,8 @@
         <!-- COLUMNA 2: MASCOTA + COOLPADEL CENTRADO -->
         <div class="flex items-center justify-center shrink-0 px-2 lg:px-4">
           <a href="../" class="flex items-center justify-center gap-2 sm:gap-3 group py-1">
-            <img src="../assets/images/coolpadel-mascot-hd.png" alt="Mascota CoolPadel" style="height: 46px; max-height: 46px; width: auto;" class="object-contain group-hover:scale-105 transition">
-            <img src="../assets/images/coolpadel-typography-hd.png" alt="CoolPadel" style="height: 26px; max-height: 26px; width: auto;" class="object-contain">
+            <img src="../assets/images/coolpadel-mascot-hd.png" alt="Mascota CoolPadel" width="46" height="46" style="height: 46px; max-height: 46px; width: auto;" class="object-contain group-hover:scale-105 transition">
+            <img src="../assets/images/coolpadel-typography-hd.png" alt="CoolPadel" width="130" height="26" style="height: 26px; max-height: 26px; width: auto;" class="object-contain">
           </a>
         </div>
 
@@ -254,11 +254,11 @@
         <!-- FILA 1: LOGO CENTRADO (SIN OJOS A LA DERECHA) -->
         <div class="flex items-center justify-between w-full px-2">
           <a href="../" class="py-0.5 inline-flex items-center shrink-0">
-            <img src="../assets/images/eyes-thumb.png?v=fixed_eyes" alt="CoolPadel Eyes" style="height: 18px; max-height: 18px; width: auto;" class="object-contain">
+            <img src="../assets/images/eyes-thumb.png?v=fixed_eyes" alt="CoolPadel Eyes" width="18" height="18" style="height: 18px; max-height: 18px; width: auto;" class="object-contain">
           </a>
           <a href="../" class="flex items-center justify-center gap-1.5 py-0.5">
-            <img src="../assets/images/coolpadel-mascot-hd.png" alt="Mascota CoolPadel" style="height: 28px; max-height: 28px; width: auto;" class="object-contain">
-            <img src="../assets/images/coolpadel-typography-hd.png" alt="CoolPadel" style="height: 18px; max-height: 18px; width: auto;" class="object-contain">
+            <img src="../assets/images/coolpadel-mascot-hd.png" alt="Mascota CoolPadel" width="28" height="28" style="height: 28px; max-height: 28px; width: auto;" class="object-contain">
+            <img src="../assets/images/coolpadel-typography-hd.png" alt="CoolPadel" width="90" height="18" style="height: 18px; max-height: 18px; width: auto;" class="object-contain">
           </a>
           <div class="w-[18px]"></div>
         </div>
@@ -398,6 +398,43 @@
             </div>
 
             <div class="flex items-center gap-2 self-start lg:self-auto shrink-0">
+              <!-- SELECTOR DE FORMATO / ESTILO DE MAPA -->
+              <div class="relative inline-block text-left" id="mapstyle-dropdown-container">
+                <button type="button" onclick="toggleMapStyleDropdown(event)" id="mapstyle-dropdown-btn" class="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 border border-slate-200 text-xs font-bold text-slate-900 shadow-xs transition cursor-pointer" aria-expanded="false" aria-haspopup="true" title="Cambiar formato visual del mapa">
+                  <span id="current-mapstyle-icon">✨</span>
+                  <span id="current-mapstyle-label" class="font-black text-slate-900">Voyager (Airbnb)</span>
+                  <i data-lucide="chevron-down" class="w-3.5 h-3.5 stroke-[2.5] text-slate-600 transition-transform duration-200" id="mapstyle-dropdown-arrow"></i>
+                </button>
+
+                <!-- MENÚ DESPLEGABLE ESTILOS -->
+                <div id="mapstyle-dropdown-menu" class="hidden absolute right-0 mt-2 w-64 bg-white rounded-2xl shadow-[0_12px_30px_rgba(0,0,0,0.15)] border border-slate-200 p-2 z-50 transition-all">
+                  <div class="px-2.5 py-1 text-[10px] font-black uppercase tracking-wider text-slate-400 border-b border-slate-100 mb-1.5 flex items-center justify-between">
+                    <span>Propuestas de mapa</span>
+                    <span class="text-[9px] text-amber-600 bg-amber-50 px-1.5 py-0.5 rounded font-extrabold">API Key Activa</span>
+                  </div>
+                  <button type="button" onclick="setMapStyle('voyager')" class="w-full flex items-center justify-between px-2.5 py-2 text-xs font-bold text-slate-800 hover:bg-amber-50 hover:text-amber-900 rounded-xl transition text-left cursor-pointer">
+                    <span class="flex items-center gap-2"><span>✨</span> Voyager (Airbnb / SaaS)</span>
+                    <span class="text-[9px] font-extrabold uppercase px-1.5 py-0.5 rounded bg-amber-100 text-amber-800">Recomendado</span>
+                  </button>
+                  <button type="button" onclick="setMapStyle('google')" class="w-full flex items-center justify-between px-2.5 py-2 text-xs font-bold text-slate-800 hover:bg-amber-50 hover:text-amber-900 rounded-xl transition text-left cursor-pointer">
+                    <span class="flex items-center gap-2"><span>🗺️</span> Google Maps Clásico</span>
+                    <span class="text-[9px] font-bold text-slate-500 bg-slate-100 px-1.5 py-0.5 rounded">Oficial</span>
+                  </button>
+                  <button type="button" onclick="setMapStyle('positron')" class="w-full flex items-center justify-between px-2.5 py-2 text-xs font-bold text-slate-800 hover:bg-amber-50 hover:text-amber-900 rounded-xl transition text-left cursor-pointer">
+                    <span class="flex items-center gap-2"><span>⚪</span> Blanco Minimal (B2B)</span>
+                    <span class="text-[9px] font-bold text-slate-500 bg-slate-100 px-1.5 py-0.5 rounded">Limpio</span>
+                  </button>
+                  <button type="button" onclick="setMapStyle('satellite')" class="w-full flex items-center justify-between px-2.5 py-2 text-xs font-bold text-slate-800 hover:bg-amber-50 hover:text-amber-900 rounded-xl transition text-left cursor-pointer">
+                    <span class="flex items-center gap-2"><span>🛰️</span> Satélite Híbrido HD</span>
+                    <span class="text-[9px] font-bold text-slate-500 bg-slate-100 px-1.5 py-0.5 rounded">Aéreo</span>
+                  </button>
+                  <button type="button" onclick="setMapStyle('dark')" class="w-full flex items-center justify-between px-2.5 py-2 text-xs font-bold text-slate-800 hover:bg-amber-50 hover:text-amber-900 rounded-xl transition text-left cursor-pointer">
+                    <span class="flex items-center gap-2"><span>🌙</span> Dark Tech (Modo Noche)</span>
+                    <span class="text-[9px] font-bold text-slate-500 bg-slate-100 px-1.5 py-0.5 rounded">Contraste</span>
+                  </button>
+                </div>
+              </div>
+
               <!-- SELECTOR DE REGIÓN MODERNO A LA DERECHA (ESTILO DESPLEGABLE DE IDIOMAS) -->
               <div class="relative inline-block text-left" id="region-dropdown-container">
                 <button type="button" onclick="toggleRegionDropdown(event)" id="region-dropdown-btn" class="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 border border-slate-200 text-xs font-bold text-slate-900 shadow-xs transition cursor-pointer" aria-expanded="false" aria-haspopup="true">
@@ -15861,7 +15898,7 @@
   <footer class="bg-slate-950 text-slate-400 py-12 border-t border-slate-800 text-xs">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
       <div class="flex items-center gap-3">
-        <img src="../assets/images/coolpadel-mascot-hd.png" alt="CoolPadel Studios" class="h-8 w-auto">
+        <img src="../assets/images/coolpadel-mascot-hd.png" alt="CoolPadel Studios" width="32" height="32" class="h-8 w-auto">
         <span class="font-heading font-black text-white text-sm">CoolPadel Studios</span>
         <span class="text-slate-600">|</span>
         <span>Censo Internacional de Franquicias y Cadenas de Pádel</span>
@@ -16308,6 +16345,92 @@
     let currentDrawerId = null;
 
     const WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbxnF9JmVrikeAW7PdLc02r_1kkuSJVz1Ncl71ZeVGT37H0ji5DQ3DVw60122pcuYnxCgA/exec';
+    const GOOGLE_MAPS_API_KEY = 'AIzaSyDGYdWwepJ-wTOCIp9Y5gSXEteD50Ev24c';
+
+    const MAP_STYLES = {
+      'voyager': {
+        label: 'Voyager (Airbnb)',
+        icon: '✨',
+        url: 'https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',
+        options: {
+          subdomains: 'abcd',
+          maxZoom: 20,
+          attribution: '&copy; OpenStreetMap contributors &copy; CARTO'
+        }
+      },
+      'google': {
+        label: 'Google Maps Clásico',
+        icon: '🗺️',
+        url: 'https://mt{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}&key=' + GOOGLE_MAPS_API_KEY,
+        options: {
+          subdomains: ['0', '1', '2', '3'],
+          maxZoom: 20,
+          attribution: '&copy; Google Maps'
+        }
+      },
+      'positron': {
+        label: 'Blanco Minimal',
+        icon: '⚪',
+        url: 'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',
+        options: {
+          subdomains: 'abcd',
+          maxZoom: 20,
+          attribution: '&copy; OpenStreetMap contributors &copy; CARTO'
+        }
+      },
+      'satellite': {
+        label: 'Satélite Híbrido HD',
+        icon: '🛰️',
+        url: 'https://mt{s}.google.com/vt/lyrs=y&x={x}&y={y}&z={z}&key=' + GOOGLE_MAPS_API_KEY,
+        options: {
+          subdomains: ['0', '1', '2', '3'],
+          maxZoom: 20,
+          attribution: '&copy; Google Maps & Satellite'
+        }
+      },
+      'dark': {
+        label: 'Dark Tech',
+        icon: '🌙',
+        url: 'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',
+        options: {
+          subdomains: 'abcd',
+          maxZoom: 20,
+          attribution: '&copy; OpenStreetMap contributors &copy; CARTO'
+        }
+      }
+    };
+
+    let currentTileLayer = null;
+    let currentMapStyle = localStorage.getItem('coolpadel_map_style') || 'voyager';
+
+    function setMapStyle(styleKey) {
+      if (!MAP_STYLES[styleKey]) styleKey = 'voyager';
+      currentMapStyle = styleKey;
+      try {
+        localStorage.setItem('coolpadel_map_style', styleKey);
+      } catch (e) {}
+
+      const styleDef = MAP_STYLES[styleKey];
+      const lbl = document.getElementById('current-mapstyle-label');
+      const icn = document.getElementById('current-mapstyle-icon');
+      if (lbl) lbl.textContent = styleDef.label;
+      if (icn) icn.textContent = styleDef.icon;
+
+      const menu = document.getElementById('mapstyle-dropdown-menu');
+      const arrow = document.getElementById('mapstyle-dropdown-arrow');
+      if (menu) menu.classList.add('hidden');
+      if (arrow) arrow.classList.remove('rotate-180');
+
+      if (map) {
+        if (currentTileLayer) {
+          map.removeLayer(currentTileLayer);
+        }
+        currentTileLayer = L.tileLayer(styleDef.url, styleDef.options).addTo(map);
+        if (currentTileLayer.bringToBack) {
+          currentTileLayer.bringToBack();
+        }
+      }
+    }
 
     // Bounding boxes calibrados para mostrar el país completo con márgenes (extremos incluidos sin cortar)
     const REGION_BOUNDS = {
@@ -16487,7 +16610,7 @@
       }
     }
 
-    // Inicializar mapa con Esri World Street Map (nombres locales, sin API key, zoom táctil nativo)
+    // Inicializar mapa con soporte multi-estilo y zoom táctil nativo
     function initMap() {
       if (map) return;
       
@@ -16500,10 +16623,7 @@
         dragging: true
       });
 
-      L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}', {
-        attribution: 'Tiles &copy; Esri &mdash; Fuentes: Esri, DeLorme, NAVTEQ, USGS, Intermap, iPC, METI, TomTom | CoolPadel Studios',
-        maxZoom: 18
-      }).addTo(map);
+      setMapStyle(currentMapStyle);
 
       // Prevenir que gestos de pellizco con 2 dedos en móvil hagan zoom en la página completa en vez de en el mapa
       const mapContainerEl = document.getElementById('franchiseMap');
@@ -16593,6 +16713,27 @@
     // Vistas de mapa
     function resetMapView() { map.setView([46.0, 4.0], 4); }
 
+    // Menú desplegable flotante de estilos de mapa
+    function toggleMapStyleDropdown(event) {
+      if (event) event.stopPropagation();
+      const menu = document.getElementById('mapstyle-dropdown-menu');
+      const arrow = document.getElementById('mapstyle-dropdown-arrow');
+      if (!menu) return;
+      const isOpen = !menu.classList.contains('hidden');
+      if (isOpen) {
+        menu.classList.add('hidden');
+        if (arrow) arrow.classList.remove('rotate-180');
+      } else {
+        menu.classList.remove('hidden');
+        if (arrow) arrow.classList.add('rotate-180');
+        // Cerrar selector de región si está abierto
+        const regionMenu = document.getElementById('region-dropdown-menu');
+        const regionArrow = document.getElementById('region-dropdown-arrow');
+        if (regionMenu) regionMenu.classList.add('hidden');
+        if (regionArrow) regionArrow.classList.remove('rotate-180');
+      }
+    }
+
     // Menú desplegable flotante de región
     function toggleRegionDropdown(event) {
       if (event) event.stopPropagation();
@@ -16606,6 +16747,11 @@
       } else {
         menu.classList.remove('hidden');
         if (arrow) arrow.classList.add('rotate-180');
+        // Cerrar selector de estilos si está abierto
+        const styleMenu = document.getElementById('mapstyle-dropdown-menu');
+        const styleArrow = document.getElementById('mapstyle-dropdown-arrow');
+        if (styleMenu) styleMenu.classList.add('hidden');
+        if (styleArrow) styleArrow.classList.remove('rotate-180');
       }
     }
 
@@ -16616,6 +16762,14 @@
       if (container && !container.contains(e.target) && menu && !menu.classList.contains('hidden')) {
         menu.classList.add('hidden');
         if (arrow) arrow.classList.remove('rotate-180');
+      }
+
+      const styleContainer = document.getElementById('mapstyle-dropdown-container');
+      const styleMenu = document.getElementById('mapstyle-dropdown-menu');
+      const styleArrow = document.getElementById('mapstyle-dropdown-arrow');
+      if (styleContainer && !styleContainer.contains(e.target) && styleMenu && !styleMenu.classList.contains('hidden')) {
+        styleMenu.classList.add('hidden');
+        if (styleArrow) styleArrow.classList.remove('rotate-180');
       }
     });
 

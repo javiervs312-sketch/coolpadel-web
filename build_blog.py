@@ -247,7 +247,7 @@ def generate_blog_index():
           <!-- COLUMNA 1: OJOS + LLAVEROS, CÁMARAS PISTAS Y BLOG CENTRADOS ENTRE OJOS Y LOGO -->
           <div class="flex items-center justify-between min-w-0 h-full">
             <a href="../" class="group py-1 inline-flex items-center shrink-0">
-              <img src="../assets/images/eyes-thumb.png?v=fixed_eyes" alt="CoolPadel Eyes" style="height: 24px; max-height: 24px; width: auto;" class="object-contain group-hover:scale-110 transition duration-300">
+              <img src="../assets/images/eyes-thumb.png?v=fixed_eyes" alt="CoolPadel Eyes" width="24" height="24" style="height: 24px; max-height: 24px; width: auto;" class="object-contain group-hover:scale-110 transition duration-300">
             </a>
             <div class="flex-1 flex items-center justify-center min-w-0 gap-5 sm:gap-6 lg:gap-9 xl:gap-11 pl-2 sm:pl-4 lg:pl-6">
               <a href="../#llaveros" class="font-heading font-black text-xs lg:text-[13px] tracking-wider uppercase text-slate-950 hover:text-[#f2920b] transition select-none whitespace-nowrap">
@@ -265,8 +265,8 @@ def generate_blog_index():
           <!-- COLUMNA 2: MASCOTA + COOLPADEL CENTRADO -->
           <div class="flex items-center justify-center shrink-0 px-2 lg:px-4">
             <a href="../" class="flex items-center justify-center gap-2 sm:gap-3 group py-1">
-              <img src="../assets/images/coolpadel-mascot-hd.png" alt="Mascota CoolPadel" style="height: 46px; max-height: 46px; width: auto;" class="object-contain group-hover:scale-105 transition">
-              <img src="../assets/images/coolpadel-typography-hd.png" alt="CoolPadel" style="height: 26px; max-height: 26px; width: auto;" class="object-contain">
+              <img src="../assets/images/coolpadel-mascot-hd.png" alt="Mascota CoolPadel" width="46" height="46" style="height: 46px; max-height: 46px; width: auto;" class="object-contain group-hover:scale-105 transition">
+              <img src="../assets/images/coolpadel-typography-hd.png" alt="CoolPadel" width="130" height="26" style="height: 26px; max-height: 26px; width: auto;" class="object-contain">
             </a>
           </div>
 
@@ -320,11 +320,11 @@ def generate_blog_index():
           <!-- FILA 1: LOGO CENTRADO (SIN OJOS A LA DERECHA) -->
           <div class="flex items-center justify-between w-full px-2">
             <a href="../" class="py-0.5 inline-flex items-center shrink-0">
-              <img src="../assets/images/eyes-thumb.png?v=fixed_eyes" alt="CoolPadel Eyes" style="height: 18px; max-height: 18px; width: auto;" class="object-contain">
+              <img src="../assets/images/eyes-thumb.png?v=fixed_eyes" alt="CoolPadel Eyes" width="18" height="18" style="height: 18px; max-height: 18px; width: auto;" class="object-contain">
             </a>
             <a href="../" class="flex items-center justify-center gap-1.5 py-0.5">
-              <img src="../assets/images/coolpadel-mascot-hd.png" alt="Mascota CoolPadel" style="height: 28px; max-height: 28px; width: auto;" class="object-contain">
-              <img src="../assets/images/coolpadel-typography-hd.png" alt="CoolPadel" style="height: 18px; max-height: 18px; width: auto;" class="object-contain">
+              <img src="../assets/images/coolpadel-mascot-hd.png" alt="Mascota CoolPadel" width="28" height="28" style="height: 28px; max-height: 28px; width: auto;" class="object-contain">
+              <img src="../assets/images/coolpadel-typography-hd.png" alt="CoolPadel" width="90" height="18" style="height: 18px; max-height: 18px; width: auto;" class="object-contain">
             </a>
             <div class="w-[18px]"></div>
           </div>
@@ -403,7 +403,7 @@ def generate_blog_index():
           <div class="bg-white border border-slate-200/90 rounded-3xl p-6 sm:p-7 shadow-[0_20px_45px_-12px_rgba(0,0,0,0.14)] hover:shadow-[0_30px_60px_-10px_rgba(0,0,0,0.22)] transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1">
             <div class="space-y-4">
               <a href="./highlights-03/" class="block aspect-[16/9] rounded-2xl overflow-hidden bg-slate-900 border border-slate-200/90 shadow-[0_15px_30px_-10px_rgba(0,0,0,0.35)] relative">
-                <img src="../assets/images/cover_highlights_03.jpg" alt="Highlights #03: ¿Cómo crece realmente la industria del pádel?" class="w-full h-full object-cover group-hover:scale-105 transition duration-700" loading="eager" decoding="async">
+                <img src="../assets/images/cover_highlights_03.jpg" alt="Highlights #03: ¿Cómo crece realmente la industria del pádel?" width="800" height="450" class="w-full h-full object-cover group-hover:scale-105 transition duration-700" loading="eager" decoding="async">
               </a>
 
               <div class="pt-1">
@@ -433,7 +433,7 @@ def generate_blog_index():
           <div class="bg-white border border-slate-200/90 rounded-3xl p-6 sm:p-7 shadow-[0_20px_45px_-12px_rgba(0,0,0,0.14)] hover:shadow-[0_30px_60px_-10px_rgba(0,0,0,0.22)] transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1">
             <div class="space-y-4">
               <a href="./highlights-02/" class="block aspect-[16/9] rounded-2xl overflow-hidden bg-slate-900 border border-slate-200/90 shadow-[0_15px_30px_-10px_rgba(0,0,0,0.35)] relative">
-                <img src="../assets/images/cover_highlights_02.jpg" alt="Highlights #02: El Pádel debería estar lejos de ser un deporte olímpico" class="w-full h-full object-cover group-hover:scale-105 transition duration-700" loading="lazy" decoding="async">
+                <img src="../assets/images/cover_highlights_02.jpg" alt="Highlights #02: El Pádel debería estar lejos de ser un deporte olímpico" width="800" height="450" class="w-full h-full object-cover group-hover:scale-105 transition duration-700" loading="lazy" decoding="async">
               </a>
 
               <div class="pt-1">
@@ -463,7 +463,7 @@ def generate_blog_index():
           <div class="bg-white border border-slate-200/90 rounded-3xl p-6 sm:p-7 shadow-[0_20px_45px_-12px_rgba(0,0,0,0.14)] hover:shadow-[0_30px_60px_-10px_rgba(0,0,0,0.22)] transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1">
             <div class="space-y-4">
               <a href="./highlights-01/" class="block aspect-[16/9] rounded-2xl overflow-hidden bg-slate-900 border border-slate-200/90 shadow-[0_15px_30px_-10px_rgba(0,0,0,0.35)] relative">
-                <img src="../assets/images/cover_highlights_01.jpg" alt="Highlights #01: Padel World Summit 2026: Startup Recap" class="w-full h-full object-cover group-hover:scale-105 transition duration-700" loading="lazy" decoding="async">
+                <img src="../assets/images/cover_highlights_01.jpg" alt="Highlights #01: Padel World Summit 2026: Startup Recap" width="800" height="450" class="w-full h-full object-cover group-hover:scale-105 transition duration-700" loading="lazy" decoding="async">
               </a>
 
               <div class="pt-1">
@@ -496,7 +496,7 @@ def generate_blog_index():
           <div class="bg-white border border-slate-200/90 rounded-3xl p-5 sm:p-7 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.18)] hover:shadow-[0_35px_65px_-10px_rgba(0,0,0,0.28)] transition-all duration-300 flex flex-col justify-between group">
             <div class="space-y-4">
               <div class="aspect-[16/10] rounded-2xl overflow-hidden bg-slate-900 border border-slate-200/90 shadow-[0_20px_40px_-10px_rgba(0,0,0,0.4)] group-hover:scale-[1.01] transition duration-500 relative">
-                <img src="../assets/images/foto-reportaje.jpg" alt="Informe PDF sobre tendencias de la industria del padel 2026" class="w-full h-full object-cover group-hover:scale-105 transition duration-700" loading="lazy" decoding="async">
+                <img src="../assets/images/foto-reportaje.jpg" alt="Informe PDF sobre tendencias de la industria del padel 2026" width="800" height="450" class="w-full h-full object-cover group-hover:scale-105 transition duration-700" loading="lazy" decoding="async">
                 <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
                 <span class="absolute bottom-3 left-3 text-[11px] font-black uppercase tracking-wider px-3 py-1 rounded-full bg-white text-slate-950 shadow-md">
                   Reportaje Oficial

@@ -160,6 +160,151 @@ def render_landing(landing):
           <p class="text-slate-600 text-sm sm:text-base leading-relaxed">{desc}</p>
         </div>"""
 
+    is_camaras = landing["slug"] == "camaras-grabacion-pistas-padel"
+    breadcrumb_name = "Cámaras en Pista" if is_camaras else "Llaveros Personalizados"
+    cta_hero_text = "Solicitar Demo / Presupuesto" if is_camaras else "Solicitar Muestra / Cotización"
+
+    if is_camaras:
+        hero_badges_html = """
+              <span class="flex items-center gap-1.5"><i data-lucide="check-circle" class="w-4 h-4 text-[#f2920b]"></i> 0 obras · Montaje 5 min</span>
+              <span class="flex items-center gap-1.5"><i data-lucide="check-circle" class="w-4 h-4 text-[#f2920b]"></i> 0 permanencia</span>
+              <span class="flex items-center gap-1.5"><i data-lucide="check-circle" class="w-4 h-4 text-[#f2920b]"></i> Descarga instantánea QR</span>"""
+        why_title = "¿Por qué elegir Save My Play para tu club?"
+        why_sub = "La tecnología de grabación y analítica en pista más ágil, sin obras ni costes ocultos"
+        precios_title = "Tarifas Oficiales Save My Play B2B"
+        precios_sub = "Hardware en propiedad sin permanencia y cuota mensual de software por pista"
+        table_html = f"""
+          <div class="overflow-x-auto">
+            <table class="w-full text-left text-sm sm:text-base">
+              <thead>
+                <tr class="border-b border-slate-200 text-xs uppercase tracking-wider text-slate-500">
+                  <th class="py-3 px-3">Concepto / Plan</th>
+                  <th class="py-3 px-3">Inversión / Cuota</th>
+                  <th class="py-3 px-3">Modalidad</th>
+                  <th class="py-3 px-3">Servicios Incluidos</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-slate-100 font-bold">
+                <tr>
+                  <td class="py-4 px-3 text-slate-900">Inversión Hardware por Pista</td>
+                  <td class="py-4 px-3 text-[#f2920b]">180 € / pista</td>
+                  <td class="py-4 px-3 text-slate-700">Pago único (en propiedad)</td>
+                  <td class="py-4 px-3 text-slate-600 text-xs font-medium">Cámara deportiva panorámica HD + fijación a poste + pulsador físico</td>
+                </tr>
+                <tr>
+                  <td class="py-4 px-3 text-slate-900">Plan B · Highlights & Streaming (Recomendado)</td>
+                  <td class="py-4 px-3 text-[#f2920b]">45 € / mes</td>
+                  <td class="py-4 px-3 text-emerald-600">0 permanencia · Cancelación libre</td>
+                  <td class="py-4 px-3 text-slate-600 text-xs font-medium">Grabación de partidos, repeticiones botón en poste, clips automáticos, streaming YouTube y descarga QR</td>
+                </tr>
+                <tr>
+                  <td class="py-4 px-3 text-slate-900">Plan A · Analítica IA Avanzada</td>
+                  <td class="py-4 px-3 text-[#f2920b]">136 € / mes</td>
+                  <td class="py-4 px-3 text-emerald-600">0 permanencia · Cancelación libre</td>
+                  <td class="py-4 px-3 text-slate-600 text-xs font-medium">Todo el Plan B + AI Analytics táctico, mapas de calor, recuento de golpes y métricas</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          
+          <div class="mt-6 pt-5 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <span class="text-xs text-slate-500">* Precios sin IVA. Sin contratos de permanencia ni penalizaciones. Instalación en 5 minutos sin obras civiles.</span>
+            <a href="https://wa.me/34680317486?text={wa_encoded}" target="_blank" rel="noopener noreferrer" class="px-6 py-3 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] text-slate-950 font-heading font-black text-xs uppercase tracking-wider transition">
+              Pedir Presupuesto / Demo por WhatsApp
+            </a>
+          </div>"""
+        pasos_html = """
+        <div class="grid sm:grid-cols-3 gap-6 text-center">
+          <div class="space-y-2">
+            <div class="w-10 h-10 rounded-full bg-white/20 text-white font-heading font-black text-base flex items-center justify-center mx-auto">1</div>
+            <h3 class="font-heading font-black text-lg">Demo Online (15 min)</h3>
+            <p class="text-white/80 text-xs">Te mostramos en vivo cómo funciona la cámara, el pulsador y la descarga instantánea por QR.</p>
+          </div>
+          <div class="space-y-2">
+            <div class="w-10 h-10 rounded-full bg-white/20 text-white font-heading font-black text-base flex items-center justify-center mx-auto">2</div>
+            <h3 class="font-heading font-black text-lg">Instalación en 5 min</h3>
+            <p class="text-white/80 text-xs">Se fija directamente al poste de la pista sin obras, sin zanjas y sin cortar horas de juego.</p>
+          </div>
+          <div class="space-y-2">
+            <div class="w-10 h-10 rounded-full bg-white/20 text-white font-heading font-black text-base flex items-center justify-center mx-auto">3</div>
+            <h3 class="font-heading font-black text-lg">Activación y Sin Permanencia</h3>
+            <p class="text-white/80 text-xs">Tus jugadores disfrutan de sus mejores jugadas. Puedes darte de baja en cualquier momento.</p>
+          </div>
+        </div>"""
+    else:
+        hero_badges_html = """
+              <span class="flex items-center gap-1.5"><i data-lucide="check-circle" class="w-4 h-4 text-[#f2920b]"></i> Muestra 15€ con envío</span>
+              <span class="flex items-center gap-1.5"><i data-lucide="check-circle" class="w-4 h-4 text-[#f2920b]"></i> Pedido mín. 100 uds</span>
+              <span class="flex items-center gap-1.5"><i data-lucide="check-circle" class="w-4 h-4 text-[#f2920b]"></i> Fabricación 7-10 días</span>"""
+        why_title = "¿Por qué elegir CoolPadel Studios?"
+        why_sub = "Acabado profesional de tienda oficial para elevar la imagen de tu club o evento"
+        precios_title = "Tarifas Directas de Fabricación B2B"
+        precios_sub = "Precios sin intermediarios adaptados al volumen de socios o jugadores"
+        table_html = f"""
+          <div class="overflow-x-auto">
+            <table class="w-full text-left text-sm sm:text-base">
+              <thead>
+                <tr class="border-b border-slate-200 text-xs uppercase tracking-wider text-slate-500">
+                  <th class="py-3 px-3">Tirada</th>
+                  <th class="py-3 px-3">Precio Unitario</th>
+                  <th class="py-3 px-3">Total Estimado</th>
+                  <th class="py-3 px-3">Muestra Física Previa</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-slate-100 font-bold">
+                <tr>
+                  <td class="py-4 px-3 text-slate-900">100 unidades (Mínimo)</td>
+                  <td class="py-4 px-3 text-[#f2920b]">3,00 € / ud</td>
+                  <td class="py-4 px-3 text-slate-700">300 € (+IVA)</td>
+                  <td class="py-4 px-3 text-slate-500 text-xs">15 € (100% deducible)</td>
+                </tr>
+                <tr>
+                  <td class="py-4 px-3 text-slate-900">250 unidades</td>
+                  <td class="py-4 px-3 text-[#f2920b]">2,40 € / ud</td>
+                  <td class="py-4 px-3 text-slate-700">600 € (+IVA)</td>
+                  <td class="py-4 px-3 text-slate-500 text-xs">Incluida y deducible</td>
+                </tr>
+                <tr>
+                  <td class="py-4 px-3 text-slate-900">500 unidades</td>
+                  <td class="py-4 px-3 text-[#f2920b]">2,00 € / ud</td>
+                  <td class="py-4 px-3 text-slate-700">1.000 € (+IVA)</td>
+                  <td class="py-4 px-3 text-slate-500 text-xs">Incluida y deducible</td>
+                </tr>
+                <tr>
+                  <td class="py-4 px-3 text-slate-900">1.500 unidades</td>
+                  <td class="py-4 px-3 text-[#f2920b]">1,50 € / ud</td>
+                  <td class="py-4 px-3 text-slate-700">2.250 € (+IVA)</td>
+                  <td class="py-4 px-3 text-slate-500 text-xs">Tarifa directa gran volumen</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          
+          <div class="mt-6 pt-5 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <span class="text-xs text-slate-500">* Precios sin IVA. Envíos incluidos a toda España peninsular y Unión Europea.</span>
+            <a href="https://wa.me/34680317486?text={wa_encoded}" target="_blank" rel="noopener noreferrer" class="px-6 py-3 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] text-slate-950 font-heading font-black text-xs uppercase tracking-wider transition">
+              Pedir Presupuesto por WhatsApp
+            </a>
+          </div>"""
+        pasos_html = """
+        <div class="grid sm:grid-cols-3 gap-6 text-center">
+          <div class="space-y-2">
+            <div class="w-10 h-10 rounded-full bg-white/20 text-white font-heading font-black text-base flex items-center justify-center mx-auto">1</div>
+            <h3 class="font-heading font-black text-lg">Envías tu Logotipo</h3>
+            <p class="text-white/80 text-xs">Preparamos el diseño digital 3D sin coste para validar proporciones y colores.</p>
+          </div>
+          <div class="space-y-2">
+            <div class="w-10 h-10 rounded-full bg-white/20 text-white font-heading font-black text-base flex items-center justify-center mx-auto">2</div>
+            <h3 class="font-heading font-black text-lg">Muestra Física (15€)</h3>
+            <p class="text-white/80 text-xs">Fabricamos una muestra real enviada a tu dirección. Los 15€ se descuentan del pedido.</p>
+          </div>
+          <div class="space-y-2">
+            <div class="w-10 h-10 rounded-full bg-white/20 text-white font-heading font-black text-base flex items-center justify-center mx-auto">3</div>
+            <h3 class="font-heading font-black text-lg">Producción y Entrega</h3>
+            <p class="text-white/80 text-xs">Fabricación final desde 100 uds y entrega en 7-10 días hábiles.</p>
+          </div>
+        </div>"""
+
     # Dynamic Product / Service Schema per landing type
     if landing["slug"] == "camaras-grabacion-pistas-padel":
         product_schema_json = f"""{{
@@ -334,8 +479,8 @@ def render_landing(landing):
   <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-xs">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between">
       <a href="../" class="flex items-center gap-2 group">
-        <img src="../assets/images/coolpadel-mascot-hd.png" alt="Mascota CoolPadel Studios" class="h-8 sm:h-11 w-auto object-contain">
-        <img src="../assets/images/coolpadel-typography-hd.png" alt="CoolPadel Studios" class="h-5 sm:h-7 w-auto object-contain">
+        <img src="../assets/images/coolpadel-mascot-hd.png" alt="Mascota CoolPadel Studios" width="44" height="44" class="h-8 sm:h-11 w-auto object-contain">
+        <img src="../assets/images/coolpadel-typography-hd.png" alt="CoolPadel Studios" width="140" height="28" class="h-5 sm:h-7 w-auto object-contain">
       </a>
       
       <div class="flex items-center gap-2 sm:gap-4 lg:gap-6">
@@ -361,7 +506,7 @@ def render_landing(landing):
         <nav class="flex items-center gap-2 text-xs font-bold text-slate-500 mb-6 uppercase tracking-wider">
           <a href="../" class="hover:text-slate-900 transition">Inicio</a>
           <span>/</span>
-          <span class="text-[#f2920b]">Llaveros Personalizados</span>
+          <span class="text-[#f2920b]">{breadcrumb_name}</span>
         </nav>
 
         <div class="grid lg:grid-cols-12 gap-8 sm:gap-12 items-center">
@@ -380,7 +525,7 @@ def render_landing(landing):
             <div class="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5">
               <a href="https://wa.me/34680317486?text={wa_encoded}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2.5 px-7 py-4 rounded-2xl bg-[#25D366] hover:bg-[#20ba59] text-white font-heading font-black text-base uppercase tracking-wider shadow-lg hover:scale-105 active:scale-95 transition">
                 <i data-lucide="message-circle" class="w-5 h-5"></i>
-                <span>Solicitar Muestra / Cotización</span>
+                <span>{cta_hero_text}</span>
               </a>
               <a href="#precios" class="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-2xl bg-white hover:bg-slate-100 border border-slate-300 text-slate-900 font-heading font-bold text-base transition">
                 <span>Ver Tarifas</span>
@@ -389,15 +534,13 @@ def render_landing(landing):
             </div>
 
             <div class="pt-3 flex items-center gap-4 text-xs font-bold text-slate-500">
-              <span class="flex items-center gap-1.5"><i data-lucide="check-circle" class="w-4 h-4 text-[#f2920b]"></i> Muestra 15€ con envío</span>
-              <span class="flex items-center gap-1.5"><i data-lucide="check-circle" class="w-4 h-4 text-[#f2920b]"></i> Pedido mín. 100 uds</span>
-              <span class="flex items-center gap-1.5"><i data-lucide="check-circle" class="w-4 h-4 text-[#f2920b]"></i> Fabricación 7-10 días</span>
+              {hero_badges_html}
             </div>
           </div>
 
           <div class="lg:col-span-5">
             <div class="aspect-[4/3] rounded-3xl overflow-hidden bg-white shadow-xl border border-slate-200 p-2">
-              <img src="../{landing['hero_img']}" alt="{landing['hero_img_alt']}" class="w-full h-full object-cover rounded-2xl">
+              <img src="../{landing['hero_img']}" alt="{landing['hero_img_alt']}" width="1200" height="800" class="w-full h-full object-cover rounded-2xl">
             </div>
             <div class="mt-3 text-center text-xs font-bold text-slate-500 uppercase tracking-wider">
               {landing['price_anchor']}
@@ -414,10 +557,10 @@ def render_landing(landing):
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center max-w-2xl mx-auto mb-10 sm:mb-14 space-y-2">
           <h2 class="font-heading font-black text-2xl sm:text-4xl text-slate-950 uppercase tracking-tight">
-            ¿Por qué elegir CoolPadel Studios?
+            {why_title}
           </h2>
           <p class="text-sm sm:text-base text-slate-600 font-medium">
-            Acabado profesional de tienda oficial para elevar la imagen de tu club o evento
+            {why_sub}
           </p>
         </div>
 
@@ -433,80 +576,20 @@ def render_landing(landing):
         
         <div class="text-center max-w-2xl mx-auto mb-10 space-y-2">
           <h2 class="font-heading font-black text-2xl sm:text-4xl uppercase tracking-tight">
-            Tarifas Directas de Fabricación B2B
+            {precios_title}
           </h2>
           <p class="text-white/80 text-sm sm:text-base">
-            Precios sin intermediarios adaptados al volumen de socios o jugadores
+            {precios_sub}
           </p>
         </div>
 
         <!-- Tabla de Tarifas -->
         <div class="bg-white rounded-3xl p-6 sm:p-8 text-slate-950 shadow-2xl mb-12">
-          <div class="overflow-x-auto">
-            <table class="w-full text-left text-sm sm:text-base">
-              <thead>
-                <tr class="border-b border-slate-200 text-xs uppercase tracking-wider text-slate-500">
-                  <th class="py-3 px-3">Tirada</th>
-                  <th class="py-3 px-3">Precio Unitario</th>
-                  <th class="py-3 px-3">Total Estimado</th>
-                  <th class="py-3 px-3">Muestra Física Previa</th>
-                </tr>
-              </thead>
-              <tbody class="divide-y divide-slate-100 font-bold">
-                <tr>
-                  <td class="py-4 px-3 text-slate-900">100 unidades (Mínimo)</td>
-                  <td class="py-4 px-3 text-[#f2920b]">3,00 € / ud</td>
-                  <td class="py-4 px-3 text-slate-700">300 € (+IVA)</td>
-                  <td class="py-4 px-3 text-slate-500 text-xs">15 € (100% deducible)</td>
-                </tr>
-                <tr>
-                  <td class="py-4 px-3 text-slate-900">250 unidades</td>
-                  <td class="py-4 px-3 text-[#f2920b]">2,40 € / ud</td>
-                  <td class="py-4 px-3 text-slate-700">600 € (+IVA)</td>
-                  <td class="py-4 px-3 text-slate-500 text-xs">Incluida y deducible</td>
-                </tr>
-                <tr>
-                  <td class="py-4 px-3 text-slate-900">500 unidades</td>
-                  <td class="py-4 px-3 text-[#f2920b]">2,00 € / ud</td>
-                  <td class="py-4 px-3 text-slate-700">1.000 € (+IVA)</td>
-                  <td class="py-4 px-3 text-slate-500 text-xs">Incluida y deducible</td>
-                </tr>
-                <tr>
-                  <td class="py-4 px-3 text-slate-900">1.500 unidades</td>
-                  <td class="py-4 px-3 text-[#f2920b]">1,50 € / ud</td>
-                  <td class="py-4 px-3 text-slate-700">2.250 € (+IVA)</td>
-                  <td class="py-4 px-3 text-slate-500 text-xs">Tarifa directa gran volumen</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          
-          <div class="mt-6 pt-5 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-4">
-            <span class="text-xs text-slate-500">* Precios sin IVA. Envíos incluidos a toda España peninsular y Unión Europea.</span>
-            <a href="https://wa.me/34680317486?text={wa_encoded}" target="_blank" rel="noopener noreferrer" class="px-6 py-3 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] text-slate-950 font-heading font-black text-xs uppercase tracking-wider transition">
-              Pedir Presupuesto por WhatsApp
-            </a>
-          </div>
+          {table_html}
         </div>
 
         <!-- Proceso en 3 pasos -->
-        <div class="grid sm:grid-cols-3 gap-6 text-center">
-          <div class="space-y-2">
-            <div class="w-10 h-10 rounded-full bg-white/20 text-white font-heading font-black text-base flex items-center justify-center mx-auto">1</div>
-            <h3 class="font-heading font-black text-lg">Envías tu Logotipo</h3>
-            <p class="text-white/80 text-xs">Preparamos el diseño digital 3D sin coste para validar proporciones y colores.</p>
-          </div>
-          <div class="space-y-2">
-            <div class="w-10 h-10 rounded-full bg-white/20 text-white font-heading font-black text-base flex items-center justify-center mx-auto">2</div>
-            <h3 class="font-heading font-black text-lg">Muestra Física (15€)</h3>
-            <p class="text-white/80 text-xs">Fabricamos una muestra real enviada a tu dirección. Los 15€ se descuentan del pedido.</p>
-          </div>
-          <div class="space-y-2">
-            <div class="w-10 h-10 rounded-full bg-white/20 text-white font-heading font-black text-base flex items-center justify-center mx-auto">3</div>
-            <h3 class="font-heading font-black text-lg">Producción y Entrega</h3>
-            <p class="text-white/80 text-xs">Fabricación final desde 100 uds y entrega en 7-10 días hábiles.</p>
-          </div>
-        </div>
+        {pasos_html}
 
       </div>
     </section>
