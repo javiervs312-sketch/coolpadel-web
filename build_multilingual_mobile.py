@@ -207,6 +207,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
             "sr_clubs_h4": "Club, accademie e federazioni clienti ufficiali di CoolPadel Studios:"
         }
     }[active_lang]
+    seo = seo_i18n
 
     html = f"""<!DOCTYPE html>
 <html lang="{active_lang}" class="scroll-smooth">
