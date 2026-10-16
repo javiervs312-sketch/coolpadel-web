@@ -3157,6 +3157,24 @@ def build_all():
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://coolpadelstudios.com/blog/merchandising-ferias-torneos-padel-regalos-marcas/</loc>
+    <lastmod>{today_iso}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://coolpadelstudios.com/blog/retransmitir-torneos-padel-streaming-youtube-camaras/</loc>
+    <lastmod>{today_iso}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://coolpadelstudios.com/blog/smart-courts-pistas-inteligentes-padel-horas-valle/</loc>
+    <lastmod>{today_iso}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://coolpadelstudios.com/camaras/</loc>
     <xhtml:link rel="alternate" hreflang="es" href="https://coolpadelstudios.com/camaras/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://coolpadelstudios.com/en/camaras/"/>
@@ -3319,6 +3337,27 @@ def build_all():
       <guid>https://coolpadelstudios.com/blog/rentabilidad-camaras-pistas-padel/</guid>
       <description>Desglose real de costes: hardware de 180 € y 45 €/mes. Los 3 modelos para amortizar la inversión: pago por descarga, incremento de tarifa o patrocinio.</description>
       <pubDate>Thu, 15 Oct 2026 09:00:00 +0200</pubDate>
+    </item>
+    <item>
+      <title>Política de regalos en ferias y torneos de pádel: por qué no regalar bolígrafos, camisetas baratas ni jamón sin estrategia</title>
+      <link>https://coolpadelstudios.com/blog/merchandising-ferias-torneos-padel-regalos-marcas/</link>
+      <guid>https://coolpadelstudios.com/blog/merchandising-ferias-torneos-padel-regalos-marcas/</guid>
+      <description>Analizamos más de 120 stands en PWS y RacquetX: cómo invertir tu presupuesto de merchandising en recuerdos de alto valor percibido que tus clientes no tiren a la basura.</description>
+      <pubDate>Fri, 16 Oct 2026 10:00:00 +0200</pubDate>
+    </item>
+    <item>
+      <title>Cómo retransmitir torneos de pádel en directo por YouTube sin operadores de cámara ni unidades móviles</title>
+      <link>https://coolpadelstudios.com/blog/retransmitir-torneos-padel-streaming-youtube-camaras/</link>
+      <guid>https://coolpadelstudios.com/blog/retransmitir-torneos-padel-streaming-youtube-camaras/</guid>
+      <description>Emisión Full HD autónoma a 4 metros de altura, marcador digital e inserción de patrocinadores locales: la guía para profesionalizar las finales de tu club sin arruinarte.</description>
+      <pubDate>Fri, 16 Oct 2026 10:00:00 +0200</pubDate>
+    </item>
+    <item>
+      <title>Qué es una pista de pádel inteligente (Smart Court) y cómo ayuda a llenar horas valle</title>
+      <link>https://coolpadelstudios.com/blog/smart-courts-pistas-inteligentes-padel-horas-valle/</link>
+      <guid>https://coolpadelstudios.com/blog/smart-courts-pistas-inteligentes-padel-horas-valle/</guid>
+      <description>Los 4 pilares tecnológicos que reducen costes operativos y transforman una pista convencional en un centro de experiencia deportiva para clases y torneos.</description>
+      <pubDate>Fri, 16 Oct 2026 10:00:00 +0200</pubDate>
     </item>
     <item>
       <title>Qué regalar en el Welcome Pack de un torneo de pádel para dejar huella</title>
