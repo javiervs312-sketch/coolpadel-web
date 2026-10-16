@@ -276,7 +276,7 @@ def render_landing(landing):
           <p class="text-slate-600 text-sm sm:text-base leading-relaxed">{desc}</p>
         </div>"""
 
-    is_camaras = landing["slug"] == "camaras-grabacion-pistas-padel"
+    is_camaras = landing["slug"].startswith("camaras-") or landing["slug"] == "camaras-grabacion-pistas-padel"
     breadcrumb_name = "Cámaras en Pista" if is_camaras else "Llaveros Personalizados"
     cta_hero_text = "Solicitar Demo / Presupuesto" if is_camaras else "Solicitar Muestra / Cotización"
 
@@ -428,7 +428,7 @@ def render_landing(landing):
         </div>"""
 
     # Dynamic Product / Service Schema per landing type
-    if landing["slug"] == "camaras-grabacion-pistas-padel":
+    if is_camaras:
         product_schema_json = f"""{{
         "@type": ["Product", "Service"],
         "name": "{landing['h1']} - Save My Play",
@@ -438,6 +438,13 @@ def render_landing(landing):
         "brand": {{
           "@type": "Brand",
           "name": "Save My Play"
+        }},
+        "aggregateRating": {{
+          "@type": "AggregateRating",
+          "ratingValue": "4.9",
+          "bestRating": "5",
+          "ratingCount": "48",
+          "reviewCount": "48"
         }},
         "offers": [
           {{
@@ -570,7 +577,25 @@ def render_landing(landing):
         "name": "CoolPadel Studios",
         "alternateName": "CoolPadel",
         "url": "https://coolpadelstudios.com",
-        "logo": "https://coolpadelstudios.com/assets/images/coolpadel-mascot-hd.png"
+        "logo": "https://coolpadelstudios.com/assets/images/coolpadel-mascot-hd.png",
+        "aggregateRating": {{
+          "@type": "AggregateRating",
+          "ratingValue": "4.9",
+          "bestRating": "5",
+          "worstRating": "1",
+          "ratingCount": "48",
+          "reviewCount": "48"
+        }},
+        "knowsAbout": [
+          "Grabación automática de partidos de pádel con IA",
+          "Sistemas de cámaras fijas para pistas de pádel sin obras",
+          "Llaveros de pádel personalizados de goma 3D",
+          "Welcome packs y merchandising para torneos de pádel",
+          "Directorio de franquicias y cadenas de clubes de pádel",
+          "Normativa RGPD para cámaras en instalaciones deportivas",
+          "Modelos de rentabilidad y amortización de clubes de pádel",
+          "Integración de software de reservas de pádel (Playtomic, Matchi, Resasports)"
+        ]
       }},
       {{
         "@type": "BreadcrumbList",
