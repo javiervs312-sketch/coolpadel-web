@@ -272,13 +272,6 @@ def get_base_html(active_lang="es", is_subfolder=False):
               }}
             }}
           }}
-        }},
-        "aggregateRating": {{
-          "@type": "AggregateRating",
-          "ratingValue": "4.9",
-          "reviewCount": "128",
-          "bestRating": "5",
-          "worstRating": "1"
         }}
       }},
       {{
@@ -693,12 +686,12 @@ def get_base_html(active_lang="es", is_subfolder=False):
       <!-- DESKTOP NAVBAR (3 COLUMNAS: IZQUIERDA + CENTRO 100% + DERECHA) -->
       <div class="hidden sm:grid grid-cols-[1fr_auto_1fr] items-center h-full w-full gap-2 lg:gap-4">
         
-        <!-- COLUMNA 1: OJOS + LLAVEROS, CÁMARAS PISTAS Y BLOG A LA IZQUIERDA DEL LOGO -->
+        <!-- COLUMNA 1: OJOS + LLAVEROS, CÁMARAS PISTAS Y BLOG CENTRADOS ENTRE OJOS Y LOGO -->
         <div class="flex items-center justify-between min-w-0 h-full">
           <a href="{asset_prefix}#" class="group py-1 inline-flex items-center shrink-0">
             <img src="{asset_prefix}assets/images/eyes-thumb.png?v=fixed_eyes" alt="CoolPadel Eyes" style="height: 24px; max-height: 24px; width: auto;" class="object-contain group-hover:scale-110 transition duration-300">
           </a>
-          <div class="flex-1 flex items-center justify-center px-2 gap-3.5 lg:gap-6">
+          <div class="flex-1 flex items-center justify-center min-w-0 gap-3.5 lg:gap-6 pl-4 lg:pl-8">
             <a href="{asset_prefix}#llaveros" class="font-heading font-black text-xs lg:text-[13px] tracking-wider uppercase text-slate-950 hover:text-[#f2920b] transition select-none whitespace-nowrap">
               Llaveros
             </a>
@@ -719,16 +712,16 @@ def get_base_html(active_lang="es", is_subfolder=False):
           </a>
         </div>
 
-        <!-- COLUMNA 3: CADENAS DE CLUBS + [IDIOMA + CONTACTAR DESPLAZADOS A LA DERECHA DEL TODO] -->
-        <div class="flex items-center justify-between min-w-0 h-full gap-2 sm:gap-3 lg:gap-4">
-          <div class="flex items-center pl-1 sm:pl-2">
+        <!-- COLUMNA 3: CADENAS DE CLUBS CENTRADO ENTRE LOGO Y SELECTOR DE IDIOMA + CONTROLES A LA DERECHA -->
+        <div class="flex items-center justify-between min-w-0 h-full">
+          <div class="flex-1 flex items-center justify-center min-w-0 pr-4 lg:pr-8">
             <a href="{asset_prefix}franquicias-padel/" class="font-heading font-black text-xs lg:text-[13px] tracking-wider uppercase text-slate-950 hover:text-[#f2920b] transition select-none whitespace-nowrap">
               Cadenas de clubs
             </a>
           </div>
 
           <!-- BLOQUE A LA DERECHA DEL TODO: SELECTOR IDIOMA + CONTACTAR (SIN OJOS) -->
-          <div class="flex items-center gap-2 sm:gap-3 ml-auto">
+          <div class="flex items-center gap-2 sm:gap-3 shrink-0 ml-auto">
             <!-- SELECTOR DE IDIOMA EN DESPLEGABLE COMPACTO -->
             <div class="relative inline-block text-left" id="lang-dropdown-container">
               <button type="button" onclick="toggleLangDropdown(event)" id="lang-dropdown-btn" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-100 hover:bg-slate-200 border border-slate-200 text-xs font-black text-slate-900 shadow-xs transition cursor-pointer" aria-expanded="false" aria-haspopup="true">
@@ -755,7 +748,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
 
             <!-- BOTÓN CONTACTAR -->
             <a id="nav-contact-btn" href="https://wa.me/34680317486?text={wa_prefilled_encoded}" 
-               target="_blank" 
+               target="_blank" rel="noopener noreferrer"
                class="group relative inline-flex items-center gap-1.5 px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] active:bg-[#76d3f6] text-slate-950 active:scale-95 font-heading font-black text-xs sm:text-xs lg:text-sm tracking-wider uppercase transition-all duration-300 shadow-[0_4px_12px_rgba(242,146,11,0.2)] hover:scale-105 shrink-0 overflow-hidden">
               <span data-i18n="nav_contact" class="font-black">{t['nav_contact']}</span>
               <div class="w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-slate-950/10 group-hover:bg-slate-950 group-hover:text-white flex items-center justify-center transition-all duration-300 shrink-0">
@@ -822,7 +815,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
             </div>
 
             <a id="nav-contact-btn-mob" href="https://wa.me/34680317486?text={wa_prefilled_encoded}" 
-               target="_blank" 
+               target="_blank" rel="noopener noreferrer"
                class="group relative inline-flex items-center justify-center gap-1 px-2.5 py-1 rounded-full bg-[#f2920b] active:bg-[#76d3f6] text-slate-950 active:scale-95 font-heading font-black text-[10px] uppercase tracking-wider transition-all duration-300 shadow-xs shrink-0">
               <span data-i18n="nav_contact" class="font-black">{t['nav_contact']}</span>
               <div class="w-3 h-3 rounded-full bg-slate-950/10 flex items-center justify-center">
@@ -1033,7 +1026,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
 
           <!-- Botón de WhatsApp Contactar Premium -->
           <div class="pt-2">
-            <a id="calc-wa-btn" href="https://wa.me/34680317486?text={wa_prefilled_encoded}" target="_blank" class="group relative w-full py-4 sm:py-4.5 rounded-2xl font-heading font-black text-base sm:text-lg uppercase tracking-wider bg-[#f2920b] hover:bg-[#76d3f6] active:bg-[#76d3f6] text-slate-950 shadow-[0_10px_25px_rgba(242,146,11,0.35)] hover:shadow-[0_16px_35px_rgba(118,211,246,0.45)] hover:scale-[1.01] active:scale-[0.98] flex items-center justify-center gap-3 transition-all duration-300 overflow-hidden">
+            <a id="calc-wa-btn" href="https://wa.me/34680317486?text={wa_prefilled_encoded}" target="_blank" rel="noopener noreferrer" class="group relative w-full py-4 sm:py-4.5 rounded-2xl font-heading font-black text-base sm:text-lg uppercase tracking-wider bg-[#f2920b] hover:bg-[#76d3f6] active:bg-[#76d3f6] text-slate-950 shadow-[0_10px_25px_rgba(242,146,11,0.35)] hover:shadow-[0_16px_35px_rgba(118,211,246,0.45)] hover:scale-[1.01] active:scale-[0.98] flex items-center justify-center gap-3 transition-all duration-300 overflow-hidden">
               <span data-i18n="btn_calc_wa" class="font-black">{t['btn_calc_wa']}</span>
               <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-slate-950/10 group-hover:bg-slate-950 group-hover:text-white flex items-center justify-center transition-all duration-300">
                 <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 sm:w-4 sm:h-4 stroke-[3] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300"></i>
@@ -1298,7 +1291,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
 
           <!-- BOTÓN WHATSAPP OFICIAL EN CONTACTO -->
           <a id="contact-wa-btn" href="https://wa.me/34680317486?text={wa_prefilled_encoded}" 
-             target="_blank" 
+             target="_blank" rel="noopener noreferrer"
              class="group inline-flex items-center gap-3 px-8 sm:px-9 py-3 sm:py-3.5 rounded-full bg-[#25D366] hover:bg-[#20ba59] active:bg-[#20ba59] text-white font-sans font-black text-xs sm:text-sm tracking-wider uppercase shadow-md hover:shadow-xl hover:scale-105 active:scale-95 transition-all duration-300">
             <svg class="w-4 h-4 sm:w-5 sm:h-5 fill-current" viewBox="0 0 24 24">
               <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
@@ -1327,7 +1320,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
 
   <!-- BOTÓN FLOTANTE OFICIAL DE WHATSAPP -->
   <a id="floating-wa-btn" href="https://wa.me/34680317486?text={wa_prefilled_encoded}" 
-     target="_blank" 
+     target="_blank" rel="noopener noreferrer" 
      class="fixed bottom-5 right-5 sm:bottom-6 sm:right-6 z-50 p-3.5 sm:p-4 rounded-full bg-[#25D366] text-white shadow-[0_10px_30px_rgba(37,211,102,0.45)] hover:bg-[#20ba59] hover:scale-110 active:scale-95 transition flex items-center justify-center group"
      title="Hablar por WhatsApp con Javier">
     <svg class="w-6 h-6 sm:w-8 sm:h-8 fill-current" viewBox="0 0 24 24">
