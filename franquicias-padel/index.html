@@ -117,9 +117,12 @@
       user-select: none;
       -webkit-touch-callout: none;
     }
+    #franchiseMap,
+    #franchiseMap *,
     #franchiseMap .leaflet-pane,
     #franchiseMap .leaflet-tile-pane,
-    #franchiseMap .leaflet-map-pane {
+    #franchiseMap .leaflet-map-pane,
+    #franchiseMap .leaflet-container {
       touch-action: none !important;
     }
     .custom-marker {
@@ -16299,15 +16302,93 @@
       'ZA': [[-35.5, 15.5], [-21.5, 34.0]]  // Sudáfrica y región
     };
 
+    // Bounding boxes calibrados para Comunidades Autónomas de España
+    const CCAA_BOUNDS = {
+      'madrid': [[40.00, -4.35], [41.15, -3.20]],
+      'catalunya': [[40.50, 0.15], [42.90, 3.35]],
+      'andalucia': [[36.00, -7.55], [38.75, -1.60]],
+      'valencia': [[37.85, -1.55], [40.80, 0.70]],
+      'pais_vasco': [[42.45, -3.45], [43.50, -1.75]],
+      'galicia': [[41.80, -9.30], [43.80, -6.70]],
+      'aragon': [[39.85, -2.15], [42.95, 0.77]],
+      'castilla_leon': [[40.10, -7.10], [43.25, -1.70]],
+      'castilla_mancha': [[38.00, -5.40], [41.35, -1.00]],
+      'baleares': [[38.60, 1.15], [40.10, 4.35]],
+      'canarias': [[27.60, -18.20], [29.50, -13.30]],
+      'murcia': [[37.35, -2.35], [38.75, -0.65]],
+      'asturias': [[42.85, -7.20], [43.70, -4.50]],
+      'cantabria': [[42.75, -4.85], [43.55, -3.15]],
+      'navarra': [[41.90, -2.50], [43.35, -0.70]],
+      'rioja': [[41.90, -3.15], [42.65, -1.90]],
+      'extremadura': [[37.90, -7.55], [40.50, -4.65]]
+    };
+
+    function getClubRegionBounds(f) {
+      if (!f || !f.coords || f.coords.length !== 2) return null;
+      const lat = f.coords[0];
+      const lng = f.coords[1];
+      const ciudad = (f.ciudad_sede || '').toLowerCase();
+      const pais = (f.pais || '').toLowerCase();
+      const paisCod = (f.pais_codigo || '').toUpperCase();
+
+      // Si es de España o coordenadas en territorio español
+      if (paisCod === 'ES' || pais.includes('españa') || (lat >= 27.0 && lat <= 44.5 && lng >= -18.5 && lng <= 4.5)) {
+        if (ciudad.includes('madrid') || (lat >= 40.0 && lat <= 41.2 && lng >= -4.35 && lng <= -3.20)) return CCAA_BOUNDS['madrid'];
+        if (ciudad.includes('barcelona') || ciudad.includes('girona') || ciudad.includes('gerona') || ciudad.includes('lleida') || ciudad.includes('lérida') || ciudad.includes('tarragona') || (lat >= 40.5 && lat <= 42.9 && lng >= 0.15 && lng <= 3.4)) return CCAA_BOUNDS['catalunya'];
+        if (ciudad.includes('málaga') || ciudad.includes('malaga') || ciudad.includes('sevilla') || ciudad.includes('granada') || ciudad.includes('marbella') || ciudad.includes('córdoba') || ciudad.includes('cordoba') || ciudad.includes('cádiz') || ciudad.includes('cadiz') || ciudad.includes('almería') || ciudad.includes('almeria') || ciudad.includes('jaén') || ciudad.includes('jaen') || ciudad.includes('huelva') || (lat >= 36.0 && lat <= 38.75 && lng >= -7.55 && lng <= -1.60)) return CCAA_BOUNDS['andalucia'];
+        if (ciudad.includes('valencia') || ciudad.includes('alicante') || ciudad.includes('castellón') || ciudad.includes('castellon') || ciudad.includes('elche') || (lat >= 37.85 && lat <= 40.8 && lng >= -1.55 && lng <= 0.70)) return CCAA_BOUNDS['valencia'];
+        if (ciudad.includes('bilbao') || ciudad.includes('vizcaya') || ciudad.includes('bizkaia') || ciudad.includes('donostia') || ciudad.includes('san sebastián') || ciudad.includes('san sebastian') || ciudad.includes('vitoria') || ciudad.includes('álava') || ciudad.includes('alava') || (lat >= 42.45 && lat <= 43.55 && lng >= -3.45 && lng <= -1.75)) return CCAA_BOUNDS['pais_vasco'];
+        if (ciudad.includes('coruña') || ciudad.includes('vigo') || ciudad.includes('pontevedra') || ciudad.includes('ourense') || ciudad.includes('orense') || ciudad.includes('lugo') || (lat >= 41.8 && lat <= 43.8 && lng >= -9.3 && lng <= -6.7)) return CCAA_BOUNDS['galicia'];
+        if (ciudad.includes('zaragoza') || ciudad.includes('huesca') || ciudad.includes('teruel') || (lat >= 39.85 && lat <= 42.95 && lng >= -2.15 && lng <= 0.77)) return CCAA_BOUNDS['aragon'];
+        if (ciudad.includes('valladolid') || ciudad.includes('burgos') || ciudad.includes('salamanca') || ciudad.includes('león') || ciudad.includes('leon') || ciudad.includes('palencia') || ciudad.includes('zamora') || ciudad.includes('segovia') || ciudad.includes('ávila') || ciudad.includes('avila') || ciudad.includes('soria')) return CCAA_BOUNDS['castilla_leon'];
+        if (ciudad.includes('mallorca') || ciudad.includes('palma') || ciudad.includes('ibiza') || ciudad.includes('menorca')) return CCAA_BOUNDS['baleares'];
+        if (ciudad.includes('canarias') || ciudad.includes('tenerife') || ciudad.includes('palmas')) return CCAA_BOUNDS['canarias'];
+        if (ciudad.includes('murcia') || ciudad.includes('cartagena')) return CCAA_BOUNDS['murcia'];
+        if (ciudad.includes('asturias') || ciudad.includes('gijón') || ciudad.includes('gijon') || ciudad.includes('oviedo')) return CCAA_BOUNDS['asturias'];
+        if (ciudad.includes('cantabria') || ciudad.includes('santander')) return CCAA_BOUNDS['cantabria'];
+        if (ciudad.includes('pamplona') || ciudad.includes('navarra')) return CCAA_BOUNDS['navarra'];
+        if (ciudad.includes('logroño') || ciudad.includes('logrono') || ciudad.includes('rioja')) return CCAA_BOUNDS['rioja'];
+        if (ciudad.includes('badajoz') || ciudad.includes('cáceres') || ciudad.includes('caceres') || ciudad.includes('extremadura') || ciudad.includes('mérida') || ciudad.includes('merida')) return CCAA_BOUNDS['extremadura'];
+        if (ciudad.includes('toledo') || ciudad.includes('albacete') || ciudad.includes('ciudad real') || ciudad.includes('cuenca') || ciudad.includes('guadalajara')) return CCAA_BOUNDS['castilla_mancha'];
+
+        return [[lat - 0.55, lng - 0.75], [lat + 0.55, lng + 0.75]];
+      }
+
+      // Para el resto del mundo, encuadre a escala metropolitana/regional
+      return [[lat - 0.50, lng - 0.70], [lat + 0.50, lng + 0.70]];
+    }
+
+    function zoomToClubRegion(f, id) {
+      if (!map || !f || !f.coords || f.coords.length !== 2) return;
+      map.invalidateSize();
+      const bounds = getClubRegionBounds(f);
+      if (bounds) {
+        map.flyToBounds(bounds, {
+          padding: [30, 30],
+          maxZoom: 9.5,
+          duration: 1.2
+        });
+      } else {
+        map.flyTo(f.coords, 9, { animate: true, duration: 1.2 });
+      }
+
+      if (id && markersById && markersById[id]) {
+        setTimeout(() => {
+          markersById[id].openPopup();
+        }, 500);
+      }
+    }
+
     // Inicializar mapa con Esri World Street Map (nombres locales, sin API key, zoom táctil nativo)
     function initMap() {
       if (map) return;
       
       map = L.map('franchiseMap', {
-        center: [48.0, 5.0],
-        zoom: 4,
+        center: [40.4168, -3.7038],
+        zoom: 5,
         scrollWheelZoom: false,
         touchZoom: true,
+        bounceAtZoomLimits: false,
         dragging: true
       });
 
@@ -16316,11 +16397,25 @@
         maxZoom: 18
       }).addTo(map);
 
-      // Prevenir que gestos de Safari hagan zoom en la página entera en lugar del mapa
+      // Prevenir que gestos de pellizco con 2 dedos en móvil hagan zoom en la página completa en vez de en el mapa
       const mapContainerEl = document.getElementById('franchiseMap');
       if (mapContainerEl) {
-        mapContainerEl.addEventListener('gesturestart', function(e) { e.preventDefault(); }, { passive: false });
-        mapContainerEl.addEventListener('gesturechange', function(e) { e.preventDefault(); }, { passive: false });
+        mapContainerEl.addEventListener('touchstart', function(e) {
+          if (e.touches.length > 1) {
+            e.stopPropagation();
+          }
+        }, { passive: false });
+
+        mapContainerEl.addEventListener('touchmove', function(e) {
+          if (e.touches.length > 1) {
+            e.preventDefault();
+            e.stopPropagation();
+          }
+        }, { passive: false });
+
+        mapContainerEl.addEventListener('gesturestart', function(e) { e.preventDefault(); e.stopPropagation(); }, { passive: false });
+        mapContainerEl.addEventListener('gesturechange', function(e) { e.preventDefault(); e.stopPropagation(); }, { passive: false });
+        mapContainerEl.addEventListener('gestureend', function(e) { e.preventDefault(); e.stopPropagation(); }, { passive: false });
       }
 
       markersLayer = L.layerGroup().addTo(map);
@@ -16378,6 +16473,9 @@
 
         const marker = L.marker(f.coords, { icon: customIcon })
           .bindPopup(popupContent);
+        marker.on('click', () => {
+          zoomToClubRegion(f, f.id);
+        });
         markersById[f.id] = marker;
         markersLayer.addLayer(marker);
       });
@@ -16507,26 +16605,26 @@
       currentView = view;
       const gridView = document.getElementById('gridView');
       const tableView = document.getElementById('tableView');
-      const mapContainer = document.getElementById('mapContainer');
+      const mapArea = document.getElementById('mapArea');
       const viewGridBtn = document.getElementById('viewGridBtn');
       const viewTableBtn = document.getElementById('viewTableBtn');
 
       if (view === 'grid') {
         gridView.classList.remove('hidden');
         tableView.classList.add('hidden');
-        mapContainer.classList.remove('hidden');
+        if (mapArea) mapArea.classList.remove('hidden');
         
-        viewGridBtn.className = "px-4 py-2.5 rounded-xl text-xs font-bold font-heading uppercase tracking-wider bg-slate-900 text-white transition flex items-center gap-1.5 shadow-xs";
-        viewTableBtn.className = "px-4 py-2.5 rounded-xl text-xs font-bold font-heading uppercase tracking-wider bg-slate-100 text-slate-700 hover:bg-slate-200 transition flex items-center gap-1.5";
+        viewGridBtn.className = "px-3.5 py-2 rounded-xl text-xs font-bold font-heading uppercase tracking-wider bg-slate-900 text-white transition flex items-center gap-1.5 shadow-xs";
+        viewTableBtn.className = "px-3.5 py-2 rounded-xl text-xs font-bold font-heading uppercase tracking-wider bg-slate-100 text-slate-700 hover:bg-slate-200 transition flex items-center gap-1.5";
         
         setTimeout(() => { if (map) map.invalidateSize(); }, 100);
       } else {
         gridView.classList.add('hidden');
         tableView.classList.remove('hidden');
-        mapContainer.classList.add('hidden');
+        if (mapArea) mapArea.classList.add('hidden');
 
-        viewGridBtn.className = "px-4 py-2.5 rounded-xl text-xs font-bold font-heading uppercase tracking-wider bg-slate-100 text-slate-700 hover:bg-slate-200 transition flex items-center gap-1.5";
-        viewTableBtn.className = "px-4 py-2.5 rounded-xl text-xs font-bold font-heading uppercase tracking-wider bg-slate-900 text-white transition flex items-center gap-1.5 shadow-xs";
+        viewGridBtn.className = "px-3.5 py-2 rounded-xl text-xs font-bold font-heading uppercase tracking-wider bg-slate-100 text-slate-700 hover:bg-slate-200 transition flex items-center gap-1.5";
+        viewTableBtn.className = "px-3.5 py-2 rounded-xl text-xs font-bold font-heading uppercase tracking-wider bg-slate-900 text-white transition flex items-center gap-1.5 shadow-xs";
       }
     }
 
@@ -16882,21 +16980,12 @@
 
       const mapContainer = document.getElementById('mapContainer');
       if (mapContainer) {
-        mapContainer.classList.remove('hidden');
         mapContainer.scrollIntoView({ behavior: 'smooth', block: 'center' });
       }
 
       setTimeout(() => {
-        if (map) {
-          map.invalidateSize();
-          map.flyTo(f.coords, 6, { animate: true, duration: 1.2 });
-          if (markersById && markersById[id]) {
-            setTimeout(() => {
-              markersById[id].openPopup();
-            }, 400);
-          }
-        }
-      }, 150);
+        zoomToClubRegion(f, id);
+      }, 250);
     }
 
     // =========================================================================
@@ -16912,14 +17001,8 @@
         switchView('grid');
       }
 
-      // Centrar mapa suavemente sobre el club
-      if (f.coords && f.coords.length === 2 && map) {
-        map.invalidateSize();
-        map.flyTo(f.coords, 6, { animate: true, duration: 1.2 });
-        if (markersById && markersById[id]) {
-          markersById[id].openPopup();
-        }
-      }
+      // Centrar y hacer zoom a la comunidad autónoma del club
+      zoomToClubRegion(f, id);
 
       document.getElementById('drawerTitle').textContent = f.nombre;
       document.getElementById('drawerFlag').textContent = f.bandera;
