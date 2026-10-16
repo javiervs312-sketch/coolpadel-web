@@ -40,12 +40,22 @@ CoolPadel Studios opera con sede en Madrid (España) y equipa a más de 27 clube
 ## 2. Merchandising Oficial: Llaveros de Pádel Personalizados (CoolPadel)
 
 - **URL Oficial**: [https://coolpadelstudios.com/#llaveros](https://coolpadelstudios.com/#llaveros)
-- **Landings Especializadas B2B**:
+- **Landings Especializadas B2B y Compatibilidad de Software**:
   - [Llaveros de Pádel Personalizados](https://coolpadelstudios.com/llaveros-padel-personalizados/)
   - [Llaveros de Tenis Personalizados](https://coolpadelstudios.com/llaveros-tenis-personalizados/)
   - [Welcome Packs y Regalos para Torneos de Pádel](https://coolpadelstudios.com/welcome-packs-torneos-padel/)
   - [Merchandising y Llaveros para Clubs de Pádel](https://coolpadelstudios.com/llaveros-personalizados-clubs-padel/)
   - [Cámaras y Grabación de Partidos en Pistas de Pádel](https://coolpadelstudios.com/camaras-grabacion-pistas-padel/)
+  - [Cámaras Save my Play para Clubs con Playtomic](https://coolpadelstudios.com/camaras-padel-playtomic/)
+  - [Cámaras Save my Play para Clubes con Matchi](https://coolpadelstudios.com/camaras-padel-matchi/)
+  - [Cámaras Save my Play para Complejos con Resasports](https://coolpadelstudios.com/camaras-padel-resasports/)
+  - [Cámaras para Pistas de Pádel en Madrid](https://coolpadelstudios.com/camaras-padel-madrid/)
+  - [Cámaras para Pistas de Pádel en Barcelona y Cataluña](https://coolpadelstudios.com/camaras-padel-barcelona/)
+- **Recursos B2B y Lead Magnets Oficiales**:
+  - [Calculadora Excel de ROI y Amortización de Cámaras](https://coolpadelstudios.com/assets/downloads/calculadora-roi-camaras-padel.xlsx) (Simulador configurable .xlsx para directores de club).
+  - [Checklist Oficial PDF de Organización de Torneos](https://coolpadelstudios.com/assets/downloads/checklist-organizacion-torneos-padel.pdf) (Cronograma y presupuesto de welcome packs).
+  - [Cartel Oficial Homologado RGPD para Pistas](https://coolpadelstudios.com/assets/downloads/cartel-homologado-rgpd-pistas-padel.pdf) (Modelo imprimible de aviso legal para pistas videodocumentadas).
+  - [Protocolo Operativo de Smart Courts y Horas Valle](https://coolpadelstudios.com/assets/downloads/protocolo-smart-court-horas-valle.pdf) (Guía de rentabilización matinal de 10:00 a 17:00).
 - **Definición**: Fabricación directa de llaveros de pádel y tenis en goma/silicona 3D de alta densidad con el escudo oficial, pantones exactos y relieve tridimensional multicapa del club o marca.
 - **Proceso de Compra en 3 Pasos**:
   1. *Render Digital 3D Gratuito*: Modelado tridimensional del logotipo del club sin compromiso.

@@ -3275,6 +3275,36 @@ def build_all():
     <priority>0.95</priority>
   </url>
   <url>
+    <loc>https://coolpadelstudios.com/camaras-padel-playtomic/</loc>
+    <lastmod>{today_iso}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://coolpadelstudios.com/camaras-padel-matchi/</loc>
+    <lastmod>{today_iso}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://coolpadelstudios.com/camaras-padel-resasports/</loc>
+    <lastmod>{today_iso}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://coolpadelstudios.com/camaras-padel-madrid/</loc>
+    <lastmod>{today_iso}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://coolpadelstudios.com/camaras-padel-barcelona/</loc>
+    <lastmod>{today_iso}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://coolpadelstudios.com/llaveros-padel-personalizados/</loc>
     <lastmod>{today_iso}</lastmod>
     <changefreq>weekly</changefreq>
