@@ -127,7 +127,7 @@ function doPost(e) {
     }
     if (sheetAnalitica.getLastRow() === 0) {
       sheetAnalitica.appendRow([
-        "Fecha", "Hora", "Lead / Club", "Visitas", "Ubicación", "Dispositivo", 
+        "Fecha", "Hora", "Lead / Club", "Origen / Canal", "Visitas", "Ubicación", "Dispositivo", 
         "Página", "Evento Real", "Secciones Leídas", "Tiempo Activo", "% Scroll", "ID Sesión"
       ]);
     }
@@ -149,6 +149,24 @@ function doPost(e) {
       leadLabel = data.lead_tel;
     } else if (data.lead_label && !data.lead_label.startsWith("Anónimo") && !data.lead_label.startsWith("analitica_evento")) {
       leadLabel = data.lead_label;
+    }
+
+    // Origen de acceso / Canal (WhatsApp, Email, Desde la Web, Búsqueda Google, Directo...)
+    let origenCanal = (data.origen_canal || "").trim();
+    if (!origenCanal) {
+      const src = (data.campana_utm || data.origen || "").toLowerCase();
+      const ref = (data.referrer || "").toLowerCase();
+      if (src.includes("whatsapp") || src.includes("wa") || data.lead_tel) {
+        origenCanal = "📲 Link WhatsApp" + (data.campana_utm ? " (" + data.campana_utm + ")" : "");
+      } else if (src.includes("email") || src.includes("resend")) {
+        origenCanal = "✉️ Link Email";
+      } else if (ref.includes("coolpadel") || ref.includes("savemyplay")) {
+        origenCanal = "🌐 Desde la Web";
+      } else if (ref.includes("google")) {
+        origenCanal = "🔍 Búsqueda Google";
+      } else {
+        origenCanal = "🌐 Enlace Directo";
+      }
     }
 
     // Nº de visitas (1ª visita, 2ª visita, 5ª visita...)
@@ -193,12 +211,12 @@ function doPost(e) {
     const tiempoActivo = tActivo;
     const scrollMax = sMax;
 
-    // Buscar si ya existe la sesión en las primeras 100 filas para AGRUPAR (más recientes arriba)
+    // Buscar si ya existe la sesión en las primeras 100 filas para AGRUPAR (columna 13: ID Sesión)
     let filaExistente = -1;
     const lastRow = sheetAnalitica.getLastRow();
     if (sessionId && lastRow > 1) {
       const numRows = Math.min(lastRow - 1, 100);
-      const idsRange = sheetAnalitica.getRange(2, 12, numRows, 1).getValues();
+      const idsRange = sheetAnalitica.getRange(2, 13, numRows, 1).getValues();
       for (let i = 0; i < idsRange.length; i++) {
         if (idsRange[i][0] === sessionId) {
           filaExistente = 2 + i;
@@ -209,10 +227,10 @@ function doPost(e) {
 
     if (filaExistente > 1) {
       // CONSOLIDAR EN LA SESIÓN EXISTENTE
-      const filaActual = sheetAnalitica.getRange(filaExistente, 1, 1, 12).getValues()[0];
+      const filaActual = sheetAnalitica.getRange(filaExistente, 1, 1, 13).getValues()[0];
       
       // Actualizar evento real sin redundancia
-      let eventosPrevios = filaActual[7] || "";
+      let eventosPrevios = filaActual[8] || "";
       let eventosActualizados = eventosPrevios;
       if (eventoReal && !eventosPrevios.includes(eventoReal)) {
         if (eventosPrevios.startsWith("🟢 Lectura Iniciada") && (eventoReal.startsWith("🏁 Fin Lectura") || eventoReal.startsWith("🎯 Clic"))) {
@@ -226,34 +244,36 @@ function doPost(e) {
         dia,                                                             // Col 1: Fecha (dd/MM)
         hora,                                                            // Col 2: Hora (HH:mm:ss)
         leadLabel || filaActual[2] || "",                               // Col 3: Lead / Club (en blanco si no se conoce)
-        visitasStr || filaActual[3] || "1ª visita",                      // Col 4: Visitas
-        ubicacion || filaActual[4] || "",                               // Col 5: Ubicación
-        dispositivo || filaActual[5] || "",                             // Col 6: Dispositivo
-        pagina || filaActual[6] || "",                                  // Col 7: Página
-        eventosActualizados,                                             // Col 8: Evento Real
-        seccionesLeidas || filaActual[8] || "",                         // Col 9: Secciones Leídas
-        tiempoActivo !== "0s" ? tiempoActivo : (filaActual[9] || tiempoActivo), // Col 10: Tiempo Activo
-        scrollMax !== "0%" ? scrollMax : (filaActual[10] || scrollMax), // Col 11: % Scroll
-        sessionId                                                        // Col 12: ID Sesión
+        origenCanal || filaActual[3] || "🌐 Enlace Directo",            // Col 4: Origen / Canal
+        visitasStr || filaActual[4] || "1ª visita",                      // Col 5: Visitas
+        ubicacion || filaActual[5] || "",                               // Col 6: Ubicación
+        dispositivo || filaActual[6] || "",                             // Col 7: Dispositivo
+        pagina || filaActual[7] || "",                                  // Col 8: Página
+        eventosActualizados,                                             // Col 9: Evento Real
+        seccionesLeidas || filaActual[9] || "",                         // Col 10: Secciones Leídas
+        tiempoActivo !== "0s" ? tiempoActivo : (filaActual[10] || tiempoActivo), // Col 11: Tiempo Activo
+        scrollMax !== "0%" ? scrollMax : (filaActual[11] || scrollMax), // Col 12: % Scroll
+        sessionId                                                        // Col 13: ID Sesión
       ];
 
       if (filaExistente === 2) {
         // Ya está en la fila 2 (arriba del todo), actualizar directamente
-        sheetAnalitica.getRange(2, 1, 1, 12).setValues([filaConsolidada]);
+        sheetAnalitica.getRange(2, 1, 1, 13).setValues([filaConsolidada]);
       } else {
         // Mover a la fila 2 para mantener la sesión más reciente/activa arriba
         sheetAnalitica.deleteRow(filaExistente);
         sheetAnalitica.insertRowBefore(2);
-        sheetAnalitica.getRange(2, 1, 1, 12).setValues([filaConsolidada]);
+        sheetAnalitica.getRange(2, 1, 1, 13).setValues([filaConsolidada]);
       }
 
     } else {
       // NUEVA SESIÓN: Insertar en la fila 2 (arriba del todo, debajo del encabezado)
       sheetAnalitica.insertRowBefore(2);
-      sheetAnalitica.getRange(2, 1, 1, 12).setValues([[
+      sheetAnalitica.getRange(2, 1, 1, 13).setValues([[
         dia,
         hora,
         leadLabel,
+        origenCanal,
         visitasStr,
         ubicacion,
         dispositivo,

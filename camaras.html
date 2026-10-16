@@ -1097,13 +1097,64 @@
         }
 
         function getChannelOrigin() {
-            if (utmSource) return `Campaña: ${utmSource}${utmCampaign ? ' (' + utmCampaign + ')' : ''}`;
             const ref = document.referrer || '';
-            if (!ref) return 'Enlace Directo';
-            if (ref.includes('whatsapp.com')) return 'WhatsApp Web/App';
-            if (ref.includes('instagram.com')) return 'Instagram';
-            if (ref.includes('google.')) return 'Búsqueda Google';
-            return ref.replace(/^https?:\/\//, '').split('/')[0];
+            const ua = navigator.userAgent || '';
+            const src = (utmSource || '').toLowerCase();
+            const camp = (utmCampaign || '').toUpperCase();
+            const hasWaParam = src.includes('wa') || src.includes('whatsapp') || camp.startsWith('1A') || camp.startsWith('2A') || camp.startsWith('3A') || camp.startsWith('4A') || leadTel;
+            const hasEmailParam = src.includes('email') || src.includes('resend') || src.includes('mail');
+            const isWaApp = /WhatsApp/i.test(ua) || ref.includes('whatsapp.com');
+            const isInsta = /Instagram/i.test(ua) || ref.includes('instagram.com') || ref.includes('ig');
+            const isLinkedIn = /LinkedIn/i.test(ua) || ref.includes('linkedin.com');
+            const isGoogle = ref.includes('google.') || ref.includes('google.es') || ref.includes('google.com');
+
+            // 1. Link recibido por WhatsApp
+            if (hasWaParam || isWaApp) {
+                let detalle = '📲 Link WhatsApp';
+                if (camp) detalle += ` (Ruta ${camp})`;
+                else if (leadName) detalle += ` (${leadName})`;
+                return detalle;
+            }
+
+            // 2. Link recibido por Email
+            if (hasEmailParam) {
+                let detalle = '✉️ Link Email';
+                if (camp) detalle += ` (${camp})`;
+                return detalle;
+            }
+
+            // 3. Navegación interna desde la propia web (ej: de la home / a /camaras/)
+            if (ref && (ref.includes('coolpadelstudios.com') || ref.includes('savemyplay.com') || ref.includes(window.location.host))) {
+                try {
+                    const urlRef = new URL(ref);
+                    const pathRef = urlRef.pathname || '/';
+                    return `🌐 Desde la Web (de ${pathRef})`;
+                } catch(e) {
+                    return '🌐 Desde la Web (Navegación interna)';
+                }
+            }
+
+            // 4. Búsqueda en Google
+            if (isGoogle) return '🔍 Búsqueda Google';
+
+            // 5. Redes sociales
+            if (isInsta) return '📷 Instagram';
+            if (isLinkedIn) return '💼 LinkedIn';
+            if (ref.includes('facebook.com')) return '👥 Facebook';
+            if (ref.includes('youtube.com')) return '▶️ YouTube';
+
+            // 6. Otras webs / enlaces externos
+            if (ref) {
+                try {
+                    const host = new URL(ref).hostname.replace('www.', '');
+                    return `🔗 Web externa: ${host}`;
+                } catch(e) {
+                    return '🔗 Enlace externo';
+                }
+            }
+
+            // 7. Enlace directo / Escribió la web
+            return '🌐 Enlace Directo (URL tecleada / Favoritos)';
         }
 
         // 5. Tiempo Activo y Medición por Secciones (Micro-tiempos)
