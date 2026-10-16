@@ -1311,17 +1311,53 @@ FRANQUICIAS = [
         "modelo_badge": "bg-blue-100 text-blue-800 border-blue-200",
         "tipo_categoria": "red_propia",
         "escala": "macro",
-        "num_clubs": "32 complejos",
+        "num_clubs": "34 complejos",
         "num_pistas": "260+ pistas",
         "software": "Playtomic / Syltek",
         "fundadores": "Fusión estratégica Volea Padel & Bam Sports Management",
         "web": "https://bamvoleapadel.com",
         "tagline": "El mayor operador corporativo de pádel en España tras su histórica fusión multisede.",
-        "resumen": "Nacida de la unión de dos de los grupos de gestión de pádel más potentes de la Península, BamVolea gestiona más de 260 pistas en 32 instalaciones deportivas, con un modelo de hostelería de vanguardia, escuela para menores y eventos corporativos para el IBEX 35.",
+        "resumen": "Nacida de la unión de dos de los grupos de gestión de pádel más potentes de la Península, BamVolea gestiona más de 260 pistas en 34 instalaciones deportivas, con un modelo de hostelería de vanguardia, escuela para menores y eventos corporativos para el IBEX 35.",
         "sedes_principales": [
             "Volea Pádel Club (Pozuelo de Alarcón - buque insignia con restaurante gastronómico)",
             "Bam Padel Las Rozas",
-            "Complejos concesionados en Comunidad de Madrid, Castilla y León y Levante"
+            "Complejos concesionados en Comunidad de Madrid, Castilla y León, Levante y Toledo"
+        ],
+        "sub_clubs": [
+            {"nombre": "Volea Pádel Club Pozuelo (HQ)", "ciudad": "Pozuelo de Alarcón", "coords": [40.4350, -3.8150], "pistas": "12 pistas", "destacado": True},
+            {"nombre": "BAM Pádel Las Rozas", "ciudad": "Las Rozas de Madrid", "coords": [40.4925, -3.8735], "pistas": "10 pistas"},
+            {"nombre": "BAM Pádel Majadahonda", "ciudad": "Majadahonda", "coords": [40.4730, -3.8710], "pistas": "8 pistas"},
+            {"nombre": "BAM Pádel Boadilla", "ciudad": "Boadilla del Monte", "coords": [40.4070, -3.8750], "pistas": "8 pistas"},
+            {"nombre": "BAM Pádel Alcobendas", "ciudad": "Alcobendas", "coords": [40.5310, -3.6350], "pistas": "10 pistas"},
+            {"nombre": "BAM Pádel San Sebastián de los Reyes", "ciudad": "San Sebastián de los Reyes", "coords": [40.5470, -3.6260], "pistas": "8 pistas"},
+            {"nombre": "BAM Pádel Chamartín", "ciudad": "Madrid Norte", "coords": [40.4680, -3.6760], "pistas": "8 pistas"},
+            {"nombre": "BAM Pádel Madrid Río", "ciudad": "Madrid Centro-Sur", "coords": [40.3850, -3.7020], "pistas": "6 pistas"},
+            {"nombre": "BAM Pádel Rivas", "ciudad": "Rivas Vaciamadrid", "coords": [40.3540, -3.5350], "pistas": "8 pistas"},
+            {"nombre": "BAM Pádel Getafe", "ciudad": "Getafe", "coords": [40.3080, -3.7310], "pistas": "8 pistas"},
+            {"nombre": "BAM Pádel Alcorcón", "ciudad": "Alcorcón", "coords": [40.3450, -3.8290], "pistas": "10 pistas"},
+            {"nombre": "BAM Pádel Leganés", "ciudad": "Leganés", "coords": [40.3280, -3.7650], "pistas": "8 pistas"},
+            {"nombre": "BAM Pádel Móstoles", "ciudad": "Móstoles", "coords": [40.3230, -3.8640], "pistas": "8 pistas"},
+            {"nombre": "BAM Pádel Fuenlabrada", "ciudad": "Fuenlabrada", "coords": [40.2840, -3.7940], "pistas": "8 pistas"},
+            {"nombre": "BAM Pádel Parla", "ciudad": "Parla", "coords": [40.2370, -3.7740], "pistas": "6 pistas"},
+            {"nombre": "BAM Pádel Pinto", "ciudad": "Pinto", "coords": [40.2410, -3.6990], "pistas": "6 pistas"},
+            {"nombre": "BAM Pádel Valdemoro", "ciudad": "Valdemoro", "coords": [40.1910, -3.6780], "pistas": "8 pistas"},
+            {"nombre": "BAM Pádel Aranjuez", "ciudad": "Aranjuez", "coords": [40.0330, -3.6030], "pistas": "6 pistas"},
+            {"nombre": "BAM Pádel Arganda del Rey", "ciudad": "Arganda del Rey", "coords": [40.3010, -3.4490], "pistas": "6 pistas"},
+            {"nombre": "BAM Pádel Coslada", "ciudad": "Coslada", "coords": [40.4260, -3.5650], "pistas": "6 pistas"},
+            {"nombre": "BAM Pádel Alcalá de Henares", "ciudad": "Alcalá de Henares", "coords": [40.4820, -3.3630], "pistas": "10 pistas"},
+            {"nombre": "BAM Pádel Torrejón", "ciudad": "Torrejón de Ardoz", "coords": [40.4570, -3.4790], "pistas": "8 pistas"},
+            {"nombre": "BAM Pádel Tres Cantos", "ciudad": "Tres Cantos", "coords": [40.6070, -3.7080], "pistas": "8 pistas"},
+            {"nombre": "BAM Pádel Colmenar Viejo", "ciudad": "Colmenar Viejo", "coords": [40.6580, -3.7660], "pistas": "6 pistas"},
+            {"nombre": "BAM Pádel Torrelodones", "ciudad": "Torrelodones", "coords": [40.5760, -3.9310], "pistas": "6 pistas"},
+            {"nombre": "BAM Pádel Collado Villalba", "ciudad": "Collado Villalba", "coords": [40.6350, -3.9920], "pistas": "8 pistas"},
+            {"nombre": "BAM Pádel Villanueva de la Cañada", "ciudad": "Villanueva de la Cañada", "coords": [40.4470, -3.9980], "pistas": "6 pistas"},
+            {"nombre": "BAM Pádel Navalcarnero", "ciudad": "Navalcarnero", "coords": [40.2880, -4.0150], "pistas": "6 pistas"},
+            {"nombre": "BAM Pádel Salamanca Concesión", "ciudad": "Salamanca", "coords": [40.9701, -5.6635], "pistas": "8 pistas"},
+            {"nombre": "BAM Pádel Valladolid Concesión", "ciudad": "Valladolid", "coords": [41.6523, -4.7245], "pistas": "8 pistas"},
+            {"nombre": "BAM Pádel Valencia Turia", "ciudad": "Valencia", "coords": [39.4699, -0.3763], "pistas": "10 pistas"},
+            {"nombre": "BAM Pádel Alicante Costa", "ciudad": "Alicante", "coords": [38.3452, -0.4810], "pistas": "8 pistas"},
+            {"nombre": "BAM Pádel Castellón", "ciudad": "Castellón de la Plana", "coords": [39.9864, -0.0513], "pistas": "6 pistas"},
+            {"nombre": "BAM Pádel Toledo La Sagra", "ciudad": "Toledo", "coords": [39.8628, -4.0273], "pistas": "8 pistas"}
         ],
         "tecnologia_pistas": {
             "pistas": "Pistas de competición panorámicas, césped Mondo Supercourt, cubiertas aisladas",
@@ -1368,6 +1404,13 @@ FRANQUICIAS = [
             "Aurial Terrassa",
             "Aurial Cornellà (área metropolitana de Barcelona)"
         ],
+        "sub_clubs": [
+            {"nombre": "Aurial Padel Sabadell (Megaclub HQ)", "ciudad": "Sabadell", "coords": [41.5450, 2.1080], "pistas": "21 pistas cubiertas", "destacado": True},
+            {"nombre": "Aurial Padel Sant Cugat", "ciudad": "Sant Cugat del Vallès", "coords": [41.4720, 2.0860], "pistas": "16 pistas"},
+            {"nombre": "Aurial Padel Terrassa", "ciudad": "Terrassa", "coords": [41.5630, 2.0180], "pistas": "14 pistas"},
+            {"nombre": "Aurial Padel Cornellà", "ciudad": "Cornellà de Llobregat", "coords": [41.3580, 2.0720], "pistas": "18 pistas"},
+            {"nombre": "Aurial Padel Vic", "ciudad": "Vic (Osona)", "coords": [41.9300, 2.2540], "pistas": "16 pistas"}
+        ],
         "tecnologia_pistas": {
             "pistas": "Pistas panorámicas de competición con moqueta World Padel Tour y techos altos",
             "software": "Playtomic integrado con Aurial Academy",
@@ -1411,6 +1454,12 @@ FRANQUICIAS = [
             "Bela Padel Center Barcelona (Sant Cugat)",
             "Bela Padel Center Suecia (Helsingborg)",
             "Bela Padel Center México"
+        ],
+        "sub_clubs": [
+            {"nombre": "Bela Padel Center Alicante (Flagship)", "ciudad": "Alicante Playa San Juan", "coords": [38.3600, -0.4400], "pistas": "14 pistas", "destacado": True},
+            {"nombre": "Bela Padel Center Barcelona", "ciudad": "Sant Cugat del Vallès", "coords": [41.4680, 2.0790], "pistas": "12 pistas"},
+            {"nombre": "Bela Padel Center Helsingborg", "ciudad": "Helsingborg (Suecia)", "coords": [56.0465, 12.6945], "pistas": "10 pistas"},
+            {"nombre": "Bela Padel Center México", "ciudad": "CDMX", "coords": [19.4326, -99.1332], "pistas": "9 pistas"}
         ],
         "tecnologia_pistas": {
             "pistas": "Pistas oficiales Wilson Bela con césped texturizado monofilamento de última generación",

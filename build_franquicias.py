@@ -344,6 +344,21 @@ def render_html():
     .custom-marker:hover {{
       transform: scale(1.2);
     }}
+    .sub-club-marker {{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 9999px;
+      color: #fff;
+      font-weight: 900;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+      transition: transform 0.2s ease;
+      cursor: pointer;
+    }}
+    .sub-club-marker:hover {{
+      transform: scale(1.35) !important;
+      z-index: 999;
+    }}
     .leaflet-popup-content-wrapper {{
       border-radius: 1rem;
       padding: 0.25rem;
@@ -633,8 +648,15 @@ def render_html():
         </div>
 
         <!-- ÁREA DEL MAPA (CONTIENE EL MAPA Y SU LEYENDA) -->
-        <div id="mapArea">
+        <div id="mapArea" class="relative">
           <div id="franchiseMap"></div>
+          
+          <!-- Badge flotante de clubes desplegados de la cadena seleccionada -->
+          <div id="subClubsBadge" class="hidden absolute top-4 right-4 z-[400] bg-slate-900/90 backdrop-blur-md text-white text-xs px-3.5 py-1.5 rounded-full shadow-lg border border-slate-700 flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-[#f2920b] animate-pulse"></span>
+            <span id="subClubsBadgeText" class="font-bold">Desplegados clubes</span>
+            <button onclick="clearSubClubs()" title="Quitar subsedes" class="ml-1 text-slate-400 hover:text-white font-black text-sm cursor-pointer leading-none">&times;</button>
+          </div>
           
           <!-- Leyenda del mapa -->
           <div class="flex items-center gap-3 sm:gap-6 px-3 py-2 mt-2 text-[11px] font-bold text-slate-600 flex-wrap border-t border-slate-100">
@@ -1194,7 +1216,9 @@ def render_html():
     let currentView = 'grid';
     let map = null;
     let markersLayer = null;
+    let subClubsLayer = null;
     let markersById = {{}};
+    let currentDeployedChainId = null;
 
     let selectedFranchises = [];
     let currentStep = 1;
@@ -1275,18 +1299,102 @@ def render_html():
       return [[lat - 0.50, lng - 0.70], [lat + 0.50, lng + 0.70]];
     }}
 
+    function deploySubClubs(f) {{
+      if (!map || !subClubsLayer) return;
+      
+      // Limpiar siempre la capa para que SOLO se despliegue la cadena seleccionada
+      subClubsLayer.clearLayers();
+      const badge = document.getElementById('subClubsBadge');
+
+      if (!f || !f.sub_clubs || f.sub_clubs.length === 0) {{
+        currentDeployedChainId = null;
+        if (badge) badge.classList.add('hidden');
+        return;
+      }}
+
+      currentDeployedChainId = f.id;
+      const color = getMarkerColor(f.tipo_categoria);
+      const allCoords = [f.coords];
+
+      f.sub_clubs.forEach((sub, idx) => {{
+        if (!sub.coords || sub.coords.length !== 2) return;
+        allCoords.push(sub.coords);
+
+        const isHQ = sub.destacado || (idx === 0);
+
+        const subIcon = L.divIcon({{
+          className: '',
+          html: `<div class="sub-club-marker" style="background-color: ${{isHQ ? color : '#0b1626'}}; border: 2.5px solid ${{isHQ ? '#ffffff' : '#f2920b'}}; color: #ffffff; width: 28px; height: 28px; border-radius: 9999px; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 900; box-shadow: 0 4px 12px rgba(0,0,0,0.4);">
+            <span>${{isHQ ? '⭐' : '🎾'}}</span>
+          </div>`,
+          iconSize: [28, 28],
+          iconAnchor: [14, 14],
+          popupAnchor: [0, -14]
+        }});
+
+        const subPopupContent = `
+          <div style="font-family: 'Plus Jakarta Sans', sans-serif; min-width: 210px; padding: 4px;">
+            <div style="font-size: 10px; font-weight: 800; color: #f2920b; text-transform: uppercase;">${{f.nombre}} · Red (${{idx + 1}}/${{f.sub_clubs.length}})</div>
+            <div style="font-family: 'Outfit', sans-serif; font-size: 14px; font-weight: 900; color: #0f172a; margin: 2px 0 4px 0;">${{sub.nombre}}</div>
+            <div style="display: flex; gap: 6px; font-size: 11px; font-weight: 700; margin-bottom: 6px;">
+              <span style="background: #f1f5f9; padding: 2px 6px; border-radius: 6px;">📍 ${{sub.ciudad}}</span>
+              <span style="background: #fef3c7; color: #92400e; padding: 2px 6px; border-radius: 6px;">${{sub.pistas || 'Pistas'}}</span>
+            </div>
+            <button onclick="openDrawer('${{f.id}}')" style="width: 100%; background: #0f172a; color: #ffffff; border: none; padding: 6px 10px; border-radius: 8px; font-size: 11px; font-weight: 800; cursor: pointer;">
+              Ver Dossier de ${{f.nombre}} →
+            </button>
+          </div>
+        `;
+
+        const subMarker = L.marker(sub.coords, {{ icon: subIcon }}).bindPopup(subPopupContent);
+        subClubsLayer.addLayer(subMarker);
+      }});
+
+      if (badge) {{
+        document.getElementById('subClubsBadgeText').textContent = `Desplegados ${{f.sub_clubs.length}} clubes de ${{f.nombre}}`;
+        badge.classList.remove('hidden');
+      }}
+
+      // Encuadre optimizado que abarque todos los clubes desplegados de esa cadena
+      if (allCoords.length > 1) {{
+        const groupBounds = L.latLngBounds(allCoords);
+        map.flyToBounds(groupBounds, {{
+          padding: [50, 50],
+          maxZoom: 10.5,
+          duration: 1.3
+        }});
+      }}
+    }}
+
+    function clearSubClubs() {{
+      if (subClubsLayer) {{
+        subClubsLayer.clearLayers();
+      }}
+      currentDeployedChainId = null;
+      const badge = document.getElementById('subClubsBadge');
+      if (badge) badge.classList.add('hidden');
+    }}
+
     function zoomToClubRegion(f, id) {{
       if (!map || !f || !f.coords || f.coords.length !== 2) return;
       map.invalidateSize();
-      const bounds = getClubRegionBounds(f);
-      if (bounds) {{
-        map.flyToBounds(bounds, {{
-          padding: [30, 30],
-          maxZoom: 9.5,
-          duration: 1.2
-        }});
+
+      // Si tiene sub_clubs definidos, desplegarlos exclusivamente para esta cadena
+      if (f.sub_clubs && f.sub_clubs.length > 0) {{
+        deploySubClubs(f);
       }} else {{
-        map.flyTo(f.coords, 9, {{ animate: true, duration: 1.2 }});
+        // Si no tiene sub_clubs, limpiar cualquier cadena anterior y hacer zoom normal a su CCAA
+        clearSubClubs();
+        const bounds = getClubRegionBounds(f);
+        if (bounds) {{
+          map.flyToBounds(bounds, {{
+            padding: [30, 30],
+            maxZoom: 9.5,
+            duration: 1.2
+          }});
+        }} else {{
+          map.flyTo(f.coords, 9, {{ animate: true, duration: 1.2 }});
+        }}
       }}
 
       if (id && markersById && markersById[id]) {{
@@ -1336,6 +1444,7 @@ def render_html():
       }}
 
       markersLayer = L.layerGroup().addTo(map);
+      subClubsLayer = L.layerGroup().addTo(map);
       renderMarkers(FRANQUICIAS);
     }}
 
@@ -1439,6 +1548,7 @@ def render_html():
       if (menu) menu.classList.add('hidden');
       if (arrow) arrow.classList.remove('rotate-180');
 
+      clearSubClubs();
       applyFilters();
 
       // Animación fluida con encuadre calibrado del país completo y sus extremos
@@ -1935,7 +2045,19 @@ def render_html():
 
       // Sedes
       const sedesList = document.getElementById('drawerSedes');
-      sedesList.innerHTML = f.sedes_principales.map(s => `<li class="flex items-start gap-2"><span class="text-[#f2920b] font-bold">•</span><span>${{s}}</span></li>`).join('');
+      if (f.sub_clubs && f.sub_clubs.length > 0) {{
+        sedesList.innerHTML = `
+          <div class="mb-3 p-3 bg-amber-50 rounded-2xl border border-amber-200 text-xs text-amber-950 font-bold flex items-center justify-between shadow-2xs">
+            <span class="flex items-center gap-1.5">
+              <span>🎾</span>
+              <span>${{f.sub_clubs.length}} clubes desplegados en el mapa</span>
+            </span>
+            <button onclick="closeDrawer(); focusClubOnMap('${{f.id}}');" class="text-[#f2920b] hover:text-[#d97f08] font-black text-xs uppercase tracking-wider cursor-pointer">Ver en Mapa →</button>
+          </div>
+        ` + f.sub_clubs.slice(0, 10).map((s, i) => `<li class="flex items-start gap-2"><span class="text-[#f2920b] font-bold">•</span><span><strong>${{s.nombre}}</strong> (${{s.ciudad}}) <span class="text-slate-400 font-normal">· ${{s.pistas || 'Pistas'}}</span></span></li>`).join('') + (f.sub_clubs.length > 10 ? `<li class="text-xs font-bold text-slate-500 italic pt-1">+ ${{f.sub_clubs.length - 10}} clubes adicionales desplegados en el mapa interactivo...</li>` : '');
+      }} else {{
+        sedesList.innerHTML = f.sedes_principales.map(s => `<li class="flex items-start gap-2"><span class="text-[#f2920b] font-bold">•</span><span>${{s}}</span></li>`).join('');
+      }}
 
       // Tech
       const techBox = document.getElementById('drawerTech');
