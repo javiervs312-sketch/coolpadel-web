@@ -555,17 +555,17 @@ def render_html():
   <!-- MAIN -->
   <main class="flex-1">
 
-    <!-- HERO SECTION COMPACTO Y ELEGANTE -->
-    <section class="pt-5 pb-3 sm:pt-6 sm:pb-4 bg-gradient-to-b from-white via-slate-50 to-[#f8fafc] border-b border-slate-200">
+    <!-- HERO SECTION (PROPORCIONADO, ELEGANTE Y LEGIBLE) -->
+    <section class="pt-8 pb-6 sm:pt-10 sm:pb-8 bg-gradient-to-b from-white via-slate-50 to-[#f8fafc] border-b border-slate-200">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
-          <div class="max-w-3xl space-y-1.5">
-            <h1 class="font-heading font-black text-2xl sm:text-3xl lg:text-4xl text-slate-950 uppercase tracking-tight">
+        <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+          <div class="max-w-3xl space-y-2.5">
+            <h1 class="font-heading font-black text-2xl sm:text-3xl lg:text-4xl text-slate-950 uppercase tracking-tight leading-tight">
               Directorio y Comparador de Franquicias de Pádel
             </h1>
 
-            <p class="text-xs sm:text-sm text-slate-600 font-medium leading-relaxed">
+            <p class="text-sm sm:text-base text-slate-600 font-medium leading-relaxed">
               El directorio para operadores y clubes que quieren franquiciarse:<br class="hidden sm:inline">
               Ponte en contacto con más de 153 cadenas y franquicias de más de 25 países. Infórmate, compara y encuentra el modelo que tu club necesita.
             </p>
@@ -573,37 +573,37 @@ def render_html():
 
           <!-- Botón Alta de Franquicia fuera de la barra -->
           <div class="shrink-0">
-            <button onclick="openOnboardingModal()" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#f2920b] hover:bg-[#d97f08] text-slate-950 font-heading font-black text-xs uppercase tracking-wider transition shadow-sm hover:scale-105 active:scale-95 whitespace-nowrap">
-              <i data-lucide="plus-circle" class="w-4 h-4 stroke-[2.5]"></i>
+            <button onclick="openOnboardingModal()" class="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-[#f2920b] hover:bg-[#d97f08] text-slate-950 font-heading font-black text-xs sm:text-sm uppercase tracking-wider transition shadow-md hover:scale-105 active:scale-95 whitespace-nowrap cursor-pointer">
+              <i data-lucide="plus-circle" class="w-4 h-4 sm:w-5 sm:h-5 stroke-[2.5]"></i>
               <span>¿Tienes una Franquicia? Date de Alta / Reclama tu Ficha</span>
             </button>
           </div>
         </div>
 
-        <!-- KPI BANNER (3 TARJETAS COMPACTAS) -->
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mt-3 pt-3 border-t border-slate-200/70">
-          <div class="bg-white px-4 py-2.5 rounded-xl border border-slate-200/80 shadow-xs flex sm:flex-col justify-between items-center sm:items-start">
+        <!-- KPI BANNER (3 TARJETAS BIEN PROPORCIONADAS) -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-5 mt-6 pt-5 border-t border-slate-200/90">
+          <div class="bg-white px-5 py-4 rounded-2xl border border-slate-200/90 shadow-xs flex sm:flex-col justify-between items-center sm:items-start transition hover:border-[#f2920b]/40 hover:shadow-sm">
             <div>
-              <span class="block text-[10px] font-bold uppercase tracking-wider text-slate-400">Cadenas / Franquicias</span>
-              <span class="font-heading font-black text-xl sm:text-2xl text-slate-950 leading-tight">+153</span>
+              <span class="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-0.5">Cadenas / Franquicias</span>
+              <span class="font-heading font-black text-2xl sm:text-3xl lg:text-4xl text-slate-950 leading-tight">+153</span>
             </div>
-            <span class="text-[11px] text-slate-500 font-medium">Con +1 club abierto</span>
+            <span class="text-xs sm:text-sm text-slate-500 font-medium mt-1">Con +1 club abierto</span>
           </div>
           
-          <div class="bg-white px-4 py-2.5 rounded-xl border border-slate-200/80 shadow-xs flex sm:flex-col justify-between items-center sm:items-start">
+          <div class="bg-white px-5 py-4 rounded-2xl border border-slate-200/90 shadow-xs flex sm:flex-col justify-between items-center sm:items-start transition hover:border-[#f2920b]/40 hover:shadow-sm">
             <div>
-              <span class="block text-[10px] font-bold uppercase tracking-wider text-slate-400">Pistas Totales</span>
-              <span class="font-heading font-black text-xl sm:text-2xl text-slate-950 leading-tight">+8.500 pistas</span>
+              <span class="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-0.5">Pistas Totales</span>
+              <span class="font-heading font-black text-2xl sm:text-3xl lg:text-4xl text-slate-950 leading-tight">+8.500 pistas</span>
             </div>
-            <span class="text-[11px] text-slate-500 font-medium">Bajo gestión analizada</span>
+            <span class="text-xs sm:text-sm text-slate-500 font-medium mt-1">Bajo gestión analizada</span>
           </div>
 
-          <div class="bg-white px-4 py-2.5 rounded-xl border border-slate-200/80 shadow-xs flex sm:flex-col justify-between items-center sm:items-start">
+          <div class="bg-white px-5 py-4 rounded-2xl border border-slate-200/90 shadow-xs flex sm:flex-col justify-between items-center sm:items-start transition hover:border-[#f2920b]/40 hover:shadow-sm">
             <div>
-              <span class="block text-[10px] font-bold uppercase tracking-wider text-slate-400">Presencia Global</span>
-              <span class="font-heading font-black text-xl sm:text-2xl text-slate-950 leading-tight">+25 países</span>
+              <span class="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-0.5">Presencia Global</span>
+              <span class="font-heading font-black text-2xl sm:text-3xl lg:text-4xl text-slate-950 leading-tight">+25 países</span>
             </div>
-            <span class="text-[11px] text-slate-500 font-medium">Europa, América, Oriente Medio, África y Oceanía</span>
+            <span class="text-xs sm:text-sm text-slate-500 font-medium mt-1">Europa, América, Oriente Medio, África y Oceanía</span>
           </div>
         </div>
 
