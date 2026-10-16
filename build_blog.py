@@ -13,6 +13,8 @@ WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbxnF9JmVrikeAW7PdLc02r_1k
 COMMON_HEAD = """
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Javier Villoria - CoolPadel Studios">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
   <link rel="icon" type="image/png" href="{root_prefix}assets/images/favicon_transparente.png?v=transp3">
   <link rel="apple-touch-icon" sizes="180x180" href="{root_prefix}assets/images/favicon_transparente.png?v=transp3">
   <meta name="theme-color" content="#0b1626">
