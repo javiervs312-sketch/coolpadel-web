@@ -432,8 +432,8 @@
               <!-- SELECTOR DE FORMATO / ESTILO DE MAPA -->
               <div class="relative inline-block text-left" id="mapstyle-dropdown-container">
                 <button type="button" onclick="toggleMapStyleDropdown(event)" id="mapstyle-dropdown-btn" class="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 border border-slate-200 text-xs font-bold text-slate-900 shadow-xs transition cursor-pointer" aria-expanded="false" aria-haspopup="true" title="Cambiar formato visual del mapa">
-                  <span id="current-mapstyle-icon">🗺️</span>
-                  <span id="current-mapstyle-label" class="font-black text-slate-900">Google Maps Clásico</span>
+                  <span id="current-mapstyle-icon">⛰️</span>
+                  <span id="current-mapstyle-label" class="font-black text-slate-900">Google Relieve</span>
                   <i data-lucide="chevron-down" class="w-3.5 h-3.5 stroke-[2.5] text-slate-600 transition-transform duration-200" id="mapstyle-dropdown-arrow"></i>
                 </button>
 
@@ -443,17 +443,17 @@
                     <span>Propuestas de diseño</span>
                     <span class="text-[9px] text-emerald-600 bg-emerald-50 px-1.5 py-0.5 rounded font-bold">100% Limpio</span>
                   </div>
+                  <button type="button" onclick="setMapStyle('terrain')" class="w-full flex items-center justify-between px-2.5 py-2 text-xs font-bold text-slate-800 hover:bg-amber-50 hover:text-amber-900 rounded-xl transition text-left cursor-pointer">
+                    <span class="flex items-center gap-2"><span>⛰️</span> Google Relieve</span>
+                    <span class="text-[9px] font-extrabold uppercase px-1.5 py-0.5 rounded bg-emerald-100 text-emerald-800">Activo</span>
+                  </button>
                   <button type="button" onclick="setMapStyle('google')" class="w-full flex items-center justify-between px-2.5 py-2 text-xs font-bold text-slate-800 hover:bg-amber-50 hover:text-amber-900 rounded-xl transition text-left cursor-pointer">
                     <span class="flex items-center gap-2"><span>🗺️</span> Google Maps Clásico</span>
-                    <span class="text-[9px] font-extrabold uppercase px-1.5 py-0.5 rounded bg-emerald-100 text-emerald-800">Oficial</span>
+                    <span class="text-[9px] font-bold text-slate-500 bg-slate-100 px-1.5 py-0.5 rounded">Oficial</span>
                   </button>
                   <button type="button" onclick="setMapStyle('satellite')" class="w-full flex items-center justify-between px-2.5 py-2 text-xs font-bold text-slate-800 hover:bg-amber-50 hover:text-amber-900 rounded-xl transition text-left cursor-pointer">
                     <span class="flex items-center gap-2"><span>🛰️</span> Satélite Híbrido HD</span>
                     <span class="text-[9px] font-bold text-slate-500 bg-slate-100 px-1.5 py-0.5 rounded">Aéreo</span>
-                  </button>
-                  <button type="button" onclick="setMapStyle('terrain')" class="w-full flex items-center justify-between px-2.5 py-2 text-xs font-bold text-slate-800 hover:bg-amber-50 hover:text-amber-900 rounded-xl transition text-left cursor-pointer">
-                    <span class="flex items-center gap-2"><span>⛰️</span> Google Relieve</span>
-                    <span class="text-[9px] font-bold text-slate-500 bg-slate-100 px-1.5 py-0.5 rounded">Físico</span>
                   </button>
                   <button type="button" onclick="setMapStyle('osm_hot')" class="w-full flex items-center justify-between px-2.5 py-2 text-xs font-bold text-slate-800 hover:bg-amber-50 hover:text-amber-900 rounded-xl transition text-left cursor-pointer">
                     <span class="flex items-center gap-2"><span>🎨</span> OpenStreetMap Pastel</span>
@@ -16449,14 +16449,14 @@
     };
 
     let currentTileLayer = null;
-    let currentMapStyle = localStorage.getItem('coolpadel_map_style') || 'google';
-    if (!MAP_STYLES[currentMapStyle]) {
-      currentMapStyle = 'google';
-      try { localStorage.setItem('coolpadel_map_style', 'google'); } catch(e) {}
+    let currentMapStyle = localStorage.getItem('coolpadel_map_style') || 'terrain';
+    if (!MAP_STYLES[currentMapStyle] || currentMapStyle === 'google' || currentMapStyle === 'voyager') {
+      currentMapStyle = 'terrain';
+      try { localStorage.setItem('coolpadel_map_style', 'terrain'); } catch(e) {}
     }
 
     function setMapStyle(styleKey) {
-      if (!MAP_STYLES[styleKey]) styleKey = 'google';
+      if (!MAP_STYLES[styleKey]) styleKey = 'terrain';
       currentMapStyle = styleKey;
       try {
         localStorage.setItem('coolpadel_map_style', styleKey);

@@ -744,9 +744,9 @@ def get_base_html(active_lang="es", is_subfolder=False):
       -webkit-tap-highlight-color: transparent;
     }}
 
-    /* Estilos Leaflet Map Vectorial sin relieve */
+    /* Estilos Leaflet Map Google Relieve */
     #coolpadel-leaflet-map {{
-      background: #5b99cb;
+      background: #e2e8f0;
       transition: background-color 0.3s ease;
     }}
     .country-map-label {{
@@ -1240,8 +1240,8 @@ def get_base_html(active_lang="es", is_subfolder=False):
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch pt-4">
           
           <!-- MAPA LEAFLET INTERACTIVO PANNABLE/ZOOMABLE -->
-          <div class="lg:col-span-8 relative bg-[#508db8] rounded-2xl border border-slate-200/90 overflow-hidden shadow-inner min-h-[380px] sm:min-h-[500px]">
-            <div id="coolpadel-leaflet-map" class="w-full h-full min-h-[380px] sm:min-h-[500px] z-10" style="min-height: 500px; width: 100%; background: #508db8;"></div>
+          <div class="lg:col-span-8 relative bg-slate-100 rounded-2xl border border-slate-200/90 overflow-hidden shadow-inner min-h-[380px] sm:min-h-[500px]">
+            <div id="coolpadel-leaflet-map" class="w-full h-full min-h-[380px] sm:min-h-[500px] z-10" style="min-height: 500px; width: 100%; background: #e2e8f0;"></div>
             
 
             <!-- HINT FLOTANTE INFERIOR -->
@@ -2032,71 +2032,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
 
     let leafletMapInstance = null;
     let mapMarkersList = [];
-    let vectorGeoJsonLayer = null;
-    let countryLabelsLayerGroup = null;
-    let currentMapThemeKey = 'salvia';
-
-    const MAP_VECTOR_THEMES = {{
-      salvia: {{
-        id: 'salvia',
-        name: 'Verde Salvia',
-        seaColor: '#508db8',
-        landColor: '#dbe6d6',
-        borderColor: '#ffffff',
-        labelColor: '#143322'
-      }}
-    }};
-
-    const COUNTRY_LABELS_DATA = [
-      // Países de Europa
-      {{ name: 'ESPAÑA', lat: 40.2, lng: -3.7 }},
-      {{ name: 'FRANCIA', lat: 46.8, lng: 2.3 }},
-      {{ name: 'ITALIA', lat: 42.6, lng: 12.6 }},
-      {{ name: 'PORTUGAL', lat: 39.5, lng: -8.2 }},
-      {{ name: 'BÉLGICA', lat: 50.6, lng: 4.7 }},
-      {{ name: 'ALEMANIA', lat: 51.2, lng: 10.4 }},
-      {{ name: 'REINO UNIDO', lat: 53.5, lng: -2.2 }},
-      {{ name: 'SUIZA', lat: 46.8, lng: 8.2 }},
-      {{ name: 'AUSTRIA', lat: 47.6, lng: 14.5 }},
-      {{ name: 'PAÍSES BAJOS', lat: 52.3, lng: 5.5 }},
-      {{ name: 'DINAMARCA', lat: 55.8, lng: 9.5 }},
-      {{ name: 'SUECIA', lat: 60.1, lng: 15.0 }},
-      {{ name: 'NORUEGA', lat: 61.0, lng: 8.5 }},
-      {{ name: 'POLONIA', lat: 52.0, lng: 19.4 }},
-      {{ name: 'IRLANDA', lat: 53.4, lng: -8.0 }},
-      {{ name: 'GRECIA', lat: 39.0, lng: 22.0 }},
-      {{ name: 'CROACIA', lat: 45.1, lng: 15.5 }},
-      // Países que están debajo de Europa (Norte de África y Mediterráneo sur)
-      {{ name: 'MARRUECOS', lat: 31.8, lng: -7.0 }},
-      {{ name: 'ARGELIA', lat: 32.0, lng: 3.0 }},
-      {{ name: 'TÚNEZ', lat: 34.0, lng: 9.5 }},
-      {{ name: 'LIBIA', lat: 27.5, lng: 17.5 }},
-      {{ name: 'EGIPTO', lat: 26.8, lng: 30.0 }}
-    ];
-
-    window.setMapVectorTheme = function(themeKey) {{
-      if (!MAP_VECTOR_THEMES[themeKey]) return;
-      currentMapThemeKey = themeKey;
-      const theme = MAP_VECTOR_THEMES[themeKey];
-
-      const mapContainer = document.getElementById('coolpadel-leaflet-map');
-      if (mapContainer) {{
-        mapContainer.style.backgroundColor = theme.seaColor;
-      }}
-
-      if (vectorGeoJsonLayer) {{
-        vectorGeoJsonLayer.setStyle({{
-          fillColor: theme.landColor,
-          fillOpacity: 1,
-          color: theme.borderColor,
-          weight: 1.2
-        }});
-      }}
-
-      document.querySelectorAll('.country-map-label span').forEach(el => {{
-        el.style.color = theme.labelColor;
-      }});
-    }};
+    const GOOGLE_MAPS_API_KEY = 'AIzaSyDGYdWwepJ-wTOCIp9Y5gSXEteD50Ev24c';
 
     function initCoolPadelMap() {{
       const mapContainer = document.getElementById('coolpadel-leaflet-map');
@@ -2104,54 +2040,22 @@ def get_base_html(active_lang="es", is_subfolder=False):
 
       try {{
         leafletMapInstance = L.map('coolpadel-leaflet-map', {{
-          center: [47.5, 4.0],
+          center: [46.5, 3.5],
           zoom: 4,
           minZoom: 3,
-          maxZoom: 12,
+          maxZoom: 18,
           scrollWheelZoom: false
         }});
 
         leafletMapInstance.on('focus', () => leafletMapInstance.scrollWheelZoom.enable());
         leafletMapInstance.on('click', () => leafletMapInstance.scrollWheelZoom.enable());
 
-        const countryPane = leafletMapInstance.createPane('countryLabelsPane');
-        countryPane.style.zIndex = '450';
-        countryPane.style.pointerEvents = 'none';
-
-        const initialTheme = MAP_VECTOR_THEMES[currentMapThemeKey];
-        mapContainer.style.backgroundColor = initialTheme.seaColor;
-
-        fetch(ASSET_PREFIX + 'assets/data/world_smooth.json')
-          .then(res => res.json())
-          .then(geoData => {{
-            vectorGeoJsonLayer = L.geoJSON(geoData, {{
-              style: function() {{
-                const t = MAP_VECTOR_THEMES[currentMapThemeKey];
-                return {{
-                  fillColor: t.landColor,
-                  fillOpacity: 1,
-                  color: t.borderColor,
-                  weight: 1.2
-                }};
-              }}
-            }}).addTo(leafletMapInstance);
-
-            countryLabelsLayerGroup = L.layerGroup().addTo(leafletMapInstance);
-            COUNTRY_LABELS_DATA.forEach(c => {{
-              const labelIcon = L.divIcon({{
-                className: 'country-map-label',
-                html: `<span style="color: ${{initialTheme.labelColor}};">${{c.name}}</span>`,
-                iconSize: [120, 24],
-                iconAnchor: [60, 12]
-              }});
-              L.marker([c.lat, c.lng], {{
-                icon: labelIcon,
-                pane: 'countryLabelsPane',
-                interactive: false
-              }}).addTo(countryLabelsLayerGroup);
-            }});
-          }})
-          .catch(e => console.warn('Error loading countries GeoJSON:', e));
+        // Capa Google Relieve (Terrain) oficial de alta definición
+        L.tileLayer('https://mt{{s}}.google.com/vt/lyrs=p&x={{x}}&y={{y}}&z={{z}}&key=' + GOOGLE_MAPS_API_KEY, {{
+          subdomains: ['0', '1', '2', '3'],
+          maxZoom: 20,
+          attribution: '&copy; Google Maps'
+        }}).addTo(leafletMapInstance);
 
         const createPinIcon = () => L.divIcon({{
           className: 'custom-pin',
