@@ -17014,7 +17014,7 @@
       map = L.map('franchiseMap', {
         center: [40.4168, -3.7038],
         zoom: 5,
-        scrollWheelZoom: true,
+        scrollWheelZoom: false,
         doubleClickZoom: true,
         boxZoom: true,
         touchZoom: true,
@@ -17027,6 +17027,18 @@
       // Prevenir que gestos de pellizco con 2 dedos en móvil hagan zoom en la página completa en vez de en el mapa
       const mapContainerEl = document.getElementById('franchiseMap');
       if (mapContainerEl) {
+        mapContainerEl.addEventListener('wheel', function(e) {
+          if (e.ctrlKey || e.metaKey) {
+            e.preventDefault();
+            e.stopPropagation();
+            if (e.deltaY < 0) {
+              map.setZoom(Math.min(18, map.getZoom() + 1));
+            } else if (e.deltaY > 0) {
+              map.setZoom(Math.max(3, map.getZoom() - 1));
+            }
+          }
+        }, { capture: true, passive: false });
+
         mapContainerEl.addEventListener('touchstart', function(e) {
           if (e.touches.length > 1) {
             e.stopPropagation();

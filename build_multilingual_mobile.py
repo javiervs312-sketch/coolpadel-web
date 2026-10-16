@@ -99,7 +99,8 @@ def get_base_html(active_lang="es", is_subfolder=False):
             "sr_r4_c4": "Tarifa directa de fábrica gran volumen · Envíos incluidos",
             "map_h3": "Clubs y Marcas con Llaveros CoolPadel",
             "map_p": "Selecciona una zona o haz clic en cualquier marcador para explorar nuestros clubs oficiales",
-            "sr_clubs_h4": "Clubes, academias y federaciones clientes oficiales de CoolPadel Studios:"
+            "sr_clubs_h4": "Clubes, academias y federaciones clientes oficiales de CoolPadel Studios:",
+            "map_zoom_hint": "Usa Ctrl + desplazamiento para hacer zoom en el mapa"
         },
         "en": {
             "og_img_alt": "Custom 3D rubber padel keychains for clubs by CoolPadel Studios",
@@ -134,7 +135,8 @@ def get_base_html(active_lang="es", is_subfolder=False):
             "sr_r4_c4": "Direct factory high-volume tier · Shipping included",
             "map_h3": "Clubs & Brands with CoolPadel Keychains",
             "map_p": "Select a region or click any marker to explore our official client clubs",
-            "sr_clubs_h4": "Official clubs, academies and federations trusting CoolPadel Studios:"
+            "sr_clubs_h4": "Official clubs, academies and federations trusting CoolPadel Studios:",
+            "map_zoom_hint": "Use Ctrl + scroll to zoom the map"
         },
         "fr": {
             "og_img_alt": "Porte-clés de padel personnalisés en relief 3D CoolPadel Studios",
@@ -169,7 +171,8 @@ def get_base_html(active_lang="es", is_subfolder=False):
             "sr_r4_c4": "Tarif direct usine grand volume · Livraison incluse",
             "map_h3": "Clubs & Marques avec Porte-clés CoolPadel",
             "map_p": "Sélectionnez une zone ou cliquez sur un marqueur pour découvrir nos clubs officiels",
-            "sr_clubs_h4": "Clubs, académies et fédérations clientes officielles de CoolPadel Studios :"
+            "sr_clubs_h4": "Clubs, académies et fédérations clientes officielles de CoolPadel Studios :",
+            "map_zoom_hint": "Utilisez Ctrl + défilement pour zoomer sur la carte"
         },
         "it": {
             "og_img_alt": "Portachiavi da padel personalizzati in rilievo 3D CoolPadel Studios",
@@ -198,13 +201,14 @@ def get_base_html(active_lang="es", is_subfolder=False):
             "sr_r1_c4": "Campione fisico reale in ~15 giorni lavorativi: 15€ (100% dedotto dall'ordine finale)",
             "sr_r2_c1": "250 unità",
             "sr_r2_c4": "Campione fisico deducibile · Consegna ordine in ~1 mese",
-            "sr_r3_c1": "500 unità",
+            "sr_r3_c1": "500 unidades",
             "sr_r3_c4": "Campione deducibile e spedizione inclusa · Consegna in ~1 mese",
             "sr_r4_c1": "1.500 unità",
             "sr_r4_c4": "Tariffa diretta di fabbrica grandi volumi · Spedizione inclusa",
             "map_h3": "Club e Brand con Portachiavi CoolPadel",
             "map_p": "Seleziona un'area o clicca su qualsiasi indicatore per esplorare i nostri club ufficiali",
-            "sr_clubs_h4": "Club, accademie e federazioni clienti ufficiali di CoolPadel Studios:"
+            "sr_clubs_h4": "Club, accademie e federazioni clienti ufficiali di CoolPadel Studios:",
+            "map_zoom_hint": "Usa Ctrl + scorrimento per ingrandire la mappa"
         }
     }[active_lang]
     seo = seo_i18n
@@ -1434,10 +1438,18 @@ def get_base_html(active_lang="es", is_subfolder=False):
           <div class="lg:col-span-8 relative bg-slate-100 rounded-xl border border-slate-200/90 overflow-hidden shadow-inner min-h-[340px] sm:min-h-[360px] h-[340px] sm:h-[360px]">
             <div id="coolpadel-leaflet-map" class="w-full h-full min-h-[340px] sm:min-h-[360px] z-10" style="min-height: 360px; height: 360px; width: 100%; background: #e2e8f0;"></div>
 
+            <!-- OVERLAY DE AYUDA DE ZOOM ESTILO GOOGLE MAPS -->
+            <div id="map-scroll-hint" class="absolute inset-0 z-[500] bg-slate-950/60 backdrop-blur-xs flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300">
+              <div class="bg-slate-900/95 text-white px-4 py-2 rounded-xl text-xs font-bold shadow-xl border border-slate-700/80 flex items-center gap-2">
+                <i data-lucide="info" class="w-4 h-4 text-[#f2920b]"></i>
+                <span data-i18n="map_zoom_hint">{seo['map_zoom_hint']}</span>
+              </div>
+            </div>
+
             <!-- HINT FLOTANTE INFERIOR -->
             <div class="absolute bottom-2.5 left-2.5 z-[400] bg-white/95 backdrop-blur-sm px-3 py-1 rounded-full border border-slate-200/90 shadow-xs pointer-events-none hidden sm:flex items-center gap-1.5 text-[10px] font-bold text-slate-700">
               <i data-lucide="hand" class="w-3 h-3 text-[#f2920b]"></i>
-              <span>Arrastra para desplazarte o haz zoom en el mapa</span>
+              <span>Arrastra para mover el mapa · Ctrl + rueda para zoom</span>
             </div>
           </div>
 
@@ -2351,11 +2363,35 @@ def get_base_html(active_lang="es", is_subfolder=False):
           zoom: 4,
           minZoom: 3,
           maxZoom: 18,
-          scrollWheelZoom: true
+          scrollWheelZoom: false // Al deslizar la página hacia abajo NO se activa el zoom
         }});
 
-        leafletMapInstance.on('focus', () => leafletMapInstance.scrollWheelZoom.enable());
-        leafletMapInstance.on('click', () => leafletMapInstance.scrollWheelZoom.enable());
+        // Control deliberado de zoom: sólo con Ctrl/Cmd + rueda para no atrapar el scroll de la página
+        const hintEl = document.getElementById('map-scroll-hint');
+        let hintTimer = null;
+
+        mapContainer.addEventListener('wheel', function(e) {{
+          if (e.ctrlKey || e.metaKey) {{
+            // Intento REAL y deliberado de zoom con teclado + rueda
+            e.preventDefault();
+            e.stopPropagation();
+            if (e.deltaY < 0) {{
+              leafletMapInstance.setZoom(Math.min(18, leafletMapInstance.getZoom() + 1));
+            }} else if (e.deltaY > 0) {{
+              leafletMapInstance.setZoom(Math.max(3, leafletMapInstance.getZoom() - 1));
+            }}
+            if (hintEl) hintEl.classList.add('opacity-0', 'pointer-events-none');
+          }} else {{
+            // Deslizamiento normal de la página: NO activar zoom y mostrar hint discreto
+            if (hintEl) {{
+              hintEl.classList.remove('opacity-0', 'pointer-events-none');
+              clearTimeout(hintTimer);
+              hintTimer = setTimeout(() => {{
+                hintEl.classList.add('opacity-0', 'pointer-events-none');
+              }}, 1200);
+            }}
+          }}
+        }}, {{ capture: true, passive: false }});
 
         // Capa Google Relieve (Terrain) oficial de alta definición
         L.tileLayer('https://mt{{s}}.google.com/vt/lyrs=p&x={{x}}&y={{y}}&z={{z}}&key=' + GOOGLE_MAPS_API_KEY, {{
