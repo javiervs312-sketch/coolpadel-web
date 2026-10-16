@@ -230,6 +230,23 @@ def generate_blog_index():
           "name": "Javier Villoria",
           "sameAs": "https://www.linkedin.com/in/javier-villoria-soleto-606737298/"
         }}
+      }},
+      {{
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {{
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Inicio",
+            "item": "https://coolpadelstudios.com/"
+          }},
+          {{
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Blog & Newsletter",
+            "item": "https://coolpadelstudios.com/blog/"
+          }}
+        ]
       }}
     ]
   }}
