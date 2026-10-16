@@ -2073,7 +2073,7 @@ def render_html():
       const ciudadesMap = new Map();
       FRANQUICIAS.forEach(f => {{
         if (f.ciudad_sede && f.ciudad_sede.toLowerCase().includes(q)) {{
-          const rawCities = f.ciudad_sede.split(/[\/,]/).map(c => c.trim()).filter(Boolean);
+          const rawCities = f.ciudad_sede.split(/[\\/,]/).map(c => c.trim()).filter(Boolean);
           rawCities.forEach(cName => {{
             if (cName.toLowerCase().includes(q)) {{
               const key = cName.toLowerCase();
@@ -2441,7 +2441,9 @@ def render_html():
         const matchBudget = (currentBudget === 'all' || cardBudget === currentBudget);
         const matchFacility = (currentFacility === 'all' || cardFacility === currentFacility);
 
-        const textToSearch = `${{f.nombre}} ${{f.pais}} ${{f.ciudad_sede}} ${{f.tagline}} ${{f.modelo}}`.toLowerCase();
+        const subClubsText = (f.sub_clubs || []).map(s => `${{s.nombre || ''}} ${{s.ciudad || ''}}`).join(' ');
+        const sedesText = (f.sedes_principales || []).join(' ');
+        const textToSearch = `${{f.nombre}} ${{f.pais}} ${{f.pais_codigo || ''}} ${{f.ciudad_sede || ''}} ${{f.tagline || ''}} ${{f.modelo || ''}} ${{subClubsText}} ${{sedesText}}`.toLowerCase();
         const matchQuery = !query || textToSearch.includes(query);
 
         const isVisible = matchRegion && matchModel && matchBudget && matchFacility && matchQuery;

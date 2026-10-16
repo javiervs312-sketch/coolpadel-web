@@ -17524,7 +17524,9 @@
         const matchBudget = (currentBudget === 'all' || cardBudget === currentBudget);
         const matchFacility = (currentFacility === 'all' || cardFacility === currentFacility);
 
-        const textToSearch = `${f.nombre} ${f.pais} ${f.ciudad_sede} ${f.tagline} ${f.modelo}`.toLowerCase();
+        const subClubsText = (f.sub_clubs || []).map(s => `${s.nombre || ''} ${s.ciudad || ''}`).join(' ');
+        const sedesText = (f.sedes_principales || []).join(' ');
+        const textToSearch = `${f.nombre} ${f.pais} ${f.pais_codigo || ''} ${f.ciudad_sede || ''} ${f.tagline || ''} ${f.modelo || ''} ${subClubsText} ${sedesText}`.toLowerCase();
         const matchQuery = !query || textToSearch.includes(query);
 
         const isVisible = matchRegion && matchModel && matchBudget && matchFacility && matchQuery;
