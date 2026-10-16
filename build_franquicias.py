@@ -550,7 +550,7 @@ def render_html():
   <main class="flex-1">
 
     <!-- HERO SECTION (PROPORCIONADO, ELEGANTE Y LEGIBLE) -->
-    <section class="pt-8 pb-6 sm:pt-10 sm:pb-8 bg-gradient-to-b from-white via-slate-50 to-[#f8fafc] border-b border-slate-200">
+    <section class="pt-14 pb-8 sm:pt-18 sm:pb-10 lg:pt-20 lg:pb-10 bg-gradient-to-b from-white via-slate-50 to-[#f8fafc] border-b border-slate-200">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
