@@ -1421,21 +1421,14 @@ def get_base_html(active_lang="es", is_subfolder=False):
   </section>
 
   <!-- 8. SECCIÓN CONTACTO (FORMATO ITAC: TARJETAS WHATSAPP Y EMAIL CON CÓDIGOS QR) -->
-  <section id="contacto" class="pt-12 sm:pt-16 lg:pt-20 pb-16 sm:pb-20 lg:pb-24 bg-slate-50 relative border-t border-slate-200 text-slate-900 overflow-hidden">
+  <section id="contacto" class="pt-12 sm:pt-16 lg:pt-20 pb-14 sm:pb-18 bg-slate-50 relative border-t border-slate-200 text-slate-900 overflow-hidden">
     <div class="max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-12 relative z-10">
       
       <!-- CABECERA DE CONTACTO CENTRADA -->
-      <div class="max-w-3xl mx-auto text-center mb-10 sm:mb-14 space-y-3">
-        <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-slate-200/80 border border-slate-300 text-[11px] font-black uppercase tracking-wider text-slate-700">
-          <i data-lucide="message-square" class="w-3.5 h-3.5 text-[#f2920b]"></i>
-          <span>Atención Directa al Club</span>
-        </div>
+      <div class="max-w-3xl mx-auto text-center mb-8 sm:mb-12">
         <h2 data-i18n="contact_title" class="text-2xl sm:text-4xl lg:text-5xl font-black font-heading text-slate-950 uppercase tracking-tight leading-tight">
           {t['contact_title']}
         </h2>
-        <p data-i18n="contact_subtitle" class="text-xs sm:text-sm lg:text-base text-slate-600 font-medium max-w-2xl mx-auto leading-relaxed">
-          {t['contact_subtitle']}
-        </p>
       </div>
 
       <!-- GRID DE TARJETAS DE CONTACTO (WHATSAPP + EMAIL) -->
@@ -1457,10 +1450,6 @@ def get_base_html(active_lang="es", is_subfolder=False):
             
             <p class="font-mono font-bold text-base sm:text-lg text-emerald-600 tracking-wide">
               +34 680 31 74 86
-            </p>
-
-            <p data-i18n="contact_wa_desc" class="text-xs sm:text-sm text-slate-600 leading-relaxed max-w-xs">
-              {t['contact_wa_desc']}
             </p>
 
             <!-- CÓDIGO QR WHATSAPP PARA ESCRITORIO -->
@@ -1505,10 +1494,6 @@ def get_base_html(active_lang="es", is_subfolder=False):
               javier@coolpadelstudios.com
             </p>
 
-            <p data-i18n="contact_mail_desc" class="text-xs sm:text-sm text-slate-600 leading-relaxed max-w-xs">
-              {t['contact_mail_desc']}
-            </p>
-
             <!-- CÓDIGO QR EMAIL PARA ESCRITORIO -->
             <div class="pt-2 pb-1">
               <div class="p-2.5 bg-white border border-slate-200 rounded-2xl shadow-xs inline-block group-hover:border-sky-300 transition">
@@ -1536,48 +1521,49 @@ def get_base_html(active_lang="es", is_subfolder=False):
 
       </div>
 
+    </div>
+  </section>
+
+  <!-- 9. FOOTER INFERIOR (COLOR CELESTE LLAVEROS #3478a6: BRANDING COOLPADEL, ENLACES SEO Y COPYRIGHT) -->
+  <footer class="bg-[#3478a6] text-white pt-12 pb-10 border-t border-sky-700/40 text-xs">
+    <div class="max-w-[1700px] mx-auto px-4 sm:px-8 text-center select-none space-y-6">
+      
       <!-- COOLPADEL BRANDING CENTRAL (MASCOTA + TIPOGRAFÍA) -->
-      <div class="flex items-center justify-center gap-3.5 mt-12 sm:mt-14 pt-8 border-t border-slate-200/80">
+      <div class="flex items-center justify-center gap-3.5">
         <img src="{asset_prefix}assets/images/coolpadel-mascot-hd.png" alt="CoolPadel Mascota" width="60" height="60" class="h-10 sm:h-12 w-auto object-contain drop-shadow-sm" loading="lazy">
         <img src="{asset_prefix}assets/images/coolpadel-typography-hd.png" alt="CoolPadel" width="160" height="32" class="h-5 sm:h-6 w-auto object-contain drop-shadow-sm" loading="lazy">
       </div>
 
-    </div>
-  </section>
+      <nav aria-label="Soluciones y Directorio CoolPadel" class="flex flex-wrap items-center justify-center gap-x-3 gap-y-1.5 text-white/90">
+        <a href="/llaveros-padel-personalizados/" class="hover:text-white underline decoration-white/30 underline-offset-2 transition">Llaveros de Pádel</a>
+        <span class="opacity-40">·</span>
+        <a href="/llaveros-tenis-personalizados/" class="hover:text-white underline decoration-white/30 underline-offset-2 transition">Llaveros de Tenis</a>
+        <span class="opacity-40">·</span>
+        <a href="/welcome-packs-torneos-padel/" class="hover:text-white underline decoration-white/30 underline-offset-2 transition">Welcome Packs Torneos</a>
+        <span class="opacity-40">·</span>
+        <a href="/llaveros-personalizados-clubs-padel/" class="hover:text-white underline decoration-white/30 underline-offset-2 transition">Merchandising Clubs</a>
+        <span class="opacity-40">·</span>
+        <a href="/camaras/" class="hover:text-white underline decoration-white/30 underline-offset-2 transition">Cámaras Save my Play</a>
+        <span class="opacity-40">·</span>
+        <a href="/camaras-grabacion-pistas-padel/" class="hover:text-white underline decoration-white/30 underline-offset-2 transition">Grabación Pistas Pádel</a>
+        <span class="opacity-40">·</span>
+        <a href="/franquicias-padel/" class="hover:text-white underline decoration-white/30 underline-offset-2 transition">Directorio Franquicias Pádel</a>
+        <span class="opacity-40">·</span>
+        <a href="/blog/" class="hover:text-white underline decoration-white/30 underline-offset-2 transition">Blog &amp; Informes</a>
+      </nav>
 
-  <!-- 9. FOOTER INFERIOR OSCURO (ENLACES SEO Y COPYRIGHT) -->
-  <footer class="bg-[#0b1626] text-white py-10 border-t border-slate-800 text-xs">
-    <div class="max-w-[1700px] mx-auto px-4 sm:px-8 text-center select-none space-y-4 text-white/70">
-        <nav aria-label="Soluciones y Directorio CoolPadel" class="flex flex-wrap items-center justify-center gap-x-3 gap-y-1.5">
-          <a href="/llaveros-padel-personalizados/" class="hover:text-white underline decoration-white/30 underline-offset-2 transition">Llaveros de Pádel</a>
-          <span class="opacity-30">·</span>
-          <a href="/llaveros-tenis-personalizados/" class="hover:text-white underline decoration-white/30 underline-offset-2 transition">Llaveros de Tenis</a>
-          <span class="opacity-30">·</span>
-          <a href="/welcome-packs-torneos-padel/" class="hover:text-white underline decoration-white/30 underline-offset-2 transition">Welcome Packs Torneos</a>
-          <span class="opacity-30">·</span>
-          <a href="/llaveros-personalizados-clubs-padel/" class="hover:text-white underline decoration-white/30 underline-offset-2 transition">Merchandising Clubs</a>
-          <span class="opacity-30">·</span>
-          <a href="/camaras/" class="hover:text-white underline decoration-white/30 underline-offset-2 transition">Cámaras Save my Play</a>
-          <span class="opacity-30">·</span>
-          <a href="/camaras-grabacion-pistas-padel/" class="hover:text-white underline decoration-white/30 underline-offset-2 transition">Grabación Pistas Pádel</a>
-          <span class="opacity-30">·</span>
-          <a href="/franquicias-padel/" class="hover:text-white underline decoration-white/30 underline-offset-2 transition">Directorio Franquicias Pádel</a>
-          <span class="opacity-30">·</span>
-          <a href="/blog/" class="hover:text-white underline decoration-white/30 underline-offset-2 transition">Blog &amp; Informes</a>
-        </nav>
-        <div class="flex flex-col sm:flex-row items-center justify-center gap-2 text-white/50">
-          <span id="admin-toggle-trigger" class="hover:text-white/80 transition cursor-pointer" title="Modo Administrador">
-            © 2026 CoolPadel Studios · All rights reserved
-          </span>
-          <span class="hidden sm:inline opacity-30">·</span>
-          <a href="/politica-de-devoluciones.html" class="hover:text-white/80 underline decoration-white/30 underline-offset-2 transition" title="Política de Devoluciones y Garantía">Política de Devoluciones</a>
-          <span class="hidden sm:inline opacity-30">·</span>
-          <a href="https://www.instagram.com/coolpadel_/" target="_blank" rel="noopener noreferrer" class="opacity-50 hover:opacity-90 text-[11px] transition text-white/80" title="Instagram CoolPadel">@coolpadel_</a>
-        </div>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-2 text-white/75">
+        <span id="admin-toggle-trigger" class="hover:text-white/90 transition cursor-pointer" title="Modo Administrador">
+          © 2026 CoolPadel Studios · All rights reserved
+        </span>
+        <span class="hidden sm:inline opacity-40">·</span>
+        <a href="/politica-de-devoluciones.html" class="hover:text-white/90 underline decoration-white/30 underline-offset-2 transition" title="Política de Devoluciones y Garantía">Política de Devoluciones</a>
+        <span class="hidden sm:inline opacity-40">·</span>
+        <a href="https://www.instagram.com/coolpadel_/" target="_blank" rel="noopener noreferrer" class="opacity-75 hover:opacity-100 text-[11px] transition text-white" title="Instagram CoolPadel">@coolpadel_</a>
       </div>
 
     </div>
-  </section>
+  </footer>
 
   <!-- BOTÓN FLOTANTE OFICIAL DE WHATSAPP -->
   <a id="floating-wa-btn" href="https://wa.me/34680317486?text={wa_prefilled_encoded}" 
