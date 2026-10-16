@@ -129,6 +129,121 @@ LANDINGS = [
             ("¿Cómo reciben los jugadores sus jugadas?", "El jugador pulsa el botón tras una jugada y al finalizar el partido escanea el QR en pista para tener el vídeo en su móvil al instante."),
             ("¿Cumple con la normativa RGPD de protección de datos?", "Totalmente. El sistema cumple los estándares europeos de privacidad: los clips se almacenan temporalmente y solo los jugadores que activan su sesión acceden a sus grabaciones.")
         ]
+    },
+    {
+        "slug": "camaras-padel-playtomic",
+        "title": "Cámaras Save my Play para Clubs con Playtomic | Grabación y Streaming",
+        "meta_desc": "Integra cámaras Save my Play en tus pistas de pádel gestionadas con Playtomic. Grabación con pulsador en red, repeticiones QR y monetización sin obras ni permanencia.",
+        "badge": "INTEGRACIÓN PLAYTOMIC & SAVE MY PLAY",
+        "h1": "Cámaras Inteligentes Save my Play para Clubes en Playtomic",
+        "subtitle": "El complemento perfecto para tu gestión en Playtomic: añade grabación de partidos con pulsador en pista, repeticiones instantáneas y streaming en YouTube sin obras ni permanencias.",
+        "hero_img": "assets/images/savemyplay-1.jpg",
+        "hero_img_alt": "Cámaras Save my Play compatibles con pistas Playtomic",
+        "wa_msg": "Hola Javier, gestionamos nuestro club con Playtomic y queremos información de cámaras Save my Play para las pistas",
+        "price_anchor": "Hardware 180 € / pista · Cuota 45 €/mes · 0 permanencia",
+        "target_audience": "Gerentes y directores deportivos de clubes que gestionan sus pistas y reservas con Playtomic.",
+        "benefits": [
+            ("Compatibilidad Total con Playtomic", "No interfiere con tu sistema de reservas. Los jugadores reservan su pista en Playtomic como siempre y disfrutan de grabación HD con pulsador físico."),
+            ("Monetización Complementaria para el Club", "Genera un ingreso extra mensual mediante recargo de reserva, patrocinadores en pantalla o cobro por descarga de clips."),
+            ("Montaje en 5 Minutos sin Obras", "Fijación directa al poste de la pista sin canalizaciones, zanjas ni cortes de juego.")
+        ],
+        "faqs": [
+            ("¿Save my Play requiere modificar la configuración de Playtomic?", "No. El sistema Save my Play opera de forma autónoma en pista. Los jugadores entran a la pista reservada en Playtomic, juegan y pulsan el botón de poste para guardar sus mejores puntos."),
+            ("¿Cómo reciben los jugadores los vídeos si reservan por Playtomic?", "Al terminar el partido, los jugadores escanean el código QR ubicado en el poste de la pista con la cámara de su móvil y descargan sus clips de 25 segundos al instante sin necesidad de registrarse."),
+            ("¿Podemos transmitir torneos organizados en Playtomic en directo por YouTube?", "Sí. La cámara Save my Play emite directamente a YouTube Live en Full HD 1080p, permitiendo añadir marcadores y patrocinadores locales a las finales.")
+        ]
+    },
+    {
+        "slug": "camaras-padel-matchi",
+        "title": "Cámaras Save my Play para Clubes con Matchi | Vídeo y Analítica en Pista",
+        "meta_desc": "Sistema de grabación autónomo Save my Play para instalaciones de pádel con Matchi. Replay instantáneo con QR, 0 obras y hardware en propiedad por 180 €.",
+        "badge": "INTEGRACIÓN MATCHI & SAVE MY PLAY",
+        "h1": "Grabación en Pista y Replay para Clubes que Usan Matchi",
+        "subtitle": "Equipa tus pistas Matchi con la tecnología Save my Play. Descarga de mejores jugadas por código QR sin necesidad de descargar apps pesadas ni contratos de permanencia.",
+        "hero_img": "assets/images/savemyplay-2.jpg",
+        "hero_img_alt": "Sistema de cámaras Save my Play para clubes que usan Matchi",
+        "wa_msg": "Hola Javier, usamos Matchi en nuestro club y queremos poner cámaras Save my Play en las pistas",
+        "price_anchor": "Hardware 180 € / pista · Software desde 45 €/mes · Sin permanencia",
+        "target_audience": "Operadores y clubes en España, Suecia, Noruega y Reino Unido que gestionan sus pistas con la plataforma Matchi.",
+        "benefits": [
+            ("Fácil Adopción Internacional", "Especialmente pensado para clubes con Matchi y público multicultural: el código QR abre un visor web instantáneo en cualquier idioma sin apps."),
+            ("0 Obras y Fijación Universal", "Compatible con todas las estructuras de pista habituales en clubes Matchi (panorámicas, de marco o muro)."),
+            ("Flexibilidad Contractual", "Sin permanencias de 3 a 5 años como otros sistemas tradicionales de cámaras. Pruébalo y mantén el control.")
+        ],
+        "faqs": [
+            ("¿Funciona en clubes Matchi con acceso automatizado 24/7?", "Sí, Save my Play está diseñado para operar de forma 100% autónoma. La cámara se enciende y graba automáticamente sin requerir personal de recepción."),
+            ("¿Qué conexión a Internet necesita cada pista?", "Solo requiere cobertura Wi-Fi estándar o conexión Ethernet y una toma de 220V. La cámara gestiona localmente el buffer y sube los clips a la nube de forma segura."),
+            ("¿Podemos usar los vídeos para clases de los monitores del club?", "Totalmente. Los entrenadores utilizan el Plan B o Plan A para repasar golpes en cámara lenta con sus alumnos en clinics matinales.")
+        ]
+    },
+    {
+        "slug": "camaras-padel-resasports",
+        "title": "Cámaras Save my Play y Resasports | Automatización de Vídeo para Pistas",
+        "meta_desc": "Automatización de grabación para centros deportivos y clubes con software Resasports. Instalación en 5 minutos, pulsador en red y tarifa plana sin permanencia.",
+        "badge": "INTEGRACIÓN RESASPORTS & SAVE MY PLAY",
+        "h1": "Grabación Inteligente en Pista para Clubes con Resasports",
+        "subtitle": "Potencia la experiencia de tus abonados en Resasports con repetición instantánea en pista, retransmisión por YouTube y cero costes de obra civil.",
+        "hero_img": "assets/images/savemyplay-3.jpg",
+        "hero_img_alt": "Cámaras Save my Play para instalaciones deportivas con Resasports",
+        "wa_msg": "Hola Javier, gestionamos nuestro centro con Resasports y nos interesa la grabación Save my Play",
+        "price_anchor": "Hardware 180 € / pista · Cuota 45 €/mes · Cero obras",
+        "target_audience": "Centros municipales, clubes de tenis/pádel y complejos deportivos que operan con Resasports.",
+        "benefits": [
+            ("Cero Obra Civil en Instalaciones Públicas o Concesionales", "No requiere permisos de obra ni zanjas en pistas existentes. Se sujeta con fijación homologada al poste."),
+            ("Cumplimiento RGPD Estricto", "Ideal para polideportivos y clubes con exigencias legales estrictas: buffer cerrado y borrado programado."),
+            ("Económico y Sostenible", "Hardware de solo 180 € en propiedad frente a presupuestos de más de 2.500 € por pista de otras soluciones.")
+        ],
+        "faqs": [
+            ("¿Es apto para concesiones administrativas y polideportivos?", "Sí. Al no requerir obra civil ni modificar la estructura de la pista, se aprueba con máxima agilidad en instalaciones públicas o concesionales."),
+            ("¿Cómo se garantiza la privacidad de los menores en la instalación?", "El sistema solo almacena el clip de 25 segundos cuando el jugador acciona el pulsador voluntariamente en la red, evitando la grabación indiscriminada continua."),
+            ("¿Cuánto tiempo tarda la instalación en varias pistas?", "Al tardar solo 5 minutos por pista, un club de 6 pistas queda completamente equipado y funcionando en menos de una mañana.")
+        ]
+    },
+    {
+        "slug": "camaras-padel-madrid",
+        "title": "Cámaras para Pistas de Pádel en Madrid | Save my Play sin Obras",
+        "meta_desc": "Instalación de cámaras inteligentes Save my Play en Madrid: Pozuelo, Alcobendas, Las Rozas, Majadahonda, La Moraleja. Grabación HD en 5 min, sin obras ni permanencia.",
+        "badge": "COMUNIDAD DE MADRID · SAVE MY PLAY",
+        "h1": "Cámaras Inteligentes para Pistas de Pádel en Madrid",
+        "subtitle": "La tecnología en pista que eligen clubes referentes en la Comunidad de Madrid: grabación de partidos, pulsador en poste y retransmisión por YouTube sin cables ni zanjas.",
+        "hero_img": "assets/images/savemyplay-1.jpg",
+        "hero_img_alt": "Cámaras para pistas de pádel en clubes de Madrid",
+        "wa_msg": "Hola Javier, tenemos pistas de pádel en Madrid y queremos presupuesto para cámaras Save my Play",
+        "price_anchor": "Visita y demo presencial en Madrid · 180 € hardware · 45 €/mes",
+        "target_audience": "Directores de clubes de pádel, complejos indoor y urbanizaciones de la Comunidad de Madrid.",
+        "benefits": [
+            ("Soporte y Demostración Presencial en Madrid", "Sede de CoolPadel Studios en Madrid: podemos visitarte y hacer una demostración real en tus instalaciones."),
+            ("Ideal para Naves Indoor y Urbanizaciones", "Montaje limpio sin rozas ni cableado que interfiera con la iluminación o la insonorización de naves industriales."),
+            ("Amortización Rápida con Socios de Madrid", "Alta demanda de contenidos para redes sociales entre jugadores y ligas corporativas madrileñas.")
+        ],
+        "faqs": [
+            ("¿En qué zonas de Madrid ofrecéis servicio e instalación?", "Damos cobertura completa a toda la Comunidad de Madrid: Madrid Capital, Pozuelo de Alarcón, Las Rozas, Majadahonda, Alcobendas, San Sebastián de los Reyes, Boadilla del Monte, Getafe, Leganés, Alcorcón, etc."),
+            ("¿Podéis venir a enseñarnos el sistema antes de contratar?", "Por supuesto. Coordinamos una visita de 20 minutos con Javier Villoria para que conozcas la cámara, el pulsador y la calidad de la lente deportiva."),
+            ("¿Cómo funciona en pistas de urbanizaciones privadas en Madrid?", "Se puede instalar en urbanizaciones que deseen ofrecer valor añadido a sus vecinos, controlando el acceso mediante pulsador o QR.")
+        ]
+    },
+    {
+        "slug": "camaras-padel-barcelona",
+        "title": "Càmeres per a Pistes de Pàdel a Barcelona | Save my Play",
+        "meta_desc": "Cámaras autónomas para pistas de pádel en Barcelona y Cataluña (Hospitalet, Sant Cugat, Badalona, Sabadell). Grabación con pulsador en red y streaming sin obras.",
+        "badge": "BARCELONA & CATALUNYA · SAVE MY PLAY",
+        "h1": "Cámaras y Grabación de Partidos de Pádel en Barcelona",
+        "subtitle": "La solución de vídeo más ágil para clubes indoor y outdoor en Barcelona y Cataluña: repetición instantánea en móvil, retransmisión de torneos y cero permanencia.",
+        "hero_img": "assets/images/savemyplay-2.jpg",
+        "hero_img_alt": "Cámaras Save my Play para pistas de pádel en Barcelona y Cataluña",
+        "wa_msg": "Hola Javier, tenemos un club de pádel en Barcelona y queremos presupuesto para cámaras Save my Play",
+        "price_anchor": "Hardware 180 € / pista · Software 45 €/mes · Envíos inmediatos",
+        "target_audience": "Gerentes y clubes de pádel en Barcelona, área metropolitana y provincias de Girona, Tarragona y Lleida.",
+        "benefits": [
+            ("Retransmisión de Circuitos y Ligas Catalanas", "Emite en directo por YouTube con marcadores las fases finales de torneos catalanes federados y sociales."),
+            ("Resistencia a Ambientes Costeros e Indoor", "Carcasa sellada IP resistente a la humedad marina y condensación habitual en centros deportivos del litoral."),
+            ("Autonomía 100% Digital", "Los jugadores descargan en segundos escaneando el código QR con cualquier smartphone.")
+        ],
+        "faqs": [
+            ("¿En qué municipios de Barcelona dais cobertura?", "Enviamos e instalamos en Barcelona capital, Hospitalet de Llobregat, Badalona, Sant Cugat del Vallès, Sabadell, Terrassa, Mataró, Cornellà, Castelldefels y toda Cataluña."),
+            ("¿Cuánto tarda el envío y puesta en marcha?", "Enviamos el equipo configurado en 48 horas. Solo necesitas atornillar la fijación al poste (5 minutos) y conectar a 220V."),
+            ("¿Se pueden personalizar los vídeos con el escudo del club catalán?", "Sí, cada clip descargado o emitido en streaming incluye el logo oficial del club y de los patrocinadores locales.")
+        ]
     }
 ]
 
