@@ -115,7 +115,7 @@ TRANSLATIONS = {
         "popup_btn_success": "¡Descargando Informe!",
 
         # Contacto & WhatsApp / Email (Estilo ITAC con QR)
-        "contact_title": "Contáctanos y hablemos de tu club",
+        "contact_title": "Contáctanos",
         "contact_subtitle": "",
         "contact_wa_title": "WhatsApp Directo",
         "contact_wa_desc": "",
@@ -240,7 +240,7 @@ TRANSLATIONS = {
         "popup_btn_success": "Downloading Report!",
 
         # Contacto & WhatsApp / Email (ITAC Style with QR)
-        "contact_title": "Contact Us & Let's Talk About Your Club",
+        "contact_title": "Contact Us",
         "contact_subtitle": "",
         "contact_wa_title": "Direct WhatsApp",
         "contact_wa_desc": "",
@@ -365,7 +365,7 @@ TRANSLATIONS = {
         "popup_btn_success": "Téléchargement en cours !",
 
         # Contacto & WhatsApp / Email (Style ITAC avec QR)
-        "contact_title": "Contactez-nous pour votre club",
+        "contact_title": "Contactez-nous",
         "contact_subtitle": "",
         "contact_wa_title": "WhatsApp Direct",
         "contact_wa_desc": "",
@@ -490,7 +490,7 @@ TRANSLATIONS = {
         "popup_btn_success": "Download in corso!",
 
         # Contacto & WhatsApp / Email (Stile ITAC con QR)
-        "contact_title": "Contattaci per il tuo Club",
+        "contact_title": "Contattaci",
         "contact_subtitle": "",
         "contact_wa_title": "WhatsApp Diretto",
         "contact_wa_desc": "",

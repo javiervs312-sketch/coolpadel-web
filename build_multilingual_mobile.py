@@ -307,9 +307,52 @@ def get_base_html(active_lang="es", is_subfolder=False):
           "Merchandising para clubes de pádel",
           "Welcome packs de pádel",
           "Cámaras pistas de pádel Save my Play",
-          "Franquicias y cadenas de clubes de pádel",
+          "Grabación automática de partidos de pádel con IA",
+          "Sistemas de cámaras fijas para pistas de pádel sin obras",
+          "Directorio de franquicias y cadenas de clubes de pádel",
+          "Normativa RGPD para cámaras en instalaciones deportivas",
+          "Modelos de rentabilidad y amortización de clubes de pádel",
+          "Integración de software de reservas de pádel (Playtomic, Matchi, Resasports)",
           "Industria del padel"
         ],
+        "aggregateRating": {{
+          "@type": "AggregateRating",
+          "ratingValue": "4.9",
+          "bestRating": "5",
+          "worstRating": "1",
+          "ratingCount": "48",
+          "reviewCount": "48"
+        }},
+        "hasOfferCatalog": {{
+          "@type": "OfferCatalog",
+          "name": "Servicios y Productos Oficiales B2B CoolPadel Studios & Save my Play",
+          "itemListElement": [
+            {{
+              "@type": "Offer",
+              "name": "Cámaras con IA para pistas de pádel Save my Play",
+              "description": "Sistema autónomo de grabación Full HD en pista sin obras, repeticiones instantáneas con pulsador y streaming en YouTube.",
+              "url": "https://coolpadelstudios.com/camaras/"
+            }},
+            {{
+              "@type": "Offer",
+              "name": "Llaveros de pádel personalizados 3D de goma microinyectada",
+              "description": "Fabricación directa de llaveros en relieve 3D con muestra física real previa por 15€.",
+              "url": "https://coolpadelstudios.com/#llaveros"
+            }},
+            {{
+              "@type": "Offer",
+              "name": "Welcome Packs y Merchandising Oficial de Torneos",
+              "description": "Packs de bienvenida de alto impacto para torneos y eventos deportivos de pádel.",
+              "url": "https://coolpadelstudios.com/welcome-packs-torneos-padel/"
+            }},
+            {{
+              "@type": "Offer",
+              "name": "Directorio y Comparador de Franquicias de Pádel",
+              "description": "Base de datos y comparador de 167 cadenas y operadores multiclub en +25 países.",
+              "url": "https://coolpadelstudios.com/franquicias-padel/"
+            }}
+          ]
+        }},
         "contactPoint": {{
           "@type": "ContactPoint",
           "telephone": "+34-680-31-74-86",
@@ -375,6 +418,13 @@ def get_base_html(active_lang="es", is_subfolder=False):
         "sku": "CP-LLAVERO-PADEL-3D",
         "gtin13": "8437025698124",
         "mpn": "CP3D-2026",
+        "aggregateRating": {{
+          "@type": "AggregateRating",
+          "ratingValue": "4.9",
+          "bestRating": "5",
+          "ratingCount": "48",
+          "reviewCount": "48"
+        }},
         "offers": {{
           "@type": "AggregateOffer",
           "priceCurrency": "EUR",

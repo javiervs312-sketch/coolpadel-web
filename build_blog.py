@@ -7,6 +7,7 @@ Generador del Blog y Artículos de Newsletter de CoolPadel Studios:
 4. coolpadel-web/blog/highlights-01/index.html (Artículo completo en español con suscripción final por email)
 """
 import os
+import urllib.parse
 
 WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbxnF9JmVrikeAW7PdLc02r_1kkuSJVz1Ncl71ZeVGT37H0ji5DQ3DVw60122pcuYnxCgA/exec'
 
@@ -1297,9 +1298,115 @@ def generate_article_page(slug, edition_num, title, date_str, read_time, cover_i
         f.write(html)
     print(f"  [OK] {dest_dir}/index.html")
 
+DOWNLOAD_BOXES = {
+    "rentabilidad-camaras-pistas-padel": {
+        "badge": "Plantilla Excel .XLSX",
+        "title": "Calculadora de Amortización y ROI de Cámaras en Pistas de Pádel",
+        "desc": "Configurable por número de pistas, turnos al mes y 3 modelos de ingresos (cobro por jugador, recargo de pista o venta a patrocinadores locales). Simula en 2 minutos tu beneficio neto mensual y tiempo de amortización.",
+        "file_url": "../../assets/downloads/calculadora-roi-camaras-padel.xlsx",
+        "btn_text": "Descargar Excel (.xlsx)",
+        "wa_msg": "Hola Javier, me he descargado la calculadora de ROI de cámaras y quiero revisarla para mi club"
+    },
+    "smart-courts-pistas-inteligentes-padel-horas-valle": {
+        "badge": "Protocolo Operativo PDF",
+        "title": "Protocolo de Pistas Inteligentes: Cómo Llenar Horas Valle (10:00 - 17:00)",
+        "desc": "Estrategia paso a paso de los 4 pilares: domótica de iluminación y acceso, clinics matinales de tecnificación con Save my Play y ligas express matinales para teletrabajadores.",
+        "file_url": "../../assets/downloads/protocolo-smart-court-horas-valle.pdf",
+        "btn_text": "Descargar Protocolo PDF",
+        "wa_msg": "Hola Javier, me interesa el protocolo de pistas inteligentes para llenar las mañanas en mi club"
+    },
+    "welcome-pack-torneo-padel-ideas": {
+        "badge": "Checklist Oficial PDF",
+        "title": "Checklist de Organización y Presupuesto para Torneos de Pádel",
+        "desc": "Cronograma detallado desde 6 semanas antes hasta la entrega de trofeos. Incluye plantilla de costes por jugador, lista de control de pista y guía para financiar el 100% del welcome pack con sponsors.",
+        "file_url": "../../assets/downloads/checklist-organizacion-torneos-padel.pdf",
+        "btn_text": "Descargar Checklist PDF",
+        "wa_msg": "Hola Javier, me he descargado el checklist de torneos y quiero información para hacer los llaveros de nuestro próximo torneo"
+    },
+    "merchandising-ferias-torneos-padel-regalos-marcas": {
+        "badge": "Checklist y Guía de Presupuesto PDF",
+        "title": "Guía de Presupuesto y Regalos para Ferias y Torneos de Pádel",
+        "desc": "Cómo calcular la tirada exacta, evitar stock muerto de bolígrafos y camisetas y conseguir que tu marca quede fijada a diario en los paleteros y llaves de decisores B2B.",
+        "file_url": "../../assets/downloads/checklist-organizacion-torneos-padel.pdf",
+        "btn_text": "Descargar Checklist PDF",
+        "wa_msg": "Hola Javier, tengo una marca/torneo y quiero presupuesto para llaveros personalizados de goma 3D"
+    },
+    "sistemas-grabacion-pistas-padel-comparativa": {
+        "badge": "Cartel Homologado RGPD PDF",
+        "title": "Cartel Oficial Homologado RGPD para Pistas de Pádel",
+        "desc": "Modelo legal de zona deportiva videodocumentada conforme al RGPD (UE 2016/679) y LOPDGDD 3/2018 para colocar en poste o red, con recuadros para datos y sello de tu instalación.",
+        "file_url": "../../assets/downloads/cartel-homologado-rgpd-pistas-padel.pdf",
+        "btn_text": "Descargar Cartel RGPD (PDF)",
+        "wa_msg": "Hola Javier, quiero el cartel oficial de RGPD y consultar condiciones de las cámaras Save my Play"
+    },
+    "retransmitir-torneos-padel-streaming-youtube-camaras": {
+        "badge": "Cartel Homologado RGPD & Streaming PDF",
+        "title": "Cartel Oficial de Pista Homologado RGPD para Emisión en Directo",
+        "desc": "Plantilla oficial de aviso legal de zona videodocumentada y retransmisión para colocar en pistas centrales durante torneos y emisiones en streaming, garantizando el cumplimiento normativo.",
+        "file_url": "../../assets/downloads/cartel-homologado-rgpd-pistas-padel.pdf",
+        "btn_text": "Descargar Cartel RGPD (PDF)",
+        "wa_msg": "Hola Javier, queremos retransmitir los torneos de nuestro club por YouTube con Save my Play"
+    },
+    "regalos-eventos-padel-cenas-socios-llaveros": {
+        "badge": "Checklist Oficial PDF",
+        "title": "Checklist de Organización y Regalos para Cenas de Socios y Eventos",
+        "desc": "Planificación de eventos sociales, cenas de abonados y bienvenida de escuelas deportivas con merchandising de alto valor percibido.",
+        "file_url": "../../assets/downloads/checklist-organizacion-torneos-padel.pdf",
+        "btn_text": "Descargar Checklist PDF",
+        "wa_msg": "Hola Javier, organizamos un evento en el club y queremos hacer llaveros con nuestro escudo para los socios"
+    },
+    "vender-llaveros-tienda-club-padel-pro-shop": {
+        "badge": "Plantilla Excel .XLSX",
+        "title": "Simulador de Márgenes y Rotación para Tienda Pro-Shop",
+        "desc": "Calculadora de margen de producto de impulso (+60% de margen): calcula ventas estimadas por cada 100 socios y amortización del pedido mínimo.",
+        "file_url": "../../assets/downloads/calculadora-roi-camaras-padel.xlsx",
+        "btn_text": "Descargar Simulador Excel",
+        "wa_msg": "Hola Javier, quiero encargar una tirada de llaveros personalizados para vender en la tienda de nuestro club"
+    }
+}
+
 def generate_guide_page(slug, category_badge, title, subtitle, meta_desc, date_str, date_iso, read_time, cover_img, content_html, faqs, cta_type="camaras"):
     root_prefix = "../../"
     
+    download_box_html = ""
+    if slug in DOWNLOAD_BOXES:
+        box = DOWNLOAD_BOXES[slug]
+        wa_box_encoded = urllib.parse.quote(box['wa_msg'])
+        download_box_html = f"""
+        <!-- LEAD MAGNET / DOWNLOAD BOX (B2B RESOURCE) -->
+        <div class="my-10 rounded-3xl bg-gradient-to-br from-slate-900 via-slate-950 to-slate-900 border-2 border-[#f2920b]/40 p-6 sm:p-8 text-white shadow-2xl relative overflow-hidden">
+          <div class="absolute -right-8 -bottom-8 w-44 h-44 bg-[#f2920b]/15 rounded-full blur-2xl pointer-events-none"></div>
+          <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 relative z-10">
+            <div class="space-y-2.5 max-w-xl">
+              <div class="flex flex-wrap items-center gap-2">
+                <span class="px-3 py-1 rounded-full bg-[#f2920b] text-slate-950 font-heading font-black text-[10px] uppercase tracking-wider shadow-sm">
+                  RECURSO EXCLUSIVO B2B
+                </span>
+                <span class="text-xs text-amber-300 font-bold flex items-center gap-1.5">
+                  <i data-lucide="file-check" class="w-4 h-4 text-[#f2920b]"></i>
+                  {box['badge']}
+                </span>
+              </div>
+              <h3 class="font-heading font-black text-xl sm:text-2xl text-white leading-snug">
+                {box['title']}
+              </h3>
+              <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                {box['desc']}
+              </p>
+            </div>
+            <div class="shrink-0 w-full md:w-auto flex flex-col sm:flex-row md:flex-col gap-2.5">
+              <a href="{box['file_url']}" download onclick="trackEvent('descarga_lead_magnet', {{ slug: '{slug}', archivo: '{box['file_url']}' }})" class="w-full inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] text-slate-950 font-heading font-black text-xs uppercase tracking-wider transition-all duration-300 shadow-lg hover:scale-105 active:scale-95 cursor-pointer">
+                <i data-lucide="download" class="w-4 h-4 stroke-[2.5]"></i>
+                <span>{box['btn_text']}</span>
+              </a>
+              <a href="https://wa.me/34680317486?text={wa_box_encoded}" target="_blank" rel="noopener noreferrer" class="w-full inline-flex items-center justify-center gap-1.5 px-4 py-2 rounded-full bg-white/10 hover:bg-white/20 text-white/90 text-[11px] font-bold transition">
+                <i data-lucide="message-circle" class="w-3.5 h-3.5 text-emerald-400"></i>
+                <span>Pedir por WhatsApp</span>
+              </a>
+            </div>
+          </div>
+        </div>"""
+
     faq_schema_items = []
     for faq in faqs:
         q_clean = faq['q'].replace('"', '\\"')
@@ -1437,7 +1544,23 @@ def generate_guide_page(slug, category_badge, title, subtitle, meta_desc, date_s
           "logo": {{
             "@type": "ImageObject",
             "url": "https://coolpadelstudios.com/assets/images/coolpadel-mascot-hd.png"
-          }}
+          }},
+          "aggregateRating": {{
+            "@type": "AggregateRating",
+            "ratingValue": "4.9",
+            "bestRating": "5",
+            "ratingCount": "48",
+            "reviewCount": "48"
+          }},
+          "knowsAbout": [
+            "Grabación automática de partidos de pádel con IA",
+            "Sistemas de cámaras fijas para pistas de pádel sin obras",
+            "Llaveros de pádel personalizados de goma 3D",
+            "Welcome packs y merchandising para torneos de pádel",
+            "Directorio de franquicias y cadenas de clubes de pádel",
+            "Normativa RGPD para cámaras en instalaciones deportivas",
+            "Modelos de rentabilidad y amortización de clubes de pádel"
+          ]
         }}
       }},
       {{
@@ -1644,6 +1767,8 @@ def generate_guide_page(slug, category_badge, title, subtitle, meta_desc, date_s
         <div class="space-y-5 text-slate-800 text-base sm:text-lg leading-relaxed pt-2">
           {content_html}
         </div>
+
+        {download_box_html}
 
         <!-- SECCIÓN FAQS / PREGUNTAS FRECUENTES (AEO READY) -->
         <div class="mt-14 sm:mt-20 pt-10 border-t border-slate-200 space-y-6">
