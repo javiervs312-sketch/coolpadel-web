@@ -249,7 +249,7 @@ def generate_blog_index():
             <a href="../" class="group py-1 inline-flex items-center shrink-0">
               <img src="../assets/images/eyes-thumb.png?v=fixed_eyes" alt="CoolPadel Eyes" style="height: 24px; max-height: 24px; width: auto;" class="object-contain group-hover:scale-110 transition duration-300">
             </a>
-            <div class="flex-1 flex items-center justify-center min-w-0 gap-3.5 lg:gap-6 pl-4 lg:pl-8">
+            <div class="flex-1 flex items-center justify-center min-w-0 gap-5 sm:gap-6 lg:gap-9 xl:gap-11 pl-2 sm:pl-4 lg:pl-6">
               <a href="../#llaveros" class="font-heading font-black text-xs lg:text-[13px] tracking-wider uppercase text-slate-950 hover:text-[#f2920b] transition select-none whitespace-nowrap">
                 Llaveros
               </a>
@@ -330,7 +330,7 @@ def generate_blog_index():
           </div>
           <!-- FILA 2: LLAVEROS + CÁMARAS PISTAS + BLOG + CADENAS DE CLUBS + IDIOMA + CONTACTAR -->
           <div class="flex items-center justify-between w-full gap-1 pt-1 border-t border-slate-100 px-1 overflow-x-auto">
-            <div class="flex items-center gap-2 shrink-0">
+            <div class="flex items-center gap-3.5 sm:gap-4 shrink-0">
               <a href="../#llaveros" class="font-heading font-black text-[10px] tracking-wider uppercase text-slate-950 hover:text-[#f2920b] transition whitespace-nowrap">
                 Llaveros
               </a>
@@ -669,7 +669,7 @@ def generate_article_page(slug, edition_num, title, date_str, read_time, cover_i
             <a href="../../" class="group py-1 inline-flex items-center shrink-0">
               <img src="../../assets/images/eyes-thumb.png?v=fixed_eyes" alt="CoolPadel Eyes" style="height: 24px; max-height: 24px; width: auto;" class="object-contain group-hover:scale-110 transition duration-300">
             </a>
-            <div class="flex-1 flex items-center justify-center min-w-0 gap-3.5 lg:gap-6 pl-4 lg:pl-8">
+            <div class="flex-1 flex items-center justify-center min-w-0 gap-5 sm:gap-6 lg:gap-9 xl:gap-11 pl-2 sm:pl-4 lg:pl-6">
               <a href="../../#llaveros" class="font-heading font-black text-xs lg:text-[13px] tracking-wider uppercase text-slate-950 hover:text-[#f2920b] transition select-none whitespace-nowrap">
                 Llaveros
               </a>
@@ -750,7 +750,7 @@ def generate_article_page(slug, edition_num, title, date_str, read_time, cover_i
           </div>
           <!-- FILA 2: LLAVEROS + CÁMARAS PISTAS + BLOG + CADENAS DE CLUBS + IDIOMA + CONTACTAR -->
           <div class="flex items-center justify-between w-full gap-1 pt-1 border-t border-slate-100 px-1 overflow-x-auto">
-            <div class="flex items-center gap-2 shrink-0">
+            <div class="flex items-center gap-3.5 sm:gap-4 shrink-0">
               <a href="../../#llaveros" class="font-heading font-black text-[10px] tracking-wider uppercase text-slate-950 hover:text-[#f2920b] transition whitespace-nowrap">
                 Llaveros
               </a>
