@@ -134,11 +134,14 @@ function doPost(e) {
 
     const sessionId = (data.session_id || "").trim();
     
+    // Si la visita es del Administrador (Javier), ignorar para no registrar visitas propias en el Sheet
+    if (data.es_admin) {
+      return ContentService.createTextOutput(JSON.stringify({ status: "ignored_admin", message: "Visita de admin ignorada" })).setMimeType(ContentService.MimeType.JSON);
+    }
+    
     // Lead / Club: EN BLANCO si es anónimo o no se sabe quién es
     let leadLabel = "";
-    if (data.es_admin) {
-      leadLabel = "Javier (Admin)";
-    } else if (data.lead_name && data.lead_tel) {
+    if (data.lead_name && data.lead_tel) {
       leadLabel = data.lead_name + " (" + data.lead_tel + ")";
     } else if (data.lead_name) {
       leadLabel = data.lead_name;

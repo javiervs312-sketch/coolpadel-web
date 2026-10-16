@@ -3018,6 +3018,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
 
     // 7. Función Central de Envío de Analítica
     function trackEvent(eventName, extraData = {{}}) {{
+      if (isAdmin) return; // Si es Javier (Admin), no registrar visitas propias en Analítica Web
       if (!GOOGLE_SHEETS_WEBHOOK_URL) return;
       try {{
         const dev = getDeviceInfo();
