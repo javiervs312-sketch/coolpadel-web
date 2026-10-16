@@ -2952,6 +2952,12 @@ def build_all():
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://coolpadelstudios.com/camaras-grabacion-pistas-padel/</loc>
+    <lastmod>{today_iso}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
     <loc>https://coolpadelstudios.com/llaveros-padel-personalizados/</loc>
     <lastmod>{today_iso}</lastmod>
     <changefreq>weekly</changefreq>
@@ -3019,23 +3025,23 @@ def build_all():
     <atom:link href="https://coolpadelstudios.com/rss.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Llaveros de Pádel Personalizados para Clubs con Logo Oficial en Relieve 3D</title>
-      <link>https://coolpadelstudios.com/#llaveros</link>
-      <guid>https://coolpadelstudios.com/#llaveros</guid>
+      <link>https://coolpadelstudios.com/llaveros-padel-personalizados/</link>
+      <guid>https://coolpadelstudios.com/llaveros-padel-personalizados/</guid>
       <description>Fabricación de llaveros de pádel de goma 3D personalizados desde 100 unidades con diseño 3D gratis y muestra previa por 15€.</description>
       <pubDate>Fri, 18 Sep 2026 10:00:00 +0200</pubDate>
     </item>
     <item>
-      <title>Padel World Summit 2026: Startup Recap por Javier Villoria</title>
-      <link>https://coolpadelstudios.com/blog/</link>
-      <guid>https://coolpadelstudios.com/blog/#pws-2026</guid>
+      <title>Highlights #01: Padel World Summit 2026 - Startup Recap por Javier Villoria</title>
+      <link>https://coolpadelstudios.com/blog/highlights-01/</link>
+      <guid>https://coolpadelstudios.com/blog/highlights-01/</guid>
       <description>Conversaciones una a una con las 20 startups del Innovation Arena: la realidad del mercado de raqueta y cómo diferenciarse.</description>
       <pubDate>Wed, 14 Oct 2026 10:00:00 +0200</pubDate>
     </item>
     <item>
-      <title>Informe Oficial Industria del Pádel 2026</title>
-      <link>https://coolpadelstudios.com/blog/</link>
-      <guid>https://coolpadelstudios.com/blog/#informe</guid>
-      <description>Descarga gratuita del reporte con tendencias, clubes inteligentes y expansión internacional de pádel.</description>
+      <title>Highlights #03: ¿Cómo crece realmente la industria del pádel?</title>
+      <link>https://coolpadelstudios.com/blog/highlights-03/</link>
+      <guid>https://coolpadelstudios.com/blog/highlights-03/</guid>
+      <description>Análisis del crecimiento de oferta y demanda en la industria del pádel, academias y modelos de negocio de clubes.</description>
       <pubDate>Wed, 14 Oct 2026 10:00:00 +0200</pubDate>
     </item>
   </channel>
