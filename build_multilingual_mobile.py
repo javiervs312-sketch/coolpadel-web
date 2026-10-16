@@ -1250,8 +1250,8 @@ def get_base_html(active_lang="es", is_subfolder=False):
       <!-- GRID DESKTOP LADO A LADO: TARJETAS FOTOS (IZQ) Y CALCULADORA (DCHA) -->
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-6 items-stretch">
         
-        <!-- COLUMNA IZQUIERDA: 2 TARJETAS (TENIS & PADEL) EN SUBGRID -->
-        <div class="lg:col-span-5 grid grid-cols-2 gap-3 h-full">
+        <!-- COLUMNA IZQUIERDA: 2 TARJETAS (TENIS & PADEL) MÁS GRANDES EN SUBGRID -->
+        <div class="lg:col-span-7 grid grid-cols-2 gap-3 sm:gap-4 h-full">
           <!-- CARD IZQUIERDA: TENIS -->
           <a href="/llaveros-tenis-personalizados/" class="bg-white border border-slate-200/90 rounded-2xl p-3 sm:p-4 shadow-md hover:shadow-xl transition-all duration-300 group flex flex-col justify-between hover:-translate-y-0.5">
             <div class="aspect-[4/3] rounded-xl overflow-hidden mb-2 bg-slate-100 shadow-sm border border-slate-200/90">
@@ -1273,8 +1273,8 @@ def get_base_html(active_lang="es", is_subfolder=False):
           </a>
         </div>
 
-        <!-- COLUMNA DERECHA: CALCULADORA DE PRESUPUESTO OFICIAL (COMPACTA) -->
-        <div class="lg:col-span-7 bg-white rounded-2xl p-4 sm:p-5 border border-white/60 shadow-xl text-slate-950 flex flex-col justify-between">
+        <!-- COLUMNA DERECHA: CALCULADORA DE PRESUPUESTO OFICIAL (UN 20% MÁS ESTRECHA) -->
+        <div class="lg:col-span-5 bg-white rounded-2xl p-4 sm:p-5 border border-white/60 shadow-xl text-slate-950 flex flex-col justify-between">
           <div class="text-center sm:text-left mb-2">
             <h3 data-i18n="calc_title" class="text-base sm:text-xl font-black font-heading text-slate-950">
               {t['calc_title']}
@@ -1494,114 +1494,114 @@ def get_base_html(active_lang="es", is_subfolder=False):
       </div>
 
       <!-- ACORDEÓN DE PREGUNTAS (10 PREGUNTAS EN 2 COLUMNAS COMPACTAS) -->
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-2 sm:gap-2.5" id="faq-accordion">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-2.5 sm:gap-3" id="faq-accordion">
         
         <!-- PREGUNTA 1: PROCESO -->
         <div class="faq-item bg-white border border-slate-200/90 rounded-xl overflow-hidden shadow-2xs transition-all duration-200">
-          <button type="button" onclick="toggleFaq(this)" class="w-full px-3.5 sm:px-4 py-2 sm:py-2.5 flex items-center justify-between text-left font-sans font-bold text-xs sm:text-[13px] text-slate-900 hover:text-[#f2920b] transition gap-2 cursor-pointer">
+          <button type="button" onclick="toggleFaq(this)" class="w-full px-4 sm:px-4.5 py-2.5 sm:py-3 flex items-center justify-between text-left font-sans font-bold text-sm sm:text-[15px] text-slate-900 hover:text-[#f2920b] transition gap-2 cursor-pointer">
             <span data-i18n="faq_q1">{t['faq_q1']}</span>
-            <i data-lucide="chevron-down" class="faq-icon w-4 h-4 stroke-[2.5] text-slate-400 shrink-0 transition-transform duration-300"></i>
+            <i data-lucide="chevron-down" class="faq-icon w-4.5 h-4.5 stroke-[2.5] text-slate-400 shrink-0 transition-transform duration-300"></i>
           </button>
-          <div class="faq-answer hidden px-3.5 sm:px-4 pb-3 pt-1.5 text-slate-700 text-xs sm:text-[13px] font-normal leading-relaxed border-t border-slate-100">
+          <div class="faq-answer hidden px-4 sm:px-4.5 pb-3.5 pt-1.5 text-slate-700 text-sm sm:text-[15px] font-normal leading-relaxed border-t border-slate-100">
             <p data-i18n="faq_a1">{t['faq_a1']}</p>
           </div>
         </div>
 
         <!-- PREGUNTA 2: PEDIDO MÍNIMO Y PLAZOS -->
         <div class="faq-item bg-white border border-slate-200/90 rounded-xl overflow-hidden shadow-2xs transition-all duration-200">
-          <button type="button" onclick="toggleFaq(this)" class="w-full px-3.5 sm:px-4 py-2 sm:py-2.5 flex items-center justify-between text-left font-sans font-bold text-xs sm:text-[13px] text-slate-900 hover:text-[#f2920b] transition gap-2 cursor-pointer">
+          <button type="button" onclick="toggleFaq(this)" class="w-full px-4 sm:px-4.5 py-2.5 sm:py-3 flex items-center justify-between text-left font-sans font-bold text-sm sm:text-[15px] text-slate-900 hover:text-[#f2920b] transition gap-2 cursor-pointer">
             <span data-i18n="faq_q2">{t['faq_q2']}</span>
-            <i data-lucide="chevron-down" class="faq-icon w-4 h-4 stroke-[2.5] text-slate-400 shrink-0 transition-transform duration-300"></i>
+            <i data-lucide="chevron-down" class="faq-icon w-4.5 h-4.5 stroke-[2.5] text-slate-400 shrink-0 transition-transform duration-300"></i>
           </button>
-          <div class="faq-answer hidden px-3.5 sm:px-4 pb-3 pt-1.5 text-slate-700 text-xs sm:text-[13px] font-normal leading-relaxed border-t border-slate-100">
+          <div class="faq-answer hidden px-4 sm:px-4.5 pb-3.5 pt-1.5 text-slate-700 text-sm sm:text-[15px] font-normal leading-relaxed border-t border-slate-100">
             <p data-i18n="faq_a2">{t['faq_a2']}</p>
           </div>
         </div>
 
         <!-- PREGUNTA 3: PRECIOS, IVA Y FACTURACIÓN -->
         <div class="faq-item bg-white border border-slate-200/90 rounded-xl overflow-hidden shadow-2xs transition-all duration-200">
-          <button type="button" onclick="toggleFaq(this)" class="w-full px-3.5 sm:px-4 py-2 sm:py-2.5 flex items-center justify-between text-left font-sans font-bold text-xs sm:text-[13px] text-slate-900 hover:text-[#f2920b] transition gap-2 cursor-pointer">
+          <button type="button" onclick="toggleFaq(this)" class="w-full px-4 sm:px-4.5 py-2.5 sm:py-3 flex items-center justify-between text-left font-sans font-bold text-sm sm:text-[15px] text-slate-900 hover:text-[#f2920b] transition gap-2 cursor-pointer">
             <span data-i18n="faq_q3">{t['faq_q3']}</span>
-            <i data-lucide="chevron-down" class="faq-icon w-4 h-4 stroke-[2.5] text-slate-400 shrink-0 transition-transform duration-300"></i>
+            <i data-lucide="chevron-down" class="faq-icon w-4.5 h-4.5 stroke-[2.5] text-slate-400 shrink-0 transition-transform duration-300"></i>
           </button>
-          <div class="faq-answer hidden px-3.5 sm:px-4 pb-3 pt-1.5 text-slate-700 text-xs sm:text-[13px] font-normal leading-relaxed border-t border-slate-100">
+          <div class="faq-answer hidden px-4 sm:px-4.5 pb-3.5 pt-1.5 text-slate-700 text-sm sm:text-[15px] font-normal leading-relaxed border-t border-slate-100">
             <p data-i18n="faq_a3">{t['faq_a3']}</p>
           </div>
         </div>
 
         <!-- PREGUNTA 4: MUESTRA DESCONTABLE -->
         <div class="faq-item bg-white border border-slate-200/90 rounded-xl overflow-hidden shadow-2xs transition-all duration-200">
-          <button type="button" onclick="toggleFaq(this)" class="w-full px-3.5 sm:px-4 py-2 sm:py-2.5 flex items-center justify-between text-left font-sans font-bold text-xs sm:text-[13px] text-slate-900 hover:text-[#f2920b] transition gap-2 cursor-pointer">
+          <button type="button" onclick="toggleFaq(this)" class="w-full px-4 sm:px-4.5 py-2.5 sm:py-3 flex items-center justify-between text-left font-sans font-bold text-sm sm:text-[15px] text-slate-900 hover:text-[#f2920b] transition gap-2 cursor-pointer">
             <span data-i18n="faq_q4">{t['faq_q4']}</span>
-            <i data-lucide="chevron-down" class="faq-icon w-4 h-4 stroke-[2.5] text-slate-400 shrink-0 transition-transform duration-300"></i>
+            <i data-lucide="chevron-down" class="faq-icon w-4.5 h-4.5 stroke-[2.5] text-slate-400 shrink-0 transition-transform duration-300"></i>
           </button>
-          <div class="faq-answer hidden px-3.5 sm:px-4 pb-3 pt-1.5 text-slate-700 text-xs sm:text-[13px] font-normal leading-relaxed border-t border-slate-100">
+          <div class="faq-answer hidden px-4 sm:px-4.5 pb-3.5 pt-1.5 text-slate-700 text-sm sm:text-[15px] font-normal leading-relaxed border-t border-slate-100">
             <p data-i18n="faq_a4">{t['faq_a4']}</p>
           </div>
         </div>
 
         <!-- PREGUNTA 5: TAMAÑO LLAVERO (70MM) -->
         <div class="faq-item bg-white border border-slate-200/90 rounded-xl overflow-hidden shadow-2xs transition-all duration-200">
-          <button type="button" onclick="toggleFaq(this)" class="w-full px-3.5 sm:px-4 py-2 sm:py-2.5 flex items-center justify-between text-left font-sans font-bold text-xs sm:text-[13px] text-slate-900 hover:text-[#f2920b] transition gap-2 cursor-pointer">
+          <button type="button" onclick="toggleFaq(this)" class="w-full px-4 sm:px-4.5 py-2.5 sm:py-3 flex items-center justify-between text-left font-sans font-bold text-sm sm:text-[15px] text-slate-900 hover:text-[#f2920b] transition gap-2 cursor-pointer">
             <span data-i18n="faq_q5">{t['faq_q5']}</span>
-            <i data-lucide="chevron-down" class="faq-icon w-4 h-4 stroke-[2.5] text-slate-400 shrink-0 transition-transform duration-300"></i>
+            <i data-lucide="chevron-down" class="faq-icon w-4.5 h-4.5 stroke-[2.5] text-slate-400 shrink-0 transition-transform duration-300"></i>
           </button>
-          <div class="faq-answer hidden px-3.5 sm:px-4 pb-3 pt-1.5 text-slate-700 text-xs sm:text-[13px] font-normal leading-relaxed border-t border-slate-100">
+          <div class="faq-answer hidden px-4 sm:px-4.5 pb-3.5 pt-1.5 text-slate-700 text-sm sm:text-[15px] font-normal leading-relaxed border-t border-slate-100">
             <p data-i18n="faq_a5">{t['faq_a5']}</p>
           </div>
         </div>
 
         <!-- PREGUNTA 6: VENDER EN TIENDA / PRO-SHOP -->
         <div class="faq-item bg-white border border-slate-200/90 rounded-xl overflow-hidden shadow-2xs transition-all duration-200">
-          <button type="button" onclick="toggleFaq(this)" class="w-full px-3.5 sm:px-4 py-2 sm:py-2.5 flex items-center justify-between text-left font-sans font-bold text-xs sm:text-[13px] text-slate-900 hover:text-[#f2920b] transition gap-2 cursor-pointer">
+          <button type="button" onclick="toggleFaq(this)" class="w-full px-4 sm:px-4.5 py-2.5 sm:py-3 flex items-center justify-between text-left font-sans font-bold text-sm sm:text-[15px] text-slate-900 hover:text-[#f2920b] transition gap-2 cursor-pointer">
             <span data-i18n="faq_q6">{t['faq_q6']}</span>
-            <i data-lucide="chevron-down" class="faq-icon w-4 h-4 stroke-[2.5] text-slate-400 shrink-0 transition-transform duration-300"></i>
+            <i data-lucide="chevron-down" class="faq-icon w-4.5 h-4.5 stroke-[2.5] text-slate-400 shrink-0 transition-transform duration-300"></i>
           </button>
-          <div class="faq-answer hidden px-3.5 sm:px-4 pb-3 pt-1.5 text-slate-700 text-xs sm:text-[13px] font-normal leading-relaxed border-t border-slate-100">
+          <div class="faq-answer hidden px-4 sm:px-4.5 pb-3.5 pt-1.5 text-slate-700 text-sm sm:text-[15px] font-normal leading-relaxed border-t border-slate-100">
             <p data-i18n="faq_a6">{t['faq_a6']}</p>
           </div>
         </div>
 
         <!-- PREGUNTA 7: USOS Y OCASIONES (WELCOME PACKS, CENAS, PATROCINADORES) -->
         <div class="faq-item bg-white border border-slate-200/90 rounded-xl overflow-hidden shadow-2xs transition-all duration-200">
-          <button type="button" onclick="toggleFaq(this)" class="w-full px-3.5 sm:px-4 py-2 sm:py-2.5 flex items-center justify-between text-left font-sans font-bold text-xs sm:text-[13px] text-slate-900 hover:text-[#f2920b] transition gap-2 cursor-pointer">
+          <button type="button" onclick="toggleFaq(this)" class="w-full px-4 sm:px-4.5 py-2.5 sm:py-3 flex items-center justify-between text-left font-sans font-bold text-sm sm:text-[15px] text-slate-900 hover:text-[#f2920b] transition gap-2 cursor-pointer">
             <span data-i18n="faq_q7">{t['faq_q7']}</span>
-            <i data-lucide="chevron-down" class="faq-icon w-4 h-4 stroke-[2.5] text-slate-400 shrink-0 transition-transform duration-300"></i>
+            <i data-lucide="chevron-down" class="faq-icon w-4.5 h-4.5 stroke-[2.5] text-slate-400 shrink-0 transition-transform duration-300"></i>
           </button>
-          <div class="faq-answer hidden px-3.5 sm:px-4 pb-3 pt-1.5 text-slate-700 text-xs sm:text-[13px] font-normal leading-relaxed border-t border-slate-100">
+          <div class="faq-answer hidden px-4 sm:px-4.5 pb-3.5 pt-1.5 text-slate-700 text-sm sm:text-[15px] font-normal leading-relaxed border-t border-slate-100">
             <p data-i18n="faq_a7">{t['faq_a7']}</p>
           </div>
         </div>
 
         <!-- PREGUNTA 8: CLUBES Y MAPA OFICIAL -->
         <div class="faq-item bg-white border border-slate-200/90 rounded-xl overflow-hidden shadow-2xs transition-all duration-200">
-          <button type="button" onclick="toggleFaq(this)" class="w-full px-3.5 sm:px-4 py-2 sm:py-2.5 flex items-center justify-between text-left font-sans font-bold text-xs sm:text-[13px] text-slate-900 hover:text-[#f2920b] transition gap-2 cursor-pointer">
+          <button type="button" onclick="toggleFaq(this)" class="w-full px-4 sm:px-4.5 py-2.5 sm:py-3 flex items-center justify-between text-left font-sans font-bold text-sm sm:text-[15px] text-slate-900 hover:text-[#f2920b] transition gap-2 cursor-pointer">
             <span data-i18n="faq_q8">{t['faq_q8']}</span>
-            <i data-lucide="chevron-down" class="faq-icon w-4 h-4 stroke-[2.5] text-slate-400 shrink-0 transition-transform duration-300"></i>
+            <i data-lucide="chevron-down" class="faq-icon w-4.5 h-4.5 stroke-[2.5] text-slate-400 shrink-0 transition-transform duration-300"></i>
           </button>
-          <div class="faq-answer hidden px-3.5 sm:px-4 pb-3 pt-1.5 text-slate-700 text-xs sm:text-[13px] font-normal leading-relaxed border-t border-slate-100">
+          <div class="faq-answer hidden px-4 sm:px-4.5 pb-3.5 pt-1.5 text-slate-700 text-sm sm:text-[15px] font-normal leading-relaxed border-t border-slate-100">
             <p data-i18n="faq_a8">{t['faq_a8']}</p>
           </div>
         </div>
 
         <!-- PREGUNTA 9: PAÍSES Y ENVÍOS -->
         <div class="faq-item bg-white border border-slate-200/90 rounded-xl overflow-hidden shadow-2xs transition-all duration-200">
-          <button type="button" onclick="toggleFaq(this)" class="w-full px-3.5 sm:px-4 py-2 sm:py-2.5 flex items-center justify-between text-left font-sans font-bold text-xs sm:text-[13px] text-slate-900 hover:text-[#f2920b] transition gap-2 cursor-pointer">
+          <button type="button" onclick="toggleFaq(this)" class="w-full px-4 sm:px-4.5 py-2.5 sm:py-3 flex items-center justify-between text-left font-sans font-bold text-sm sm:text-[15px] text-slate-900 hover:text-[#f2920b] transition gap-2 cursor-pointer">
             <span data-i18n="faq_q9">{t['faq_q9']}</span>
-            <i data-lucide="chevron-down" class="faq-icon w-4 h-4 stroke-[2.5] text-slate-400 shrink-0 transition-transform duration-300"></i>
+            <i data-lucide="chevron-down" class="faq-icon w-4.5 h-4.5 stroke-[2.5] text-slate-400 shrink-0 transition-transform duration-300"></i>
           </button>
-          <div class="faq-answer hidden px-3.5 sm:px-4 pb-3 pt-1.5 text-slate-700 text-xs sm:text-[13px] font-normal leading-relaxed border-t border-slate-100">
+          <div class="faq-answer hidden px-4 sm:px-4.5 pb-3.5 pt-1.5 text-slate-700 text-sm sm:text-[15px] font-normal leading-relaxed border-t border-slate-100">
             <p data-i18n="faq_a9">{t['faq_a9']}</p>
           </div>
         </div>
 
         <!-- PREGUNTA 10: SAVE MY PLAY -->
         <div class="faq-item bg-white border border-slate-200/90 rounded-xl overflow-hidden shadow-2xs transition-all duration-200">
-          <button type="button" onclick="toggleFaq(this)" class="w-full px-3.5 sm:px-4 py-2 sm:py-2.5 flex items-center justify-between text-left font-sans font-bold text-xs sm:text-[13px] text-slate-900 hover:text-[#f2920b] transition gap-2 cursor-pointer">
+          <button type="button" onclick="toggleFaq(this)" class="w-full px-4 sm:px-4.5 py-2.5 sm:py-3 flex items-center justify-between text-left font-sans font-bold text-sm sm:text-[15px] text-slate-900 hover:text-[#f2920b] transition gap-2 cursor-pointer">
             <span data-i18n="faq_q10">{t['faq_q10']}</span>
-            <i data-lucide="chevron-down" class="faq-icon w-4 h-4 stroke-[2.5] text-slate-400 shrink-0 transition-transform duration-300"></i>
+            <i data-lucide="chevron-down" class="faq-icon w-4.5 h-4.5 stroke-[2.5] text-slate-400 shrink-0 transition-transform duration-300"></i>
           </button>
-          <div class="faq-answer hidden px-3.5 sm:px-4 pb-3 pt-1.5 text-slate-700 text-xs sm:text-[13px] font-normal leading-relaxed border-t border-slate-100">
+          <div class="faq-answer hidden px-4 sm:px-4.5 pb-3.5 pt-1.5 text-slate-700 text-sm sm:text-[15px] font-normal leading-relaxed border-t border-slate-100">
             <p data-i18n="faq_a10">{t['faq_a10']}</p>
           </div>
         </div>

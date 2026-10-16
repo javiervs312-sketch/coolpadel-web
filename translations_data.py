@@ -27,7 +27,7 @@ TRANSLATIONS = {
         "geo_usa_desc": "Cobertura oficial y envíos prioritarios",
 
         # Llaveros
-        "llaveros_title": "Llaveros personalizados con vuestro logo",
+        "llaveros_title": "Llaveros personalizados con logo",
         "llaveros_subtitle": "Tus jugadores, dentro y fuera de la pista",
         "card_tenis": "Llaveros de Tenis",
         "card_padel": "Llaveros de Pádel",
@@ -152,7 +152,7 @@ TRANSLATIONS = {
         "geo_usa_desc": "Official coverage and priority logistics",
 
         # Llaveros
-        "llaveros_title": "Custom keychains with your club logo",
+        "llaveros_title": "Custom keychains with logo",
         "llaveros_subtitle": "Your players, on and off the court",
         "card_tenis": "Tennis Keychains",
         "card_padel": "Padel Keychains",
@@ -277,7 +277,7 @@ TRANSLATIONS = {
         "geo_usa_desc": "Couverture officielle et logistique prioritaire",
 
         # Llaveros
-        "llaveros_title": "Porte-clés personnalisés avec le logo de votre club",
+        "llaveros_title": "Porte-clés personnalisés avec logo",
         "llaveros_subtitle": "Vos joueurs, sur et en dehors des pistes",
         "card_tenis": "Porte-clés Tennis",
         "card_padel": "Porte-clés Padel",
@@ -402,7 +402,7 @@ TRANSLATIONS = {
         "geo_usa_desc": "Copertura ufficiale e logistica prioritaria",
 
         # Llaveros
-        "llaveros_title": "Portachiavi personalizzati con il logo del tuo club",
+        "llaveros_title": "Portachiavi personalizzati con logo",
         "llaveros_subtitle": "I tuoi giocatori, dentro e fuori dal campo",
         "card_tenis": "Portachiavi Tennis",
         "card_padel": "Portachiavi Padel",
