@@ -618,7 +618,7 @@ def generate_article_page(slug, edition_num, title, date_str, read_time, cover_i
     html_items = []
     for p in paragraphs:
         if p == "" or p == "<br>":
-            html_items.append('<div class="h-5 sm:h-7" aria-hidden="true"></div>')
+            html_items.append('<div class="h-16 sm:h-20" aria-hidden="true"></div>')
         elif p.startswith('<h') or p.startswith('<ul') or p.startswith('<ol') or p.startswith('<div') or p.startswith('<p'):
             html_items.append(p)
         elif p.startswith('<strong>') and p.endswith('</strong>'):
