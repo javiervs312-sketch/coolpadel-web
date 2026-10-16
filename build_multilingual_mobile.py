@@ -1420,49 +1420,134 @@ def get_base_html(active_lang="es", is_subfolder=False):
     </div>
   </section>
 
-  <!-- 8. SECCIÓN CONTACTO (FONDO CELESTE #3478a6 & 20% MÁS ANCHA) -->
-  <section id="contacto" class="pt-7 sm:pt-10 lg:pt-12 pb-12 sm:pb-16 lg:pb-20 bg-[#3478a6] relative border-t border-sky-700/40 text-white overflow-hidden">
-    <div class="max-w-[1850px] mx-auto px-6 sm:px-14 lg:px-20 relative z-10">
+  <!-- 8. SECCIÓN CONTACTO (FORMATO ITAC: TARJETAS WHATSAPP Y EMAIL CON CÓDIGOS QR) -->
+  <section id="contacto" class="pt-12 sm:pt-16 lg:pt-20 pb-16 sm:pb-20 lg:pb-24 bg-slate-50 relative border-t border-slate-200 text-slate-900 overflow-hidden">
+    <div class="max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-12 relative z-10">
       
-      <!-- TÍTULO DE LA SECCIÓN ARRIBA DEL TODO -->
-      <div class="max-w-4xl mx-auto text-center mb-6 sm:mb-8 lg:mb-10">
-        <h2 data-i18n="contact_title" class="text-2xl sm:text-4xl lg:text-5xl font-black font-heading text-white uppercase tracking-tight leading-tight">
+      <!-- CABECERA DE CONTACTO CENTRADA -->
+      <div class="max-w-3xl mx-auto text-center mb-10 sm:mb-14 space-y-3">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-slate-200/80 border border-slate-300 text-[11px] font-black uppercase tracking-wider text-slate-700">
+          <i data-lucide="message-square" class="w-3.5 h-3.5 text-[#f2920b]"></i>
+          <span>Atención Directa al Club</span>
+        </div>
+        <h2 data-i18n="contact_title" class="text-2xl sm:text-4xl lg:text-5xl font-black font-heading text-slate-950 uppercase tracking-tight leading-tight">
           {t['contact_title']}
         </h2>
+        <p data-i18n="contact_subtitle" class="text-xs sm:text-sm lg:text-base text-slate-600 font-medium max-w-2xl mx-auto leading-relaxed">
+          {t['contact_subtitle']}
+        </p>
       </div>
 
-      <!-- BLOQUE DE CONTACTO CENTRADO Y 20% MÁS ESPACIOSO -->
-      <div class="flex flex-col md:flex-row items-center justify-center gap-10 md:gap-20 lg:gap-24 w-full">
+      <!-- GRID DE TARJETAS DE CONTACTO (WHATSAPP + EMAIL) -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 max-w-4xl mx-auto">
         
-        <!-- COOLPADEL (MASCOTA + TIPOGRAFÍA) -->
-        <div class="flex items-center justify-center gap-3.5">
-          <img src="{asset_prefix}assets/images/coolpadel-mascot-hd.png" alt="CoolPadel Mascota" width="80" height="80" class="h-14 sm:h-18 lg:h-20 w-auto object-contain drop-shadow-md" loading="lazy">
-          <img src="{asset_prefix}assets/images/coolpadel-typography-hd.png" alt="CoolPadel" width="200" height="40" class="h-7 sm:h-9 lg:h-10 w-auto object-contain drop-shadow-md" loading="lazy">
+        <!-- TARJETA 1: WHATSAPP DIRECTO -->
+        <div class="bg-white border-2 border-slate-200 hover:border-[#25D366] rounded-3xl p-6 sm:p-8 shadow-[0_12px_35px_rgba(0,0,0,0.06)] hover:shadow-[0_22px_45px_rgba(37,211,102,0.18)] transition-all duration-300 flex flex-col justify-between items-center text-center group hover:-translate-y-1">
+          <div class="flex flex-col items-center space-y-3 w-full">
+            <!-- Icono Circular WhatsApp -->
+            <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-emerald-50 text-[#25D366] flex items-center justify-center shadow-inner group-hover:scale-110 group-hover:bg-[#25D366] group-hover:text-white transition-all duration-300">
+              <svg class="w-7 h-7 sm:w-8 sm:h-8 fill-current" viewBox="0 0 24 24">
+                <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+              </svg>
+            </div>
+            
+            <h3 data-i18n="contact_wa_title" class="font-heading font-black text-xl sm:text-2xl text-slate-950">
+              {t['contact_wa_title']}
+            </h3>
+            
+            <p class="font-mono font-bold text-base sm:text-lg text-emerald-600 tracking-wide">
+              +34 680 31 74 86
+            </p>
+
+            <p data-i18n="contact_wa_desc" class="text-xs sm:text-sm text-slate-600 leading-relaxed max-w-xs">
+              {t['contact_wa_desc']}
+            </p>
+
+            <!-- CÓDIGO QR WHATSAPP PARA ESCRITORIO -->
+            <div class="pt-2 pb-1">
+              <div class="p-2.5 bg-white border border-slate-200 rounded-2xl shadow-xs inline-block group-hover:border-emerald-300 transition">
+                <img src="{asset_prefix}assets/images/qr_whatsapp_coolpadel.png" 
+                     alt="{t['contact_wa_qr_hint']}" 
+                     width="128" height="128" 
+                     class="w-24 h-24 sm:w-28 sm:h-28 object-contain" 
+                     loading="lazy">
+              </div>
+              <p data-i18n="contact_wa_qr_hint" class="text-[11px] text-slate-600 mt-1.5 font-medium">
+                {t['contact_wa_qr_hint']}
+              </p>
+            </div>
+          </div>
+
+          <!-- BOTÓN ACCIÓN WHATSAPP -->
+          <div class="w-full pt-4 border-t border-slate-100 mt-4">
+            <a id="contact-wa-btn" href="https://wa.me/34680317486?text={wa_prefilled_encoded}" 
+               target="_blank" rel="noopener noreferrer"
+               class="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-[#25D366] hover:bg-[#20ba59] active:bg-[#20ba59] text-white font-sans font-black text-xs sm:text-sm tracking-wider uppercase shadow-md hover:shadow-xl hover:scale-105 active:scale-95 transition-all duration-300">
+              <span data-i18n="contact_wa_btn">{t['contact_wa_btn']}</span>
+              <i data-lucide="arrow-up-right" class="w-4 h-4 stroke-[3]"></i>
+            </a>
+          </div>
         </div>
 
-        <!-- CORREO Y WHATSAPP OFICIAL DE JAVIER -->
-        <div class="flex flex-col items-center justify-center text-center gap-4 sm:gap-6">
-          <a href="mailto:javier@coolpadelstudios.com" 
-             class="group inline-flex items-center gap-3 text-white hover:text-[#f2920b] font-sans font-bold text-sm sm:text-xl lg:text-2xl tracking-normal transition-all duration-300 hover:scale-105 active:scale-95 whitespace-nowrap">
-            <i data-lucide="mail" class="w-5 h-5 sm:w-6 sm:h-6 text-[#f2920b] group-hover:text-white transition-colors shrink-0"></i>
-            <span class="underline decoration-white/40 group-hover:decoration-[#f2920b] underline-offset-6">javier@coolpadelstudios.com</span>
-          </a>
+        <!-- TARJETA 2: EMAIL OFICIAL -->
+        <div class="bg-white border-2 border-slate-200 hover:border-[#3478a6] rounded-3xl p-6 sm:p-8 shadow-[0_12px_35px_rgba(0,0,0,0.06)] hover:shadow-[0_22px_45px_rgba(52,120,166,0.18)] transition-all duration-300 flex flex-col justify-between items-center text-center group hover:-translate-y-1">
+          <div class="flex flex-col items-center space-y-3 w-full">
+            <!-- Icono Circular Email -->
+            <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-sky-50 text-[#3478a6] flex items-center justify-center shadow-inner group-hover:scale-110 group-hover:bg-[#3478a6] group-hover:text-white transition-all duration-300">
+              <i data-lucide="mail" class="w-7 h-7 sm:w-8 sm:h-8 stroke-[2.2]"></i>
+            </div>
+            
+            <h3 data-i18n="contact_mail_title" class="font-heading font-black text-xl sm:text-2xl text-slate-950">
+              {t['contact_mail_title']}
+            </h3>
+            
+            <p class="font-sans font-bold text-sm sm:text-base text-sky-800 tracking-normal break-all">
+              javier@coolpadelstudios.com
+            </p>
 
-          <!-- BOTÓN WHATSAPP OFICIAL EN CONTACTO -->
-          <a id="contact-wa-btn" href="https://wa.me/34680317486?text={wa_prefilled_encoded}" 
-             target="_blank" rel="noopener noreferrer"
-             class="group inline-flex items-center gap-3 px-8 sm:px-9 py-3 sm:py-3.5 rounded-full bg-[#25D366] hover:bg-[#20ba59] active:bg-[#20ba59] text-white font-sans font-black text-xs sm:text-sm tracking-wider uppercase shadow-md hover:shadow-xl hover:scale-105 active:scale-95 transition-all duration-300">
-            <svg class="w-4 h-4 sm:w-5 sm:h-5 fill-current" viewBox="0 0 24 24">
-              <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
-            </svg>
-            <span data-i18n="contact_wa_btn">{t['contact_wa_btn']}</span>
-          </a>
+            <p data-i18n="contact_mail_desc" class="text-xs sm:text-sm text-slate-600 leading-relaxed max-w-xs">
+              {t['contact_mail_desc']}
+            </p>
+
+            <!-- CÓDIGO QR EMAIL PARA ESCRITORIO -->
+            <div class="pt-2 pb-1">
+              <div class="p-2.5 bg-white border border-slate-200 rounded-2xl shadow-xs inline-block group-hover:border-sky-300 transition">
+                <img src="{asset_prefix}assets/images/qr_email_coolpadel.png" 
+                     alt="{t['contact_mail_qr_hint']}" 
+                     width="128" height="128" 
+                     class="w-24 h-24 sm:w-28 sm:h-28 object-contain" 
+                     loading="lazy">
+              </div>
+              <p data-i18n="contact_mail_qr_hint" class="text-[11px] text-slate-600 mt-1.5 font-medium">
+                {t['contact_mail_qr_hint']}
+              </p>
+            </div>
+          </div>
+
+          <!-- BOTÓN ACCIÓN EMAIL -->
+          <div class="w-full pt-4 border-t border-slate-100 mt-4">
+            <a id="contact-mail-btn" href="mailto:javier@coolpadelstudios.com?subject=Consulta%20CoolPadel%20/%20Save%20my%20Play" 
+               class="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-[#3478a6] hover:bg-[#2c668d] active:bg-[#2c668d] text-white font-sans font-black text-xs sm:text-sm tracking-wider uppercase shadow-md hover:shadow-xl hover:scale-105 active:scale-95 transition-all duration-300">
+              <span data-i18n="contact_mail_btn">{t['contact_mail_btn']}</span>
+              <i data-lucide="arrow-up-right" class="w-4 h-4 stroke-[3]"></i>
+            </a>
+          </div>
         </div>
 
       </div>
 
-      <!-- ENLACES INTERNOS SEO Y COPYRIGHT (CON TRIGGER DE MODO ADMIN POR TRIPLE CLIC) -->
-      <div class="mt-10 pt-6 border-t border-white/10 text-center select-none space-y-3 text-xs text-white/60">
+      <!-- COOLPADEL BRANDING CENTRAL (MASCOTA + TIPOGRAFÍA) -->
+      <div class="flex items-center justify-center gap-3.5 mt-12 sm:mt-14 pt-8 border-t border-slate-200/80">
+        <img src="{asset_prefix}assets/images/coolpadel-mascot-hd.png" alt="CoolPadel Mascota" width="60" height="60" class="h-10 sm:h-12 w-auto object-contain drop-shadow-sm" loading="lazy">
+        <img src="{asset_prefix}assets/images/coolpadel-typography-hd.png" alt="CoolPadel" width="160" height="32" class="h-5 sm:h-6 w-auto object-contain drop-shadow-sm" loading="lazy">
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 9. FOOTER INFERIOR OSCURO (ENLACES SEO Y COPYRIGHT) -->
+  <footer class="bg-[#0b1626] text-white py-10 border-t border-slate-800 text-xs">
+    <div class="max-w-[1700px] mx-auto px-4 sm:px-8 text-center select-none space-y-4 text-white/70">
         <nav aria-label="Soluciones y Directorio CoolPadel" class="flex flex-wrap items-center justify-center gap-x-3 gap-y-1.5">
           <a href="/llaveros-padel-personalizados/" class="hover:text-white underline decoration-white/30 underline-offset-2 transition">Llaveros de Pádel</a>
           <span class="opacity-30">·</span>
@@ -1589,12 +1674,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
       const waMsg = encodeURIComponent(dict.wa_prefilled_msg);
       const waUrl = `https://wa.me/34680317486?text=${{waMsg}}`;
       
-      const navWaBtn = document.getElementById('nav-contact-btn');
-      if (navWaBtn) navWaBtn.href = waUrl;
-
-      const navWaBtnMob = document.getElementById('nav-contact-btn-mob');
-      if (navWaBtnMob) navWaBtnMob.href = waUrl;
-      
+      // nav-contact-btn y nav-contact-btn-mob enlazan a la sección #contacto (estilo ITAC)
       const smpWaBtn = document.getElementById('smp-contact-btn');
       if (smpWaBtn) smpWaBtn.href = waUrl;
 
@@ -2055,7 +2135,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
           zoom: 4,
           minZoom: 3,
           maxZoom: 18,
-          scrollWheelZoom: false
+          scrollWheelZoom: true
         }});
 
         leafletMapInstance.on('focus', () => leafletMapInstance.scrollWheelZoom.enable());

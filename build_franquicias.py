@@ -1597,7 +1597,9 @@ def render_html():
       map = L.map('franchiseMap', {{
         center: [40.4168, -3.7038],
         zoom: 5,
-        scrollWheelZoom: false,
+        scrollWheelZoom: true,
+        doubleClickZoom: true,
+        boxZoom: true,
         touchZoom: true,
         bounceAtZoomLimits: false,
         dragging: true
