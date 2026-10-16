@@ -2702,13 +2702,31 @@
         }
       };
 
-      attachClick('nav-contact-btn', 'click_whatsapp_nav', 'Cabecera PC');
-      attachClick('nav-contact-btn-mob', 'click_whatsapp_nav_mob', 'Cabecera Móvil');
+      // Smooth scroll a #contacto cuando se hace clic en Contactar de la cabecera
+      const handleNavContactClick = (e, btnLabel) => {
+        const sec = document.getElementById('contacto');
+        if (sec) {
+          e.preventDefault();
+          sec.scrollIntoView({ behavior: 'smooth' });
+          trackEvent('click_contacto_nav', {
+            ubicacion: btnLabel,
+            evento_desc: `🎯 Clic Contactar Cabecera [${btnLabel}]`
+          });
+        }
+      };
+
+      const btnNavPC = document.getElementById('nav-contact-btn');
+      if (btnNavPC) btnNavPC.addEventListener('click', (e) => handleNavContactClick(e, 'Cabecera PC'));
+
+      const btnNavMob = document.getElementById('nav-contact-btn-mob');
+      if (btnNavMob) btnNavMob.addEventListener('click', (e) => handleNavContactClick(e, 'Cabecera Móvil'));
+
       attachClick('calc-wa-btn', 'click_whatsapp_calc', 'Calculadora Llaveros', () => ({
         tier_unidades: tiers[currentTierIdx]?.qty,
         tier_precio: tiers[currentTierIdx]?.price
       }));
-      attachClick('contact-wa-btn', 'click_whatsapp_footer', 'Contacto Footer');
+      attachClick('contact-wa-btn', 'click_whatsapp_footer', 'Contacto WhatsApp Card');
+      attachClick('contact-mail-btn', 'click_email_footer', 'Contacto Email Card');
       attachClick('floating-wa-btn', 'click_whatsapp_floating', 'Botón Flotante');
 
       // 3. Tracking de interacción con slider de la calculadora al soltar
