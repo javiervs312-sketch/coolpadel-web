@@ -439,13 +439,6 @@ def render_landing(landing):
           "@type": "Brand",
           "name": "Save My Play"
         }},
-        "aggregateRating": {{
-          "@type": "AggregateRating",
-          "ratingValue": "4.9",
-          "bestRating": "5",
-          "ratingCount": "48",
-          "reviewCount": "48"
-        }},
         "offers": [
           {{
             "@type": "Offer",
@@ -578,14 +571,6 @@ def render_landing(landing):
         "alternateName": "CoolPadel",
         "url": "https://coolpadelstudios.com",
         "logo": "https://coolpadelstudios.com/assets/images/coolpadel-mascot-hd.png",
-        "aggregateRating": {{
-          "@type": "AggregateRating",
-          "ratingValue": "4.9",
-          "bestRating": "5",
-          "worstRating": "1",
-          "ratingCount": "48",
-          "reviewCount": "48"
-        }},
         "knowsAbout": [
           "Grabación automática de partidos de pádel con IA",
           "Sistemas de cámaras fijas para pistas de pádel sin obras",
@@ -819,26 +804,42 @@ def render_landing(landing):
   <!-- FOOTER EN AZUL TEXTURIZADO CANVA -->
   <footer class="bg-[#3478a6] bg-textured-blue text-white/90 py-8 border-t border-sky-700/40 text-center text-xs">
     <div class="max-w-7xl mx-auto px-4 space-y-3">
-      <div class="flex flex-wrap items-center justify-center gap-x-3 gap-y-1.5">
-        <a href="../" class="text-white hover:text-[#f2920b] font-bold transition">CoolPadel Studios</a>
-        <span>·</span>
-        <a href="../llaveros-padel-personalizados/" class="hover:text-white transition">Llaveros de Pádel</a>
-        <span>·</span>
-        <a href="../llaveros-tenis-personalizados/" class="hover:text-white transition">Llaveros de Tenis</a>
-        <span>·</span>
-        <a href="../welcome-packs-torneos-padel/" class="hover:text-white transition">Welcome Packs Torneos</a>
-        <span>·</span>
-        <a href="../llaveros-personalizados-clubs-padel/" class="hover:text-white transition">Merchandising Clubs</a>
+      <div class="flex flex-wrap items-center justify-center gap-x-3 gap-y-1.5 max-w-5xl mx-auto">
+        <a href="../" class="text-white hover:text-[#f2920b] font-bold transition">Inicio</a>
         <span>·</span>
         <a href="../camaras/" class="hover:text-white transition">Cámaras Save my Play</a>
         <span>·</span>
         <a href="../camaras-grabacion-pistas-padel/" class="hover:text-white transition">Grabación Pistas</a>
         <span>·</span>
-        <a href="../franquicias-padel/" class="hover:text-white transition">Directorio Franquicias</a>
+        <a href="../camaras-padel-playtomic/" class="hover:text-white transition">Cámaras Playtomic</a>
+        <span>·</span>
+        <a href="../camaras-padel-matchi/" class="hover:text-white transition">Cámaras MATCHi</a>
+        <span>·</span>
+        <a href="../camaras-padel-resasports/" class="hover:text-white transition">Cámaras Resasports</a>
+        <span>·</span>
+        <a href="../camaras-padel-madrid/" class="hover:text-white transition">Cámaras Madrid</a>
+        <span>·</span>
+        <a href="../camaras-padel-barcelona/" class="hover:text-white transition">Cámaras Barcelona</a>
+        <span>·</span>
+        <a href="../herramientas/" class="hover:text-[#f2920b] font-bold transition">Herramientas</a>
+        <span>·</span>
+        <a href="../herramientas/calculadora-roi-camaras-padel/" class="hover:text-white transition">Calculadora ROI</a>
+        <span>·</span>
+        <a href="../herramientas/generador-americana-padel/" class="hover:text-white transition">Generador Americana</a>
+        <span>·</span>
+        <a href="../llaveros-padel-personalizados/" class="hover:text-white transition">Llaveros Pádel</a>
+        <span>·</span>
+        <a href="../llaveros-tenis-personalizados/" class="hover:text-white transition">Llaveros Tenis</a>
+        <span>·</span>
+        <a href="../welcome-packs-torneos-padel/" class="hover:text-white transition">Welcome Packs</a>
+        <span>·</span>
+        <a href="../franquicias-padel/" class="hover:text-white transition">Franquicias</a>
+        <span>·</span>
+        <a href="../blog/barometro-camaras-padel-2026/" class="hover:text-white transition">Barómetro 2026</a>
+        <span>·</span>
+        <a href="../blog/sistemas-grabacion-pistas-padel-comparativa/" class="hover:text-white transition">Comparativa 9 Sistemas</a>
         <span>·</span>
         <a href="../blog/" class="hover:text-white transition">Blog</a>
-        <span>·</span>
-        <a href="../politica-de-devoluciones.html" class="hover:text-white transition">Política de Devoluciones</a>
       </div>
       <p>{footer_tagline}</p>
     </div>

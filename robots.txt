@@ -52,11 +52,5 @@ Allow: /
 User-agent: Bytespider
 Allow: /
 
-# Sitemap & LLMs Manifests (https://llmstxt.org/)
+# Sitemap
 Sitemap: https://coolpadelstudios.com/sitemap.xml
-LLMs-Txt: https://coolpadelstudios.com/llms.txt
-LLMs-Full-Txt: https://coolpadelstudios.com/llms-full.txt
-LLMs: https://coolpadelstudios.com/llms.txt
-LLMs-Full: https://coolpadelstudios.com/llms-full.txt
-
-

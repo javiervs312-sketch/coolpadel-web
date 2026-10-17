@@ -289,10 +289,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
         "description": "{seo_i18n['org_desc']}",
         "sameAs": [
           "https://www.instagram.com/coolpadel_/",
-          "https://www.linkedin.com/in/javier-villoria-soleto-606737298/",
-          "https://www.wikidata.org/wiki/Q1229646",
-          "https://www.wikidata.org/wiki/Q131557",
-          "https://www.wikidata.org/wiki/Q1417088"
+          "https://www.linkedin.com/in/javier-villoria-soleto-606737298/"
         ],
         "about": [
           {{ "@type": "Thing", "name": "Padel", "sameAs": "https://www.wikidata.org/wiki/Q1229646" }},
@@ -319,14 +316,6 @@ def get_base_html(active_lang="es", is_subfolder=False):
           "Integración de software de reservas de pádel (Playtomic, Matchi, Resasports)",
           "Industria del padel"
         ],
-        "aggregateRating": {{
-          "@type": "AggregateRating",
-          "ratingValue": "4.9",
-          "bestRating": "5",
-          "worstRating": "1",
-          "ratingCount": "48",
-          "reviewCount": "48"
-        }},
         "hasOfferCatalog": {{
           "@type": "OfferCatalog",
           "name": "Servicios y Productos Oficiales B2B CoolPadel Studios & Save my Play",
@@ -420,15 +409,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
           "name": "CoolPadel"
         }},
         "sku": "CP-LLAVERO-PADEL-3D",
-        "gtin13": "8437025698124",
         "mpn": "CP3D-2026",
-        "aggregateRating": {{
-          "@type": "AggregateRating",
-          "ratingValue": "4.9",
-          "bestRating": "5",
-          "ratingCount": "48",
-          "reviewCount": "48"
-        }},
         "review": [
           {{
             "@type": "Review",
@@ -455,7 +436,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
               "@type": "Person",
               "name": "Marc Font"
             }},
-            "reviewBody": "Instalamos el sistema de grabación Save my Play en dos pistas cubiertas. Los jugadores repiten porque pueden descargarse sus jugadas al instante pulsando el botón sin tocar el móvil.",
+            "reviewBody": "Encargamos 250 llaveros personalizados con el escudo del club para el torneo aniversario. Acabado excelente y la muestra previa nos dio total seguridad.",
             "datePublished": "2026-02-28"
           }},
           {{
@@ -590,11 +571,6 @@ def get_base_html(active_lang="es", is_subfolder=False):
           "Directorio de franquicias y cadenas de pádel",
           "Normativa RGPD para cámaras en instalaciones deportivas"
         ],
-        "aggregateRating": {{
-          "@type": "AggregateRating",
-          "ratingValue": "4.9",
-          "reviewCount": "47"
-        }},
         "hasOfferCatalog": {{
           "@type": "OfferCatalog",
           "name": "Catálogo B2B CoolPadel Studios & Save my Play",
@@ -1037,12 +1013,15 @@ def get_base_html(active_lang="es", is_subfolder=False):
           <a href="{asset_prefix}#" class="group py-1 inline-flex items-center shrink-0">
             <img src="{asset_prefix}assets/images/eyes-thumb.png?v=fixed_eyes" alt="CoolPadel Eyes" width="24" height="24" style="height: 24px; max-height: 24px; width: auto;" class="object-contain group-hover:scale-110 transition duration-300">
           </a>
-          <div class="flex-1 flex items-center justify-center min-w-0 gap-5 sm:gap-6 lg:gap-9 xl:gap-11 pl-2 sm:pl-4 lg:pl-6">
+          <div class="flex-1 flex items-center justify-center min-w-0 gap-4 sm:gap-5 lg:gap-7 xl:gap-9 pl-2 sm:pl-4 lg:pl-6">
             <a href="{asset_prefix}#llaveros" class="font-heading font-black text-xs lg:text-[13px] tracking-wider uppercase text-slate-950 hover:text-[#f2920b] transition select-none whitespace-nowrap">
               Llaveros
             </a>
             <a href="{asset_prefix}camaras/" class="font-heading font-black text-xs lg:text-[13px] tracking-wider uppercase text-slate-950 hover:text-[#f2920b] transition select-none whitespace-nowrap">
               Cámaras pistas
+            </a>
+            <a href="{asset_prefix}herramientas/" class="font-heading font-black text-xs lg:text-[13px] tracking-wider uppercase text-slate-950 hover:text-[#f2920b] transition select-none whitespace-nowrap">
+              Herramientas
             </a>
             <a href="{asset_prefix}blog/" class="font-heading font-black text-xs lg:text-[13px] tracking-wider uppercase text-slate-950 hover:text-[#f2920b] transition select-none whitespace-nowrap">
               Blog
@@ -1077,18 +1056,18 @@ def get_base_html(active_lang="es", is_subfolder=False):
 
               <!-- MENÚ DESPLEGABLE FLOTANTE -->
               <div id="lang-dropdown-menu" class="hidden absolute right-0 mt-2 w-24 bg-white rounded-2xl shadow-[0_12px_30px_rgba(0,0,0,0.15)] border border-slate-200 py-1.5 z-50 transition-all overflow-hidden">
-                <button type="button" onclick="switchLanguage('es')" data-lang-opt="es" class="lang-opt {'lang-opt-active' if active_lang=='es' else 'text-slate-700 hover:bg-[#f2920b] hover:text-slate-950 font-bold'} w-full text-center px-4 py-2 text-xs transition duration-150 cursor-pointer">
+                <a href="/" onclick="switchLanguage('es')" data-lang-opt="es" class="lang-opt block {'lang-opt-active' if active_lang=='es' else 'text-slate-700 hover:bg-[#f2920b] hover:text-slate-950 font-bold'} w-full text-center px-4 py-2 text-xs transition duration-150">
                   ES
-                </button>
-                <button type="button" onclick="switchLanguage('en')" data-lang-opt="en" class="lang-opt {'lang-opt-active' if active_lang=='en' else 'text-slate-700 hover:bg-[#f2920b] hover:text-slate-950 font-bold'} w-full text-center px-4 py-2 text-xs transition duration-150 cursor-pointer">
+                </a>
+                <a href="/en/" onclick="switchLanguage('en')" data-lang-opt="en" class="lang-opt block {'lang-opt-active' if active_lang=='en' else 'text-slate-700 hover:bg-[#f2920b] hover:text-slate-950 font-bold'} w-full text-center px-4 py-2 text-xs transition duration-150">
                   EN
-                </button>
-                <button type="button" onclick="switchLanguage('fr')" data-lang-opt="fr" class="lang-opt {'lang-opt-active' if active_lang=='fr' else 'text-slate-700 hover:bg-[#f2920b] hover:text-slate-950 font-bold'} w-full text-center px-4 py-2 text-xs transition duration-150 cursor-pointer">
+                </a>
+                <a href="/fr/" onclick="switchLanguage('fr')" data-lang-opt="fr" class="lang-opt block {'lang-opt-active' if active_lang=='fr' else 'text-slate-700 hover:bg-[#f2920b] hover:text-slate-950 font-bold'} w-full text-center px-4 py-2 text-xs transition duration-150">
                   FR
-                </button>
-                <button type="button" onclick="switchLanguage('it')" data-lang-opt="it" class="lang-opt {'lang-opt-active' if active_lang=='it' else 'text-slate-700 hover:bg-[#f2920b] hover:text-slate-950 font-bold'} w-full text-center px-4 py-2 text-xs transition duration-150 cursor-pointer">
+                </a>
+                <a href="/it/" onclick="switchLanguage('it')" data-lang-opt="it" class="lang-opt block {'lang-opt-active' if active_lang=='it' else 'text-slate-700 hover:bg-[#f2920b] hover:text-slate-950 font-bold'} w-full text-center px-4 py-2 text-xs transition duration-150">
                   IT
-                </button>
+                </a>
               </div>
             </div>
 
@@ -1116,20 +1095,23 @@ def get_base_html(active_lang="es", is_subfolder=False):
           <div class="w-[18px]"></div>
         </div>
         
-        <!-- FILA 2: LLAVEROS + CÁMARAS PISTAS + BLOG + CADENAS DE CLUBS + IDIOMAS + CONTACTAR -->
+        <!-- FILA 2: LLAVEROS + CÁMARAS PISTAS + HERRAMIENTAS + BLOG + CADENAS DE CLUBS + IDIOMAS + CONTACTAR -->
         <div class="flex items-center justify-between w-full gap-1 pt-1 border-t border-slate-100 px-1 overflow-x-auto">
-          <div class="flex items-center gap-3.5 sm:gap-4 shrink-0">
+          <div class="flex items-center gap-2.5 sm:gap-3 shrink-0">
             <a href="{asset_prefix}#llaveros" class="font-heading font-black text-[10px] tracking-wider uppercase text-slate-950 hover:text-[#f2920b] transition whitespace-nowrap">
               Llaveros
             </a>
             <a href="{asset_prefix}camaras/" class="font-heading font-black text-[10px] tracking-wider uppercase text-slate-950 hover:text-[#f2920b] transition whitespace-nowrap">
-              Cámaras pistas
+              Cámaras
+            </a>
+            <a href="{asset_prefix}herramientas/" class="font-heading font-black text-[10px] tracking-wider uppercase text-slate-950 hover:text-[#f2920b] transition whitespace-nowrap">
+              Herramientas
             </a>
             <a href="{asset_prefix}blog/" class="font-heading font-black text-[10px] tracking-wider uppercase text-slate-950 hover:text-[#f2920b] transition whitespace-nowrap">
               Blog
             </a>
             <a href="{asset_prefix}franquicias-padel/" class="font-heading font-black text-[10px] tracking-wider uppercase text-slate-950 hover:text-[#f2920b] transition whitespace-nowrap">
-              Cadenas de clubs
+              Cadenas
             </a>
           </div>
 
@@ -1141,18 +1123,18 @@ def get_base_html(active_lang="es", is_subfolder=False):
                 <i data-lucide="chevron-down" class="w-2.5 h-2.5 stroke-[2.5] text-slate-600" id="lang-dropdown-arrow-mob"></i>
               </button>
               <div id="lang-dropdown-menu-mob" class="hidden absolute right-0 mt-1 w-20 bg-white rounded-2xl shadow-xl border border-slate-200 py-1 z-50 transition-all overflow-hidden">
-                <button type="button" onclick="switchLanguage('es')" data-lang-opt="es" class="lang-opt {'lang-opt-active' if active_lang=='es' else 'text-slate-700 hover:bg-[#f2920b] hover:text-slate-950 font-bold'} w-full text-center px-3 py-1.5 text-[11px] transition duration-150 cursor-pointer">
+                <a href="/" onclick="switchLanguage('es')" data-lang-opt="es" class="lang-opt block {'lang-opt-active' if active_lang=='es' else 'text-slate-700 hover:bg-[#f2920b] hover:text-slate-950 font-bold'} w-full text-center px-3 py-1.5 text-[11px] transition duration-150">
                   ES
-                </button>
-                <button type="button" onclick="switchLanguage('en')" data-lang-opt="en" class="lang-opt {'lang-opt-active' if active_lang=='en' else 'text-slate-700 hover:bg-[#f2920b] hover:text-slate-950 font-bold'} w-full text-center px-3 py-1.5 text-[11px] transition duration-150 cursor-pointer">
+                </a>
+                <a href="/en/" onclick="switchLanguage('en')" data-lang-opt="en" class="lang-opt block {'lang-opt-active' if active_lang=='en' else 'text-slate-700 hover:bg-[#f2920b] hover:text-slate-950 font-bold'} w-full text-center px-3 py-1.5 text-[11px] transition duration-150">
                   EN
-                </button>
-                <button type="button" onclick="switchLanguage('fr')" data-lang-opt="fr" class="lang-opt {'lang-opt-active' if active_lang=='fr' else 'text-slate-700 hover:bg-[#f2920b] hover:text-slate-950 font-bold'} w-full text-center px-3 py-1.5 text-[11px] transition duration-150 cursor-pointer">
+                </a>
+                <a href="/fr/" onclick="switchLanguage('fr')" data-lang-opt="fr" class="lang-opt block {'lang-opt-active' if active_lang=='fr' else 'text-slate-700 hover:bg-[#f2920b] hover:text-slate-950 font-bold'} w-full text-center px-3 py-1.5 text-[11px] transition duration-150">
                   FR
-                </button>
-                <button type="button" onclick="switchLanguage('it')" data-lang-opt="it" class="lang-opt {'lang-opt-active' if active_lang=='it' else 'text-slate-700 hover:bg-[#f2920b] hover:text-slate-950 font-bold'} w-full text-center px-3 py-1.5 text-[11px] transition duration-150 cursor-pointer">
+                </a>
+                <a href="/it/" onclick="switchLanguage('it')" data-lang-opt="it" class="lang-opt block {'lang-opt-active' if active_lang=='it' else 'text-slate-700 hover:bg-[#f2920b] hover:text-slate-950 font-bold'} w-full text-center px-3 py-1.5 text-[11px] transition duration-150">
                   IT
-                </button>
+                </a>
               </div>
             </div>
 
@@ -1382,7 +1364,206 @@ def get_base_html(active_lang="es", is_subfolder=False):
     </div>
   </section>
 
+  <!-- SECCIÓN SAVE MY PLAY: CÁMARAS CON IA PARA PISTAS DE PÁDEL (FONDO VERDE OFICIAL #4bbb81) -->
+  <section id="savemyplay" class="py-12 sm:py-16 bg-[#4bbb81] relative border-b border-emerald-600/30 overflow-hidden text-slate-900">
+    <div class="absolute inset-0 bg-gradient-to-b from-black/5 via-transparent to-black/10 pointer-events-none"></div>
 
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      
+      <!-- CABECERA DE SECCIÓN -->
+      <div class="max-w-3xl mx-auto text-center space-y-2 sm:space-y-3 mb-8 sm:mb-12">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-950/10 text-slate-950 text-xs font-black tracking-wider uppercase mb-1">
+          <i data-lucide="video" class="w-3.5 h-3.5"></i>
+          <span>Partner Oficial Save my Play España</span>
+        </div>
+        <h2 data-i18n="smp_title" class="text-2xl sm:text-4xl font-black font-heading text-slate-950 uppercase tracking-tight leading-tight">
+          {t['smp_title']}
+        </h2>
+        <p class="text-xs sm:text-sm text-slate-900 font-semibold max-w-2xl mx-auto">
+          Sistema de cámaras fijas con botón físico en pista y visión artificial. Sin obras, sin app obligatoria y con amortización desde el primer mes.
+        </p>
+      </div>
+
+      <!-- 3 FOTOS EN FILA CON BORDE NEGRO Y SOMBRA 3D -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6 lg:gap-8 max-w-6xl sm:max-w-7xl mx-auto mb-10 sm:mb-12">
+        
+        <!-- FOTO 1 -->
+        <div class="rounded-3xl overflow-hidden shadow-[0_15px_35px_-10px_rgba(0,0,0,0.5)] transition-all duration-300 group border-2 border-slate-900 bg-slate-800 hover:-translate-y-1">
+          <div class="relative aspect-[16/10] overflow-hidden">
+            <img src="{asset_prefix}assets/images/savemyplay-1.jpg" alt="Camara Save my Play grabando partido en pista de padel" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" decoding="async">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent"></div>
+          </div>
+        </div>
+
+        <!-- FOTO 2 -->
+        <div class="rounded-3xl overflow-hidden shadow-[0_15px_35px_-10px_rgba(0,0,0,0.5)] transition-all duration-300 group border-2 border-slate-900 bg-slate-800 hover:-translate-y-1">
+          <div class="relative aspect-[16/10] overflow-hidden">
+            <img src="{asset_prefix}assets/images/savemyplay-2.jpg" alt="Jugadores de padel usando la app Save my Play para ver repeticiones" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" decoding="async">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent"></div>
+          </div>
+        </div>
+
+        <!-- FOTO 3 -->
+        <div class="rounded-3xl overflow-hidden shadow-[0_15px_35px_-10px_rgba(0,0,0,0.5)] transition-all duration-300 group border-2 border-slate-900 bg-slate-800 hover:-translate-y-1">
+          <div class="relative aspect-[16/10] overflow-hidden">
+            <img src="{asset_prefix}assets/images/savemyplay-3.jpg" alt="Pista panoramica con sistema de video inteligente Save my Play" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" decoding="async">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent"></div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- 2 TARJETAS SAVE MY PLAY: TARJETA PLANES + TARJETA ¿POR QUÉ AÑADIR SMP A TU CLUB? -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 xl:gap-10 max-w-6xl sm:max-w-7xl mx-auto mb-8">
+        
+        <!-- TARJETA 1: PLANES SAVE MY PLAY -->
+        <div class="bg-white rounded-3xl p-5 sm:p-7 border border-emerald-300 shadow-xl text-slate-900 flex flex-col justify-between hover:-translate-y-1 transition duration-300">
+          <div class="space-y-4">
+            <div class="flex items-center justify-between border-b border-slate-200 pb-3 sm:pb-4">
+              <h3 data-i18n="smp_plans_title" class="font-heading font-black text-lg sm:text-2xl text-slate-950 uppercase tracking-tight">
+                {t['smp_plans_title']}
+              </h3>
+              <span class="w-8 h-8 rounded-full bg-[#4bbb81]/20 flex items-center justify-center text-slate-950">
+                <i data-lucide="layers" class="w-4 h-4 stroke-[2.5]"></i>
+              </span>
+            </div>
+
+            <!-- PLANES GRID -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+              
+              <!-- PLAN A: NARANJA 136€/mes -->
+              <div class="p-4 sm:p-5 rounded-2xl bg-orange-50/70 border-2 border-[#f2920b] flex flex-col space-y-2.5">
+                <div class="flex items-center justify-between">
+                  <span data-i18n="smp_plan_a_title" class="font-black text-xs uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-[#f2920b] text-slate-950">
+                    {t['smp_plan_a_title']}
+                  </span>
+                  <i data-lucide="sparkles" class="w-4 h-4 text-[#f2920b]"></i>
+                </div>
+                <strong data-i18n="smp_plan_a_price" class="text-2xl sm:text-3xl font-black font-heading text-slate-950 block">
+                  {t['smp_plan_a_price']}
+                </strong>
+                <p data-i18n="smp_plan_a_desc" class="text-xs text-slate-700 font-medium leading-relaxed">
+                  {t['smp_plan_a_desc']}
+                </p>
+              </div>
+
+              <!-- PLAN B: AZUL 45€/mes -->
+              <div class="p-4 sm:p-5 rounded-2xl bg-sky-50/70 border-2 border-[#76d3f6] flex flex-col space-y-2.5">
+                <div class="flex items-center justify-between">
+                  <span data-i18n="smp_plan_b_title" class="font-black text-xs uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-[#76d3f6] text-slate-950">
+                    {t['smp_plan_b_title']}
+                  </span>
+                  <i data-lucide="video" class="w-4 h-4 text-sky-600"></i>
+                </div>
+                <strong data-i18n="smp_plan_b_price" class="text-2xl sm:text-3xl font-black font-heading text-slate-950 block">
+                  {t['smp_plan_b_price']}
+                </strong>
+                <p data-i18n="smp_plan_b_desc" class="text-xs text-slate-700 font-medium leading-relaxed">
+                  {t['smp_plan_b_desc']}
+                </p>
+              </div>
+
+            </div>
+
+            <!-- INVERSIÓN INICIAL CÁMARAS: 180 € / PISTA -->
+            <div class="py-2.5 px-4 max-w-xs sm:max-w-sm mx-auto rounded-xl bg-slate-100 border border-slate-200 text-center">
+              <span data-i18n="smp_cam_invest" class="font-black text-xs sm:text-sm text-slate-950 block">
+                {t['smp_cam_invest']}
+              </span>
+            </div>
+          </div>
+
+          <!-- BOTÓN CONTACTAR PLANES -->
+          <div class="pt-4 border-t border-slate-200 mt-4">
+            <a id="smp-plan-btn" href="https://wa.me/34680317486?text={wa_prefilled_encoded}" 
+               target="_blank" rel="noopener noreferrer"
+               class="group relative w-full inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] active:bg-[#76d3f6] text-slate-950 active:scale-95 font-heading font-black text-xs sm:text-sm uppercase tracking-wider transition-all duration-300 shadow-md hover:scale-[1.01] overflow-hidden">
+              <span data-i18n="smp_btn" class="font-black">{t['smp_btn']}</span>
+              <div class="w-6 h-6 rounded-full bg-slate-950/10 group-hover:bg-slate-950 group-hover:text-white flex items-center justify-center transition-all duration-300">
+                <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 stroke-[3] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300"></i>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <!-- TARJETA 2: ¿POR QUÉ AÑADIR SAVE MY PLAY A TU CLUB? -->
+        <div class="bg-white rounded-3xl p-5 sm:p-7 border border-emerald-300 shadow-xl text-slate-900 flex flex-col justify-between hover:-translate-y-1 transition duration-300">
+          <div class="space-y-4">
+            <div class="flex items-center gap-1.5 sm:gap-2 flex-wrap border-b border-slate-200 pb-3 sm:pb-4">
+              <span data-i18n="smp_why_title_prefix" class="font-heading font-black text-lg sm:text-2xl text-slate-950 uppercase tracking-tight">{t['smp_why_title_prefix']}</span>
+              <img src="{asset_prefix}assets/images/savemyplay-logo-clean.png" alt="Save my Play" class="h-6 sm:h-8 w-auto object-contain" loading="lazy">
+              <span data-i18n="smp_why_title_suffix" class="font-heading font-black text-lg sm:text-2xl text-slate-950 uppercase tracking-tight">{t['smp_why_title_suffix']}</span>
+            </div>
+
+            <!-- 4 RAZONES COMERCIALES -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+              <div class="flex items-start gap-2.5 sm:gap-3 p-1">
+                <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-xl bg-[#4bbb81]/20 flex items-center justify-center shrink-0 mt-0.5 text-slate-950">
+                  <i data-lucide="sparkles" class="w-3.5 h-3.5 sm:w-4 sm:h-4 stroke-[2.5]"></i>
+                </div>
+                <div>
+                  <h5 data-i18n="feat1_title" class="text-xs sm:text-sm font-bold text-slate-950 uppercase leading-tight">{t['feat1_title']}</h5>
+                  <p data-i18n="feat1_desc" class="text-[11px] sm:text-xs text-slate-600 font-medium leading-relaxed mt-0.5">{t['feat1_desc']}</p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-2.5 sm:gap-3 p-1">
+                <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-xl bg-[#4bbb81]/20 flex items-center justify-center shrink-0 mt-0.5 text-slate-950">
+                  <i data-lucide="share-2" class="w-3.5 h-3.5 sm:w-4 sm:h-4 stroke-[2.5]"></i>
+                </div>
+                <div>
+                  <h5 data-i18n="feat2_title" class="text-xs sm:text-sm font-bold text-slate-950 uppercase leading-tight">{t['feat2_title']}</h5>
+                  <p data-i18n="feat2_desc" class="text-[11px] sm:text-xs text-slate-600 font-medium leading-relaxed mt-0.5">{t['feat2_desc']}</p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-2.5 sm:gap-3 p-1">
+                <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-xl bg-[#4bbb81]/20 flex items-center justify-center shrink-0 mt-0.5 text-slate-950">
+                  <i data-lucide="shield-check" class="w-3.5 h-3.5 sm:w-4 sm:h-4 stroke-[2.5]"></i>
+                </div>
+                <div>
+                  <h5 data-i18n="feat3_title" class="text-xs sm:text-sm font-bold text-slate-950 uppercase leading-tight">{t['feat3_title']}</h5>
+                  <p data-i18n="feat3_desc" class="text-[11px] sm:text-xs text-slate-600 font-medium leading-relaxed mt-0.5">{t['feat3_desc']}</p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-2.5 sm:gap-3 p-1">
+                <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-xl bg-[#4bbb81]/20 flex items-center justify-center shrink-0 mt-0.5 text-slate-950">
+                  <i data-lucide="trending-up" class="w-3.5 h-3.5 sm:w-4 sm:h-4 stroke-[2.5]"></i>
+                </div>
+                <div>
+                  <h5 data-i18n="feat4_title" class="text-xs sm:text-sm font-bold text-slate-950 uppercase leading-tight">{t['feat4_title']}</h5>
+                  <p data-i18n="feat4_desc" class="text-[11px] sm:text-xs text-slate-600 font-medium leading-relaxed mt-0.5">{t['feat4_desc']}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- BOTÓN CONTACTAR POR QUÉ SMP -->
+          <div class="pt-4 border-t border-slate-200 mt-4">
+            <a id="smp-contact-btn" href="https://wa.me/34680317486?text={wa_prefilled_encoded}" 
+               target="_blank" rel="noopener noreferrer"
+               class="group relative w-full inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] active:bg-[#76d3f6] text-slate-950 active:scale-95 font-heading font-black text-xs sm:text-sm uppercase tracking-wider transition-all duration-300 shadow-md hover:scale-[1.01] overflow-hidden">
+              <span data-i18n="smp_btn" class="font-black">{t['smp_btn']}</span>
+              <div class="w-6 h-6 rounded-full bg-slate-950/10 group-hover:bg-slate-950 group-hover:text-white flex items-center justify-center transition-all duration-300">
+                <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 stroke-[3] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300"></i>
+              </div>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ENLACE INTERNO A /camaras/ -->
+      <div class="text-center pt-2 pb-1">
+        <a href="{asset_prefix}camaras/" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-slate-950 text-white hover:bg-white hover:text-slate-950 font-bold text-xs sm:text-sm transition-all duration-200 shadow-md">
+          <span>Ver dossier técnico completo, comparativa de 9 cámaras y modelos de ROI</span>
+          <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </a>
+      </div>
+
+    </div>
+  </section>
 
   <!-- 6. MAPA INTERACTIVO: CLUBS Y MARCAS CON LLAVEROS COOLPADEL (COMPACTO) -->
   <section id="mapa-clubs" class="py-6 sm:py-8 lg:py-10 bg-slate-50 relative border-b border-slate-200">
@@ -3167,29 +3348,10 @@ def get_base_html(active_lang="es", is_subfolder=False):
       }}
     }}
 
-    // INICIALIZACIÓN DE IDIOMA CON AUTO-DETECCIÓN INTELIGENTE POR NAVEGADOR
+    // INICIALIZACIÓN DE CALCULADORA (SIN AUTO-MUTACIÓN DE IDIOMA PARA PRESERVAR INDEXABILIDAD SEO)
     try {{
-      const urlLang = urlParams.get('lang');
-      const savedLang = localStorage.getItem('coolpadel_lang');
-      
-      let detectedLang = null;
-      if (!savedLang && !urlLang) {{
-        const navLang = (navigator.language || navigator.userLanguage || '').toLowerCase();
-        if (navLang.startsWith('fr')) detectedLang = 'fr';
-        else if (navLang.startsWith('it')) detectedLang = 'it';
-        else if (navLang.startsWith('es')) detectedLang = 'es';
-        else detectedLang = 'en';
-      }}
-
-      const initialLang = urlLang || savedLang || detectedLang;
-      if (initialLang && I18N_DATA[initialLang] && initialLang !== '{active_lang}') {{
-        switchLanguage(initialLang);
-      }} else {{
-        updateCalculator(0);
-      }}
-    }} catch(e) {{
       updateCalculator(0);
-    }}
+    }} catch(e) {{}}
 
     // TRACKING DE CARGA INICIAL Y CLICS EN BOTONES WHATSAPP / INTERACCIONES
     try {{
@@ -3374,55 +3536,55 @@ def build_all():
   </url>
   <url>
     <loc>https://coolpadelstudios.com/blog/</loc>
-    <lastmod>2026-10-14</lastmod>
+    <lastmod>{today_iso}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://coolpadelstudios.com/blog/highlights-03/</loc>
-    <lastmod>2026-10-14</lastmod>
+    <lastmod>{today_iso}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://coolpadelstudios.com/blog/highlights-02/</loc>
-    <lastmod>2026-10-14</lastmod>
+    <lastmod>{today_iso}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://coolpadelstudios.com/blog/highlights-01/</loc>
-    <lastmod>2026-10-14</lastmod>
+    <lastmod>{today_iso}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://coolpadelstudios.com/blog/rentabilidad-camaras-pistas-padel/</loc>
-    <lastmod>2026-10-15</lastmod>
+    <lastmod>{today_iso}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://coolpadelstudios.com/blog/welcome-pack-torneo-padel-ideas/</loc>
-    <lastmod>2026-10-14</lastmod>
+    <lastmod>{today_iso}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://coolpadelstudios.com/blog/sistemas-grabacion-pistas-padel-comparativa/</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>{today_iso}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://coolpadelstudios.com/blog/regalos-eventos-padel-cenas-socios-llaveros/</loc>
-    <lastmod>2026-10-15</lastmod>
+    <lastmod>{today_iso}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://coolpadelstudios.com/blog/vender-llaveros-tienda-club-padel-pro-shop/</loc>
-    <lastmod>2026-10-16</lastmod>
+    <lastmod>{today_iso}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -3562,6 +3724,24 @@ def build_all():
   </url>
   <url>
     <loc>https://coolpadelstudios.com/blog/barometro-camaras-padel-2026/</loc>
+    <lastmod>{today_iso}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://coolpadelstudios.com/herramientas/</loc>
+    <lastmod>{today_iso}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://coolpadelstudios.com/herramientas/calculadora-roi-camaras-padel/</loc>
+    <lastmod>{today_iso}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://coolpadelstudios.com/herramientas/generador-americana-padel/</loc>
     <lastmod>{today_iso}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>

@@ -67,7 +67,7 @@ def generate_single_page(f):
     canonical_url = f"https://coolpadelstudios.com/franquicias-padel/{fid}/"
     wa_msg = f"Hola Javier, estoy viendo la ficha de {nombre} en el directorio de franquicias y quiero consultar sobre equipamiento de cámaras Save my Play y llaveros 3D."
     import urllib.parse
-    wa_url = f"https://api.whatsapp.com/send?phone=34658145887&text={urllib.parse.quote(wa_msg)}"
+    wa_url = f"https://api.whatsapp.com/send?phone=34680317486&text={urllib.parse.quote(wa_msg)}"
 
     # Sedes HTML
     sedes_items = []
@@ -158,11 +158,6 @@ def generate_single_page(f):
           "@type": "PostalAddress",
           "addressLocality": "{escape_txt(ciudad)}",
           "addressCountry": "{pais_codigo}"
-        }},
-        "parentOrganization": {{
-          "@type": "Organization",
-          "name": "CoolPadel Studios",
-          "url": "https://coolpadelstudios.com"
         }}
       }},
       {{

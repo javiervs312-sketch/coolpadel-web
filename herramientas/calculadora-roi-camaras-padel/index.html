@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora de ROI y Rentabilidad de Cámaras en Pistas de Pádel (2026) | Save my Play</title>
+  <meta name="description" content="Simula en directo la rentabilidad de instalar cámaras Save my Play en tu club de pádel. Calcula costes (45€/mes), ingresos por horas valle y tiempo de amortización.">
+  <link rel="canonical" href="https://coolpadelstudios.com/herramientas/calculadora-roi-camaras-padel/">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Save my Play & CoolPadel Studios">
+  <meta property="og:locale" content="es_ES">
+  <meta property="og:url" content="https://coolpadelstudios.com/herramientas/calculadora-roi-camaras-padel/">
+  <meta property="og:title" content="Calculadora de ROI de Cámaras para Pistas de Pádel (2026)">
+  <meta property="og:description" content="Simulador financiero oficial para directores de club: amortización, cuota de 45€/mes e ingresos adicionales.">
+  <meta property="og:image" content="https://coolpadelstudios.com/assets/images/savemyplay-1.jpg">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Calculadora de Rentabilidad de Cámaras en Pádel">
+  <meta name="twitter:description" content="Calcula cuánto genera instalar cámaras Save my Play en tu club de pádel en horas valle y sponsors.">
+  <meta name="twitter:image" content="https://coolpadelstudios.com/assets/images/savemyplay-1.jpg">
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/png" href="../../assets/images/favicon_transparente.png?v=transp3">
+  <link rel="apple-touch-icon" sizes="180x180" href="../../assets/images/favicon_transparente.png?v=transp3">
+  <meta name="theme-color" content="#0b1626">
+
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"></script>
+
+  <style>
+    body { font-family: 'Plus Jakarta Sans', sans-serif; }
+    h1, h2, h3, h4, .font-heading { font-family: 'Outfit', sans-serif; }
+    input[type=range] {
+      accent-color: #f2920b;
+    }
+  </style>
+
+  <!-- Schema.org WebApplication & FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "@id": "https://coolpadelstudios.com/herramientas/calculadora-roi-camaras-padel/#app",
+        "name": "Calculadora de ROI de Cámaras para Pistas de Pádel",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "All",
+        "description": "Herramienta interactiva para calcular el retorno de inversión y amortización de sistemas de grabación de pádel con IA Save my Play.",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "EUR"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Inicio",
+            "item": "https://coolpadelstudios.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Herramientas",
+            "item": "https://coolpadelstudios.com/herramientas/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Calculadora ROI Cámaras",
+            "item": "https://coolpadelstudios.com/herramientas/calculadora-roi-camaras-padel/"
+          }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "¿Cuántas horas valle adicionales necesita vender un club para amortizar la cámara Save my Play?",
+            "a": "Con el Plan B (45 €/mes por pista) y un precio medio de pista de 24 € a 28 € por hora, un club amortiza el 100% de la cuota mensual vendiendo tan solo entre 1,6 y 2 horas valle adicionales al mes."
+          },
+          {
+            "@type": "Question",
+            "name": "¿Cuánto cuesta el hardware inicial y qué obras requiere la instalación?",
+            "a": "La cámara Save my Play tiene un coste único de 180 € de hardware por pista. Se fija directamente al poste de la pista en solo 5 minutos sin zanjas, obras ni cortes de juego."
+          },
+          {
+            "@type": "Question",
+            "name": "¿Hay compromiso de permanencia en Save my Play?",
+            "a": "No. A diferencia de los contratos de renting tradicionales de 2 a 5 años, Save my Play opera con suscripción mes a mes cancelable en cualquier momento sin penalización."
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col selection:bg-[#f2920b] selection:text-slate-950">
+
+  <!-- HEADER -->
+  <header class="sticky top-0 z-50 bg-[#0b1626]/95 backdrop-blur-md border-b border-slate-800">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between">
+      <a href="../../" class="flex items-center gap-2.5">
+        <img src="../../assets/images/coolpadel-mascot-hd.png" alt="CoolPadel Studios" class="h-9 sm:h-11 w-auto object-contain">
+        <span class="font-heading font-black text-lg sm:text-xl tracking-tight text-white">CoolPadel <span class="text-[#f2920b]">Studios</span></span>
+      </a>
+
+      <nav class="hidden md:flex items-center gap-6 text-xs sm:text-sm font-bold uppercase tracking-wider text-slate-300">
+        <a href="../../camaras/" class="hover:text-[#76d3f6] transition">Cámaras IA</a>
+        <a href="../../#llaveros" class="hover:text-[#f2920b] transition">Llaveros 3D</a>
+        <a href="../" class="text-[#f2920b] font-black">Herramientas</a>
+        <a href="../../blog/barometro-camaras-padel-2026/" class="hover:text-emerald-400 transition">Barómetro</a>
+        <a href="../../blog/" class="hover:text-white transition">Blog</a>
+      </nav>
+
+      <a href="../../camaras/" class="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-slate-800 hover:bg-slate-700 text-white font-heading font-bold text-xs uppercase tracking-wider transition">
+        <i data-lucide="video" class="w-3.5 h-3.5 text-[#76d3f6]"></i>
+        <span>Ver Save my Play</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- BREADCRUMBS -->
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 pt-6 pb-2 text-xs text-slate-400 flex items-center gap-2">
+    <a href="../../" class="hover:text-white transition">Inicio</a>
+    <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+    <a href="../" class="hover:text-white transition">Herramientas</a>
+    <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+    <span class="text-slate-200 font-bold">Calculadora ROI Cámaras</span>
+  </div>
+
+  <main class="flex-1 py-6 sm:py-10">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+
+      <!-- HERO HEAD -->
+      <div class="text-center space-y-3 mb-10 max-w-3xl mx-auto">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-950/80 border border-sky-800/80 text-xs font-bold text-[#76d3f6] uppercase tracking-wider">
+          <i data-lucide="line-chart" class="w-3.5 h-3.5"></i>
+          <span>Simulador Financiero Oficial Save my Play 2026</span>
+        </div>
+        <h1 class="text-3xl sm:text-5xl font-black font-heading text-white tracking-tight leading-tight">
+          Calculadora de ROI y Rentabilidad de <span class="text-[#76d3f6]">Cámaras en Pista</span>
+        </h1>
+        <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+          Comprueba de forma interactiva cuánto ingresará tu club y en cuántos días amortizas el sistema. Sin contratos de permanencia ni costes ocultos.
+        </p>
+      </div>
+
+      <!-- CALCULADORA INTERACTIVA -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start bg-slate-900 border border-slate-800 rounded-3xl p-6 sm:p-10 shadow-2xl">
+
+        <!-- PANEL IZQUIERDO: CONTROLES / PARÁMETROS (7 cols) -->
+        <div class="lg:col-span-7 space-y-6">
+          <h2 class="text-lg sm:text-xl font-black font-heading text-white border-b border-slate-800 pb-3 flex items-center gap-2">
+            <i data-lucide="sliders" class="w-5 h-5 text-[#f2920b]"></i>
+            <span>1. Configura los Datos de tu Club</span>
+          </h2>
+
+          <!-- CONTROL 1: NÚMERO DE PISTAS -->
+          <div class="space-y-2">
+            <div class="flex justify-between items-center">
+              <label class="text-xs sm:text-sm font-bold text-slate-200">Número de pistas a equipar:</label>
+              <span id="label-pistas" class="text-base sm:text-lg font-black text-[#f2920b] font-heading bg-slate-800 px-3 py-0.5 rounded-lg">4 pistas</span>
+            </div>
+            <input type="range" id="input-pistas" min="1" max="16" value="4" class="w-full h-2 bg-slate-800 rounded-lg cursor-pointer">
+            <div class="flex justify-between text-[10px] text-slate-500 font-bold">
+              <span>1 pista</span>
+              <span>4 pistas</span>
+              <span>8 pistas</span>
+              <span>16 pistas</span>
+            </div>
+          </div>
+
+          <!-- CONTROL 2: PLAN SAVE MY PLAY -->
+          <div class="space-y-2 pt-2">
+            <label class="text-xs sm:text-sm font-bold text-slate-200">Plan de Software Save my Play:</label>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <button type="button" id="btn-plan-b" onclick="selectPlan('B')" class="p-3.5 rounded-2xl border-2 border-sky-400 bg-sky-950/40 text-left transition flex flex-col justify-between cursor-pointer">
+                <div class="flex items-center justify-between">
+                  <span class="text-xs font-black uppercase text-sky-300">Plan B (Recomendado)</span>
+                  <i data-lucide="check-circle" class="w-4 h-4 text-sky-400"></i>
+                </div>
+                <div class="mt-2">
+                  <span class="text-2xl font-black font-heading text-white">45 €</span>
+                  <span class="text-xs text-slate-400">/ pista / mes</span>
+                </div>
+                <p class="text-[11px] text-slate-300 mt-1">Grabación completa, pulsador en poste/red, highlights y QR sin app.</p>
+              </button>
+
+              <button type="button" id="btn-plan-a" onclick="selectPlan('A')" class="p-3.5 rounded-2xl border border-slate-700 bg-slate-800/40 text-left hover:border-slate-600 transition flex flex-col justify-between cursor-pointer">
+                <div class="flex items-center justify-between">
+                  <span class="text-xs font-black uppercase text-slate-300">Plan A (IA Pro)</span>
+                  <i data-lucide="circle" class="w-4 h-4 text-slate-500"></i>
+                </div>
+                <div class="mt-2">
+                  <span class="text-2xl font-black font-heading text-white">136 €</span>
+                  <span class="text-xs text-slate-400">/ pista / mes</span>
+                </div>
+                <p class="text-[11px] text-slate-400 mt-1">Todo el Plan B + SportAI analytics, mapas de calor y recuento táctico.</p>
+              </button>
+            </div>
+          </div>
+
+          <!-- CONTROL 3: PRECIO MEDIO HORA PISTA -->
+          <div class="space-y-2 pt-2">
+            <div class="flex justify-between items-center">
+              <label class="text-xs sm:text-sm font-bold text-slate-200">Precio medio de alquiler por hora de pista:</label>
+              <span id="label-precio" class="text-base sm:text-lg font-black text-white font-heading bg-slate-800 px-3 py-0.5 rounded-lg">26 € / h</span>
+            </div>
+            <input type="range" id="input-precio" min="16" max="44" step="2" value="26" class="w-full h-2 bg-slate-800 rounded-lg cursor-pointer">
+            <div class="flex justify-between text-[10px] text-slate-500 font-bold">
+              <span>16 €</span>
+              <span>26 €</span>
+              <span>36 €</span>
+              <span>44 €</span>
+            </div>
+          </div>
+
+          <!-- CONTROL 4: HORAS VALLE EXTRA AL MES POR PISTA -->
+          <div class="space-y-2 pt-2">
+            <div class="flex justify-between items-center">
+              <label class="text-xs sm:text-sm font-bold text-slate-200">Horas valle extra ocupadas al mes por pista:</label>
+              <span id="label-horas-valle" class="text-base sm:text-lg font-black text-emerald-400 font-heading bg-slate-800 px-3 py-0.5 rounded-lg">+4 h / mes</span>
+            </div>
+            <input type="range" id="input-horas-valle" min="1" max="15" value="4" class="w-full h-2 bg-slate-800 rounded-lg cursor-pointer">
+            <p class="text-[11px] text-slate-400">Gracias al reclamo de grabación, clinics con vídeo o partidas de mañanas que antes no se jugaban.</p>
+          </div>
+
+          <!-- CONTROL 5: PATROCINIO LOCAL POR PISTA -->
+          <div class="space-y-2 pt-2">
+            <div class="flex justify-between items-center">
+              <label class="text-xs sm:text-sm font-bold text-slate-200">Ingresos por patrocinio local en los vídeos:</label>
+              <span id="label-sponsor" class="text-base sm:text-lg font-black text-white font-heading bg-slate-800 px-3 py-0.5 rounded-lg">30 € / mes / pista</span>
+            </div>
+            <input type="range" id="input-sponsor" min="0" max="100" step="10" value="30" class="w-full h-2 bg-slate-800 rounded-lg cursor-pointer">
+            <p class="text-[11px] text-slate-400">Marcas de la zona (fisioterapia, concesionarios, cervezas) que pagan por poner su logo en la intro o esquina de cada highlight compartido.</p>
+          </div>
+        </div>
+
+        <!-- PANEL DERECHO: RESULTADOS Y ROI (5 cols) -->
+        <div class="lg:col-span-5 bg-gradient-to-br from-slate-800 to-slate-900 border-2 border-slate-700/80 rounded-3xl p-6 sm:p-8 space-y-6 flex flex-col justify-between">
+          <div class="space-y-5">
+            <div class="flex items-center justify-between border-b border-slate-700 pb-3">
+              <span class="text-xs font-black uppercase tracking-wider text-slate-400">Balance Económico Estimado</span>
+              <span class="px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-xs font-black border border-emerald-500/20">ROI Positivo</span>
+            </div>
+
+            <!-- RESULTADO 1: INVERSIÓN HARDWARE INICIAL -->
+            <div class="flex justify-between items-center text-xs sm:text-sm">
+              <span class="text-slate-300">Inversión hardware (180€/pista):</span>
+              <strong id="out-hardware" class="text-white font-black font-heading text-base sm:text-lg">720 €</strong>
+            </div>
+
+            <!-- RESULTADO 2: COSTE MENSUAL SOFTWARE -->
+            <div class="flex justify-between items-center text-xs sm:text-sm">
+              <span class="text-slate-300">Cuota mensual Save my Play:</span>
+              <strong id="out-cuota-mensual" class="text-sky-400 font-black font-heading text-base sm:text-lg">180 € / mes</strong>
+            </div>
+
+            <!-- RESULTADO 3: INGRESOS EXTRA MENSUALES -->
+            <div class="flex justify-between items-center text-xs sm:text-sm">
+              <span class="text-slate-300">Ingresos extra (horas valle + sponsor):</span>
+              <strong id="out-ingresos-extra" class="text-emerald-400 font-black font-heading text-base sm:text-lg">+536 € / mes</strong>
+            </div>
+
+            <!-- RESULTADO 4: BENEFICIO NETO MENSUAL DESTACADO -->
+            <div class="bg-slate-950/80 border border-emerald-500/40 rounded-2xl p-5 text-center space-y-1">
+              <span class="text-xs uppercase font-extrabold text-slate-400 tracking-wider">Beneficio Neto Mensual Extra</span>
+              <div id="out-beneficio-neto" class="text-3xl sm:text-4xl font-black font-heading text-emerald-400">+356 € / mes</div>
+              <p class="text-[11px] text-slate-400">Limpio para el club cada mes tras pagar la cuota de software.</p>
+            </div>
+
+            <!-- METRICA DE IMPACTO: HORAS VALLE PARA AMORTIZAR -->
+            <div class="bg-slate-800/80 rounded-xl p-3.5 border border-slate-700 space-y-1 text-center">
+              <span class="text-[11px] font-bold text-slate-400">¿Cuántas horas valle necesitas vender para cubrir la cuota?</span>
+              <div class="text-sm font-black text-white font-heading">
+                Tan solo <span id="out-horas-amortizar" class="text-[#f2920b]">1,7 horas al mes por pista</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- BOTÓN CTA WHATSAPP -->
+          <div class="pt-4 border-t border-slate-700/80">
+            <a id="btn-cta-wa" href="#" target="_blank" rel="noopener noreferrer" class="w-full inline-flex items-center justify-center gap-2 py-3.5 px-4 rounded-2xl bg-[#f2920b] hover:bg-[#76d3f6] text-slate-950 font-heading font-black text-xs sm:text-sm uppercase tracking-wider transition shadow-lg hover:scale-[1.02]">
+              <i data-lucide="message-circle" class="w-4 h-4 fill-slate-950"></i>
+              <span>Consultar Disponibilidad para mi Club</span>
+            </a>
+            <p class="text-[10px] text-slate-400 text-center mt-2">Instalación en 5 minutos · Sin permanencia · Cancela libremente</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- FAQ SECTION -->
+      <section class="mt-16 border-t border-slate-800 pt-12 space-y-6">
+        <h2 class="text-2xl font-black font-heading text-white">Preguntas Frecuentes sobre la Rentabilidad de Cámaras</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 space-y-2">
+            <h3 class="text-sm font-bold text-white">¿Por qué es tan baja la cuota de Save my Play comparada con otros?</h3>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              Muchos proveedores aplican cuotas de 120€ a 250€/mes porque financian tótems táctiles costosos o cableados complejos con contratos de renting a 3 o 5 años. Save my Play utiliza óptica deportiva de alta eficiencia que se fija al poste en 5 minutos y no requiere intermediarios, repercutiendo ese ahorro directamente en un precio de 45 €/mes.
+            </p>
+          </div>
+          <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 space-y-2">
+            <h3 class="text-sm font-bold text-white">¿Save my Play cobra comisión por partido grabado?</h3>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              Cero comisiones (0%). Si tu club decide cobrar a los jugadores 1 € o 2 € por descargar el partido o incluirlo como extra en su cuota de socio, el 100% de ese ingreso es para el club.
+            </p>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-[#0b1626] border-t border-slate-800 py-10 px-4 text-center text-xs text-slate-500">
+    <div class="max-w-6xl mx-auto space-y-4">
+      <div class="flex items-center justify-center gap-6 text-slate-400 font-bold uppercase text-[11px]">
+        <a href="../../camaras/" class="hover:text-white transition">Cámaras Save my Play</a>
+        <a href="../../#llaveros" class="hover:text-white transition">Llaveros 3D</a>
+        <a href="../" class="hover:text-white transition">Herramientas</a>
+        <a href="../../blog/" class="hover:text-white transition">Blog</a>
+      </div>
+      <p>© 2026 Save my Play España & CoolPadel Studios. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <script>
+    lucide.createIcons();
+
+    let planSeleccionado = 'B';
+    const cuotaPorPista = { 'B': 45, 'A': 136 };
+
+    const inPistas = document.getElementById('input-pistas');
+    const inPrecio = document.getElementById('input-precio');
+    const inHorasValle = document.getElementById('input-horas-valle');
+    const inSponsor = document.getElementById('input-sponsor');
+
+    function selectPlan(plan) {
+      planSeleccionado = plan;
+      const btnA = document.getElementById('btn-plan-a');
+      const btnB = document.getElementById('btn-plan-b');
+
+      if (plan === 'B') {
+        btnB.className = "p-3.5 rounded-2xl border-2 border-sky-400 bg-sky-950/40 text-left transition flex flex-col justify-between cursor-pointer";
+        btnB.querySelector('i').setAttribute('data-lucide', 'check-circle');
+        btnB.querySelector('i').className = "w-4 h-4 text-sky-400";
+        
+        btnA.className = "p-3.5 rounded-2xl border border-slate-700 bg-slate-800/40 text-left hover:border-slate-600 transition flex flex-col justify-between cursor-pointer";
+        btnA.querySelector('i').setAttribute('data-lucide', 'circle');
+        btnA.querySelector('i').className = "w-4 h-4 text-slate-500";
+      } else {
+        btnA.className = "p-3.5 rounded-2xl border-2 border-orange-400 bg-orange-950/40 text-left transition flex flex-col justify-between cursor-pointer";
+        btnA.querySelector('i').setAttribute('data-lucide', 'check-circle');
+        btnA.querySelector('i').className = "w-4 h-4 text-[#f2920b]";
+
+        btnB.className = "p-3.5 rounded-2xl border border-slate-700 bg-slate-800/40 text-left hover:border-slate-600 transition flex flex-col justify-between cursor-pointer";
+        btnB.querySelector('i').setAttribute('data-lucide', 'circle');
+        btnB.querySelector('i').className = "w-4 h-4 text-slate-500";
+      }
+      lucide.createIcons();
+      recalcular();
+    }
+
+    function recalcular() {
+      const pistas = parseInt(inPistas.value);
+      const precioHora = parseFloat(inPrecio.value);
+      const horasValle = parseFloat(inHorasValle.value);
+      const sponsorPorPista = parseFloat(inSponsor.value);
+      const cuotaUnitaria = cuotaPorPista[planSeleccionado];
+
+      // Etiquetas
+      document.getElementById('label-pistas').textContent = `${pistas} ${pistas === 1 ? 'pista' : 'pistas'}`;
+      document.getElementById('label-precio').textContent = `${precioHora} € / h`;
+      document.getElementById('label-horas-valle').textContent = `+${horasValle} h / mes`;
+      document.getElementById('label-sponsor').textContent = `${sponsorPorPista} € / mes / pista`;
+
+      // Cálculos
+      const hardwareTotal = pistas * 180;
+      const cuotaMensualTotal = pistas * cuotaUnitaria;
+      const ingresoHorasValleMes = pistas * horasValle * precioHora;
+      const ingresoSponsorMes = pistas * sponsorPorPista;
+      const ingresosExtraTotal = ingresoHorasValleMes + ingresoSponsorMes;
+      const beneficioNeto = ingresosExtraTotal - cuotaMensualTotal;
+      const horasAmortizar = (cuotaUnitaria / precioHora).toFixed(1);
+
+      // Render
+      document.getElementById('out-hardware').textContent = `${hardwareTotal.toLocaleString('es-ES')} €`;
+      document.getElementById('out-cuota-mensual').textContent = `${cuotaMensualTotal.toLocaleString('es-ES')} € / mes`;
+      document.getElementById('out-ingresos-extra').textContent = `+${ingresosExtraTotal.toLocaleString('es-ES')} € / mes`;
+      
+      const elBeneficio = document.getElementById('out-beneficio-neto');
+      if (beneficioNeto >= 0) {
+        elBeneficio.textContent = `+${beneficioNeto.toLocaleString('es-ES')} € / mes`;
+        elBeneficio.className = "text-3xl sm:text-4xl font-black font-heading text-emerald-400";
+      } else {
+        elBeneficio.textContent = `${beneficioNeto.toLocaleString('es-ES')} € / mes`;
+        elBeneficio.className = "text-3xl sm:text-4xl font-black font-heading text-red-400";
+      }
+
+      document.getElementById('out-horas-amortizar').textContent = `${horasAmortizar.replace('.', ',')} horas al mes por pista`;
+
+      // WhatsApp link dinámico
+      const waMsg = `Hola Javier, he estado probando la calculadora de ROI de Save my Play para mi club (${pistas} pistas, Plan ${planSeleccionado}) y me salen unos ingresos estimados de ${ingresosExtraTotal} €/mes. ¿Podemos hablar para revisar la instalación?`;
+      document.getElementById('btn-cta-wa').href = `https://wa.me/34680317486?text=${encodeURIComponent(waMsg)}`;
+    }
+
+    inPistas.addEventListener('input', recalcular);
+    inPrecio.addEventListener('input', recalcular);
+    inHorasValle.addEventListener('input', recalcular);
+    inSponsor.addEventListener('input', recalcular);
+
+    recalcular();
+  </script>
+</body>
+</html>
