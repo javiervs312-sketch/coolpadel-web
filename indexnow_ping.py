@@ -23,7 +23,7 @@ if sys.platform == "win32" and hasattr(sys.stdout, "reconfigure"):
         pass
 
 HOST = "coolpadelstudios.com"
-KEY = "a8f3b1297e644917b2f4c9103e58da81"
+KEY = "10c2e37714e44c7082a97762c41e6914"
 KEY_LOCATION = f"https://{HOST}/{KEY}.txt"
 
 ENDPOINTS = [
