@@ -520,15 +520,44 @@
     const GOOGLE_SHEETS_WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbxnF9JmVrikeAW7PdLc02r_1kkuSJVz1Ncl71ZeVGT37H0ji5DQ3DVw60122pcuYnxCgA/exec';
     function trackEvent(nombreEvento, metadata) {
       try {
+        if (window.location.protocol === 'file:' || window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') return;
+        let sId = '';
+        try {
+          sId = sessionStorage.getItem('cp_session_id');
+          if (!sId) {
+            sId = 's_' + Date.now().toString(36) + '_' + Math.random().toString(36).substring(2, 6);
+            sessionStorage.setItem('cp_session_id', sId);
+          }
+        } catch(e) {
+          sId = 's_' + Date.now().toString(36);
+        }
+
+        let vId = '';
+        try {
+          vId = localStorage.getItem('cp_visitor_id');
+          if (!vId) {
+            vId = 'v_' + Date.now().toString(36) + '_' + Math.random().toString(36).substring(2, 6);
+            localStorage.setItem('cp_visitor_id', vId);
+          }
+        } catch(e) {}
+
+        const dispositivo = /iPhone/i.test(navigator.userAgent) ? 'iPhone' : (/Android/i.test(navigator.userAgent) ? 'Android' : (/iPad/i.test(navigator.userAgent) ? 'iPad' : (/Mac/i.test(navigator.userAgent) ? 'Mac' : (/Windows/i.test(navigator.userAgent) ? 'Windows' : 'Web'))));
+
         fetch(GOOGLE_SHEETS_WEBHOOK_URL, {
           method: 'POST',
           mode: 'no-cors',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
-            tipo: 'evento',
+            tipo: 'analitica_evento',
             evento: nombreEvento,
-            url: window.location.href,
+            evento_desc: '🟢 Lectura Landing (camaras-padel-madrid)',
+            pagina: window.location.pathname,
             path: window.location.pathname,
+            url: window.location.href,
+            origen_canal: '🏷️ Landing camaras-padel-madrid',
+            session_id: sId,
+            visitor_id: vId,
+            dispositivo: dispositivo,
             timestamp: new Date().toISOString(),
             metadata: metadata || {}
           })

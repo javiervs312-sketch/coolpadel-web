@@ -1,19 +1,20 @@
 /**
  * GOOGLE APPS SCRIPT - WEBHOOK OFICIAL COOLPADEL & SAVE MY PLAY
  * 
- * Columnas Limpias y Accionables:
- * 1. Fecha: día/mes (ej: 04/10)
- * 2. Hora: HH:mm:ss (ej: 16:01:19)
+ * Columnas Limpias y Accionables (12 Columnas Estándar):
+ * 1. Fecha: día/mes (ej: 17/10)
+ * 2. Hora: HH:mm:ss (ej: 14:01:19)
  * 3. Lead / Club: Nombre/Tel si se conoce, o EN BLANCO si es anónimo
- * 4. Nº Visitas: 1ª visita, 2ª visita, 5ª visita...
- * 5. Ubicación: Madrid, Madrid, ES (Ciudad, Región, País)
- * 6. Dispositivo: iPhone, Android, Windows, Mac, iPad...
- * 7. Página: /camaras/, /, etc.
- * 8. Evento Real: Acción clara realizada (Lectura, Clic WhatsApp, Copió Teléfono...)
- * 9. Secciones Leídas: Ruta de secciones leídas en orden
- * 10. Tiempo Activo: Tiempo real de lectura (ej: 1m 14s)
- * 11. % Scroll: Porcentaje máximo de lectura (ej: 75%)
- * 12. ID Sesión: Identificador técnico de sesión para agrupar en 1 sola fila
+ * 4. Origen / Canal: WhatsApp, Email, Carta /camaras/, Blog, Home, Directo...
+ * 5. Visitas: 1ª visita, 2ª visita... (con Nota emergente que despliega el historial completo)
+ * 6. Ubicación: Madrid, Madrid, ES (Ciudad, Región, País)
+ * 7. Dispositivo: iPhone, Android, Windows, Mac, iPad...
+ * 8. Página: /camaras/, /, /blog/..., etc.
+ * 9. Evento Real: Acción clara realizada (Lectura Iniciada, Fin Lectura, Clic WhatsApp...)
+ * 10. Secciones Leídas: Ruta de secciones leídas en orden
+ * 11. Tiempo Activo: Tiempo real de lectura (ej: 1m 14s)
+ * 12. % Scroll: Porcentaje máximo de lectura (ej: 75%)
+ * (El ID técnico de sesión se guarda dentro de la Nota de la celda 'Visitas', manteniendo la tabla 100% limpia)
  */
 
 const NOTIFICAR_EMAIL = "javier@coolpadelstudios.com";
@@ -131,15 +132,27 @@ function doPost(e) {
         "Página", "Evento Real", "Secciones Leídas", "Tiempo Activo", "% Scroll"
       ]);
     }
+    try {
+      sheetAnalitica.setFrozenRows(1);
+    } catch(e) {}
 
-    const sessionId = (data.session_id || "").trim();
-    const visitorId = (data.visitor_id || "").trim();
-    
-    // Si la visita es del Administrador (Javier), ignorar para no registrar visitas propias en el Sheet
-    if (data.es_admin) {
+    // Descartar pruebas en local (file://, localhost, etc.)
+    const urlRaw = ((data.url || "") + " " + (data.pagina || "") + " " + (data.path || "")).toLowerCase();
+    if (urlRaw.includes("file:") || urlRaw.includes("localhost") || urlRaw.includes("127.0.0.1") || urlRaw.includes("users/javie") || urlRaw.includes("c:/users")) {
+      return ContentService.createTextOutput(JSON.stringify({ status: "ignored_local", message: "Entorno local de desarrollo ignorado" })).setMimeType(ContentService.MimeType.JSON);
+    }
+
+    // Descartar visitas del Administrador (Javier)
+    const leadRaw = ((data.lead_name || "") + " " + (data.lead_label || "")).toLowerCase();
+    if (data.es_admin || leadRaw.includes("admin") || leadRaw.includes("javier")) {
       return ContentService.createTextOutput(JSON.stringify({ status: "ignored_admin", message: "Visita de admin ignorada" })).setMimeType(ContentService.MimeType.JSON);
     }
-    
+
+    // Normalizar ruta de la página
+    let pagina = data.pagina || data.path || data.url || "/";
+    pagina = pagina.replace(/^https?:\/\/(?:www\.)?coolpadelstudios\.com/i, "").replace(/^https?:\/\/(?:www\.)?savemyplay\.com/i, "");
+    if (!pagina) pagina = "/";
+
     // Lead / Club: EN BLANCO si es anónimo o no se sabe quién es
     let leadLabel = "";
     if (data.lead_name && data.lead_tel) {
@@ -152,9 +165,9 @@ function doPost(e) {
       leadLabel = data.lead_label;
     }
 
-    // Origen de acceso / Canal (WhatsApp, Email, Desde la Web, Búsqueda Google, Directo...)
+    // Origen de acceso / Canal
     let origenCanal = (data.origen_canal || "").trim();
-    if (!origenCanal) {
+    if (!origenCanal || origenCanal === "🌐 Enlace Directo") {
       const src = (data.campana_utm || data.origen || "").toLowerCase();
       const ref = (data.referrer || "").toLowerCase();
       if (src.includes("whatsapp") || src.includes("wa") || data.lead_tel) {
@@ -165,10 +178,24 @@ function doPost(e) {
         origenCanal = "🌐 Desde la Web";
       } else if (ref.includes("google")) {
         origenCanal = "🔍 Búsqueda Google";
+      } else if (pagina.indexOf("/camaras/") >= 0) {
+        origenCanal = "🌐 Carta de Ventas (/camaras/)";
+      } else if (pagina.indexOf("/blog/") >= 0) {
+        origenCanal = "📝 Blog CoolPadel";
+      } else if (pagina.indexOf("llaveros") >= 0) {
+        origenCanal = "🏷️ Landing Llaveros";
+      } else if (pagina.indexOf("franquicias") >= 0) {
+        origenCanal = "🏢 Franquicias Padel";
+      } else if (pagina === "/") {
+        origenCanal = "🌐 Home (coolpadelstudios.com)";
       } else {
         origenCanal = "🌐 Enlace Directo";
       }
     }
+
+    // Generar fallback de sesión si la página no envió session_id
+    const sessionId = (data.session_id || "").trim() || ("s_" + dia.replace("/", "") + "_" + (data.dispositivo || "web").toLowerCase() + "_" + Math.random().toString(36).substring(2, 6));
+    const visitorId = (data.visitor_id || "").trim();
 
     // Nº de visitas (1ª visita, 2ª visita, 5ª visita...)
     let visitasStr = "1ª visita";
@@ -182,16 +209,13 @@ function doPost(e) {
     // Dispositivo limpio (iPhone, Android, Windows, Mac, etc.)
     const dispositivo = data.dispositivo || data.so || "Web";
 
-    // Página
-    const pagina = data.pagina || data.url || "/camaras/";
-
     // Evento Real comprensible
     let eventoReal = data.evento_desc || "";
     const evt = data.evento || "";
     const tActivo = data.tiempo_activo || (data.tiempo_segundos ? data.tiempo_segundos + "s" : "0s");
     const sMax = data.scroll_max || data.scroll_hito || "0%";
 
-    if (evt === "visita_iniciada" || evt === "pageview") {
+    if (evt === "visita_iniciada" || evt === "pageview" || evt === "visita_blog_pagina" || evt === "page_view_landing") {
       eventoReal = "🟢 Lectura Iniciada";
     } else if (evt === "sesion_finalizada") {
       eventoReal = "🏁 Fin Lectura (" + tActivo + ", " + sMax + ")";
