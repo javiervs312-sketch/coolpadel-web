@@ -1890,99 +1890,94 @@ def get_base_html(active_lang="es", is_subfolder=False):
     </div>
   </section>
 
-  <!-- 9. FOOTER INFERIOR (FONDO AZUL CORPORATIVO CON CAJA BLANCA Y TEXTO NEGRO PARA MÁXIMA LEGIBILIDAD) -->
-  <footer class="relative z-20 bg-[#3478a6] bg-textured-blue text-slate-900 py-10 sm:py-14 border-t border-sky-700/40 text-xs sm:text-[13px]">
-    <div class="max-w-[1700px] mx-auto px-4 sm:px-6">
+  <!-- 9. FOOTER INFERIOR (COLOR CELESTE LLAVEROS #3478a6 CON TEXTURA CANVA: BRANDING COOLPADEL, SILOS TEMÁTICOS SEO Y COPYRIGHT) -->
+  <footer class="relative z-20 bg-[#3478a6] bg-textured-blue text-white pt-14 pb-10 border-t border-sky-700/40 text-xs">
+    <div class="max-w-[1700px] mx-auto px-4 sm:px-8 space-y-10">
       
-      <!-- CAJA BLANCA CON TEXTO NEGRO -->
-      <div class="bg-white rounded-3xl p-6 sm:p-10 shadow-2xl border border-white/60 space-y-8 relative z-10">
+      <!-- TOP: BRANDING Y DESCRIPCIÓN B2B -->
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pb-8 border-b border-white/20">
+        <div class="flex items-center gap-3.5">
+          <img src="{asset_prefix}assets/images/coolpadel-mascot-hd.png" alt="CoolPadel Mascota" width="60" height="60" class="h-10 sm:h-12 w-auto object-contain drop-shadow-sm" loading="lazy">
+          <img src="{asset_prefix}assets/images/coolpadel-typography-hd.png" alt="CoolPadel" width="160" height="32" class="h-5 sm:h-6 w-auto object-contain drop-shadow-sm" loading="lazy">
+        </div>
+        <p class="text-white/80 text-xs text-center sm:text-right max-w-md font-medium">
+          Fabricación de llaveros de pádel personalizados 3D y sistemas de cámaras de grabación en pista Save my Play.
+        </p>
+      </div>
 
-        <!-- TOP: BRANDING Y DESCRIPCIÓN B2B -->
-        <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pb-6 border-b border-slate-200">
-          <div class="flex items-center gap-3.5">
-            <img src="{asset_prefix}assets/images/coolpadel-mascot-hd.png" alt="CoolPadel Mascota" width="60" height="60" class="h-10 sm:h-12 w-auto object-contain drop-shadow-sm" loading="lazy">
-            <img src="{asset_prefix}assets/images/coolpadel-typography-hd.png" alt="CoolPadel" width="160" height="32" class="h-5 sm:h-6 w-auto object-contain drop-shadow-sm" loading="lazy">
+      <!-- 4 COLUMNAS DE SILOS TEMÁTICOS SEO -->
+      <nav aria-label="Estructura y Silos SEO de CoolPadel" class="grid grid-cols-2 lg:grid-cols-4 gap-8 text-left">
+        
+        <!-- COLUMNA 1: SOLUCIONES B2B -->
+        <div class="space-y-3">
+          <div class="font-heading font-black text-sm uppercase tracking-wider text-white">
+            Soluciones B2B
           </div>
-          <p class="text-slate-600 text-xs sm:text-sm text-center sm:text-right max-w-md font-medium">
-            Fabricación de llaveros de pádel personalizados 3D y sistemas de cámaras de grabación en pista Save my Play.
-          </p>
+          <ul class="space-y-2 text-white/80 font-normal">
+            <li><a href="/llaveros-padel-personalizados/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Llaveros de Pádel 3D</a></li>
+            <li><a href="/llaveros-tenis-personalizados/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Llaveros de Tenis y Pickleball</a></li>
+            <li><a href="/welcome-packs-torneos-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Welcome Packs para Torneos</a></li>
+            <li><a href="/llaveros-personalizados-clubs-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Merchandising para Clubs</a></li>
+            <li><a href="/camaras/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Cámaras Save my Play</a></li>
+            <li><a href="/camaras-grabacion-pistas-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Grabación en Pista de Pádel</a></li>
+          </ul>
         </div>
 
-        <!-- 4 COLUMNAS DE SILOS TEMÁTICOS SEO -->
-        <nav aria-label="Estructura y Silos SEO de CoolPadel" class="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 text-left">
-          
-          <!-- COLUMNA 1: SOLUCIONES B2B -->
-          <div class="space-y-3">
-            <div class="font-heading font-black text-sm uppercase tracking-wider text-slate-950">
-              Soluciones B2B
-            </div>
-            <ul class="space-y-2 text-slate-600 font-medium">
-              <li><a href="/llaveros-padel-personalizados/" class="hover:text-[#3478a6] hover:underline underline-offset-2 transition">Llaveros de Pádel 3D</a></li>
-              <li><a href="/llaveros-tenis-personalizados/" class="hover:text-[#3478a6] hover:underline underline-offset-2 transition">Llaveros de Tenis y Pickleball</a></li>
-              <li><a href="/welcome-packs-torneos-padel/" class="hover:text-[#3478a6] hover:underline underline-offset-2 transition">Welcome Packs para Torneos</a></li>
-              <li><a href="/llaveros-personalizados-clubs-padel/" class="hover:text-[#3478a6] hover:underline underline-offset-2 transition">Merchandising para Clubs</a></li>
-              <li><a href="/camaras/" class="hover:text-[#3478a6] hover:underline underline-offset-2 transition">Cámaras Save my Play</a></li>
-              <li><a href="/camaras-grabacion-pistas-padel/" class="hover:text-[#3478a6] hover:underline underline-offset-2 transition">Grabación en Pista de Pádel</a></li>
-            </ul>
+        <!-- COLUMNA 2: INTEGRACIONES SAAS & PISTAS -->
+        <div class="space-y-3">
+          <div class="font-heading font-black text-sm uppercase tracking-wider text-white">
+            Software &amp; Pistas
           </div>
-
-          <!-- COLUMNA 2: INTEGRACIONES SAAS & PISTAS -->
-          <div class="space-y-3">
-            <div class="font-heading font-black text-sm uppercase tracking-wider text-slate-950">
-              Software &amp; Pistas
-            </div>
-            <ul class="space-y-2 text-slate-600 font-medium">
-              <li><a href="/camaras-padel-playtomic/" class="hover:text-[#3478a6] hover:underline underline-offset-2 transition">Integración con Playtomic</a></li>
-              <li><a href="/camaras-padel-matchi/" class="hover:text-[#3478a6] hover:underline underline-offset-2 transition">Compatibilidad Matchi</a></li>
-              <li><a href="/camaras-padel-resasports/" class="hover:text-[#3478a6] hover:underline underline-offset-2 transition">Conexión Resasports &amp; Syltek</a></li>
-              <li><a href="/blog/smart-courts-pistas-inteligentes-padel-horas-valle/" class="hover:text-[#3478a6] hover:underline underline-offset-2 transition">Smart Courts y Domótica</a></li>
-              <li><a href="/blog/retransmitir-torneos-padel-streaming-youtube-camaras/" class="hover:text-[#3478a6] hover:underline underline-offset-2 transition">Streaming en Directo YouTube</a></li>
-            </ul>
-          </div>
-
-          <!-- COLUMNA 3: DIRECTORIO & HUBS LOCALES -->
-          <div class="space-y-3">
-            <div class="font-heading font-black text-sm uppercase tracking-wider text-slate-950">
-              Directorio &amp; Hubs
-            </div>
-            <ul class="space-y-2 text-slate-600 font-medium">
-              <li><a href="/franquicias-padel/" class="hover:text-[#3478a6] hover:underline underline-offset-2 transition">Directorio Franquicias (+153)</a></li>
-              <li><a href="/camaras-padel-madrid/" class="hover:text-[#3478a6] hover:underline underline-offset-2 transition">Clubes Pádel Madrid</a></li>
-              <li><a href="/camaras-padel-barcelona/" class="hover:text-[#3478a6] hover:underline underline-offset-2 transition">Clubes Pádel Barcelona</a></li>
-              <li><a href="/#cobertura" class="hover:text-[#3478a6] hover:underline underline-offset-2 transition">Envíos España, USA y Europa</a></li>
-              <li><a href="/#mapa" class="hover:text-[#3478a6] hover:underline underline-offset-2 transition">Mapa de Clientes Oficiales</a></li>
-            </ul>
-          </div>
-
-          <!-- COLUMNA 4: GUÍAS DEL SECTOR -->
-          <div class="space-y-3">
-            <div class="font-heading font-black text-sm uppercase tracking-wider text-slate-950">
-              Guías &amp; Blog B2B
-            </div>
-            <ul class="space-y-2 text-slate-600 font-medium">
-              <li><a href="/blog/" class="text-slate-950 hover:text-[#3478a6] hover:underline underline-offset-2 transition font-bold">Índice del Blog &amp; Newsletter</a></li>
-              <li><a href="/blog/rentabilidad-camaras-pistas-padel/" class="hover:text-[#3478a6] hover:underline underline-offset-2 transition">Precios y ROI de Cámaras</a></li>
-              <li><a href="/blog/welcome-pack-torneo-padel-ideas/" class="hover:text-[#3478a6] hover:underline underline-offset-2 transition">Ideas de Welcome Pack</a></li>
-              <li><a href="/blog/sistemas-grabacion-pistas-padel-comparativa/" class="hover:text-[#3478a6] hover:underline underline-offset-2 transition">Cámaras fijas vs Trípodes (RGPD)</a></li>
-              <li><a href="/blog/vender-llaveros-tienda-club-padel-pro-shop/" class="hover:text-[#3478a6] hover:underline underline-offset-2 transition">Venta de Impulso en Pro-Shop</a></li>
-              <li><a href="/blog/merchandising-ferias-torneos-padel-regalos-marcas/" class="hover:text-[#3478a6] hover:underline underline-offset-2 transition">Merchandising para Ferias</a></li>
-            </ul>
-          </div>
-
-        </nav>
-
-        <!-- BOTTOM: COPYRIGHT Y ENLACES LEGALES -->
-        <div class="pt-6 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-3 text-slate-500 text-center sm:text-left">
-          <span id="admin-toggle-trigger" class="hover:text-slate-800 transition cursor-pointer" title="Modo Administrador">
-            © 2026 CoolPadel Studios · All rights reserved
-          </span>
-          <div class="flex items-center gap-3 font-medium">
-            <a href="/politica-de-devoluciones.html" class="hover:text-slate-900 underline decoration-slate-300 hover:decoration-slate-600 underline-offset-2 transition" title="Política de Devoluciones y Garantía">Política de Devoluciones</a>
-            <span class="opacity-40">·</span>
-            <a href="https://www.instagram.com/coolpadel_/" target="_blank" rel="noopener noreferrer" class="hover:text-slate-900 transition" title="Instagram CoolPadel">@coolpadel_</a>
-          </div>
+          <ul class="space-y-2 text-white/80 font-normal">
+            <li><a href="/camaras-padel-playtomic/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Integración con Playtomic</a></li>
+            <li><a href="/camaras-padel-matchi/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Compatibilidad Matchi</a></li>
+            <li><a href="/camaras-padel-resasports/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Conexión Resasports &amp; Syltek</a></li>
+            <li><a href="/blog/smart-courts-pistas-inteligentes-padel-horas-valle/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Smart Courts y Domótica</a></li>
+            <li><a href="/blog/retransmitir-torneos-padel-streaming-youtube-camaras/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Streaming en Directo YouTube</a></li>
+          </ul>
         </div>
 
+        <!-- COLUMNA 3: DIRECTORIO & HUBS LOCALES -->
+        <div class="space-y-3">
+          <div class="font-heading font-black text-sm uppercase tracking-wider text-white">
+            Directorio &amp; Hubs
+          </div>
+          <ul class="space-y-2 text-white/80 font-normal">
+            <li><a href="/franquicias-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Directorio Franquicias (+153)</a></li>
+            <li><a href="/camaras-padel-madrid/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Clubes Pádel Madrid</a></li>
+            <li><a href="/camaras-padel-barcelona/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Clubes Pádel Barcelona</a></li>
+            <li><a href="/#cobertura" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Envíos España, USA y Europa</a></li>
+            <li><a href="/#mapa" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Mapa de Clientes Oficiales</a></li>
+          </ul>
+        </div>
+
+        <!-- COLUMNA 4: GUÍAS DEL SECTOR -->
+        <div class="space-y-3">
+          <div class="font-heading font-black text-sm uppercase tracking-wider text-white">
+            Guías &amp; Blog B2B
+          </div>
+          <ul class="space-y-2 text-white/80 font-normal">
+            <li><a href="/blog/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition font-bold text-white">Índice del Blog &amp; Newsletter</a></li>
+            <li><a href="/blog/rentabilidad-camaras-pistas-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Precios y ROI de Cámaras</a></li>
+            <li><a href="/blog/welcome-pack-torneo-padel-ideas/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Ideas de Welcome Pack</a></li>
+            <li><a href="/blog/sistemas-grabacion-pistas-padel-comparativa/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Cámaras fijas vs Trípodes (RGPD)</a></li>
+            <li><a href="/blog/vender-llaveros-tienda-club-padel-pro-shop/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Venta de Impulso en Pro-Shop</a></li>
+            <li><a href="/blog/merchandising-ferias-torneos-padel-regalos-marcas/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Merchandising para Ferias</a></li>
+          </ul>
+        </div>
+
+      </nav>
+
+      <!-- BOTTOM: COPYRIGHT Y ENLACES LEGALES -->
+      <div class="pt-8 border-t border-white/20 flex flex-col sm:flex-row items-center justify-between gap-3 text-white/75 text-center sm:text-left">
+        <span id="admin-toggle-trigger" class="hover:text-white/90 transition cursor-pointer" title="Modo Administrador">
+          © 2026 CoolPadel Studios · All rights reserved
+        </span>
+        <div class="flex items-center gap-3">
+          <a href="/politica-de-devoluciones.html" class="hover:text-white/90 underline decoration-white/30 underline-offset-2 transition" title="Política de Devoluciones y Garantía">Política de Devoluciones</a>
+          <span class="opacity-40">·</span>
+          <a href="https://www.instagram.com/coolpadel_/" target="_blank" rel="noopener noreferrer" class="opacity-75 hover:opacity-100 transition text-white" title="Instagram CoolPadel">@coolpadel_</a>
+        </div>
       </div>
 
     </div>
