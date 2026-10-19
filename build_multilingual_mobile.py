@@ -217,7 +217,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
 <html lang="{active_lang}" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>{t['meta_title']}</title>
   <meta name="description" content="{t['meta_desc']}">
   <meta name="author" content="CoolPadel Studios">
@@ -231,6 +231,13 @@ def get_base_html(active_lang="es", is_subfolder=False):
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="CoolPadel Studios">
+
+  <!-- Resource Hints & Performance Prefetch (Google Core Web Vitals) -->
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+  <link rel="dns-prefetch" href="https://cdn.tailwindcss.com">
+  <link rel="dns-prefetch" href="https://unpkg.com">
+  <link rel="dns-prefetch" href="https://www.clarity.ms">
 
   <!-- LLM & AI Search Engine Discovery (llmstxt.org) -->
   <link rel="alternate" type="text/markdown" href="https://coolpadelstudios.com/llms.txt" title="LLMs.txt">
@@ -258,6 +265,9 @@ def get_base_html(active_lang="es", is_subfolder=False):
   <meta property="og:title" content="{t['meta_title']}">
   <meta property="og:description" content="{t['meta_desc']}">
   <meta property="og:image" content="https://coolpadelstudios.com/assets/images/slide-1.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:type" content="image/jpeg">
   <meta property="og:image:alt" content="{seo_i18n['og_img_alt']}">
 
   <!-- Twitter / X Cards -->
