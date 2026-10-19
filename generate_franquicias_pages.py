@@ -114,10 +114,10 @@ def generate_single_page(f):
         meta_desc = meta_desc[:149].rsplit(' ', 1)[0] + "..."
 
     short_title = f"{nombre} ({pais}) | Franquicia de Pádel"
-    if len(short_title) > 58:
-        short_title = f"{nombre}: Franquicia y Pistas ({pais})"
-    if len(short_title) > 58:
+    if len(escape_txt(short_title)) > 58:
         short_title = f"{nombre} ({pais}) - Pádel"
+    if len(escape_txt(short_title)) > 58:
+        short_title = f"{nombre[:30]} ({pais}) | Pádel"
 
     page_html = f"""<!DOCTYPE html>
 <html lang="es" class="scroll-smooth">
