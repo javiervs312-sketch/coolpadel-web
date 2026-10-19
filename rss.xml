@@ -3,9 +3,51 @@
   <channel>
     <title>CoolPadel Studios | Llaveros de Pádel Personalizados &amp; Blog</title>
     <link>https://coolpadelstudios.com</link>
-    <description>Fabricante de llaveros de pádel personalizados, tecnología Save my Play y Newsletter de la Industria.</description>
+    <description>Fabricante de llaveros de pádel personalizados, tecnología Save my Play, calculadoras gratuitas y Newsletter de la Industria.</description>
     <language>es-es</language>
     <atom:link href="https://coolpadelstudios.com/rss.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Generador de Americana de Pádel Online Gratis: Cuadros Todos contra Todos (4 a 20 Jugadores)</title>
+      <link>https://coolpadelstudios.com/herramientas/generador-americana-padel/</link>
+      <guid>https://coolpadelstudios.com/herramientas/generador-americana-padel/</guid>
+      <description>Genera al instante el calendario de tu pozo o americana de pádel individual o por parejas con clasificación en vivo, envío por WhatsApp e impresión PDF.</description>
+      <pubDate>Mon, 19 Oct 2026 10:00:00 +0200</pubDate>
+    </item>
+    <item>
+      <title>Cómo Organizar un Torneo de Pádel o Americana: Reglas, Tiempos, Cuadros y Presupuesto</title>
+      <link>https://coolpadelstudios.com/blog/como-organizar-torneo-padel-americana-reglas-cuadros/</link>
+      <guid>https://coolpadelstudios.com/blog/como-organizar-torneo-padel-americana-reglas-cuadros/</guid>
+      <description>Guía operativa paso a paso para organizar un torneo de pádel o americana (pozo) de 8, 12 o 16 jugadores: algoritmos Whist de cruces, tiempos por ronda, patrocinadores y premios.</description>
+      <pubDate>Mon, 19 Oct 2026 09:30:00 +0200</pubDate>
+    </item>
+    <item>
+      <title>¿Cuánto Cuesta Montar una Pista o un Club de Pádel en 2026? Desglose de Costes y Rentabilidad</title>
+      <link>https://coolpadelstudios.com/blog/cuanto-cuesta-montar-pista-padel-presupuesto-rentabilidad/</link>
+      <guid>https://coolpadelstudios.com/blog/cuanto-cuesta-montar-pista-padel-presupuesto-rentabilidad/</guid>
+      <description>Presupuesto real en España (2026): estructura panorámica (18.000€-26.000€), obra civil, iluminación LED, licencias, gastos fijos mensuales y amortización de un club de pádel.</description>
+      <pubDate>Mon, 19 Oct 2026 09:00:00 +0200</pubDate>
+    </item>
+    <item>
+      <title>Regalos de Pádel Originales y Baratos: 7 Ideas para Jugadores, Torneos y Amigos (2026)</title>
+      <link>https://coolpadelstudios.com/blog/regalos-padel-originales-baratos-ideas-detalles-torneos/</link>
+      <guid>https://coolpadelstudios.com/blog/regalos-padel-originales-baratos-ideas-detalles-torneos/</guid>
+      <description>Comparativa de costes, durabilidad y valor percibido de los mejores detalles y regalos de pádel por menos de 5 €, 15 € y 30 € para torneos, cenas de equipo y clubes.</description>
+      <pubDate>Sun, 18 Oct 2026 10:00:00 +0200</pubDate>
+    </item>
+    <item>
+      <title>Barómetro de Digitalización y Cámaras en Pistas de Pádel en España 2026 (Informe Oficial)</title>
+      <link>https://coolpadelstudios.com/blog/barometro-camaras-padel-2026/</link>
+      <guid>https://coolpadelstudios.com/blog/barometro-camaras-padel-2026/</guid>
+      <description>Estudio empírico sobre +4.100 clubes de pádel: tasa de adopción de vídeo en pista (7,8%), reparto de software SaaS (Playtomic, Matchi, Resasports) y retorno de inversión.</description>
+      <pubDate>Sat, 17 Oct 2026 10:00:00 +0200</pubDate>
+    </item>
+    <item>
+      <title>Hub de Herramientas y Calculadoras Gratuitas para Clubes y Torneos de Pádel</title>
+      <link>https://coolpadelstudios.com/herramientas/</link>
+      <guid>https://coolpadelstudios.com/herramientas/</guid>
+      <description>Calculadoras interactivas y generadores gratuitos sin registro: Generador de Americana, Generador de Cuadros Eliminatorios, Calculadora de Coste de Pistas y Calculadora ROI de Cámaras.</description>
+      <pubDate>Sat, 17 Oct 2026 09:00:00 +0200</pubDate>
+    </item>
     <item>
       <title>Llaveros de Pádel Personalizados para Clubs con Logo Oficial en Relieve 3D</title>
       <link>https://coolpadelstudios.com/llaveros-padel-personalizados/</link>

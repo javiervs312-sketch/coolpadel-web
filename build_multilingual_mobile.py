@@ -1023,7 +1023,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
             <a href="{asset_prefix}#llaveros" class="font-heading font-black text-xs lg:text-[13px] tracking-wider uppercase text-slate-950 hover:text-[#f2920b] transition select-none whitespace-nowrap">
               Llaveros
             </a>
-            <a href="{asset_prefix}camaras/" class="font-heading font-black text-xs lg:text-[13px] tracking-wider uppercase text-slate-950 hover:text-[#f2920b] transition select-none whitespace-nowrap">
+            <a href="camaras/" class="font-heading font-black text-xs lg:text-[13px] tracking-wider uppercase text-slate-950 hover:text-[#f2920b] transition select-none whitespace-nowrap">
               Cámaras pistas
             </a>
             <a href="{asset_prefix}blog/" class="font-heading font-black text-xs lg:text-[13px] tracking-wider uppercase text-slate-950 hover:text-[#f2920b] transition select-none whitespace-nowrap">
@@ -1104,7 +1104,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
             <a href="{asset_prefix}#llaveros" class="font-heading font-black text-[10px] tracking-wider uppercase text-slate-950 hover:text-[#f2920b] transition whitespace-nowrap">
               Llaveros
             </a>
-            <a href="{asset_prefix}camaras/" class="font-heading font-black text-[10px] tracking-wider uppercase text-slate-950 hover:text-[#f2920b] transition whitespace-nowrap">
+            <a href="camaras/" class="font-heading font-black text-[10px] tracking-wider uppercase text-slate-950 hover:text-[#f2920b] transition whitespace-nowrap">
               Cámaras pistas
             </a>
             <a href="{asset_prefix}blog/" class="font-heading font-black text-[10px] tracking-wider uppercase text-slate-950 hover:text-[#f2920b] transition whitespace-nowrap">
@@ -1802,6 +1802,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
 
 
   <!-- SCRIPTS & SISTEMA DE INTERNACIONALIZACIÓN (I18N) -->
+  <script src="/assets/js/cp-analytics.js"></script>
   <script>
     lucide.createIcons();
 
@@ -2905,67 +2906,15 @@ def get_base_html(active_lang="es", is_subfolder=False):
       if (pct > maxScrollPercent) maxScrollPercent = pct;
     }}, {{ passive: true }});
 
-    // 6.1 Detección de Copy-Paste
-    document.addEventListener('copy', () => {{
-      const text = (window.getSelection() ? window.getSelection().toString() : '').trim();
-      if (text.includes('680') || text.includes('317486') || text.includes('+34')) {{
-        hasCopiedContact = true;
-        trackEvent('copiar_telefono', {{ evento_desc: '📋 Copió Teléfono de Javier' }});
-      }} else if (text.includes('@coolpadel') || text.includes('javier@')) {{
-        hasCopiedContact = true;
-        trackEvent('copiar_email', {{ evento_desc: '📋 Copió Email de Javier' }});
-      }}
-    }});
-
-    // 7. Función Central de Envío de Analítica
+    // 7. Función Central de Envío de Analítica (Delegada al motor unificado cp-analytics.js)
     function trackEvent(eventName, extraData = {{}}) {{
-      if (window.location.protocol === 'file:' || window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' || isAdmin) return; // Ignorar admin y pruebas locales
-      if (!GOOGLE_SHEETS_WEBHOOK_URL) return;
-      try {{
-        const dev = getDeviceInfo();
-        const payload = {{
-          tipo: 'analitica_evento',
-          session_id: sessionId,
-          visitor_id: visitorId,
-          visita_num: visitCount,
-          lead_label: getLeadIdentification(),
-          lead_name: leadName,
-          lead_tel: leadTel,
-          geo_ubicacion: geoUbicacion,
+      if (window.cpTrackEvent) {{
+        window.cpTrackEvent(eventName, {{
           lead_score: calculateLeadScore(),
-          es_admin: isAdmin,
-          tipo_trafico: getTrafficTypeLabel(),
-          evento: eventName,
-          evento_desc: extraData.evento_desc || eventName,
-          pagina: window.location.pathname || '/',
-          seccion_actual: currentSection,
-          secciones_recorridas: visitedSectionsList.join(' > '),
-          scroll_max: maxScrollPercent + '%',
-          tiempo_activo: formatTime(activeSeconds),
-          tiempo_segundos: activeSeconds,
           tiempos_seccion: getSectionTimesSummary(),
-          dispositivo: dev.dispositivo,
-          resolucion: dev.resolucion,
-          idioma: currentLang,
-          origen_canal: getChannelOrigin(),
-          campana_utm: utmCampaign || utmSource || '',
-          url_completa: window.location.href,
           ...extraData
-        }};
-
-        const jsonPayload = JSON.stringify(payload);
-        if (navigator.sendBeacon) {{
-          navigator.sendBeacon(GOOGLE_SHEETS_WEBHOOK_URL, jsonPayload);
-        }} else {{
-          fetch(GOOGLE_SHEETS_WEBHOOK_URL, {{
-            method: 'POST',
-            mode: 'no-cors',
-            headers: {{ 'Content-Type': 'application/json' }},
-            body: jsonPayload,
-            keepalive: true
-          }}).catch(() => {{}});
-        }}
-      }} catch(e) {{}}
+        }});
+      }}
     }}
 
     // Descarga de PDF Informe con recolección de email a Google Sheets
@@ -3151,29 +3100,8 @@ def get_base_html(active_lang="es", is_subfolder=False):
       updateCalculator(0);
     }} catch(e) {{}}
 
-    // TRACKING DE CARGA INICIAL Y CLICS EN BOTONES WHATSAPP / INTERACCIONES
+    // TRACKING DE INTERACCIONES ESPECÍFICAS HOME (Visitas iniciales y salidas gestionadas por cp-analytics.js)
     try {{
-      // 1. Registro de Visita Inicial
-      trackEvent('pageview', {{
-        evento_desc: '🟢 Visita Web',
-        path: window.location.pathname,
-        lang_activa: currentLang
-      }});
-      
-      // 2. Clics en WhatsApp con atribución del botón exacto
-      const attachClick = (id, eventName, btnLabel, getExtra) => {{
-        const el = document.getElementById(id);
-        if (el) {{
-          el.addEventListener('click', () => {{
-            trackEvent(eventName, {{
-              ubicacion: btnLabel,
-              evento_desc: `🎯 Clic WhatsApp [${{btnLabel}}]`,
-              ...(getExtra ? getExtra() : {{}})
-            }});
-          }});
-        }}
-      }};
-
       // Smooth scroll a #contacto cuando se hace clic en Contactar de la cabecera
       const handleNavContactClick = (e, btnLabel) => {{
         const sec = document.getElementById('contacto');
@@ -3193,17 +3121,8 @@ def get_base_html(active_lang="es", is_subfolder=False):
       const btnNavMob = document.getElementById('nav-contact-btn-mob');
       if (btnNavMob) btnNavMob.addEventListener('click', (e) => handleNavContactClick(e, 'Cabecera Móvil'));
 
-      attachClick('calc-wa-btn', 'click_whatsapp_calc', 'Calculadora Llaveros', () => ({{
-        tier_unidades: tiers[currentTierIdx]?.qty,
-        tier_precio: tiers[currentTierIdx]?.price
-      }}));
-      attachClick('contact-wa-btn', 'click_whatsapp_footer', 'Contacto WhatsApp Card');
-      attachClick('contact-mail-btn', 'click_email_footer', 'Contacto Email Card');
-      attachClick('floating-wa-btn', 'click_whatsapp_floating', 'Botón Flotante');
-
-      // 3. Tracking de interacción con slider de la calculadora al soltar
+      // Tracking de interacción con slider de la calculadora al soltar
       let lastTierTracked = 0;
-      const originalUpdateCalc = updateCalculator;
       const trackCalculatorDebounced = (idx) => {{
         if (idx !== lastTierTracked) {{
           lastTierTracked = idx;
@@ -3223,21 +3142,6 @@ def get_base_html(active_lang="es", is_subfolder=False):
         sliderBox.addEventListener('pointerup', () => trackCalculatorDebounced(currentTierIdx));
         sliderBox.addEventListener('touchend', () => trackCalculatorDebounced(currentTierIdx));
       }}
-
-      // 4. Registro de Sesión Finalizada al salir o cambiar de pestaña
-      window.addEventListener('visibilitychange', () => {{
-        if (document.visibilityState === 'hidden') {{
-          trackEvent('sesion_finalizada', {{
-            evento_desc: `🏁 Fin de Sesión (Tiempo: ${{formatTime(activeSeconds)}}, Scroll: ${{maxScrollPercent}}%)`
-          }});
-        }}
-      }});
-
-      window.addEventListener('pagehide', () => {{
-        trackEvent('sesion_finalizada', {{
-          evento_desc: `🏁 Fin de Sesión (Tiempo: ${{formatTime(activeSeconds)}}, Scroll: ${{maxScrollPercent}}%)`
-        }});
-      }});
     }} catch(e) {{}}
   </script>
 </body>
@@ -3628,9 +3532,51 @@ def build_all():
   <channel>
     <title>CoolPadel Studios | Llaveros de Pádel Personalizados &amp; Blog</title>
     <link>https://coolpadelstudios.com</link>
-    <description>Fabricante de llaveros de pádel personalizados, tecnología Save my Play y Newsletter de la Industria.</description>
+    <description>Fabricante de llaveros de pádel personalizados, tecnología Save my Play, calculadoras gratuitas y Newsletter de la Industria.</description>
     <language>es-es</language>
     <atom:link href="https://coolpadelstudios.com/rss.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Generador de Americana de Pádel Online Gratis: Cuadros Todos contra Todos (4 a 20 Jugadores)</title>
+      <link>https://coolpadelstudios.com/herramientas/generador-americana-padel/</link>
+      <guid>https://coolpadelstudios.com/herramientas/generador-americana-padel/</guid>
+      <description>Genera al instante el calendario de tu pozo o americana de pádel individual o por parejas con clasificación en vivo, envío por WhatsApp e impresión PDF.</description>
+      <pubDate>Mon, 19 Oct 2026 10:00:00 +0200</pubDate>
+    </item>
+    <item>
+      <title>Cómo Organizar un Torneo de Pádel o Americana: Reglas, Tiempos, Cuadros y Presupuesto</title>
+      <link>https://coolpadelstudios.com/blog/como-organizar-torneo-padel-americana-reglas-cuadros/</link>
+      <guid>https://coolpadelstudios.com/blog/como-organizar-torneo-padel-americana-reglas-cuadros/</guid>
+      <description>Guía operativa paso a paso para organizar un torneo de pádel o americana (pozo) de 8, 12 o 16 jugadores: algoritmos Whist de cruces, tiempos por ronda, patrocinadores y premios.</description>
+      <pubDate>Mon, 19 Oct 2026 09:30:00 +0200</pubDate>
+    </item>
+    <item>
+      <title>¿Cuánto Cuesta Montar una Pista o un Club de Pádel en 2026? Desglose de Costes y Rentabilidad</title>
+      <link>https://coolpadelstudios.com/blog/cuanto-cuesta-montar-pista-padel-presupuesto-rentabilidad/</link>
+      <guid>https://coolpadelstudios.com/blog/cuanto-cuesta-montar-pista-padel-presupuesto-rentabilidad/</guid>
+      <description>Presupuesto real en España (2026): estructura panorámica (18.000€-26.000€), obra civil, iluminación LED, licencias, gastos fijos mensuales y amortización de un club de pádel.</description>
+      <pubDate>Mon, 19 Oct 2026 09:00:00 +0200</pubDate>
+    </item>
+    <item>
+      <title>Regalos de Pádel Originales y Baratos: 7 Ideas para Jugadores, Torneos y Amigos (2026)</title>
+      <link>https://coolpadelstudios.com/blog/regalos-padel-originales-baratos-ideas-detalles-torneos/</link>
+      <guid>https://coolpadelstudios.com/blog/regalos-padel-originales-baratos-ideas-detalles-torneos/</guid>
+      <description>Comparativa de costes, durabilidad y valor percibido de los mejores detalles y regalos de pádel por menos de 5 €, 15 € y 30 € para torneos, cenas de equipo y clubes.</description>
+      <pubDate>Sun, 18 Oct 2026 10:00:00 +0200</pubDate>
+    </item>
+    <item>
+      <title>Barómetro de Digitalización y Cámaras en Pistas de Pádel en España 2026 (Informe Oficial)</title>
+      <link>https://coolpadelstudios.com/blog/barometro-camaras-padel-2026/</link>
+      <guid>https://coolpadelstudios.com/blog/barometro-camaras-padel-2026/</guid>
+      <description>Estudio empírico sobre +4.100 clubes de pádel: tasa de adopción de vídeo en pista (7,8%), reparto de software SaaS (Playtomic, Matchi, Resasports) y retorno de inversión.</description>
+      <pubDate>Sat, 17 Oct 2026 10:00:00 +0200</pubDate>
+    </item>
+    <item>
+      <title>Hub de Herramientas y Calculadoras Gratuitas para Clubes y Torneos de Pádel</title>
+      <link>https://coolpadelstudios.com/herramientas/</link>
+      <guid>https://coolpadelstudios.com/herramientas/</guid>
+      <description>Calculadoras interactivas y generadores gratuitos sin registro: Generador de Americana, Generador de Cuadros Eliminatorios, Calculadora de Coste de Pistas y Calculadora ROI de Cámaras.</description>
+      <pubDate>Sat, 17 Oct 2026 09:00:00 +0200</pubDate>
+    </item>
     <item>
       <title>Llaveros de Pádel Personalizados para Clubs con Logo Oficial en Relieve 3D</title>
       <link>https://coolpadelstudios.com/llaveros-padel-personalizados/</link>

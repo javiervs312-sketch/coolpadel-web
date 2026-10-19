@@ -808,7 +808,7 @@
             <a href="../#llaveros" class="font-heading font-black text-xs lg:text-[13px] tracking-wider uppercase text-slate-950 hover:text-[#f2920b] transition select-none whitespace-nowrap">
               Llaveros
             </a>
-            <a href="../camaras/" class="font-heading font-black text-xs lg:text-[13px] tracking-wider uppercase text-slate-950 hover:text-[#f2920b] transition select-none whitespace-nowrap">
+            <a href="camaras/" class="font-heading font-black text-xs lg:text-[13px] tracking-wider uppercase text-slate-950 hover:text-[#f2920b] transition select-none whitespace-nowrap">
               Cámaras pistas
             </a>
             <a href="../blog/" class="font-heading font-black text-xs lg:text-[13px] tracking-wider uppercase text-slate-950 hover:text-[#f2920b] transition select-none whitespace-nowrap">
@@ -889,7 +889,7 @@
             <a href="../#llaveros" class="font-heading font-black text-[10px] tracking-wider uppercase text-slate-950 hover:text-[#f2920b] transition whitespace-nowrap">
               Llaveros
             </a>
-            <a href="../camaras/" class="font-heading font-black text-[10px] tracking-wider uppercase text-slate-950 hover:text-[#f2920b] transition whitespace-nowrap">
+            <a href="camaras/" class="font-heading font-black text-[10px] tracking-wider uppercase text-slate-950 hover:text-[#f2920b] transition whitespace-nowrap">
               Cámaras pistas
             </a>
             <a href="../blog/" class="font-heading font-black text-[10px] tracking-wider uppercase text-slate-950 hover:text-[#f2920b] transition whitespace-nowrap">
@@ -1587,6 +1587,7 @@
 
 
   <!-- SCRIPTS & SISTEMA DE INTERNACIONALIZACIÓN (I18N) -->
+  <script src="/assets/js/cp-analytics.js"></script>
   <script>
     lucide.createIcons();
 
@@ -2690,67 +2691,15 @@
       if (pct > maxScrollPercent) maxScrollPercent = pct;
     }, { passive: true });
 
-    // 6.1 Detección de Copy-Paste
-    document.addEventListener('copy', () => {
-      const text = (window.getSelection() ? window.getSelection().toString() : '').trim();
-      if (text.includes('680') || text.includes('317486') || text.includes('+34')) {
-        hasCopiedContact = true;
-        trackEvent('copiar_telefono', { evento_desc: '📋 Copió Teléfono de Javier' });
-      } else if (text.includes('@coolpadel') || text.includes('javier@')) {
-        hasCopiedContact = true;
-        trackEvent('copiar_email', { evento_desc: '📋 Copió Email de Javier' });
-      }
-    });
-
-    // 7. Función Central de Envío de Analítica
+    // 7. Función Central de Envío de Analítica (Delegada al motor unificado cp-analytics.js)
     function trackEvent(eventName, extraData = {}) {
-      if (window.location.protocol === 'file:' || window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' || isAdmin) return; // Ignorar admin y pruebas locales
-      if (!GOOGLE_SHEETS_WEBHOOK_URL) return;
-      try {
-        const dev = getDeviceInfo();
-        const payload = {
-          tipo: 'analitica_evento',
-          session_id: sessionId,
-          visitor_id: visitorId,
-          visita_num: visitCount,
-          lead_label: getLeadIdentification(),
-          lead_name: leadName,
-          lead_tel: leadTel,
-          geo_ubicacion: geoUbicacion,
+      if (window.cpTrackEvent) {
+        window.cpTrackEvent(eventName, {
           lead_score: calculateLeadScore(),
-          es_admin: isAdmin,
-          tipo_trafico: getTrafficTypeLabel(),
-          evento: eventName,
-          evento_desc: extraData.evento_desc || eventName,
-          pagina: window.location.pathname || '/',
-          seccion_actual: currentSection,
-          secciones_recorridas: visitedSectionsList.join(' > '),
-          scroll_max: maxScrollPercent + '%',
-          tiempo_activo: formatTime(activeSeconds),
-          tiempo_segundos: activeSeconds,
           tiempos_seccion: getSectionTimesSummary(),
-          dispositivo: dev.dispositivo,
-          resolucion: dev.resolucion,
-          idioma: currentLang,
-          origen_canal: getChannelOrigin(),
-          campana_utm: utmCampaign || utmSource || '',
-          url_completa: window.location.href,
           ...extraData
-        };
-
-        const jsonPayload = JSON.stringify(payload);
-        if (navigator.sendBeacon) {
-          navigator.sendBeacon(GOOGLE_SHEETS_WEBHOOK_URL, jsonPayload);
-        } else {
-          fetch(GOOGLE_SHEETS_WEBHOOK_URL, {
-            method: 'POST',
-            mode: 'no-cors',
-            headers: { 'Content-Type': 'application/json' },
-            body: jsonPayload,
-            keepalive: true
-          }).catch(() => {});
-        }
-      } catch(e) {}
+        });
+      }
     }
 
     // Descarga de PDF Informe con recolección de email a Google Sheets
@@ -2936,29 +2885,8 @@
       updateCalculator(0);
     } catch(e) {}
 
-    // TRACKING DE CARGA INICIAL Y CLICS EN BOTONES WHATSAPP / INTERACCIONES
+    // TRACKING DE INTERACCIONES ESPECÍFICAS HOME (Visitas iniciales y salidas gestionadas por cp-analytics.js)
     try {
-      // 1. Registro de Visita Inicial
-      trackEvent('pageview', {
-        evento_desc: '🟢 Visita Web',
-        path: window.location.pathname,
-        lang_activa: currentLang
-      });
-      
-      // 2. Clics en WhatsApp con atribución del botón exacto
-      const attachClick = (id, eventName, btnLabel, getExtra) => {
-        const el = document.getElementById(id);
-        if (el) {
-          el.addEventListener('click', () => {
-            trackEvent(eventName, {
-              ubicacion: btnLabel,
-              evento_desc: `🎯 Clic WhatsApp [${btnLabel}]`,
-              ...(getExtra ? getExtra() : {})
-            });
-          });
-        }
-      };
-
       // Smooth scroll a #contacto cuando se hace clic en Contactar de la cabecera
       const handleNavContactClick = (e, btnLabel) => {
         const sec = document.getElementById('contacto');
@@ -2978,17 +2906,8 @@
       const btnNavMob = document.getElementById('nav-contact-btn-mob');
       if (btnNavMob) btnNavMob.addEventListener('click', (e) => handleNavContactClick(e, 'Cabecera Móvil'));
 
-      attachClick('calc-wa-btn', 'click_whatsapp_calc', 'Calculadora Llaveros', () => ({
-        tier_unidades: tiers[currentTierIdx]?.qty,
-        tier_precio: tiers[currentTierIdx]?.price
-      }));
-      attachClick('contact-wa-btn', 'click_whatsapp_footer', 'Contacto WhatsApp Card');
-      attachClick('contact-mail-btn', 'click_email_footer', 'Contacto Email Card');
-      attachClick('floating-wa-btn', 'click_whatsapp_floating', 'Botón Flotante');
-
-      // 3. Tracking de interacción con slider de la calculadora al soltar
+      // Tracking de interacción con slider de la calculadora al soltar
       let lastTierTracked = 0;
-      const originalUpdateCalc = updateCalculator;
       const trackCalculatorDebounced = (idx) => {
         if (idx !== lastTierTracked) {
           lastTierTracked = idx;
@@ -3008,21 +2927,6 @@
         sliderBox.addEventListener('pointerup', () => trackCalculatorDebounced(currentTierIdx));
         sliderBox.addEventListener('touchend', () => trackCalculatorDebounced(currentTierIdx));
       }
-
-      // 4. Registro de Sesión Finalizada al salir o cambiar de pestaña
-      window.addEventListener('visibilitychange', () => {
-        if (document.visibilityState === 'hidden') {
-          trackEvent('sesion_finalizada', {
-            evento_desc: `🏁 Fin de Sesión (Tiempo: ${formatTime(activeSeconds)}, Scroll: ${maxScrollPercent}%)`
-          });
-        }
-      });
-
-      window.addEventListener('pagehide', () => {
-        trackEvent('sesion_finalizada', {
-          evento_desc: `🏁 Fin de Sesión (Tiempo: ${formatTime(activeSeconds)}, Scroll: ${maxScrollPercent}%)`
-        });
-      });
     } catch(e) {}
   </script>
 </body>
