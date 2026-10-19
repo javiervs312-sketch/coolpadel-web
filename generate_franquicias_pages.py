@@ -87,16 +87,42 @@ def generate_single_page(f):
         sedes_items.append(f'<li class="flex items-start gap-2.5 py-1.5"><i data-lucide="map-pin" class="w-4 h-4 text-[#f2920b] shrink-0 mt-0.5"></i><span>Instalaciones en {escape_txt(ciudad)}, {escape_txt(pais)}</span></li>')
     sedes_html = "\n".join(sedes_items)
 
-    meta_desc = f"Ficha oficial de {nombre} ({pais}): {num_clubs}, {num_pistas}, software {software.split('/')[0].strip()}, modelo {modelo} y requisitos técnicos de instalación."
+    # Seleccionar 6 franquicias relacionadas (mismo país primero, rotación circular para distribuir PageRank equitativamente)
+    same_country = [x for x in FRANQUICIAS if x["id"] != fid and x.get("pais") == pais]
+    other_country = [x for x in FRANQUICIAS if x["id"] != fid and x.get("pais") != pais]
+    idx_self = next((i for i, x in enumerate(FRANQUICIAS) if x["id"] == fid), 0)
+    pool = same_country + other_country
+    peers = []
+    if pool:
+        for offset in range(min(6, len(pool))):
+            peers.append(pool[(idx_self + offset) % len(pool)])
+
+    peers_cards = []
+    for pf in peers:
+        peers_cards.append(f"""
+        <a href="/franquicias-padel/{pf['id']}/" class="group block bg-white hover:bg-slate-50 rounded-2xl p-4 border border-slate-200 hover:border-[#f2920b] transition shadow-2xs">
+          <div class="flex items-center justify-between gap-2 mb-1.5">
+            <span class="font-heading font-black text-sm text-slate-900 group-hover:text-[#f2920b] transition">{escape_txt(pf.get('bandera', '🎾'))} {escape_txt(pf['nombre'])}</span>
+            <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-slate-100 text-slate-600">{escape_txt(pf.get('num_clubs', ''))}</span>
+          </div>
+          <p class="text-xs text-slate-500 line-clamp-2">{escape_txt(pf.get('ciudad_sede', ''))} ({escape_txt(pf.get('pais', ''))}) · {escape_txt(pf.get('num_pistas', ''))} · {escape_txt(pf.get('software', '').split('/')[0].strip())}</p>
+        </a>""")
+    peers_html = "\n".join(peers_cards)
+
+    meta_desc = f"{nombre} ({pais}): {num_clubs}, {num_pistas}, reservas en {software.split('/')[0].strip()}, modelo {modelo}, inversión de franquicia y equipamiento de pistas."
     if len(meta_desc) > 158:
         meta_desc = meta_desc[:155] + "..."
+
+    short_title = f"{nombre}: Clubs, Pistas y Franquicia ({pais}) | CoolPadel"
+    if len(short_title) > 66:
+        short_title = f"{nombre}: Clubs y Franquicia de Pádel ({pais})"
 
     page_html = f"""<!DOCTYPE html>
 <html lang="es" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{escape_txt(nombre)} - Cadena y Franquicia de Pádel ({escape_txt(pais)}) | CoolPadel Studios</title>
+  <title>{escape_txt(short_title)}</title>
   <meta name="description" content="{escape_txt(meta_desc)}">
   <link rel="canonical" href="{canonical_url}">
 
