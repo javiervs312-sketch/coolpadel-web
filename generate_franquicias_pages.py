@@ -497,6 +497,46 @@ def generate_single_page(f):
       </div>
     </div>
 
+    <!-- Herramientas Gratuitas para Gestores e Inversores -->
+    <div class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-xs space-y-4">
+      <div class="flex items-center justify-between flex-wrap gap-2">
+        <div>
+          <span class="text-[11px] font-black uppercase tracking-wider text-[#f2920b]">Calculadoras Oficiales 2026</span>
+          <h2 class="text-lg sm:text-xl font-heading font-black text-slate-900">Simuladores Gratuitos para Abrir o Equipar un Club como {escape_txt(nombre)}</h2>
+        </div>
+        <a href="/herramientas/" class="text-xs font-bold text-[#3478a6] hover:underline">Ver todas las herramientas →</a>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-xs">
+        <a href="/herramientas/calculadora-coste-pistas-padel/" class="p-3.5 rounded-2xl bg-slate-50 hover:bg-amber-50 border border-slate-200 hover:border-[#f2920b] transition">
+          <div class="font-heading font-black text-slate-900 mb-1">🏗️ Coste de Montar Pistas</div>
+          <p class="text-slate-600">Simula CAPEX de pistas panorámicas, solera, césped y amortización.</p>
+        </a>
+        <a href="/herramientas/calculadora-roi-camaras-padel/" class="p-3.5 rounded-2xl bg-slate-50 hover:bg-amber-50 border border-slate-200 hover:border-[#f2920b] transition">
+          <div class="font-heading font-black text-slate-900 mb-1">📹 Calculadora ROI Cámaras</div>
+          <p class="text-slate-600">Calcula el retorno de instalar cámaras Save my Play (45 €/mes).</p>
+        </a>
+        <a href="/herramientas/generador-americana-padel/" class="p-3.5 rounded-2xl bg-slate-50 hover:bg-amber-50 border border-slate-200 hover:border-[#f2920b] transition">
+          <div class="font-heading font-black text-slate-900 mb-1">🎾 Generador de Americana</div>
+          <p class="text-slate-600">Crea cruces para 8 a 24 jugadores y compártelos por WhatsApp.</p>
+        </a>
+        <a href="/herramientas/generador-cuadros-torneo-padel/" class="p-3.5 rounded-2xl bg-slate-50 hover:bg-amber-50 border border-slate-200 hover:border-[#f2920b] transition">
+          <div class="font-heading font-black text-slate-900 mb-1">🏆 Cuadros de Torneo</div>
+          <p class="text-slate-600">Genera cuadros de 8, 16 y 32 parejas con consolación e impresión.</p>
+        </a>
+      </div>
+    </div>
+
+    <!-- Malla de Interlinking: Otras Franquicias y Cadenas en el mismo mercado -->
+    <div class="space-y-4 pt-2">
+      <div class="flex items-center justify-between flex-wrap gap-2">
+        <h2 class="text-lg sm:text-xl font-heading font-black text-slate-900">Otras Cadenas y Franquicias de Pádel Relacionadas ({escape_txt(pais)})</h2>
+        <a href="/franquicias-padel/" class="text-xs font-bold text-[#f2920b] hover:underline">Comparar las 167 franquicias →</a>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5">
+        {peers_html}
+      </div>
+    </div>
+
     <!-- Enlaces de Retorno y Directorio -->
     <div class="text-center py-6">
       <a href="/franquicias-padel/" class="inline-flex items-center gap-2 text-sm font-bold text-slate-600 hover:text-[#f2920b] transition">
@@ -540,17 +580,18 @@ def generate_single_page(f):
           </ul>
         </div>
 
-        <!-- COLUMNA 2: INTEGRACIONES SAAS & PISTAS -->
+        <!-- COLUMNA 2: HERRAMIENTAS & SOFTWARE -->
         <div class="space-y-3">
           <div class="font-heading font-black text-sm uppercase tracking-wider text-white">
-            Software &amp; Pistas
+            Herramientas &amp; SaaS
           </div>
           <ul class="space-y-2 text-white/80 font-normal">
+            <li><a href="/herramientas/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition font-bold text-white">Herramientas Gratuitas Clubes</a></li>
+            <li><a href="/herramientas/generador-americana-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Generador Americana Pádel</a></li>
+            <li><a href="/herramientas/generador-cuadros-torneo-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Generador Cuadros Torneo</a></li>
+            <li><a href="/herramientas/calculadora-coste-pistas-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Calculadora Coste Pistas</a></li>
+            <li><a href="/herramientas/calculadora-roi-camaras-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Calculadora ROI Cámaras</a></li>
             <li><a href="/camaras-padel-playtomic/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Integración con Playtomic</a></li>
-            <li><a href="/camaras-padel-matchi/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Compatibilidad Matchi</a></li>
-            <li><a href="/camaras-padel-resasports/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Conexión Resasports &amp; Syltek</a></li>
-            <li><a href="/blog/smart-courts-pistas-inteligentes-padel-horas-valle/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Smart Courts y Domótica</a></li>
-            <li><a href="/blog/retransmitir-torneos-padel-streaming-youtube-camaras/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Streaming en Directo YouTube</a></li>
           </ul>
         </div>
 
@@ -560,11 +601,12 @@ def generate_single_page(f):
             Directorio &amp; Hubs
           </div>
           <ul class="space-y-2 text-white/80 font-normal">
-            <li><a href="/franquicias-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Directorio Franquicias (+153)</a></li>
+            <li><a href="/franquicias-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition font-bold text-white">Directorio 167 Franquicias</a></li>
+            <li><a href="/blog/barometro-camaras-padel-2026/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Barómetro Cámaras 2026</a></li>
             <li><a href="/camaras-padel-madrid/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Clubes Pádel Madrid</a></li>
             <li><a href="/camaras-padel-barcelona/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Clubes Pádel Barcelona</a></li>
-            <li><a href="/#cobertura" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Envíos España, USA y Europa</a></li>
-            <li><a href="/#mapa" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Mapa de Clientes Oficiales</a></li>
+            <li><a href="/camaras-padel-matchi/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Compatibilidad Matchi</a></li>
+            <li><a href="/camaras-padel-resasports/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Conexión Resasports</a></li>
           </ul>
         </div>
 
@@ -575,11 +617,11 @@ def generate_single_page(f):
           </div>
           <ul class="space-y-2 text-white/80 font-normal">
             <li><a href="/blog/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition font-bold text-white">Índice del Blog &amp; Newsletter</a></li>
+            <li><a href="/blog/como-organizar-torneo-padel-americana-reglas-cuadros/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Cómo Organizar una Americana</a></li>
+            <li><a href="/blog/cuanto-cuesta-montar-pista-padel-presupuesto-rentabilidad/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Cuánto Cuesta Montar Pistas</a></li>
             <li><a href="/blog/rentabilidad-camaras-pistas-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Precios y ROI de Cámaras</a></li>
+            <li><a href="/blog/sistemas-grabacion-pistas-padel-comparativa/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Comparativa 9 Cámaras IA</a></li>
             <li><a href="/blog/welcome-pack-torneo-padel-ideas/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Ideas de Welcome Pack</a></li>
-            <li><a href="/blog/sistemas-grabacion-pistas-padel-comparativa/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Cámaras fijas vs Trípodes (RGPD)</a></li>
-            <li><a href="/blog/vender-llaveros-tienda-club-padel-pro-shop/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Venta de Impulso en Pro-Shop</a></li>
-            <li><a href="/blog/merchandising-ferias-torneos-padel-regalos-marcas/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Merchandising para Ferias</a></li>
           </ul>
         </div>
 
@@ -603,6 +645,7 @@ def generate_single_page(f):
   <script>
     lucide.createIcons();
   </script>
+  <script src="/assets/js/cp-analytics.js" defer></script>
 </body>
 </html>
 """
