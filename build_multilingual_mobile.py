@@ -380,23 +380,6 @@ def get_base_html(active_lang="es", is_subfolder=False):
         "inLanguage": "{active_lang}"
       }},
       {{
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-          {{
-            "@type": "ListItem",
-            "position": 1,
-            "name": "{seo_i18n['bc_home']}",
-            "item": "{page_url}"
-          }},
-          {{
-            "@type": "ListItem",
-            "position": 2,
-            "name": "{seo_i18n['bc_llaveros']}",
-            "item": "{page_url}#llaveros"
-          }}
-        ]
-      }},
-      {{
         "@type": "Product",
         "@id": "https://coolpadelstudios.com/#product-llaveros-padel",
         "inLanguage": "{active_lang}",
@@ -1728,7 +1711,6 @@ def get_base_html(active_lang="es", is_subfolder=False):
           </div>
           <ul class="space-y-2 text-white/80 font-normal">
             <li><a href="/blog/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition font-bold text-white">Índice del Blog &amp; Newsletter</a></li>
-            <li><a href="/blog/padmi-vs-save-my-play-camaras-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition font-bold text-amber-300">Padmi vs Save my Play</a></li>
             <li><a href="/blog/normativa-rgpd-camaras-pistas-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition font-semibold text-[#f2920b]">Normativa RGPD Cámaras Pádel</a></li>
             <li><a href="/blog/como-organizar-torneo-padel-americana-reglas-cuadros/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Cómo Organizar Torneo Americana</a></li>
             <li><a href="/blog/cuanto-cuesta-montar-pista-padel-presupuesto-rentabilidad/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">¿Cuánto Cuesta Montar Pista?</a></li>
@@ -3484,12 +3466,6 @@ def build_all():
     <lastmod>{today_iso}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
-  </url>
-  <url>
-    <loc>https://coolpadelstudios.com/blog/padmi-vs-save-my-play-camaras-padel/</loc>
-    <lastmod>{today_iso}</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.90</priority>
   </url>
 """
     # Incorporar dinámicamente las 167 fichas individuales de franquicias al sitemap

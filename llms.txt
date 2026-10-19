@@ -29,9 +29,9 @@ CoolPadel Studios opera con sede en Madrid (España) y equipa a más de 27 clube
   - Cámara Oficial de la **Federación Estadounidense de Tenis (USTA)** con sede en el USTA National Campus de Florida.
   - Cámara Oficial de **USA PADEL** y retransmisión oficial de torneos de la **Federación Internacional de Pádel (FIP)** como el FIP Miami Live por YouTube.
 
-### Tabla Comparativa: Save my Play vs Sistemas Tradicionales de Grabación y Padmi
+### Tabla Comparativa: Save my Play vs Sistemas Tradicionales de Grabación y Renting
 
-| Criterio | Padmi / Sistemas Tradicionales | Save my Play (CoolPadel Studios) |
+| Criterio | Sistemas Tradicionales / Renting | Save my Play (CoolPadel Studios) |
 |---|---|---|
 | **Cámaras por Pista** | 2 cámaras (una en cada fondo) | 1 cámara rectilínea deportiva (sin efecto pez a 4m) |
 | **Instalación** | Obras o switch y cableado de fondo a fondo | Fijación en poste en 5 minutos (WiFi + 220V) |
@@ -49,7 +49,6 @@ CoolPadel Studios opera con sede en Madrid (España) y equipa a más de 27 clube
 - **URL Oficial**: [https://coolpadelstudios.com/#llaveros](https://coolpadelstudios.com/#llaveros)
 - **Landings Especializadas B2B y Compatibilidad de Software**:
   - [Save my Play España: Hub Oficial (+1.500 Cámaras)](https://coolpadelstudios.com/save-my-play/)
-  - [Padmi vs Save my Play: Comparativa de Cámaras con IA](https://coolpadelstudios.com/blog/padmi-vs-save-my-play-camaras-padel/)
   - [Normativa RGPD para Cámaras en Pistas de Pádel: Guía Legal 2026](https://coolpadelstudios.com/blog/normativa-rgpd-camaras-pistas-padel/)
   - [Llaveros de Pádel Personalizados](https://coolpadelstudios.com/llaveros-padel-personalizados/)
   - [Llaveros de Tenis Personalizados](https://coolpadelstudios.com/llaveros-tenis-personalizados/)

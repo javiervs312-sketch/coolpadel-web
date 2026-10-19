@@ -38,9 +38,7 @@ urls_to_add = [
     "https://coolpadelstudios.com/welcome-packs-torneos-padel/",
     "https://coolpadelstudios.com/llaveros-personalizados-clubs-padel/",
     "https://coolpadelstudios.com/blog/barometro-camaras-padel-2026/",
-    "https://coolpadelstudios.com/blog/normativa-rgpd-camaras-pistas-padel/",
-    "https://coolpadelstudios.com/blog/padmi-vs-save-my-play-camaras-padel/"
-]
+    "https://coolpadelstudios.com/blog/normativa-rgpd-camaras-pistas-padel/",]
 
 for f in FRANQUICIAS:
     urls_to_add.append(f"https://coolpadelstudios.com/franquicias-padel/{f['id']}/")
@@ -55,7 +53,7 @@ if closing_tag in content:
     new_xml_blocks = []
     for u in urls_to_add:
         if f"<loc>{u}</loc>" not in content:
-            priority = "0.9" if "save-my-play" in u else ("0.85" if "barometro" in u or "padmi" in u else "0.75")
+            priority = "0.9" if "save-my-play" in u else ("0.85" if "barometro" in u else "0.75")
             block = f"""  <url>
     <loc>{u}</loc>
     <lastmod>2026-10-20</lastmod>
