@@ -522,7 +522,7 @@ def render_landing(landing):
           </div>
         </div>"""
 
-    # Dynamic Product / Service Schema per landing type (Incluye aggregateRating para estrellas doradas en Google SERP)
+    # Dynamic Product / Service Schema per landing type
     if is_camaras:
         product_schema_json = f"""{{
         "@type": ["Product", "Service"],
@@ -534,29 +534,6 @@ def render_landing(landing):
           "@type": "Brand",
           "name": "Save My Play"
         }},
-        "aggregateRating": {{
-          "@type": "AggregateRating",
-          "ratingValue": "4.9",
-          "reviewCount": "52",
-          "bestRating": "5",
-          "worstRating": "1"
-        }},
-        "review": [
-          {{
-            "@type": "Review",
-            "author": {{
-              "@type": "Person",
-              "name": "David Alarcón (Director Deportivo)"
-            }},
-            "datePublished": "2026-02-18",
-            "reviewBody": "Montamos las cámaras Save My Play en 20 minutos sin hacer rozas ni zanjas. Los socios pulsan el botón de la red tras un gran punto y descargan sus repeticiones por QR.",
-            "reviewRating": {{
-              "@type": "Rating",
-              "ratingValue": "5",
-              "bestRating": "5"
-            }}
-          }}
-        ],
         "offers": [
           {{
             "@type": "Offer",
@@ -595,43 +572,6 @@ def render_landing(landing):
           "@type": "Brand",
           "name": "CoolPadel Studios"
         }},
-        "aggregateRating": {{
-          "@type": "AggregateRating",
-          "ratingValue": "4.9",
-          "reviewCount": "128",
-          "bestRating": "5",
-          "worstRating": "1"
-        }},
-        "review": [
-          {{
-            "@type": "Review",
-            "author": {{
-              "@type": "Person",
-              "name": "Carlos Méndez (Director de Club Pádel)"
-            }},
-            "datePublished": "2026-03-04",
-            "reviewBody": "Pedimos 300 llaveros personalizados con relieve 3D del escudo oficial del club. La muestra física de 15€ nos dio total tranquilidad y la calidad final superó expectativas.",
-            "reviewRating": {{
-              "@type": "Rating",
-              "ratingValue": "5",
-              "bestRating": "5"
-            }}
-          }},
-          {{
-            "@type": "Review",
-            "author": {{
-              "@type": "Person",
-              "name": "Marc Font (Organizador de Torneos Pádel)"
-            }},
-            "datePublished": "2026-02-28",
-            "reviewBody": "Goma 3D flexible de excelente acabado. Los incluimos en el welcome pack del torneo y todos los jugadores se lo llevaron puesto en su paletero.",
-            "reviewRating": {{
-              "@type": "Rating",
-              "ratingValue": "5",
-              "bestRating": "5"
-            }}
-          }}
-        ],
         "offers": [
           {{
             "@type": "Offer",
@@ -859,7 +799,7 @@ def render_landing(landing):
                   <span>Ficha Rápida B2B · Resumen en 30 Segundos</span>
                 </div>
                 <span class="hidden sm:inline-flex items-center gap-1 text-[11px] font-bold text-slate-600">
-                  <i data-lucide="star" class="w-3.5 h-3.5 text-amber-500 fill-amber-500"></i> 4.9/5 (120+ opiniones)
+                  <i data-lucide="check-circle" class="w-3.5 h-3.5 text-[#f2920b]"></i> +30 Clubs Colaboradores
                 </span>
               </div>
               <ul class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-slate-700">
