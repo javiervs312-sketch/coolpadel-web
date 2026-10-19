@@ -140,8 +140,8 @@ LANDINGS = [
     },
     {
         "slug": "camaras-grabacion-pistas-padel",
-        "title": "Cámaras Grabación Pistas Pádel [0 Obras] | Save My Play",
-        "meta_desc": "Grabación de partidos de pádel Save my Play. Montaje en 5 min sin obras, pulsador en poste, descarga QR y cuota desde 45€/mes sin permanencia.",
+        "title": "Cámaras con IA para Pistas de Pádel [Sin Obras] | Save My Play",
+        "meta_desc": "Cámaras con IA para pistas de pádel: grabación automática con pulsador, clips en 25s al móvil y sin obras. Desde 45 €/mes. Pide tu demo para tu club.",
         "badge": "TECNOLOGÍA DE CLUB · SAVE MY PLAY",
         "breadcrumb_leaf": "Grabación sin Obras",
         "h1": "Cámaras Inteligentes para Pistas de Pádel sin Obras",
