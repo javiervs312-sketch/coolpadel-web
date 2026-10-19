@@ -109,13 +109,15 @@ def generate_single_page(f):
         </a>""")
     peers_html = "\n".join(peers_cards)
 
-    meta_desc = f"{nombre} ({pais}): {num_clubs}, {num_pistas}, reservas en {software.split('/')[0].strip()}, modelo {modelo}, inversión de franquicia y equipamiento de pistas."
-    if len(meta_desc) > 158:
-        meta_desc = meta_desc[:155] + "..."
+    meta_desc = f"{nombre} ({pais}): {num_clubs}, {num_pistas}, reservas en {software.split('/')[0].strip()}, modelo {modelo} e inversión para clubes de pádel."
+    if len(meta_desc) > 152:
+        meta_desc = meta_desc[:149].rsplit(' ', 1)[0] + "..."
 
-    short_title = f"{nombre}: Clubs, Pistas y Franquicia ({pais}) | CoolPadel"
-    if len(short_title) > 66:
-        short_title = f"{nombre}: Clubs y Franquicia de Pádel ({pais})"
+    short_title = f"{nombre} ({pais}) | Franquicia de Pádel"
+    if len(short_title) > 58:
+        short_title = f"{nombre}: Franquicia y Pistas ({pais})"
+    if len(short_title) > 58:
+        short_title = f"{nombre} ({pais}) - Pádel"
 
     page_html = f"""<!DOCTYPE html>
 <html lang="es" class="scroll-smooth">
@@ -260,7 +262,7 @@ def generate_single_page(f):
   <header class="border-b border-slate-200 bg-white sticky top-0 z-50 shadow-2xs">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between">
       <a href="/" class="flex items-center gap-2.5 sm:gap-3 group">
-        <img src="../../assets/images/coolpadel-mascot-hd.png" alt="CoolPadel Studios" class="w-9 h-9 sm:w-10 sm:h-10 object-contain">
+        <img src="../../assets/images/coolpadel-mascot-hd.png" alt="CoolPadel Studios" width="40" height="40" fetchpriority="high" class="w-9 h-9 sm:w-10 sm:h-10 object-contain">
         <div>
           <span class="font-heading font-black text-lg sm:text-xl text-slate-950 tracking-tight flex items-center gap-1">
             COOLPADEL <span class="text-[#f2920b]">STUDIOS</span>

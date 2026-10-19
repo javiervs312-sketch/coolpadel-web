@@ -211,7 +211,7 @@ def render_html():
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Franquicias y Cadenas de Pádel ({total_franquicias} Operadores) | CoolPadel</title>
-  <meta name="description" content="Directorio interactivo, mapa y comparador cara a cara de {total_franquicias} cadenas de clubs y franquicias de pádel (+1 club abierto). Requisitos de nave, inversión CAPEX, royalties, software y retorno para inversores.">
+  <meta name="description" content="Directorio y comparador de {total_franquicias} cadenas y franquicias de pádel: requisitos de nave, inversión, royalties, software y modelos para inversores.">
   <link rel="canonical" href="https://coolpadelstudios.com/franquicias-padel/">
 
   <!-- Favicon -->

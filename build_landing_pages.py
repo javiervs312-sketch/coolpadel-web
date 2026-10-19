@@ -40,7 +40,7 @@ LANDINGS = [
     {
         "slug": "llaveros-tenis-personalizados",
         "title": "Llaveros de Tenis Personalizados 3D para Clubs | CoolPadel",
-        "meta_desc": "Llaveros de tenis personalizados en relieve 3D con el escudo oficial de tu club, escuela o torneo. Goma flexible de alta calidad, pedidos desde 100 unidades y muestra previa.",
+        "meta_desc": "Llaveros de tenis personalizados en relieve 3D con el escudo de tu club o torneo. Goma flexible de calidad, pedidos desde 100 uds y muestra física por 15€.",
         "badge": "ESPECIAL CLUBS & ACADEMIAS DE TENIS",
         "h1": "Llaveros de Tenis Personalizados con tu Escudo Oficial",
         "subtitle": "Diseñamos y fabricamos llaveros de tenis en relieve 3D para escuelas de tenis, torneos sociales, clubes históricos y welcome packs. Un obsequio elegante y duradero.",
@@ -63,7 +63,7 @@ LANDINGS = [
     {
         "slug": "welcome-packs-torneos-padel",
         "title": "Welcome Packs y Regalos para Torneos de Pádel | CoolPadel",
-        "meta_desc": "Regalos originales y cosas de pádel para welcome packs de torneos. Llaveros de goma 3D personalizados con el logo del torneo y patrocinadores. Tiradas desde 100 uds con muestra previa.",
+        "meta_desc": "Regalos originales y detalles para welcome packs de torneos de pádel. Llaveros de goma 3D personalizados con logo. Tiradas desde 100 uds y muestra por 15€.",
         "badge": "TORNEOS, CIRCUITOS & WELCOME PACKS",
         "h1": "Welcome Packs y Regalos de Pádel para Torneos y Eventos",
         "subtitle": "Olvídate de las camisetas o toallas genéricas que acaban olvidadas en un cajón. Un llavero 3D personalizado con forma de pala y el logo del torneo es el regalo y detalle de pádel que los participantes lucen todo el año en su paletero.",
@@ -86,7 +86,7 @@ LANDINGS = [
     {
         "slug": "llaveros-personalizados-clubs-padel",
         "title": "Merchandising y Llaveros para Clubs de Pádel | CoolPadel",
-        "meta_desc": "Llaveros oficiales y merchandising B2B para clubes de pádel. Productos y detalles de goma 3D para socios, bienvenida a escuelas y venta en pro-shop con +60% de margen. Más de 30 clubes clientes.",
+        "meta_desc": "Llaveros oficiales y merchandising para clubes de pádel. Detalles de goma 3D para socios, escuelas y venta en pro-shop con +60% de margen. Más de 30 clubes.",
         "badge": "MERCHANDISING OFICIAL DE CLUB",
         "h1": "Merchandising Oficial y Llaveros para Clubs de Pádel",
         "subtitle": "Refuerza la identidad y el sentido de pertenencia de tu comunidad. Más de 30 clubes en España, Europa y EE. UU. ya equipan a sus socios y pro-shops con llaveros y merchandising CoolPadel Studios.",
@@ -109,7 +109,7 @@ LANDINGS = [
     {
         "slug": "camaras-grabacion-pistas-padel",
         "title": "Cámaras de Grabación para Pistas de Pádel | Save My Play",
-        "meta_desc": "Sistema de grabación inteligente y repetición en vídeo para pistas de pádel Save My Play. Instalación en 5 minutos sin obras, pulsador físico en poste y descarga por código QR.",
+        "meta_desc": "Grabación inteligente de partidos de pádel Save my Play. Montaje en 5 minutos sin obras, pulsador en poste, descarga QR y cuota desde 45€/mes sin permanencia.",
         "badge": "TECNOLOGÍA DE CLUB · SAVE MY PLAY",
         "h1": "Cámaras Inteligentes para Pistas de Pádel sin Obras",
         "subtitle": "La tecnología de repetición y analítica en pista que fideliza a tus jugadores y genera ingresos recurrentes para tu club de pádel o tenis. Sin permanencia, sin zanjas y montado en 5 minutos.",
@@ -133,7 +133,7 @@ LANDINGS = [
     {
         "slug": "camaras-padel-playtomic",
         "title": "Cámaras Save my Play para Clubs en Playtomic | Grabación",
-        "meta_desc": "Integra cámaras Save my Play en tus pistas de pádel gestionadas con Playtomic. Grabación con pulsador en red, repeticiones QR y monetización sin obras ni permanencia.",
+        "meta_desc": "Cámaras Save my Play para pistas de pádel en Playtomic. Grabación con pulsador en red, repeticiones por QR y monetización sin obras ni permanencia.",
         "badge": "INTEGRACIÓN PLAYTOMIC & SAVE MY PLAY",
         "h1": "Cámaras Inteligentes Save my Play para Clubes en Playtomic",
         "subtitle": "El complemento perfecto para tu gestión en Playtomic: añade grabación de partidos con pulsador en pista, repeticiones instantáneas y streaming en YouTube sin obras ni permanencias.",
@@ -202,7 +202,7 @@ LANDINGS = [
     {
         "slug": "camaras-padel-madrid",
         "title": "Cámaras para Pistas de Pádel en Madrid | Save my Play",
-        "meta_desc": "Instalación de cámaras inteligentes Save my Play en Madrid: Pozuelo, Alcobendas, Las Rozas, Majadahonda, La Moraleja. Grabación HD en 5 min, sin obras ni permanencia.",
+        "meta_desc": "Cámaras inteligentes Save my Play en Madrid (Pozuelo, Las Rozas, Alcobendas, La Moraleja). Grabación HD en 5 min, sin obras ni contratos de permanencia.",
         "badge": "COMUNIDAD DE MADRID · SAVE MY PLAY",
         "h1": "Cámaras Inteligentes para Pistas de Pádel en Madrid",
         "subtitle": "La tecnología en pista que eligen clubes referentes en la Comunidad de Madrid: grabación de partidos, pulsador en poste y retransmisión por YouTube sin cables ni zanjas.",
@@ -225,7 +225,7 @@ LANDINGS = [
     {
         "slug": "camaras-padel-barcelona",
         "title": "Cámaras para Pistas de Pádel en Barcelona | Save my Play",
-        "meta_desc": "Cámaras autónomas para pistas de pádel en Barcelona y Cataluña (Hospitalet, Sant Cugat, Badalona, Sabadell). Grabación con pulsador en red y streaming sin obras.",
+        "meta_desc": "Cámaras Save my Play en Barcelona y Cataluña (Sant Cugat, Badalona, Sabadell). Grabación con pulsador en red, repeticiones QR y streaming sin obras.",
         "badge": "BARCELONA & CATALUNYA · SAVE MY PLAY",
         "h1": "Cámaras y Grabación de Partidos de Pádel en Barcelona",
         "subtitle": "La solución de vídeo más ágil para clubes indoor y outdoor en Barcelona y Cataluña: repetición instantánea en móvil, retransmisión de torneos y cero permanencia.",
@@ -328,8 +328,8 @@ def render_landing(landing):
           
           <div class="mt-6 pt-5 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-4">
             <span class="text-xs text-slate-500">* Precios sin IVA. Sin contratos de permanencia ni penalizaciones. Instalación en 5 minutos sin obras civiles.</span>
-            <a href="https://wa.me/34680317486?text={wa_encoded}" target="_blank" rel="noopener noreferrer" class="px-6 py-3 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] text-slate-950 font-heading font-black text-xs uppercase tracking-wider transition">
-              Pedir Presupuesto / Demo por WhatsApp
+            <a href="#contacto" class="px-6 py-3 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] text-slate-950 font-heading font-black text-xs uppercase tracking-wider transition">
+              Contactar / Solicitar Presupuesto
             </a>
           </div>"""
         pasos_html = """
@@ -404,8 +404,8 @@ def render_landing(landing):
           
           <div class="mt-6 pt-5 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-4">
             <span class="text-xs text-slate-500">* Precios sin IVA. Muestra física en ~15 días laborables y entrega del pedido en ~1 mes según volumen.</span>
-            <a href="https://wa.me/34680317486?text={wa_encoded}" target="_blank" rel="noopener noreferrer" class="px-6 py-3 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] text-slate-950 font-heading font-black text-xs uppercase tracking-wider transition">
-              Pedir Presupuesto por WhatsApp
+            <a href="#contacto" class="px-6 py-3 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] text-slate-950 font-heading font-black text-xs uppercase tracking-wider transition">
+              Contactar / Solicitar Presupuesto
             </a>
           </div>"""
         pasos_html = """
@@ -655,9 +655,9 @@ def render_landing(landing):
         <a href="../blog/" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition">Blog</a>
         <a href="../franquicias-padel/" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition">Cadenas de clubs</a>
         
-        <a href="https://wa.me/34680317486?text={wa_encoded}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] text-slate-950 font-heading font-black text-xs uppercase tracking-wider transition shadow-sm hover:scale-105 active:scale-95">
-          <span>Pedir Presupuesto</span>
-          <i data-lucide="arrow-up-right" class="w-3 h-3 stroke-[3]"></i>
+        <a href="#contacto" class="inline-flex items-center gap-1.5 px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] text-slate-950 font-heading font-black text-xs uppercase tracking-wider transition shadow-sm hover:scale-105 active:scale-95">
+          <span>Contactar</span>
+          <i data-lucide="arrow-down" class="w-3 h-3 stroke-[3]"></i>
         </a>
       </div>
     </div>
@@ -689,8 +689,8 @@ def render_landing(landing):
             </p>
 
             <div class="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5">
-              <a href="https://wa.me/34680317486?text={wa_encoded}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2.5 px-7 py-4 rounded-2xl bg-[#25D366] hover:bg-[#20ba59] text-white font-heading font-black text-base uppercase tracking-wider shadow-lg hover:scale-105 active:scale-95 transition">
-                <i data-lucide="message-circle" class="w-5 h-5"></i>
+              <a href="#contacto" class="inline-flex items-center justify-center gap-2.5 px-7 py-4 rounded-2xl bg-[#25D366] hover:bg-[#20ba59] text-white font-heading font-black text-base uppercase tracking-wider shadow-lg hover:scale-105 active:scale-95 transition">
+                <i data-lucide="arrow-down" class="w-5 h-5"></i>
                 <span>{cta_hero_text}</span>
               </a>
               <a href="#precios" class="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-2xl bg-white hover:bg-slate-100 border border-slate-300 text-slate-900 font-heading font-bold text-base transition">
@@ -825,7 +825,7 @@ def render_landing(landing):
     </section>
 
     <!-- CTA FINAL -->
-    <section class="py-14 sm:py-20 bg-white text-center">
+    <section id="contacto" class="py-14 sm:py-20 bg-white text-center scroll-mt-16">
       <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
         <h2 class="font-heading font-black text-3xl sm:text-5xl text-slate-950 uppercase tracking-tight">
           ¿Hablamos de tu club o torneo?

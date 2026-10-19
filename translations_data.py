@@ -12,7 +12,7 @@ TRANSLATIONS = {
         "nav_herramientas": "Herramientas",
         "nav_contact": "Contactar",
         "slide1_title": "Llaveros de Pádel para tu <br class=\"hidden sm:inline\"><span class=\"relative inline-block px-1.5 text-neutral-300\">club<svg class=\"absolute inset-0 w-full h-full pointer-events-none\" viewBox=\"0 0 100 100\" preserveAspectRatio=\"none\"><line x1=\"8\" y1=\"92\" x2=\"92\" y2=\"8\" stroke=\"#f2920b\" stroke-width=\"16\" stroke-linecap=\"round\"/><line x1=\"8\" y1=\"8\" x2=\"92\" y2=\"92\" stroke=\"#f2920b\" stroke-width=\"16\" stroke-linecap=\"round\"/></svg></span><span class=\"sr-only\"> /</span> <span class=\"text-[#f2920b] ml-2\">comunidad</span>",
-        "slide1_btn": "Ver más",
+        "slide1_btn": "Ver Llaveros 3D",
         "slide2_title": "Grabación en pista: <br><span class=\"text-black\">highlights y partidos</span>",
         "slide2_btn": "Descubrir",
         "slide3_title": "El Negocio del Padel: <br><span class=\"text-[#76d3f6]\">Informe 2026</span>",
@@ -138,7 +138,7 @@ TRANSLATIONS = {
         "nav_herramientas": "Tools",
         "nav_contact": "Contact",
         "slide1_title": "Keychains for your <br class=\"hidden sm:inline\"><span class=\"relative inline-block px-1.5 text-neutral-300\">club<svg class=\"absolute inset-0 w-full h-full pointer-events-none\" viewBox=\"0 0 100 100\" preserveAspectRatio=\"none\"><line x1=\"8\" y1=\"92\" x2=\"92\" y2=\"8\" stroke=\"#f2920b\" stroke-width=\"16\" stroke-linecap=\"round\"/><line x1=\"8\" y1=\"8\" x2=\"92\" y2=\"92\" stroke=\"#f2920b\" stroke-width=\"16\" stroke-linecap=\"round\"/></svg></span><span class=\"sr-only\"> /</span> <span class=\"text-[#f2920b] ml-2\">community</span>",
-        "slide1_btn": "Learn more",
+        "slide1_btn": "Explore 3D Keychains",
         "slide2_title": "Court recording: <br><span class=\"text-black\">highlights & matches</span>",
         "slide2_btn": "Discover",
         "slide3_title": "The Padel Business: <br><span class=\"text-[#76d3f6]\">2026 Report</span>",
@@ -171,7 +171,7 @@ TRANSLATIONS = {
         "badge_envios_val": "Included",
         "badge_pago": "Payment",
         "badge_pago_val": "Upfront",
-        "btn_calc_wa": "Get in touch",
+        "btn_calc_wa": "Contact",
 
         # Save my Play
         "smp_title": "Record everything on court",
@@ -264,7 +264,7 @@ TRANSLATIONS = {
         "nav_herramientas": "Outils",
         "nav_contact": "Contact",
         "slide1_title": "Porte-clés pour votre <br class=\"hidden sm:inline\"><span class=\"relative inline-block px-1.5 text-neutral-300\">club<svg class=\"absolute inset-0 w-full h-full pointer-events-none\" viewBox=\"0 0 100 100\" preserveAspectRatio=\"none\"><line x1=\"8\" y1=\"92\" x2=\"92\" y2=\"8\" stroke=\"#f2920b\" stroke-width=\"16\" stroke-linecap=\"round\"/><line x1=\"8\" y1=\"8\" x2=\"92\" y2=\"92\" stroke=\"#f2920b\" stroke-width=\"16\" stroke-linecap=\"round\"/></svg></span><span class=\"sr-only\"> /</span> <span class=\"text-[#f2920b] ml-2\">communauté</span>",
-        "slide1_btn": "En savoir plus",
+        "slide1_btn": "Voir les Porte-clés 3D",
         "slide2_title": "Vidéo sur piste : <br><span class=\"text-black\">meilleurs points & matchs</span>",
         "slide2_btn": "Découvrir",
         "slide3_title": "Le Business du Padel : <br><span class=\"text-[#76d3f6]\">Rapport 2026</span>",
@@ -382,7 +382,7 @@ TRANSLATIONS = {
         "wa_prefilled_msg": "Bonjour Javier"
     },
     "it": {
-        "meta_title": "Portachiavi Padel Personalizzati 3D & Telecamere | CoolPadel",
+        "meta_title": "Portachiavi Padel Personalizzati 3D | CoolPadel",
         "meta_desc": "Produttore di portachiavi da padel in rilievo 3D personalizzati con logo per club e tornei. Campione reale a 15€ e spedizione in tutta Italia ed Europa.",
         "top_ticker": "Scarica il report esclusivo sull'industria del padel",
         "top_ticker_newsletter": "Non perdere l'ultima edizione della Newsletter di CoolPadel",
@@ -390,7 +390,7 @@ TRANSLATIONS = {
         "nav_herramientas": "Strumenti",
         "nav_contact": "Contatta",
         "slide1_title": "Portachiavi per il tuo <br class=\"hidden sm:inline\"><span class=\"relative inline-block px-1.5 text-neutral-300\">club<svg class=\"absolute inset-0 w-full h-full pointer-events-none\" viewBox=\"0 0 100 100\" preserveAspectRatio=\"none\"><line x1=\"8\" y1=\"92\" x2=\"92\" y2=\"8\" stroke=\"#f2920b\" stroke-width=\"16\" stroke-linecap=\"round\"/><line x1=\"8\" y1=\"8\" x2=\"92\" y2=\"92\" stroke=\"#f2920b\" stroke-width=\"16\" stroke-linecap=\"round\"/></svg></span><span class=\"sr-only\"> /</span> <span class=\"text-[#f2920b] ml-2\">community</span>",
-        "slide1_btn": "Scopri di più",
+        "slide1_btn": "Vedi Portachiavi 3D",
         "slide2_title": "Registrazione in campo: <br><span class=\"text-black\">highlights e partite</span>",
         "slide2_btn": "Scopri",
         "slide3_title": "Il Business del Padel: <br><span class=\"text-[#76d3f6]\">Report 2026</span>",

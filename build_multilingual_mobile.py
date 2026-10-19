@@ -43,7 +43,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
         c_name = CLUB_NAMES_MAP.get(i, f"Club #{i}")
         is_duplicate = idx >= 26
         aria_attr = ' aria-hidden="true"' if is_duplicate else ''
-        alt_text = "" if is_duplicate else f"Logo de {c_name}, club cliente de CoolPadel Studios"
+        alt_text = f"Logo de {c_name}, club colaborador de CoolPadel"
         ticker_items.append(
             f'<div class="flex items-center justify-center shrink-0 px-2.5 sm:px-5 group"{aria_attr}>'
             f'<img src="{asset_prefix}assets/images/Clubs/client-{str(i).zfill(2)}.png" '
@@ -1035,8 +1035,8 @@ def get_base_html(active_lang="es", is_subfolder=False):
         <!-- COLUMNA 2: MASCOTA + COOLPADEL (MATEMÁTICAMENTE 100% CENTRADO EN PANTALLA) -->
         <div class="flex items-center justify-center shrink-0 px-2 lg:px-4">
           <a href="{asset_prefix}#" class="flex items-center justify-center gap-2 sm:gap-3 group py-1">
-            <img src="{asset_prefix}assets/images/coolpadel-mascot-hd.png" alt="Mascota CoolPadel" width="46" height="46" style="height: 46px; max-height: 46px; width: auto;" class="object-contain group-hover:scale-105 transition">
-            <img src="{asset_prefix}assets/images/coolpadel-typography-hd.png" alt="CoolPadel" width="130" height="26" style="height: 26px; max-height: 26px; width: auto;" class="object-contain">
+            <img src="{asset_prefix}assets/images/coolpadel-mascot-hd.png" alt="Mascota CoolPadel" width="46" height="46" style="height: 46px; max-height: 46px; width: auto;" class="object-contain group-hover:scale-105 transition" fetchpriority="high" decoding="async">
+            <img src="{asset_prefix}assets/images/coolpadel-typography-hd.png" alt="CoolPadel" width="130" height="26" style="height: 26px; max-height: 26px; width: auto;" class="object-contain" fetchpriority="high" decoding="async">
           </a>
         </div>
 
@@ -1089,7 +1089,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
         <!-- FILA 1: LOGO CENTRADO (SIN OJOS A LA DERECHA) -->
         <div class="flex items-center justify-between w-full px-2">
           <a href="{asset_prefix}#" class="py-0.5 inline-flex items-center shrink-0" aria-label="CoolPadel Studios Home">
-            <img src="{asset_prefix}assets/images/eyes-thumb.png?v=fixed_eyes" alt="" aria-hidden="true" width="18" height="18" style="height: 18px; max-height: 18px; width: auto;" class="object-contain">
+            <img src="{asset_prefix}assets/images/eyes-thumb.png?v=fixed_eyes" alt="Icono CoolPadel" width="18" height="18" style="height: 18px; max-height: 18px; width: auto;" class="object-contain" fetchpriority="high">
           </a>
           <a href="{asset_prefix}#" class="flex items-center justify-center gap-1.5 py-0.5">
             <img src="{asset_prefix}assets/images/coolpadel-mascot-hd.png" alt="Mascota CoolPadel Studios" width="28" height="28" style="height: 28px; max-height: 28px; width: auto;" class="object-contain">
@@ -1332,7 +1332,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
                     <div id="slider-thumb" 
                          class="absolute top-1/2 -translate-x-1/2 -translate-y-1/2 w-8 sm:w-9 h-4 sm:h-4.5 flex items-center justify-center cursor-grab active:cursor-grabbing hover:scale-115 active:scale-125 transition-all duration-300 z-30 pointer-events-none"
                          style="left: 0%;">
-                      <img src="{asset_prefix}assets/images/eyes-thumb.png" alt="" aria-hidden="true" class="w-full h-full object-contain drop-shadow-[0_2px_4px_rgba(0,0,0,0.35)] select-none">
+                      <img src="{asset_prefix}assets/images/eyes-thumb.png" alt="Selector deslizante" width="36" height="18" class="w-full h-full object-contain drop-shadow-[0_2px_4px_rgba(0,0,0,0.35)] select-none" loading="lazy">
                     </div>
                   </div>
                   
@@ -1347,12 +1347,12 @@ def get_base_html(active_lang="es", is_subfolder=False):
               </div>
             </div>
 
-            <!-- Botón de WhatsApp Contactar Premium -->
+            <!-- Botón Contactar Calculadora (Scroll a sección Contacto: WhatsApp o Email) -->
             <div class="pt-1">
-              <a id="calc-wa-btn" href="https://wa.me/34680317486?text={wa_prefilled_encoded}" target="_blank" rel="noopener noreferrer" class="group relative w-full py-2.5 sm:py-3 rounded-xl font-heading font-black text-xs sm:text-sm uppercase tracking-wider bg-[#f2920b] hover:bg-[#76d3f6] active:bg-[#76d3f6] text-slate-950 shadow-md hover:shadow-lg hover:scale-[1.01] active:scale-[0.98] flex items-center justify-center gap-2.5 transition-all duration-300 overflow-hidden">
+              <a id="calc-wa-btn" href="{asset_prefix}#contacto" class="group relative w-full py-2.5 sm:py-3 rounded-xl font-heading font-black text-xs sm:text-sm uppercase tracking-wider bg-[#f2920b] hover:bg-[#76d3f6] active:bg-[#76d3f6] text-slate-950 shadow-md hover:shadow-lg hover:scale-[1.01] active:scale-[0.98] flex items-center justify-center gap-2.5 transition-all duration-300 overflow-hidden cursor-pointer">
                 <span data-i18n="btn_calc_wa" class="font-black">{t['btn_calc_wa']}</span>
                 <div class="w-6 h-6 rounded-full bg-slate-950/10 group-hover:bg-slate-950 group-hover:text-white flex items-center justify-center transition-all duration-300">
-                  <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 stroke-[3] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300"></i>
+                  <i data-lucide="arrow-down" class="w-3.5 h-3.5 stroke-[3] group-hover:translate-y-0.5 transition-transform duration-300"></i>
                 </div>
               </a>
             </div>
@@ -1441,7 +1441,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
             <div class="w-full flex-1 flex flex-col items-center justify-center p-4 bg-slate-50/70 rounded-xl border border-slate-200/80">
               <!-- CONTENEDOR LOGO REAL DEL CLUB -->
               <div class="h-28 sm:h-32 w-full flex items-center justify-center">
-                <img id="club-logo-img" src="{asset_prefix}assets/images/Clubs/client-02.png" alt="Logo Club de Tenis Cambados" width="200" height="140" class="max-h-24 sm:max-h-28 max-w-[180px] w-auto h-auto object-contain transition-all duration-300">
+                <img id="club-logo-img" src="{asset_prefix}assets/images/Clubs/client-02.png" alt="Logo Club de Tenis Cambados" width="200" height="140" loading="lazy" decoding="async" class="max-h-24 sm:max-h-28 max-w-[180px] w-auto h-auto object-contain transition-all duration-300">
               </div>
 
               <!-- NOMBRE Y UBICACIÓN CENTRADOS -->
@@ -1966,7 +1966,16 @@ def get_base_html(active_lang="es", is_subfolder=False):
       }}
       
       const customMsg = encodeURIComponent(`${{dict.wa_prefilled_msg}}, me interesa solicitar presupuesto de ${{tier.qty}} llaveros para mi club.`);
-      waBtn.href = `https://wa.me/34680317486?text=${{customMsg}}`;
+      const contactWaBtn = document.getElementById('contact-wa-btn');
+      if (contactWaBtn) {{
+        contactWaBtn.href = `https://wa.me/34680317486?text=${{customMsg}}`;
+      }}
+      const contactMailBtn = document.getElementById('contact-mail-btn');
+      if (contactMailBtn) {{
+        const mailSubject = encodeURIComponent(`Presupuesto ${{tier.qty}} llaveros CoolPadel`);
+        const mailBody = encodeURIComponent(`Hola Javier,\n\nMe interesa solicitar presupuesto de ${{tier.qty}} llaveros personalizados para mi club.\n\nPrecio estimado en web: ${{tier.price}} € (${{tier.unit}} €/ud).\n\nUn saludo.`);
+        contactMailBtn.href = `mailto:javier@coolpadelstudios.com?subject=${{mailSubject}}&body=${{mailBody}}`;
+      }}
     }}
 
     window.setTier = function(idx) {{
@@ -3120,6 +3129,23 @@ def get_base_html(active_lang="es", is_subfolder=False):
 
       const btnNavMob = document.getElementById('nav-contact-btn-mob');
       if (btnNavMob) btnNavMob.addEventListener('click', (e) => handleNavContactClick(e, 'Cabecera Móvil'));
+
+      const btnCalc = document.getElementById('calc-wa-btn');
+      if (btnCalc) {{
+        btnCalc.addEventListener('click', (e) => {{
+          const sec = document.getElementById('contacto');
+          if (sec) {{
+            e.preventDefault();
+            sec.scrollIntoView({{ behavior: 'smooth' }});
+            trackEvent('click_contacto_calc', {{
+              ubicacion: 'Calculadora',
+              tier_qty: tiers[currentTierIdx]?.qty,
+              tier_price: tiers[currentTierIdx]?.price,
+              evento_desc: `🎯 Clic Contactar Calculadora [${{tiers[currentTierIdx]?.qty}} uds]`
+            }});
+          }}
+        }});
+      }}
 
       // Tracking de interacción con slider de la calculadora al soltar
       let lastTierTracked = 0;
