@@ -6,15 +6,21 @@
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
-    <title>Beaucoup de clubs en France regrettent d'avoir installé des caméras sur leurs terrains | Save My Play</title>
-    <meta name="description" content="Les 3 décisions clés qui font regretter à de nombreux clubs de padel et tennis l'installation de caméras.">
+    <title>Caméras Pistes de Padel sans Engagement | Save my Play</title>
+    <meta name="description" content="Les 3 décisions clés qui font regretter à de nombreux clubs de padel et tennis l'installation de caméras. Vidéo sur piste dès 45 €/mois sans engagement.">
+    <link rel="canonical" href="https://coolpadelstudios.com/fr/camaras/">
+    <link rel="alternate" hreflang="es" href="https://coolpadelstudios.com/camaras/">
+    <link rel="alternate" hreflang="en" href="https://coolpadelstudios.com/en/camaras/">
+    <link rel="alternate" hreflang="fr" href="https://coolpadelstudios.com/fr/camaras/">
+    <link rel="alternate" hreflang="it" href="https://coolpadelstudios.com/it/camaras/">
+    <link rel="alternate" hreflang="x-default" href="https://coolpadelstudios.com/camaras/">
     <link rel="icon" type="image/png" href="/assets/images/favicon_transparente.png?v=transp2">
     <link rel="apple-touch-icon" href="/assets/images/favicon_transparente.png?v=transp2">
     <meta property="og:title" content="Beaucoup de clubs en France regrettent d'avoir installé des caméras sur leurs terrains">
     <meta property="og:description" content="Les 3 décisions clés qui font regretter à de nombreux clubs de padel et tennis l'installation de caméras.">
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://coolpadelstudios.com/fr/camaras/">
-    <meta property="og:image" content="https://coolpadelstudios.com/favicon.png">
+    <meta property="og:image" content="https://coolpadelstudios.com/assets/images/savemyplay-1.jpg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -780,13 +786,27 @@
         <p class="reveal-on-scroll calendly-fallback-text">
             Si le calendrier ne s'affiche pas : <a href="https://calendly.com/javier-vs-312/demo-save-my-play?locale=fr" target="_blank" rel="noopener noreferrer">Cliquez ici pour l'ouvrir directement</a>
         </p>
+
+        <nav aria-label="Ressources supplémentaires et versions linguistiques" style="margin-top: 3.5rem; padding-top: 1.5rem; border-top: 1px solid #d4d4d8; font-size: 0.78rem; color: #666; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.75rem;">
+            <div>
+                <a href="/fr/" style="color: #444; text-decoration: underline;">CoolPadel Accueil</a> ·
+                <a href="/herramientas/calculadora-roi-camaras-padel/" style="color: #444; text-decoration: underline;">Calculateur ROI Caméras</a> ·
+                <a href="/blog/barometro-camaras-padel-2026/" style="color: #444; text-decoration: underline;">Baromètre Caméras 2026</a> ·
+                <a href="/herramientas/" style="color: #444; text-decoration: underline;">Outils Clubs</a>
+            </div>
+            <div>
+                <a href="/camaras/" style="color: #666; text-decoration: underline;">ES</a> ·
+                <a href="/en/camaras/" style="color: #666; text-decoration: underline;">EN</a> ·
+                <a href="/fr/camaras/" style="color: #111; font-weight: 700; text-decoration: none;">FR</a> ·
+                <a href="/it/camaras/" style="color: #666; text-decoration: underline;">IT</a>
+            </div>
+        </nav>
     </main>
 
     <!-- SCRIPT DE RÉVÉLATION AU SCROLL -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const revealElements = document.querySelectorAll('.reveal-on-scroll');
-            
             const revealCallback = (entries, observer) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
@@ -795,410 +815,41 @@
                     }
                 });
             };
-
             const revealObserver = new IntersectionObserver(revealCallback, {
                 root: null,
                 threshold: 0.05,
                 rootMargin: '0px 0px -20px 0px'
             });
-
             revealElements.forEach(el => revealObserver.observe(el));
         });
     </script>
 
-    <!-- SYSTÈME D'ANALYTIQUE COMMERCIALE COOLPADEL & SAVE MY PLAY -->
+    <!-- MOTEUR UNIFIÉ D'ANALYTIQUE COMMERCIALE ET ORGANIQUE (SEO / GEO / AEO) -->
+    <script src="/assets/js/cp-analytics.js"></script>
     <script>
-        const GOOGLE_SHEETS_WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbxnF9JmVrikeAW7PdLc02r_1kkuSJVz1Ncl71ZeVGT37H0ji5DQ3DVw60122pcuYnxCgA/exec';
-        
-        // 1. Détection Mode Administrateur
-        const urlParams = new URLSearchParams(window.location.search);
-        if (urlParams.get('admin') === '1' || urlParams.get('admin') === 'true' || urlParams.get('admin') === 'javier' || urlParams.get('yo') === '1') {
-            try { localStorage.setItem('cp_is_admin', 'true'); } catch(e) {}
-        } else if (urlParams.get('admin') === '0' || urlParams.get('admin') === 'false' || urlParams.get('reset_admin') === '1') {
-            try { localStorage.removeItem('cp_is_admin'); } catch(e) {}
-        }
-        
-        let isAdmin = false;
-        try {
-            isAdmin = localStorage.getItem('cp_is_admin') === 'true';
-        } catch(e) {}
-
-        // 2. Attribution Leads & Campagnes
-        const pLead = urlParams.get('lead') || urlParams.get('club') || urlParams.get('nombre') || '';
-        const pTel = urlParams.get('tel') || urlParams.get('phone') || urlParams.get('c') || '';
-        const pSource = urlParams.get('utm_source') || urlParams.get('src') || '';
-        const pCampaign = urlParams.get('utm_campaign') || urlParams.get('camp') || urlParams.get('ruta') || '';
-
-        try {
-            if (pLead) localStorage.setItem('cp_lead_name', pLead);
-            if (pTel) localStorage.setItem('cp_lead_tel', pTel);
-            if (pSource) localStorage.setItem('cp_utm_source', pSource);
-            if (pCampaign) localStorage.setItem('cp_utm_campaign', pCampaign);
-        } catch(e) {}
-
-        const leadName = pLead || (function(){ try { return localStorage.getItem('cp_lead_name') || ''; } catch(e){ return ''; } })();
-        const leadTel = pTel || (function(){ try { return localStorage.getItem('cp_lead_tel') || ''; } catch(e){ return ''; } })();
-        const utmSource = pSource || (function(){ try { return localStorage.getItem('cp_utm_source') || ''; } catch(e){ return ''; } })();
-        const utmCampaign = pCampaign || (function(){ try { return localStorage.getItem('cp_utm_campaign') || ''; } catch(e){ return ''; } })();
-
-        // 3. ID de Session & Visiteur
-        function generateUid(prefix) {
-            return prefix + '_' + Date.now().toString(36) + '_' + Math.random().toString(36).substring(2, 6);
-        }
-
-        let sessionId = '';
-        try {
-            sessionId = sessionStorage.getItem('cp_session_id');
-            if (!sessionId) {
-                sessionId = generateUid('s');
-                sessionStorage.setItem('cp_session_id', sessionId);
-            }
-        } catch(e) {
-            sessionId = generateUid('s');
-        }
-
-        let visitorId = '';
-        let visitCount = 1;
-        let isReturningVisitor = false;
-        let recurrenceLabel = '';
-        try {
-            visitorId = localStorage.getItem('cp_visitor_id');
-            const nowMs = Date.now();
-            if (!visitorId) {
-                visitorId = generateUid('v');
-                localStorage.setItem('cp_visitor_id', visitorId);
-                localStorage.setItem('cp_visit_count', '1');
-                localStorage.setItem('cp_first_visit', nowMs.toString());
-                localStorage.setItem('cp_last_visit', nowMs.toString());
-            } else {
-                let count = parseInt(localStorage.getItem('cp_visit_count') || '1', 10);
-                const firstVisitMs = parseInt(localStorage.getItem('cp_first_visit') || nowMs.toString(), 10);
-                const lastVisitMs = parseInt(localStorage.getItem('cp_last_visit') || nowMs.toString(), 10);
-                
-                if (!sessionStorage.getItem('cp_counted_in_session')) {
-                    count++;
-                    localStorage.setItem('cp_visit_count', count.toString());
-                    sessionStorage.setItem('cp_counted_in_session', 'true');
-                    
-                    const diffHours = Math.max(0, Math.round((nowMs - lastVisitMs) / (1000 * 60 * 60)));
-                    const diffDays = Math.floor(diffHours / 24);
-                    let tiempoAtras = diffHours < 1 ? 'il y a quelques minutes' : (diffHours < 24 ? `il y a ${diffHours}h` : `il y a ${diffDays}j`);
-                    recurrenceLabel = `🔁 Visite #${count} (${tiempoAtras})`;
-                    
-                    localStorage.setItem('cp_last_visit', nowMs.toString());
-                } else {
-                    const diffHours = Math.max(0, Math.round((nowMs - lastVisitMs) / (1000 * 60 * 60)));
-                    const diffDays = Math.floor(diffHours / 24);
-                    let tiempoAtras = diffHours < 1 ? 'il y a quelques minutes' : (diffHours < 24 ? `il y a ${diffHours}h` : `il y a ${diffDays}j`);
-                    recurrenceLabel = count > 1 ? `🔁 Visite #${count} (${tiempoAtras})` : '';
-                }
-                visitCount = count;
-                if (visitCount > 1) isReturningVisitor = true;
-            }
-        } catch(e) {
-            visitorId = generateUid('v');
-        }
-
-        // 4. Détection Appareil & Géolocalisation
-        let geoUbicacion = 'France / International';
-        try {
-            const cachedGeo = sessionStorage.getItem('cp_geo');
-            if (cachedGeo) {
-                geoUbicacion = cachedGeo;
-            } else {
-                fetch('https://ipapi.co/json/')
-                    .then(res => res.json())
-                    .then(data => {
-                        if (data && data.city) {
-                            geoUbicacion = `${data.city}, ${data.region || ''}, ${data.country_code || 'FR'}`.replace(', ,', ',');
-                            sessionStorage.setItem('cp_geo', geoUbicacion);
-                            syncClarityTags();
-                        }
-                    }).catch(() => {});
-            }
-        } catch(e) {}
-
-        function getDeviceInfo() {
-            const ua = navigator.userAgent || '';
-            const platform = navigator.platform || '';
-            const maxTouchPoints = navigator.maxTouchPoints || 0;
-            
-            let os = 'Inconnu';
-            if (/iPhone/i.test(ua)) {
-                os = 'iPhone';
-            } else if (/iPad/i.test(ua) || (platform === 'MacIntel' && maxTouchPoints > 1)) {
-                os = 'iPad';
-            } else if (/iPod/i.test(ua)) {
-                os = 'iPod';
-            } else if (/Android/i.test(ua)) {
-                os = 'Android';
-            } else if (/Windows|Win32|Win64|WOW64/i.test(ua)) {
-                os = 'Windows';
-            } else if (/Macintosh|MacIntel|MacPPC|Mac68K/i.test(ua)) {
-                os = 'Mac';
-            } else if (/CrOS/i.test(ua)) {
-                os = 'ChromeOS';
-            } else if (/Linux/i.test(ua) || /X11/i.test(ua)) {
-                os = 'Linux';
-            } else if (/mobile/i.test(ua)) {
-                os = 'Mobile';
-            } else {
-                os = 'PC / Mac';
-            }
-
-            let app = '';
-            if (/WhatsApp/i.test(ua)) app = ' (WhatsApp)';
-            else if (/Instagram/i.test(ua)) app = ' (Instagram)';
-            else if (/LinkedIn/i.test(ua)) app = ' (LinkedIn)';
-            else if (/FBAN|FBAV/i.test(ua)) app = ' (Facebook)';
-
-            return {
-                dispositivo: os + app,
-                so: os,
-                resolucion: `${window.screen.width}x${window.screen.height}`
-            };
-        }
-
-        function getLeadIdentification() {
-            if (isAdmin) return 'Javier (Admin)';
-            if (leadName && leadTel) return `${leadName} (${leadTel})`;
-            if (leadName) return leadName;
-            if (leadTel) return leadTel;
-            return '';
-        }
-
-        function syncClarityTags() {
-            if (window.clarity) {
-                try {
-                    window.clarity("set", "lead_label", getLeadIdentification() || "Anonyme");
-                    window.clarity("set", "lead_score", calculateLeadScore());
-                    window.clarity("set", "geo", geoUbicacion);
-                    window.clarity("set", "visitas_total", visitCount.toString());
-                    window.clarity("set", "es_reincidente", isReturningVisitor ? "true" : "false");
-                    window.clarity("set", "dispositivo", getDeviceInfo().dispositivo);
-                    window.clarity("identify", visitorId, sessionId, undefined, leadName || undefined);
-                } catch(e) {}
-            }
-        }
-
-        function getTrafficTypeLabel() {
-            if (isAdmin) return '👤 Admin';
-            if (utmSource.includes('whatsapp') || leadTel || document.referrer.includes('whatsapp')) return '🎯 Lead WhatsApp';
-            if (utmSource.includes('email') || utmSource.includes('resend')) return '✉️ Lead Email';
-            if (leadName) return '🎯 Lead Identifié';
-            return '🌐 Trafic Web';
-        }
-
-        function getChannelOrigin() {
-            if (utmSource) return `Campagne: ${utmSource}${utmCampaign ? ' (' + utmCampaign + ')' : ''}`;
-            const ref = document.referrer || '';
-            if (!ref) return 'Lien Direct';
-            if (ref.includes('whatsapp.com')) return 'WhatsApp Web/App';
-            if (ref.includes('instagram.com')) return 'Instagram';
-            if (ref.includes('google.')) return 'Recherche Google';
-            return ref.replace(/^https?:\/\//, '').split('/')[0];
-        }
-
-        // 5. Suivi du Temps Actif
-        let activeSeconds = 0;
-        let lastTick = Date.now();
-        const sectionTimes = {
-            'Introduction': 0,
-            '3 Décisions': 0,
-            'Ce que vous gagnez': 0,
-            'Décision Finale': 0
-        };
-
-        setInterval(() => {
-            if (!document.hidden) {
-                const now = Date.now();
-                const diff = Math.round((now - lastTick) / 1000);
-                if (diff > 0 && diff < 5) {
-                    activeSeconds += diff;
-                    if (currentSection.includes('Décision Finale')) sectionTimes['Décision Finale'] += diff;
-                    else if (currentSection.includes('Ce que vous gagnez')) sectionTimes['Ce que vous gagnez'] += diff;
-                    else if (currentSection.includes('3 Décisions')) sectionTimes['3 Décisions'] += diff;
-                    else sectionTimes['Introduction'] += diff;
-                }
-                lastTick = now;
-            } else {
-                lastTick = Date.now();
-            }
-        }, 1000);
-
-        function formatTime(sec) {
-            const m = Math.floor(sec / 60);
-            const s = sec % 60;
-            return `${m}m ${s < 10 ? '0' : ''}${s}s`;
-        }
-
-        function getSectionTimesSummary() {
-            return Object.entries(sectionTimes)
-                .filter(([_, s]) => s > 0)
-                .map(([k, s]) => `${k}: ${s}s`)
-                .join(' | ') || '-';
-        }
-
-        // 5.1 Lead Scoring
-        function calculateLeadScore() {
-            if (isAdmin) return '👤 Admin';
-            let score = 0;
-            if (activeSeconds >= 120) score += 40;
-            else if (activeSeconds >= 45) score += 25;
-            else if (activeSeconds >= 20) score += 10;
-
-            if (maxScrollPercent >= 85) score += 35;
-            else if (maxScrollPercent >= 50) score += 20;
-
-            if (sectionTimes['Décision Finale'] >= 15) score += 25;
-            if (copiedContact) score += 30;
-            if (leadName || leadTel) score += 15;
-            if (isReturningVisitor) score += 25;
-
-            if (score >= 65) return '🔥 Très Chaud (A)';
-            if (score >= 35) return '⚡ Intéressé (B)';
-            return '👀 Curieux (C)';
-        }
-
-        // 6. Scroll & Sections Parcourues
-        let maxScrollPercent = 0;
-        let currentSection = 'Introduction Caméras';
-        const visitedSectionsList = ['Introduction Caméras'];
-        let copiedContact = false;
-
-        window.addEventListener('scroll', () => {
-            const h = document.documentElement;
-            const b = document.body;
-            const st = 'scrollTop';
-            const sh = 'scrollHeight';
-            const scrollable = (h[sh] || b[sh]) - h.clientHeight;
-            if (scrollable <= 0) return;
-            const pct = Math.min(100, Math.round(((h[st] || b[st]) / scrollable) * 100));
-            if (pct > maxScrollPercent) maxScrollPercent = pct;
-
-            if (pct > 75) currentSection = 'Décision Finale (Option A/B)';
-            else if (pct > 55) currentSection = 'Ce que vous gagnez avec les Caméras';
-            else if (pct > 25) currentSection = 'Les 3 Décisions Clés';
-            else currentSection = 'Introduction Caméras';
-
-            if (!visitedSectionsList.includes(currentSection)) {
-                visitedSectionsList.push(currentSection);
-            }
-        }, { passive: true });
-
-        // 6.1 Détection Copier
-        document.addEventListener('copy', () => {
-            const selectedText = (window.getSelection() ? window.getSelection().toString() : '').trim();
-            if (selectedText.includes('680') || selectedText.includes('317486') || selectedText.includes('+34')) {
-                copiedContact = true;
-                sendAnalyticsEvent('copiar_telefono', { evento_desc: '📋 Téléphone Copié' });
-            } else if (selectedText.includes('@coolpadel') || selectedText.includes('javier@')) {
-                copiedContact = true;
-                sendAnalyticsEvent('copiar_email', { evento_desc: '📋 Email Copié' });
-            }
-        });
-
-        // 7. Envoi Central d'Événements
-        function sendAnalyticsEvent(eventName, extraData = {}) {
-            if (!GOOGLE_SHEETS_WEBHOOK_URL) return;
-            try {
-                const dev = getDeviceInfo();
-                const payload = {
-                    tipo: 'analitica_evento',
-                    session_id: sessionId,
-                    visitor_id: visitorId,
-                    visita_num: visitCount,
-                    lead_label: getLeadIdentification(),
-                    lead_name: leadName,
-                    lead_tel: leadTel,
-                    geo_ubicacion: geoUbicacion,
-                    lead_score: calculateLeadScore(),
-                    es_admin: isAdmin,
-                    tipo_trafico: getTrafficTypeLabel(),
-                    evento: eventName,
-                    evento_desc: extraData.evento_desc || eventName,
-                    pagina: '/fr/camaras/',
-                    seccion_actual: currentSection,
-                    secciones_recorridas: visitedSectionsList.join(' > '),
-                    scroll_max: maxScrollPercent + '%',
-                    tiempo_activo: formatTime(activeSeconds),
-                    tiempo_segundos: activeSeconds,
-                    tiempos_seccion: getSectionTimesSummary(),
-                    dispositivo: dev.dispositivo,
-                    resolucion: dev.resolucion,
-                    idioma: (navigator.language || 'fr').toLowerCase(),
-                    origen_canal: getChannelOrigin(),
-                    campana_utm: utmCampaign || utmSource || '',
-                    url_completa: window.location.href,
-                    ...extraData
-                };
-
-                const jsonPayload = JSON.stringify(payload);
-                if (navigator.sendBeacon) {
-                    navigator.sendBeacon(GOOGLE_SHEETS_WEBHOOK_URL, jsonPayload);
-                } else {
-                    fetch(GOOGLE_SHEETS_WEBHOOK_URL, {
-                        method: 'POST',
-                        mode: 'no-cors',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: jsonPayload,
-                        keepalive: true
-                    }).catch(() => {});
-                }
-            } catch(e) {}
-        }
-
-        // Visite Initiale
-        window.addEventListener('DOMContentLoaded', () => {
-            sendAnalyticsEvent('visita_iniciada', {
-                evento_desc: '🟢 Lecture Commencée'
-            });
-        });
-
-        // Fin de Session
-        let finalReported = false;
-        function reportExit() {
-            if (finalReported && activeSeconds < 5) return;
-            finalReported = true;
-            sendAnalyticsEvent('sesion_finalizada', {
-                evento_desc: `🏁 Fin de Lecture (${formatTime(activeSeconds)}, ${maxScrollPercent}%)`
-            });
-        }
-
-        window.addEventListener('visibilitychange', () => {
-            if (document.visibilityState === 'hidden') {
-                reportExit();
-            }
-        });
-
-        window.addEventListener('pagehide', () => {
-            reportExit();
-        });
-
-        // Écoute en temps réel des réservations Calendly
         window.addEventListener('message', (e) => {
             try {
                 if (!e.data || typeof e.data !== 'object') return;
                 const cEvent = e.data.event;
-                
-                if (cEvent === 'calendly.event_type_viewed') {
-                    sendAnalyticsEvent('calendly_visto', {
-                        evento_desc: '👀 Calendrier Calendly Vu'
-                    });
-                } else if (cEvent === 'calendly.date_and_time_selected') {
-                    sendAnalyticsEvent('calendly_hora_seleccionada', {
-                        evento_desc: '🕒 Date/Heure Sélectionnée'
-                    });
+                const urlParams = new URLSearchParams(window.location.search);
+                const leadName = urlParams.get('lead') || urlParams.get('club') || urlParams.get('nombre') || localStorage.getItem('cp_lead_name') || '';
+                const leadTel = urlParams.get('tel') || urlParams.get('phone') || urlParams.get('c') || localStorage.getItem('cp_lead_tel') || '';
+
+                if (cEvent === 'calendly.event_type_viewed' && window.cpTrackEvent) {
+                    window.cpTrackEvent('calendly_visto', { evento_desc: '👀 Calendrier Calendly Vu' });
+                } else if (cEvent === 'calendly.date_and_time_selected' && window.cpTrackEvent) {
+                    window.cpTrackEvent('calendly_hora_seleccionada', { evento_desc: '🕒 Date/Heure Sélectionnée' });
                 } else if (cEvent === 'calendly.event_scheduled') {
                     const payloadCalendly = e.data.payload || {};
-                    sendAnalyticsEvent('demo_agendada', {
-                        tipo: 'reunion_calendly',
-                        evento_desc: `🎯 DÉMO RÉSERVÉE (FR): ${leadName || 'Club'}${leadTel ? ' ' + leadTel : ''}`,
-                        lead_nombre: leadName,
-                        lead_tel: leadTel,
-                        calendly_uri: payloadCalendly.event ? payloadCalendly.event.uri : ''
-                    });
-
+                    if (window.cpTrackEvent) {
+                        window.cpTrackEvent('demo_agendada', {
+                            tipo: 'reunion_calendly',
+                            evento_desc: `🎯 DÉMO RÉSERVÉE (FR): ${leadName || 'Club'}${leadTel ? ' ' + leadTel : ''}`,
+                            lead_nombre: leadName,
+                            lead_tel: leadTel,
+                            calendly_uri: payloadCalendly.event ? payloadCalendly.event.uri : ''
+                        });
+                    }
                     const successCard = document.getElementById('calendlySuccessCard');
                     const successDetails = document.getElementById('calendlySuccessDetails');
                     if (successCard && successDetails) {

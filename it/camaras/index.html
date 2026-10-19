@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Telecamere in campo Save My Play | Molti club in Italia si pentono di aver installato telecamere</title>
-    <meta name="description" content="Le 3 decisioni chiave che fanno pentire molti club di padel e tennis in Italia dopo aver installato telecamere.">
+    <title>Telecamere Campi da Padel senza Vincoli | Save my Play</title>
+    <meta name="description" content="Le 3 decisioni chiave che fanno pentire molti club di padel e tennis in Italia dopo aver installato telecamere. Registrazione in campo da 45 €/mese.">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
     <link rel="canonical" href="https://coolpadelstudios.com/it/camaras/">
     <link rel="alternate" hreflang="es" href="https://coolpadelstudios.com/camaras/">
@@ -925,13 +925,27 @@
         <p class="reveal-on-scroll calendly-fallback-text">
             Se il calendario non si apre: <a href="https://calendly.com/javier-vs-312/demo-save-my-play?locale=it" target="_blank" rel="noopener noreferrer">Clicca qui per aprirlo direttamente</a>
         </p>
+
+        <nav aria-label="Risorse aggiuntive e versioni linguistiche" style="margin-top: 3.5rem; padding-top: 1.5rem; border-top: 1px solid #d4d4d8; font-size: 0.78rem; color: #666; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.75rem;">
+            <div>
+                <a href="/it/" style="color: #444; text-decoration: underline;">CoolPadel Home</a> ·
+                <a href="/herramientas/calculadora-roi-camaras-padel/" style="color: #444; text-decoration: underline;">Calcolatore ROI Telecamere</a> ·
+                <a href="/blog/barometro-camaras-padel-2026/" style="color: #444; text-decoration: underline;">Barometro Telecamere 2026</a> ·
+                <a href="/herramientas/" style="color: #444; text-decoration: underline;">Strumenti Club</a>
+            </div>
+            <div>
+                <a href="/camaras/" style="color: #666; text-decoration: underline;">ES</a> ·
+                <a href="/en/camaras/" style="color: #666; text-decoration: underline;">EN</a> ·
+                <a href="/fr/camaras/" style="color: #666; text-decoration: underline;">FR</a> ·
+                <a href="/it/camaras/" style="color: #111; font-weight: 700; text-decoration: none;">IT</a>
+            </div>
+        </nav>
     </main>
 
     <!-- SCRIPT DI REVEAL ALLO SCROLL -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const revealElements = document.querySelectorAll('.reveal-on-scroll');
-            
             const revealCallback = (entries, observer) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
@@ -940,293 +954,41 @@
                     }
                 });
             };
-
             const revealObserver = new IntersectionObserver(revealCallback, {
                 root: null,
                 threshold: 0.05,
                 rootMargin: '0px 0px -20px 0px'
             });
-
             revealElements.forEach(el => revealObserver.observe(el));
         });
     </script>
 
-    <!-- SISTEMA DI ANALYTICS COMMERCIALE COOLPADEL & SAVE MY PLAY -->
+    <!-- MOTORE UNIFICATO DI ANALYTICS COMMERCIALE E ORGANICO (SEO / GEO / AEO) -->
+    <script src="/assets/js/cp-analytics.js"></script>
     <script>
-        const GOOGLE_SHEETS_WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbxnF9JmVrikeAW7PdLc02r_1kkuSJVz1Ncl71ZeVGT37H0ji5DQ3DVw60122pcuYnxCgA/exec';
-        
-        // 1. Rilevamento Modalità Admin
-        const urlParams = new URLSearchParams(window.location.search);
-        if (urlParams.get('admin') === '1' || urlParams.get('admin') === 'true' || urlParams.get('admin') === 'javier' || urlParams.get('yo') === '1') {
-            try { localStorage.setItem('cp_is_admin', 'true'); } catch(e) {}
-        } else if (urlParams.get('admin') === '0' || urlParams.get('admin') === 'false' || urlParams.get('reset_admin') === '1') {
-            try { localStorage.removeItem('cp_is_admin'); } catch(e) {}
-        }
-        
-        let isAdmin = false;
-        try {
-            isAdmin = localStorage.getItem('cp_is_admin') === 'true';
-        } catch(e) {}
-
-        // 2. Attribuzione Lead & Campagne
-        const pLead = urlParams.get('lead') || urlParams.get('club') || urlParams.get('nombre') || '';
-        const pTel = urlParams.get('tel') || urlParams.get('phone') || urlParams.get('c') || '';
-        const pSource = urlParams.get('utm_source') || urlParams.get('src') || '';
-        const pCampaign = urlParams.get('utm_campaign') || urlParams.get('camp') || urlParams.get('ruta') || '';
-
-        try {
-            if (pLead) localStorage.setItem('cp_lead_name', pLead);
-            if (pTel) localStorage.setItem('cp_lead_tel', pTel);
-            if (pSource) localStorage.setItem('cp_utm_source', pSource);
-            if (pCampaign) localStorage.setItem('cp_utm_campaign', pCampaign);
-        } catch(e) {}
-
-        const leadName = pLead || (function(){ try { return localStorage.getItem('cp_lead_name') || ''; } catch(e){ return ''; } })();
-        const leadTel = pTel || (function(){ try { return localStorage.getItem('cp_lead_tel') || ''; } catch(e){ return ''; } })();
-        const utmSource = pSource || (function(){ try { return localStorage.getItem('cp_utm_source') || ''; } catch(e){ return ''; } })();
-        const utmCampaign = pCampaign || (function(){ try { return localStorage.getItem('cp_utm_campaign') || ''; } catch(e){ return ''; } })();
-
-        // 3. ID di Sessione & Visitatore
-        function generateUid(prefix) {
-            return prefix + '_' + Date.now().toString(36) + '_' + Math.random().toString(36).substring(2, 6);
-        }
-
-        let sessionId = '';
-        try {
-            sessionId = sessionStorage.getItem('cp_session_id');
-            if (!sessionId) {
-                sessionId = generateUid('s');
-                sessionStorage.setItem('cp_session_id', sessionId);
-            }
-        } catch(e) {
-            sessionId = generateUid('s');
-        }
-
-        let visitorId = '';
-        let visitCount = 1;
-        let isReturningVisitor = false;
-        let recurrenceLabel = '';
-        try {
-            visitorId = localStorage.getItem('cp_visitor_id');
-            const nowMs = Date.now();
-            if (!visitorId) {
-                visitorId = generateUid('v');
-                localStorage.setItem('cp_visitor_id', visitorId);
-                localStorage.setItem('cp_visit_count', '1');
-                localStorage.setItem('cp_first_visit', nowMs.toString());
-                localStorage.setItem('cp_last_visit', nowMs.toString());
-            } else {
-                let count = parseInt(localStorage.getItem('cp_visit_count') || '1', 10);
-                const firstVisitMs = parseInt(localStorage.getItem('cp_first_visit') || nowMs.toString(), 10);
-                const lastVisitMs = parseInt(localStorage.getItem('cp_last_visit') || nowMs.toString(), 10);
-                
-                if (!sessionStorage.getItem('cp_counted_in_session')) {
-                    count++;
-                    localStorage.setItem('cp_visit_count', count.toString());
-                    sessionStorage.setItem('cp_counted_in_session', 'true');
-                    
-                    const diffHours = Math.max(0, Math.round((nowMs - lastVisitMs) / (1000 * 60 * 60)));
-                    const diffDays = Math.floor(diffHours / 24);
-                    let tiempoAtras = diffHours < 1 ? 'pochi minuti fa' : (diffHours < 24 ? `${diffHours} ore fa` : `${diffDays} giorni fa`);
-                    recurrenceLabel = `🔁 Visita #${count} (${tiempoAtras})`;
-                    
-                    localStorage.setItem('cp_last_visit', nowMs.toString());
-                } else {
-                    const diffHours = Math.max(0, Math.round((nowMs - lastVisitMs) / (1000 * 60 * 60)));
-                    const diffDays = Math.floor(diffHours / 24);
-                    let tiempoAtras = diffHours < 1 ? 'pochi minuti fa' : (diffHours < 24 ? `${diffHours} ore fa` : `${diffDays} giorni fa`);
-                    recurrenceLabel = count > 1 ? `🔁 Visita #${count} (${tiempoAtras})` : '';
-                }
-                visitCount = count;
-                if (visitCount > 1) isReturningVisitor = true;
-            }
-        } catch(e) {
-            visitorId = generateUid('v');
-        }
-
-        // 4. Rilevamento Dispositivo & Geolocalizzazione
-        let geoUbicacion = 'Italia / International';
-        try {
-            const cachedGeo = sessionStorage.getItem('cp_geo');
-            if (cachedGeo) {
-                geoUbicacion = cachedGeo;
-            } else {
-                fetch('https://ipapi.co/json/')
-                    .then(res => res.json())
-                    .then(data => {
-                        if (data && data.city) {
-                            geoUbicacion = `${data.city}, ${data.region || ''}, ${data.country_code || 'IT'}`.replace(', ,', ',');
-                            sessionStorage.setItem('cp_geo', geoUbicacion);
-                            syncClarityTags();
-                        }
-                    }).catch(() => {});
-            }
-        } catch(e) {}
-
-        const userAgent = navigator.userAgent || '';
-        let dispositivo = 'Desktop';
-        if (/iPhone/i.test(userAgent)) dispositivo = 'iPhone';
-        else if (/iPad/i.test(userAgent)) dispositivo = 'iPad';
-        else if (/Android/i.test(userAgent)) dispositivo = 'Android';
-        else if (/Mobile/i.test(userAgent)) dispositivo = 'Mobile';
-
-        // 5. Metriche di Tempo Attivo e Scroll
-        let activeSeconds = 0;
-        let isUserActive = true;
-        let lastUserActivity = Date.now();
-        let maxScrollPercent = 0;
-
-        ['mousemove', 'mousedown', 'keydown', 'touchstart', 'scroll'].forEach(evt => {
-            window.addEventListener(evt, () => {
-                isUserActive = true;
-                lastUserActivity = Date.now();
-            }, { passive: true });
-        });
-
-        setInterval(() => {
-            if (Date.now() - lastUserActivity > 45000) {
-                isUserActive = false;
-            }
-            if (isUserActive && !document.hidden) {
-                activeSeconds++;
-                checkMilestones();
-            }
-        }, 1000);
-
-        function updateScrollMetrics() {
-            const h = document.documentElement;
-            const b = document.body;
-            const st = 'scrollTop';
-            const sh = 'scrollHeight';
-            const percent = Math.min(100, Math.round(((h[st] || b[st]) / ((h[sh] || b[sh]) - h.clientHeight)) * 100)) || 0;
-            if (percent > maxScrollPercent) {
-                maxScrollPercent = percent;
-                checkMilestones();
-            }
-        }
-        window.addEventListener('scroll', updateScrollMetrics, { passive: true });
-
-        // 6. Traguardi di Lettura Commerciale
-        const milestonesReached = new Set();
-        function formatTime(s) {
-            const m = Math.floor(s / 60);
-            const sec = s % 60;
-            return m > 0 ? `${m}m ${sec}s` : `${sec}s`;
-        }
-
-        function checkMilestones() {
-            const checks = [
-                { id: 't_30s', cond: activeSeconds >= 30, desc: '⏱️ 30s lettura' },
-                { id: 't_60s', cond: activeSeconds >= 60, desc: '⏱️ 1 min lettura' },
-                { id: 't_120s', cond: activeSeconds >= 120, desc: '⏱️ 2 min lettura profonda' },
-                { id: 's_25', cond: maxScrollPercent >= 25, desc: '📜 Scroll 25%' },
-                { id: 's_50', cond: maxScrollPercent >= 50, desc: '📜 Scroll 50% (Metà articolo)' },
-                { id: 's_75', cond: maxScrollPercent >= 75, desc: '📜 Scroll 75%' },
-                { id: 's_90', cond: maxScrollPercent >= 90, desc: '🎯 Scroll 90% (Arrivato al Calendly)' }
-            ];
-
-            checks.forEach(m => {
-                if (m.cond && !milestonesReached.has(m.id)) {
-                    milestonesReached.add(m.id);
-                    sendAnalyticsEvent(m.id, { evento_desc: m.desc });
-                }
-            });
-        }
-
-        // 7. Sincronizzazione con Clarity e Webhook
-        function syncClarityTags() {
-            try {
-                if (window.clarity) {
-                    if (leadName) window.clarity("set", "LeadName", leadName);
-                    if (leadTel) window.clarity("set", "LeadPhone", leadTel);
-                    if (utmSource) window.clarity("set", "UTMSource", utmSource);
-                    if (utmCampaign) window.clarity("set", "UTMCampaign", utmCampaign);
-                    window.clarity("set", "DeviceType", dispositivo);
-                    window.clarity("set", "GeoLocation", geoUbicacion);
-                    window.clarity("set", "Lang", "IT");
-                }
-            } catch(e) {}
-        }
-
-        function sendAnalyticsEvent(tipoEvento, extraData = {}) {
-            if (isAdmin) return;
-            try {
-                const payload = {
-                    tipo: 'visita_camaras',
-                    evento: tipoEvento,
-                    pagina: '/it/camaras/',
-                    idioma: 'it',
-                    lead_nombre: leadName,
-                    lead_telefono: leadTel,
-                    utm_source: utmSource,
-                    utm_campaign: utmCampaign,
-                    dispositivo: dispositivo,
-                    geo: geoUbicacion,
-                    session_id: sessionId,
-                    visitor_id: visitorId,
-                    visit_count: visitCount,
-                    tiempo_lectura: activeSeconds,
-                    tiempo_formato: formatTime(activeSeconds),
-                    scroll_maximo: `${maxScrollPercent}%`,
-                    timestamp: new Date().toISOString(),
-                    ...extraData
-                };
-
-                const jsonPayload = JSON.stringify(payload);
-                if (navigator.sendBeacon) {
-                    navigator.sendBeacon(GOOGLE_SHEETS_WEBHOOK_URL, jsonPayload);
-                } else {
-                    fetch(GOOGLE_SHEETS_WEBHOOK_URL, {
-                        method: 'POST',
-                        mode: 'no-cors',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: jsonPayload,
-                        keepalive: true
-                    }).catch(() => {});
-                }
-            } catch(e) {}
-        }
-
-        window.addEventListener('DOMContentLoaded', () => {
-            sendAnalyticsEvent('visita_iniciada', {
-                evento_desc: '🟢 Lettura Iniziata [IT]'
-            });
-        });
-
-        let finalReported = false;
-        function reportExit() {
-            if (finalReported && activeSeconds < 5) return;
-            finalReported = true;
-            sendAnalyticsEvent('sesion_finalizada', {
-                evento_desc: `🏁 Fine Lettura (${formatTime(activeSeconds)}, ${maxScrollPercent}%) [IT]`
-            });
-        }
-
-        window.addEventListener('visibilitychange', () => {
-            if (document.visibilityState === 'hidden') reportExit();
-        });
-        window.addEventListener('pagehide', () => { reportExit(); });
-
-        // 8. Eventi Calendly
         window.addEventListener('message', (e) => {
             try {
                 if (!e.data || typeof e.data !== 'object') return;
                 const cEvent = e.data.event;
-                
-                if (cEvent === 'calendly.event_type_viewed') {
-                    sendAnalyticsEvent('calendly_visto', { evento_desc: '👀 Visto Calendario Calendly [IT]' });
-                } else if (cEvent === 'calendly.date_and_time_selected') {
-                    sendAnalyticsEvent('calendly_hora_seleccionada', { evento_desc: '🕒 Selezionata Data/Ora in Calendly [IT]' });
+                const urlParams = new URLSearchParams(window.location.search);
+                const leadName = urlParams.get('lead') || urlParams.get('club') || urlParams.get('nombre') || localStorage.getItem('cp_lead_name') || '';
+                const leadTel = urlParams.get('tel') || urlParams.get('phone') || urlParams.get('c') || localStorage.getItem('cp_lead_tel') || '';
+
+                if (cEvent === 'calendly.event_type_viewed' && window.cpTrackEvent) {
+                    window.cpTrackEvent('calendly_visto', { evento_desc: '👀 Visto Calendario Calendly [IT]' });
+                } else if (cEvent === 'calendly.date_and_time_selected' && window.cpTrackEvent) {
+                    window.cpTrackEvent('calendly_hora_seleccionada', { evento_desc: '🕒 Selezionata Data/Ora in Calendly [IT]' });
                 } else if (cEvent === 'calendly.event_scheduled') {
                     const payloadCalendly = e.data.payload || {};
-                    sendAnalyticsEvent('demo_agendada', {
-                        tipo: 'reunion_calendly',
-                        evento_desc: `🎯 DEMO PRENOTATA: ${leadName || 'Club IT'}${leadTel ? ' ' + leadTel : ''}`,
-                        lead_nombre: leadName,
-                        lead_tel: leadTel,
-                        calendly_uri: payloadCalendly.event ? payloadCalendly.event.uri : ''
-                    });
-
+                    if (window.cpTrackEvent) {
+                        window.cpTrackEvent('demo_agendada', {
+                            tipo: 'reunion_calendly',
+                            evento_desc: `🎯 DEMO PRENOTATA: ${leadName || 'Club IT'}${leadTel ? ' ' + leadTel : ''}`,
+                            lead_nombre: leadName,
+                            lead_tel: leadTel,
+                            calendly_uri: payloadCalendly.event ? payloadCalendly.event.uri : ''
+                        });
+                    }
                     const successCard = document.getElementById('calendlySuccessCard');
                     const successDetails = document.getElementById('calendlySuccessDetails');
                     if (successCard && successDetails) {
