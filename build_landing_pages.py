@@ -109,7 +109,7 @@ LANDINGS = [
     {
         "slug": "camaras-grabacion-pistas-padel",
         "title": "Cámaras de Grabación para Pistas de Pádel | Save My Play",
-        "meta_desc": "Grabación inteligente de partidos de pádel Save my Play. Montaje en 5 minutos sin obras, pulsador en poste, descarga QR y cuota desde 45€/mes sin permanencia.",
+        "meta_desc": "Grabación de partidos de pádel Save my Play. Montaje en 5 min sin obras, pulsador en poste, descarga QR y cuota desde 45€/mes sin permanencia.",
         "badge": "TECNOLOGÍA DE CLUB · SAVE MY PLAY",
         "h1": "Cámaras Inteligentes para Pistas de Pádel sin Obras",
         "subtitle": "La tecnología de repetición y analítica en pista que fideliza a tus jugadores y genera ingresos recurrentes para tu club de pádel o tenis. Sin permanencia, sin zanjas y montado en 5 minutos.",
@@ -179,7 +179,7 @@ LANDINGS = [
     {
         "slug": "camaras-padel-resasports",
         "title": "Cámaras Save my Play y Resasports | Grabación en Pista",
-        "meta_desc": "Automatización de grabación para centros deportivos y clubes con software Resasports. Instalación en 5 minutos, pulsador en red y tarifa plana sin permanencia.",
+        "meta_desc": "Grabación para centros deportivos y clubes con software Resasports. Montaje en 5 minutos, pulsador en red y cuota desde 45€/mes sin permanencia.",
         "badge": "INTEGRACIÓN RESASPORTS & SAVE MY PLAY",
         "h1": "Grabación Inteligente en Pista para Clubes con Resasports",
         "subtitle": "Potencia la experiencia de tus abonados en Resasports con repetición instantánea en pista, retransmisión por YouTube y cero costes de obra civil.",
