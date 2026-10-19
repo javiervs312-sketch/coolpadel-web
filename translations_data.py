@@ -4,11 +4,12 @@ import re
 # DICCIONARIO COMPLETO DE TRADUCCIONES PROFESIONALES (ES, EN, FR, IT)
 TRANSLATIONS = {
     "es": {
-        "meta_title": "Llaveros de Pádel Personalizados para Clubs | CoolPadel",
-        "meta_desc": "Llaveros de pádel personalizados de alta calidad con logo oficial para clubes de pádel, torneos y escuelas. Fabricante directo de llaveros de pádel en relieve 3D.",
+        "meta_title": "CoolPadel Studios | Cámaras Save my Play, Merchandising Oficial y Herramientas para Clubs de Pádel",
+        "meta_desc": "Plataforma B2B para clubes de pádel: sistemas de cámaras Save my Play con IA sin obras, llaveros personalizados 3D para welcome packs y herramientas gratuitas de torneos.",
         "top_ticker": "Descarga el Informe Industria del Pádel y lee la Newsletter en nuestro Blog",
         "top_ticker_newsletter": "Nueva edición de Highlights by CoolPadel en LinkedIn",
         "nav_tenis_padel": "LLAVEROS",
+        "nav_herramientas": "Herramientas",
         "nav_contact": "Contactar",
         "slide1_title": "Llaveros de Pádel para tu <br class=\"hidden sm:inline\"><span class=\"relative inline-block px-1.5 text-neutral-300\">club<svg class=\"absolute inset-0 w-full h-full pointer-events-none\" viewBox=\"0 0 100 100\" preserveAspectRatio=\"none\"><line x1=\"8\" y1=\"92\" x2=\"92\" y2=\"8\" stroke=\"#f2920b\" stroke-width=\"16\" stroke-linecap=\"round\"/><line x1=\"8\" y1=\"8\" x2=\"92\" y2=\"92\" stroke=\"#f2920b\" stroke-width=\"16\" stroke-linecap=\"round\"/></svg></span> <span class=\"text-[#f2920b] ml-2\">comunidad</span>",
         "slide1_btn": "Ver más",
@@ -129,11 +130,12 @@ TRANSLATIONS = {
         "wa_prefilled_msg": "Hola Javier"
     },
     "en": {
-        "meta_title": "Custom Padel Keychains for Clubs | CoolPadel",
-        "meta_desc": "High quality custom 3D rubber padel keychains with official club logo for padel clubs, tournaments and academies. Direct factory manufacturer.",
+        "meta_title": "CoolPadel Studios | Save my Play Court Cameras, Custom Merch & Tools for Padel Clubs",
+        "meta_desc": "B2B platform for padel clubs: Save my Play court AI cameras with zero construction, custom 3D keychains for welcome packs, and free tournament bracket tools.",
         "top_ticker": "Download the Padel Industry Report & read the Newsletter on our Blog",
         "top_ticker_newsletter": "Latest edition of Highlights by CoolPadel on LinkedIn",
         "nav_tenis_padel": "KEYCHAINS",
+        "nav_herramientas": "Tools",
         "nav_contact": "Contact",
         "slide1_title": "Keychains for your <br class=\"hidden sm:inline\"><span class=\"relative inline-block px-1.5 text-neutral-300\">club<svg class=\"absolute inset-0 w-full h-full pointer-events-none\" viewBox=\"0 0 100 100\" preserveAspectRatio=\"none\"><line x1=\"8\" y1=\"92\" x2=\"92\" y2=\"8\" stroke=\"#f2920b\" stroke-width=\"16\" stroke-linecap=\"round\"/><line x1=\"8\" y1=\"8\" x2=\"92\" y2=\"92\" stroke=\"#f2920b\" stroke-width=\"16\" stroke-linecap=\"round\"/></svg></span> <span class=\"text-[#f2920b] ml-2\">community</span>",
         "slide1_btn": "Learn more",
@@ -254,11 +256,12 @@ TRANSLATIONS = {
         "wa_prefilled_msg": "Hello Javier"
     },
     "fr": {
-        "meta_title": "Porte-clés Padel Personnalisés pour Clubs | CoolPadel",
-        "meta_desc": "Porte-clés de padel personnalisés en relief 3D haute qualité avec logo officiel pour clubs de padel, tournois et joueurs. Fabricant direct.",
+        "meta_title": "CoolPadel Studios | Caméras de Piste Save my Play, Merchandising et Outils pour Clubs de Padel",
+        "meta_desc": "Plateforme B2B pour clubs de padel : caméras IA Save my Play sans travaux, porte-clés 3D pour welcome packs et outils gratuits pour tournois de padel.",
         "top_ticker": "Téléchargez le rapport exclusif sur l'industrie du padel",
         "top_ticker_newsletter": "Ne manquez pas la dernière édition de la Newsletter CoolPadel",
         "nav_tenis_padel": "TENNIS & PADEL",
+        "nav_herramientas": "Outils",
         "nav_contact": "Contact",
         "slide1_title": "Porte-clés pour votre <br class=\"hidden sm:inline\"><span class=\"relative inline-block px-1.5 text-neutral-300\">club<svg class=\"absolute inset-0 w-full h-full pointer-events-none\" viewBox=\"0 0 100 100\" preserveAspectRatio=\"none\"><line x1=\"8\" y1=\"92\" x2=\"92\" y2=\"8\" stroke=\"#f2920b\" stroke-width=\"16\" stroke-linecap=\"round\"/><line x1=\"8\" y1=\"8\" x2=\"92\" y2=\"92\" stroke=\"#f2920b\" stroke-width=\"16\" stroke-linecap=\"round\"/></svg></span> <span class=\"text-[#f2920b] ml-2\">communauté</span>",
         "slide1_btn": "En savoir plus",
@@ -379,11 +382,12 @@ TRANSLATIONS = {
         "wa_prefilled_msg": "Bonjour Javier"
     },
     "it": {
-        "meta_title": "Portachiavi Padel Personalizzati per Club | CoolPadel",
-        "meta_desc": "Portachiavi di padel personalizzati in rilievo 3D di alta qualità con logo ufficiale per club di padel, tornei e giocatori. Produttore diretto.",
+        "meta_title": "CoolPadel Studios | Telecamere Save my Play, Merchandising e Strumenti per Club di Padel",
+        "meta_desc": "Piattaforma B2B per club di padel: telecamere Save my Play con IA senza opere murarie, portachiavi 3D per welcome pack e strumenti gratuiti per tornei.",
         "top_ticker": "Scarica il report esclusivo sull'industria del padel",
         "top_ticker_newsletter": "Non perdere l'ultima edizione della Newsletter di CoolPadel",
         "nav_tenis_padel": "TENNIS & PADEL",
+        "nav_herramientas": "Strumenti",
         "nav_contact": "Contatta",
         "slide1_title": "Portachiavi per il tuo <br class=\"hidden sm:inline\"><span class=\"relative inline-block px-1.5 text-neutral-300\">club<svg class=\"absolute inset-0 w-full h-full pointer-events-none\" viewBox=\"0 0 100 100\" preserveAspectRatio=\"none\"><line x1=\"8\" y1=\"92\" x2=\"92\" y2=\"8\" stroke=\"#f2920b\" stroke-width=\"16\" stroke-linecap=\"round\"/><line x1=\"8\" y1=\"8\" x2=\"92\" y2=\"92\" stroke=\"#f2920b\" stroke-width=\"16\" stroke-linecap=\"round\"/></svg></span> <span class=\"text-[#f2920b] ml-2\">community</span>",
         "slide1_btn": "Scopri di più",

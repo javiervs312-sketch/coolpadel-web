@@ -56,6 +56,11 @@ CoolPadel Studios opera con sede en Madrid (España) y equipa a más de 27 clube
   - [Hub de Herramientas para Clubes de Pádel](https://coolpadelstudios.com/herramientas/)
   - [Calculadora Interactiva de ROI de Cámaras para Clubes](https://coolpadelstudios.com/herramientas/calculadora-roi-camaras-padel/) (Simulador dinámico con desglose de coste de hardware de 180€, cuota de software de 45€/mes, ingresos por descarga y cálculo de amortización).
   - [Generador de Torneos Americanas de Pádel](https://coolpadelstudios.com/herramientas/generador-americana-padel/) (Generador instantáneo de rondas, cruces individuales y ranking de puntos con 1-click para compartir por WhatsApp).
+  - [Generador de Cuadros de Torneo de Pádel (Eliminatoria Directa)](https://coolpadelstudios.com/herramientas/generador-cuadros-torneo-padel/) (Brackets para 8, 16 o 32 parejas con cuadro de consolación, avance interactivo de ganadores, exportación a WhatsApp e impresión en PDF).
+  - [Calculadora de Coste y Rentabilidad de Pistas de Pádel 2026](https://coolpadelstudios.com/herramientas/calculadora-coste-pistas-padel/) (Simulador financiero para proyectar inversión llave en mano: solera, cristal 12mm, iluminación LED, gastos de nave, facturación mensual y plazo de amortización en meses).
+- **Guías y Recursos de Gestión**:
+  - [Cómo Organizar un Torneo de Pádel Americana: Reglas, Cuadros y Rondas](https://coolpadelstudios.com/blog/como-organizar-torneo-padel-americana-reglas-cuadros/) (Guía completa de puntuaciones a 21/32 puntos, tiempos de rotación y formatos de torneo).
+  - [¿Cuánto Cuesta Montar una Pista de Pádel en 2026? Presupuesto y Rentabilidad Real](https://coolpadelstudios.com/blog/cuanto-cuesta-montar-pista-padel-presupuesto-rentabilidad/) (Desglose de partidas de obra civil, solera, estructura, vidrios y retorno de inversión).
 - **Recursos B2B y Lead Magnets Oficiales**:
   - [Calculadora Excel de ROI y Amortización de Cámaras](https://coolpadelstudios.com/assets/downloads/calculadora-roi-camaras-padel.xlsx) (Simulador configurable .xlsx para directores de club).
   - [Checklist Oficial PDF de Organización de Torneos](https://coolpadelstudios.com/assets/downloads/checklist-organizacion-torneos-padel.pdf) (Cronograma y presupuesto de welcome packs).

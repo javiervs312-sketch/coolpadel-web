@@ -343,6 +343,12 @@ def get_base_html(active_lang="es", is_subfolder=False):
               "name": "Directorio y Comparador de Franquicias de Pádel",
               "description": "Base de datos y comparador de 167 cadenas y operadores multiclub en +25 países.",
               "url": "https://coolpadelstudios.com/franquicias-padel/"
+            }},
+            {{
+              "@type": "Offer",
+              "name": "Herramientas Gratuitas B2B para Clubes y Torneos de Pádel",
+              "description": "Generadores de torneos de americana y cuadros de eliminatoria, y calculadoras de coste y ROI de pistas.",
+              "url": "https://coolpadelstudios.com/herramientas/"
             }}
           ]
         }},
@@ -1013,15 +1019,16 @@ def get_base_html(active_lang="es", is_subfolder=False):
           <a href="{asset_prefix}#" class="group py-1 inline-flex items-center shrink-0">
             <img src="{asset_prefix}assets/images/eyes-thumb.png?v=fixed_eyes" alt="CoolPadel Eyes" width="24" height="24" style="height: 24px; max-height: 24px; width: auto;" class="object-contain group-hover:scale-110 transition duration-300">
           </a>
-          <div class="flex-1 flex items-center justify-center min-w-0 gap-5 sm:gap-6 lg:gap-9 xl:gap-11 pl-2 sm:pl-4 lg:pl-6">
+          <div class="flex-1 flex items-center justify-center min-w-0 gap-4 sm:gap-5 lg:gap-7 xl:gap-8 pl-2 sm:pl-3 lg:pl-5">
             <a href="{asset_prefix}#llaveros" class="font-heading font-black text-xs lg:text-[13px] tracking-wider uppercase text-slate-950 hover:text-[#f2920b] transition select-none whitespace-nowrap">
               Llaveros
             </a>
             <a href="{asset_prefix}camaras/" class="font-heading font-black text-xs lg:text-[13px] tracking-wider uppercase text-slate-950 hover:text-[#f2920b] transition select-none whitespace-nowrap">
               Cámaras pistas
             </a>
-            <a href="{asset_prefix}blog/" class="font-heading font-black text-xs lg:text-[13px] tracking-wider uppercase text-slate-950 hover:text-[#f2920b] transition select-none whitespace-nowrap">
-              Blog
+            <a href="{asset_prefix}herramientas/" class="font-heading font-black text-xs lg:text-[13px] tracking-wider uppercase text-[#f2920b] hover:text-slate-950 transition select-none whitespace-nowrap flex items-center gap-1">
+              <span>{t.get('nav_herramientas', 'Herramientas')}</span>
+              <span class="text-[9px] bg-amber-100 text-[#f2920b] font-black px-1.5 py-0.2 rounded-full uppercase">Gratis</span>
             </a>
           </div>
         </div>
@@ -1034,11 +1041,14 @@ def get_base_html(active_lang="es", is_subfolder=False):
           </a>
         </div>
 
-        <!-- COLUMNA 3: CADENAS DE CLUBS CENTRADO ENTRE LOGO Y SELECTOR DE IDIOMA + CONTROLES A LA DERECHA -->
+        <!-- COLUMNA 3: CADENAS DE CLUBS Y BLOG CENTRADOS ENTRE LOGO Y SELECTOR DE IDIOMA + CONTROLES A LA DERECHA -->
         <div class="flex items-center justify-between min-w-0 h-full">
-          <div class="flex-1 flex items-center justify-center min-w-0 pr-4 lg:pr-8">
+          <div class="flex-1 flex items-center justify-center min-w-0 gap-4 lg:gap-6 pr-3 lg:pr-6">
             <a href="{asset_prefix}franquicias-padel/" class="font-heading font-black text-xs lg:text-[13px] tracking-wider uppercase text-slate-950 hover:text-[#f2920b] transition select-none whitespace-nowrap">
               Cadenas de clubs
+            </a>
+            <a href="{asset_prefix}blog/" class="font-heading font-black text-xs lg:text-[13px] tracking-wider uppercase text-slate-950 hover:text-[#f2920b] transition select-none whitespace-nowrap">
+              Blog
             </a>
           </div>
 
@@ -1092,20 +1102,23 @@ def get_base_html(active_lang="es", is_subfolder=False):
           <div class="w-[18px]"></div>
         </div>
         
-        <!-- FILA 2: LLAVEROS + CÁMARAS PISTAS + BLOG + CADENAS DE CLUBS + IDIOMAS + CONTACTAR -->
+        <!-- FILA 2: LLAVEROS + CÁMARAS PISTAS + HERRAMIENTAS + CADENAS + BLOG + IDIOMAS + CONTACTAR -->
         <div class="flex items-center justify-between w-full gap-1 pt-1 border-t border-slate-100 px-1 overflow-x-auto">
-          <div class="flex items-center gap-3.5 sm:gap-4 shrink-0">
+          <div class="flex items-center gap-2.5 sm:gap-3 shrink-0">
             <a href="{asset_prefix}#llaveros" class="font-heading font-black text-[10px] tracking-wider uppercase text-slate-950 hover:text-[#f2920b] transition whitespace-nowrap">
               Llaveros
             </a>
             <a href="{asset_prefix}camaras/" class="font-heading font-black text-[10px] tracking-wider uppercase text-slate-950 hover:text-[#f2920b] transition whitespace-nowrap">
-              Cámaras pistas
+              Cámaras
+            </a>
+            <a href="{asset_prefix}herramientas/" class="font-heading font-black text-[10px] tracking-wider uppercase text-[#f2920b] hover:text-slate-950 transition whitespace-nowrap">
+              Herramientas
+            </a>
+            <a href="{asset_prefix}franquicias-padel/" class="font-heading font-black text-[10px] tracking-wider uppercase text-slate-950 hover:text-[#f2920b] transition whitespace-nowrap">
+              Cadenas
             </a>
             <a href="{asset_prefix}blog/" class="font-heading font-black text-[10px] tracking-wider uppercase text-slate-950 hover:text-[#f2920b] transition whitespace-nowrap">
               Blog
-            </a>
-            <a href="{asset_prefix}franquicias-padel/" class="font-heading font-black text-[10px] tracking-wider uppercase text-slate-950 hover:text-[#f2920b] transition whitespace-nowrap">
-              Cadenas de clubs
             </a>
           </div>
 
@@ -1458,6 +1471,124 @@ def get_base_html(active_lang="es", is_subfolder=False):
     </div>
   </section>
 
+  <!-- 7. SECCIÓN HERRAMIENTAS GRATUITAS B2B PARA DIRECTORES Y TORNEOS (SEO MAGNET & UTILITY) -->
+  <section id="herramientas" class="py-10 sm:py-14 bg-slate-900 text-white relative border-b border-slate-800">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      
+      <!-- CABECERA DE LA SECCIÓN -->
+      <div class="text-center max-w-2xl mx-auto mb-8 sm:mb-10 space-y-2">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-950/80 border border-amber-800/80 text-[11px] sm:text-xs font-bold text-[#f2920b] uppercase tracking-wider">
+          <i data-lucide="wrench" class="w-3.5 h-3.5"></i>
+          <span>Utilidades B2B Gratuitas Sin Registro</span>
+        </div>
+        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-black font-heading tracking-tight text-white">
+          Herramientas Gratuitas para <span class="text-[#f2920b]">Clubes y Torneos</span>
+        </h2>
+        <p class="text-xs sm:text-sm text-slate-300">
+          Generadores interactivos de competición y simuladores económicos de pistas desarrollados para directores y entrenadores.
+        </p>
+      </div>
+
+      <!-- GRID DE 4 HERRAMIENTAS INTERACTIVAS -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
+
+        <!-- 1. GENERADOR DE AMERICANA -->
+        <div class="bg-slate-800/90 border border-slate-700/80 hover:border-[#f2920b] rounded-2xl p-5 flex flex-col justify-between transition-all duration-300 group hover:-translate-y-1 shadow-lg">
+          <div class="space-y-3">
+            <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-400/20 text-[#f2920b] flex items-center justify-center">
+              <i data-lucide="trophy" class="w-5 h-5"></i>
+            </div>
+            <h3 class="font-heading font-black text-sm sm:text-base text-white group-hover:text-[#f2920b] transition">
+              Generador de Americana
+            </h3>
+            <p class="text-xs text-slate-300 leading-relaxed">
+              Cruces y rotaciones para 8, 12, 16 o 24 jugadores. Formato a 21/32 puntos o tiempo con 1 clic para copiar a WhatsApp.
+            </p>
+          </div>
+          <div class="pt-4 mt-4 border-t border-slate-700/60">
+            <a href="{asset_prefix}herramientas/generador-americana-padel/" class="w-full inline-flex items-center justify-center gap-1.5 py-2 px-3 rounded-xl bg-[#f2920b] hover:bg-white text-slate-950 font-heading font-black text-xs uppercase tracking-wider transition">
+              <span>Crear Americana</span>
+              <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- 2. GENERADOR DE CUADROS (BRACKETS) -->
+        <div class="bg-slate-800/90 border border-slate-700/80 hover:border-amber-400 rounded-2xl p-5 flex flex-col justify-between transition-all duration-300 group hover:-translate-y-1 shadow-lg">
+          <div class="space-y-3">
+            <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-400/20 text-[#f2920b] flex items-center justify-center">
+              <i data-lucide="git-merge" class="w-5 h-5"></i>
+            </div>
+            <h3 class="font-heading font-black text-sm sm:text-base text-white group-hover:text-amber-400 transition">
+              Cuadros de Eliminatoria
+            </h3>
+            <p class="text-xs text-slate-300 leading-relaxed">
+              Brackets de 8, 16 y 32 parejas con consolación, avance automático de ganadores, exportación a WhatsApp e impresión en PDF.
+            </p>
+          </div>
+          <div class="pt-4 mt-4 border-t border-slate-700/60">
+            <a href="{asset_prefix}herramientas/generador-cuadros-torneo-padel/" class="w-full inline-flex items-center justify-center gap-1.5 py-2 px-3 rounded-xl bg-gradient-to-r from-amber-500 to-[#f2920b] hover:from-white hover:to-white text-slate-950 font-heading font-black text-xs uppercase tracking-wider transition">
+              <span>Crear Cuadro</span>
+              <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- 3. CALCULADORA COSTE PISTAS -->
+        <div class="bg-slate-800/90 border border-slate-700/80 hover:border-emerald-400 rounded-2xl p-5 flex flex-col justify-between transition-all duration-300 group hover:-translate-y-1 shadow-lg">
+          <div class="space-y-3">
+            <div class="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-400/20 text-emerald-400 flex items-center justify-center">
+              <i data-lucide="trending-up" class="w-5 h-5"></i>
+            </div>
+            <h3 class="font-heading font-black text-sm sm:text-base text-white group-hover:text-emerald-400 transition">
+              Coste de Pistas (2026)
+            </h3>
+            <p class="text-xs text-slate-300 leading-relaxed">
+              Simulador financiero llave en mano: solera, cristal 12mm, césped, LED, gastos fijos, ingresos y meses de amortización.
+            </p>
+          </div>
+          <div class="pt-4 mt-4 border-t border-slate-700/60">
+            <a href="{asset_prefix}herramientas/calculadora-coste-pistas-padel/" class="w-full inline-flex items-center justify-center gap-1.5 py-2 px-3 rounded-xl bg-emerald-400 hover:bg-white text-slate-950 font-heading font-black text-xs uppercase tracking-wider transition">
+              <span>Simular Coste</span>
+              <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- 4. CALCULADORA ROI CÁMARAS -->
+        <div class="bg-slate-800/90 border border-slate-700/80 hover:border-[#76d3f6] rounded-2xl p-5 flex flex-col justify-between transition-all duration-300 group hover:-translate-y-1 shadow-lg">
+          <div class="space-y-3">
+            <div class="w-10 h-10 rounded-xl bg-sky-500/10 border border-sky-400/20 text-[#76d3f6] flex items-center justify-center">
+              <i data-lucide="calculator" class="w-5 h-5"></i>
+            </div>
+            <h3 class="font-heading font-black text-sm sm:text-base text-white group-hover:text-[#76d3f6] transition">
+              ROI Cámaras Save my Play
+            </h3>
+            <p class="text-xs text-slate-300 leading-relaxed">
+              Calcula cómo amortizar cámaras de pista (180 € hardware y 45 €/mes) con ocupación en horas valle y patrocinios locales.
+            </p>
+          </div>
+          <div class="pt-4 mt-4 border-t border-slate-700/60">
+            <a href="{asset_prefix}herramientas/calculadora-roi-camaras-padel/" class="w-full inline-flex items-center justify-center gap-1.5 py-2 px-3 rounded-xl bg-[#76d3f6] hover:bg-white text-slate-950 font-heading font-black text-xs uppercase tracking-wider transition">
+              <span>Calcular ROI</span>
+              <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- LINK AL HUB COMPLETO -->
+      <div class="mt-8 text-center">
+        <a href="{asset_prefix}herramientas/" class="text-xs font-bold text-slate-400 hover:text-[#f2920b] inline-flex items-center gap-1.5 transition">
+          <span>Ver todas las micro-herramientas y simuladores en el Hub</span>
+          <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
   <!-- 7.5. SECCIÓN PREGUNTAS FRECUENTES (FAQ ACORDEÓN INTERACTIVO EN 2 COLUMNAS + GEO/SEO) -->
   <section id="faq" class="py-6 sm:py-8 lg:py-10 bg-slate-50 relative border-b border-slate-200">
     <div class="max-w-5xl mx-auto px-4 sm:px-6">
@@ -1732,17 +1863,18 @@ def get_base_html(active_lang="es", is_subfolder=False):
           </ul>
         </div>
 
-        <!-- COLUMNA 3: DIRECTORIO & HUBS LOCALES -->
+        <!-- COLUMNA 3: HERRAMIENTAS & DIRECTORIO -->
         <div class="space-y-3">
           <div class="font-heading font-black text-sm uppercase tracking-wider text-white">
-            Directorio &amp; Hubs
+            Herramientas &amp; Directorio
           </div>
           <ul class="space-y-2 text-white/80 font-normal">
-            <li><a href="/franquicias-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Directorio Franquicias (+153)</a></li>
-            <li><a href="/camaras-padel-madrid/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Clubes Pádel Madrid</a></li>
-            <li><a href="/camaras-padel-barcelona/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Clubes Pádel Barcelona</a></li>
-            <li><a href="/#cobertura" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Envíos España, USA y Europa</a></li>
-            <li><a href="/#mapa" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Mapa de Clientes Oficiales</a></li>
+            <li><a href="/herramientas/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition font-bold text-white">Hub de Herramientas Gratuitas</a></li>
+            <li><a href="/herramientas/generador-americana-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Generador de Americana</a></li>
+            <li><a href="/herramientas/generador-cuadros-torneo-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Generador Cuadros Eliminatoria</a></li>
+            <li><a href="/herramientas/calculadora-coste-pistas-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Calculadora Coste Pistas</a></li>
+            <li><a href="/herramientas/calculadora-roi-camaras-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Calculadora ROI Cámaras</a></li>
+            <li><a href="/franquicias-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Directorio Franquicias (+167)</a></li>
           </ul>
         </div>
 
@@ -1753,11 +1885,11 @@ def get_base_html(active_lang="es", is_subfolder=False):
           </div>
           <ul class="space-y-2 text-white/80 font-normal">
             <li><a href="/blog/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition font-bold text-white">Índice del Blog &amp; Newsletter</a></li>
+            <li><a href="/blog/como-organizar-torneo-padel-americana-reglas-cuadros/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Cómo Organizar Torneo Americana</a></li>
+            <li><a href="/blog/cuanto-cuesta-montar-pista-padel-presupuesto-rentabilidad/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">¿Cuánto Cuesta Montar Pista?</a></li>
             <li><a href="/blog/rentabilidad-camaras-pistas-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Precios y ROI de Cámaras</a></li>
+            <li><a href="/blog/barometro-camaras-padel-2026/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Barómetro del Pádel 2026</a></li>
             <li><a href="/blog/welcome-pack-torneo-padel-ideas/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Ideas de Welcome Pack</a></li>
-            <li><a href="/blog/sistemas-grabacion-pistas-padel-comparativa/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Cámaras fijas vs Trípodes (RGPD)</a></li>
-            <li><a href="/blog/vender-llaveros-tienda-club-padel-pro-shop/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Venta de Impulso en Pro-Shop</a></li>
-            <li><a href="/blog/merchandising-ferias-torneos-padel-regalos-marcas/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Merchandising para Ferias</a></li>
           </ul>
         </div>
 
@@ -3535,6 +3667,30 @@ def build_all():
     <lastmod>{today_iso}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://coolpadelstudios.com/herramientas/generador-cuadros-torneo-padel/</loc>
+    <lastmod>{today_iso}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://coolpadelstudios.com/herramientas/calculadora-coste-pistas-padel/</loc>
+    <lastmod>{today_iso}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://coolpadelstudios.com/blog/como-organizar-torneo-padel-americana-reglas-cuadros/</loc>
+    <lastmod>{today_iso}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+  </url>
+  <url>
+    <loc>https://coolpadelstudios.com/blog/cuanto-cuesta-montar-pista-padel-presupuesto-rentabilidad/</loc>
+    <lastmod>{today_iso}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
   </url>
 """
     # Incorporar dinámicamente las 167 fichas individuales de franquicias al sitemap
