@@ -219,7 +219,7 @@ def get_silo_footer_html(root_prefix="../../"):
             <li><a href="/welcome-packs-torneos-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Welcome Packs para Torneos</a></li>
             <li><a href="/llaveros-personalizados-clubs-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Merchandising para Clubs</a></li>
             <li><a href="/camaras/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Cámaras Save my Play</a></li>
-            <li><a href="/save-my-play/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition font-bold text-amber-300">Save my Play España (+6.000)</a></li>
+            <li><a href="/save-my-play/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition font-bold text-amber-300">Save my Play España (+1.500)</a></li>
             <li><a href="/camaras-grabacion-pistas-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Grabación en Pista de Pádel</a></li>
           </ul>
         </div>
@@ -1382,7 +1382,7 @@ def generate_blog_index():
                     Padmi vs Save my Play: Comparativa de Cámaras con IA para Pistas de Pádel 2026
                   </h3>
                   <p class="text-xs text-slate-600 font-medium leading-relaxed line-clamp-2">
-                    1 vs 2 cámaras, 45€ vs renting, pulsador en red con QR instantáneo vs app obligatoria y +6.000 cámaras federadas.
+                    1 vs 2 cámaras, 45€ vs renting, pulsador en red con QR instantáneo vs app obligatoria y +1.500 cámaras federadas.
                   </p>
                 </div>
               </div>
@@ -4514,7 +4514,7 @@ def generate_all():
         <li><strong>Arquitectura Óptica:</strong> Save my Play utiliza <strong>1 sola cámara rectilínea deportiva</strong> a 4 metros de altura (sin efecto pez ni curvatura de líneas), mientras Padmi instala <strong>2 cámaras</strong> por pista (una en cada fondo).</li>
         <li><strong>Fricción del Jugador:</strong> Save my Play funciona con un <strong>pulsador físico en red y escaneo de código QR</strong> en poste directo al navegador web sin descargar apps ni registrarse. Padmi requiere la <strong>descarga obligatoria de su aplicación móvil</strong> con registro previo de usuario.</li>
         <li><strong>Modelo Económico:</strong> Save my Play vende el <strong>hardware en propiedad por 180 €</strong> con cuota de software desde <strong>27 € a 45 €/mes</strong> según volumen y <strong>0 meses de permanencia</strong> (cancelación libre). Padmi opera bajo contratos cerrados de renting o suscripción de larga duración.</li>
-        <li><strong>Despliegue y Aval Internacional:</strong> Save my Play cuenta con <strong>más de 6.000 cámaras en más de 600 clubes</strong> en todo el mundo, es la <strong>cámara oficial de la USTA y de USA PADEL</strong> (con sede en Florida) y retransmite torneos oficiales FIP en YouTube Live. Padmi es una startup española en fase de implantación local.</li>
+        <li><strong>Despliegue y Aval Internacional:</strong> Save my Play cuenta con <strong>más de 1.500 cámaras</strong> en todo el mundo, es la <strong>cámara oficial de la USTA y de USA PADEL</strong> (con sede en Florida) y retransmite torneos oficiales FIP en YouTube Live. Padmi es una startup española en fase de implantación local.</li>
       </ul>
     </div>
 
@@ -4580,7 +4580,7 @@ def generate_all():
           </tr>
           <tr>
             <td class="py-3 px-4 font-bold text-slate-950">Pistas Instaladas</td>
-            <td class="py-3 px-4 bg-amber-50/50 text-slate-950 font-bold">+6.000 cámaras en +600 clubs en el mundo</td>
+            <td class="py-3 px-4 bg-amber-50/50 text-slate-950 font-bold">+1.500 cámaras en el mundo</td>
             <td class="py-3 px-4 text-slate-600">Centenares de pistas en España</td>
           </tr>
           <tr>
@@ -4726,7 +4726,7 @@ def generate_all():
         Save my Play: Cámara Oficial USTA y USA PADEL
       </h3>
       <p class="text-slate-300 text-xs sm:text-sm leading-relaxed">
-        Save my Play no es un experimento de laboratorio: es el socio tecnológico oficial de la <strong>United States Tennis Association (USTA)</strong> y de <strong>USA PADEL</strong>, con centro de operaciones en el USTA National Campus de Florida y más de <strong>6.000 cámaras en activo en 600 instalaciones</strong> de Estados Unidos, Europa y Oriente Medio.
+        Save my Play no es un experimento de laboratorio: es el socio tecnológico oficial de la <strong>United States Tennis Association (USTA)</strong> y de <strong>USA PADEL</strong>, con centro de operaciones en el USTA National Campus de Florida y más de <strong>1.500 cámaras en activo</strong> en Estados Unidos, Europa y Oriente Medio.
       </p>
       <div class="grid sm:grid-cols-2 gap-3 text-xs text-slate-200 pt-2 border-t border-slate-800">
         <div class="flex items-center gap-2">
@@ -4747,7 +4747,7 @@ def generate_all():
 
     <ul class="text-slate-700 space-y-3 list-disc pl-5 my-4 leading-relaxed">
       <li><strong>Elige Padmi si:</strong> Buscas un proveedor español con presencia local que te ofrezca un paquete cerrado con aplicación móvil propia y prefieres delegar toda la gestión técnica sin preocuparte por comprar hardware propio.</li>
-      <li><strong>Elige Save my Play si:</strong> Quieres tener el control absoluto de tu inversión, comprar las cámaras en propiedad por solo 180 €, pagar una cuota reducida de 27 € a 45 €/mes <strong>sin contratos de permanencia</strong>, evitar que tus socios tengan que descargarse apps molestas y contar con una tecnología probada en más de 6.000 pistas con el aval de la USTA.</li>
+      <li><strong>Elige Save my Play si:</strong> Quieres tener el control absoluto de tu inversión, comprar las cámaras en propiedad por solo 180 €, pagar una cuota reducida de 27 € a 45 €/mes <strong>sin contratos de permanencia</strong>, evitar que tus socios tengan que descargarse apps molestas y contar con una tecnología probada en más de 1.500 pistas con el aval de la USTA.</li>
     </ul>
 
     <div class="bg-slate-50 border border-slate-200 rounded-2xl p-6 my-8 text-center space-y-3">
@@ -4797,7 +4797,7 @@ def generate_all():
         slug="padmi-vs-save-my-play-camaras-padel",
         category_badge="Comparativa B2B · Cámaras IA Pádel",
         title="Padmi vs Save my Play: Comparativa de Cámaras con IA para Pistas de Pádel 2026",
-        subtitle="1 vs 2 cámaras por pista, 45€ vs renting, descarga instantánea por QR sin apps vs app obligatoria y +6.000 cámaras en todo el mundo. Todo lo que necesita saber un director de club.",
+        subtitle="1 vs 2 cámaras por pista, 45€ vs renting, descarga instantánea por QR sin apps vs app obligatoria y +1.500 cámaras en todo el mundo. Todo lo que necesita saber un director de club.",
         meta_desc="Comparativa 2026: Padmi vs Save my Play. Precios, 1 vs 2 cámaras, descargas por código QR sin app, cuota mensual de 45€ sin permanencia y homologación USTA.",
         date_str="Octubre 2026",
         date_iso="2026-10-20",

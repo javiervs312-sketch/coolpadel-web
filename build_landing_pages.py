@@ -328,11 +328,11 @@ LANDINGS = [
     {
         "slug": "save-my-play",
         "title": "Save my Play España: Cámaras con IA Oficiales para Pistas de Pádel",
-        "meta_desc": "Save my Play España (+6000 cámaras y +600 clubs): cámara oficial USTA y USA Padel. 180 € hardware, cuota desde 27-45 €/mes, 0 obras y sin permanencia.",
-        "badge": "CÁMARA OFICIAL USTA Y USA PADEL · +6.000 PISTAS",
+        "meta_desc": "Save my Play España (+1.500 cámaras): cámara oficial USTA y USA Padel. 180 € hardware, cuota desde 27-45 €/mes, 0 obras y sin permanencia.",
+        "badge": "CÁMARA OFICIAL USTA Y USA PADEL · +1.500 PISTAS",
         "breadcrumb_leaf": "Save my Play España",
         "h1": "Save my Play España: Sistema Oficial de Grabación y Cámaras para Pistas de Pádel",
-        "subtitle": "La tecnología de grabación en pista líder mundial: más de 600 clubes y 6.000 cámaras en todo el mundo. Hardware propio a 180 €, cuota desde 27 € a 45 €/mes, 0 obras y sin contratos de permanencia.",
+        "subtitle": "La tecnología de grabación en pista líder mundial: más de 1.500 cámaras en todo el mundo. Hardware propio a 180 €, cuota desde 27 € a 45 €/mes, 0 obras y sin contratos de permanencia.",
         "hero_img": "assets/images/savemyplay-1.jpg",
         "hero_img_alt": "Cámaras oficiales para pistas de pádel y tenis Save My Play en España",
         "wa_msg": "Hola Javier, quiero información sobre el sistema oficial de cámaras Save My Play para mi club",
@@ -341,12 +341,12 @@ LANDINGS = [
         "quick_summary": {
             "label_1": "Hardware en Propiedad", "val_1": "180 € / cámara (Pago único, 1 por pista)",
             "label_2": "Cuota por Volumen", "val_2": "Desde 27 € a 45 € / mes por pista",
-            "label_3": "Credenciales", "val_3": "Oficial USTA & USA PADEL (+6000 cámaras)",
+            "label_3": "Credenciales", "val_3": "Oficial USTA & USA PADEL (+1.500 cámaras)",
             "label_4": "Instalación", "val_4": "5 minutos (WiFi + enchufe, sin servidores)",
-            "p": "Save My Play es el sistema oficial de grabación automática de partidos y highlights en pista de pádel y tenis, socio tecnológico de la USTA y USA Padel con más de 6.000 cámaras en 600 clubes. Hardware en propiedad por 180 €, cuotas mensuales por volumen desde 27 € a 45 €/mes y sin contratos de permanencia."
+            "p": "Save My Play es el sistema oficial de grabación automática de partidos y highlights en pista de pádel y tenis, socio tecnológico de la USTA y USA Padel con más de 1.500 cámaras en todo el mundo. Hardware en propiedad por 180 €, cuotas mensuales por volumen desde 27 € a 45 €/mes y sin contratos de permanencia."
         },
         "benefits": [
-            ("Cámara Oficial de las Federaciones Americanas (USTA y USA PADEL)", "Tecnología homologada y contrastada en más de 6.000 cámaras en todo el mundo, equipando sedes como el USTA National Campus en Florida y retransmisiones oficiales del circuito FIP de Miami."),
+            ("Cámara Oficial de las Federaciones Americanas (USTA y USA PADEL)", "Tecnología homologada y contrastada en más de 1.500 cámaras en todo el mundo, equipando sedes como el USTA National Campus en Florida y retransmisiones oficiales del circuito FIP de Miami."),
             ("Óptica Rectilínea Sin Efecto Pez (1 Cámara por Pista)", "La imagen y las líneas de pista no se ven curvadas. Cubrimos los 20x10 metros a la perfección con una sola cámara a 4 metros, ahorrando costes de hardware y cableados."),
             ("Sin Apps ni Registros Obligatorios (Cero Fricción)", "Los jugadores no necesitan descargar apps pesadas ni crearse cuentas: pulsan el botón en red y escanean el código QR para tener sus jugadas en 25 segundos en su móvil."),
             ("Tarifas Transparentes por Volumen sin Permanencia", "De 180 € de hardware único a cuotas escalonadas de 45 € (<5 pistas), 41 € (5-14), 36 € (15-24) y 27 € (>25 pistas). Cancelación libre mes a mes.")
@@ -460,7 +460,7 @@ def render_landing(landing):
                   <td class="py-4 px-3 text-slate-900">Software Highlights &amp; Streaming (&gt; 25 pistas)</td>
                   <td class="py-4 px-3 text-[#f2920b]">27 € / mes / pista</td>
                   <td class="py-4 px-3 text-emerald-600">0 permanencia · Tarifa Franquicia</td>
-                  <td class="py-4 px-3 text-slate-600 text-xs font-medium">Tarifa especial para cadenas, federaciones y franquicias (+6000 cámaras en el mundo)</td>
+                  <td class="py-4 px-3 text-slate-600 text-xs font-medium">Tarifa especial para cadenas, federaciones y franquicias (+1.500 cámaras en el mundo)</td>
                 </tr>
                 <tr class="bg-amber-50/50">
                   <td class="py-4 px-3 text-slate-900">Módulo Extra: Analítica IA &amp; Coaching Tools</td>
@@ -1176,7 +1176,7 @@ def render_landing(landing):
             <li><a href="/welcome-packs-torneos-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Welcome Packs para Torneos</a></li>
             <li><a href="/llaveros-personalizados-clubs-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Merchandising para Clubs</a></li>
             <li><a href="/camaras/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Cámaras Save my Play</a></li>
-            <li><a href="/save-my-play/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition font-bold text-amber-300">Save my Play España (+6.000)</a></li>
+            <li><a href="/save-my-play/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition font-bold text-amber-300">Save my Play España (+1.500)</a></li>
             <li><a href="/camaras-grabacion-pistas-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Grabación en Pista de Pádel</a></li>
           </ul>
         </div>
