@@ -324,6 +324,39 @@ LANDINGS = [
             ("¿Cuánto tarda el envío y puesta en marcha?", "Enviamos el equipo configurado en 48 horas. Solo necesitas atornillar la fijación al poste (5 minutos) y conectar a 220V."),
             ("¿Se pueden personalizar los vídeos con el escudo del club catalán?", "Sí, cada clip descargado o emitido en streaming incluye el logo oficial del club y de los patrocinadores locales.")
         ]
+    },
+    {
+        "slug": "save-my-play",
+        "title": "Save my Play España: Cámaras con IA Oficiales para Pistas de Pádel",
+        "meta_desc": "Save my Play España (+6000 cámaras y +600 clubs): cámara oficial USTA y USA Padel. 180 € hardware, cuota desde 27-45 €/mes, 0 obras y sin permanencia.",
+        "badge": "CÁMARA OFICIAL USTA Y USA PADEL · +6.000 PISTAS",
+        "breadcrumb_leaf": "Save my Play España",
+        "h1": "Save my Play España: Sistema Oficial de Grabación y Cámaras para Pistas de Pádel",
+        "subtitle": "La tecnología de grabación en pista líder mundial: más de 600 clubes y 6.000 cámaras en todo el mundo. Hardware propio a 180 €, cuota desde 27 € a 45 €/mes, 0 obras y sin contratos de permanencia.",
+        "hero_img": "assets/images/savemyplay-1.jpg",
+        "hero_img_alt": "Cámaras oficiales para pistas de pádel y tenis Save My Play en España",
+        "wa_msg": "Hola Javier, quiero información sobre el sistema oficial de cámaras Save My Play para mi club",
+        "price_anchor": "Hardware 180 € / pista · Software desde 27 € a 45 €/mes · 0 permanencia",
+        "target_audience": "Gerentes y directores de clubes de pádel y tenis, academias de alto rendimiento e inversores deportivos en España y Europa.",
+        "quick_summary": {
+            "label_1": "Hardware en Propiedad", "val_1": "180 € / cámara (Pago único, 1 por pista)",
+            "label_2": "Cuota por Volumen", "val_2": "Desde 27 € a 45 € / mes por pista",
+            "label_3": "Credenciales", "val_3": "Oficial USTA & USA PADEL (+6000 cámaras)",
+            "label_4": "Instalación", "val_4": "5 minutos (WiFi + enchufe, sin servidores)",
+            "p": "Save My Play es el sistema oficial de grabación automática de partidos y highlights en pista de pádel y tenis, socio tecnológico de la USTA y USA Padel con más de 6.000 cámaras en 600 clubes. Hardware en propiedad por 180 €, cuotas mensuales por volumen desde 27 € a 45 €/mes y sin contratos de permanencia."
+        },
+        "benefits": [
+            ("Cámara Oficial de las Federaciones Americanas (USTA y USA PADEL)", "Tecnología homologada y contrastada en más de 6.000 cámaras en todo el mundo, equipando sedes como el USTA National Campus en Florida y retransmisiones oficiales del circuito FIP de Miami."),
+            ("Óptica Rectilínea Sin Efecto Pez (1 Cámara por Pista)", "La imagen y las líneas de pista no se ven curvadas. Cubrimos los 20x10 metros a la perfección con una sola cámara a 4 metros, ahorrando costes de hardware y cableados."),
+            ("Sin Apps ni Registros Obligatorios (Cero Fricción)", "Los jugadores no necesitan descargar apps pesadas ni crearse cuentas: pulsan el botón en red y escanean el código QR para tener sus jugadas en 25 segundos en su móvil."),
+            ("Tarifas Transparentes por Volumen sin Permanencia", "De 180 € de hardware único a cuotas escalonadas de 45 € (<5 pistas), 41 € (5-14), 36 € (15-24) y 27 € (>25 pistas). Cancelación libre mes a mes.")
+        ],
+        "faqs": [
+            ("¿Por qué Save my Play solo necesita 1 cámara por pista mientras otros sistemas exigen 2?", "Porque nuestra cámara está calibrada específicamente con lente rectilínea para deportes de raqueta instalada a 4 metros de altura (poste o reja). Cubre el 100% de la pista (20x10 m) sin deformaciones ni efecto pez, ahorrando al club la mitad del coste en hardware y evitando zanjas complejas."),
+            ("¿Ofrecéis también análisis de partido y estadísticas con IA?", "Sí, disponemos del módulo completo de analítica IA y coaching tools por 136 € al mes todo incluido. No obstante, para la mayoría de clubes recomendamos el plan de 45 €/mes, ya que el 90% de los jugadores amateurs solo busca guardar sus mejores puntos (highlights) para compartir en WhatsApp e Instagram."),
+            ("¿Qué infraestructura necesita mi club para instalarlo?", "Únicamente una toma de corriente convencional y conexión WiFi estándar. No se necesitan servidores locales, zanjas en el suelo ni abrir rozas en el césped. Se ancla a la reja o poste en 5 minutos."),
+            ("¿Quién gestiona Save my Play en España?", "Javier Villoria es el director de Save my Play en España y fundador de CoolPadel Studios. Puedes contactar directamente por teléfono o WhatsApp en el +34 680 31 74 86 o por email en javier@coolpadelstudios.com.")
+        ]
     }
 ]
 
@@ -356,7 +389,7 @@ def render_landing(landing):
           <p class="text-slate-600 text-sm sm:text-base leading-relaxed">{desc}</p>
         </div>"""
 
-    is_camaras = landing["slug"].startswith("camaras-") or landing["slug"] == "camaras-grabacion-pistas-padel"
+    is_camaras = landing["slug"].startswith("camaras-") or landing["slug"] in ["camaras-grabacion-pistas-padel", "save-my-play"]
     parent_breadcrumb_name = "Cámaras de Pádel" if is_camaras else "Merchandising Pádel"
     parent_breadcrumb_url = "https://coolpadelstudios.com/camaras/" if is_camaras else "https://coolpadelstudios.com/#llaveros"
     parent_breadcrumb_rel_url = "../camaras/" if is_camaras else "../#llaveros"
@@ -400,22 +433,40 @@ def render_landing(landing):
               </thead>
               <tbody class="divide-y divide-slate-100 font-bold">
                 <tr>
-                  <td class="py-4 px-3 text-slate-900">Inversión Hardware por Pista</td>
+                  <td class="py-4 px-3 text-slate-900">Inversión Hardware en Propiedad</td>
                   <td class="py-4 px-3 text-[#f2920b]">180 € / pista</td>
-                  <td class="py-4 px-3 text-slate-700">Pago único (en propiedad)</td>
-                  <td class="py-4 px-3 text-slate-600 text-xs font-medium">Cámara deportiva panorámica HD + fijación a poste + pulsador físico</td>
+                  <td class="py-4 px-3 text-slate-700">Pago único (+20€ envío int.)</td>
+                  <td class="py-4 px-3 text-slate-600 text-xs font-medium">1 cámara rectilínea por pista (sin efecto pez) + fijación a poste + pulsador físico en red</td>
                 </tr>
                 <tr>
-                  <td class="py-4 px-3 text-slate-900">Plan B · Highlights &amp; Streaming (Recomendado)</td>
-                  <td class="py-4 px-3 text-[#f2920b]">45 € / mes</td>
+                  <td class="py-4 px-3 text-slate-900">Software Highlights &amp; Streaming (&lt; 5 pistas)</td>
+                  <td class="py-4 px-3 text-[#f2920b]">45 € / mes / pista</td>
                   <td class="py-4 px-3 text-emerald-600">0 permanencia · Cancelación libre</td>
-                  <td class="py-4 px-3 text-slate-600 text-xs font-medium">Grabación de partidos, repeticiones botón en poste, clips automáticos, streaming YouTube y descarga QR</td>
+                  <td class="py-4 px-3 text-slate-600 text-xs font-medium">Grabación de partidos, repeticiones botón en red, clips automáticos en 25s, streaming YouTube y descarga QR sin apps</td>
                 </tr>
                 <tr>
-                  <td class="py-4 px-3 text-slate-900">Plan A · Analítica IA Avanzada</td>
-                  <td class="py-4 px-3 text-[#f2920b]">136 € / mes</td>
-                  <td class="py-4 px-3 text-emerald-600">0 permanencia · Cancelación libre</td>
-                  <td class="py-4 px-3 text-slate-600 text-xs font-medium">Todo el Plan B + AI Analytics táctico, mapas de calor, recuento de golpes y métricas</td>
+                  <td class="py-4 px-3 text-slate-900">Software Highlights &amp; Streaming (5 a 14 pistas)</td>
+                  <td class="py-4 px-3 text-[#f2920b]">41 € / mes / pista</td>
+                  <td class="py-4 px-3 text-emerald-600">0 permanencia · Descuento volumen</td>
+                  <td class="py-4 px-3 text-slate-600 text-xs font-medium">Tarifa optimizada para clubes medianos con ahorro directo en cada pista</td>
+                </tr>
+                <tr>
+                  <td class="py-4 px-3 text-slate-900">Software Highlights &amp; Streaming (15 a 24 pistas)</td>
+                  <td class="py-4 px-3 text-[#f2920b]">36 € / mes / pista</td>
+                  <td class="py-4 px-3 text-emerald-600">0 permanencia · Descuento volumen</td>
+                  <td class="py-4 px-3 text-slate-600 text-xs font-medium">Tarifa club grande: mayor margen por pista para academias y grandes complejos</td>
+                </tr>
+                <tr>
+                  <td class="py-4 px-3 text-slate-900">Software Highlights &amp; Streaming (&gt; 25 pistas)</td>
+                  <td class="py-4 px-3 text-[#f2920b]">27 € / mes / pista</td>
+                  <td class="py-4 px-3 text-emerald-600">0 permanencia · Tarifa Franquicia</td>
+                  <td class="py-4 px-3 text-slate-600 text-xs font-medium">Tarifa especial para cadenas, federaciones y franquicias (+6000 cámaras en el mundo)</td>
+                </tr>
+                <tr class="bg-amber-50/50">
+                  <td class="py-4 px-3 text-slate-900">Módulo Extra: Analítica IA &amp; Coaching Tools</td>
+                  <td class="py-4 px-3 text-[#f2920b]">136 € / mes / pista</td>
+                  <td class="py-4 px-3 text-slate-700">Opcional todo incluido</td>
+                  <td class="py-4 px-3 text-slate-600 text-xs font-medium">Todo el plan básico + estadísticas tácticas, mapas de calor, velocidad de bola y repetición en cámara lenta</td>
                 </tr>
               </tbody>
             </table>
@@ -445,7 +496,110 @@ def render_landing(landing):
             <p class="text-white/80 text-xs">Tus jugadores disfrutan de sus mejores jugadas. Puedes darte de baja en cualquier momento.</p>
           </div>
         </div>"""
+        videos_html = """
+    <!-- DEMOSTRACIÓN EN VÍDEO Y REPETICIONES REALES -->
+    <section class="py-14 sm:py-20 bg-slate-50 border-b border-slate-200">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-2xl mx-auto mb-10 sm:mb-14 space-y-2">
+          <span class="inline-block px-3.5 py-1 rounded-full bg-[#f2920b]/15 text-[#f2920b] font-heading font-black text-xs uppercase tracking-wider">
+            Demostración en Pista Real
+          </span>
+          <h2 class="font-heading font-black text-2xl sm:text-4xl text-slate-950 uppercase tracking-tight">
+            Comprueba la Calidad de Grabación y Streaming
+          </h2>
+          <p class="text-sm sm:text-base text-slate-600 font-medium">
+            Partidos oficiales FIP en directo, repeticiones automáticas con pulsador y herramientas de análisis táctico para entrenadores.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <!-- Video 1: FIP Miami -->
+          <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-xs hover:shadow-md transition flex flex-col">
+            <div class="aspect-video bg-slate-900 relative">
+              <iframe class="w-full h-full" src="https://www.youtube-nocookie.com/embed/4xwrrveDZxg?start=5623" title="FIP Miami Live Streaming Save My Play" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+            </div>
+            <div class="p-4 flex-1 flex flex-col justify-between">
+              <div>
+                <span class="text-[10px] font-heading font-black uppercase text-[#d97706] tracking-wider">Streaming Torneo Oficial</span>
+                <h3 class="font-heading font-bold text-sm text-slate-900 mt-1">FIP Miami por YouTube Live</h3>
+                <p class="text-xs text-slate-600 mt-1">Retransmisión en directo en 1080p sin cortes, con imagen rectilínea sin curvatura de pista.</p>
+              </div>
+              <a href="https://www.youtube.com/live/4xwrrveDZxg?si=Tw56yNEB9KWwlkbr&t=5623" target="_blank" rel="noopener" class="mt-3 inline-flex items-center gap-1 text-xs font-bold text-[#f2920b] hover:underline">
+                <span>Ver en YouTube</span>
+                <i data-lucide="external-link" class="w-3 h-3"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Video 2: Demo de Uso -->
+          <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-xs hover:shadow-md transition flex flex-col">
+            <div class="aspect-video bg-slate-900 relative">
+              <iframe class="w-full h-full" src="https://www.youtube-nocookie.com/embed/LuzDvB5Umfs" title="Demo de uso Save My Play" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+            </div>
+            <div class="p-4 flex-1 flex flex-col justify-between">
+              <div>
+                <span class="text-[10px] font-heading font-black uppercase text-emerald-600 tracking-wider">Experiencia de Jugador</span>
+                <h3 class="font-heading font-bold text-sm text-slate-900 mt-1">Cómo se Juega y se Descarga</h3>
+                <p class="text-xs text-slate-600 mt-1">Pulsador de poste en red y escaneo QR inmediato con cualquier smartphone sin registros.</p>
+              </div>
+              <a href="https://www.youtube.com/watch?v=LuzDvB5Umfs" target="_blank" rel="noopener" class="mt-3 inline-flex items-center gap-1 text-xs font-bold text-[#f2920b] hover:underline">
+                <span>Ver en YouTube</span>
+                <i data-lucide="external-link" class="w-3 h-3"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Video 3: Highlights -->
+          <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-xs hover:shadow-md transition flex flex-col">
+            <div class="aspect-video bg-slate-900 relative">
+              <iframe class="w-full h-full" src="https://www.youtube-nocookie.com/embed/Z0vnvyrUbPQ" title="Highlights generados Save My Play" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+            </div>
+            <div class="p-4 flex-1 flex flex-col justify-between">
+              <div>
+                <span class="text-[10px] font-heading font-black uppercase text-sky-600 tracking-wider">Clip Automático</span>
+                <h3 class="font-heading font-bold text-sm text-slate-900 mt-1">Highlights de 25 Segundos</h3>
+                <p class="text-xs text-slate-600 mt-1">Calidad Full HD lista para compartir en Instagram, TikTok o WhatsApp en 3 toques.</p>
+              </div>
+              <a href="https://youtu.be/Z0vnvyrUbPQ" target="_blank" rel="noopener" class="mt-3 inline-flex items-center gap-1 text-xs font-bold text-[#f2920b] hover:underline">
+                <span>Ver en YouTube</span>
+                <i data-lucide="external-link" class="w-3 h-3"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Video 4: Coaching Tools -->
+          <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-xs hover:shadow-md transition flex flex-col">
+            <div class="aspect-video bg-slate-900 relative">
+              <iframe class="w-full h-full" src="https://www.youtube-nocookie.com/embed/FcnCWaYahP8" title="Herramientas de entrenamiento y coaching" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+            </div>
+            <div class="p-4 flex-1 flex flex-col justify-between">
+              <div>
+                <span class="text-[10px] font-heading font-black uppercase text-purple-600 tracking-wider">Para Monitores y Escuelas</span>
+                <h3 class="font-heading font-bold text-sm text-slate-900 mt-1">Coaching Tools y Táctica</h3>
+                <p class="text-xs text-slate-600 mt-1">Repetición instantánea para corrección técnica en clases particulares y academias.</p>
+              </div>
+              <a href="https://www.youtube.com/watch?v=FcnCWaYahP8" target="_blank" rel="noopener" class="mt-3 inline-flex items-center gap-1 text-xs font-bold text-[#f2920b] hover:underline">
+                <span>Ver en YouTube</span>
+                <i data-lucide="external-link" class="w-3 h-3"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-8 text-center">
+          <p class="text-xs text-slate-500 font-medium">
+            ¿Quieres probar la analítica táctica con mapas de calor y velocidad de bola? 
+            <a href="https://savemyplay.com/replays/634779-ni9DexZC-the-club-at-monroe/analytics" target="_blank" rel="noopener" class="text-[#f2920b] font-bold hover:underline inline-flex items-center gap-1">
+              Ver demo interactiva de analítica IA real en The Club at Monroe
+              <i data-lucide="external-link" class="w-3 h-3"></i>
+            </a>
+          </p>
+        </div>
+      </div>
+    </section>
+"""
     else:
+        videos_html = ""
         hero_badges_html = """
               <span class="flex items-center gap-1.5"><i data-lucide="check-circle" class="w-4 h-4 text-[#f2920b]"></i> Muestra 15€ (~15 días lab.)</span>
               <span class="flex items-center gap-1.5"><i data-lucide="check-circle" class="w-4 h-4 text-[#f2920b]"></i> Pedido mín. 100 uds</span>
@@ -861,6 +1015,8 @@ def render_landing(landing):
       </div>
     </section>
 
+    {videos_html}
+
     <!-- TARIFAS & PROCESO (FONDO AZUL TEXTURIZADO CANVA) -->
     <section id="precios" class="py-14 sm:py-20 bg-[#3478a6] bg-textured-blue text-white border-b border-sky-700/40">
       <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -1020,6 +1176,7 @@ def render_landing(landing):
             <li><a href="/welcome-packs-torneos-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Welcome Packs para Torneos</a></li>
             <li><a href="/llaveros-personalizados-clubs-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Merchandising para Clubs</a></li>
             <li><a href="/camaras/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Cámaras Save my Play</a></li>
+            <li><a href="/save-my-play/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition font-bold text-amber-300">Save my Play España (+6.000)</a></li>
             <li><a href="/camaras-grabacion-pistas-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Grabación en Pista de Pádel</a></li>
           </ul>
         </div>
@@ -1063,6 +1220,7 @@ def render_landing(landing):
           </div>
           <ul class="space-y-2 text-white/80 font-normal">
             <li><a href="/blog/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition font-bold text-white">Índice del Blog &amp; Newsletter</a></li>
+            <li><a href="/blog/padmi-vs-save-my-play-camaras-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition font-bold text-amber-300">Padmi vs Save my Play</a></li>
             <li><a href="/blog/como-organizar-torneo-padel-americana-reglas-cuadros/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Cómo Organizar una Americana</a></li>
             <li><a href="/blog/cuanto-cuesta-montar-pista-padel-presupuesto-rentabilidad/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Cuánto Cuesta una Pista 2026</a></li>
             <li><a href="/blog/rentabilidad-camaras-pistas-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Precios y ROI de Cámaras</a></li>

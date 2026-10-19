@@ -26,8 +26,20 @@ with open(SITEMAP_FILE, "r", encoding="utf-8") as f:
 
 # Verificar qué URLs faltan
 urls_to_add = [
+    "https://coolpadelstudios.com/save-my-play/",
+    "https://coolpadelstudios.com/camaras-grabacion-pistas-padel/",
+    "https://coolpadelstudios.com/camaras-padel-playtomic/",
+    "https://coolpadelstudios.com/camaras-padel-matchi/",
+    "https://coolpadelstudios.com/camaras-padel-resasports/",
+    "https://coolpadelstudios.com/camaras-padel-madrid/",
+    "https://coolpadelstudios.com/camaras-padel-barcelona/",
+    "https://coolpadelstudios.com/llaveros-padel-personalizados/",
+    "https://coolpadelstudios.com/llaveros-tenis-personalizados/",
+    "https://coolpadelstudios.com/welcome-packs-torneos-padel/",
+    "https://coolpadelstudios.com/llaveros-personalizados-clubs-padel/",
     "https://coolpadelstudios.com/blog/barometro-camaras-padel-2026/",
-    "https://coolpadelstudios.com/blog/normativa-rgpd-camaras-pistas-padel/"
+    "https://coolpadelstudios.com/blog/normativa-rgpd-camaras-pistas-padel/",
+    "https://coolpadelstudios.com/blog/padmi-vs-save-my-play-camaras-padel/"
 ]
 
 for f in FRANQUICIAS:
@@ -43,10 +55,10 @@ if closing_tag in content:
     new_xml_blocks = []
     for u in urls_to_add:
         if f"<loc>{u}</loc>" not in content:
-            priority = "0.85" if "barometro" in u else "0.75"
+            priority = "0.9" if "save-my-play" in u else ("0.85" if "barometro" in u or "padmi" in u else "0.75")
             block = f"""  <url>
     <loc>{u}</loc>
-    <lastmod>2026-10-16</lastmod>
+    <lastmod>2026-10-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>{priority}</priority>
   </url>"""

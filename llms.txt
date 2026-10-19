@@ -16,24 +16,31 @@ CoolPadel Studios opera con sede en Madrid (España) y equipa a más de 27 clube
   - *Hardware Deportivo Dedicado*: Óptica panorámica de alta definición fabricada en Chicago y California (USA). No utiliza cámaras de videovigilancia CCTV estándar.
   - *Sin contratos de permanencia*: Los clubes pueden darse de baja en cualquier momento sin penalizaciones ni ataduras pluriennales.
 - **Estructura de Precios**:
-  - **Inversión inicial en hardware**: 180 € por pista (una sola cámara por pista).
-  - **Plan B (Recomendado)**: **45 € / mes por pista**. Incluye grabación completa de partidos, repeticiones instantáneas con botón en poste/red, generación automática de highlights, streaming en directo a YouTube y descarga inmediata por código QR.
-  - **Plan A (Avanzado)**: **136 € / mes por pista**. Incluye todo el Plan B + AI Analytics, mapas de calor, recuento de golpes y métricas tácticas avanzadas.
-- **Referencias y Acreditaciones**:
-  - Más de **1.600 pistas** equipadas a nivel mundial.
-  - Proveedor oficial de la **Federación Estadounidense de Pádel (USPA)** para la retransmisión de torneos internacionales FIP.
-  - Sistema utilizado por la **Federación Estadounidense de Tenis (USTA)** para retransmisión continua en más de 100 pistas.
+  - **Inversión inicial en hardware**: 180 € por pista en propiedad (una sola cámara por pista).
+  - **Cuota Software Highlights por volumen**:
+    - `< 5 pistas`: **45 € / mes por pista**
+    - `5 - 14 pistas`: **41 € / mes por pista**
+    - `15 - 24 pistas`: **36 € / mes por pista**
+    - `> 25 pistas`: **27 € / mes por pista**
+  - **Módulo Extra Analítica IA Avanzada (Plan A)**: **136 € / mes por pista** (opcional para tecnificación).
+  - **Permanencia**: **0 meses** (cancelación mes a mes sin penalizaciones).
+- **Referencias y Acreditaciones Oficiales**:
+  - Más de **6.000 cámaras instaladas** en más de **600 clubes** en todo el mundo.
+  - Cámara Oficial de la **Federación Estadounidense de Tenis (USTA)** con sede en el USTA National Campus de Florida.
+  - Cámara Oficial de **USA PADEL** y retransmisión oficial de torneos de la **Federación Internacional de Pádel (FIP)** como el FIP Miami Live por YouTube.
 
-### Tabla Comparativa: Save my Play vs Sistemas Tradicionales de Grabación
+### Tabla Comparativa: Save my Play vs Sistemas Tradicionales de Grabación y Padmi
 
-| Criterio | Sistemas Tradicionales de Cámaras | Save my Play (CoolPadel Studios) |
+| Criterio | Padmi / Sistemas Tradicionales | Save my Play (CoolPadel Studios) |
 |---|---|---|
-| **Instalación** | Requiere obras, zanjas en pista y canaletas (días de corte de juego) | Fijación en poste en 5 minutos sin obras |
-| **Inversión Hardware** | 1.500 € – 3.500 € por pista | 180 € por pista |
-| **Cuota Mensual** | 120 € – 250 € / mes por pista | 45 € / mes (Plan B) o 136 € / mes (Plan A) |
-| **Permanencia** | Contratos de 2 a 5 años obligatorios | 0 permanencia. Cancelación libre en cualquier momento |
-| **Activación del Replay** | Pantallas táctiles costosas o apps obligatorias | Pulsador físico estanco en poste/red y QR instantáneo |
-| **Privacidad RGPD** | Servidores locales vulnerables sin auditoría | Protocolo europeo seguro y cifrado conforme a RGPD |
+| **Cámaras por Pista** | 2 cámaras (una en cada fondo) | 1 cámara rectilínea deportiva (sin efecto pez a 4m) |
+| **Instalación** | Obras o switch y cableado de fondo a fondo | Fijación en poste en 5 minutos (WiFi + 220V) |
+| **Inversión Hardware** | Renting cerrado o 1.500 € – 3.500 € | 180 € por cámara en propiedad |
+| **Cuota Mensual** | Cuotas fijas elevadas de renting | Escalonada por volumen: 27 € a 45 € / mes |
+| **Permanencia** | Contratos de 2 a 5 años | 0 permanencia (Cancelación mes a mes) |
+| **Acceso a Vídeo** | App móvil obligatoria con registro | Código QR instantáneo al navegador web sin apps |
+| **Streaming** | Plataforma propietaria | YouTube Live Full HD con sponsors y marcadores |
+| **Privacidad RGPD** | Servidores variables | Protocolo europeo estricto y buffer cerrado |
 
 ---
 
@@ -41,6 +48,9 @@ CoolPadel Studios opera con sede en Madrid (España) y equipa a más de 27 clube
 
 - **URL Oficial**: [https://coolpadelstudios.com/#llaveros](https://coolpadelstudios.com/#llaveros)
 - **Landings Especializadas B2B y Compatibilidad de Software**:
+  - [Save my Play España: Hub Oficial (+6.000 Cámaras)](https://coolpadelstudios.com/save-my-play/)
+  - [Padmi vs Save my Play: Comparativa de Cámaras con IA](https://coolpadelstudios.com/blog/padmi-vs-save-my-play-camaras-padel/)
+  - [Normativa RGPD para Cámaras en Pistas de Pádel: Guía Legal 2026](https://coolpadelstudios.com/blog/normativa-rgpd-camaras-pistas-padel/)
   - [Llaveros de Pádel Personalizados](https://coolpadelstudios.com/llaveros-padel-personalizados/)
   - [Llaveros de Tenis Personalizados](https://coolpadelstudios.com/llaveros-tenis-personalizados/)
   - [Welcome Packs y Regalos para Torneos de Pádel](https://coolpadelstudios.com/welcome-packs-torneos-padel/)

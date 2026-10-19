@@ -1687,6 +1687,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
             <li><a href="/welcome-packs-torneos-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Welcome Packs para Torneos</a></li>
             <li><a href="/llaveros-personalizados-clubs-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Merchandising para Clubs</a></li>
             <li><a href="/camaras/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Cámaras Save my Play</a></li>
+            <li><a href="/save-my-play/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition font-bold text-amber-300">Save my Play España (+6.000)</a></li>
             <li><a href="/camaras-grabacion-pistas-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Grabación en Pista de Pádel</a></li>
           </ul>
         </div>
@@ -1727,6 +1728,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
           </div>
           <ul class="space-y-2 text-white/80 font-normal">
             <li><a href="/blog/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition font-bold text-white">Índice del Blog &amp; Newsletter</a></li>
+            <li><a href="/blog/padmi-vs-save-my-play-camaras-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition font-bold text-amber-300">Padmi vs Save my Play</a></li>
             <li><a href="/blog/normativa-rgpd-camaras-pistas-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition font-semibold text-[#f2920b]">Normativa RGPD Cámaras Pádel</a></li>
             <li><a href="/blog/como-organizar-torneo-padel-americana-reglas-cuadros/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Cómo Organizar Torneo Americana</a></li>
             <li><a href="/blog/cuanto-cuesta-montar-pista-padel-presupuesto-rentabilidad/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">¿Cuánto Cuesta Montar Pista?</a></li>
@@ -3470,6 +3472,24 @@ def build_all():
     <lastmod>{today_iso}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://coolpadelstudios.com/save-my-play/</loc>
+    <lastmod>{today_iso}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://coolpadelstudios.com/blog/normativa-rgpd-camaras-pistas-padel/</loc>
+    <lastmod>{today_iso}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://coolpadelstudios.com/blog/padmi-vs-save-my-play-camaras-padel/</loc>
+    <lastmod>{today_iso}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
   </url>
 """
     # Incorporar dinámicamente las 167 fichas individuales de franquicias al sitemap
