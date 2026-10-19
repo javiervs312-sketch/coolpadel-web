@@ -1603,7 +1603,7 @@ def generate_article_page(slug, edition_num, title, date_str, read_time, cover_i
 <html lang="es" class="scroll-smooth">
 <head>
   <title>{seo_doc_title}</title>
-  <meta name="description" content="Highlights #{edition_num}: {title}. Análisis y reflexiones sobre la industria del pádel por Javier Villoria.">
+  <meta name="description" content="Highlights #{edition_num}: {title}. Reflexiones sobre la industria del pádel por Javier Villoria.">
   <link rel="canonical" href="https://coolpadelstudios.com/blog/{slug}/">
   
   <!-- Open Graph / Redes Sociales -->
