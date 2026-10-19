@@ -830,6 +830,43 @@ def generate_blog_index():
 
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 max-w-[1700px] w-full mx-auto">
             
+            <!-- GUÍA: 15 REGALOS DE PÁDEL ORIGINALES Y BARATOS (COSAS DE PÁDEL) -->
+            <div class="bg-white border border-slate-200/90 rounded-2xl p-4 sm:p-5 shadow-2xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between group hover:-translate-y-0.5">
+              <div class="space-y-3">
+                <div class="aspect-[16/10] rounded-xl overflow-hidden bg-slate-900 border border-slate-200/90 shadow-2xs relative">
+                  <img src="../assets/images/llaveros-1.jpg" alt="15 Regalos de pádel originales y baratos para jugadores, torneos y clubs" width="600" height="375" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
+                  <span class="absolute bottom-2 left-2 text-[9px] font-black uppercase tracking-wider px-2 py-0.5 rounded-full bg-[#f2920b] text-slate-950 shadow-xs">
+                    Regalos &amp; Merch
+                  </span>
+                </div>
+
+                <div class="space-y-1">
+                  <div class="flex items-center gap-1.5 text-[10px] font-bold text-slate-400">
+                    <span>Octubre 2026</span>
+                    <span>•</span>
+                    <span>Lectura 6 min</span>
+                  </div>
+                  <h3 class="font-heading font-black text-sm sm:text-base text-slate-950 leading-snug group-hover:text-[#f2920b] transition">
+                    15 Regalos de Pádel Originales y Baratos para Jugadores, Clubs y Torneos
+                  </h3>
+                  <p class="text-xs text-slate-600 font-medium leading-relaxed line-clamp-2">
+                    Ideas y cosas de pádel por menos de 3€, 5€ y 10€: de llaveros de pala en goma 3D a accesorios útiles que no acaban en la basura.
+                  </p>
+                </div>
+              </div>
+
+              <div class="pt-3.5 border-t border-slate-100 mt-4">
+                <a href="./regalos-padel-originales-baratos-ideas-detalles-torneos/"
+                   class="group relative w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-full bg-slate-900 hover:bg-[#f2920b] text-white hover:text-slate-950 active:scale-95 font-heading font-black text-xs uppercase tracking-wider transition-all duration-300 shadow-2xs">
+                  <span>Leer Guía Completa</span>
+                  <div class="w-4 h-4 rounded-full bg-white/20 group-hover:bg-slate-950/20 flex items-center justify-center transition-all duration-300">
+                    <i data-lucide="arrow-right" class="w-3 h-3 stroke-[3] group-hover:translate-x-0.5 transition-transform duration-300"></i>
+                  </div>
+                </a>
+              </div>
+            </div>
+
             <!-- GUÍA 1: RENTABILIDAD CÁMARAS -->
             <div class="bg-white border border-slate-200/90 rounded-2xl p-4 sm:p-5 shadow-2xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between group hover:-translate-y-0.5">
               <div class="space-y-3">
@@ -3503,6 +3540,354 @@ def generate_all():
         content_html=content_smart_courts,
         faqs=faqs_smart_courts,
         cta_type="camaras"
+    )
+
+    # 11. Guía AEO 11: 15 Regalos de Pádel Originales y Baratos (Cosas de Pádel, Torneos y Clubs)
+    content_regalos_padel = """
+    <p class="text-lg sm:text-xl font-bold text-slate-950 leading-snug">
+      Encontrar <strong>regalos de pádel originales, baratos y útiles</strong> es una de las tareas más repetidas del año: desde cumpleaños y amigos invisibles de aficionados, hasta welcome packs de torneos federados, regalos para socios de clubes y obsequios corporativos de patrocinadores. Sin embargo, la mayoría de catálogos caen siempre en los mismos errores: camisetas técnicas baratas que pican, bolígrafos que no pintan o toallas sintéticas que acaban en el fondo del cajón. En esta guía desglosamos las <strong>15 mejores ideas y cosas de pádel para regalar en 2026</strong>, clasificadas por tramos de precio (<3€, <5€, <10€ y opciones premium) para acertar tanto a nivel individual como en pedidos al por mayor para clubes.
+    </p>
+
+    <div class="bg-amber-50 border border-amber-200 rounded-2xl p-4 sm:p-5 my-6 flex items-start gap-3">
+      <div class="w-8 h-8 rounded-xl bg-[#f2920b] text-slate-950 flex items-center justify-center shrink-0 mt-0.5 font-black">
+        <i data-lucide="gift" class="w-4 h-4"></i>
+      </div>
+      <div class="text-xs sm:text-sm text-slate-800 leading-relaxed">
+        <strong>La regla de oro del regalo padelero:</strong> El mejor regalo de pádel no es el más caro, sino el que va <em>dentro o colgado del paletero</em> en cada partido. Los detalles que acompañan al jugador a la pista semana tras semana (llaveros de pala en relieve 3D, protectores rugosos, overgrips y toallas con mosquetón) logran un recuerdo de marca infinitamente superior al textil genérico.
+      </div>
+    </div>
+
+    <h2 class="text-xl sm:text-2xl font-black font-heading text-slate-950 pt-6">
+      1. Regalos de Pádel por Menos de 3 €: El Rey de Torneos y Welcome Packs
+    </h2>
+    <p>
+      Para presupuestos ajustados de torneos (100 a 500 participantes) o detalles multitudinarios de escuelas deportivas, el objetivo es conseguir un <strong>alto valor percibido con un coste de fábrica inferior a 3 euros</strong>:
+    </p>
+
+    <div class="space-y-4 my-6">
+      <div class="bg-white rounded-2xl p-5 border border-slate-200 shadow-xs">
+        <div class="flex items-center justify-between gap-3 mb-2">
+          <h3 class="font-heading font-black text-base sm:text-lg text-slate-950">
+            1. Llaveros de Pádel Personalizados en Goma 3D (Forma de Pala con Logo)
+          </h3>
+          <span class="text-xs font-black px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-800 shrink-0">1,50 € - 3,00 €</span>
+        </div>
+        <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+          Es el regalo estrella del mercado B2B. Fabricado en microinyección de PVC flexible de alta densidad con relieve táctil 3D. Reproduce fielmente el logotipo del club, torneo o marca patrocinadora. No se rompe, no raya las palas dentro del paletero y tiene un valor percibido en tienda de entre 5 € y 7 €. Disponible con muestra física real previa por 15 €.
+        </p>
+        <div class="mt-3">
+          <a href="/llaveros-padel-personalizados/" class="inline-flex items-center gap-1.5 text-xs font-bold text-[#f2920b] hover:text-slate-950 transition">
+            <span>Ver catálogo y tarifas de llaveros de pádel personalizados</span>
+            <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-2xl p-5 border border-slate-200 shadow-xs">
+        <div class="flex items-center justify-between gap-3 mb-2">
+          <h3 class="font-heading font-black text-base sm:text-lg text-slate-950">
+            2. Protector de Marco Rugoso Personalizado
+          </h3>
+          <span class="text-xs font-black px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-800 shrink-0">1,20 € - 2,50 €</span>
+        </div>
+        <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+          Tira adhesiva de vinilo rugoso de alta densidad para proteger el marco de la pala contra golpes contra el cristal y la reja. Es un consumible que todo jugador necesita renovar periódicamente.
+        </p>
+      </div>
+
+      <div class="bg-white rounded-2xl p-5 border border-slate-200 shadow-xs">
+        <div class="flex items-center justify-between gap-3 mb-2">
+          <h3 class="font-heading font-black text-base sm:text-lg text-slate-950">
+            3. Overgrips Perforados en Blíster Conmemorativo
+          </h3>
+          <span class="text-xs font-black px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-800 shrink-0">1,00 € - 1,80 €</span>
+        </div>
+        <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+          El consumible más usado en el pádel. Un pack de 1 o 3 overgrips de tacto seco o confort con la cinta adhesiva de cierre personalizada con el nombre del club o del torneo.
+        </p>
+      </div>
+
+      <div class="bg-white rounded-2xl p-5 border border-slate-200 shadow-xs">
+        <div class="flex items-center justify-between gap-3 mb-2">
+          <h3 class="font-heading font-black text-base sm:text-lg text-slate-950">
+            4. Muñequeras Técnicas Absorbentes de Algodón
+          </h3>
+          <span class="text-xs font-black px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-800 shrink-0">1,80 € - 2,80 €</span>
+        </div>
+        <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+          Especialmente valoradas en torneos de primavera y verano. Absorben el sudor de la frente y evitan que resbale hacia la empuñadura de la pala en puntos decisivos.
+        </p>
+      </div>
+    </div>
+
+    <h2 class="text-xl sm:text-2xl font-black font-heading text-slate-950 pt-6">
+      2. Regalos de Pádel Entre 3 € y 8 €: Detalles de Mayor Utilidad
+    </h2>
+    <p>
+      En este tramo se ubican los regalos para socios de cuota anual, welcome packs de torneos de categoría oro o regalos para grupos de amigos:
+    </p>
+
+    <div class="space-y-4 my-6">
+      <div class="bg-white rounded-2xl p-5 border border-slate-200 shadow-xs">
+        <div class="flex items-center justify-between gap-3 mb-2">
+          <h3 class="font-heading font-black text-base sm:text-lg text-slate-950">
+            5. Toalla de Microfibra con Mosquetón para Enganchar a la Reja
+          </h3>
+          <span class="text-xs font-black px-2.5 py-1 rounded-full bg-sky-100 text-sky-800 shrink-0">3,50 € - 5,00 €</span>
+        </div>
+        <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+          A diferencia de las toallas de algodón pesadas que acaban tiradas por el suelo de la pista, las toallas técnicas de microfibra de 30x80 cm con mosquetón metálico se cuelgan de la malla metálica en la zona de descanso. Secado ultrarrápido y máxima higiene.
+        </p>
+      </div>
+
+      <div class="bg-white rounded-2xl p-5 border border-slate-200 shadow-xs">
+        <div class="flex items-center justify-between gap-3 mb-2">
+          <h3 class="font-heading font-black text-base sm:text-lg text-slate-950">
+            6. Calcetines Técnicos Específicos para Pádel (Compresión y Felpa)
+          </h3>
+          <span class="text-xs font-black px-2.5 py-1 rounded-full bg-sky-100 text-sky-800 shrink-0">4,00 € - 7,00 €</span>
+        </div>
+        <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+          Con refuerzo acolchado en la zona metatarsal y el talón para amortiguar las frenadas y giros bruscos sobre césped artificial. Talla única elástica, ideales para bordar el escudo del club en la caña.
+        </p>
+      </div>
+
+      <div class="bg-white rounded-2xl p-5 border border-slate-200 shadow-xs">
+        <div class="flex items-center justify-between gap-3 mb-2">
+          <h3 class="font-heading font-black text-base sm:text-lg text-slate-950">
+            7. Bote de Pelotas Oficiales Homologadas
+          </h3>
+          <span class="text-xs font-black px-2.5 py-1 rounded-full bg-sky-100 text-sky-800 shrink-0">4,50 € - 5,80 €</span>
+        </div>
+        <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+          Un acierto seguro que nunca sobra. Modelos de alta durabilidad y presurización rápida como Head Padel Pro S, Bullpadel Next Pro o Dunlop Pro Padel.
+        </p>
+      </div>
+
+      <div class="bg-white rounded-2xl p-5 border border-slate-200 shadow-xs">
+        <div class="flex items-center justify-between gap-3 mb-2">
+          <h3 class="font-heading font-black text-base sm:text-lg text-slate-950">
+            8. Grip de Silicona Anti-Vibraciones para el Mango (Epicondilitis)
+          </h3>
+          <span class="text-xs font-black px-2.5 py-1 rounded-full bg-sky-100 text-sky-800 shrink-0">5,00 € - 8,00 €</span>
+        </div>
+        <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+          Estructura de elastómero que sustituye o complementa el grip base para disipar las vibraciones del impacto de la pelota y prevenir dolores de codo de tenista.
+        </p>
+      </div>
+    </div>
+
+    <h2 class="text-xl sm:text-2xl font-black font-heading text-slate-950 pt-6">
+      3. Cosas de Pádel Entre 8 € y 25 €: Regalos Originales para Jugadores
+    </h2>
+    <p>
+      Si buscas un regalo personal para un jugador habitual o premios de cuadro de consolación:
+    </p>
+
+    <div class="space-y-4 my-6">
+      <div class="bg-white rounded-2xl p-5 border border-slate-200 shadow-xs">
+        <div class="flex items-center justify-between gap-3 mb-2">
+          <h3 class="font-heading font-black text-base sm:text-lg text-slate-950">
+            9. Tubo Presurizador de Pelotas (Pascal Box, Ball Rescuer, TuboPlus)
+          </h3>
+          <span class="text-xs font-black px-2.5 py-1 rounded-full bg-amber-100 text-amber-900 shrink-0">12,00 € - 25,00 €</span>
+        </div>
+        <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+          Uno de los accesorios más valorados por cualquier jugador frecuente: mantiene la presión de las pelotas después de cada partido, permitiendo utilizarlas entre 4 y 6 partidos en lugar de tirarlas al segundo uso. Supone un ahorro anual de más de 100 € en bolas.
+        </p>
+      </div>
+
+      <div class="bg-white rounded-2xl p-5 border border-slate-200 shadow-xs">
+        <div class="flex items-center justify-between gap-3 mb-2">
+          <h3 class="font-heading font-black text-base sm:text-lg text-slate-950">
+            10. Botella Térmica de Acero Inoxidable (Doble Pared 750ml)
+          </h3>
+          <span class="text-xs font-black px-2.5 py-1 rounded-full bg-amber-100 text-amber-900 shrink-0">9,00 € - 16,00 €</span>
+        </div>
+        <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+          Mantiene el agua fría durante partidos de 2 horas a pleno sol en verano. Ecológica, libre de BPA y reutilizable durante años.
+        </p>
+      </div>
+
+      <div class="bg-white rounded-2xl p-5 border border-slate-200 shadow-xs">
+        <div class="flex items-center justify-between gap-3 mb-2">
+          <h3 class="font-heading font-black text-base sm:text-lg text-slate-950">
+            11. Marcador Manual de Puntuación para Fijar a la Malla Metálica
+          </h3>
+          <span class="text-xs font-black px-2.5 py-1 rounded-full bg-amber-100 text-amber-900 shrink-0">8,00 € - 18,00 €</span>
+        </div>
+        <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+          Pequeño dispositivo visual que se engancha con pinzas o imanes a la reja exterior de la pista para llevar los juegos y sets de forma clara, evitando discusiones típicas de "¿quién sacaba y cuánto íbamos?".
+        </p>
+      </div>
+
+      <div class="bg-white rounded-2xl p-5 border border-slate-200 shadow-xs">
+        <div class="flex items-center justify-between gap-3 mb-2">
+          <h3 class="font-heading font-black text-base sm:text-lg text-slate-950">
+            12. Bolsa Zapatillero Independiente Ventilada
+          </h3>
+          <span class="text-xs font-black px-2.5 py-1 rounded-full bg-amber-100 text-amber-900 shrink-0">8,00 € - 15,00 €</span>
+        </div>
+        <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+          Evita que la arena y el olor del calzado de pádel contaminen las toallas o la ropa limpia dentro del paletero principal. Con rejilla de transpiración y asa reforzada.
+        </p>
+      </div>
+    </div>
+
+    <h2 class="text-xl sm:text-2xl font-black font-heading text-slate-950 pt-6">
+      4. Regalos Premium y Premios de Torneo (+30 €)
+    </h2>
+    <p>
+      Para campeones de torneo, homenajes de socios o regalos especiales entre parejas de juego:
+    </p>
+
+    <div class="space-y-4 my-6">
+      <div class="bg-white rounded-2xl p-5 border border-slate-200 shadow-xs">
+        <div class="flex items-center justify-between gap-3 mb-2">
+          <h3 class="font-heading font-black text-base sm:text-lg text-slate-950">
+            13. Paletero Térmico con Compartimento ThermoGuard
+          </h3>
+          <span class="text-xs font-black px-2.5 py-1 rounded-full bg-purple-100 text-purple-900 shrink-0">45,00 € - 85,00 €</span>
+        </div>
+        <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+          Protege las palas de los cambios bruscos de temperatura (frío extremo en invierno o calor dentro del maletero del coche), evitando que la goma EVA se ablande o se quiebre prematuramente.
+        </p>
+      </div>
+
+      <div class="bg-white rounded-2xl p-5 border border-slate-200 shadow-xs">
+        <div class="flex items-center justify-between gap-3 mb-2">
+          <h3 class="font-heading font-black text-base sm:text-lg text-slate-950">
+            14. Mini Pistola de Masaje Muscular por Percusión
+          </h3>
+          <span class="text-xs font-black px-2.5 py-1 rounded-full bg-purple-100 text-purple-900 shrink-0">30,00 € - 60,00 €</span>
+        </div>
+        <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+          Formato compacto de bolsillo, batería USB-C y cabezales intercambiables. Ideal para descargar antebrazo, gemelos y lumbares tras partidos intensos de fin de semana.
+        </p>
+      </div>
+
+      <div class="bg-white rounded-2xl p-5 border border-slate-200 shadow-xs">
+        <div class="flex items-center justify-between gap-3 mb-2">
+          <h3 class="font-heading font-black text-base sm:text-lg text-slate-950">
+            15. Bono de Grabación en Pista Save my Play con IA
+          </h3>
+          <span class="text-xs font-black px-2.5 py-1 rounded-full bg-amber-100 text-amber-900 shrink-0">Tecnología de Club</span>
+        </div>
+        <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+          La experiencia más moderna para cualquier aficionado: un bono para disputar su partido en una pista equipada con el sistema Save my Play, pulsando el botón en la red para recibir sus mejores puntos en vídeo Full HD listos para compartir en WhatsApp e Instagram.
+        </p>
+        <div class="mt-3">
+          <a href="/camaras/" class="inline-flex items-center gap-1.5 text-xs font-bold text-[#f2920b] hover:text-slate-950 transition">
+            <span>Descubre la tecnología de cámaras de pádel Save my Play</span>
+            <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <h2 class="text-xl sm:text-2xl font-black font-heading text-slate-950 pt-6">
+      5. Comparativa de Rentabilidad: ¿Qué Regalo Rinde Más para un Club o Torneo?
+    </h2>
+    <p>
+      Cuando un director de club o un patrocinador invierte presupuesto en merchandising, debe evaluar dos factores: el <strong>coste por unidad</strong> y la <strong>vida útil del recuerdo</strong>:
+    </p>
+
+    <div class="overflow-x-auto my-6">
+      <table class="w-full text-left text-xs sm:text-sm border-collapse border border-slate-200 rounded-2xl overflow-hidden shadow-xs">
+        <thead class="bg-slate-900 text-white font-heading font-black uppercase text-[11px] tracking-wider">
+          <tr>
+            <th class="p-3 sm:p-4">Artículo</th>
+            <th class="p-3 sm:p-4">Coste Unitario</th>
+            <th class="p-3 sm:p-4">Vida Útil Estimada</th>
+            <th class="p-3 sm:p-4">Visibilidad del Logo</th>
+            <th class="p-3 sm:p-4">Riesgo de Rechazo</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-slate-200 text-slate-700">
+          <tr class="bg-amber-50/70 font-semibold border-l-4 border-[#f2920b]">
+            <td class="p-3 sm:p-4 font-black text-slate-950">
+              Llavero Pala 3D Personalizado
+            </td>
+            <td class="p-3 sm:p-4 text-[#f2920b] font-bold">1,50 € - 3,00 €</td>
+            <td class="p-3 sm:p-4 font-bold text-emerald-700">Más de 2 años</td>
+            <td class="p-3 sm:p-4">Diaria (en la cremallera del paletero)</td>
+            <td class="p-3 sm:p-4 text-emerald-700 font-bold">Muy bajo (<2%)</td>
+          </tr>
+          <tr>
+            <td class="p-3 sm:p-4 font-bold text-slate-900">Camiseta Técnica Genérica</td>
+            <td class="p-3 sm:p-4">4,50 € - 7,00 €</td>
+            <td class="p-3 sm:p-4">1 a 3 usos</td>
+            <td class="p-3 sm:p-4">Ocasional (si la talla encaja)</td>
+            <td class="p-3 sm:p-4 text-rose-700 font-bold">Alto (problemas de talla)</td>
+          </tr>
+          <tr>
+            <td class="p-3 sm:p-4 font-bold text-slate-900">Bolígrafo o Cuaderno</td>
+            <td class="p-3 sm:p-4">0,80 € - 1,50 €</td>
+            <td class="p-3 sm:p-4">1 semana</td>
+            <td class="p-3 sm:p-4">Nula en pista de pádel</td>
+            <td class="p-3 sm:p-4 text-rose-700 font-bold">Crítico (acaba en basura)</td>
+          </tr>
+          <tr>
+            <td class="p-3 sm:p-4 font-bold text-slate-900">Overgrip Básico</td>
+            <td class="p-3 sm:p-4">1,00 € - 1,80 €</td>
+            <td class="p-3 sm:p-4">2 a 4 partidos</td>
+            <td class="p-3 sm:p-4">Se ensucia y se tira</td>
+            <td class="p-3 sm:p-4 text-amber-700 font-bold">Bajo pero efímero</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="bg-slate-50 border border-slate-200 rounded-2xl p-6 my-8 text-center space-y-3">
+      <h3 class="font-heading font-black text-lg sm:text-xl text-slate-950">
+        ¿Organizas un torneo o quieres merchandising para los socios de tu club?
+      </h3>
+      <p class="text-xs sm:text-sm text-slate-600 max-w-xl mx-auto">
+        Diseñamos el render 3D gratis y fabricamos una muestra física real por 15 € (100% deducible del pedido final) entregada en tu dirección en ~15 días laborables.
+      </p>
+      <div class="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
+        <a href="https://wa.me/34680317486?text=Hola%20Javier%2C%20he%20le%C3%ADdo%20la%20gu%C3%ADa%20de%20regalos%20de%20p%C3%A1del%20y%20quiero%20informaci%C3%B3n%20para%20los%20llaveros%20de%20mi%20club" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#25D366] hover:bg-[#20ba59] text-white font-heading font-black text-xs uppercase tracking-wider transition shadow-sm hover:scale-105 active:scale-95">
+          <i data-lucide="message-circle" class="w-4 h-4"></i>
+          <span>Pedir Presupuesto por WhatsApp</span>
+        </a>
+        <a href="/llaveros-padel-personalizados/" class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-slate-900 hover:bg-[#f2920b] text-white hover:text-slate-950 font-heading font-black text-xs uppercase tracking-wider transition">
+          <span>Ver Tarifas Oficiales B2B</span>
+          <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+        </a>
+      </div>
+    </div>
+    """
+    faqs_regalos_padel = [
+        {
+            "q": "¿Cuál es el regalo de pádel más barato y original para los participantes de un torneo?",
+            "a": "El regalo con mejor relación coste-valor son los llaveros de pádel personalizados en goma 3D con forma de pala y el logo del torneo. Con un coste de fabricación desde 1,50 € a 3,00 € por unidad, los jugadores los conservan durante años colgados de la cremallera de su paletero, evitando el desperdicio de camisetas baratas de tallas erróneas."
+        },
+        {
+            "q": "¿Qué se puede regalar a un jugador de pádel que ya tiene de todo?",
+            "a": "Los regalos más valorados para padeleros experimentados son accesorios prácticos de consumible o recuperación: presurizadores de pelotas (Pascal Box o TuboPlus para ahorrar dinero en bolas), toallas técnicas con mosquetón para colgar de la reja metálica o mini pistolas de masaje muscular de percusión para aliviar sobrecargas tras partidos exigentes."
+        },
+        {
+            "q": "¿Cómo puede un club financiar al 100% los regalos del torneo con patrocinadores?",
+            "a": "El método más efectivo consiste en la doble cara publicitaria: personalizar el anverso del llavero con el logotipo oficial del club o del torneo, y ceder el reverso al patrocinador principal (concesionario local, aseguradora o clínica dental). El coste del patrocinio cubre con creces la tirada completa del merchandising."
+        },
+        {
+            "q": "¿Con cuánta antelación se deben encargar los regalos personalizados para un evento de pádel?",
+            "a": "Recomendamos iniciar el proceso con entre 4 y 5 semanas de antelación. Esto permite diseñar la maqueta digital 3D a ordenador, fabricar y validar la muestra física real en ~15 días laborables y completar la producción final de la tirada en torno a un mes según el volumen."
+        }
+    ]
+    generate_guide_page(
+        slug="regalos-padel-originales-baratos-ideas-detalles-torneos",
+        category_badge="Ideas Regalos & Merch · Torneos y Clubs",
+        title="15 Regalos de Pádel Originales y Baratos para Jugadores, Clubs y Torneos (2026)",
+        subtitle="De detalles por menos de 3 € (llaveros de pala en 3D con logo) a accesorios útiles para el paletero y welcome packs que los participantes no tiran a la basura.",
+        meta_desc="Guía completa de regalos y cosas de pádel: 15 ideas originales y baratas por menos de 3€, 5€ y 10€ para torneos, jugadores y socios de club. Precios y comparativa.",
+        date_str="Octubre 2026",
+        date_iso="2026-10-19",
+        read_time="Lectura 6 min",
+        cover_img="llaveros-1.jpg",
+        content_html=content_regalos_padel,
+        faqs=faqs_regalos_padel,
+        cta_type="llaveros"
     )
 
 generate_blog_html = generate_all

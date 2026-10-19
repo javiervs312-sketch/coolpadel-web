@@ -3568,6 +3568,12 @@ def build_all():
     <changefreq>weekly</changefreq>
     <priority>0.90</priority>
   </url>
+  <url>
+    <loc>https://coolpadelstudios.com/blog/regalos-padel-originales-baratos-ideas-detalles-torneos/</loc>
+    <lastmod>{today_iso}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
 """
     # Incorporar dinámicamente las 167 fichas individuales de franquicias al sitemap
     try:

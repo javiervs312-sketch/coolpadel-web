@@ -4,8 +4,8 @@ import re
 # DICCIONARIO COMPLETO DE TRADUCCIONES PROFESIONALES (ES, EN, FR, IT)
 TRANSLATIONS = {
     "es": {
-        "meta_title": "CoolPadel Studios | Cámaras Save my Play, Merchandising Oficial y Herramientas para Clubs de Pádel",
-        "meta_desc": "Plataforma B2B para clubes de pádel: sistemas de cámaras Save my Play con IA sin obras, llaveros personalizados 3D para welcome packs y herramientas gratuitas de torneos.",
+        "meta_title": "Llaveros de Pádel Personalizados para Clubs y Torneos | CoolPadel Studios",
+        "meta_desc": "Fabricante directo de llaveros de pádel de goma 3D personalizados con el logo de tu club o torneo. Merchandising oficial, muestra física por 15€ y pedidos desde 100 uds.",
         "top_ticker": "Descarga el Informe Industria del Pádel y lee la Newsletter en nuestro Blog",
         "top_ticker_newsletter": "Nueva edición de Highlights by CoolPadel en LinkedIn",
         "nav_tenis_padel": "LLAVEROS",
@@ -130,8 +130,8 @@ TRANSLATIONS = {
         "wa_prefilled_msg": "Hola Javier"
     },
     "en": {
-        "meta_title": "CoolPadel Studios | Save my Play Court Cameras, Custom Merch & Tools for Padel Clubs",
-        "meta_desc": "B2B platform for padel clubs: Save my Play court AI cameras with zero construction, custom 3D keychains for welcome packs, and free tournament bracket tools.",
+        "meta_title": "Custom 3D Padel Keychains for Clubs & Tournaments | CoolPadel Studios",
+        "meta_desc": "Direct manufacturer of custom 3D rubber padel keychains with your club logo. Physical sample for 15€, wholesale pricing from 100 units and worldwide delivery.",
         "top_ticker": "Download the Padel Industry Report & read the Newsletter on our Blog",
         "top_ticker_newsletter": "Latest edition of Highlights by CoolPadel on LinkedIn",
         "nav_tenis_padel": "KEYCHAINS",
@@ -256,8 +256,8 @@ TRANSLATIONS = {
         "wa_prefilled_msg": "Hello Javier"
     },
     "fr": {
-        "meta_title": "CoolPadel Studios | Caméras de Piste Save my Play, Merchandising et Outils pour Clubs de Padel",
-        "meta_desc": "Plateforme B2B pour clubs de padel : caméras IA Save my Play sans travaux, porte-clés 3D pour welcome packs et outils gratuits pour tournois de padel.",
+        "meta_title": "Porte-clés de Padel Personnalisés 3D pour Clubs & Tournois | CoolPadel Studios",
+        "meta_desc": "Fabricant direct de porte-clés de padel en relief 3D personnalisés avec logo pour clubs et tournois. Échantillon réel à 15€ et livraison en France et Europe.",
         "top_ticker": "Téléchargez le rapport exclusif sur l'industrie du padel",
         "top_ticker_newsletter": "Ne manquez pas la dernière édition de la Newsletter CoolPadel",
         "nav_tenis_padel": "TENNIS & PADEL",
@@ -382,8 +382,8 @@ TRANSLATIONS = {
         "wa_prefilled_msg": "Bonjour Javier"
     },
     "it": {
-        "meta_title": "CoolPadel Studios | Telecamere Save my Play, Merchandising e Strumenti per Club di Padel",
-        "meta_desc": "Piattaforma B2B per club di padel: telecamere Save my Play con IA senza opere murarie, portachiavi 3D per welcome pack e strumenti gratuiti per tornei.",
+        "meta_title": "Portachiavi Padel Personalizzati 3D per Club e Tornei | CoolPadel Studios",
+        "meta_desc": "Produttore diretto di portachiavi da padel in rilievo 3D personalizzati con logo per club e tornei. Campione reale a 15€ e spedizione in tutta Italia ed Europa.",
         "top_ticker": "Scarica il report esclusivo sull'industria del padel",
         "top_ticker_newsletter": "Non perdere l'ultima edizione della Newsletter di CoolPadel",
         "nav_tenis_padel": "TENNIS & PADEL",
