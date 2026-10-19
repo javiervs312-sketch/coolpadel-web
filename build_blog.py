@@ -1597,11 +1597,12 @@ def generate_article_page(slug, edition_num, title, date_str, read_time, cover_i
         </div>"""
 
     related_articles_html = generate_related_articles_html(slug, root_prefix)
+    seo_doc_title = SHORT_SEO_TITLES.get(slug, f"Highlights #{edition_num}: {title} | CoolPadel")
 
     html = f"""<!DOCTYPE html>
 <html lang="es" class="scroll-smooth">
 <head>
-  <title>Highlights #{edition_num}: {title} | CoolPadel Studios</title>
+  <title>{seo_doc_title}</title>
   <meta name="description" content="Highlights #{edition_num}: {title}. Análisis y reflexiones sobre la industria del pádel por Javier Villoria.">
   <link rel="canonical" href="https://coolpadelstudios.com/blog/{slug}/">
   
@@ -2007,6 +2008,21 @@ DOWNLOAD_BOXES = {
     }
 }
 
+SHORT_SEO_TITLES = {
+    "highlights-03": "Highlights #03: Crecimiento de la Industria del Pádel | CoolPadel",
+    "highlights-02": "Highlights #02: ¿Por qué el Pádel aún no es Olímpico? | CoolPadel",
+    "highlights-01": "Highlights #01: Padel World Summit 2026 Startups | CoolPadel",
+    "rentabilidad-camaras-pistas-padel": "Precios y ROI de Cámaras para Pistas de Pádel 2026 | CoolPadel",
+    "welcome-pack-torneo-padel-ideas": "Ideas de Welcome Pack para Torneos de Pádel (<5€) | CoolPadel",
+    "sistemas-grabacion-pistas-padel-comparativa": "9 Mejores Cámaras con IA para Pistas de Pádel (2026) | CoolPadel",
+    "regalos-eventos-padel-cenas-socios-llaveros": "Regalos para Eventos de Pádel y Cenas de Socios | CoolPadel",
+    "vender-llaveros-tienda-club-padel-pro-shop": "Vender Llaveros de Pádel en Pro-Shop (+60% Margen) | CoolPadel",
+    "merchandising-ferias-torneos-padel-regalos-marcas": "Regalos y Merchandising para Ferias y Torneos de Pádel | CoolPadel",
+    "retransmitir-torneos-padel-streaming-youtube-camaras": "Cómo Retransmitir Torneos de Pádel en YouTube Live | CoolPadel",
+    "smart-courts-pistas-inteligentes-padel-horas-valle": "Smart Courts y Pistas de Pádel Inteligentes (2026) | CoolPadel",
+    "regalos-padel-originales-baratos-ideas-detalles-torneos": "15 Regalos de Pádel Originales y Baratos (<3€ y <10€) | CoolPadel",
+}
+
 def generate_guide_page(slug, category_badge, title, subtitle, meta_desc, date_str, date_iso, read_time, cover_img, content_html, faqs, cta_type="camaras"):
     root_prefix = "../../"
     
@@ -2136,11 +2152,12 @@ def generate_guide_page(slug, category_badge, title, subtitle, meta_desc, date_s
 
     related_articles_html = generate_related_articles_html(slug, root_prefix)
     toc_html, processed_content_html = generate_toc_and_anchor_content(content_html, has_faqs=bool(faqs), has_related=True)
+    seo_doc_title = SHORT_SEO_TITLES.get(slug, f"{title} | CoolPadel")
 
     html = f"""<!DOCTYPE html>
 <html lang="es" class="scroll-smooth">
 <head>
-  <title>{title} | CoolPadel Studios</title>
+  <title>{seo_doc_title}</title>
   <meta name="description" content="{meta_desc}">
   <link rel="canonical" href="https://coolpadelstudios.com/blog/{slug}/">
   

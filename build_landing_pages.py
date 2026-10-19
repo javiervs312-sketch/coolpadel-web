@@ -16,7 +16,7 @@ WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbxnF9JmVrikeAW7PdLc02r_1k
 LANDINGS = [
     {
         "slug": "llaveros-padel-personalizados",
-        "title": "Llaveros de Pádel Personalizados en Forma de Pala 3D para Clubs | CoolPadel Studios",
+        "title": "Llaveros de Pádel Personalizados 3D para Clubs | CoolPadel",
         "meta_desc": "Fabricante de llaveros de pádel personalizados con forma de pala y logo oficial para clubs, torneos y tiendas. Pedidos desde 100 uds y muestra previa por 15€.",
         "badge": "FABRICACIÓN DIRECTA B2B",
         "h1": "Llaveros de Pádel Personalizados con Forma de Pala y Logo Oficial",
@@ -39,7 +39,7 @@ LANDINGS = [
     },
     {
         "slug": "llaveros-tenis-personalizados",
-        "title": "Llaveros de Tenis Personalizados para Clubs y Academias | CoolPadel Studios",
+        "title": "Llaveros de Tenis Personalizados 3D para Clubs | CoolPadel",
         "meta_desc": "Llaveros de tenis personalizados en relieve 3D con el escudo oficial de tu club, escuela o torneo. Goma flexible de alta calidad, pedidos desde 100 unidades y muestra previa.",
         "badge": "ESPECIAL CLUBS & ACADEMIAS DE TENIS",
         "h1": "Llaveros de Tenis Personalizados con tu Escudo Oficial",
@@ -62,7 +62,7 @@ LANDINGS = [
     },
     {
         "slug": "welcome-packs-torneos-padel",
-        "title": "Welcome Packs y Regalos de Pádel para Torneos y Clubs | CoolPadel Studios",
+        "title": "Welcome Packs y Regalos para Torneos de Pádel | CoolPadel",
         "meta_desc": "Regalos originales y cosas de pádel para welcome packs de torneos. Llaveros de goma 3D personalizados con el logo del torneo y patrocinadores. Tiradas desde 100 uds con muestra previa.",
         "badge": "TORNEOS, CIRCUITOS & WELCOME PACKS",
         "h1": "Welcome Packs y Regalos de Pádel para Torneos y Eventos",
@@ -85,7 +85,7 @@ LANDINGS = [
     },
     {
         "slug": "llaveros-personalizados-clubs-padel",
-        "title": "Merchandising para Clubs de Pádel: Llaveros y Regalos Oficiales | CoolPadel Studios",
+        "title": "Merchandising y Llaveros para Clubs de Pádel | CoolPadel",
         "meta_desc": "Llaveros oficiales y merchandising B2B para clubes de pádel. Productos y detalles de goma 3D para socios, bienvenida a escuelas y venta en pro-shop con +60% de margen. Más de 30 clubes clientes.",
         "badge": "MERCHANDISING OFICIAL DE CLUB",
         "h1": "Merchandising Oficial y Llaveros para Clubs de Pádel",
@@ -108,7 +108,7 @@ LANDINGS = [
     },
     {
         "slug": "camaras-grabacion-pistas-padel",
-        "title": "Cámaras y Grabación de Partidos para Pistas de Pádel | Save My Play",
+        "title": "Cámaras de Grabación para Pistas de Pádel | Save My Play",
         "meta_desc": "Sistema de grabación inteligente y repetición en vídeo para pistas de pádel Save My Play. Instalación en 5 minutos sin obras, pulsador físico en poste y descarga por código QR.",
         "badge": "TECNOLOGÍA DE CLUB · SAVE MY PLAY",
         "h1": "Cámaras Inteligentes para Pistas de Pádel sin Obras",
@@ -132,7 +132,7 @@ LANDINGS = [
     },
     {
         "slug": "camaras-padel-playtomic",
-        "title": "Cámaras Save my Play para Clubs con Playtomic | Grabación y Streaming",
+        "title": "Cámaras Save my Play para Clubs en Playtomic | Grabación",
         "meta_desc": "Integra cámaras Save my Play en tus pistas de pádel gestionadas con Playtomic. Grabación con pulsador en red, repeticiones QR y monetización sin obras ni permanencia.",
         "badge": "INTEGRACIÓN PLAYTOMIC & SAVE MY PLAY",
         "h1": "Cámaras Inteligentes Save my Play para Clubes en Playtomic",
@@ -155,7 +155,7 @@ LANDINGS = [
     },
     {
         "slug": "camaras-padel-matchi",
-        "title": "Cámaras Save my Play para Clubes con Matchi | Vídeo y Analítica en Pista",
+        "title": "Cámaras Save my Play para Clubs con Matchi | Vídeo Pista",
         "meta_desc": "Sistema de grabación autónomo Save my Play para instalaciones de pádel con Matchi. Replay instantáneo con QR, 0 obras y hardware en propiedad por 180 €.",
         "badge": "INTEGRACIÓN MATCHI & SAVE MY PLAY",
         "h1": "Grabación en Pista y Replay para Clubes que Usan Matchi",
@@ -178,7 +178,7 @@ LANDINGS = [
     },
     {
         "slug": "camaras-padel-resasports",
-        "title": "Cámaras Save my Play y Resasports | Automatización de Vídeo para Pistas",
+        "title": "Cámaras Save my Play y Resasports | Grabación en Pista",
         "meta_desc": "Automatización de grabación para centros deportivos y clubes con software Resasports. Instalación en 5 minutos, pulsador en red y tarifa plana sin permanencia.",
         "badge": "INTEGRACIÓN RESASPORTS & SAVE MY PLAY",
         "h1": "Grabación Inteligente en Pista para Clubes con Resasports",
@@ -201,7 +201,7 @@ LANDINGS = [
     },
     {
         "slug": "camaras-padel-madrid",
-        "title": "Cámaras para Pistas de Pádel en Madrid | Save my Play sin Obras",
+        "title": "Cámaras para Pistas de Pádel en Madrid | Save my Play",
         "meta_desc": "Instalación de cámaras inteligentes Save my Play en Madrid: Pozuelo, Alcobendas, Las Rozas, Majadahonda, La Moraleja. Grabación HD en 5 min, sin obras ni permanencia.",
         "badge": "COMUNIDAD DE MADRID · SAVE MY PLAY",
         "h1": "Cámaras Inteligentes para Pistas de Pádel en Madrid",
@@ -224,7 +224,7 @@ LANDINGS = [
     },
     {
         "slug": "camaras-padel-barcelona",
-        "title": "Càmeres per a Pistes de Pàdel a Barcelona | Save my Play",
+        "title": "Cámaras para Pistas de Pádel en Barcelona | Save my Play",
         "meta_desc": "Cámaras autónomas para pistas de pádel en Barcelona y Cataluña (Hospitalet, Sant Cugat, Badalona, Sabadell). Grabación con pulsador en red y streaming sin obras.",
         "badge": "BARCELONA & CATALUNYA · SAVE MY PLAY",
         "h1": "Cámaras y Grabación de Partidos de Pádel en Barcelona",
