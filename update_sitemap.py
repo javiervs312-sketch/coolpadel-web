@@ -26,7 +26,8 @@ with open(SITEMAP_FILE, "r", encoding="utf-8") as f:
 
 # Verificar qué URLs faltan
 urls_to_add = [
-    "https://coolpadelstudios.com/blog/barometro-camaras-padel-2026/"
+    "https://coolpadelstudios.com/blog/barometro-camaras-padel-2026/",
+    "https://coolpadelstudios.com/blog/normativa-rgpd-camaras-pistas-padel/"
 ]
 
 for f in FRANQUICIAS:

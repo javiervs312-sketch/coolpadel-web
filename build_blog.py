@@ -261,6 +261,7 @@ def get_silo_footer_html(root_prefix="../../"):
           </div>
           <ul class="space-y-2 text-white/80 font-normal">
             <li><a href="/blog/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition font-bold text-white">Índice del Blog &amp; Estudios</a></li>
+            <li><a href="/blog/normativa-rgpd-camaras-pistas-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition font-semibold text-[#f2920b]">Normativa RGPD Cámaras Pádel</a></li>
             <li><a href="/blog/barometro-camaras-padel-2026/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Barómetro Cámaras Pádel 2026</a></li>
             <li><a href="/blog/como-organizar-torneo-padel-americana-reglas-cuadros/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Cómo Organizar una Americana</a></li>
             <li><a href="/blog/cuanto-cuesta-montar-pista-padel-presupuesto-rentabilidad/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Cuánto Cuesta Montar una Pista</a></li>
@@ -415,7 +416,7 @@ def generate_blog_index():
         "@type": "ItemList",
         "name": "Guías e Informes de la Industria del Pádel - CoolPadel Studios",
         "description": "Directorio completo de guías de rentabilidad, tecnología de grabación, smart courts, organización de americanas, coste de pistas, welcome packs y análisis de mercado para clubes de pádel.",
-        "numberOfItems": 15,
+        "numberOfItems": 16,
         "itemListElement": [
           {{
             "@type": "ListItem",
@@ -506,6 +507,12 @@ def generate_blog_index():
             "position": 15,
             "name": "Highlights #01: Padel World Summit 2026: Startup Recap [Tecnología]",
             "url": "https://coolpadelstudios.com/blog/highlights-01/"
+          }},
+          {{
+            "@type": "ListItem",
+            "position": 16,
+            "name": "Normativa RGPD para Cámaras en Pistas de Pádel: Guía Legal 2026 para Clubes",
+            "url": "https://coolpadelstudios.com/blog/normativa-rgpd-camaras-pistas-padel/"
           }}
         ]
       }}
@@ -1009,6 +1016,47 @@ def generate_blog_index():
               </div>
             </div>
 
+            <!-- GUÍA RGPD: NORMATIVA RGPD PARA CÁMARAS EN PISTAS DE PÁDEL -->
+            <div class="bg-white border-2 border-[#f2920b]/40 rounded-2xl p-4 sm:p-5 shadow-2xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between group hover:-translate-y-0.5 relative overflow-hidden">
+              <div class="absolute -top-6 -right-6 w-20 h-20 bg-[#f2920b]/10 rounded-full blur-xl pointer-events-none"></div>
+              <div class="space-y-3 relative z-10">
+                <div class="aspect-[16/10] rounded-xl overflow-hidden bg-slate-900 border border-slate-200/90 shadow-2xs relative">
+                  <img src="../assets/images/savemyplay-1.jpg" alt="Normativa RGPD para cámaras en pistas de pádel" width="600" height="375" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
+                  <span class="absolute bottom-2 left-2 text-[9px] font-black uppercase tracking-wider px-2 py-0.5 rounded-full bg-[#f2920b] text-slate-950 shadow-xs">
+                    Legal &amp; RGPD
+                  </span>
+                  <span class="absolute top-2 right-2 text-[9px] font-black uppercase tracking-wider px-2 py-0.5 rounded-full bg-slate-900/90 text-amber-300 border border-[#f2920b]/50 shadow-xs">
+                    Cartel Oficial PDF
+                  </span>
+                </div>
+
+                <div class="space-y-1">
+                  <div class="flex items-center gap-1.5 text-[10px] font-bold text-slate-400">
+                    <span>Octubre 2026</span>
+                    <span>•</span>
+                    <span>Lectura 7 min</span>
+                  </div>
+                  <h3 class="font-heading font-black text-sm sm:text-base text-slate-950 leading-snug group-hover:text-[#f2920b] transition">
+                    Normativa RGPD para Cámaras en Pistas de Pádel: Guía Legal 2026 para Clubes
+                  </h3>
+                  <p class="text-xs text-slate-600 font-medium leading-relaxed line-clamp-2">
+                    Cartelería obligatoria en pista, consentimiento informado, menores y cómo evitar sanciones de la AEPD al instalar cámaras deportivas.
+                  </p>
+                </div>
+              </div>
+
+              <div class="pt-3.5 border-t border-slate-100 mt-4 relative z-10">
+                <a href="./normativa-rgpd-camaras-pistas-padel/"
+                   class="group relative w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-full bg-slate-900 hover:bg-[#f2920b] text-white hover:text-slate-950 active:scale-95 font-heading font-black text-xs uppercase tracking-wider transition-all duration-300 shadow-2xs">
+                  <span>Leer Guía &amp; Descargar Cartel</span>
+                  <div class="w-4 h-4 rounded-full bg-white/20 group-hover:bg-slate-950/20 flex items-center justify-center transition-all duration-300">
+                    <i data-lucide="arrow-right" class="w-3 h-3 stroke-[3] group-hover:translate-x-0.5 transition-transform duration-300"></i>
+                  </div>
+                </a>
+              </div>
+            </div>
+
             <!-- GUÍA 1: RENTABILIDAD CÁMARAS -->
             <div class="bg-white border border-slate-200/90 rounded-2xl p-4 sm:p-5 shadow-2xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between group hover:-translate-y-0.5">
               <div class="space-y-3">
@@ -1455,14 +1503,22 @@ ALL_ARTICLES_CATALOG = {
         "url": "../highlights-01/",
         "img": "cover_highlights_01.jpg",
         "desc": "Conversaciones con las 20 startups del Innovation Arena y lecciones para clubes."
+    },
+    "normativa-rgpd-camaras-pistas-padel": {
+        "title": "Normativa RGPD para Cámaras en Pistas de Pádel: Guía Legal 2026 para Clubes",
+        "badge": "Legal & RGPD",
+        "url": "../normativa-rgpd-camaras-pistas-padel/",
+        "img": "savemyplay-1.jpg",
+        "desc": "Cartelería obligatoria, consentimiento, menores y cómo evitar sanciones de la AEPD en tu club."
     }
 }
 
 RELATED_SLUGS_MAP = {
-    "rentabilidad-camaras-pistas-padel": ["barometro-camaras-padel-2026", "sistemas-grabacion-pistas-padel-comparativa", "cuanto-cuesta-montar-pista-padel-presupuesto-rentabilidad"],
-    "sistemas-grabacion-pistas-padel-comparativa": ["barometro-camaras-padel-2026", "rentabilidad-camaras-pistas-padel", "retransmitir-torneos-padel-streaming-youtube-camaras"],
+    "normativa-rgpd-camaras-pistas-padel": ["sistemas-grabacion-pistas-padel-comparativa", "rentabilidad-camaras-pistas-padel", "retransmitir-torneos-padel-streaming-youtube-camaras"],
+    "rentabilidad-camaras-pistas-padel": ["normativa-rgpd-camaras-pistas-padel", "barometro-camaras-padel-2026", "sistemas-grabacion-pistas-padel-comparativa"],
+    "sistemas-grabacion-pistas-padel-comparativa": ["normativa-rgpd-camaras-pistas-padel", "barometro-camaras-padel-2026", "rentabilidad-camaras-pistas-padel"],
     "smart-courts-pistas-inteligentes-padel-horas-valle": ["barometro-camaras-padel-2026", "cuanto-cuesta-montar-pista-padel-presupuesto-rentabilidad", "rentabilidad-camaras-pistas-padel"],
-    "retransmitir-torneos-padel-streaming-youtube-camaras": ["como-organizar-torneo-padel-americana-reglas-cuadros", "sistemas-grabacion-pistas-padel-comparativa", "rentabilidad-camaras-pistas-padel"],
+    "retransmitir-torneos-padel-streaming-youtube-camaras": ["normativa-rgpd-camaras-pistas-padel", "como-organizar-torneo-padel-americana-reglas-cuadros", "sistemas-grabacion-pistas-padel-comparativa"],
     "welcome-pack-torneo-padel-ideas": ["como-organizar-torneo-padel-americana-reglas-cuadros", "regalos-padel-originales-baratos-ideas-detalles-torneos", "vender-llaveros-tienda-club-padel-pro-shop"],
     "vender-llaveros-tienda-club-padel-pro-shop": ["cuanto-cuesta-montar-pista-padel-presupuesto-rentabilidad", "regalos-padel-originales-baratos-ideas-detalles-torneos", "welcome-pack-torneo-padel-ideas"],
     "regalos-eventos-padel-cenas-socios-llaveros": ["regalos-padel-originales-baratos-ideas-detalles-torneos", "como-organizar-torneo-padel-americana-reglas-cuadros", "welcome-pack-torneo-padel-ideas"],
@@ -2005,22 +2061,34 @@ DOWNLOAD_BOXES = {
         "file_url": "../../assets/downloads/calculadora-roi-camaras-padel.xlsx",
         "btn_text": "Descargar Simulador Excel",
         "wa_msg": "Hola Javier, quiero encargar una tirada de llaveros personalizados para vender en la tienda de nuestro club"
+    },
+    "normativa-rgpd-camaras-pistas-padel": {
+        "badge": "Cartel Homologado RGPD PDF",
+        "title": "Cartel Oficial Homologado RGPD para Pistas de Pádel",
+        "desc": "Plantilla legal en PDF de zona deportiva videodocumentada conforme al RGPD (UE 2016/679) y LOPDGDD 3/2018 para colocar en la reja de la pista, con recuadros para los datos de tu club y cláusula de consentimiento de menores.",
+        "file_url": "../../assets/downloads/cartel-homologado-rgpd-pistas-padel.pdf",
+        "btn_text": "Descargar Cartel RGPD (PDF)",
+        "wa_msg": "Hola Javier, he leído la guía de RGPD de cámaras de pádel y quiero el cartel homologado para mi club"
     }
 }
 
 SHORT_SEO_TITLES = {
-    "highlights-03": "Highlights #03: Crecimiento Industria del Pádel",
-    "highlights-02": "Highlights #02: ¿Por qué el Pádel no es Olímpico?",
-    "highlights-01": "Highlights #01: Startups Padel World Summit 2026",
-    "rentabilidad-camaras-pistas-padel": "Precios y ROI de Cámaras para Pistas de Pádel 2026",
-    "welcome-pack-torneo-padel-ideas": "Ideas de Welcome Pack para Torneos de Pádel (<5€)",
-    "sistemas-grabacion-pistas-padel-comparativa": "9 Mejores Cámaras con IA para Pistas de Pádel 2026",
-    "regalos-eventos-padel-cenas-socios-llaveros": "Regalos para Eventos de Pádel y Cenas de Socios",
-    "vender-llaveros-tienda-club-padel-pro-shop": "Vender Llaveros en Pro-Shop (+60% Margen) | Pádel",
-    "merchandising-ferias-torneos-padel-regalos-marcas": "Regalos y Merchandising para Torneos de Pádel",
-    "retransmitir-torneos-padel-streaming-youtube-camaras": "Cómo Retransmitir Torneos de Pádel en YouTube Live",
-    "smart-courts-pistas-inteligentes-padel-horas-valle": "Smart Courts y Pistas de Pádel Inteligentes 2026",
-    "regalos-padel-originales-baratos-ideas-detalles-torneos": "15 Regalos de Pádel Originales y Baratos (<10€)",
+    "highlights-03": "Highlights #03: Crecimiento Industria del Pádel | CoolPadel",
+    "highlights-02": "Highlights #02: ¿Pádel Olímpico en 2032? | CoolPadel",
+    "highlights-01": "Highlights #01: Startups Padel World Summit 2026 | CoolPadel",
+    "rentabilidad-camaras-pistas-padel": "Precios y ROI de Cámaras en Pistas de Pádel | CoolPadel",
+    "welcome-pack-torneo-padel-ideas": "Ideas de Welcome Pack para Torneos de Pádel | CoolPadel",
+    "sistemas-grabacion-pistas-padel-comparativa": "9 Mejores Cámaras IA para Pistas de Pádel | CoolPadel",
+    "regalos-eventos-padel-cenas-socios-llaveros": "Regalos para Eventos de Pádel y Cenas de Socios | CoolPadel",
+    "vender-llaveros-tienda-club-padel-pro-shop": "Vender Llaveros en Pro-Shop (+60% Margen) | CoolPadel",
+    "merchandising-ferias-torneos-padel-regalos-marcas": "Regalos y Merchandising para Torneos de Pádel | CoolPadel",
+    "retransmitir-torneos-padel-streaming-youtube-camaras": "Cómo Retransmitir Torneos de Pádel en YouTube | CoolPadel",
+    "smart-courts-pistas-inteligentes-padel-horas-valle": "Smart Courts y Pistas de Pádel Inteligentes 2026 | CoolPadel",
+    "regalos-padel-originales-baratos-ideas-detalles-torneos": "15 Regalos de Pádel Originales y Baratos (<10€) | CoolPadel",
+    "normativa-rgpd-camaras-pistas-padel": "Normativa RGPD para Cámaras en Pistas de Pádel | CoolPadel",
+    "cuanto-cuesta-montar-pista-padel-presupuesto-rentabilidad": "Cuánto Cuesta Montar una Pista de Pádel 2026 | CoolPadel",
+    "como-organizar-torneo-padel-americana-reglas-cuadros": "Cómo Organizar un Torneo de Pádel y Americana | CoolPadel",
+    "barometro-camaras-padel-2026": "Barómetro de Cámaras y Digitalización Pádel 2026 | CoolPadel",
 }
 
 def generate_guide_page(slug, category_badge, title, subtitle, meta_desc, date_str, date_iso, read_time, cover_img, content_html, faqs, cta_type="camaras"):
@@ -4076,6 +4144,311 @@ def generate_all():
         content_html=content_regalos_padel,
         faqs=faqs_regalos_padel,
         cta_type="llaveros"
+    )
+
+    content_normativa_rgpd = """
+    <p class="lead text-base sm:text-lg text-slate-700 leading-relaxed font-medium">
+      Cada mes hablo con decenas de directores y gerentes de clubes de pádel en toda España. Cuando les enseño cómo funciona el sistema de cámaras en pista, el 90% coincide en lo mismo: <em>«Javier, a los jugadores les vuelve locos poder llevarse sus puntazos al móvil y nos encantaría ponerlo en las pistas centrales, pero me da miedo que venga la Agencia Española de Protección de Datos (AEPD) y nos meta una sanción de 15.000 € o 20.000 €»</em>.
+    </p>
+
+    <p class="text-slate-700 leading-relaxed">
+      Ese temor es comprensible. El Régimen General de Protección de Datos (RGPD) y las noticias sensacionalistas sobre multas a empresas han creado una psicosis generalizada. Sin embargo, hay un dato que pocos directores conocen: <strong>instalar cámaras deportivas en pistas de pádel es 100% legal en España y en la Unión Europea</strong> si se cumplen cuatro requisitos elementales.
+    </p>
+
+    <p class="text-slate-700 leading-relaxed">
+      En esta guía práctica te explico, sin rodeos jurídicos indescifrables y con la legislación vigente en la mano (Reglamento UE 2016/679 y Ley Orgánica 3/2018 de Protección de Datos y Garantía de Derechos Digitales - LOPDGDD), exactamente qué exige la ley, cómo gestionar menores y streaming, por qué los trípodes caseros son el verdadero peligro legal de tu club y cómo blindar tu instalación en menos de 24 horas.
+    </p>
+
+    <h2>1. El origen de la confusión: Seguridad vs Grabación Deportiva Bajo Demanda</h2>
+    <p class="text-slate-700 leading-relaxed">
+      El gran error de partida de muchos clubes (e incluso de algunos asesores legales generalistas) es tratar las cámaras de las pistas como si fueran <strong>cámaras de videovigilancia de seguridad</strong>.
+    </p>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
+      <div class="bg-slate-50 border border-slate-200 rounded-2xl p-5 space-y-3">
+        <div class="flex items-center gap-2">
+          <i data-lucide="shield-alert" class="w-5 h-5 text-rose-600"></i>
+          <h3 class="font-heading font-black text-sm uppercase tracking-wider text-slate-900">Videovigilancia de Seguridad (Art. 22 LOPDGDD)</h3>
+        </div>
+        <ul class="text-xs sm:text-sm text-slate-600 space-y-2 list-disc pl-4">
+          <li><strong>Finalidad:</strong> Prevención de delitos, robos o actos vandálicos.</li>
+          <li><strong>Operativa:</strong> Grabación 24/7 ininterrumpida de pasillos, cajas, recepción o parkings.</li>
+          <li><strong>Acceso:</strong> Personal de seguridad privada autorizado o gerencia.</li>
+          <li><strong>Retención:</strong> Plazo máximo obligatorio de borrado a los 30 días naturales.</li>
+          <li><strong>Regulación:</strong> Ley de Seguridad Privada 5/2014 y Art. 22 LOPDGDD.</li>
+        </ul>
+      </div>
+
+      <div class="bg-amber-50/60 border border-amber-300 rounded-2xl p-5 space-y-3">
+        <div class="flex items-center gap-2">
+          <i data-lucide="video" class="w-5 h-5 text-[#f2920b]"></i>
+          <h3 class="font-heading font-black text-sm uppercase tracking-wider text-slate-950">Grabación Deportiva Bajo Demanda (Save my Play)</h3>
+        </div>
+        <ul class="text-xs sm:text-sm text-slate-700 space-y-2 list-disc pl-4">
+          <li><strong>Finalidad:</strong> Análisis técnico, entretenimiento y entrega de vídeo al propio jugador.</li>
+          <li><strong>Operativa:</strong> Memoria volátil continua (buffer de 25s) que <strong>solo almacena vídeo cuando un jugador pulsa voluntariamente el botón físico en la red</strong>. Si nadie pulsa, el clip se descarta en la RAM sin guardarse jamás en disco duro.</li>
+          <li><strong>Acceso:</strong> Exclusivo del jugador en su móvil o panel privado tras identificarse.</li>
+          <li><strong>Retención:</strong> Almacenamiento en la nube cifrada y borrado automático configurable.</li>
+          <li><strong>Regulación:</strong> RGPD Art. 6.1 (ejecución de servicio/consentimiento del interesado).</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="text-slate-700 leading-relaxed">
+      Al no ser videovigilancia de seguridad, tu club <strong>no necesita contratar una empresa de seguridad privada</strong> ni dar de alta sistemas en la Dirección General de la Policía. Se trata de un servicio deportivo añadido contratado y utilizado a voluntad por los propios usuarios de la pista.
+    </p>
+
+    <h2>2. Los 4 Pilares Obligatorios de la AEPD para Cámaras en Pistas</h2>
+    <p class="text-slate-700 leading-relaxed">
+      Para que la AEPD no pueda poner ni un solo reparo a la instalación de cámaras fijas en tus pistas, el sistema debe cumplir estrictamente estos 4 principios recogidos en el RGPD (UE 2016/679):
+    </p>
+
+    <div class="space-y-4 my-6">
+      <div class="border border-slate-200 rounded-2xl p-5 bg-white shadow-2xs space-y-2">
+        <div class="flex items-center gap-3">
+          <span class="w-7 h-7 rounded-full bg-[#f2920b] text-slate-950 font-black text-xs flex items-center justify-center shrink-0">1</span>
+          <h3 class="font-heading font-black text-base text-slate-950">Principio de Información Previa (El Cartel Oficial en la Pista)</h3>
+        </div>
+        <p class="text-xs sm:text-sm text-slate-600 pl-10 leading-relaxed">
+          Nadie puede ser grabado sin saberlo. El club está legalmente obligado (Art. 13 RGPD) a colocar un cartel informativo homologado en un lugar claramente visible <strong>antes de acceder a la pista</strong> (en la malla exterior o junto a la puerta de entrada). El cartel debe identificar al club como responsable, la finalidad deportiva de la grabación, los canales para ejercer los derechos ARSULIPO y un enlace o punto de contacto para consultar la política de privacidad completa.
+        </p>
+      </div>
+
+      <div class="border border-slate-200 rounded-2xl p-5 bg-white shadow-2xs space-y-2">
+        <div class="flex items-center gap-3">
+          <span class="w-7 h-7 rounded-full bg-[#f2920b] text-slate-950 font-black text-xs flex items-center justify-center shrink-0">2</span>
+          <h3 class="font-heading font-black text-base text-slate-950">Principio de Minimización y Proporcionalidad del Ángulo</h3>
+        </div>
+        <p class="text-xs sm:text-sm text-slate-600 pl-10 leading-relaxed">
+          Las cámaras deben tener una lente calibrada para encuadrar <strong>exclusivamente la superficie de juego de la pista (10x20 metros)</strong>. Queda terminantemente prohibido enfocar pasillos generales de tránsito del club, terrazas de cafetería, vestuarios o zonas públicas exteriores. Si una cámara enfoca accidentalmente una zona común no deportiva, la AEPD sí puede sancionar al club por captación desproporcionada.
+        </p>
+      </div>
+
+      <div class="border border-slate-200 rounded-2xl p-5 bg-white shadow-2xs space-y-2">
+        <div class="flex items-center gap-3">
+          <span class="w-7 h-7 rounded-full bg-[#f2920b] text-slate-950 font-black text-xs flex items-center justify-center shrink-0">3</span>
+          <h3 class="font-heading font-black text-base text-slate-950">Acción Voluntaria del Jugador (Pulsador Físico Inteligente)</h3>
+        </div>
+        <p class="text-xs sm:text-sm text-slate-600 pl-10 leading-relaxed">
+          El sistema patentado con pulsador en red de Save my Play es la garantía técnica más sólida ante una inspección. La cámara no está guardando vídeos de personas que no quieren ser grabadas; solo cuando uno de los 4 jugadores decide voluntariamente pulsar el botón tras un punto espectacular, el sistema extrae los últimos 25 segundos y los envía a la nube. Si los jugadores de un turno no desean utilizar el sistema, simplemente no tocan el pulsador y no se almacena ningún dato personal.
+        </p>
+      </div>
+
+      <div class="border border-slate-200 rounded-2xl p-5 bg-white shadow-2xs space-y-2">
+        <div class="flex items-center gap-3">
+          <span class="w-7 h-7 rounded-full bg-[#f2920b] text-slate-950 font-black text-xs flex items-center justify-center shrink-0">4</span>
+          <h3 class="font-heading font-black text-base text-slate-950">Seguridad, Cifrado y Servidores en la Unión Europea</h3>
+        </div>
+        <p class="text-xs sm:text-sm text-slate-600 pl-10 leading-relaxed">
+          El material audiovisual jamás debe quedar guardado en un disco duro o pendrive desprotegido en el mostrador del club, al que cualquier recepcionista o empleado pueda acceder. Los vídeos deben transmitirse mediante protocolos seguros con cifrado TLS/SSL y almacenarse en centros de datos ubicados en territorio de la Unión Europea bajo estándares de seguridad ISO/IEC 27001.
+        </p>
+      </div>
+    </div>
+
+    <h2>3. Menores de Edad en Pista: La Regla de los 14 Años en España</h2>
+    <p class="text-slate-700 leading-relaxed">
+      La presencia de niños y jóvenes en escuelas de pádel y torneos de menores es el punto que más dudas genera en los gerentes de club. La normativa española es muy precisa en este punto:
+    </p>
+
+    <div class="bg-sky-50 border-l-4 border-sky-600 p-5 rounded-r-2xl my-6 space-y-2">
+      <h3 class="font-heading font-black text-sm uppercase tracking-wider text-sky-950">Artículo 7 de la LOPDGDD 3/2018</h3>
+      <p class="text-xs sm:text-base text-sky-900 leading-relaxed">
+        En España, el tratamiento de los datos personales de un menor solo es lícito con su propio consentimiento cuando sea <strong>mayor de catorce años</strong>. Para menores de 14 años, es preceptivo y obligatorio el consentimiento expreso de los padres o tutores legales.
+      </p>
+    </div>
+
+    <p class="text-slate-700 leading-relaxed">
+      ¿Cómo debe aplicar esta regla tu club para tener un blindaje legal absoluto?
+    </p>
+
+    <ul class="text-slate-700 space-y-3 list-disc pl-5 my-4 leading-relaxed">
+      <li><strong>En la Escuela de Pádel Infantil (menores de 14 años):</strong> Añade una casilla específica en el formulario de matrícula anual de la escuela: <em>«[X] Autorizo la grabación en vídeo de las sesiones de entrenamiento en pistas tecnificadas del club con fines exclusivos de análisis deportivo y corrección técnica por parte del cuerpo técnico»</em>. Los monitores pueden utilizar los vídeos para enseñar a los alumnos su colocación en la bandeja o el saque.</li>
+      <li><strong>En Torneos Federados de Menores:</strong> El reglamento oficial de competición de la federación suele incluir la cláusula de captación de imágenes deportivas para la difusión del torneo. Asegúrate de que el formulario de inscripción lo recuerde.</li>
+      <li><strong>En Alquileres de Partidos Libres:</strong> Si un grupo de adultos juega un partido amistoso con un niño menor de 14 años y los padres no están presentes para autorizarlo, la instrucción es sencilla y directa: <strong>no se acciona el pulsador de grabación</strong>. Sin pulsación no hay fichero de vídeo generado.</li>
+    </ul>
+
+    <h2>4. El Peligro Oculto que Nadie Ve: Los Trípodes y Móviles Caseros</h2>
+    <p class="text-slate-700 leading-relaxed">
+      Aquí está la paradoja más habitual en los clubes deportivos. Muchos directores rechazan instalar cámaras fijas oficiales por miedo a la ley, pero cada tarde permiten que decenas de socios coloquen trípodes telescópicos, pulpos o ventosas con sus teléfonos móviles pegados al cristal de fondo.
+    </p>
+
+    <p class="text-slate-700 leading-relaxed">
+      Permitir trípodes y teléfonos particulares en las pistas entraña riesgos legales y económicos severos para el club:
+    </p>
+
+    <div class="overflow-x-auto my-6 border border-slate-200 rounded-2xl shadow-xs">
+      <table class="w-full text-left text-xs sm:text-sm">
+        <thead class="bg-slate-900 text-white font-heading font-black text-[11px] uppercase tracking-wider">
+          <tr>
+            <th class="p-3 sm:p-4">Criterio Legal &amp; Operativo</th>
+            <th class="p-3 sm:p-4 text-amber-300">Cámaras Fijas Save my Play</th>
+            <th class="p-3 sm:p-4 text-rose-300">Trípode / Móvil Particular</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-slate-200 text-slate-700">
+          <tr>
+            <td class="p-3 sm:p-4 font-bold text-slate-950">Cartelería homologada</td>
+            <td class="p-3 sm:p-4 text-emerald-700 font-bold">Sí (incluida en el acceso)</td>
+            <td class="p-3 sm:p-4 text-rose-700 font-bold">No (infracción Art. 13 RGPD)</td>
+          </tr>
+          <tr>
+            <td class="p-3 sm:p-4 font-bold text-slate-950">Tiempo de grabación</td>
+            <td class="p-3 sm:p-4 text-emerald-700 font-bold">Solo 25s al pulsar el botón</td>
+            <td class="p-3 sm:p-4 text-rose-700 font-bold">90 min continuos sin filtro</td>
+          </tr>
+          <tr>
+            <td class="p-3 sm:p-4 font-bold text-slate-950">Captación de terceros ajenos</td>
+            <td class="p-3 sm:p-4 text-emerald-700 font-bold">Imposible (ángulo fijo a pista)</td>
+            <td class="p-3 sm:p-4 text-rose-700 font-bold">Alta (graba pasillos y pistas vecinas)</td>
+          </tr>
+          <tr>
+            <td class="p-3 sm:p-4 font-bold text-slate-950">Grabación de audio y conversaciones</td>
+            <td class="p-3 sm:p-4 text-emerald-700 font-bold">Filtrado / No intrusivo</td>
+            <td class="p-3 sm:p-4 text-rose-700 font-bold">Capta conversaciones privadas íntegras</td>
+          </tr>
+          <tr>
+            <td class="p-3 sm:p-4 font-bold text-slate-950">Responsabilidad civil (golpes / roturas)</td>
+            <td class="p-3 sm:p-4 text-emerald-700 font-bold">Cero (instalada fuera de impacto)</td>
+            <td class="p-3 sm:p-4 text-rose-700 font-bold">Alta (riesgo de rotura de cristales o caídas)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="text-slate-700 leading-relaxed">
+      Si un jugador coloca un móvil en un trípode, graba a menores en la pista contigua y sube el vídeo a TikTok o Instagram sin su consentimiento, la familia puede denunciar a quien grabó y <strong>al club como responsable del recinto</strong> por permitir grabaciones no autorizadas en su instalación. Contar con un sistema oficial regulado elimina la necesidad de los trípodes y da al club el control legal absoluto.
+    </p>
+
+    <h2>5. Retransmisión en Streaming por YouTube: Qué exige la ley</h2>
+    <p class="text-slate-700 leading-relaxed">
+      Retransmitir las semifinales y finales de un torneo de fin de semana o los partidos de liga por YouTube o Twitch es una de las mejores herramientas de marketing para un club de pádel. Sin embargo, al emitir en abierto para todo internet, las exigencias de información se intensifican:
+    </p>
+
+    <ul class="text-slate-700 space-y-3 list-disc pl-5 my-4 leading-relaxed">
+      <li><strong>Aviso de Streaming en Pista Central:</strong> Debe colocarse un aviso específico adicional en la entrada de la pista: <em>«Zona con retransmisión en directo por streaming público»</em>.</li>
+      <li><strong>Cláusula de Aceptación en Cuadros de Torneo:</strong> Al inscribirse en el torneo (a través de la web del club, Playtomic o formulario físico), el reglamento debe especificar que las fases finales que se disputen en la pista central serán emitidas en los canales oficiales del club.</li>
+      <li><strong>Derecho a no participar en la emisión:</strong> Si un jugador clasificado manifiesta expresamente que no desea que su imagen sea difundida en directo, el club debe respetar su derecho ofreciéndole disputar el encuentro en una pista sin señal de streaming o pausando la emisión pública durante ese turno.</li>
+    </ul>
+
+    <h2>6. El Contrato de Encargado de Tratamiento (Art. 28 RGPD)</h2>
+    <p class="text-slate-700 leading-relaxed">
+      Este es el documento que todo inspector de protección de datos solicita en primera instancia: el <strong>Contrato de Encargado de Tratamiento</strong> entre el club (Responsable del Tratamiento) y el proveedor tecnológico del sistema de cámaras (Encargado del Tratamiento).
+    </p>
+
+    <p class="text-slate-700 leading-relaxed">
+      En Save my Play suministramos a cada club asociado este anexo contractual conforme al Artículo 28 del RGPD listo para la firma de la gerencia, donde se certifica formalmente:
+    </p>
+
+    <div class="bg-slate-50 border border-slate-200 rounded-2xl p-6 my-6 space-y-3">
+      <h3 class="font-heading font-black text-base text-slate-950">Garantías Contractuales de Save my Play con tu Club:</h3>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs sm:text-sm text-slate-700 pt-2">
+        <div class="flex items-start gap-2">
+          <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
+          <span><strong>Servidores 100% en la UE:</strong> Alojamiento cloud con cumplimiento íntegro del RGPD.</span>
+        </div>
+        <div class="flex items-start gap-2">
+          <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
+          <span><strong>No comercialización:</strong> Prohibición estricta de vender o ceder imágenes a terceros.</span>
+        </div>
+        <div class="flex items-start gap-2">
+          <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
+          <span><strong>Cifrado extremo a extremo:</strong> Transmisión mediante TLS y almacenamiento encriptado.</span>
+        </div>
+        <div class="flex items-start gap-2">
+          <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
+          <span><strong>Borrado y supresión:</strong> Protocolo automático para atender derechos de supresión de usuarios.</span>
+        </div>
+      </div>
+    </div>
+
+    <h2>7. Checklist Rápido de Cumplimiento RGPD para Clubes de Pádel</h2>
+    <p class="text-slate-700 leading-relaxed">
+      Antes de encender las cámaras de tu club, verifica estos 6 puntos de control:
+    </p>
+
+    <div class="space-y-2.5 my-6">
+      <div class="flex items-start gap-3 p-3.5 bg-emerald-50/60 border border-emerald-200 rounded-xl text-xs sm:text-sm text-slate-800">
+        <i data-lucide="check-circle" class="w-5 h-5 text-emerald-600 shrink-0 mt-0.5"></i>
+        <span><strong>1. Cartel informativo colocado en el acceso exterior</strong> de la pista antes de entrar.</span>
+      </div>
+      <div class="flex items-start gap-3 p-3.5 bg-emerald-50/60 border border-emerald-200 rounded-xl text-xs sm:text-sm text-slate-800">
+        <i data-lucide="check-circle" class="w-5 h-5 text-emerald-600 shrink-0 mt-0.5"></i>
+        <span><strong>2. Identidad del responsable del club y email de contacto</strong> claramente rellenados en el cartel.</span>
+      </div>
+      <div class="flex items-start gap-3 p-3.5 bg-emerald-50/60 border border-emerald-200 rounded-xl text-xs sm:text-sm text-slate-800">
+        <i data-lucide="check-circle" class="w-5 h-5 text-emerald-600 shrink-0 mt-0.5"></i>
+        <span><strong>3. Ángulo de la cámara restringido</strong> estrictamente a los límites de la pista de juego (10x20 m).</span>
+      </div>
+      <div class="flex items-start gap-3 p-3.5 bg-emerald-50/60 border border-emerald-200 rounded-xl text-xs sm:text-sm text-slate-800">
+        <i data-lucide="check-circle" class="w-5 h-5 text-emerald-600 shrink-0 mt-0.5"></i>
+        <span><strong>4. Grabación bajo demanda</strong> (los clips solo se guardan si los jugadores pulsan voluntariamente).</span>
+      </div>
+      <div class="flex items-start gap-3 p-3.5 bg-emerald-50/60 border border-emerald-200 rounded-xl text-xs sm:text-sm text-slate-800">
+        <i data-lucide="check-circle" class="w-5 h-5 text-emerald-600 shrink-0 mt-0.5"></i>
+        <span><strong>5. Contrato de Encargado de Tratamiento firmado</strong> con el proveedor de la solución tecnológica.</span>
+      </div>
+      <div class="flex items-start gap-3 p-3.5 bg-emerald-50/60 border border-emerald-200 rounded-xl text-xs sm:text-sm text-slate-800">
+        <i data-lucide="check-circle" class="w-5 h-5 text-emerald-600 shrink-0 mt-0.5"></i>
+        <span><strong>6. Cláusula de menores integrada</strong> en la ficha de inscripción de la escuela infantil de pádel.</span>
+      </div>
+    </div>
+
+    <div class="bg-slate-50 border border-slate-200 rounded-2xl p-6 my-8 text-center space-y-3">
+      <h3 class="font-heading font-black text-lg sm:text-xl text-slate-950">
+        ¿Tienes dudas sobre cómo instalar cámaras en tu club cumpliendo la ley?
+      </h3>
+      <p class="text-xs sm:text-sm text-slate-600 max-w-xl mx-auto">
+        Te asesoramos sin coste y te entregamos la plantilla legal personalizada y el contrato de encargado de tratamiento listo para tu instalación.
+      </p>
+      <div class="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
+        <a href="https://wa.me/34680317486?text=Hola%20Javier%2C%20he%20le%C3%ADdo%20la%20gu%C3%ADa%20legal%20de%20RGPD%20de%20c%C3%A1maras%20de%20p%C3%A1del%20y%20quiero%20consultar%20dudas%20para%20mi%20club" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#25D366] hover:bg-[#20ba59] text-white font-heading font-black text-xs uppercase tracking-wider transition shadow-sm hover:scale-105 active:scale-95">
+          <i data-lucide="message-circle" class="w-4 h-4"></i>
+          <span>Consultar Dudas por WhatsApp</span>
+        </a>
+        <a href="/camaras/" class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-slate-900 hover:bg-[#f2920b] text-white hover:text-slate-950 font-heading font-black text-xs uppercase tracking-wider transition">
+          <span>Ver Sistema Save my Play</span>
+          <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+        </a>
+      </div>
+    </div>
+    """
+
+    faqs_normativa_rgpd = [
+        {
+            "q": "¿Es legal instalar cámaras de grabación en las pistas de pádel de un club privado o municipal?",
+            "a": "Sí, es totalmente legal. La grabación de partidos a solicitud de los propios jugadores para análisis técnico o entretenimiento deportivo está amparada por el RGPD (UE 2016/679) siempre que se coloque el cartel informativo oficial en el acceso a la pista, el ángulo enfoque exclusivamente el interior de la pista de juego y los vídeos se almacenen en servidores seguros de la Unión Europea."
+        },
+        {
+            "q": "¿Qué pasa si un jugador del partido no quiere ser grabado?",
+            "a": "En los sistemas inteligentes bajo demanda como Save my Play, si alguno de los cuatro jugadores manifiesta que no desea ser grabado, simplemente nadie pulsa el botón físico en la red durante el partido. Como el sistema trabaja con un buffer en memoria volátil de 25 segundos y no almacena nada en disco salvo que se presione el pulsador, no se genera ningún archivo de vídeo ni se recopila ningún dato personal."
+        },
+        {
+            "q": "¿Qué requisitos legales deben cumplirse para grabar a menores de 14 años en la pista?",
+            "a": "En España, el Artículo 7 de la LOPDGDD 3/2018 exige el consentimiento expreso de los padres o tutores legales para el tratamiento de imágenes de menores de 14 años. En las escuelas de pádel infantiles, este consentimiento se recaba fácilmente mediante una casilla específica en la hoja de matrícula de inicio de temporada."
+        },
+        {
+            "q": "¿Necesita mi club dar de alta un fichero de grabación ante la AEPD?",
+            "a": "No. Desde la entrada en vigor del RGPD en 2018 ya no existe el trámite de inscripción de ficheros ante el Registro de la AEPD. Lo que el club debe mantener internamente actualizado es su Registro de Actividades de Tratamiento (RAT), donde se incluirá el tratamiento de grabación deportiva y el contrato firmado con el proveedor tecnológico como Encargado de Tratamiento (Art. 28 RGPD)."
+        },
+        {
+            "q": "¿Por qué un trípode colocado por un socio tiene más riesgo de multa que una cámara fija oficial?",
+            "a": "Porque los trípodes suelen grabar 90 minutos continuos sin control del club, captan involuntariamente pasillos o pistas adyacentes donde juegan menores o personas sin cartel informativo previo, y el usuario puede difundir el vídeo libremente en redes sociales exponiendo al club a reclamaciones de terceros por permitir grabaciones no consentidas en su recinto."
+        }
+    ]
+
+    generate_guide_page(
+        slug="normativa-rgpd-camaras-pistas-padel",
+        category_badge="Legal & RGPD · Cámaras de Pádel",
+        title="Normativa RGPD para Cámaras en Pistas de Pádel: Guía Legal 2026 para Clubes",
+        subtitle="Cartelería obligatoria en pista, consentimiento informado, streaming y grabación de menores: cómo instalar cámaras de vídeo sin riesgo de multas de la AEPD.",
+        meta_desc="Guía legal RGPD 2026 para instalar cámaras en pistas de pádel: cartelería homologada, menores, streaming y cómo evitar sanciones de la AEPD en tu club.",
+        date_str="Octubre 2026",
+        date_iso="2026-10-20",
+        read_time="Lectura 7 min",
+        cover_img="savemyplay-1.jpg",
+        content_html=content_normativa_rgpd,
+        faqs=faqs_normativa_rgpd,
+        cta_type="camaras"
     )
 
 generate_blog_html = generate_all

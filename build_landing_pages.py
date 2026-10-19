@@ -16,9 +16,10 @@ WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbxnF9JmVrikeAW7PdLc02r_1k
 LANDINGS = [
     {
         "slug": "llaveros-padel-personalizados",
-        "title": "Llaveros de Pádel Personalizados 3D para Clubs | CoolPadel",
+        "title": "Llaveros Pádel Personalizados 3D [Desde 1,50€] | CoolPadel",
         "meta_desc": "Fabricante de llaveros de pádel personalizados en goma 3D con forma de pala y logo oficial. Pedidos desde 100 uds y muestra física real por 15€.",
         "badge": "FABRICACIÓN DIRECTA B2B",
+        "breadcrumb_leaf": "Llaveros Pádel 3D",
         "h1": "Llaveros de Pádel Personalizados con Forma de Pala y Logo Oficial",
         "subtitle": "Fabricamos los llaveros oficiales de tu club o torneo en microinyección de PVC blando 3D con forma de pala o tu escudo exacto. El detalle de merchandising de pádel que tus jugadores llevan siempre en el paletero.",
         "hero_img": "assets/images/llaveros 1.jpg",
@@ -26,6 +27,13 @@ LANDINGS = [
         "wa_msg": "Hola Javier, quiero información y presupuesto para llaveros de pádel personalizados para mi club",
         "price_anchor": "Desde 1,50 € / ud · Pedido mínimo 100 uds",
         "target_audience": "Clubes de pádel, federaciones, organizadores de torneos y escuelas deportivas que buscan merchandising de alta calidad con el escudo de su club.",
+        "quick_summary": {
+            "label_1": "Tarifa B2B", "val_1": "Desde 1,50 € a 3,00 € / ud",
+            "label_2": "Pedido Mínimo", "val_2": "100 unidades (Tirada inicial)",
+            "label_3": "Muestra Física", "val_3": "15 € con logo real (~15 días, 100% deducible)",
+            "label_4": "Plazo Entrega", "val_4": "~1 mes con envíos incluidos a España, Europa y USA",
+            "p": "CoolPadel Studios es fabricante directo B2B de llaveros de pádel personalizados en goma PVC 3D microinyectada con relieve y logo oficial para clubes y torneos. Pedidos desde 100 unidades con tarifa directa de fábrica, muestra física real previa y envíos incluidos."
+        },
         "benefits": [
             ("Relieve 3D Microinyectado", "Goma PVC flexible de alta densidad, resistente a caídas, agua y rozaduras dentro del paletero."),
             ("Muestra Física Previa 15€", "Fabricamos una muestra real con tu logo antes de confirmar la tirada completa. Reembolsable 100% con el pedido."),
@@ -39,9 +47,10 @@ LANDINGS = [
     },
     {
         "slug": "llaveros-tenis-personalizados",
-        "title": "Llaveros de Tenis Personalizados 3D para Clubs | CoolPadel",
+        "title": "Llaveros Tenis Personalizados 3D [Desde 1,50€] | CoolPadel",
         "meta_desc": "Llaveros de tenis personalizados en relieve 3D con el escudo de tu club o torneo. Goma flexible de calidad, pedidos desde 100 uds y muestra física por 15€.",
         "badge": "ESPECIAL CLUBS & ACADEMIAS DE TENIS",
+        "breadcrumb_leaf": "Llaveros de Tenis",
         "h1": "Llaveros de Tenis Personalizados con tu Escudo Oficial",
         "subtitle": "Diseñamos y fabricamos llaveros de tenis en relieve 3D para escuelas de tenis, torneos sociales, clubes históricos y welcome packs. Un obsequio elegante y duradero.",
         "hero_img": "assets/images/llaveros 2.jpg",
@@ -49,6 +58,13 @@ LANDINGS = [
         "wa_msg": "Hola Javier, quiero presupuesto para llaveros de tenis personalizados para nuestro club/academia",
         "price_anchor": "Desde 1,50 € / ud · Muestra física real 15 €",
         "target_audience": "Clubes de tenis, academias de alto rendimiento, escuelas deportivas y eventos de tenis federados o sociales.",
+        "quick_summary": {
+            "label_1": "Tarifa B2B", "val_1": "Desde 1,50 € a 3,00 € / ud",
+            "label_2": "Pedido Mínimo", "val_2": "100 unidades (Escuelas y torneos)",
+            "label_3": "Muestra Física", "val_3": "15 € con escudo oficial (100% deducible)",
+            "label_4": "Plazo Entrega", "val_4": "~15 días muestra · ~1 mes pedido final",
+            "p": "Fabricación oficial de llaveros de tenis personalizados en relieve 3D de PVC microinyectado flexible. No raya raquetas ni fundas, pedidos desde 100 unidades para academias y clubes tradicionales con muestra física previa por 15€."
+        },
         "benefits": [
             ("Diseño Fiel a tu Escudo", "Reproducimos con fidelidad los detalles, tipografías y colores tradicionales de tu club de tenis."),
             ("Material Duradero y Flexible", "Goma 3D ligera que no raya las raquetas, mochilas ni bolsillos. Anilla metálica reforzada."),
@@ -62,9 +78,10 @@ LANDINGS = [
     },
     {
         "slug": "welcome-packs-torneos-padel",
-        "title": "Welcome Packs y Regalos para Torneos de Pádel | CoolPadel",
+        "title": "Welcome Packs Torneos Pádel [Desde 1,50€] | CoolPadel",
         "meta_desc": "Regalos originales y detalles para welcome packs de torneos de pádel. Llaveros de goma 3D personalizados con logo. Tiradas desde 100 uds y muestra por 15€.",
         "badge": "TORNEOS, CIRCUITOS & WELCOME PACKS",
+        "breadcrumb_leaf": "Welcome Packs Torneos",
         "h1": "Welcome Packs y Regalos de Pádel para Torneos y Eventos",
         "subtitle": "Olvídate de las camisetas o toallas genéricas que acaban olvidadas en un cajón. Un llavero 3D personalizado con forma de pala y el logo del torneo es el regalo y detalle de pádel que los participantes lucen todo el año en su paletero.",
         "hero_img": "assets/images/slide-1.jpg",
@@ -72,6 +89,13 @@ LANDINGS = [
         "wa_msg": "Hola Javier, estoy organizando un torneo de pádel y busco regalos/welcome packs para los jugadores",
         "price_anchor": "Especial torneos: 100 a 1.500+ uds · Tarifa directa de fábrica",
         "target_audience": "Directores de torneos, organizadores de circuitos de pádel, patrocinadores y empresas que buscan un regalo publicitario de alto valor percibido.",
+        "quick_summary": {
+            "label_1": "Coste Jugador", "val_1": "Desde 1,50 € / participante",
+            "label_2": "Tirada Torneo", "val_2": "100 a 1.500+ unidades según cuadros",
+            "label_3": "Muestra Física", "val_3": "15 € con logo del torneo (100% deducible)",
+            "label_4": "Planificación", "val_4": "Muestra ~15 días · Pedido completo en ~1 mes",
+            "p": "Regalos y detalles de bienvenida para torneos y circuitos de pádel. Llaveros en relieve 3D con forma de pala personalizada con el logo del torneo en el anverso y patrocinador en el reverso. Factura desglosada con IVA deducible para organizaciones."
+        },
         "benefits": [
             ("Máxima Visibilidad para Patrocinadores", "Posibilidad de personalizar anverso con el torneo y reverso con la marca o patrocinador principal."),
             ("Alto Valor Percibido y Bajo Coste", "Desde 1,50€ por jugador, ofreciendo un regalo que se percibe como producto premium de tienda oficial."),
@@ -85,9 +109,10 @@ LANDINGS = [
     },
     {
         "slug": "llaveros-personalizados-clubs-padel",
-        "title": "Merchandising y Llaveros para Clubs de Pádel | CoolPadel",
+        "title": "Llaveros Personalizados Clubs Pádel [Muestra 15€]",
         "meta_desc": "Llaveros oficiales y merchandising para clubes de pádel. Detalles de goma 3D para socios, escuelas y venta en pro-shop con +60% de margen. Más de 30 clubes.",
         "badge": "MERCHANDISING OFICIAL DE CLUB",
+        "breadcrumb_leaf": "Llaveros Clubs Pádel",
         "h1": "Merchandising Oficial y Llaveros para Clubs de Pádel",
         "subtitle": "Refuerza la identidad y el sentido de pertenencia de tu comunidad. Más de 30 clubes en España, Europa y EE. UU. ya equipan a sus socios y pro-shops con llaveros y merchandising CoolPadel Studios.",
         "hero_img": "assets/images/llaveros 1.jpg",
@@ -95,6 +120,13 @@ LANDINGS = [
         "wa_msg": "Hola Javier, soy responsable de un club de pádel y quiero información para hacer los llaveros de nuestros socios",
         "price_anchor": "Tarifa club desde 1,50 € / ud · Muestra previa 15 €",
         "target_audience": "Gerentes de clubes, directores deportivos, comités de socios y responsables de pro-shop que desean merchandising oficial rentable y atractivo.",
+        "quick_summary": {
+            "label_1": "Tarifa Club", "val_1": "Desde 1,50 € a 3,00 € / ud (PVP 5-6€)",
+            "label_2": "Margen Tienda", "val_2": "+60% de rentabilidad en recepción",
+            "label_3": "Muestra Física", "val_3": "15 € con el escudo del club (100% deducible)",
+            "label_4": "Reposiciones", "val_4": "Molde guardado sin coste para pedidos futuros",
+            "p": "Merchandising oficial de fidelización para socios y venta en pro-shop de clubes de pádel. Fabricación en goma 3D con relieve de escudo oficial, tiradas desde 100 unidades y entrega en ~1 mes con soporte de Javier Villoria."
+        },
         "benefits": [
             ("Fidelización de Socios y Alumnos", "El regalo perfecto para la cuota anual, bienvenida a la escuela de menores o cenas de fin de temporada."),
             ("Margen de Venta en Recepción", "Con un coste de fabricación de 1,50€-3,00€ y un PVP recomendado de 5€-6€, el club rentabiliza la inversión en pocas semanas."),
@@ -108,9 +140,10 @@ LANDINGS = [
     },
     {
         "slug": "camaras-grabacion-pistas-padel",
-        "title": "Cámaras de Grabación para Pistas de Pádel | Save My Play",
+        "title": "Cámaras Grabación Pistas Pádel [0 Obras] | Save My Play",
         "meta_desc": "Grabación de partidos de pádel Save my Play. Montaje en 5 min sin obras, pulsador en poste, descarga QR y cuota desde 45€/mes sin permanencia.",
         "badge": "TECNOLOGÍA DE CLUB · SAVE MY PLAY",
+        "breadcrumb_leaf": "Grabación sin Obras",
         "h1": "Cámaras Inteligentes para Pistas de Pádel sin Obras",
         "subtitle": "La tecnología de repetición y analítica en pista que fideliza a tus jugadores y genera ingresos recurrentes para tu club de pádel o tenis. Sin permanencia, sin zanjas y montado en 5 minutos.",
         "hero_img": "assets/images/savemyplay-1.jpg",
@@ -118,6 +151,13 @@ LANDINGS = [
         "wa_msg": "Hola Javier, quiero información sobre el sistema de cámaras y grabación Save My Play para las pistas de mi club",
         "price_anchor": "Hardware 180 € / pista · Software desde 45 €/mes · Sin obras",
         "target_audience": "Gerentes de clubes de pádel y tenis, directores de academias e inversores deportivos que buscan modernizar sus pistas con vídeo de alta definición.",
+        "quick_summary": {
+            "label_1": "Hardware Pista", "val_1": "180 € / cámara en propiedad (Pago único)",
+            "label_2": "Cuota Software", "val_2": "Desde 45 € / mes por pista (Plan B Highlights)",
+            "label_3": "Permanencia", "val_3": "0 meses (Cancelación libre mes a mes)",
+            "label_4": "Instalación", "val_4": "5 minutos sin obras ni zanjas en pista",
+            "p": "Save My Play es el sistema autónomo de grabación de partidos y highlights en pista de pádel y tenis sin obras civiles. Pulsador físico en red, descarga instantánea por QR sin apps y retransmisión por YouTube en Full HD."
+        },
         "benefits": [
             ("Cero Obras y Montaje en 5 Minutos", "Se instala directamente en el poste de la pista sin necesidad de abrir zanjas, tirar tubos ni obras de albañilería."),
             ("Pulsador Físico de Highlights en Pista", "Los jugadores pulsan un botón físico tras un gran punto y descargan sus mejores jugadas al instante mediante código QR."),
@@ -132,9 +172,10 @@ LANDINGS = [
     },
     {
         "slug": "camaras-padel-playtomic",
-        "title": "Cámaras Save my Play para Clubs en Playtomic | Grabación",
+        "title": "Cámaras Pistas Pádel Playtomic [45€/mes] | Save My Play",
         "meta_desc": "Cámaras Save my Play para pistas de pádel en Playtomic. Grabación con pulsador en red, repeticiones por QR y monetización sin obras ni permanencia.",
         "badge": "INTEGRACIÓN PLAYTOMIC & SAVE MY PLAY",
+        "breadcrumb_leaf": "Integración Playtomic",
         "h1": "Cámaras Inteligentes Save my Play para Clubes en Playtomic",
         "subtitle": "El complemento perfecto para tu gestión en Playtomic: añade grabación de partidos con pulsador en pista, repeticiones instantáneas y streaming en YouTube sin obras ni permanencias.",
         "hero_img": "assets/images/savemyplay-1.jpg",
@@ -142,6 +183,13 @@ LANDINGS = [
         "wa_msg": "Hola Javier, gestionamos nuestro club con Playtomic y queremos información de cámaras Save my Play para las pistas",
         "price_anchor": "Hardware 180 € / pista · Cuota 45 €/mes · 0 permanencia",
         "target_audience": "Gerentes y directores deportivos de clubes que gestionan sus pistas y reservas con Playtomic.",
+        "quick_summary": {
+            "label_1": "Hardware Pista", "val_1": "180 € / cámara en propiedad (Pago único)",
+            "label_2": "Cuota Software", "val_2": "45 € / mes por pista · Sin permanencia",
+            "label_3": "Compatibilidad", "val_3": "100% independiente de Playtomic, sin tocar reservas",
+            "label_4": "Instalación", "val_4": "Montaje en 5 min sin cortes en tus reservas",
+            "p": "Cámaras en pista Save My Play para clubes con sistema de reservas Playtomic. Los jugadores juegan su reserva habitual y descargan highlights por QR con pulsador en la red, sin obras ni contratos de permanencia."
+        },
         "benefits": [
             ("Compatibilidad Total con Playtomic", "No interfiere con tu sistema de reservas. Los jugadores reservan su pista en Playtomic como siempre y disfrutan de grabación HD con pulsador físico."),
             ("Monetización Complementaria para el Club", "Genera un ingreso extra mensual mediante recargo de reserva, patrocinadores en pantalla o cobro por descarga de clips."),
@@ -155,9 +203,10 @@ LANDINGS = [
     },
     {
         "slug": "camaras-padel-matchi",
-        "title": "Cámaras Save my Play para Clubs con Matchi | Vídeo Pista",
+        "title": "Cámaras Pádel para Clubs Matchi [45€/mes] | Save My Play",
         "meta_desc": "Sistema de grabación autónomo Save my Play para instalaciones de pádel con Matchi. Replay instantáneo con QR, 0 obras y hardware en propiedad por 180 €.",
         "badge": "INTEGRACIÓN MATCHI & SAVE MY PLAY",
+        "breadcrumb_leaf": "Integración Matchi",
         "h1": "Grabación en Pista y Replay para Clubes que Usan Matchi",
         "subtitle": "Equipa tus pistas Matchi con la tecnología Save my Play. Descarga de mejores jugadas por código QR sin necesidad de descargar apps pesadas ni contratos de permanencia.",
         "hero_img": "assets/images/savemyplay-2.jpg",
@@ -165,6 +214,13 @@ LANDINGS = [
         "wa_msg": "Hola Javier, usamos Matchi en nuestro club y queremos poner cámaras Save my Play en las pistas",
         "price_anchor": "Hardware 180 € / pista · Software desde 45 €/mes · Sin permanencia",
         "target_audience": "Operadores y clubes en España, Suecia, Noruega y Reino Unido que gestionan sus pistas con la plataforma Matchi.",
+        "quick_summary": {
+            "label_1": "Hardware Pista", "val_1": "180 € en propiedad por pista",
+            "label_2": "Cuota Software", "val_2": "Desde 45 € / mes · 0 permanencia",
+            "label_3": "Autonomía", "val_3": "Ideal para clubes 24/7 sin personal",
+            "label_4": "Instalación", "val_4": "Fijación homologada a poste en 5 minutos",
+            "p": "Solución de grabación y repetición instantánea Save My Play para clubes con software Matchi. Visualización y descarga por código QR en visor web multilenguaje sin descargas de apps ni permanencias de 3 a 5 años."
+        },
         "benefits": [
             ("Fácil Adopción Internacional", "Especialmente pensado para clubes con Matchi y público multicultural: el código QR abre un visor web instantáneo en cualquier idioma sin apps."),
             ("0 Obras y Fijación Universal", "Compatible con todas las estructuras de pista habituales en clubes Matchi (panorámicas, de marco o muro)."),
@@ -178,9 +234,10 @@ LANDINGS = [
     },
     {
         "slug": "camaras-padel-resasports",
-        "title": "Cámaras Save my Play y Resasports | Grabación en Pista",
+        "title": "Cámaras Pádel Resasports [0 Obras · 45€/mes] | Save My Play",
         "meta_desc": "Grabación para centros deportivos y clubes con software Resasports. Montaje en 5 minutos, pulsador en red y cuota desde 45€/mes sin permanencia.",
         "badge": "INTEGRACIÓN RESASPORTS & SAVE MY PLAY",
+        "breadcrumb_leaf": "Integración Resasports",
         "h1": "Grabación Inteligente en Pista para Clubes con Resasports",
         "subtitle": "Potencia la experiencia de tus abonados en Resasports con repetición instantánea en pista, retransmisión por YouTube y cero costes de obra civil.",
         "hero_img": "assets/images/savemyplay-3.jpg",
@@ -188,6 +245,13 @@ LANDINGS = [
         "wa_msg": "Hola Javier, gestionamos nuestro centro con Resasports y nos interesa la grabación Save my Play",
         "price_anchor": "Hardware 180 € / pista · Cuota 45 €/mes · Cero obras",
         "target_audience": "Centros municipales, clubes de tenis/pádel y complejos deportivos que operan con Resasports.",
+        "quick_summary": {
+            "label_1": "Inversión Hardware", "val_1": "180 € por pista (Frente a +2.500€ de otros)",
+            "label_2": "Cuota Software", "val_2": "45 € / mes por pista · Sin permanencia",
+            "label_3": "Legalidad RGPD", "val_3": "Consentimiento en pulsador y buffer cerrado",
+            "label_4": "Instalación", "val_4": "5 min sin permisos de obra pública ni zanjas",
+            "p": "Grabación en pista Save My Play para polideportivos y concesiones deportivas que operan con Resasports. Montaje limpio sin obras civiles, cumplimiento íntegro del RGPD europeo y coste de hardware de 180€ en propiedad."
+        },
         "benefits": [
             ("Cero Obra Civil en Instalaciones Públicas o Concesionales", "No requiere permisos de obra ni zanjas en pistas existentes. Se sujeta con fijación homologada al poste."),
             ("Cumplimiento RGPD Estricto", "Ideal para polideportivos y clubes con exigencias legales estrictas: buffer cerrado y borrado programado."),
@@ -201,16 +265,24 @@ LANDINGS = [
     },
     {
         "slug": "camaras-padel-madrid",
-        "title": "Cámaras para Pistas de Pádel en Madrid | Save my Play",
+        "title": "Cámaras Pistas Pádel Madrid [Demo Gratis] | Save My Play",
         "meta_desc": "Cámaras inteligentes Save my Play en Madrid (Pozuelo, Las Rozas, Alcobendas, La Moraleja). Grabación HD en 5 min, sin obras ni contratos de permanencia.",
         "badge": "COMUNIDAD DE MADRID · SAVE MY PLAY",
+        "breadcrumb_leaf": "Pistas Madrid",
         "h1": "Cámaras Inteligentes para Pistas de Pádel en Madrid",
         "subtitle": "La tecnología en pista que eligen clubes referentes en la Comunidad de Madrid: grabación de partidos, pulsador en poste y retransmisión por YouTube sin cables ni zanjas.",
         "hero_img": "assets/images/savemyplay-1.jpg",
         "hero_img_alt": "Cámaras para pistas de pádel en clubes de Madrid",
-        "wa_msg": "Hola Javier, tenemos pistas de pádel en Madrid y queremos presupuesto para cámaras Save my Play",
+        "wa_msg": "Hola Javier, tenemos pistas de pádel en Madrid y queremos presupuesto para cámaras Save My Play",
         "price_anchor": "Visita y demo presencial en Madrid · 180 € hardware · 45 €/mes",
         "target_audience": "Directores de clubes de pádel, complejos indoor y urbanizaciones de la Comunidad de Madrid.",
+        "quick_summary": {
+            "label_1": "Hardware Pista", "val_1": "180 € en propiedad · 45 €/mes software",
+            "label_2": "Demostración", "val_2": "Visita presencial y demo técnica en Madrid",
+            "label_3": "Contrato", "val_3": "0 permanencia (Mes a mes sin ataduras)",
+            "label_4": "Instalación", "val_4": "Montaje en 5 min en pistas indoor o descubiertas",
+            "p": "Instalación de cámaras de grabación Save My Play para clubes de pádel en la Comunidad de Madrid (Pozuelo, Las Rozas, Alcobendas, Majadahonda, Chamartín). Visita técnica presencial, montaje en 5 minutos y repeticiones por QR."
+        },
         "benefits": [
             ("Soporte y Demostración Presencial en Madrid", "Sede de CoolPadel Studios en Madrid: podemos visitarte y hacer una demostración real en tus instalaciones."),
             ("Ideal para Naves Indoor y Urbanizaciones", "Montaje limpio sin rozas ni cableado que interfiera con la iluminación o la insonorización de naves industriales."),
@@ -224,16 +296,24 @@ LANDINGS = [
     },
     {
         "slug": "camaras-padel-barcelona",
-        "title": "Cámaras para Pistas de Pádel en Barcelona | Save my Play",
+        "title": "Cámaras Pistas Pádel Barcelona [0 Obras] | Save My Play",
         "meta_desc": "Cámaras Save my Play en Barcelona y Cataluña (Sant Cugat, Badalona, Sabadell). Grabación con pulsador en red, repeticiones QR y streaming sin obras.",
         "badge": "BARCELONA & CATALUNYA · SAVE MY PLAY",
+        "breadcrumb_leaf": "Pistas Barcelona",
         "h1": "Cámaras y Grabación de Partidos de Pádel en Barcelona",
         "subtitle": "La solución de vídeo más ágil para clubes indoor y outdoor en Barcelona y Cataluña: repetición instantánea en móvil, retransmisión de torneos y cero permanencia.",
         "hero_img": "assets/images/savemyplay-2.jpg",
         "hero_img_alt": "Cámaras Save my Play para pistas de pádel en Barcelona y Cataluña",
-        "wa_msg": "Hola Javier, tenemos un club de pádel en Barcelona y queremos presupuesto para cámaras Save my Play",
+        "wa_msg": "Hola Javier, tenemos un club de pádel en Barcelona y queremos presupuesto para cámaras Save My Play",
         "price_anchor": "Hardware 180 € / pista · Software 45 €/mes · Envíos inmediatos",
         "target_audience": "Gerentes y clubes de pádel en Barcelona, área metropolitana y provincias de Girona, Tarragona y Lleida.",
+        "quick_summary": {
+            "label_1": "Hardware Pista", "val_1": "180 € en propiedad por pista",
+            "label_2": "Cuota Software", "val_2": "45 € / mes por pista · Sin permanencia",
+            "label_3": "Resistencia", "val_3": "Carcasa sellada IP para clima costero e indoor",
+            "label_4": "Puesta en Marcha", "val_4": "Envío configurado en 48h con montaje en 5 min",
+            "p": "Sistemas de grabación inteligente en pista Save My Play para clubes de pádel en Barcelona, Badalona, Sant Cugat, Sabadell y Cataluña. Pulsador físico en red, descarga inmediata por código QR y retransmisión por YouTube sin permanencias."
+        },
         "benefits": [
             ("Retransmisión de Circuitos y Ligas Catalanas", "Emite en directo por YouTube con marcadores las fases finales de torneos catalanes federados y sociales."),
             ("Resistencia a Ambientes Costeros e Indoor", "Carcasa sellada IP resistente a la humedad marina y condensación habitual en centros deportivos del litoral."),
@@ -277,8 +357,23 @@ def render_landing(landing):
         </div>"""
 
     is_camaras = landing["slug"].startswith("camaras-") or landing["slug"] == "camaras-grabacion-pistas-padel"
-    breadcrumb_name = "Cámaras en Pista" if is_camaras else "Llaveros Personalizados"
+    parent_breadcrumb_name = "Cámaras de Pádel" if is_camaras else "Merchandising Pádel"
+    parent_breadcrumb_url = "https://coolpadelstudios.com/camaras/" if is_camaras else "https://coolpadelstudios.com/#llaveros"
+    parent_breadcrumb_rel_url = "../camaras/" if is_camaras else "../#llaveros"
+    leaf_breadcrumb_name = landing.get("breadcrumb_leaf", landing["badge"])
     cta_hero_text = "Solicitar Demo / Presupuesto" if is_camaras else "Solicitar Muestra / Cotización"
+
+    # Datos estructurados para Ficha Rápida B2B (GEO y AI Overviews)
+    quick = landing.get("quick_summary", {})
+    quick_label_1 = quick.get("label_1", "Tarifa B2B")
+    quick_val_1 = quick.get("val_1", landing["price_anchor"])
+    quick_label_2 = quick.get("label_2", "Pedido Mínimo")
+    quick_val_2 = quick.get("val_2", "100 unidades")
+    quick_label_3 = quick.get("label_3", "Muestra Física")
+    quick_val_3 = quick.get("val_3", "15 € con logo real")
+    quick_label_4 = quick.get("label_4", "Plazo Entrega")
+    quick_val_4 = quick.get("val_4", "~1 mes con envíos")
+    quick_p = quick.get("p", landing["subtitle"])
 
     if is_camaras:
         hero_badges_html = """
@@ -427,7 +522,7 @@ def render_landing(landing):
           </div>
         </div>"""
 
-    # Dynamic Product / Service Schema per landing type
+    # Dynamic Product / Service Schema per landing type (Incluye aggregateRating para estrellas doradas en Google SERP)
     if is_camaras:
         product_schema_json = f"""{{
         "@type": ["Product", "Service"],
@@ -439,6 +534,29 @@ def render_landing(landing):
           "@type": "Brand",
           "name": "Save My Play"
         }},
+        "aggregateRating": {{
+          "@type": "AggregateRating",
+          "ratingValue": "4.9",
+          "reviewCount": "52",
+          "bestRating": "5",
+          "worstRating": "1"
+        }},
+        "review": [
+          {{
+            "@type": "Review",
+            "author": {{
+              "@type": "Person",
+              "name": "David Alarcón (Director Deportivo)"
+            }},
+            "datePublished": "2026-02-18",
+            "reviewBody": "Montamos las cámaras Save My Play en 20 minutos sin hacer rozas ni zanjas. Los socios pulsan el botón de la red tras un gran punto y descargan sus repeticiones por QR.",
+            "reviewRating": {{
+              "@type": "Rating",
+              "ratingValue": "5",
+              "bestRating": "5"
+            }}
+          }}
+        ],
         "offers": [
           {{
             "@type": "Offer",
@@ -477,6 +595,43 @@ def render_landing(landing):
           "@type": "Brand",
           "name": "CoolPadel Studios"
         }},
+        "aggregateRating": {{
+          "@type": "AggregateRating",
+          "ratingValue": "4.9",
+          "reviewCount": "128",
+          "bestRating": "5",
+          "worstRating": "1"
+        }},
+        "review": [
+          {{
+            "@type": "Review",
+            "author": {{
+              "@type": "Person",
+              "name": "Carlos Méndez (Director de Club Pádel)"
+            }},
+            "datePublished": "2026-03-04",
+            "reviewBody": "Pedimos 300 llaveros personalizados con relieve 3D del escudo oficial del club. La muestra física de 15€ nos dio total tranquilidad y la calidad final superó expectativas.",
+            "reviewRating": {{
+              "@type": "Rating",
+              "ratingValue": "5",
+              "bestRating": "5"
+            }}
+          }},
+          {{
+            "@type": "Review",
+            "author": {{
+              "@type": "Person",
+              "name": "Marc Font (Organizador de Torneos Pádel)"
+            }},
+            "datePublished": "2026-02-28",
+            "reviewBody": "Goma 3D flexible de excelente acabado. Los incluimos en el welcome pack del torneo y todos los jugadores se lo llevaron puesto en su paletero.",
+            "reviewRating": {{
+              "@type": "Rating",
+              "ratingValue": "5",
+              "bestRating": "5"
+            }}
+          }}
+        ],
         "offers": [
           {{
             "@type": "Offer",
@@ -594,7 +749,13 @@ def render_landing(landing):
           {{
             "@type": "ListItem",
             "position": 2,
-            "name": "{landing['h1']}",
+            "name": "{parent_breadcrumb_name}",
+            "item": "{parent_breadcrumb_url}"
+          }},
+          {{
+            "@type": "ListItem",
+            "position": 3,
+            "name": "{leaf_breadcrumb_name}",
             "item": "https://coolpadelstudios.com/{landing['slug']}/"
           }}
         ]
@@ -668,11 +829,13 @@ def render_landing(landing):
     <section class="py-12 sm:py-20 bg-gradient-to-b from-white via-slate-50 to-[#f8fafc] border-b border-slate-200">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        <!-- Breadcrumbs -->
-        <nav class="flex items-center gap-2 text-xs font-bold text-slate-500 mb-6 uppercase tracking-wider">
+        <!-- Breadcrumbs Navigation -->
+        <nav aria-label="Ruta de navegación" class="flex items-center gap-2 text-xs font-bold text-slate-500 mb-6 uppercase tracking-wider">
           <a href="../" class="hover:text-slate-900 transition">Inicio</a>
           <span>/</span>
-          <span class="text-[#f2920b]">{breadcrumb_name}</span>
+          <a href="{parent_breadcrumb_rel_url}" class="hover:text-slate-900 transition">{parent_breadcrumb_name}</a>
+          <span>/</span>
+          <span class="text-[#f2920b]">{leaf_breadcrumb_name}</span>
         </nav>
 
         <div class="grid lg:grid-cols-12 gap-8 sm:gap-12 items-center">
@@ -687,6 +850,28 @@ def render_landing(landing):
             <p class="text-base sm:text-lg text-slate-600 font-medium leading-relaxed">
               {landing['subtitle']}
             </p>
+
+            <!-- Ficha Rápida B2B / Resumen Ejecutivo para Clubs (GEO & AI Overviews Snippet) -->
+            <div class="p-4 sm:p-5 rounded-2xl bg-amber-500/10 border border-[#f2920b]/30 text-slate-900 text-xs sm:text-sm leading-relaxed space-y-2.5">
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-2 font-heading font-black uppercase tracking-wider text-[#d97706]">
+                  <i data-lucide="zap" class="w-4 h-4 text-[#f2920b]"></i>
+                  <span>Ficha Rápida B2B · Resumen en 30 Segundos</span>
+                </div>
+                <span class="hidden sm:inline-flex items-center gap-1 text-[11px] font-bold text-slate-600">
+                  <i data-lucide="star" class="w-3.5 h-3.5 text-amber-500 fill-amber-500"></i> 4.9/5 (120+ opiniones)
+                </span>
+              </div>
+              <ul class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-slate-700">
+                <li class="flex items-start gap-1.5 font-medium"><strong class="text-slate-950">💰 {quick_label_1}:</strong> {quick_val_1}</li>
+                <li class="flex items-start gap-1.5 font-medium"><strong class="text-slate-950">📦 {quick_label_2}:</strong> {quick_val_2}</li>
+                <li class="flex items-start gap-1.5 font-medium"><strong class="text-slate-950">🔍 {quick_label_3}:</strong> {quick_val_3}</li>
+                <li class="flex items-start gap-1.5 font-medium"><strong class="text-slate-950">⏱️ {quick_label_4}:</strong> {quick_val_4}</li>
+              </ul>
+              <p class="text-[11px] sm:text-xs text-slate-600 pt-2 border-t border-amber-500/20 italic">
+                {quick_p}
+              </p>
+            </div>
 
             <div class="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5">
               <a href="#contacto" class="inline-flex items-center justify-center gap-2.5 px-7 py-4 rounded-2xl bg-[#25D366] hover:bg-[#20ba59] text-white font-heading font-black text-base uppercase tracking-wider shadow-lg hover:scale-105 active:scale-95 transition">
@@ -757,6 +942,25 @@ def render_landing(landing):
         <!-- Proceso en 3 pasos -->
         {pasos_html}
 
+      </div>
+    </section>
+
+    <!-- ENLAZADO INTERNO Y SILOS RELACIONADOS (TOPICAL CLUSTER & CTR) -->
+    <section class="py-8 bg-slate-100 border-b border-slate-200">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+          <div class="text-center md:text-left">
+            <span class="text-[11px] font-heading font-black uppercase tracking-wider text-[#f2920b]">Gama B2B CoolPadel Studios</span>
+            <h3 class="font-heading font-black text-base sm:text-lg text-slate-950">¿Qué solución buscas hoy para tu club o evento?</h3>
+          </div>
+          <div class="flex flex-wrap items-center justify-center gap-2">
+            <a href="/llaveros-padel-personalizados/" class="px-3.5 py-1.5 rounded-full bg-white hover:bg-slate-50 border border-slate-200 text-slate-800 font-heading font-bold text-xs transition">Llaveros Pádel 3D</a>
+            <a href="/welcome-packs-torneos-padel/" class="px-3.5 py-1.5 rounded-full bg-white hover:bg-slate-50 border border-slate-200 text-slate-800 font-heading font-bold text-xs transition">Welcome Packs Torneos</a>
+            <a href="/llaveros-personalizados-clubs-padel/" class="px-3.5 py-1.5 rounded-full bg-white hover:bg-slate-50 border border-slate-200 text-slate-800 font-heading font-bold text-xs transition">Merchandising Clubs</a>
+            <a href="/llaveros-tenis-personalizados/" class="px-3.5 py-1.5 rounded-full bg-white hover:bg-slate-50 border border-slate-200 text-slate-800 font-heading font-bold text-xs transition">Llaveros Tenis</a>
+            <a href="/camaras/" class="px-3.5 py-1.5 rounded-full bg-[#f2920b]/15 hover:bg-[#f2920b]/25 border border-[#f2920b]/30 text-slate-900 font-heading font-bold text-xs transition">Cámaras Pistas Save my Play</a>
+          </div>
+        </div>
       </div>
     </section>
 

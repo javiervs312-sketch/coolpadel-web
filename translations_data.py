@@ -4,7 +4,7 @@ import re
 # DICCIONARIO COMPLETO DE TRADUCCIONES PROFESIONALES (ES, EN, FR, IT)
 TRANSLATIONS = {
     "es": {
-        "meta_title": "Llaveros de Pádel Personalizados 3D y Cámaras | CoolPadel",
+        "meta_title": "Llaveros Pádel Personalizados 3D [Desde 1,50€] | CoolPadel",
         "meta_desc": "Fabricante de llaveros de pádel personalizados con el logo de tu club o torneo. Merchandising oficial, muestra física por 15€ y pedidos desde 100 uds.",
         "top_ticker": "Descarga el Informe Industria del Pádel y lee la Newsletter en nuestro Blog",
         "top_ticker_newsletter": "Nueva edición de Highlights by CoolPadel en LinkedIn",
