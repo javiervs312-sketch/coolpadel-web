@@ -70,62 +70,17 @@ COMMON_HEAD = """
 """
 
 COMMON_TRACKING_JS = f"""
+  <script src="/assets/js/cp-analytics.js" defer></script>
   <script>
     lucide.createIcons();
 
-    // Tracking de visitas a Google Sheets Webhook
     const GOOGLE_SHEETS_WEBHOOK_URL = '{WEBHOOK_URL}';
     
     function trackEvent(nombreEvento, metadata) {{
-      try {{
-        if (window.location.protocol === 'file:' || window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') return;
-        let sId = '';
-        try {{
-          sId = sessionStorage.getItem('cp_session_id');
-          if (!sId) {{
-            sId = 's_' + Date.now().toString(36) + '_' + Math.random().toString(36).substring(2, 6);
-            sessionStorage.setItem('cp_session_id', sId);
-          }}
-        }} catch(e) {{
-          sId = 's_' + Date.now().toString(36);
-        }}
-
-        let vId = '';
-        try {{
-          vId = localStorage.getItem('cp_visitor_id');
-          if (!vId) {{
-            vId = 'v_' + Date.now().toString(36) + '_' + Math.random().toString(36).substring(2, 6);
-            localStorage.setItem('cp_visitor_id', vId);
-          }}
-        }} catch(e) {{}}
-
-        const dispositivo = /iPhone/i.test(navigator.userAgent) ? 'iPhone' : (/Android/i.test(navigator.userAgent) ? 'Android' : (/iPad/i.test(navigator.userAgent) ? 'iPad' : (/Mac/i.test(navigator.userAgent) ? 'Mac' : (/Windows/i.test(navigator.userAgent) ? 'Windows' : 'Web'))));
-
-        const payload = {{
-          tipo: 'analitica_evento',
-          evento: nombreEvento,
-          evento_desc: '🟢 Lectura Blog (' + window.location.pathname.replace(/^\\/blog\\//, '').replace(/\\/$/, '') + ')',
-          pagina: window.location.pathname,
-          path: window.location.pathname,
-          url: window.location.href,
-          origen_canal: '📝 Blog CoolPadel',
-          session_id: sId,
-          visitor_id: vId,
-          dispositivo: dispositivo,
-          referrer: document.referrer || '',
-          timestamp: new Date().toISOString(),
-          metadata: metadata || {{}}
-        }};
-        fetch(GOOGLE_SHEETS_WEBHOOK_URL, {{
-          method: 'POST',
-          mode: 'no-cors',
-          headers: {{ 'Content-Type': 'application/json' }},
-          body: JSON.stringify(payload)
-        }}).catch(() => {{}});
-      }} catch(e) {{}}
+      if (typeof window.cpTrack === 'function') {{
+        window.cpTrack(nombreEvento, metadata);
+      }}
     }}
-
-    trackEvent('visita_blog_pagina', {{ pagina: window.location.pathname }});
 
     function handleNewsletterSub(e, edicion) {{
       e.preventDefault();
@@ -198,7 +153,7 @@ COMMON_TRACKING_JS = f"""
       try {{
         localStorage.setItem('coolpadel_lang', lang);
       }} catch(e) {{}}
-      const isArticle = window.location.pathname.includes('/highlights-');
+      const isArticle = window.location.pathname.replace(/\\/$/, '') !== '/blog';
       const root = isArticle ? '../../' : '../';
       if (lang === 'es') {{
         const menu = document.getElementById('lang-dropdown-menu');
@@ -282,17 +237,20 @@ def get_silo_footer_html(root_prefix="../../"):
           </ul>
         </div>
 
-        <!-- COLUMNA 3: DIRECTORIO & HUBS LOCALES -->
+        <!-- COLUMNA 3: HERRAMIENTAS GRATIS & DIRECTORIO -->
         <div class="space-y-3">
           <div class="font-heading font-black text-sm uppercase tracking-wider text-white">
-            Directorio &amp; Hubs
+            Herramientas &amp; Hubs
           </div>
           <ul class="space-y-2 text-white/80 font-normal">
-            <li><a href="/franquicias-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Directorio Franquicias (+153)</a></li>
+            <li><a href="/herramientas/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition font-bold text-[#f2920b]">Suite Herramientas Gratis</a></li>
+            <li><a href="/herramientas/generador-americana-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Generador de Americana Pádel</a></li>
+            <li><a href="/herramientas/generador-cuadros-torneo-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Sorteo de Cuadros de Torneo</a></li>
+            <li><a href="/herramientas/calculadora-coste-pistas-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Calculadora Coste Pistas</a></li>
+            <li><a href="/herramientas/calculadora-roi-camaras-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Calculadora ROI Cámaras</a></li>
+            <li><a href="/franquicias-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Directorio Franquicias (+167)</a></li>
             <li><a href="/camaras-padel-madrid/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Clubes Pádel Madrid</a></li>
             <li><a href="/camaras-padel-barcelona/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Clubes Pádel Barcelona</a></li>
-            <li><a href="/#cobertura" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Envíos España, USA y Europa</a></li>
-            <li><a href="/#mapa" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Mapa de Clientes Oficiales</a></li>
           </ul>
         </div>
 
@@ -302,12 +260,13 @@ def get_silo_footer_html(root_prefix="../../"):
             Guías &amp; Blog B2B
           </div>
           <ul class="space-y-2 text-white/80 font-normal">
-            <li><a href="/blog/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition font-bold text-white">Índice del Blog &amp; Newsletter</a></li>
+            <li><a href="/blog/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition font-bold text-white">Índice del Blog &amp; Estudios</a></li>
+            <li><a href="/blog/barometro-camaras-padel-2026/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Barómetro Cámaras Pádel 2026</a></li>
+            <li><a href="/blog/como-organizar-torneo-padel-americana-reglas-cuadros/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Cómo Organizar una Americana</a></li>
+            <li><a href="/blog/cuanto-cuesta-montar-pista-padel-presupuesto-rentabilidad/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Cuánto Cuesta Montar una Pista</a></li>
             <li><a href="/blog/rentabilidad-camaras-pistas-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Precios y ROI de Cámaras</a></li>
+            <li><a href="/blog/sistemas-grabacion-pistas-padel-comparativa/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Cámaras Fijas vs Trípodes (RGPD)</a></li>
             <li><a href="/blog/welcome-pack-torneo-padel-ideas/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Ideas de Welcome Pack</a></li>
-            <li><a href="/blog/sistemas-grabacion-pistas-padel-comparativa/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Cámaras fijas vs Trípodes (RGPD)</a></li>
-            <li><a href="/blog/vender-llaveros-tienda-club-padel-pro-shop/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Venta de Impulso en Pro-Shop</a></li>
-            <li><a href="/blog/merchandising-ferias-torneos-padel-regalos-marcas/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Merchandising para Ferias</a></li>
           </ul>
         </div>
 
@@ -455,72 +414,96 @@ def generate_blog_index():
       {{
         "@type": "ItemList",
         "name": "Guías e Informes de la Industria del Pádel - CoolPadel Studios",
-        "description": "Directorio completo de guías de rentabilidad, tecnología de grabación, smart courts, welcome packs y análisis de mercado para directores y operadores de clubes de pádel.",
-        "numberOfItems": 11,
+        "description": "Directorio completo de guías de rentabilidad, tecnología de grabación, smart courts, organización de americanas, coste de pistas, welcome packs y análisis de mercado para clubes de pádel.",
+        "numberOfItems": 15,
         "itemListElement": [
           {{
             "@type": "ListItem",
             "position": 1,
+            "name": "Barómetro de Cámaras y Digitalización en Clubes de Pádel 2026: Datos de +4.800 Pistas",
+            "url": "https://coolpadelstudios.com/blog/barometro-camaras-padel-2026/"
+          }},
+          {{
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Cómo Organizar un Torneo de Pádel y una Americana Paso a Paso: Reglas, Cuadros y Premios",
+            "url": "https://coolpadelstudios.com/blog/como-organizar-torneo-padel-americana-reglas-cuadros/"
+          }},
+          {{
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Cuánto Cuesta Montar una Pista y un Club de Pádel en 2026: Presupuesto y Rentabilidad",
+            "url": "https://coolpadelstudios.com/blog/cuanto-cuesta-montar-pista-padel-presupuesto-rentabilidad/"
+          }},
+          {{
+            "@type": "ListItem",
+            "position": 4,
+            "name": "15 Regalos de Pádel Originales y Baratos para Jugadores, Clubs y Torneos (2026)",
+            "url": "https://coolpadelstudios.com/blog/regalos-padel-originales-baratos-ideas-detalles-torneos/"
+          }},
+          {{
+            "@type": "ListItem",
+            "position": 5,
             "name": "¿Cuánto cuesta instalar cámaras en una pista de pádel y cómo se amortizan? [Precios y ROI 2026]",
             "url": "https://coolpadelstudios.com/blog/rentabilidad-camaras-pistas-padel/"
           }},
           {{
             "@type": "ListItem",
-            "position": 2,
+            "position": 6,
             "name": "Welcome Pack para Torneos de Pádel: 10 Ideas de Regalos que los Jugadores No Tiran [Checklist PDF]",
             "url": "https://coolpadelstudios.com/blog/welcome-pack-torneo-padel-ideas/"
           }},
           {{
             "@type": "ListItem",
-            "position": 3,
-            "name": "Comparativa: Cámaras fijas con pulsador vs grabación manual con trípode [Normativa RGPD]",
+            "position": 7,
+            "name": "Los 9 Mejores Sistemas de Cámaras con IA para Pistas de Pádel en 2026: Comparativa",
             "url": "https://coolpadelstudios.com/blog/sistemas-grabacion-pistas-padel-comparativa/"
           }},
           {{
             "@type": "ListItem",
-            "position": 4,
+            "position": 8,
             "name": "Pistas de Pádel Inteligentes (Smart Courts): Cómo llenar horas valle de 10:00 a 17:00 [Protocolo PDF]",
             "url": "https://coolpadelstudios.com/blog/smart-courts-pistas-inteligentes-padel-horas-valle/"
           }},
           {{
             "@type": "ListItem",
-            "position": 5,
+            "position": 9,
             "name": "Cómo retransmitir torneos de pádel en directo por YouTube sin operadores [Streaming Full HD]",
             "url": "https://coolpadelstudios.com/blog/retransmitir-torneos-padel-streaming-youtube-camaras/"
           }},
           {{
             "@type": "ListItem",
-            "position": 6,
+            "position": 10,
             "name": "Cómo vender llaveros en la pro-shop de tu club: producto de impulso con +60% de margen [Simulador]",
             "url": "https://coolpadelstudios.com/blog/vender-llaveros-tienda-club-padel-pro-shop/"
           }},
           {{
             "@type": "ListItem",
-            "position": 7,
+            "position": 11,
             "name": "Regalos para eventos de pádel, torneos sociales y cenas de socios [Detalles de Club]",
             "url": "https://coolpadelstudios.com/blog/regalos-eventos-padel-cenas-socios-llaveros/"
           }},
           {{
             "@type": "ListItem",
-            "position": 8,
+            "position": 12,
             "name": "Política de regalos en ferias y torneos de pádel: Qué regalar y errores costosos [Guía B2B]",
             "url": "https://coolpadelstudios.com/blog/merchandising-ferias-torneos-padel-regalos-marcas/"
           }},
           {{
             "@type": "ListItem",
-            "position": 9,
+            "position": 13,
             "name": "Highlights #03: ¿Cómo crece realmente la industria del pádel? [Mercado y Retención]",
             "url": "https://coolpadelstudios.com/blog/highlights-03/"
           }},
           {{
             "@type": "ListItem",
-            "position": 10,
+            "position": 14,
             "name": "Highlights #02: El Pádel debería estar lejos de ser un deporte olímpico [Análisis]",
             "url": "https://coolpadelstudios.com/blog/highlights-02/"
           }},
           {{
             "@type": "ListItem",
-            "position": 11,
+            "position": 15,
             "name": "Highlights #01: Padel World Summit 2026: Startup Recap [Tecnología]",
             "url": "https://coolpadelstudios.com/blog/highlights-01/"
           }}
@@ -680,10 +663,10 @@ def generate_blog_index():
         <!-- CABECERA DE SECCIÓN -->
         <div class="max-w-3xl mx-auto text-center space-y-2 mb-10 sm:mb-14">
           <h1 class="text-2xl sm:text-4xl font-black font-heading text-slate-950 uppercase tracking-tight">
-            CONTENIDO EXCLUSIVO COOLPADEL
+            Blog de Gestión de Clubes, Torneos y Cámaras de Pádel
           </h1>
           <p class="text-slate-600 text-xs sm:text-base font-medium">
-            Perspectivas, reflexiones y opiniones sobre la industria del pádel
+            Estudios del sector, guías prácticas de rentabilidad, organización de americanas y tecnología B2B para pistas de pádel
           </p>
         </div>
 
@@ -814,6 +797,54 @@ def generate_blog_index():
           </div>
         </div>
 
+        <!-- BANNER HERRAMIENTAS INTERACTIVAS GRATUITAS -->
+        <div class="mt-8 sm:mt-10 bg-slate-900 text-white rounded-3xl p-6 sm:p-8 border border-slate-800 shadow-lg">
+          <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 mb-6">
+            <div>
+              <span class="inline-block px-2.5 py-0.5 rounded-full bg-[#f2920b]/20 text-[#f2920b] text-[10px] font-black uppercase tracking-wider mb-1">
+                Calculadoras y Sorteos Online 100% Gratis
+              </span>
+              <h2 class="text-lg sm:text-2xl font-heading font-black text-white">
+                Suite de Herramientas Interactivas para Clubes y Torneos
+              </h2>
+            </div>
+            <a href="../herramientas/" class="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#f2920b] hover:bg-white text-slate-950 font-heading font-black text-xs uppercase tracking-wider transition shrink-0">
+              <span>Ver las 4 Herramientas</span>
+              <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+            </a>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-xs">
+            <a href="../herramientas/generador-americana-padel/" class="p-3.5 rounded-2xl bg-slate-800/90 hover:bg-slate-800 border border-slate-700 hover:border-[#f2920b] transition flex items-center justify-between group">
+              <div>
+                <span class="font-heading font-black text-white group-hover:text-[#f2920b] block text-sm">🎾 Generador de Americana</span>
+                <span class="text-slate-400 text-[11px]">Cruces 8, 12, 16 y 20 jugadores + Ranking</span>
+              </div>
+              <i data-lucide="chevron-right" class="w-4 h-4 text-slate-500 group-hover:text-[#f2920b]"></i>
+            </a>
+            <a href="../herramientas/generador-cuadros-torneo-padel/" class="p-3.5 rounded-2xl bg-slate-800/90 hover:bg-slate-800 border border-slate-700 hover:border-[#f2920b] transition flex items-center justify-between group">
+              <div>
+                <span class="font-heading font-black text-white group-hover:text-[#f2920b] block text-sm">🏆 Sorteo Cuadros Torneo</span>
+                <span class="text-slate-400 text-[11px]">8, 16 y 32 parejas con cabezas de serie</span>
+              </div>
+              <i data-lucide="chevron-right" class="w-4 h-4 text-slate-500 group-hover:text-[#f2920b]"></i>
+            </a>
+            <a href="../herramientas/calculadora-coste-pistas-padel/" class="p-3.5 rounded-2xl bg-slate-800/90 hover:bg-slate-800 border border-slate-700 hover:border-[#f2920b] transition flex items-center justify-between group">
+              <div>
+                <span class="font-heading font-black text-white group-hover:text-[#f2920b] block text-sm">🏗️ Coste Montar Pistas</span>
+                <span class="text-slate-400 text-[11px]">Presupuesto CAPEX 2026 y amortización</span>
+              </div>
+              <i data-lucide="chevron-right" class="w-4 h-4 text-slate-500 group-hover:text-[#f2920b]"></i>
+            </a>
+            <a href="../herramientas/calculadora-roi-camaras-padel/" class="p-3.5 rounded-2xl bg-slate-800/90 hover:bg-slate-800 border border-slate-700 hover:border-[#f2920b] transition flex items-center justify-between group">
+              <div>
+                <span class="font-heading font-black text-white group-hover:text-[#f2920b] block text-sm">📹 Calculadora ROI Cámaras</span>
+                <span class="text-slate-400 text-[11px]">Simulador de ingresos Save my Play</span>
+              </div>
+              <i data-lucide="chevron-right" class="w-4 h-4 text-slate-500 group-hover:text-[#f2920b]"></i>
+            </a>
+          </div>
+        </div>
+
         <!-- GUÍAS TÉCNICAS Y RECURSOS PARA CLUBES Y TORNEOS (AEO / GEO - COMPACTOS) -->
         <div class="mt-10 sm:mt-14 pt-8 border-t border-slate-200">
           <div class="max-w-3xl mx-auto text-center space-y-1.5 mb-6 sm:mb-8">
@@ -829,6 +860,117 @@ def generate_blog_index():
           </div>
 
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 max-w-[1700px] w-full mx-auto">
+
+            <!-- GUÍA PILAR 1: BARÓMETRO CÁMARAS PÁDEL 2026 -->
+            <div class="bg-white border-2 border-[#3478a6]/30 rounded-2xl p-4 sm:p-5 shadow-2xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between group hover:-translate-y-0.5">
+              <div class="space-y-3">
+                <div class="aspect-[16/10] rounded-xl overflow-hidden bg-slate-900 border border-slate-200/90 shadow-2xs relative">
+                  <img src="../assets/images/savemyplay-1.jpg" alt="Barómetro de Cámaras y Digitalización en Clubes de Pádel 2026" width="600" height="375" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
+                  <span class="absolute bottom-2 left-2 text-[9px] font-black uppercase tracking-wider px-2 py-0.5 rounded-full bg-[#3478a6] text-white shadow-xs">
+                    Barómetro Oficial 2026
+                  </span>
+                </div>
+
+                <div class="space-y-1">
+                  <div class="flex items-center gap-1.5 text-[10px] font-bold text-slate-400">
+                    <span>Octubre 2026</span>
+                    <span>•</span>
+                    <span>Lectura 8 min</span>
+                  </div>
+                  <h3 class="font-heading font-black text-sm sm:text-base text-slate-950 leading-snug group-hover:text-[#f2920b] transition">
+                    Barómetro de Cámaras y Digitalización en Clubes de Pádel 2026 (+4.800 Pistas)
+                  </h3>
+                  <p class="text-xs text-slate-600 font-medium leading-relaxed line-clamp-2">
+                    Censo técnico europeo: cuota de Playtomic vs Matchi vs Resasports, penetración de cámaras (8,4%) y retorno real.
+                  </p>
+                </div>
+              </div>
+
+              <div class="pt-3.5 border-t border-slate-100 mt-4">
+                <a href="./barometro-camaras-padel-2026/"
+                   class="group relative w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-full bg-slate-900 hover:bg-[#f2920b] text-white hover:text-slate-950 active:scale-95 font-heading font-black text-xs uppercase tracking-wider transition-all duration-300 shadow-2xs">
+                  <span>Ver Estudio Oficial</span>
+                  <div class="w-4 h-4 rounded-full bg-white/20 group-hover:bg-slate-950/20 flex items-center justify-center transition-all duration-300">
+                    <i data-lucide="arrow-right" class="w-3 h-3 stroke-[3] group-hover:translate-x-0.5 transition-transform duration-300"></i>
+                  </div>
+                </a>
+              </div>
+            </div>
+
+            <!-- GUÍA PILAR 2: CÓMO ORGANIZAR UN TORNEO Y AMERICANA DE PÁDEL -->
+            <div class="bg-white border-2 border-[#f2920b]/30 rounded-2xl p-4 sm:p-5 shadow-2xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between group hover:-translate-y-0.5">
+              <div class="space-y-3">
+                <div class="aspect-[16/10] rounded-xl overflow-hidden bg-slate-900 border border-slate-200/90 shadow-2xs relative">
+                  <img src="../assets/images/llaveros-2.jpg" alt="Cómo organizar un torneo de pádel y una americana paso a paso" width="600" height="375" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
+                  <span class="absolute bottom-2 left-2 text-[9px] font-black uppercase tracking-wider px-2 py-0.5 rounded-full bg-[#f2920b] text-slate-950 shadow-xs">
+                    Manual de Torneos
+                  </span>
+                </div>
+
+                <div class="space-y-1">
+                  <div class="flex items-center gap-1.5 text-[10px] font-bold text-slate-400">
+                    <span>Octubre 2026</span>
+                    <span>•</span>
+                    <span>Lectura 8 min</span>
+                  </div>
+                  <h3 class="font-heading font-black text-sm sm:text-base text-slate-950 leading-snug group-hover:text-[#f2920b] transition">
+                    Cómo Organizar un Torneo de Pádel y una Americana Paso a Paso: Reglas y Cuadros
+                  </h3>
+                  <p class="text-xs text-slate-600 font-medium leading-relaxed line-clamp-2">
+                    Tablas de rotación para 8, 12 y 16 jugadores, sistema de puntuación, presupuesto de inscripciones y welcome packs.
+                  </p>
+                </div>
+              </div>
+
+              <div class="pt-3.5 border-t border-slate-100 mt-4">
+                <a href="./como-organizar-torneo-padel-americana-reglas-cuadros/"
+                   class="group relative w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-full bg-slate-900 hover:bg-[#f2920b] text-white hover:text-slate-950 active:scale-95 font-heading font-black text-xs uppercase tracking-wider transition-all duration-300 shadow-2xs">
+                  <span>Leer Manual Completo</span>
+                  <div class="w-4 h-4 rounded-full bg-white/20 group-hover:bg-slate-950/20 flex items-center justify-center transition-all duration-300">
+                    <i data-lucide="arrow-right" class="w-3 h-3 stroke-[3] group-hover:translate-x-0.5 transition-transform duration-300"></i>
+                  </div>
+                </a>
+              </div>
+            </div>
+
+            <!-- GUÍA PILAR 3: CUÁNTO CUESTA MONTAR UNA PISTA DE PÁDEL -->
+            <div class="bg-white border-2 border-[#f2920b]/30 rounded-2xl p-4 sm:p-5 shadow-2xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between group hover:-translate-y-0.5">
+              <div class="space-y-3">
+                <div class="aspect-[16/10] rounded-xl overflow-hidden bg-slate-900 border border-slate-200/90 shadow-2xs relative">
+                  <img src="../assets/images/gallery-padel-3.jpg" alt="Cuánto cuesta montar una pista de pádel y abrir un club en 2026" width="600" height="375" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
+                  <span class="absolute bottom-2 left-2 text-[9px] font-black uppercase tracking-wider px-2 py-0.5 rounded-full bg-[#f2920b] text-slate-950 shadow-xs">
+                    Inversión &amp; CAPEX
+                  </span>
+                </div>
+
+                <div class="space-y-1">
+                  <div class="flex items-center gap-1.5 text-[10px] font-bold text-slate-400">
+                    <span>Octubre 2026</span>
+                    <span>•</span>
+                    <span>Lectura 9 min</span>
+                  </div>
+                  <h3 class="font-heading font-black text-sm sm:text-base text-slate-950 leading-snug group-hover:text-[#f2920b] transition">
+                    Cuánto Cuesta Montar una Pista y un Club de Pádel en 2026: Presupuesto y ROI
+                  </h3>
+                  <p class="text-xs text-slate-600 font-medium leading-relaxed line-clamp-2">
+                    Desglose de precios reales: pista estándar vs panorámica, obra civil, licencias, gastos fijos y plazo de amortización.
+                  </p>
+                </div>
+              </div>
+
+              <div class="pt-3.5 border-t border-slate-100 mt-4">
+                <a href="./cuanto-cuesta-montar-pista-padel-presupuesto-rentabilidad/"
+                   class="group relative w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-full bg-slate-900 hover:bg-[#f2920b] text-white hover:text-slate-950 active:scale-95 font-heading font-black text-xs uppercase tracking-wider transition-all duration-300 shadow-2xs">
+                  <span>Leer Guía de Inversión</span>
+                  <div class="w-4 h-4 rounded-full bg-white/20 group-hover:bg-slate-950/20 flex items-center justify-center transition-all duration-300">
+                    <i data-lucide="arrow-right" class="w-3 h-3 stroke-[3] group-hover:translate-x-0.5 transition-transform duration-300"></i>
+                  </div>
+                </a>
+              </div>
+            </div>
             
             <!-- GUÍA: 15 REGALOS DE PÁDEL ORIGINALES Y BARATOS (COSAS DE PÁDEL) -->
             <div class="bg-white border border-slate-200/90 rounded-2xl p-4 sm:p-5 shadow-2xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between group hover:-translate-y-0.5">
@@ -1209,6 +1351,34 @@ def generate_blog_index():
     print("  [OK] coolpadel-web/blog/index.html")
 
 ALL_ARTICLES_CATALOG = {
+    "barometro-camaras-padel-2026": {
+        "title": "Barómetro de Cámaras y Digitalización en Clubes de Pádel 2026: Datos de +4.800 Pistas",
+        "badge": "Barómetro Oficial · 2026",
+        "url": "../barometro-camaras-padel-2026/",
+        "img": "savemyplay-1.jpg",
+        "desc": "Cuota de Playtomic vs Matchi vs Resasports, penetración de cámaras (8,4%) y ROI en 4.820 clubes."
+    },
+    "como-organizar-torneo-padel-americana-reglas-cuadros": {
+        "title": "Cómo Organizar un Torneo de Pádel y una Americana Paso a Paso: Reglas y Cuadros",
+        "badge": "Manual de Torneos",
+        "url": "../como-organizar-torneo-padel-americana-reglas-cuadros/",
+        "img": "llaveros-2.jpg",
+        "desc": "Tablas de rotación para 8, 12 y 16 jugadores, sistema de puntuación y welcome packs."
+    },
+    "cuanto-cuesta-montar-pista-padel-presupuesto-rentabilidad": {
+        "title": "Cuánto Cuesta Montar una Pista y un Club de Pádel en 2026: Presupuesto y ROI",
+        "badge": "Inversión & CAPEX",
+        "url": "../cuanto-cuesta-montar-pista-padel-presupuesto-rentabilidad/",
+        "img": "gallery-padel-3.jpg",
+        "desc": "Desglose de precios reales: pista estándar vs panorámica, obra civil, licencias y amortización."
+    },
+    "regalos-padel-originales-baratos-ideas-detalles-torneos": {
+        "title": "15 Regalos de Pádel Originales y Baratos para Jugadores, Clubs y Torneos (2026)",
+        "badge": "Regalos & Merch",
+        "url": "../regalos-padel-originales-baratos-ideas-detalles-torneos/",
+        "img": "llaveros-1.jpg",
+        "desc": "Ideas y cosas de pádel por menos de 3€, 5€ y 10€: de llaveros 3D a accesorios de paletero."
+    },
     "rentabilidad-camaras-pistas-padel": {
         "title": "¿Cuánto cuesta instalar cámaras en una pista de pádel y cómo se amortizan? [Precios y ROI 2026]",
         "badge": "Guía Económica · Cámaras",
@@ -1224,11 +1394,11 @@ ALL_ARTICLES_CATALOG = {
         "desc": "Ideas prácticas por menos de 5 € y cómo financiar el 100% con sponsors locales."
     },
     "sistemas-grabacion-pistas-padel-comparativa": {
-        "title": "Comparativa: Cámaras fijas con pulsador vs grabación manual con trípode [Normativa RGPD]",
+        "title": "Los 9 Mejores Sistemas de Cámaras con IA para Pistas de Pádel en 2026: Comparativa",
         "badge": "Tecnología & RGPD",
         "url": "../sistemas-grabacion-pistas-padel-comparativa/",
         "img": "savemyplay-2.jpg",
-        "desc": "Por qué los trípodes en pista conllevan riesgos y cómo funciona el buffer circular."
+        "desc": "Comparativa de precios, hardware y ROI: Save My Play, PUSHIT, MATCHi TV, Wingfield y PlaySight."
     },
     "smart-courts-pistas-inteligentes-padel-horas-valle": {
         "title": "Pistas de Pádel Inteligentes (Smart Courts): Cómo llenar horas valle de 10:00 a 17:00 [Protocolo PDF]",
@@ -1289,17 +1459,18 @@ ALL_ARTICLES_CATALOG = {
 }
 
 RELATED_SLUGS_MAP = {
-    "rentabilidad-camaras-pistas-padel": ["sistemas-grabacion-pistas-padel-comparativa", "smart-courts-pistas-inteligentes-padel-horas-valle", "retransmitir-torneos-padel-streaming-youtube-camaras"],
-    "sistemas-grabacion-pistas-padel-comparativa": ["rentabilidad-camaras-pistas-padel", "retransmitir-torneos-padel-streaming-youtube-camaras", "smart-courts-pistas-inteligentes-padel-horas-valle"],
-    "smart-courts-pistas-inteligentes-padel-horas-valle": ["rentabilidad-camaras-pistas-padel", "sistemas-grabacion-pistas-padel-comparativa", "retransmitir-torneos-padel-streaming-youtube-camaras"],
-    "retransmitir-torneos-padel-streaming-youtube-camaras": ["rentabilidad-camaras-pistas-padel", "smart-courts-pistas-inteligentes-padel-horas-valle", "sistemas-grabacion-pistas-padel-comparativa"],
-    "welcome-pack-torneo-padel-ideas": ["vender-llaveros-tienda-club-padel-pro-shop", "regalos-eventos-padel-cenas-socios-llaveros", "merchandising-ferias-torneos-padel-regalos-marcas"],
-    "vender-llaveros-tienda-club-padel-pro-shop": ["welcome-pack-torneo-padel-ideas", "regalos-eventos-padel-cenas-socios-llaveros", "rentabilidad-camaras-pistas-padel"],
-    "regalos-eventos-padel-cenas-socios-llaveros": ["welcome-pack-torneo-padel-ideas", "vender-llaveros-tienda-club-padel-pro-shop", "merchandising-ferias-torneos-padel-regalos-marcas"],
-    "merchandising-ferias-torneos-padel-regalos-marcas": ["welcome-pack-torneo-padel-ideas", "regalos-eventos-padel-cenas-socios-llaveros", "highlights-01"],
-    "highlights-03": ["smart-courts-pistas-inteligentes-padel-horas-valle", "rentabilidad-camaras-pistas-padel", "highlights-01"],
-    "highlights-02": ["highlights-03", "welcome-pack-torneo-padel-ideas", "highlights-01"],
-    "highlights-01": ["smart-courts-pistas-inteligentes-padel-horas-valle", "merchandising-ferias-torneos-padel-regalos-marcas", "highlights-03"]
+    "rentabilidad-camaras-pistas-padel": ["barometro-camaras-padel-2026", "sistemas-grabacion-pistas-padel-comparativa", "cuanto-cuesta-montar-pista-padel-presupuesto-rentabilidad"],
+    "sistemas-grabacion-pistas-padel-comparativa": ["barometro-camaras-padel-2026", "rentabilidad-camaras-pistas-padel", "retransmitir-torneos-padel-streaming-youtube-camaras"],
+    "smart-courts-pistas-inteligentes-padel-horas-valle": ["barometro-camaras-padel-2026", "cuanto-cuesta-montar-pista-padel-presupuesto-rentabilidad", "rentabilidad-camaras-pistas-padel"],
+    "retransmitir-torneos-padel-streaming-youtube-camaras": ["como-organizar-torneo-padel-americana-reglas-cuadros", "sistemas-grabacion-pistas-padel-comparativa", "rentabilidad-camaras-pistas-padel"],
+    "welcome-pack-torneo-padel-ideas": ["como-organizar-torneo-padel-americana-reglas-cuadros", "regalos-padel-originales-baratos-ideas-detalles-torneos", "vender-llaveros-tienda-club-padel-pro-shop"],
+    "vender-llaveros-tienda-club-padel-pro-shop": ["cuanto-cuesta-montar-pista-padel-presupuesto-rentabilidad", "regalos-padel-originales-baratos-ideas-detalles-torneos", "welcome-pack-torneo-padel-ideas"],
+    "regalos-eventos-padel-cenas-socios-llaveros": ["regalos-padel-originales-baratos-ideas-detalles-torneos", "como-organizar-torneo-padel-americana-reglas-cuadros", "welcome-pack-torneo-padel-ideas"],
+    "merchandising-ferias-torneos-padel-regalos-marcas": ["regalos-padel-originales-baratos-ideas-detalles-torneos", "welcome-pack-torneo-padel-ideas", "como-organizar-torneo-padel-americana-reglas-cuadros"],
+    "regalos-padel-originales-baratos-ideas-detalles-torneos": ["welcome-pack-torneo-padel-ideas", "como-organizar-torneo-padel-americana-reglas-cuadros", "regalos-eventos-padel-cenas-socios-llaveros"],
+    "highlights-03": ["cuanto-cuesta-montar-pista-padel-presupuesto-rentabilidad", "barometro-camaras-padel-2026", "smart-courts-pistas-inteligentes-padel-horas-valle"],
+    "highlights-02": ["highlights-03", "como-organizar-torneo-padel-americana-reglas-cuadros", "barometro-camaras-padel-2026"],
+    "highlights-01": ["barometro-camaras-padel-2026", "sistemas-grabacion-pistas-padel-comparativa", "smart-courts-pistas-inteligentes-padel-horas-valle"]
 }
 
 def generate_related_articles_html(current_slug, root_prefix="../../"):

@@ -26,7 +26,7 @@ def build_barometro():
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Barómetro de Cámaras y Digitalización en Clubes de Pádel 2026: Datos de +4.800 Pistas | CoolPadel Studios & Save my Play</title>
+  <title>Barómetro de Cámaras y Software en Clubes de Pádel 2026 | CoolPadel</title>
   <meta name="description" content="Informe técnico y barómetro oficial 2026: penetración de cámaras en pista (8,4%), cuota de Playtomic vs Matchi vs Resasports y rentabilidad real por pista con datos de +4.800 clubes europeos.">
   <link rel="canonical" href="https://coolpadelstudios.com/blog/barometro-camaras-padel-2026/">
 
@@ -630,6 +630,20 @@ def build_barometro():
     <div class="border-t border-slate-800 pt-8">
       <h3 class="text-xs uppercase tracking-widest font-black text-slate-400 mb-4">Recursos y Documentos Relacionados</h3>
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+        <a href="/herramientas/calculadora-roi-camaras-padel/" class="p-3 bg-slate-900/60 border border-slate-800 hover:border-[#f2920b] rounded-xl flex items-center justify-between text-slate-300 hover:text-white transition">
+          <span class="flex items-center gap-2">
+            <i data-lucide="calculator" class="w-4 h-4 text-[#f2920b]"></i>
+            <span>Calculadora Interactiva ROI Cámaras Online</span>
+          </span>
+          <i data-lucide="arrow-right" class="w-3.5 h-3.5 text-slate-500"></i>
+        </a>
+        <a href="/herramientas/calculadora-coste-pistas-padel/" class="p-3 bg-slate-900/60 border border-slate-800 hover:border-[#3478a6] rounded-xl flex items-center justify-between text-slate-300 hover:text-white transition">
+          <span class="flex items-center gap-2">
+            <i data-lucide="building-2" class="w-4 h-4 text-[#8fc3e8]"></i>
+            <span>Calculadora Presupuesto Pistas de Pádel</span>
+          </span>
+          <i data-lucide="arrow-right" class="w-3.5 h-3.5 text-slate-500"></i>
+        </a>
         <a href="/assets/downloads/calculadora-roi-camaras-padel.xlsx" class="p-3 bg-slate-900/60 border border-slate-800 hover:border-slate-600 rounded-xl flex items-center justify-between text-slate-300 hover:text-white transition">
           <span class="flex items-center gap-2">
             <i data-lucide="file-spreadsheet" class="w-4 h-4 text-emerald-400"></i>
@@ -654,6 +668,7 @@ def build_barometro():
   <script>
     lucide.createIcons();
   </script>
+  <script src="/assets/js/cp-analytics.js" defer></script>
 </body>
 </html>
 """

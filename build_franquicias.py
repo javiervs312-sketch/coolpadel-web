@@ -210,7 +210,7 @@ def render_html():
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Directorio y Comparador de Franquicias y Cadenas de Pádel (+1 Club) | CoolPadel Studios</title>
+  <title>Franquicias y Cadenas de Pádel ({total_franquicias} Operadores) | CoolPadel</title>
   <meta name="description" content="Directorio interactivo, mapa y comparador cara a cara de {total_franquicias} cadenas de clubs y franquicias de pádel (+1 club abierto). Requisitos de nave, inversión CAPEX, royalties, software y retorno para inversores.">
   <link rel="canonical" href="https://coolpadelstudios.com/franquicias-padel/">
 
@@ -907,17 +907,20 @@ def render_html():
           </ul>
         </div>
 
-        <!-- COLUMNA 3: DIRECTORIO & HUBS LOCALES -->
+        <!-- COLUMNA 3: HERRAMIENTAS GRATIS & DIRECTORIO -->
         <div class="space-y-3">
           <div class="font-heading font-black text-sm uppercase tracking-wider text-white">
-            Directorio &amp; Hubs
+            Herramientas &amp; Hubs
           </div>
           <ul class="space-y-2 text-white/80 font-normal">
-            <li><a href="/franquicias-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Directorio Franquicias (+153)</a></li>
+            <li><a href="/herramientas/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition font-bold text-[#f2920b]">Suite Herramientas Gratis</a></li>
+            <li><a href="/herramientas/generador-americana-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Generador de Americana Pádel</a></li>
+            <li><a href="/herramientas/generador-cuadros-torneo-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Sorteo de Cuadros de Torneo</a></li>
+            <li><a href="/herramientas/calculadora-coste-pistas-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Calculadora Coste Pistas</a></li>
+            <li><a href="/herramientas/calculadora-roi-camaras-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Calculadora ROI Cámaras</a></li>
+            <li><a href="/franquicias-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Directorio Franquicias (+167)</a></li>
             <li><a href="/camaras-padel-madrid/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Clubes Pádel Madrid</a></li>
             <li><a href="/camaras-padel-barcelona/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Clubes Pádel Barcelona</a></li>
-            <li><a href="/#cobertura" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Envíos España, USA y Europa</a></li>
-            <li><a href="/#mapa" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Mapa de Clientes Oficiales</a></li>
           </ul>
         </div>
 
@@ -927,12 +930,13 @@ def render_html():
             Guías &amp; Blog B2B
           </div>
           <ul class="space-y-2 text-white/80 font-normal">
-            <li><a href="/blog/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition font-bold text-white">Índice del Blog &amp; Newsletter</a></li>
+            <li><a href="/blog/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition font-bold text-white">Índice del Blog &amp; Estudios</a></li>
+            <li><a href="/blog/barometro-camaras-padel-2026/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Barómetro Cámaras Pádel 2026</a></li>
+            <li><a href="/blog/como-organizar-torneo-padel-americana-reglas-cuadros/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Cómo Organizar una Americana</a></li>
+            <li><a href="/blog/cuanto-cuesta-montar-pista-padel-presupuesto-rentabilidad/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Cuánto Cuesta Montar una Pista</a></li>
             <li><a href="/blog/rentabilidad-camaras-pistas-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Precios y ROI de Cámaras</a></li>
+            <li><a href="/blog/sistemas-grabacion-pistas-padel-comparativa/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Cámaras Fijas vs Trípodes (RGPD)</a></li>
             <li><a href="/blog/welcome-pack-torneo-padel-ideas/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Ideas de Welcome Pack</a></li>
-            <li><a href="/blog/sistemas-grabacion-pistas-padel-comparativa/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Cámaras fijas vs Trípodes (RGPD)</a></li>
-            <li><a href="/blog/vender-llaveros-tienda-club-padel-pro-shop/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Venta de Impulso en Pro-Shop</a></li>
-            <li><a href="/blog/merchandising-ferias-torneos-padel-regalos-marcas/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Merchandising para Ferias</a></li>
           </ul>
         </div>
 
@@ -3107,6 +3111,7 @@ def render_html():
       initMap();
     }});
   </script>
+  <script src="/assets/js/cp-analytics.js" defer></script>
 </body>
 </html>
 """
@@ -3124,6 +3129,12 @@ def main():
 
     print(f"Directorio de franquicias y cadenas generado con exito en: {target_file}")
     print(f"Total de entidades incluidas: {len(FRANQUICIAS)}")
+
+    try:
+        import generate_franquicias_pages
+        generate_franquicias_pages.main()
+    except Exception as e:
+        print(f"Aviso generando fichas individuales de franquicias: {e}")
 
 
 if __name__ == "__main__":
