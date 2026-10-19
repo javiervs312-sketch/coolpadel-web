@@ -4,14 +4,14 @@ import re
 # DICCIONARIO COMPLETO DE TRADUCCIONES PROFESIONALES (ES, EN, FR, IT)
 TRANSLATIONS = {
     "es": {
-        "meta_title": "Llaveros de Pádel Personalizados para Clubs y Torneos | CoolPadel Studios",
+        "meta_title": "Llaveros de Pádel Personalizados 3D y Cámaras | CoolPadel",
         "meta_desc": "Fabricante de llaveros de pádel personalizados con el logo de tu club o torneo. Merchandising oficial, muestra física por 15€ y pedidos desde 100 uds.",
         "top_ticker": "Descarga el Informe Industria del Pádel y lee la Newsletter en nuestro Blog",
         "top_ticker_newsletter": "Nueva edición de Highlights by CoolPadel en LinkedIn",
         "nav_tenis_padel": "LLAVEROS",
         "nav_herramientas": "Herramientas",
         "nav_contact": "Contactar",
-        "slide1_title": "Llaveros de Pádel para tu <br class=\"hidden sm:inline\"><span class=\"relative inline-block px-1.5 text-neutral-300\">club<svg class=\"absolute inset-0 w-full h-full pointer-events-none\" viewBox=\"0 0 100 100\" preserveAspectRatio=\"none\"><line x1=\"8\" y1=\"92\" x2=\"92\" y2=\"8\" stroke=\"#f2920b\" stroke-width=\"16\" stroke-linecap=\"round\"/><line x1=\"8\" y1=\"8\" x2=\"92\" y2=\"92\" stroke=\"#f2920b\" stroke-width=\"16\" stroke-linecap=\"round\"/></svg></span> <span class=\"text-[#f2920b] ml-2\">comunidad</span>",
+        "slide1_title": "Llaveros de Pádel para tu <br class=\"hidden sm:inline\"><span class=\"relative inline-block px-1.5 text-neutral-300\">club<svg class=\"absolute inset-0 w-full h-full pointer-events-none\" viewBox=\"0 0 100 100\" preserveAspectRatio=\"none\"><line x1=\"8\" y1=\"92\" x2=\"92\" y2=\"8\" stroke=\"#f2920b\" stroke-width=\"16\" stroke-linecap=\"round\"/><line x1=\"8\" y1=\"8\" x2=\"92\" y2=\"92\" stroke=\"#f2920b\" stroke-width=\"16\" stroke-linecap=\"round\"/></svg></span><span class=\"sr-only\"> /</span> <span class=\"text-[#f2920b] ml-2\">comunidad</span>",
         "slide1_btn": "Ver más",
         "slide2_title": "Grabación en pista: <br><span class=\"text-black\">highlights y partidos</span>",
         "slide2_btn": "Descubrir",
@@ -130,14 +130,14 @@ TRANSLATIONS = {
         "wa_prefilled_msg": "Hola Javier"
     },
     "en": {
-        "meta_title": "Custom 3D Padel Keychains for Clubs & Tournaments | CoolPadel Studios",
+        "meta_title": "Custom 3D Padel Keychains & Court Cameras | CoolPadel",
         "meta_desc": "Manufacturer of custom padel keychains with your club logo. Physical sample for 15€, wholesale pricing from 100 units and worldwide delivery.",
         "top_ticker": "Download the Padel Industry Report & read the Newsletter on our Blog",
         "top_ticker_newsletter": "Latest edition of Highlights by CoolPadel on LinkedIn",
         "nav_tenis_padel": "KEYCHAINS",
         "nav_herramientas": "Tools",
         "nav_contact": "Contact",
-        "slide1_title": "Keychains for your <br class=\"hidden sm:inline\"><span class=\"relative inline-block px-1.5 text-neutral-300\">club<svg class=\"absolute inset-0 w-full h-full pointer-events-none\" viewBox=\"0 0 100 100\" preserveAspectRatio=\"none\"><line x1=\"8\" y1=\"92\" x2=\"92\" y2=\"8\" stroke=\"#f2920b\" stroke-width=\"16\" stroke-linecap=\"round\"/><line x1=\"8\" y1=\"8\" x2=\"92\" y2=\"92\" stroke=\"#f2920b\" stroke-width=\"16\" stroke-linecap=\"round\"/></svg></span> <span class=\"text-[#f2920b] ml-2\">community</span>",
+        "slide1_title": "Keychains for your <br class=\"hidden sm:inline\"><span class=\"relative inline-block px-1.5 text-neutral-300\">club<svg class=\"absolute inset-0 w-full h-full pointer-events-none\" viewBox=\"0 0 100 100\" preserveAspectRatio=\"none\"><line x1=\"8\" y1=\"92\" x2=\"92\" y2=\"8\" stroke=\"#f2920b\" stroke-width=\"16\" stroke-linecap=\"round\"/><line x1=\"8\" y1=\"8\" x2=\"92\" y2=\"92\" stroke=\"#f2920b\" stroke-width=\"16\" stroke-linecap=\"round\"/></svg></span><span class=\"sr-only\"> /</span> <span class=\"text-[#f2920b] ml-2\">community</span>",
         "slide1_btn": "Learn more",
         "slide2_title": "Court recording: <br><span class=\"text-black\">highlights & matches</span>",
         "slide2_btn": "Discover",
@@ -256,14 +256,14 @@ TRANSLATIONS = {
         "wa_prefilled_msg": "Hello Javier"
     },
     "fr": {
-        "meta_title": "Porte-clés de Padel Personnalisés 3D pour Clubs & Tournois | CoolPadel Studios",
+        "meta_title": "Porte-clés Padel Personnalisés 3D & Caméras | CoolPadel",
         "meta_desc": "Fabricant de porte-clés de padel en relief 3D personnalisés avec logo pour clubs et tournois. Échantillon réel à 15€ et livraison en France et Europe.",
         "top_ticker": "Téléchargez le rapport exclusif sur l'industrie du padel",
         "top_ticker_newsletter": "Ne manquez pas la dernière édition de la Newsletter CoolPadel",
         "nav_tenis_padel": "TENNIS & PADEL",
         "nav_herramientas": "Outils",
         "nav_contact": "Contact",
-        "slide1_title": "Porte-clés pour votre <br class=\"hidden sm:inline\"><span class=\"relative inline-block px-1.5 text-neutral-300\">club<svg class=\"absolute inset-0 w-full h-full pointer-events-none\" viewBox=\"0 0 100 100\" preserveAspectRatio=\"none\"><line x1=\"8\" y1=\"92\" x2=\"92\" y2=\"8\" stroke=\"#f2920b\" stroke-width=\"16\" stroke-linecap=\"round\"/><line x1=\"8\" y1=\"8\" x2=\"92\" y2=\"92\" stroke=\"#f2920b\" stroke-width=\"16\" stroke-linecap=\"round\"/></svg></span> <span class=\"text-[#f2920b] ml-2\">communauté</span>",
+        "slide1_title": "Porte-clés pour votre <br class=\"hidden sm:inline\"><span class=\"relative inline-block px-1.5 text-neutral-300\">club<svg class=\"absolute inset-0 w-full h-full pointer-events-none\" viewBox=\"0 0 100 100\" preserveAspectRatio=\"none\"><line x1=\"8\" y1=\"92\" x2=\"92\" y2=\"8\" stroke=\"#f2920b\" stroke-width=\"16\" stroke-linecap=\"round\"/><line x1=\"8\" y1=\"8\" x2=\"92\" y2=\"92\" stroke=\"#f2920b\" stroke-width=\"16\" stroke-linecap=\"round\"/></svg></span><span class=\"sr-only\"> /</span> <span class=\"text-[#f2920b] ml-2\">communauté</span>",
         "slide1_btn": "En savoir plus",
         "slide2_title": "Vidéo sur piste : <br><span class=\"text-black\">meilleurs points & matchs</span>",
         "slide2_btn": "Découvrir",
@@ -382,14 +382,14 @@ TRANSLATIONS = {
         "wa_prefilled_msg": "Bonjour Javier"
     },
     "it": {
-        "meta_title": "Portachiavi Padel Personalizzati 3D per Club e Tornei | CoolPadel Studios",
+        "meta_title": "Portachiavi Padel Personalizzati 3D & Telecamere | CoolPadel",
         "meta_desc": "Produttore di portachiavi da padel in rilievo 3D personalizzati con logo per club e tornei. Campione reale a 15€ e spedizione in tutta Italia ed Europa.",
         "top_ticker": "Scarica il report esclusivo sull'industria del padel",
         "top_ticker_newsletter": "Non perdere l'ultima edizione della Newsletter di CoolPadel",
         "nav_tenis_padel": "TENNIS & PADEL",
         "nav_herramientas": "Strumenti",
         "nav_contact": "Contatta",
-        "slide1_title": "Portachiavi per il tuo <br class=\"hidden sm:inline\"><span class=\"relative inline-block px-1.5 text-neutral-300\">club<svg class=\"absolute inset-0 w-full h-full pointer-events-none\" viewBox=\"0 0 100 100\" preserveAspectRatio=\"none\"><line x1=\"8\" y1=\"92\" x2=\"92\" y2=\"8\" stroke=\"#f2920b\" stroke-width=\"16\" stroke-linecap=\"round\"/><line x1=\"8\" y1=\"8\" x2=\"92\" y2=\"92\" stroke=\"#f2920b\" stroke-width=\"16\" stroke-linecap=\"round\"/></svg></span> <span class=\"text-[#f2920b] ml-2\">community</span>",
+        "slide1_title": "Portachiavi per il tuo <br class=\"hidden sm:inline\"><span class=\"relative inline-block px-1.5 text-neutral-300\">club<svg class=\"absolute inset-0 w-full h-full pointer-events-none\" viewBox=\"0 0 100 100\" preserveAspectRatio=\"none\"><line x1=\"8\" y1=\"92\" x2=\"92\" y2=\"8\" stroke=\"#f2920b\" stroke-width=\"16\" stroke-linecap=\"round\"/><line x1=\"8\" y1=\"8\" x2=\"92\" y2=\"92\" stroke=\"#f2920b\" stroke-width=\"16\" stroke-linecap=\"round\"/></svg></span><span class=\"sr-only\"> /</span> <span class=\"text-[#f2920b] ml-2\">community</span>",
         "slide1_btn": "Scopri di più",
         "slide2_title": "Registrazione in campo: <br><span class=\"text-black\">highlights e partite</span>",
         "slide2_btn": "Scopri",

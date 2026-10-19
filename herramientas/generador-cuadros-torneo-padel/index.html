@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Generador de Cuadros de Torneo de Pádel Gratis (8, 16 y 32 parejas) | CoolPadel</title>
+  <title>Generador de Cuadros de Torneo de Pádel Gratis | CoolPadel</title>
   <meta name="description" content="Generador gratuito de cuadros de torneo de pádel por eliminatoria directa para 8, 16 o 32 parejas. Incluye cuadro de consolación, avance automático de ganadores, exportación a WhatsApp e impresión en PDF.">
   <link rel="canonical" href="https://coolpadelstudios.com/herramientas/generador-cuadros-torneo-padel/">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
@@ -246,12 +246,16 @@
             </button>
           </div>
 
-          <div class="flex items-center gap-2">
-            <button type="button" id="btn-copiar-cuadro-wa" onclick="copiarCuadroWhatsApp()" class="hidden inline-flex items-center gap-2 px-4 py-3 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-heading font-black text-xs sm:text-sm uppercase tracking-wider transition cursor-pointer shadow-md">
-              <i data-lucide="copy" class="w-4 h-4"></i>
-              <span id="txt-btn-wa">Copiar a WhatsApp</span>
+          <div class="flex flex-wrap items-center gap-2">
+            <button type="button" id="btn-enviar-cuadro-wa" onclick="enviarCuadroDirectoWhatsApp()" class="inline-flex items-center gap-2 px-4 py-3 rounded-xl bg-[#25D366] hover:bg-[#20ba59] text-slate-950 font-heading font-black text-xs sm:text-sm uppercase tracking-wider transition cursor-pointer shadow-md">
+              <i data-lucide="send" class="w-4 h-4"></i>
+              <span>Enviar por WhatsApp</span>
             </button>
-            <button type="button" id="btn-imprimir" onclick="window.print()" class="hidden inline-flex items-center gap-2 px-4 py-3 rounded-xl bg-slate-700 hover:bg-white hover:text-slate-950 text-white font-heading font-black text-xs sm:text-sm uppercase tracking-wider transition cursor-pointer">
+            <button type="button" id="btn-copiar-cuadro-wa" onclick="copiarCuadroWhatsApp()" class="inline-flex items-center gap-2 px-4 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-700 text-white font-heading font-bold text-xs sm:text-sm uppercase tracking-wider transition cursor-pointer">
+              <i data-lucide="copy" class="w-4 h-4 text-[#f2920b]"></i>
+              <span id="txt-btn-wa">Copiar Texto</span>
+            </button>
+            <button type="button" id="btn-imprimir" onclick="window.print()" class="inline-flex items-center gap-2 px-4 py-3 rounded-xl bg-slate-800 hover:bg-white hover:text-slate-950 border border-slate-700 text-white font-heading font-bold text-xs sm:text-sm uppercase tracking-wider transition cursor-pointer">
               <i data-lucide="printer" class="w-4 h-4"></i>
               <span>Imprimir / PDF</span>
             </button>
@@ -280,34 +284,78 @@
         </div>
       </div>
 
-      <!-- ZONA DE BRACKETS VISUALES (INTERACTIVO) -->
+      <!-- ZONA DE BRACKETS VISUALES (INTERACTIVO + PRE-RENDER ESTÁTICO SEO) -->
       <div id="zona-cuadro-eliminatoria" class="space-y-8">
-        <!-- RENDERIZADO DINÁMICO POR JS -->
+        <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 space-y-3">
+          <h2 class="text-lg font-black font-heading text-white">Cuadro de Eliminatoria Directa (Cuartos de Final, Semifinales y Final)</h2>
+          <p class="text-xs text-slate-400">Haz clic sobre el nombre de cualquier pareja para avanzarla de ronda o introduce el tanteo por sets (ej. 6-4 / 6-3).</p>
+        </div>
       </div>
 
       <!-- GUÍA EXPLICATIVA SEO AL PIE -->
-      <section class="mt-16 pt-12 border-t border-slate-800 space-y-6 text-slate-300 text-xs sm:text-sm leading-relaxed no-print">
-        <h2 class="text-xl sm:text-2xl font-black font-heading text-white">¿Cómo organizar un torneo de pádel por eliminatoria directa con éxito?</h2>
-        <p>
-          El formato de cuadro por eliminatoria directa es el estándar en torneos federados FEP y FIP, así como en campeonatos sociales de club. Para maximizar la satisfacción de los jugadores y asegurar que nadie se marche tras disputar un único partido, se recomienda encarecidamente habilitar el <strong>cuadro de consolación</strong>.
-        </p>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4">
-          <div class="bg-slate-900/60 p-4 rounded-2xl border border-slate-800 space-y-2">
-            <h3 class="font-bold text-white text-sm">1. Asignación de Cabezas de Serie</h3>
+      <section class="mt-16 pt-12 border-t border-slate-800 space-y-8 text-slate-300 text-xs sm:text-sm leading-relaxed no-print">
+        <div class="space-y-2">
+          <span class="text-xs font-black uppercase tracking-widest text-[#f2920b]">Guía Técnica de Competición</span>
+          <h2 class="text-2xl sm:text-3xl font-black font-heading text-white">¿Cómo organizar un cuadro de torneo de pádel por eliminatoria directa con éxito?</h2>
+          <p class="text-slate-400">
+            El formato de cuadro por eliminatoria directa (<em>brackets</em>) es el estándar oficial en torneos federados FEP y FIP, ligas corporativas y campeonatos de fin de semana. Para maximizar la satisfacción de los jugadores inscritos y garantizar un mínimo de 2 partidos por pareja, habilita siempre el <strong>cuadro de consolación</strong> para los derrotados en primera ronda.
+          </p>
+        </div>
+
+        <div class="overflow-x-auto border border-slate-800 rounded-2xl">
+          <table class="w-full text-left text-xs sm:text-sm">
+            <thead class="bg-slate-900 text-white font-heading uppercase text-xs border-b border-slate-800">
+              <tr>
+                <th class="p-3.5">Tamaño del Cuadro</th>
+                <th class="p-3.5">Ronda Inicial</th>
+                <th class="p-3.5">Partidos Totales (Principal)</th>
+                <th class="p-3.5">Partidos con Consolación</th>
+                <th class="p-3.5">Horas de Pista Necesarias</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-800/80 bg-slate-900/40">
+              <tr>
+                <td class="p-3.5 font-bold text-white">8 Parejas (16 jugadores)</td>
+                <td class="p-3.5 text-[#76d3f6] font-bold">Cuartos de Final</td>
+                <td class="p-3.5">7 partidos</td>
+                <td class="p-3.5">10 partidos</td>
+                <td class="p-3.5">~12 a 15 horas de pista</td>
+              </tr>
+              <tr>
+                <td class="p-3.5 font-bold text-white">16 Parejas (32 jugadores)</td>
+                <td class="p-3.5 text-[#76d3f6] font-bold">Octavos de Final</td>
+                <td class="p-3.5">15 partidos</td>
+                <td class="p-3.5">22 partidos</td>
+                <td class="p-3.5">~28 a 33 horas de pista</td>
+              </tr>
+              <tr>
+                <td class="p-3.5 font-bold text-white">32 Parejas (64 jugadores)</td>
+                <td class="p-3.5 text-[#76d3f6] font-bold">Dieciseisavos de Final</td>
+                <td class="p-3.5">31 partidos</td>
+                <td class="p-3.5">46 partidos</td>
+                <td class="p-3.5">~60 a 68 horas de pista</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-2">
+          <div class="bg-slate-900/60 p-5 rounded-2xl border border-slate-800 space-y-2">
+            <h3 class="font-bold text-white text-sm">1. Asignación de Cabezas de Serie y Byes</h3>
             <p class="text-slate-400 text-xs">
-              Separa a las mejores parejas (pareja 1 y pareja 2) en extremos opuestos del cuadro para evitar que se enfrenten antes de la final.
+              Coloca a la pareja Cabeza de Serie #1 en la parte superior del cuadro (Partido 1) y a la Cabeza de Serie #2 en la parte inferior para que solo puedan cruzarse en la gran final. Si tienes un número impar de parejas (ej. 12 parejas en un cuadro de 16), asigna 4 <em>BYEs</em> (exentos en primera ronda) a los 4 primeros cabezas de serie.
             </p>
           </div>
-          <div class="bg-slate-900/60 p-4 rounded-2xl border border-slate-800 space-y-2">
-            <h3 class="font-bold text-white text-sm">2. Gestión de Tiempos y Pistas</h3>
+          <div class="bg-slate-900/60 p-5 rounded-2xl border border-slate-800 space-y-2">
+            <h3 class="font-bold text-white text-sm">2. Gestión de Tiempos y Súper Tie-Break</h3>
             <p class="text-slate-400 text-xs">
-              Calcula 1 hora y 15 minutos por partido en partidos al mejor de 3 sets con súper tie-break a 10 puntos en el tercer set.
+              Para evitar retrasos acumulados en las pistas de tu club, programa turnos de 75 minutos en rondas previas aplicando <strong>Punto de Oro</strong> en el 40-40 y un <strong>Súper Tie-Break a 10 puntos</strong> en lugar de tercer set completo hasta semifinales.
             </p>
           </div>
-          <div class="bg-slate-900/60 p-4 rounded-2xl border border-slate-800 space-y-2">
-            <h3 class="font-bold text-white text-sm">3. Cuadro de Consolación</h3>
+          <div class="bg-slate-900/60 p-5 rounded-2xl border border-slate-800 space-y-2">
+            <h3 class="font-bold text-white text-sm">3. Retransmisión en Directo y Welcome Pack</h3>
             <p class="text-slate-400 text-xs">
-              Los perdedores de primera ronda disputan un cuadro paralelo, garantizando un mínimo de 2 partidos por participante.
+              Con las cámaras fijas <a href="../../camaras/" class="text-[#76d3f6] underline font-bold">Save my Play</a> puedes emitir las semifinales y finales en directo por el canal de YouTube de tu club y entregar <a href="../../welcome-packs-torneos-padel/" class="text-[#f2920b] underline font-bold">llaveros 3D personalizados</a> a todos los inscritos.
             </p>
           </div>
         </div>
@@ -335,6 +383,7 @@
           <ul class="space-y-2 text-white/80 font-normal">
             <li><a href="../generador-cuadros-torneo-padel/" class="hover:text-white underline font-bold">Generador de Cuadros de Torneo</a></li>
             <li><a href="../generador-americana-padel/" class="hover:text-white underline">Generador de Americana</a></li>
+            <li><a href="../calculadora-coste-pistas-padel/" class="hover:text-white underline">Calculadora Coste Pistas</a></li>
             <li><a href="../calculadora-roi-camaras-padel/" class="hover:text-white underline">Calculadora ROI Cámaras</a></li>
             <li><a href="../" class="hover:text-white underline">Hub de Herramientas</a></li>
           </ul>
@@ -360,6 +409,8 @@
           <ul class="space-y-2 text-white/80 font-normal">
             <li><a href="../../franquicias-padel/" class="hover:text-white underline">167 Franquicias de Pádel</a></li>
             <li><a href="../../blog/barometro-camaras-padel-2026/" class="hover:text-white underline">Barómetro del Pádel 2026</a></li>
+            <li><a href="../../blog/como-organizar-torneo-padel-americana-reglas-cuadros/" class="hover:text-white underline">Guía Torneo Americana</a></li>
+            <li><a href="../../blog/cuanto-cuesta-montar-pista-padel-presupuesto-rentabilidad/" class="hover:text-white underline">Coste Pista Pádel 2026</a></li>
             <li><a href="../../blog/" class="hover:text-white underline">Blog Oficial</a></li>
           </ul>
         </div>
@@ -592,8 +643,8 @@
       document.getElementById('btn-imprimir').classList.add('hidden');
     }
 
-    function copiarCuadroWhatsApp() {
-      if (!bracketData) return;
+    function construirTextoBracketWA() {
+      if (!bracketData) generarCuadroEliminatoria();
       let msg = `🏆 *${bracketData.nombre}* 🏆\n_Cuadro Oficial de Eliminatorias_\n\n`;
 
       bracketData.rondas.forEach((ronda, rIdx) => {
@@ -606,15 +657,23 @@
         msg += `\n`;
       });
 
-      msg += `🎾 *Organizado con el Generador de Cuadros de CoolPadel Studios:*\nhttps://coolpadelstudios.com/herramientas/generador-cuadros-torneo-padel/\n`;
-      msg += `🎥 *¿Quieres grabar los partidos de este torneo con cámaras Save my Play?*\nhttps://coolpadelstudios.com/camaras/`;
+      msg += `🎾 *Organizado con el Generador de Cuadros de CoolPadel Studios:*\nhttps://coolpadelstudios.com/herramientas/generador-cuadros-torneo-padel/`;
+      return msg;
+    }
 
+    function copiarCuadroWhatsApp() {
+      const msg = construirTextoBracketWA();
       navigator.clipboard.writeText(msg).then(() => {
         const txt = document.getElementById('txt-btn-wa');
         const prev = txt.innerText;
-        txt.innerText = "¡Copiado al Portapapeles!";
+        txt.innerText = "¡Copiado!";
         setTimeout(() => txt.innerText = prev, 2500);
       });
+    }
+
+    function enviarCuadroDirectoWhatsApp() {
+      const msg = construirTextoBracketWA();
+      window.open('https://api.whatsapp.com/send?text=' + encodeURIComponent(msg), '_blank', 'noopener,noreferrer');
     }
 
     // Inicializar con 8 parejas al cargar
@@ -623,5 +682,6 @@
       generarCuadroEliminatoria();
     });
   </script>
+  <script src="/assets/js/cp-analytics.js" defer></script>
 </body>
 </html>

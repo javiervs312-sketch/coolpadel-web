@@ -410,6 +410,32 @@
   function initTracking() {
     setupSectionObserver();
 
+    // Trigger de activación Admin por triple clic en copyright
+    try {
+      let adminClickCount = 0;
+      let adminClickTimer = null;
+      const adminTrigger = document.getElementById('admin-toggle-trigger');
+      if (adminTrigger) {
+        adminTrigger.addEventListener('click', () => {
+          adminClickCount++;
+          clearTimeout(adminClickTimer);
+          adminClickTimer = setTimeout(() => { adminClickCount = 0; }, 700);
+          if (adminClickCount >= 3) {
+            adminClickCount = 0;
+            const current = localStorage.getItem('cp_is_admin') === 'true';
+            if (current) {
+              localStorage.removeItem('cp_is_admin');
+              alert('👤 Modo Admin DESACTIVADO. Ahora se registrará como visitante normal.');
+            } else {
+              localStorage.setItem('cp_is_admin', 'true');
+              alert('👤 Modo Admin ACTIVADO. Tus visitas aparecerán marcadas como "Javier (Admin)".');
+            }
+            window.location.reload();
+          }
+        });
+      }
+    } catch (e) {}
+
     fetchGeoLocation().then(() => {
       sendToWebhook('visita_iniciada', {
         evento_desc: '🟢 Lectura Iniciada'
