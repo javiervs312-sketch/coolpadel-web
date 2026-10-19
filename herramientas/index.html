@@ -61,7 +61,7 @@
         "@id": "https://coolpadelstudios.com/herramientas/#page",
         "url": "https://coolpadelstudios.com/herramientas/",
         "name": "Herramientas Gratuitas para Clubes y Torneos de Pádel",
-        "description": "Suite de utilidades interactivas gratuitas para gestión y optimización de clubes de pádel: calculadora de rentabilidad de cámaras en pista y generador de americanas.",
+        "description": "Suite de utilidades interactivas gratuitas para gestión y optimización de clubes de pádel: generador de cuadros de torneo eliminatoria, generador de torneos de americana para WhatsApp, calculadora de coste de construcción de pistas y calculadora de ROI de cámaras en pista.",
         "publisher": {
           "@type": "Organization",
           "name": "CoolPadel Studios",
@@ -169,9 +169,9 @@
               <i data-lucide="trophy" class="w-6 h-6 stroke-[2.5]"></i>
             </div>
             <div>
-              <span class="text-xs font-black uppercase tracking-wider text-[#f2920b]">Torneos & Eventos Sociales</span>
+              <span class="text-xs font-black uppercase tracking-wider text-[#f2920b]">Torneos Sociales & Pozos</span>
               <h2 class="text-xl sm:text-2xl font-black font-heading text-white mt-1 group-hover:text-[#f2920b] transition">
-                Generador Gratuito de Cuadros de Americana
+                Generador Gratuito de Torneos de Americana
               </h2>
             </div>
             <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
@@ -185,7 +185,65 @@
           </div>
           <div class="pt-6 border-t border-slate-700/60 mt-6">
             <a href="./generador-americana-padel/" class="w-full inline-flex items-center justify-center gap-2 py-3 rounded-2xl bg-[#f2920b] hover:bg-white text-slate-950 font-heading font-black text-xs sm:text-sm uppercase tracking-wider transition">
-              <span>Crear Cuadro de Torneo</span>
+              <span>Crear Cuadro Americana</span>
+              <i data-lucide="arrow-right" class="w-4 h-4 stroke-[3]"></i>
+            </a>
+          </div>
+        </article>
+
+        <!-- HERRAMIENTA 3: GENERADOR DE CUADROS DE TORNEO (ELIMINATORIA) -->
+        <article class="bg-slate-800/80 border border-slate-700 rounded-3xl p-6 sm:p-8 flex flex-col justify-between hover:border-amber-400 transition duration-300 group shadow-xl">
+          <div class="space-y-4">
+            <div class="w-12 h-12 rounded-2xl bg-amber-500/10 border border-amber-400/20 text-[#f2920b] flex items-center justify-center">
+              <i data-lucide="git-merge" class="w-6 h-6 stroke-[2.5]"></i>
+            </div>
+            <div>
+              <span class="text-xs font-black uppercase tracking-wider text-[#f2920b]">Torneos Oficiales & Eliminatorias</span>
+              <h2 class="text-xl sm:text-2xl font-black font-heading text-white mt-1 group-hover:text-amber-400 transition">
+                Generador de Cuadros de Torneo (Brackets)
+              </h2>
+            </div>
+            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+              Genera cuadros de competición por eliminatoria directa para 8, 16 o 32 parejas. Asigna cabezas de serie, anota resultados en vivo, avanza ganadores automáticamente, incluye cuadro de consolación e imprime en PDF.
+            </p>
+            <ul class="text-xs text-slate-400 space-y-1.5 pt-2">
+              <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-400"></i> Cuadro para 8, 16 o 32 parejas con cuadro de consolación</li>
+              <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-400"></i> Avance interactivo de ganadores según marcador</li>
+              <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-400"></i> Formato póster imprimible en PDF y exportación a WhatsApp</li>
+            </ul>
+          </div>
+          <div class="pt-6 border-t border-slate-700/60 mt-6">
+            <a href="./generador-cuadros-torneo-padel/" class="w-full inline-flex items-center justify-center gap-2 py-3 rounded-2xl bg-gradient-to-r from-amber-500 to-[#f2920b] hover:from-white hover:to-white text-slate-950 font-heading font-black text-xs sm:text-sm uppercase tracking-wider transition">
+              <span>Crear Cuadro Eliminatoria</span>
+              <i data-lucide="arrow-right" class="w-4 h-4 stroke-[3]"></i>
+            </a>
+          </div>
+        </article>
+
+        <!-- HERRAMIENTA 4: CALCULADORA DE COSTE Y MONTAJE DE PISTAS -->
+        <article class="bg-slate-800/80 border border-slate-700 rounded-3xl p-6 sm:p-8 flex flex-col justify-between hover:border-emerald-400 transition duration-300 group shadow-xl">
+          <div class="space-y-4">
+            <div class="w-12 h-12 rounded-2xl bg-emerald-500/10 border border-emerald-400/20 text-emerald-400 flex items-center justify-center">
+              <i data-lucide="trending-up" class="w-6 h-6 stroke-[2.5]"></i>
+            </div>
+            <div>
+              <span class="text-xs font-black uppercase tracking-wider text-emerald-400">Inversión & Montaje de Pistas</span>
+              <h2 class="text-xl sm:text-2xl font-black font-heading text-white mt-1 group-hover:text-emerald-400 transition">
+                Calculadora de Coste y Rentabilidad de Pistas
+              </h2>
+            </div>
+            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+              Simulador financiero para proyectar cuánto cuesta construir pistas de pádel (cristal panorámico, césped, LED, solera e indoor) y calcular ingresos mensuales, beneficio neto y meses de amortización.
+            </p>
+            <ul class="text-xs text-slate-400 space-y-1.5 pt-2">
+              <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-400"></i> Simulación configurable de 1 a 16 pistas llave en mano</li>
+              <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-400"></i> Cálculo de ocupación, precio hora y gastos fijos de nave</li>
+              <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-400"></i> Proyección de payback en meses y exportación por WhatsApp</li>
+            </ul>
+          </div>
+          <div class="pt-6 border-t border-slate-700/60 mt-6">
+            <a href="./calculadora-coste-pistas-padel/" class="w-full inline-flex items-center justify-center gap-2 py-3 rounded-2xl bg-emerald-400 hover:bg-white text-slate-950 font-heading font-black text-xs sm:text-sm uppercase tracking-wider transition">
+              <span>Simular Coste y ROI Pistas</span>
               <i data-lucide="arrow-right" class="w-4 h-4 stroke-[3]"></i>
             </a>
           </div>
