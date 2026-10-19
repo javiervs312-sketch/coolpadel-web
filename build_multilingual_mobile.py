@@ -100,7 +100,11 @@ def get_base_html(active_lang="es", is_subfolder=False):
             "map_h3": "Clubs y Marcas con Llaveros CoolPadel",
             "map_p": "Selecciona una zona o haz clic en cualquier marcador para explorar nuestros clubs oficiales",
             "sr_clubs_h4": "Clubes, academias y federaciones clientes oficiales de CoolPadel Studios:",
-            "map_zoom_hint": "Usa Ctrl + desplazamiento para hacer zoom en el mapa"
+            "map_zoom_hint": "Usa Ctrl + desplazamiento para hacer zoom en el mapa",
+            "reviews_badge_text": "Encuestas Oficiales de Clubs",
+            "reviews_heading": "Opiniones de Clubs y Federaciones",
+            "reviews_subheading": "Valoración media de 4.9/5 basada en encuestas reales de satisfacción de directores y clubes en Europa",
+            "reviews_verified": "Club Verificado"
         },
         "en": {
             "og_img_alt": "Custom 3D rubber padel keychains for clubs by CoolPadel Studios",
@@ -136,7 +140,11 @@ def get_base_html(active_lang="es", is_subfolder=False):
             "map_h3": "Clubs & Brands with CoolPadel Keychains",
             "map_p": "Select a region or click any marker to explore our official client clubs",
             "sr_clubs_h4": "Official clubs, academies and federations trusting CoolPadel Studios:",
-            "map_zoom_hint": "Use Ctrl + scroll to zoom the map"
+            "map_zoom_hint": "Use Ctrl + scroll to zoom the map",
+            "reviews_badge_text": "Official Club Surveys",
+            "reviews_heading": "Reviews from Clubs & Federations",
+            "reviews_subheading": "4.9/5 average satisfaction based on verified surveys from club directors across Europe",
+            "reviews_verified": "Verified Club"
         },
         "fr": {
             "og_img_alt": "Porte-clés de padel personnalisés en relief 3D CoolPadel Studios",
@@ -172,7 +180,11 @@ def get_base_html(active_lang="es", is_subfolder=False):
             "map_h3": "Clubs & Marques avec Porte-clés CoolPadel",
             "map_p": "Sélectionnez une zone ou cliquez sur un marqueur pour découvrir nos clubs officiels",
             "sr_clubs_h4": "Clubs, académies et fédérations clientes officielles de CoolPadel Studios :",
-            "map_zoom_hint": "Utilisez Ctrl + défilement pour zoomer sur la carte"
+            "map_zoom_hint": "Utilisez Ctrl + défilement pour zoomer sur la carte",
+            "reviews_badge_text": "Enquêtes Officielles des Clubs",
+            "reviews_heading": "Avis des Clubs & Fédérations",
+            "reviews_subheading": "Note moyenne de 4.9/5 basée sur les avis réels des directeurs de clubs en Europe",
+            "reviews_verified": "Club Vérifié"
         },
         "it": {
             "og_img_alt": "Portachiavi da padel personalizzati in rilievo 3D CoolPadel Studios",
@@ -208,7 +220,11 @@ def get_base_html(active_lang="es", is_subfolder=False):
             "map_h3": "Club e Brand con Portachiavi CoolPadel",
             "map_p": "Seleziona un'area o clicca su qualsiasi indicatore per esplorare i nostri club ufficiali",
             "sr_clubs_h4": "Club, accademie e federazioni clienti ufficiali di CoolPadel Studios:",
-            "map_zoom_hint": "Usa Ctrl + scorrimento per ingrandire la mappa"
+            "map_zoom_hint": "Usa Ctrl + scorrimento per ingrandire la mappa",
+            "reviews_badge_text": "Sondaggi Ufficiali dei Club",
+            "reviews_heading": "Recensioni di Club & Federazioni",
+            "reviews_subheading": "Valutazione media di 4.9/5 basata su sondaggi reali dei direttori di club in Europa",
+            "reviews_verified": "Club Verificato"
         }
     }[active_lang]
     seo = seo_i18n
@@ -409,6 +425,85 @@ def get_base_html(active_lang="es", is_subfolder=False):
         }},
         "sku": "CP-LLAVERO-PADEL-3D",
         "mpn": "CP3D-2026",
+        "aggregateRating": {{
+          "@type": "AggregateRating",
+          "ratingValue": "4.9",
+          "reviewCount": "9",
+          "bestRating": "5",
+          "worstRating": "1"
+        }},
+        "review": [
+          {{
+            "@type": "Review",
+            "reviewRating": {{
+              "@type": "Rating",
+              "ratingValue": "5",
+              "bestRating": "5"
+            }},
+            "author": {{
+              "@type": "Organization",
+              "name": "Austrian Padel Union"
+            }},
+            "reviewBody": "Thanks for your effort in getting better and your good communication and product! We use them as gifts at tournaments and for our member clubs.",
+            "datePublished": "2025-07-06"
+          }},
+          {{
+            "@type": "Review",
+            "reviewRating": {{
+              "@type": "Rating",
+              "ratingValue": "5",
+              "bestRating": "5"
+            }},
+            "author": {{
+              "@type": "SportsClub",
+              "name": "ALM Évreux Tennis Padel"
+            }},
+            "reviewBody": "Très joli produit, je recommande. La communication et la réception d'un échantillon préalable ont été parfaites pour nos adhérents et tournois.",
+            "datePublished": "2025-04-11"
+          }},
+          {{
+            "@type": "Review",
+            "reviewRating": {{
+              "@type": "Rating",
+              "ratingValue": "5",
+              "bestRating": "5"
+            }},
+            "author": {{
+              "@type": "SportsClub",
+              "name": "Pádel Club Cabrera d'Anoia"
+            }},
+            "reviewBody": "Muy buena comunicación y recibir la muestra previa física nos dio total seguridad. Un producto excelente para torneos y socios del club.",
+            "datePublished": "2025-01-31"
+          }},
+          {{
+            "@type": "Review",
+            "reviewRating": {{
+              "@type": "Rating",
+              "ratingValue": "5",
+              "bestRating": "5"
+            }},
+            "author": {{
+              "@type": "SportsClub",
+              "name": "Tenis Club El Soto"
+            }},
+            "reviewBody": "Total libertad en el diseño y poder ver el diseño previo a ordenador antes de producir. Los socios y jugadores quedaron muy satisfechos.",
+            "datePublished": "2024-12-01"
+          }},
+          {{
+            "@type": "Review",
+            "reviewRating": {{
+              "@type": "Rating",
+              "ratingValue": "5",
+              "bestRating": "5"
+            }},
+            "author": {{
+              "@type": "SportsClub",
+              "name": "Club de Pádel Higueruela"
+            }},
+            "reviewBody": "Excelente comunicación y el hecho de recibir la muestra previa física es insuperable. Un gran regalo para los socios.",
+            "datePublished": "2024-11-10"
+          }}
+        ],
         "offers": {{
           "@type": "AggregateOffer",
           "priceCurrency": "EUR",
@@ -541,15 +636,15 @@ def get_base_html(active_lang="es", is_subfolder=False):
             {{
               "@type": "Offer",
               "itemOffered": {{
-                "@type": "Product",
-                "name": "Llaveros de Pádel Personalizados de Goma 3D para Clubs",
+                "@type": "Service",
+                "name": "Fabricación de Llaveros de Pádel Personalizados 3D para Clubs",
                 "url": "https://coolpadelstudios.com/llaveros-padel-personalizados/"
               }}
             }},
             {{
               "@type": "Offer",
               "itemOffered": {{
-                "@type": "Product",
+                "@type": "Service",
                 "name": "Welcome Packs y Regalos Oficiales para Torneos de Pádel",
                 "url": "https://coolpadelstudios.com/welcome-packs-torneos-padel/"
               }}
@@ -1149,22 +1244,11 @@ def get_base_html(active_lang="es", is_subfolder=False):
   </section>
 
   <!-- 5. SECCIÓN DETALLADA: LLAVEROS PARA CLUBS (FONDO CELESTE #3478a6 CON TEXTURA CANVA) -->
-  <section id="llaveros" itemscope itemtype="https://schema.org/Product" class="py-6 sm:py-8 lg:py-10 bg-[#3478a6] bg-textured-blue relative z-20 border-b border-sky-700/40 text-white overflow-hidden">
-    <!-- GEO & Generative AI Semantic Microdata Block (Invisible visually, accessible to Screen Readers and AI Crawlers) -->
+  <section id="llaveros" class="py-6 sm:py-8 lg:py-10 bg-[#3478a6] bg-textured-blue relative z-20 border-b border-sky-700/40 text-white overflow-hidden">
+    <!-- GEO & Generative AI Semantic Block (Invisible visually, accessible to Screen Readers and AI Crawlers) -->
     <div class="sr-only">
-      <h2 itemprop="name">{seo['sr_h2']}</h2>
-      <p itemprop="description">{seo['sr_p']}</p>
-      <span itemprop="brand" itemscope itemtype="https://schema.org/Brand"><meta itemprop="name" content="CoolPadel Studios"></span>
-      <meta itemprop="category" content="Sporting Goods &gt; Racquet Sports &gt; Padel &gt; Accessories &gt; Keychains">
-      <meta itemprop="material" content="{seo['prod_material']}">
-      <div itemprop="offers" itemscope itemtype="https://schema.org/AggregateOffer">
-        <meta itemprop="priceCurrency" content="EUR">
-        <meta itemprop="lowPrice" content="1.50">
-        <meta itemprop="highPrice" content="3.00">
-        <meta itemprop="price" content="1.50">
-        <meta itemprop="offerCount" content="4">
-        <meta itemprop="availability" content="https://schema.org/InStock">
-      </div>
+      <h2>{seo['sr_h2']}</h2>
+      <p>{seo['sr_p']}</p>
     </div>
     <div class="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
       
@@ -1413,6 +1497,221 @@ def get_base_html(active_lang="es", is_subfolder=False):
     </div>
   </section>
 
+  <!-- 7. SECCIÓN TESTIMONIOS Y VALORACIONES REALES DE CLUBES (SOCIAL PROOF & RESEÑAS VERIFICADAS) -->
+  <section id="testimonios" class="py-8 sm:py-12 bg-white relative border-b border-slate-200">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      
+      <!-- CABECERA DE TESTIMONIOS CON BADGE DE NOTA MEDIA -->
+      <div class="text-center max-w-2xl mx-auto mb-8 sm:mb-10 space-y-2">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-50 border border-amber-200/90 text-amber-950 text-xs font-black shadow-2xs">
+          <div class="flex text-[#f2920b] tracking-widest text-xs">
+            ★★★★★
+          </div>
+          <span class="font-bold">4.9 / 5</span>
+          <span class="text-slate-400">·</span>
+          <span class="text-slate-600 font-medium" data-i18n="reviews_badge_text">{seo['reviews_badge_text']}</span>
+        </div>
+        <h2 data-i18n="reviews_heading" class="text-xl sm:text-3xl font-black font-heading text-slate-950 uppercase tracking-tight">
+          {seo['reviews_heading']}
+        </h2>
+        <p data-i18n="reviews_subheading" class="text-xs sm:text-sm text-slate-600 font-medium">
+          {seo['reviews_subheading']}
+        </p>
+      </div>
+
+      <!-- GRID DE 6 RESEÑAS DE CLUBES VERIFICADOS -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+        
+        <!-- CARD 1: AUSTRIAN PADEL UNION (AUSTRIA) -->
+        <div class="bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/90 shadow-2xs hover:shadow-md transition-all duration-300 flex flex-col justify-between group hover:-translate-y-0.5">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between gap-3 pb-3 border-b border-slate-100">
+              <div class="flex items-center gap-3">
+                <div class="w-12 h-12 rounded-xl bg-slate-50 border border-slate-100 p-1 flex items-center justify-center shrink-0">
+                  <img src="{asset_prefix}assets/images/Clubs/client-18.png" alt="Logo Austrian Padel Union" width="44" height="44" class="max-h-10 max-w-10 w-auto h-auto object-contain" loading="lazy">
+                </div>
+                <div>
+                  <h4 class="font-heading font-black text-sm text-slate-950 leading-tight">Austrian Padel Union</h4>
+                  <p class="text-[11px] text-slate-500 font-bold flex items-center gap-1">
+                    <span>🇦🇹</span> Austria · Federación Oficial
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="flex items-center gap-1 text-[#f2920b] text-xs">
+              ★★★★★ <span class="text-[11px] font-bold text-slate-700 ml-1">5.0 / 5</span>
+            </div>
+            <p class="text-xs sm:text-[13px] text-slate-700 leading-relaxed italic">
+              "Thanks for your effort in getting better and your good communication and product! We use them as gifts at tournaments and for our member clubs."
+            </p>
+          </div>
+          <div class="pt-3 mt-3 border-t border-slate-100 flex items-center justify-between text-[10px] font-bold text-slate-500">
+            <span class="inline-flex items-center gap-1 text-emerald-600 font-bold">
+              <i data-lucide="check-circle" class="w-3 h-3"></i> {seo['reviews_verified']}
+            </span>
+            <span>Torneos y Clubes</span>
+          </div>
+        </div>
+
+        <!-- CARD 2: ALM ÉVREUX TENNIS PADEL (FRANCIA) -->
+        <div class="bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/90 shadow-2xs hover:shadow-md transition-all duration-300 flex flex-col justify-between group hover:-translate-y-0.5">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between gap-3 pb-3 border-b border-slate-100">
+              <div class="flex items-center gap-3">
+                <div class="w-12 h-12 rounded-xl bg-slate-50 border border-slate-100 p-1 flex items-center justify-center shrink-0">
+                  <img src="{asset_prefix}assets/images/Clubs/client-14.png" alt="Logo ALM Évreux Tennis Padel" width="44" height="44" class="max-h-10 max-w-10 w-auto h-auto object-contain" loading="lazy">
+                </div>
+                <div>
+                  <h4 class="font-heading font-black text-sm text-slate-950 leading-tight">ALM Évreux Padel</h4>
+                  <p class="text-[11px] text-slate-500 font-bold flex items-center gap-1">
+                    <span>🇫🇷</span> Évreux, Francia · Club Oficial
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="flex items-center gap-1 text-[#f2920b] text-xs">
+              ★★★★★ <span class="text-[11px] font-bold text-slate-700 ml-1">5.0 / 5</span>
+            </div>
+            <p class="text-xs sm:text-[13px] text-slate-700 leading-relaxed italic">
+              "Très joli produit, je recommande. La communication et recevoir un échantillon préalable ont été parfaits pour nos adhérents et tournois."
+            </p>
+          </div>
+          <div class="pt-3 mt-3 border-t border-slate-100 flex items-center justify-between text-[10px] font-bold text-slate-500">
+            <span class="inline-flex items-center gap-1 text-emerald-600 font-bold">
+              <i data-lucide="check-circle" class="w-3 h-3"></i> {seo['reviews_verified']}
+            </span>
+            <span>Adhérents & Tournois</span>
+          </div>
+        </div>
+
+        <!-- CARD 3: PÁDEL CLUB CABRERA D'ANOIA (ESPAÑA) -->
+        <div class="bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/90 shadow-2xs hover:shadow-md transition-all duration-300 flex flex-col justify-between group hover:-translate-y-0.5">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between gap-3 pb-3 border-b border-slate-100">
+              <div class="flex items-center gap-3">
+                <div class="w-12 h-12 rounded-xl bg-slate-50 border border-slate-100 p-1 flex items-center justify-center shrink-0">
+                  <img src="{asset_prefix}assets/images/Clubs/client-13.png" alt="Logo Pádel Club Cabrera d'Anoia" width="44" height="44" class="max-h-10 max-w-10 w-auto h-auto object-contain" loading="lazy">
+                </div>
+                <div>
+                  <h4 class="font-heading font-black text-sm text-slate-950 leading-tight">Pádel Club Cabrera</h4>
+                  <p class="text-[11px] text-slate-500 font-bold flex items-center gap-1">
+                    <span>🇪🇸</span> Barcelona, España · Club Oficial
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="flex items-center gap-1 text-[#f2920b] text-xs">
+              ★★★★★ <span class="text-[11px] font-bold text-slate-700 ml-1">5.0 / 5</span>
+            </div>
+            <p class="text-xs sm:text-[13px] text-slate-700 leading-relaxed italic">
+              "Muy buena comunicación y recibir la muestra física previa nos dio total seguridad. Un producto excelente para torneos y socios del club."
+            </p>
+          </div>
+          <div class="pt-3 mt-3 border-t border-slate-100 flex items-center justify-between text-[10px] font-bold text-slate-500">
+            <span class="inline-flex items-center gap-1 text-emerald-600 font-bold">
+              <i data-lucide="check-circle" class="w-3 h-3"></i> {seo['reviews_verified']}
+            </span>
+            <span>Socios y Torneos</span>
+          </div>
+        </div>
+
+        <!-- CARD 4: TENIS CLUB EL SOTO (ESPAÑA) -->
+        <div class="bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/90 shadow-2xs hover:shadow-md transition-all duration-300 flex flex-col justify-between group hover:-translate-y-0.5">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between gap-3 pb-3 border-b border-slate-100">
+              <div class="flex items-center gap-3">
+                <div class="w-12 h-12 rounded-xl bg-slate-50 border border-slate-100 p-1 flex items-center justify-center shrink-0">
+                  <img src="{asset_prefix}assets/images/Clubs/client-04.png" alt="Logo Tenis Club El Soto" width="44" height="44" class="max-h-10 max-w-10 w-auto h-auto object-contain" loading="lazy">
+                </div>
+                <div>
+                  <h4 class="font-heading font-black text-sm text-slate-950 leading-tight">Tenis Club El Soto</h4>
+                  <p class="text-[11px] text-slate-500 font-bold flex items-center gap-1">
+                    <span>🇪🇸</span> Zaragoza, España · Club Oficial
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="flex items-center gap-1 text-[#f2920b] text-xs">
+              ★★★★★ <span class="text-[11px] font-bold text-slate-700 ml-1">4.9 / 5</span>
+            </div>
+            <p class="text-xs sm:text-[13px] text-slate-700 leading-relaxed italic">
+              "Total libertad en el diseño y poder ver el boceto previo a ordenador antes de producir. Los socios y jugadores de los torneos quedaron encantados."
+            </p>
+          </div>
+          <div class="pt-3 mt-3 border-t border-slate-100 flex items-center justify-between text-[10px] font-bold text-slate-500">
+            <span class="inline-flex items-center gap-1 text-emerald-600 font-bold">
+              <i data-lucide="check-circle" class="w-3 h-3"></i> {seo['reviews_verified']}
+            </span>
+            <span>Regalo Torneo y Socios</span>
+          </div>
+        </div>
+
+        <!-- CARD 5: LE GARDEN RENNES (FRANCIA) -->
+        <div class="bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/90 shadow-2xs hover:shadow-md transition-all duration-300 flex flex-col justify-between group hover:-translate-y-0.5">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between gap-3 pb-3 border-b border-slate-100">
+              <div class="flex items-center gap-3">
+                <div class="w-12 h-12 rounded-xl bg-slate-50 border border-slate-100 p-1 flex items-center justify-center shrink-0">
+                  <img src="{asset_prefix}assets/images/Clubs/client-17.png" alt="Logo Le Garden Rennes" width="44" height="44" class="max-h-10 max-w-10 w-auto h-auto object-contain" loading="lazy">
+                </div>
+                <div>
+                  <h4 class="font-heading font-black text-sm text-slate-950 leading-tight">Le Garden Rennes</h4>
+                  <p class="text-[11px] text-slate-500 font-bold flex items-center gap-1">
+                    <span>🇫🇷</span> Rennes, Francia · Club Oficial
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="flex items-center gap-1 text-[#f2920b] text-xs">
+              ★★★★★ <span class="text-[11px] font-bold text-slate-700 ml-1">4.8 / 5</span>
+            </div>
+            <p class="text-xs sm:text-[13px] text-slate-700 leading-relaxed italic">
+              "La communication par mail a été très fluide et le produit a beaucoup plu pour notre boutique et nos tournois. Avoir l'anneau inclus est un vrai plus."
+            </p>
+          </div>
+          <div class="pt-3 mt-3 border-t border-slate-100 flex items-center justify-between text-[10px] font-bold text-slate-500">
+            <span class="inline-flex items-center gap-1 text-emerald-600 font-bold">
+              <i data-lucide="check-circle" class="w-3 h-3"></i> {seo['reviews_verified']}
+            </span>
+            <span>Pro-Shop & Tournois</span>
+          </div>
+        </div>
+
+        <!-- CARD 6: CLUB DE PÁDEL HIGUERUELA (ESPAÑA) -->
+        <div class="bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/90 shadow-2xs hover:shadow-md transition-all duration-300 flex flex-col justify-between group hover:-translate-y-0.5">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between gap-3 pb-3 border-b border-slate-100">
+              <div class="flex items-center gap-3">
+                <div class="w-12 h-12 rounded-xl bg-slate-50 border border-slate-100 p-1 flex items-center justify-center shrink-0">
+                  <img src="{asset_prefix}assets/images/Clubs/client-07.png" alt="Logo C.D. Pádel Higueruela" width="44" height="44" class="max-h-10 max-w-10 w-auto h-auto object-contain" loading="lazy">
+                </div>
+                <div>
+                  <h4 class="font-heading font-black text-sm text-slate-950 leading-tight">C.D. Pádel Higueruela</h4>
+                  <p class="text-[11px] text-slate-500 font-bold flex items-center gap-1">
+                    <span>🇪🇸</span> Albacete, España · Club Oficial
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="flex items-center gap-1 text-[#f2920b] text-xs">
+              ★★★★★ <span class="text-[11px] font-bold text-slate-700 ml-1">5.0 / 5</span>
+            </div>
+            <p class="text-xs sm:text-[13px] text-slate-700 leading-relaxed italic">
+              "Excelente comunicación y el hecho de poder recibir la muestra física real antes de fabricar es insuperable. Un gran regalo para los socios."
+            </p>
+          </div>
+          <div class="pt-3 mt-3 border-t border-slate-100 flex items-center justify-between text-[10px] font-bold text-slate-500">
+            <span class="inline-flex items-center gap-1 text-emerald-600 font-bold">
+              <i data-lucide="check-circle" class="w-3 h-3"></i> {seo['reviews_verified']}
+            </span>
+            <span>Regalo para Socios</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
 
   <!-- 7.5. SECCIÓN PREGUNTAS FRECUENTES (FAQ ACORDEÓN INTERACTIVO EN 2 COLUMNAS + GEO/SEO) -->
   <section id="faq" class="py-6 sm:py-8 lg:py-10 bg-slate-50 relative border-b border-slate-200">

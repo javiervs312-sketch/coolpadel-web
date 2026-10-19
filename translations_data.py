@@ -127,7 +127,12 @@ TRANSLATIONS = {
         "contact_mail_btn": "Enviar Email a Javier",
         "contact_mail_qr_hint": "",
         "wa_floating_tooltip": "¿Hablamos?",
-        "wa_prefilled_msg": "Hola Javier"
+        "wa_prefilled_msg": "Hola Javier",
+        "reviews_badge_text": "Encuestas Oficiales de Clubs",
+        "reviews_heading": "Opiniones de Clubs y Federaciones",
+        "reviews_subheading": "Valoración media de 4.9/5 basada en encuestas reales de directores y organizadores en Europa",
+        "reviews_verified": "Club Verificado",
+        "reviews_btn_ver_mas": "Ver todos los clubs en el mapa"
     },
     "en": {
         "meta_title": "Custom 3D Padel Keychains & Court Cameras | CoolPadel",
@@ -253,7 +258,12 @@ TRANSLATIONS = {
         "contact_mail_btn": "Send Email to Javier",
         "contact_mail_qr_hint": "",
         "wa_floating_tooltip": "Let's talk",
-        "wa_prefilled_msg": "Hello Javier"
+        "wa_prefilled_msg": "Hello Javier",
+        "reviews_badge_text": "Official Club Surveys",
+        "reviews_heading": "Reviews from Clubs & Federations",
+        "reviews_subheading": "4.9/5 average satisfaction based on verified surveys from club directors across Europe",
+        "reviews_verified": "Verified Club",
+        "reviews_btn_ver_mas": "View all clubs on the map"
     },
     "fr": {
         "meta_title": "Porte-clés Padel Personnalisés 3D & Caméras | CoolPadel",
@@ -379,7 +389,12 @@ TRANSLATIONS = {
         "contact_mail_btn": "Envoyer un Email à Javier",
         "contact_mail_qr_hint": "",
         "wa_floating_tooltip": "Discutons",
-        "wa_prefilled_msg": "Bonjour Javier"
+        "wa_prefilled_msg": "Bonjour Javier",
+        "reviews_badge_text": "Enquêtes Officielles des Clubs",
+        "reviews_heading": "Avis des Clubs & Fédérations",
+        "reviews_subheading": "Note moyenne de 4.9/5 basée sur les avis réels des directeurs de clubs en Europe",
+        "reviews_verified": "Club Vérifié",
+        "reviews_btn_ver_mas": "Voir tous les clubs sur la carte"
     },
     "it": {
         "meta_title": "Portachiavi Padel Personalizzati 3D | CoolPadel",
@@ -505,7 +520,12 @@ TRANSLATIONS = {
         "contact_mail_btn": "Invia un'Email a Javier",
         "contact_mail_qr_hint": "",
         "wa_floating_tooltip": "Parliamo?",
-        "wa_prefilled_msg": "Ciao Javier"
+        "wa_prefilled_msg": "Ciao Javier",
+        "reviews_badge_text": "Sondaggi Ufficiali dei Club",
+        "reviews_heading": "Recensioni di Club & Federazioni",
+        "reviews_subheading": "Valutazione media di 4.9/5 basata su sondaggi reali dei direttori di club in Europa",
+        "reviews_verified": "Club Verificato",
+        "reviews_btn_ver_mas": "Vedi tutti i club sulla mappa"
     }
 }
 
