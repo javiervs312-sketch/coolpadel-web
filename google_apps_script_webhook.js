@@ -165,24 +165,46 @@ function doPost(e) {
       leadLabel = data.lead_label;
     }
 
-    // Origen de acceso / Canal
+    // Origen de acceso / Canal (Priorizar siempre buscadores orgánicos e IA sobre etiquetas estáticas de página)
     let origenCanal = (data.origen_canal || "").trim();
-    if (!origenCanal || origenCanal === "🌐 Enlace Directo") {
-      const src = (data.campana_utm || data.origen || "").toLowerCase();
-      const ref = (data.referrer || "").toLowerCase();
+    const src = (data.campana_utm || data.origen || "").toLowerCase();
+    const ref = (data.referrer || "").toLowerCase();
+    const urlFull = (data.url_completa || data.url || "").toLowerCase();
+
+    if (ref.includes("chatgpt.com") || ref.includes("openai.com") || src.includes("chatgpt")) {
+      origenCanal = "🤖 IA: ChatGPT / SearchGPT";
+    } else if (ref.includes("perplexity.ai") || src.includes("perplexity")) {
+      origenCanal = "🤖 IA: Perplexity";
+    } else if (ref.includes("claude.ai") || src.includes("claude")) {
+      origenCanal = "🤖 IA: Claude";
+    } else if (ref.includes("gemini.google.com") || ref.includes("bard.google.com")) {
+      origenCanal = "🤖 IA: Google Gemini";
+    } else if (ref.includes("copilot.microsoft.com")) {
+      origenCanal = "🤖 IA: Microsoft Copilot";
+    } else if (ref.includes("google.") || ref.includes("googlequicksearchbox") || urlFull.includes("srsltid=") || urlFull.includes("gclid=")) {
+      origenCanal = "🔍 Búsqueda Google";
+    } else if (ref.includes("bing.com") || ref.includes("msn.com") || urlFull.includes("msclkid=")) {
+      origenCanal = "🔍 Búsqueda Bing";
+    } else if (ref.includes("duckduckgo.com")) {
+      origenCanal = "🔍 Búsqueda DuckDuckGo";
+    } else if (ref.includes("yahoo.")) {
+      origenCanal = "🔍 Búsqueda Yahoo";
+    } else if (ref.includes("ecosia.org") || ref.includes("search.brave.com")) {
+      origenCanal = "🔍 Búsqueda Orgánica";
+    } else if (!origenCanal || origenCanal.includes("Enlace Directo")) {
       if (src.includes("whatsapp") || src.includes("wa") || data.lead_tel) {
         origenCanal = "📲 Link WhatsApp" + (data.campana_utm ? " (" + data.campana_utm + ")" : "");
       } else if (src.includes("email") || src.includes("resend")) {
         origenCanal = "✉️ Link Email";
       } else if (ref.includes("coolpadel") || ref.includes("savemyplay")) {
         origenCanal = "🌐 Desde la Web";
-      } else if (ref.includes("google")) {
-        origenCanal = "🔍 Búsqueda Google";
+      } else if (pagina.indexOf("/herramientas/") >= 0) {
+        origenCanal = "🛠️ Herramientas Gratuitas";
       } else if (pagina.indexOf("/camaras/") >= 0) {
         origenCanal = "🌐 Carta de Ventas (/camaras/)";
       } else if (pagina.indexOf("/blog/") >= 0) {
         origenCanal = "📝 Blog CoolPadel";
-      } else if (pagina.indexOf("llaveros") >= 0) {
+      } else if (pagina.indexOf("llaveros") >= 0 || pagina.indexOf("welcome-packs") >= 0) {
         origenCanal = "🏷️ Landing Llaveros";
       } else if (pagina.indexOf("franquicias") >= 0) {
         origenCanal = "🏢 Franquicias Padel";

@@ -5,7 +5,7 @@ import re
 TRANSLATIONS = {
     "es": {
         "meta_title": "Llaveros de Pádel Personalizados para Clubs y Torneos | CoolPadel Studios",
-        "meta_desc": "Fabricante directo de llaveros de pádel de goma 3D personalizados con el logo de tu club o torneo. Merchandising oficial, muestra física por 15€ y pedidos desde 100 uds.",
+        "meta_desc": "Fabricante de llaveros de pádel personalizados con el logo de tu club o torneo. Merchandising oficial, muestra física por 15€ y pedidos desde 100 uds.",
         "top_ticker": "Descarga el Informe Industria del Pádel y lee la Newsletter en nuestro Blog",
         "top_ticker_newsletter": "Nueva edición de Highlights by CoolPadel en LinkedIn",
         "nav_tenis_padel": "LLAVEROS",
@@ -131,7 +131,7 @@ TRANSLATIONS = {
     },
     "en": {
         "meta_title": "Custom 3D Padel Keychains for Clubs & Tournaments | CoolPadel Studios",
-        "meta_desc": "Direct manufacturer of custom 3D rubber padel keychains with your club logo. Physical sample for 15€, wholesale pricing from 100 units and worldwide delivery.",
+        "meta_desc": "Manufacturer of custom padel keychains with your club logo. Physical sample for 15€, wholesale pricing from 100 units and worldwide delivery.",
         "top_ticker": "Download the Padel Industry Report & read the Newsletter on our Blog",
         "top_ticker_newsletter": "Latest edition of Highlights by CoolPadel on LinkedIn",
         "nav_tenis_padel": "KEYCHAINS",
@@ -257,7 +257,7 @@ TRANSLATIONS = {
     },
     "fr": {
         "meta_title": "Porte-clés de Padel Personnalisés 3D pour Clubs & Tournois | CoolPadel Studios",
-        "meta_desc": "Fabricant direct de porte-clés de padel en relief 3D personnalisés avec logo pour clubs et tournois. Échantillon réel à 15€ et livraison en France et Europe.",
+        "meta_desc": "Fabricant de porte-clés de padel en relief 3D personnalisés avec logo pour clubs et tournois. Échantillon réel à 15€ et livraison en France et Europe.",
         "top_ticker": "Téléchargez le rapport exclusif sur l'industrie du padel",
         "top_ticker_newsletter": "Ne manquez pas la dernière édition de la Newsletter CoolPadel",
         "nav_tenis_padel": "TENNIS & PADEL",
@@ -383,7 +383,7 @@ TRANSLATIONS = {
     },
     "it": {
         "meta_title": "Portachiavi Padel Personalizzati 3D per Club e Tornei | CoolPadel Studios",
-        "meta_desc": "Produttore diretto di portachiavi da padel in rilievo 3D personalizzati con logo per club e tornei. Campione reale a 15€ e spedizione in tutta Italia ed Europa.",
+        "meta_desc": "Produttore di portachiavi da padel in rilievo 3D personalizzati con logo per club e tornei. Campione reale a 15€ e spedizione in tutta Italia ed Europa.",
         "top_ticker": "Scarica il report esclusivo sull'industria del padel",
         "top_ticker_newsletter": "Non perdere l'ultima edizione della Newsletter di CoolPadel",
         "nav_tenis_padel": "TENNIS & PADEL",

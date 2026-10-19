@@ -3628,14 +3628,14 @@ def build_all():
   <channel>
     <title>CoolPadel Studios | Llaveros de Pádel Personalizados &amp; Blog</title>
     <link>https://coolpadelstudios.com</link>
-    <description>Fabricante directo de llaveros de pádel personalizados de goma 3D, tecnología Save my Play y Newsletter de la Industria.</description>
+    <description>Fabricante de llaveros de pádel personalizados, tecnología Save my Play y Newsletter de la Industria.</description>
     <language>es-es</language>
     <atom:link href="https://coolpadelstudios.com/rss.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Llaveros de Pádel Personalizados para Clubs con Logo Oficial en Relieve 3D</title>
       <link>https://coolpadelstudios.com/llaveros-padel-personalizados/</link>
       <guid>https://coolpadelstudios.com/llaveros-padel-personalizados/</guid>
-      <description>Fabricación de llaveros de pádel de goma 3D personalizados desde 100 unidades con diseño 3D gratis, muestra física previa en ~15 días laborables por 15€ (100% descontable) y entrega del pedido en torno a un mes.</description>
+      <description>Fabricación de llaveros de pádel personalizados desde 100 unidades con diseño 3D gratis, muestra física previa en ~15 días laborables por 15€ (100% descontable) y entrega del pedido en torno a un mes.</description>
       <pubDate>Fri, 18 Sep 2026 10:00:00 +0200</pubDate>
     </item>
     <item>

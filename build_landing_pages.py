@@ -17,7 +17,7 @@ LANDINGS = [
     {
         "slug": "llaveros-padel-personalizados",
         "title": "Llaveros de Pádel Personalizados en Forma de Pala 3D para Clubs | CoolPadel Studios",
-        "meta_desc": "Fabricante directo de llaveros de pádel personalizados con forma de pala y logo oficial en goma 3D. Merchandising para clubs, torneos y tiendas. Pedidos desde 100 uds y muestra previa por 15€.",
+        "meta_desc": "Fabricante de llaveros de pádel personalizados con forma de pala y logo oficial para clubs, torneos y tiendas. Pedidos desde 100 uds y muestra previa por 15€.",
         "badge": "FABRICACIÓN DIRECTA B2B",
         "h1": "Llaveros de Pádel Personalizados con Forma de Pala y Logo Oficial",
         "subtitle": "Fabricamos los llaveros oficiales de tu club o torneo en microinyección de PVC blando 3D con forma de pala o tu escudo exacto. El detalle de merchandising de pádel que tus jugadores llevan siempre en el paletero.",
