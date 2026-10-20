@@ -162,14 +162,14 @@ def generate_single_page(f, lang="es"):
   <meta property="og:site_name" content="CoolPadel Studios">
   <meta property="og:locale" content="{og_locale}">
   <meta property="og:url" content="{canonical_url}">
-  <meta property="og:title" content="{escape_txt(nombre)} - Franquicia de Pádel ({escape_txt(pais)})">
-  <meta property="og:description" content="{escape_txt(meta_desc)}">
+  <meta property="og:title" content="{escape_txt(localized_title)}">
+  <meta property="og:description" content="{escape_txt(localized_desc)}">
   <meta property="og:image" content="https://coolpadelstudios.com/assets/images/savemyplay-1.jpg">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="{escape_txt(nombre)} | Directorio de Franquicias de Pádel">
-  <meta name="twitter:description" content="{escape_txt(meta_desc)}">
+  <meta name="twitter:title" content="{escape_txt(localized_title)}">
+  <meta name="twitter:description" content="{escape_txt(localized_desc)}">
   <meta name="twitter:image" content="https://coolpadelstudios.com/assets/images/savemyplay-1.jpg">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
 
