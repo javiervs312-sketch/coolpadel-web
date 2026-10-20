@@ -2445,7 +2445,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
 
       <!-- GRID DESKTOP LADO A LADO: TARJETAS FOTOS (IZQ) Y CALCULADORA (DCHA) -->
 
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-6 items-stretch">
+      <div class="grid grid-cols-1 lg:grid-cols-10 gap-4 lg:gap-6 items-stretch">
 
         
 
@@ -2461,7 +2461,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
 
               <div class="rounded-xl overflow-hidden shadow-sm border border-slate-200/90 bg-slate-100 my-auto">
 
-                <img src="{asset_prefix}assets/images/llaveros-tenis-personalizados-clubs.jpg?v=11" alt="Llaveros de tenis y pádel personalizados con relieve 3D para clubs y torneos" width="1024" height="640" class="w-full h-auto block group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
+                <img src="{asset_prefix}assets/images/llaveros-tenis-personalizados-clubs.jpg?v=12" alt="Llaveros de tenis y pádel personalizados con relieve 3D para clubs y torneos" width="1024" height="640" class="w-full h-auto block group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
 
               </div>
 
@@ -2483,7 +2483,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
 
             <div class="rounded-xl overflow-hidden mb-2 shadow-sm border border-slate-200/90 bg-slate-100">
 
-              <img src="{asset_prefix}assets/images/llaveros-padel-personalizados-clubs.jpg?v=11" alt="Llaveros de pádel de goma 3D personalizados con logo para clubes de pádel" width="1024" height="737" class="w-full h-auto block group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
+              <img src="{asset_prefix}assets/images/llaveros-padel-personalizados-clubs.jpg?v=12" alt="Llaveros de pádel de goma 3D personalizados con logo para clubes de pádel" width="1024" height="737" class="w-full h-auto block group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
 
             </div>
 
@@ -2501,7 +2501,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
 
         <!-- COLUMNA DERECHA: CALCULADORA DE PRESUPUESTO OFICIAL (UN 20% MÁS ESTRECHA) -->
 
-        <div class="lg:col-span-5 bg-white rounded-2xl p-4 sm:p-5 border border-white/60 shadow-xl text-slate-950 flex flex-col justify-between">
+        <div class="lg:col-span-3 bg-white rounded-2xl p-3.5 sm:p-4 border border-white/60 shadow-xl text-slate-950 flex flex-col justify-between">
 
           <div class="text-center sm:text-left mb-2">
 
