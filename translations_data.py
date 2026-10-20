@@ -4,7 +4,7 @@ import re
 # DICCIONARIO COMPLETO DE TRADUCCIONES PROFESIONALES (ES, EN, FR, IT)
 TRANSLATIONS = {
     "es": {
-        "meta_title": "Llaveros Pádel Personalizados 3D [Desde 1,50€] | CoolPadel",
+        "meta_title": "CoolPadel Studios | Llaveros de Pádel 3D y Cámaras IA Save my Play",
         "meta_desc": "Fabricante de llaveros de pádel personalizados con el logo de tu club o torneo. Merchandising oficial, muestra física por 15€ y pedidos desde 100 uds.",
         "top_ticker": "Descarga el Informe Industria del Pádel y lee la Newsletter en nuestro Blog",
         "top_ticker_newsletter": "Nueva edición de Highlights by CoolPadel en LinkedIn",
@@ -266,7 +266,7 @@ TRANSLATIONS = {
         "reviews_btn_ver_mas": "View all clubs on the map"
     },
     "fr": {
-        "meta_title": "Porte-clés Padel Personnalisés 3D & Caméras | CoolPadel",
+        "meta_title": "CoolPadel Studios | Porte-clés Padel 3D & Caméras IA Save my Play",
         "meta_desc": "Fabricant de porte-clés de padel en relief 3D personnalisés avec logo pour clubs et tournois. Échantillon réel à 15€ et livraison en France et Europe.",
         "top_ticker": "Téléchargez le rapport exclusif sur l'industrie du padel",
         "top_ticker_newsletter": "Ne manquez pas la dernière édition de la Newsletter CoolPadel",
@@ -397,7 +397,7 @@ TRANSLATIONS = {
         "reviews_btn_ver_mas": "Voir tous les clubs sur la carte"
     },
     "it": {
-        "meta_title": "Portachiavi Padel Personalizzati 3D | CoolPadel",
+        "meta_title": "CoolPadel Studios | Portachiavi Padel 3D & Telecamere IA Save my Play",
         "meta_desc": "Produttore di portachiavi da padel in rilievo 3D personalizzati con logo per club e tornei. Campione reale a 15€ e spedizione in tutta Italia ed Europa.",
         "top_ticker": "Scarica il report esclusivo sull'industria del padel",
         "top_ticker_newsletter": "Non perdere l'ultima edizione della Newsletter di CoolPadel",

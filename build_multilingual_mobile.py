@@ -6357,6 +6357,8 @@ def build_all():
 
 
     try:
+        from seo_post_build import run_seo_post_build
+        run_seo_post_build()
         from generate_master_sitemap import generate_sitemap
         generate_sitemap()
     except Exception as e:

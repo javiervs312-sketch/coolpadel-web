@@ -7310,3 +7310,6 @@ FRANQUICIAS = [
         "diferencial": "Sinergia directa con la base de datos de más de 100.000 deportistas de la red nacional Action Sports."
     }
 ]
+
+# _DEDUPED
+FRANQUICIAS = [f for f in FRANQUICIAS if f.get("id") not in ("taktika-padel-california", "park-padel-california")]
