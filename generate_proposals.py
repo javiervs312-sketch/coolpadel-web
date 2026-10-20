@@ -275,6 +275,7 @@ def build_proposals():
     <p>© 2026 CoolPadel. Ecosistema de Merchandising y Soluciones para Clubs de Pádel. Fundado por Javier Villoria Soleto.</p>
   </footer>
 
+  <script src="/assets/js/cp-analytics.js" defer></script>
   <script>lucide.createIcons();</script>
 </body>
 </html>"""
@@ -373,6 +374,7 @@ def build_proposals():
     CoolPadel B2B Pro Edition · Javier Villoria Soleto
   </footer>
 
+  <script src="/assets/js/cp-analytics.js" defer></script>
   <script>lucide.createIcons();</script>
 </body>
 </html>"""
@@ -465,6 +467,7 @@ def build_proposals():
     CoolPadel Smart Edition · Javier Villoria Soleto
   </footer>
 
+  <script src="/assets/js/cp-analytics.js" defer></script>
   <script>lucide.createIcons();</script>
 </body>
 </html>"""
