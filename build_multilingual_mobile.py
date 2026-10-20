@@ -136,7 +136,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
 
         "es": {
 
-            "og_img_alt": "Llaveros de pádel personalizados en relieve 3D CoolPadel Studios",
+            "og_img_alt": "Llaveros de pádel personalizados en relieve 3D CoolPadel",
 
             "org_desc": "Fabricante y distribuidor directo de llaveros de pádel personalizados de goma 3D para clubes deportivos y marcas, y partner oficial de cámaras en pista Save my Play.",
 
@@ -144,7 +144,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
 
             "bc_llaveros": "Llaveros de Pádel",
 
-            "prod_name": "Llaveros de Pádel Personalizados 3D - CoolPadel Studios",
+            "prod_name": "Llaveros de Pádel Personalizados 3D - CoolPadel",
 
             "prod_desc": "Llaveros de pádel personalizados de goma 3D de alta densidad con el logotipo oficial del club o comunidad. Muestra física real por 15€ (~15 días laborables, 100% deducible) y pedidos desde 100 unidades con entrega en torno a un mes y envíos incluidos.",
 
@@ -166,11 +166,11 @@ def get_base_html(active_lang="es", is_subfolder=False):
 
             "step3_text": "Producción en serie desde 100 unidades (1,50€ a 3,00€/ud) y entrega en torno a un mes según volumen con envíos incluidos.",
 
-            "sr_h2": "Llaveros de Pádel Personalizados 3D CoolPadel Studios",
+            "sr_h2": "Llaveros de Pádel Personalizados 3D CoolPadel",
 
             "sr_p": "Fabricante B2B especializado en llaveros de pádel y tenis personalizados en relieve 3D de goma microinyectada de alta densidad para clubes, torneos y federaciones. Pedidos al por mayor desde 100 unidades con tarifa directa de fábrica de 1,50€ a 3,00€ por unidad (100 uds: 300€ | 250 uds: 625€ | 500 uds: 1.000€ | 1.500 uds: 2.250€). Muestra física real personalizada previa por 15€ en ~15 días laborables (100% reembolsable con el pedido final). Entrega del pedido en torno a un mes según volumen en España, Europa y EE. UU.",
 
-            "sr_caption": "Tarifas oficiales de fabricación al por mayor de llaveros de pádel personalizados 3D CoolPadel Studios",
+            "sr_caption": "Tarifas oficiales de fabricación al por mayor de llaveros de pádel personalizados 3D CoolPadel",
 
             "sr_th_tier": "Tramo de volumen",
 
@@ -200,7 +200,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
 
             "map_p": "Selecciona una zona o haz clic en cualquier marcador para explorar nuestros clubs oficiales",
 
-            "sr_clubs_h4": "Clubes, academias y federaciones clientes oficiales de CoolPadel Studios:",
+            "sr_clubs_h4": "Clubes, academias y federaciones clientes oficiales de CoolPadel:",
 
             "map_zoom_hint": "Usa Ctrl + desplazamiento para hacer zoom en el mapa",
 
@@ -216,7 +216,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
 
         "en": {
 
-            "og_img_alt": "Custom 3D rubber padel keychains for clubs by CoolPadel Studios",
+            "og_img_alt": "Custom 3D rubber padel keychains for clubs by CoolPadel",
 
             "org_desc": "Direct B2B manufacturer of custom 3D rubber padel and tennis keychains for sports clubs, tournaments and brands, and official partner of Save my Play court cameras.",
 
@@ -224,7 +224,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
 
             "bc_llaveros": "Custom Padel Keychains",
 
-            "prod_name": "Custom 3D Padel Keychains - CoolPadel Studios",
+            "prod_name": "Custom 3D Padel Keychains - CoolPadel",
 
             "prod_desc": "High-density custom 3D rubber padel keychains featuring your official club or tournament logo. Real physical sample for 15€ (~15 business days, 100% deducted from final order), minimum order from 100 units, delivery in ~1 month with shipping included.",
 
@@ -246,11 +246,11 @@ def get_base_html(active_lang="es", is_subfolder=False):
 
             "step3_text": "Series production from 100 units (1.50€ to 3.00€/unit) with delivery in about one month depending on volume and shipping included.",
 
-            "sr_h2": "Custom 3D Padel Keychains CoolPadel Studios",
+            "sr_h2": "Custom 3D Padel Keychains CoolPadel",
 
             "sr_p": "B2B manufacturer specializing in custom 3D micro-injected rubber padel and tennis keychains for clubs, tournaments and federations. Wholesale orders from 100 units at direct factory pricing from 1.50€ to 3.00€ per unit (100 units: 300€ | 250 units: 625€ | 500 units: 1,000€ | 1,500 units: 2,250€). Real custom physical sample for 15€ delivered in ~15 business days (100% deducted from the final order). Full order delivery in about one month across Spain, Europe and the USA.",
 
-            "sr_caption": "Official wholesale manufacturing prices for custom 3D padel keychains by CoolPadel Studios",
+            "sr_caption": "Official wholesale manufacturing prices for custom 3D padel keychains by CoolPadel",
 
             "sr_th_tier": "Volume tier",
 
@@ -280,7 +280,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
 
             "map_p": "Select a region or click any marker to explore our official client clubs",
 
-            "sr_clubs_h4": "Official clubs, academies and federations trusting CoolPadel Studios:",
+            "sr_clubs_h4": "Official clubs, academies and federations trusting CoolPadel:",
 
             "map_zoom_hint": "Use Ctrl + scroll to zoom the map",
 
@@ -296,7 +296,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
 
         "fr": {
 
-            "og_img_alt": "Porte-clés de padel personnalisés en relief 3D CoolPadel Studios",
+            "og_img_alt": "Porte-clés de padel personnalisés en relief 3D CoolPadel",
 
             "org_desc": "Fabricant B2B direct de porte-clés de padel et tennis personnalisés en gomme 3D pour clubs sportifs et tournois, et partenaire officiel des caméras Save my Play.",
 
@@ -304,7 +304,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
 
             "bc_llaveros": "Porte-clés Padel",
 
-            "prod_name": "Porte-clés Padel Personnalisés 3D - CoolPadel Studios",
+            "prod_name": "Porte-clés Padel Personnalisés 3D - CoolPadel",
 
             "prod_desc": "Porte-clés de padel personnalisés en gomme 3D haute densité avec le logo officiel de votre club ou tournoi. Échantillon physique réel pour 15€ (~15 jours ouvrés, 100% déduit de la commande), commande dès 100 unités et livraison en environ un mois avec frais de port inclus.",
 
@@ -326,11 +326,11 @@ def get_base_html(active_lang="es", is_subfolder=False):
 
             "step3_text": "Production en série dès 100 unités (1,50€ à 3,00€/unité) et livraison en un mois environ selon le volume, port inclus.",
 
-            "sr_h2": "Porte-clés de Padel Personnalisés 3D CoolPadel Studios",
+            "sr_h2": "Porte-clés de Padel Personnalisés 3D CoolPadel",
 
             "sr_p": "Fabricant B2B spécialisé dans les porte-clés de padel et tennis personnalisés en relief 3D pour clubs, tournois et fédérations. Commandes dès 100 unités au tarif direct usine de 1,50€ à 3,00€ par unité (100 u. : 300€ | 250 u. : 625€ | 500 u. : 1 000€ | 1 500 u. : 2 250€). Échantillon physique réel préalable pour 15€ sous ~15 jours ouvrés (100% remboursé sur la commande finale). Livraison de la commande en environ un mois en France, Europe et USA.",
 
-            "sr_caption": "Tarifs officiels de fabrication en gros de porte-clés de padel personnalisés 3D CoolPadel Studios",
+            "sr_caption": "Tarifs officiels de fabrication en gros de porte-clés de padel personnalisés 3D CoolPadel",
 
             "sr_th_tier": "Palier de volume",
 
@@ -360,7 +360,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
 
             "map_p": "Sélectionnez une zone ou cliquez sur un marqueur pour découvrir nos clubs officiels",
 
-            "sr_clubs_h4": "Clubs, académies et fédérations clientes officielles de CoolPadel Studios :",
+            "sr_clubs_h4": "Clubs, académies et fédérations clientes officielles de CoolPadel :",
 
             "map_zoom_hint": "Utilisez Ctrl + défilement pour zoomer sur la carte",
 
@@ -376,7 +376,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
 
         "it": {
 
-            "og_img_alt": "Portachiavi da padel personalizzati in rilievo 3D CoolPadel Studios",
+            "og_img_alt": "Portachiavi da padel personalizzati in rilievo 3D CoolPadel",
 
             "org_desc": "Produttore e distributore diretto B2B di portachiavi da padel e tennis personalizzati in gomma 3D per club sportivi e tornei, e partner ufficiale delle telecamere Save my Play.",
 
@@ -384,7 +384,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
 
             "bc_llaveros": "Portachiavi Padel",
 
-            "prod_name": "Portachiavi Padel Personalizzati 3D - CoolPadel Studios",
+            "prod_name": "Portachiavi Padel Personalizzati 3D - CoolPadel",
 
             "prod_desc": "Portachiavi da padel personalizzati in gomma 3D ad alta densità con il logo ufficiale del club o torneo. Campione fisico reale a 15€ (~15 giorni lavorativi, 100% scalato dall'ordine finale), ordini da 100 unità e consegna in circa un mese con spedizione inclusa.",
 
@@ -406,11 +406,11 @@ def get_base_html(active_lang="es", is_subfolder=False):
 
             "step3_text": "Produzione in serie da 100 unità (da 1,50€ a 3,00€/unità) e consegna in circa un mese in base al volume con spedizione inclusa.",
 
-            "sr_h2": "Portachiavi Padel Personalizzati 3D CoolPadel Studios",
+            "sr_h2": "Portachiavi Padel Personalizzati 3D CoolPadel",
 
             "sr_p": "Produttore B2B specializzato in portachiavi da padel e tennis personalizzati in rilievo 3D per club, tornei e federazioni. Ordini all'ingrosso da 100 unità a prezzo diretto di fabbrica da 1,50€ a 3,00€ per unità (100 u.: 300€ | 250 u.: 625€ | 500 u.: 1.000€ | 1.500 u.: 2.250€). Campione fisico reale personalizzato a 15€ in ~15 giorni lavorativi (100% rimborsabile con l'ordine finale). Consegna dell'ordine in circa un mese in Italia, Europa e USA.",
 
-            "sr_caption": "Tariffe ufficiali di produzione all'ingrosso di portachiavi da padel personalizzati 3D CoolPadel Studios",
+            "sr_caption": "Tariffe ufficiali di produzione all'ingrosso di portachiavi da padel personalizzati 3D CoolPadel",
 
             "sr_th_tier": "Fascia di volume",
 
@@ -440,7 +440,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
 
             "map_p": "Seleziona un'area o clicca su qualsiasi indicatore per esplorare i nostri club ufficiali",
 
-            "sr_clubs_h4": "Club, accademie e federazioni clienti ufficiali di CoolPadel Studios:",
+            "sr_clubs_h4": "Club, accademie e federazioni clienti ufficiali di CoolPadel:",
 
             "map_zoom_hint": "Usa Ctrl + scorrimento per ingrandire la mappa",
 
@@ -474,7 +474,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
 
   <meta name="description" content="{t['meta_desc']}">
 
-  <meta name="author" content="CoolPadel Studios">
+  <meta name="author" content="CoolPadel">
 
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 
@@ -494,7 +494,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
 
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
-  <meta name="apple-mobile-web-app-title" content="CoolPadel Studios">
+  <meta name="apple-mobile-web-app-title" content="CoolPadel">
 
 
 
@@ -554,7 +554,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
 
   <meta property="og:locale" content="{og_locale}">
 
-  <meta property="og:site_name" content="CoolPadel Studios">
+  <meta property="og:site_name" content="CoolPadel">
 
   <meta property="og:url" content="{page_url}">
 
@@ -616,7 +616,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
 
         "height": 1000,
 
-        "caption": "Llaveros de pádel personalizados de goma relieve 3D oficiales CoolPadel Studios para clubes de pádel",
+        "caption": "Llaveros de pádel personalizados de goma relieve 3D oficiales CoolPadel para clubes de pádel",
 
         "representativeOfPage": true,
 
@@ -624,11 +624,11 @@ def get_base_html(active_lang="es", is_subfolder=False):
 
           "@type": "Organization",
 
-          "name": "CoolPadel Studios"
+          "name": "CoolPadel"
 
         }},
 
-        "copyrightNotice": "© CoolPadel Studios"
+        "copyrightNotice": "© CoolPadel"
 
       }},
 
@@ -638,7 +638,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
 
         "@id": "https://coolpadelstudios.com/#organization",
 
-        "name": "CoolPadel Studios",
+        "name": "CoolPadel",
 
         "alternateName": ["CoolPadel", "CoolPadel Madrid"],
 
@@ -726,7 +726,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
 
           "@type": "OfferCatalog",
 
-          "name": "Servicios y Productos Oficiales B2B CoolPadel Studios & Save my Play",
+          "name": "Servicios y Productos Oficiales B2B CoolPadel & Save my Play",
 
           "itemListElement": [
 
@@ -818,7 +818,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
 
         "url": "https://coolpadelstudios.com",
 
-        "name": "CoolPadel Studios",
+        "name": "CoolPadel",
 
         "alternateName": "CoolPadel",
 
@@ -1284,7 +1284,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
 
           "@type": "OfferCatalog",
 
-          "name": "Catálogo B2B CoolPadel Studios & Save my Play",
+          "name": "Catálogo B2B CoolPadel & Save my Play",
 
           "itemListElement": [
 
@@ -1412,102 +1412,6 @@ def get_base_html(active_lang="es", is_subfolder=False):
 
             "@type": "Question",
 
-            "name": "{t_clean['faq_q3']}",
-
-            "acceptedAnswer": {{
-
-              "@type": "Answer",
-
-              "text": "{t_clean['faq_a3']}"
-
-            }}
-
-          }},
-
-          {{
-
-            "@type": "Question",
-
-            "name": "{t_clean['faq_q4']}",
-
-            "acceptedAnswer": {{
-
-              "@type": "Answer",
-
-              "text": "{t_clean['faq_a4']}"
-
-            }}
-
-          }},
-
-          {{
-
-            "@type": "Question",
-
-            "name": "{t_clean['faq_q5']}",
-
-            "acceptedAnswer": {{
-
-              "@type": "Answer",
-
-              "text": "{t_clean['faq_a5']}"
-
-            }}
-
-          }},
-
-          {{
-
-            "@type": "Question",
-
-            "name": "{t_clean['faq_q6']}",
-
-            "acceptedAnswer": {{
-
-              "@type": "Answer",
-
-              "text": "{t_clean['faq_a6']}"
-
-            }}
-
-          }},
-
-          {{
-
-            "@type": "Question",
-
-            "name": "{t_clean['faq_q7']}",
-
-            "acceptedAnswer": {{
-
-              "@type": "Answer",
-
-              "text": "{t_clean['faq_a7']}"
-
-            }}
-
-          }},
-
-          {{
-
-            "@type": "Question",
-
-            "name": "{t_clean['faq_q8']}",
-
-            "acceptedAnswer": {{
-
-              "@type": "Answer",
-
-              "text": "{t_clean['faq_a8']}"
-
-            }}
-
-          }},
-
-          {{
-
-            "@type": "Question",
-
             "name": "{t_clean['faq_q9']}",
 
             "acceptedAnswer": {{
@@ -1546,7 +1450,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
 
   </script>
 
-  <link rel="alternate" type="application/rss+xml" title="CoolPadel Studios Feed" href="https://coolpadelstudios.com/rss.xml">
+  <link rel="alternate" type="application/rss+xml" title="CoolPadel Feed" href="https://coolpadelstudios.com/rss.xml">
 
   <link rel="alternate" type="text/markdown" href="{asset_prefix}llms.txt" title="LLMs Info">
 
@@ -2302,7 +2206,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
 
         <div class="flex items-center justify-between w-full px-2">
 
-          <a href="{asset_prefix}#" class="py-0.5 inline-flex items-center shrink-0" aria-label="CoolPadel Studios Home">
+          <a href="{asset_prefix}#" class="py-0.5 inline-flex items-center shrink-0" aria-label="CoolPadel Home">
 
             <img src="{asset_prefix}assets/images/eyes-thumb.png?v=fixed_eyes" alt="Icono CoolPadel" width="18" height="18" style="height: 18px; max-height: 18px; width: auto;" class="object-contain" fetchpriority="high">
 
@@ -2310,9 +2214,9 @@ def get_base_html(active_lang="es", is_subfolder=False):
 
           <a href="{asset_prefix}#" class="flex items-center justify-center gap-1.5 py-0.5">
 
-            <img src="{asset_prefix}assets/images/coolpadel-mascot-hd.png" alt="Mascota CoolPadel Studios" width="28" height="28" style="height: 28px; max-height: 28px; width: auto;" class="object-contain">
+            <img src="{asset_prefix}assets/images/coolpadel-mascot-hd.png" alt="Mascota CoolPadel" width="28" height="28" style="height: 28px; max-height: 28px; width: auto;" class="object-contain">
 
-            <img src="{asset_prefix}assets/images/coolpadel-typography-hd.png" alt="CoolPadel Studios" width="90" height="18" style="height: 18px; max-height: 18px; width: auto;" class="object-contain">
+            <img src="{asset_prefix}assets/images/coolpadel-typography-hd.png" alt="CoolPadel" width="90" height="18" style="height: 18px; max-height: 18px; width: auto;" class="object-contain">
 
           </a>
 
@@ -3391,233 +3295,53 @@ def get_base_html(active_lang="es", is_subfolder=False):
 
       <!-- ACORDEÓN DE PREGUNTAS (10 PREGUNTAS EN 2 COLUMNAS COMPACTAS) -->
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-2.5 sm:gap-3" id="faq-accordion">
-
-        
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-2.5 sm:gap-3 max-w-4xl mx-auto" id="faq-accordion">
 
         <!-- PREGUNTA 1: PROCESO -->
-
         <div class="faq-item bg-white border border-slate-200/90 rounded-xl overflow-hidden shadow-2xs transition-all duration-200">
-
           <button type="button" onclick="toggleFaq(this)" class="w-full px-4 sm:px-4.5 py-2.5 sm:py-3 flex items-center justify-between text-left font-sans font-bold text-sm sm:text-[15px] text-slate-900 hover:text-[#f2920b] transition gap-2 cursor-pointer">
-
             <span data-i18n="faq_q1">{t['faq_q1']}</span>
-
             <i data-lucide="chevron-down" class="faq-icon w-4.5 h-4.5 stroke-[2.5] text-slate-400 shrink-0 transition-transform duration-300"></i>
-
           </button>
-
           <div class="faq-answer hidden px-4 sm:px-4.5 pb-3.5 pt-1.5 text-slate-700 text-sm sm:text-[15px] font-normal leading-relaxed border-t border-slate-100">
-
             <p data-i18n="faq_a1">{t['faq_a1']}</p>
-
           </div>
-
         </div>
-
-
 
         <!-- PREGUNTA 2: PEDIDO MÍNIMO Y PLAZOS -->
-
         <div class="faq-item bg-white border border-slate-200/90 rounded-xl overflow-hidden shadow-2xs transition-all duration-200">
-
           <button type="button" onclick="toggleFaq(this)" class="w-full px-4 sm:px-4.5 py-2.5 sm:py-3 flex items-center justify-between text-left font-sans font-bold text-sm sm:text-[15px] text-slate-900 hover:text-[#f2920b] transition gap-2 cursor-pointer">
-
             <span data-i18n="faq_q2">{t['faq_q2']}</span>
-
             <i data-lucide="chevron-down" class="faq-icon w-4.5 h-4.5 stroke-[2.5] text-slate-400 shrink-0 transition-transform duration-300"></i>
-
           </button>
-
           <div class="faq-answer hidden px-4 sm:px-4.5 pb-3.5 pt-1.5 text-slate-700 text-sm sm:text-[15px] font-normal leading-relaxed border-t border-slate-100">
-
             <p data-i18n="faq_a2">{t['faq_a2']}</p>
-
           </div>
-
         </div>
 
-
-
-        <!-- PREGUNTA 3: PRECIOS, IVA Y FACTURACIÓN -->
-
+        <!-- PREGUNTA 3: PAÍSES Y ENVÍOS -->
         <div class="faq-item bg-white border border-slate-200/90 rounded-xl overflow-hidden shadow-2xs transition-all duration-200">
-
           <button type="button" onclick="toggleFaq(this)" class="w-full px-4 sm:px-4.5 py-2.5 sm:py-3 flex items-center justify-between text-left font-sans font-bold text-sm sm:text-[15px] text-slate-900 hover:text-[#f2920b] transition gap-2 cursor-pointer">
-
-            <span data-i18n="faq_q3">{t['faq_q3']}</span>
-
-            <i data-lucide="chevron-down" class="faq-icon w-4.5 h-4.5 stroke-[2.5] text-slate-400 shrink-0 transition-transform duration-300"></i>
-
-          </button>
-
-          <div class="faq-answer hidden px-4 sm:px-4.5 pb-3.5 pt-1.5 text-slate-700 text-sm sm:text-[15px] font-normal leading-relaxed border-t border-slate-100">
-
-            <p data-i18n="faq_a3">{t['faq_a3']}</p>
-
-          </div>
-
-        </div>
-
-
-
-        <!-- PREGUNTA 4: MUESTRA DESCONTABLE -->
-
-        <div class="faq-item bg-white border border-slate-200/90 rounded-xl overflow-hidden shadow-2xs transition-all duration-200">
-
-          <button type="button" onclick="toggleFaq(this)" class="w-full px-4 sm:px-4.5 py-2.5 sm:py-3 flex items-center justify-between text-left font-sans font-bold text-sm sm:text-[15px] text-slate-900 hover:text-[#f2920b] transition gap-2 cursor-pointer">
-
-            <span data-i18n="faq_q4">{t['faq_q4']}</span>
-
-            <i data-lucide="chevron-down" class="faq-icon w-4.5 h-4.5 stroke-[2.5] text-slate-400 shrink-0 transition-transform duration-300"></i>
-
-          </button>
-
-          <div class="faq-answer hidden px-4 sm:px-4.5 pb-3.5 pt-1.5 text-slate-700 text-sm sm:text-[15px] font-normal leading-relaxed border-t border-slate-100">
-
-            <p data-i18n="faq_a4">{t['faq_a4']}</p>
-
-          </div>
-
-        </div>
-
-
-
-        <!-- PREGUNTA 5: TAMAÑO LLAVERO (70MM) -->
-
-        <div class="faq-item bg-white border border-slate-200/90 rounded-xl overflow-hidden shadow-2xs transition-all duration-200">
-
-          <button type="button" onclick="toggleFaq(this)" class="w-full px-4 sm:px-4.5 py-2.5 sm:py-3 flex items-center justify-between text-left font-sans font-bold text-sm sm:text-[15px] text-slate-900 hover:text-[#f2920b] transition gap-2 cursor-pointer">
-
-            <span data-i18n="faq_q5">{t['faq_q5']}</span>
-
-            <i data-lucide="chevron-down" class="faq-icon w-4.5 h-4.5 stroke-[2.5] text-slate-400 shrink-0 transition-transform duration-300"></i>
-
-          </button>
-
-          <div class="faq-answer hidden px-4 sm:px-4.5 pb-3.5 pt-1.5 text-slate-700 text-sm sm:text-[15px] font-normal leading-relaxed border-t border-slate-100">
-
-            <p data-i18n="faq_a5">{t['faq_a5']}</p>
-
-          </div>
-
-        </div>
-
-
-
-        <!-- PREGUNTA 6: VENDER EN TIENDA / PRO-SHOP -->
-
-        <div class="faq-item bg-white border border-slate-200/90 rounded-xl overflow-hidden shadow-2xs transition-all duration-200">
-
-          <button type="button" onclick="toggleFaq(this)" class="w-full px-4 sm:px-4.5 py-2.5 sm:py-3 flex items-center justify-between text-left font-sans font-bold text-sm sm:text-[15px] text-slate-900 hover:text-[#f2920b] transition gap-2 cursor-pointer">
-
-            <span data-i18n="faq_q6">{t['faq_q6']}</span>
-
-            <i data-lucide="chevron-down" class="faq-icon w-4.5 h-4.5 stroke-[2.5] text-slate-400 shrink-0 transition-transform duration-300"></i>
-
-          </button>
-
-          <div class="faq-answer hidden px-4 sm:px-4.5 pb-3.5 pt-1.5 text-slate-700 text-sm sm:text-[15px] font-normal leading-relaxed border-t border-slate-100">
-
-            <p data-i18n="faq_a6">{t['faq_a6']}</p>
-
-          </div>
-
-        </div>
-
-
-
-        <!-- PREGUNTA 7: USOS Y OCASIONES (WELCOME PACKS, CENAS, PATROCINADORES) -->
-
-        <div class="faq-item bg-white border border-slate-200/90 rounded-xl overflow-hidden shadow-2xs transition-all duration-200">
-
-          <button type="button" onclick="toggleFaq(this)" class="w-full px-4 sm:px-4.5 py-2.5 sm:py-3 flex items-center justify-between text-left font-sans font-bold text-sm sm:text-[15px] text-slate-900 hover:text-[#f2920b] transition gap-2 cursor-pointer">
-
-            <span data-i18n="faq_q7">{t['faq_q7']}</span>
-
-            <i data-lucide="chevron-down" class="faq-icon w-4.5 h-4.5 stroke-[2.5] text-slate-400 shrink-0 transition-transform duration-300"></i>
-
-          </button>
-
-          <div class="faq-answer hidden px-4 sm:px-4.5 pb-3.5 pt-1.5 text-slate-700 text-sm sm:text-[15px] font-normal leading-relaxed border-t border-slate-100">
-
-            <p data-i18n="faq_a7">{t['faq_a7']}</p>
-
-          </div>
-
-        </div>
-
-
-
-        <!-- PREGUNTA 8: CLUBES Y MAPA OFICIAL -->
-
-        <div class="faq-item bg-white border border-slate-200/90 rounded-xl overflow-hidden shadow-2xs transition-all duration-200">
-
-          <button type="button" onclick="toggleFaq(this)" class="w-full px-4 sm:px-4.5 py-2.5 sm:py-3 flex items-center justify-between text-left font-sans font-bold text-sm sm:text-[15px] text-slate-900 hover:text-[#f2920b] transition gap-2 cursor-pointer">
-
-            <span data-i18n="faq_q8">{t['faq_q8']}</span>
-
-            <i data-lucide="chevron-down" class="faq-icon w-4.5 h-4.5 stroke-[2.5] text-slate-400 shrink-0 transition-transform duration-300"></i>
-
-          </button>
-
-          <div class="faq-answer hidden px-4 sm:px-4.5 pb-3.5 pt-1.5 text-slate-700 text-sm sm:text-[15px] font-normal leading-relaxed border-t border-slate-100">
-
-            <p data-i18n="faq_a8">{t['faq_a8']}</p>
-
-          </div>
-
-        </div>
-
-
-
-        <!-- PREGUNTA 9: PAÍSES Y ENVÍOS -->
-
-        <div class="faq-item bg-white border border-slate-200/90 rounded-xl overflow-hidden shadow-2xs transition-all duration-200">
-
-          <button type="button" onclick="toggleFaq(this)" class="w-full px-4 sm:px-4.5 py-2.5 sm:py-3 flex items-center justify-between text-left font-sans font-bold text-sm sm:text-[15px] text-slate-900 hover:text-[#f2920b] transition gap-2 cursor-pointer">
-
             <span data-i18n="faq_q9">{t['faq_q9']}</span>
-
             <i data-lucide="chevron-down" class="faq-icon w-4.5 h-4.5 stroke-[2.5] text-slate-400 shrink-0 transition-transform duration-300"></i>
-
           </button>
-
           <div class="faq-answer hidden px-4 sm:px-4.5 pb-3.5 pt-1.5 text-slate-700 text-sm sm:text-[15px] font-normal leading-relaxed border-t border-slate-100">
-
             <p data-i18n="faq_a9">{t['faq_a9']}</p>
-
           </div>
-
         </div>
 
-
-
-        <!-- PREGUNTA 10: SAVE MY PLAY -->
-
+        <!-- PREGUNTA 4: QUÉ MÁS PRODUCTOS OFRECE COOLPADEL -->
         <div class="faq-item bg-white border border-slate-200/90 rounded-xl overflow-hidden shadow-2xs transition-all duration-200">
-
           <button type="button" onclick="toggleFaq(this)" class="w-full px-4 sm:px-4.5 py-2.5 sm:py-3 flex items-center justify-between text-left font-sans font-bold text-sm sm:text-[15px] text-slate-900 hover:text-[#f2920b] transition gap-2 cursor-pointer">
-
             <span data-i18n="faq_q10">{t['faq_q10']}</span>
-
             <i data-lucide="chevron-down" class="faq-icon w-4.5 h-4.5 stroke-[2.5] text-slate-400 shrink-0 transition-transform duration-300"></i>
-
           </button>
-
           <div class="faq-answer hidden px-4 sm:px-4.5 pb-3.5 pt-1.5 text-slate-700 text-sm sm:text-[15px] font-normal leading-relaxed border-t border-slate-100">
-
             <p data-i18n="faq_a10">{t['faq_a10']}</p>
-
           </div>
-
         </div>
-
-
 
       </div>
-
-
 
     </div>
 
@@ -3989,7 +3713,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
 
         <span id="admin-toggle-trigger" class="hover:text-white/90 transition cursor-pointer" title="Modo Administrador">
 
-          © 2026 CoolPadel Studios · All rights reserved
+          © 2026 CoolPadel · All rights reserved
 
         </span>
 
@@ -6907,7 +6631,7 @@ def build_all():
 
   <channel>
 
-    <title>CoolPadel Studios | Llaveros de Pádel Personalizados &amp; Blog</title>
+    <title>CoolPadel | Llaveros de Pádel Personalizados &amp; Blog</title>
 
     <link>https://coolpadelstudios.com</link>
 
@@ -7205,7 +6929,7 @@ def build_all():
 
   <channel>
 
-    <title>CoolPadel Studios - Catálogo Oficial de Llaveros de Pádel</title>
+    <title>CoolPadel - Catálogo Oficial de Llaveros de Pádel</title>
 
     <link>https://coolpadelstudios.com</link>
 

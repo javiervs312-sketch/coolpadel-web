@@ -2,7 +2,7 @@
 
 """
 
-Generador de Landings B2B Transaccionales para CoolPadel Studios:
+Generador de Landings B2B Transaccionales para CoolPadel:
 
 1. /llaveros-padel-personalizados/ -> Core B2B Llaveros de Pádel 3D
 
@@ -71,7 +71,7 @@ LANDINGS = [
 
             "label_4": "Plazo Entrega", "val_4": "~1 mes con envíos incluidos a España, Europa y USA",
 
-            "p": "CoolPadel Studios es fabricante directo B2B de llaveros de pádel personalizados en goma PVC 3D microinyectada con relieve y logo oficial para clubes y torneos. Pedidos desde 100 unidades con tarifa directa de fábrica, muestra física real previa y envíos incluidos."
+            "p": "CoolPadel es fabricante directo B2B de llaveros de pádel personalizados en goma PVC 3D microinyectada con relieve y logo oficial para clubes y torneos. Pedidos desde 100 unidades con tarifa directa de fábrica, muestra física real previa y envíos incluidos."
 
         },
 
@@ -91,7 +91,15 @@ LANDINGS = [
 
             ("¿Cómo solicitamos la muestra física de 15€?", "Solo tienes que enviarnos el logo de tu club en cualquier formato (vectorial, PNG, JPG). Preparamos el diseño 3D y fabricamos una muestra real enviada a tu dirección por 15€ (100% descontables del pedido final)."),
 
-            ("¿Se puede personalizar el reverso del llavero?", "Sí, podemos añadir el logo de un patrocinador, la página web del club o las redes sociales en el reverso.")
+            ("¿Se puede personalizar el reverso del llavero?", "Sí, podemos añadir el logo de un patrocinador, la página web del club o las redes sociales en el reverso."),
+            ("¿Los precios incluyen IVA? ¿Cómo se realiza el pago y la facturación?", "Los precios mostrados no incluyen IVA. Emitimos factura oficial a nombre del club o empresa y el pago se realiza por adelantado mediante transferencia o tarjeta tras recibir la muestra."),
+            ("¿Se descuenta el coste de la muestra física de 15 €?", "Sí. Los 15 € abonados para producir la muestra física real se descuentan al 100% del importe total del pedido final."),
+            ("¿Qué tamaño tienen los llaveros de pádel personalizados?", "Unos 70 mm de largo: tamaño equilibrado, ligero e ideal para paleteros, mochilas o llaves."),
+            ("¿Puedo vender los llaveros en la tienda o recepción de mi club?", "Sí, claro. Los clubs los suelen vender fácilmente en recepción o en su tienda en torno a 5-6 € cada uno."),
+            ("¿Para qué ocasiones o usos sirven los llaveros de pádel?", "Welcome packs de torneos, regalos en cenas de socios de fin de temporada, activaciones de patrocinadores del club, inscripciones a torneos y escuelas, o como detalle institucional en eventos corporativos y aperturas."),
+            ("¿Qué clubes y torneos confían ya en CoolPadel?", "Más de 30 clubs en España, Italia, Francia, Bélgica y Estados Unidos. Consulta el mapa interactivo en nuestra página principal."),
+            ("¿A qué países realizáis envíos?", "Envíos directos en toda España, la Unión Europea y Estados Unidos. Consultar condiciones para el resto de países.")
+
 
         ]
 
@@ -235,7 +243,7 @@ LANDINGS = [
 
         "h1": "Merchandising Oficial y Llaveros para Clubs de Pádel",
 
-        "subtitle": "Refuerza la identidad y el sentido de pertenencia de tu comunidad. Más de 30 clubes en España, Europa y EE. UU. ya equipan a sus socios y pro-shops con llaveros y merchandising CoolPadel Studios.",
+        "subtitle": "Refuerza la identidad y el sentido de pertenencia de tu comunidad. Más de 30 clubes en España, Europa y EE. UU. ya equipan a sus socios y pro-shops con llaveros y merchandising CoolPadel.",
 
         "hero_img": "assets/images/llaveros-padel-personalizados-clubs.jpg",
 
@@ -575,7 +583,7 @@ LANDINGS = [
 
         "benefits": [
 
-            ("Soporte y Demostración Presencial en Madrid", "Sede de CoolPadel Studios en Madrid: podemos visitarte y hacer una demostración real en tus instalaciones."),
+            ("Soporte y Demostración Presencial en Madrid", "Sede de CoolPadel en Madrid: podemos visitarte y hacer una demostración real en tus instalaciones."),
 
             ("Ideal para Naves Indoor y Urbanizaciones", "Montaje limpio sin rozas ni cableado que interfiera con la iluminación o la insonorización de naves industriales."),
 
@@ -717,7 +725,7 @@ LANDINGS = [
 
             ("¿Qué infraestructura necesita mi club para instalarlo?", "Únicamente una toma de corriente convencional y conexión WiFi estándar. No se necesitan servidores locales, zanjas en el suelo ni abrir rozas en el césped. Se ancla a la reja o poste en 5 minutos."),
 
-            ("¿Quién gestiona Save my Play en España?", "Javier Villoria es el director de Save my Play en España y fundador de CoolPadel Studios. Puedes contactar directamente por teléfono o WhatsApp en el +34 680 31 74 86 o por email en javier@coolpadelstudios.com.")
+            ("¿Quién gestiona Save my Play en España?", "Javier Villoria es el director de Save my Play en España y fundador de CoolPadel. Puedes contactar directamente por teléfono o WhatsApp en el +34 680 31 74 86 o por email en javier@coolpadelstudios.com.")
 
         ]
 
@@ -1156,13 +1164,13 @@ def render_landing(landing, lang="es"):
     else:
         product_schema_json = f"""{{
         "@type": "Product",
-        "name": "{l_h1} - CoolPadel Studios",
+        "name": "{l_h1} - CoolPadel",
         "description": "{l_meta_desc}",
         "image": "https://coolpadelstudios.com/{hero_img_encoded}",
         "sku": "CP-{landing['slug'].upper()[:18]}",
         "brand": {{
           "@type": "Brand",
-          "name": "CoolPadel Studios"
+          "name": "CoolPadel"
         }},
         "offers": [
           {{
@@ -1208,7 +1216,7 @@ def render_landing(landing, lang="es"):
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>{l_title}</title>
   <meta name="description" content="{l_meta_desc}">
-  <meta name="author" content="CoolPadel Studios">
+  <meta name="author" content="CoolPadel">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
   <link rel="canonical" href="{page_url}">
 
@@ -1244,7 +1252,7 @@ def render_landing(landing, lang="es"):
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:locale" content="{og_locale}">
-  <meta property="og:site_name" content="CoolPadel Studios">
+  <meta property="og:site_name" content="CoolPadel">
   <meta property="og:url" content="{page_url}">
   <meta property="og:title" content="{l_title}">
   <meta property="og:description" content="{l_meta_desc}">
@@ -1279,14 +1287,14 @@ def render_landing(landing, lang="es"):
         "representativeOfPage": true,
         "creator": {{
           "@type": "Organization",
-          "name": "CoolPadel Studios"
+          "name": "CoolPadel"
         }},
-        "copyrightNotice": "© CoolPadel Studios"
+        "copyrightNotice": "© CoolPadel"
       }},
       {{
         "@type": "Organization",
         "@id": "https://coolpadelstudios.com/#organization",
-        "name": "CoolPadel Studios",
+        "name": "CoolPadel",
         "alternateName": "CoolPadel",
         "url": "https://coolpadelstudios.com",
         "logo": "https://coolpadelstudios.com/assets/images/coolpadel-mascot-hd.png"
@@ -1363,8 +1371,8 @@ def render_landing(landing, lang="es"):
   <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-xs">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between">
       <a href="{asset_prefix}" class="flex items-center gap-2 group">
-        <img src="{asset_prefix}assets/images/coolpadel-mascot-hd.png" alt="Mascota CoolPadel Studios" width="44" height="44" class="h-8 sm:h-11 w-auto object-contain">
-        <img src="{asset_prefix}assets/images/coolpadel-typography-hd.png" alt="CoolPadel Studios" width="140" height="28" class="h-5 sm:h-7 w-auto object-contain">
+        <img src="{asset_prefix}assets/images/coolpadel-mascot-hd.png" alt="Mascota CoolPadel" width="44" height="44" class="h-8 sm:h-11 w-auto object-contain">
+        <img src="{asset_prefix}assets/images/coolpadel-typography-hd.png" alt="CoolPadel" width="140" height="28" class="h-5 sm:h-7 w-auto object-contain">
       </a>
       
       <div class="flex items-center gap-2 sm:gap-4 lg:gap-6">
@@ -1581,8 +1589,8 @@ def render_landing(landing, lang="es"):
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
       <div>
         <div class="flex items-center gap-2 mb-3">
-          <img src="{asset_prefix}assets/images/coolpadel-mascot-hd.png" alt="Mascota CoolPadel Studios" width="32" height="32" class="h-8 w-auto">
-          <span class="font-heading font-black text-sm text-white">CoolPadel Studios</span>
+          <img src="{asset_prefix}assets/images/coolpadel-mascot-hd.png" alt="Mascota CoolPadel" width="32" height="32" class="h-8 w-auto">
+          <span class="font-heading font-black text-sm text-white">CoolPadel</span>
         </div>
         <p class="text-white/60 text-xs leading-relaxed">
           {footer_tagline}

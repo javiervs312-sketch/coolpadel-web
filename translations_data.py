@@ -101,12 +101,12 @@ TRANSLATIONS = {
         "faq_a6": "Sí, claro.<br>Los clubs los suelen vender fácilmente en recepción o en su tienda en torno a 5-6 € cada uno",
         "faq_q7": "¿Para qué ocasiones o usos sirven los llaveros de pádel?",
         "faq_a7": "Welcome packs de torneos, regalos en cenas de socios de fin de temporada, activaciones de patrocinadores del club, inscripciones a torneos y escuelas, o como detalle institucional en eventos corporativos y aperturas.",
-        "faq_q8": "¿Qué clubes y torneos confían ya en CoolPadel Studios?",
+        "faq_q8": "¿Qué clubes y torneos confían ya en CoolPadel?",
         "faq_a8": "Más de 30 clubs en España, Italia, Francia, Bélgica y Estados Unidos.<br>Consulta todos en el mapa interactivo",
         "faq_q9": "¿A qué países realizáis envíos?",
         "faq_a9": "Envíos directos en toda España, la Unión Europea y Estados Unidos<br>Consultar condiciones para el resto de países",
-        "faq_q10": "¿CoolPadel colabora con Save my Play?",
-        "faq_a10": "Sí, cámaras de padel para todos los clubs que quieren que los jugadores graben sus partidos y mejores puntos.",
+        "faq_q10": "¿Qué más productos ofrece CoolPadel?",
+        "faq_a10": "Cámaras para clubs para que los jugadores puedan guardar sus mejores puntos en pista.<br>Trabajamos directamente con Save My Play, empresa con más de 1600 cámaras por todo el mundo.",
 
         # Pop-up Modal Lead Magnet
         "popup_title": "¿Cuáles son las principales tendencias de la industria del padel en 2026?",
@@ -232,11 +232,11 @@ TRANSLATIONS = {
         "faq_a6": "Yes, of course.<br>Clubs typically resell them easily at reception or pro-shop for around 5-6 € each.",
         "faq_q7": "What occasions or uses are the padel keychains suitable for?",
         "faq_a7": "Tournament welcome packs, end-of-season member dinner gifts, club sponsor activations, tournament & junior academy registrations, or institutional gifts for openings and corporate events.",
-        "faq_q8": "Which clubs and tournaments already trust CoolPadel Studios?",
+        "faq_q8": "Which clubs and tournaments already trust CoolPadel?",
         "faq_a8": "More than 30 clubs in Spain, Italy, France, Belgium and the United States.<br>Explore them all on our interactive map.",
         "faq_q9": "Which countries do you ship to?",
         "faq_a9": "Direct shipping across Spain, the European Union and the United States.<br>Contact us for shipping terms to other countries.",
-        "faq_q10": "Does CoolPadel collaborate with Save my Play?",
+        "faq_q10": "What other products does CoolPadel offer?",
         "faq_a10": "Yes, smart padel court cameras for clubs that want players to record their matches and best highlights.",
 
         # Pop-up Modal Lead Magnet
@@ -363,12 +363,12 @@ TRANSLATIONS = {
         "faq_a6": "Oui, bien sûr.<br>Les clubs les revendent facilement à l'accueil ou en boutique autour de 5-6 € pièce.",
         "faq_q7": "Pour quelles occasions ou utilisations ces porte-clés sont-ils conçus ?",
         "faq_a7": "Welcome packs de tournois, cadeaux lors des dîners de fin de saison des membres, activations des sponsors du club, inscriptions aux tournois et écoles, ou cadeau institutionnel pour ouvertures et événements d'entreprise.",
-        "faq_q8": "Quels clubs et tournois font déjà confiance à CoolPadel Studios ?",
+        "faq_q8": "Quels clubs et tournois font déjà confiance à CoolPadel ?",
         "faq_a8": "Plus de 30 clubs en Espagne, Italie, France, Belgique et aux États-Unis.<br>Consultez-les tous sur la carte interactive.",
         "faq_q9": "Vers quels pays effectuez-vous les livraisons ?",
         "faq_a9": "Livraison directe dans toute l'Espagne, l'Union Européenne et aux États-Unis.<br>Consultez-nous pour les conditions d'expédition vers les autres pays.",
-        "faq_q10": "CoolPadel collabore-t-il avec Save my Play ?",
-        "faq_a10": "Oui, caméras de padel pour tous les clubs souhaitant permettre aux joueurs d'enregistrer leurs matchs et meilleurs points.",
+        "faq_q10": "Quels autres produits CoolPadel propose-t-il ?", 
+        "faq_a10": "Caméras pour clubs afin que les joueurs puissent enregistrer leurs meilleurs points sur le court.<br>Nous travaillons directement avec Save My Play, une entreprise avec plus de 1600 caméras dans le monde.",
 
         # Pop-up Modal Lead Magnet
         "popup_title": "Quelles sont les principales tendances de l'industrie du padel en 2026 ?",
@@ -494,12 +494,12 @@ TRANSLATIONS = {
         "faq_a6": "Certamente sì.<br>I club li rivendono facilmente alla reception o nel proprio pro-shop a circa 5-6 € ciascuno.",
         "faq_q7": "Per quali occasioni o utilizzi sono indicati i portachiavi da padel?",
         "faq_a7": "Welcome pack di tornei, regali per le cene sociali di fine anno, attivazioni degli sponsor del club, iscrizioni a tornei e scuole, o regalo aziendale per inaugurazioni ed eventi corporate.",
-        "faq_q8": "Quali club e tornei si affidano già a CoolPadel Studios?",
+        "faq_q8": "Quali club e tornei si affidano già a CoolPadel?",
         "faq_a8": "Oltre 30 club in Spagna, Italia, Francia, Belgio e Stati Uniti.<br>Consulta l'elenco completo sulla mappa interattiva.",
         "faq_q9": "In quali paesi effettuate le spedizioni?",
         "faq_a9": "Spedizioni dirette in tutta Italia, nei paesi dell'Unione Europea e negli Stati Uniti.<br>Contattaci per le condizioni di spedizione negli altri paesi.",
-        "faq_q10": "CoolPadel collabora con Save my Play?",
-        "faq_a10": "Sì, telecamere per campi da padel per tutti i club che desiderano permettere ai propri giocatori di registrare partite e azioni migliori.",
+        "faq_q10": "Quali altri prodotti offre CoolPadel?",
+        "faq_a10": "Telecamere per campi da padel per permettere ai giocatori di salvare i loro migliori punti.<br>Lavoriamo direttamente con Save My Play, azienda con oltre 1.600 telecamere in tutto il mondo.",
 
         # Pop-up Modal Lead Magnet
         "popup_title": "Quali sono i principali trend dell'industria del padel nel 2026?",
