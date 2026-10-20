@@ -68,6 +68,8 @@ def render_html(lang="es"):
     asset_prefix = "../" if lang == "es" else "../../"
     page_url = f"https://coolpadelstudios.com/{path_prefix}franquicias-padel/"
     og_locale = {"es": "es_ES", "en": "en_US", "fr": "fr_FR", "it": "it_IT"}.get(lang, "es_ES")
+    home_url = "/" if lang == "es" else f"/{lang}/"
+    franquicias_hub_url = "/franquicias-padel/" if lang == "es" else f"/{lang}/franquicias-padel/"
 
     meta_titles = {
         "es": f"Franquicias y Cadenas de Pádel ({total_franquicias} Operadores) | CoolPadel",
