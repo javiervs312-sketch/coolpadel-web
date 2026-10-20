@@ -119,18 +119,29 @@ def generate_single_page(f, lang="es"):
         </a>""")
     peers_html = "\n".join(peers_cards)
 
-    meta_desc = f"{nombre} ({pais}): {num_clubs}, {num_pistas}, reservas en {software.split('/')[0].strip()}, modelo {modelo} e inversión para clubes de pádel."
-    if len(meta_desc) > 152:
-        meta_desc = meta_desc[:149].rsplit(' ', 1)[0] + "..."
+    loc_titles = {
+        "es": f"{nombre} ({pais}) | Franquicia de Pádel",
+        "en": f"{nombre} ({pais}) | Padel Club Network & Franchise",
+        "fr": f"{nombre} ({pais}) | Réseau & Franchise de Padel",
+        "it": f"{nombre} ({pais}) | Rete & Franchigia di Padel"
+    }
+    localized_title = loc_titles.get(lang, loc_titles["es"])
+    if len(escape_txt(localized_title)) > 60:
+        localized_title = f"{nombre[:30]} ({pais}) | Padel"
 
-    short_title = f"{nombre} ({pais}) | Franquicia de Pádel"
-    if len(escape_txt(short_title)) > 58:
-        short_title = f"{nombre} ({pais}) - Pádel"
-    if len(escape_txt(short_title)) > 58:
-        short_title = f"{nombre[:30]} ({pais}) | Pádel"
+    loc_descs = {
+        "es": f"{nombre} ({pais}): {num_clubs}, {num_pistas}, reservas en {software.split('/')[0].strip()}, modelo {modelo} e inversión para clubes de pádel.",
+        "en": f"{nombre} ({pais}): {num_clubs}, {num_pistas}, booking with {software.split('/')[0].strip()}, {modelo} model and Save my Play camera compatibility.",
+        "fr": f"{nombre} ({pais}): {num_clubs}, {num_pistas}, réservations sur {software.split('/')[0].strip()}, modèle {modelo} et caméras Save my Play.",
+        "it": f"{nombre} ({pais}): {num_clubs}, {num_pistas}, prenotazioni con {software.split('/')[0].strip()}, modello {modelo} e telecamere Save my Play."
+    }
+    localized_desc = loc_descs.get(lang, loc_descs["es"])
+    meta_desc = localized_desc
+    if len(localized_desc) > 155:
+        localized_desc = localized_desc[:152].rsplit(' ', 1)[0] + "..."
 
     page_html = f"""<!DOCTYPE html>
-<html lang="es" class="scroll-smooth">
+<html lang="{lang}" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
