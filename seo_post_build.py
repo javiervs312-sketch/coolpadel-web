@@ -97,15 +97,22 @@ def run_seo_post_build():
             if os.path.exists(p):
                 shutil.rmtree(p)
 
-    # 2. Ensure Clarity on all HTML files
+    # 2. Ensure Clarity and cache-busted cp-analytics.js on all HTML files
     for r, d, files in os.walk(web_dir):
         for f in files:
             if not f.endswith(".html") or f.startswith("google"):
                 continue
             full = os.path.join(r, f)
             c = open(full, encoding="utf-8", errors="ignore").read()
+            changed = False
             if "clarity.ms" not in c and "</head>" in c:
                 c = c.replace("</head>", CLARITY_SNIPPET + "</head>", 1)
+                changed = True
+            new_c = re.sub(r'/assets/js/cp-analytics\.js(?:\?v=[^"\']*)?', '/assets/js/cp-analytics.js?v=20261020b', c)
+            if new_c != c:
+                c = new_c
+                changed = True
+            if changed:
                 open(full, "w", encoding="utf-8").write(c)
 
     # 3. Canonicalize & noindex untranslated franchise subpages

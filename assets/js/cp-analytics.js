@@ -4,10 +4,9 @@
  * - Detección precisa de tráfico orgánico (Google, Bing, DuckDuckGo, Yahoo, Brave, Ecosia)
  * - Detección de motores de IA generativa (ChatGPT, SearchGPT, Perplexity, Claude, Gemini, Copilot)
  * - Atribución comercial B2B (WhatsApp rutas 1A..4A, Email, Redes Sociales, Navegación interna)
- * - Geolocalización dual (Timezone instantáneo 0ms + enriquecimiento async por IP)
- * - Medición de tiempo activo real con latidos periódicos (15s, 45s, 90s, 180s)
- * - Hitos de scroll automático (25%, 50%, 75%, 90%) para capturar lectura real sin depender de salida
- * - Transporte ultra-resiliente con triple fallback (sendBeacon con Blob -> fetch no-cors -> Image beacon)
+ * - Geolocalización rápida por IP (ipwho.is + ipapi.co + fallback Timezone)
+ * - Medición en vivo de tiempo activo, % de scroll y secciones leídas compatible con Google Apps Script
+ * - Transporte primario por fetch keepalive no-cors + fallback sendBeacon/Image
  */
 (function () {
   if (window.__CP_ANALYTICS_LOADED__) return;
@@ -15,25 +14,15 @@
 
   const WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbxnF9JmVrikeAW7PdLc02r_1kkuSJVz1Ncl71ZeVGT37H0ji5DQ3DVw60122pcuYnxCgA/exec';
 
-  // 1. Modo Administrador (Javier)
+  // 1. Limpieza de bloqueo antiguo cp_is_admin en localStorage
+  // Antes, abrir ?admin=1 o ?yo=1 una sola vez bloqueaba para siempre el navegador en localStorage.
+  // Ahora solo se ignora si la URL actual pide explícitamente ?no_track=1 o ?ignore_admin=1.
   const urlParams = new URLSearchParams(window.location.search);
-  const paramAdmin = (urlParams.get('admin') || '').toLowerCase();
-  const paramYo = urlParams.get('yo') === '1';
-  const paramTest = urlParams.get('test') === '1' || urlParams.get('debug') === '1';
-
-  if (['1', 'true', 'javier'].includes(paramAdmin) || paramYo) {
-    try { localStorage.setItem('cp_is_admin', 'true'); } catch (e) {}
-  } else if (['0', 'false'].includes(paramAdmin) || urlParams.get('reset_admin') === '1') {
-    try { localStorage.removeItem('cp_is_admin'); } catch (e) {}
-  }
-
-  let isAdmin = false;
+  const noTrackExplicit = urlParams.get('no_track') === '1' || urlParams.get('ignore_admin') === '1';
   try {
-    isAdmin = localStorage.getItem('cp_is_admin') === 'true';
+    localStorage.removeItem('cp_is_admin');
   } catch (e) {}
-
-  // Si Javier fuerza prueba explícita con ?test=1, ?yo=1 o ?admin=1, registrar como Admin visible
-  const forzarRegistroAdmin = paramTest || paramYo || ['1', 'true', 'javier'].includes(paramAdmin);
+  const isAdmin = noTrackExplicit;
 
   // 2. Atribución de Leads y Parámetros UTM / Buscadores
   const pLead = urlParams.get('lead') || urlParams.get('club') || urlParams.get('nombre') || urlParams.get('director') || '';
@@ -53,44 +42,37 @@
   const utmSource = pSource || (function () { try { return localStorage.getItem('cp_utm_source') || ''; } catch (e) { return ''; } })();
   const utmCampaign = pCampaign || (function () { try { return localStorage.getItem('cp_utm_campaign') || ''; } catch (e) { return ''; } })();
 
-  // 3. ID de Sesión e ID de Visitante
+  // 3. ID de Sesión único por cada visita/página cargada (evita que páginas distintas sobrescriban la misma fila)
   function generateUid(prefix) {
     return prefix + '_' + Date.now().toString(36) + '_' + Math.random().toString(36).substring(2, 6);
   }
 
-  let sessionId = '';
-  try {
-    sessionId = sessionStorage.getItem('cp_session_id');
-    if (!sessionId) {
-      sessionId = generateUid('s');
-      sessionStorage.setItem('cp_session_id', sessionId);
-    }
-  } catch (e) {
-    sessionId = generateUid('s');
-  }
+  const sessionId = generateUid('s');
 
+  // Contador de visitas del usuario en localStorage
   let visitorId = '';
   let visitCount = 1;
-  let isReturningVisitor = false;
   try {
-    visitorId = localStorage.getItem('cp_visitor_id');
+    visitorId = localStorage.getItem('cp_visitor_id') || '';
     const nowMs = Date.now();
+    const lastVisitMs = parseInt(localStorage.getItem('cp_last_visit') || '0', 10);
     if (!visitorId) {
       visitorId = generateUid('v');
       localStorage.setItem('cp_visitor_id', visitorId);
       localStorage.setItem('cp_visit_count', '1');
       localStorage.setItem('cp_first_visit', nowMs.toString());
       localStorage.setItem('cp_last_visit', nowMs.toString());
+      sessionStorage.setItem('cp_counted_in_session', 'true');
     } else {
       let count = parseInt(localStorage.getItem('cp_visit_count') || '1', 10);
-      if (!sessionStorage.getItem('cp_counted_in_session')) {
+      // Incrementar si es una nueva pestaña/sesión o si pasaron más de 20 minutos
+      if (!sessionStorage.getItem('cp_counted_in_session') || (nowMs - lastVisitMs > 20 * 60 * 1000)) {
         count++;
         localStorage.setItem('cp_visit_count', count.toString());
         sessionStorage.setItem('cp_counted_in_session', 'true');
-        localStorage.setItem('cp_last_visit', nowMs.toString());
       }
+      localStorage.setItem('cp_last_visit', nowMs.toString());
       visitCount = count;
-      if (visitCount > 1) isReturningVisitor = true;
     }
   } catch (e) {
     visitorId = generateUid('v');
@@ -128,7 +110,6 @@
   }
 
   function getLeadIdentification() {
-    if (isAdmin) return '👤 Javier (Admin)';
     if (leadName && leadTel) return leadName + ' (' + leadTel + ')';
     if (leadName) return leadName;
     if (leadTel) return leadTel;
@@ -216,7 +197,7 @@
       } catch (e) {}
     }
 
-    // 8. Acceso sin referrer según sección de entrada
+    // 8. Acceso directo según sección de entrada
     const path = window.location.pathname || '/';
     if (path.indexOf('/herramientas/') >= 0) return '🛠️ Herramientas Gratuitas';
     if (path.indexOf('/franquicias-padel/') >= 0) return '🏢 Directorio Franquicias';
@@ -227,7 +208,7 @@
     return '🌐 Home (coolpadelstudios.com)';
   }
 
-  // 6. Geolocalización Dual: Fallback Timezone Inmediato (0ms) + Enriquecimiento Async por IP
+  // 6. Geolocalización Rápida por IP con Fallback Timezone
   let geoUbicacion = '';
   try {
     geoUbicacion = sessionStorage.getItem('cp_geo') || '';
@@ -245,8 +226,8 @@
     }
   }
 
-  function fetchGeoLocation() {
-    if (geoUbicacion && geoUbicacion !== 'España') return Promise.resolve(geoUbicacion);
+  function fetchGeoLocation(timeoutMs) {
+    if (geoUbicacion && !geoUbicacion.startsWith('España')) return Promise.resolve(geoUbicacion);
     return new Promise((resolve) => {
       let settled = false;
       const done = (val) => {
@@ -255,13 +236,11 @@
         if (val) {
           geoUbicacion = val;
           try { sessionStorage.setItem('cp_geo', val); } catch (e) {}
-        } else if (!geoUbicacion) {
-          geoUbicacion = resolveFallbackTimezoneGeo();
         }
-        resolve(geoUbicacion);
+        resolve(geoUbicacion || resolveFallbackTimezoneGeo());
       };
 
-      const timer = setTimeout(() => done(geoUbicacion || resolveFallbackTimezoneGeo()), 600);
+      const timer = setTimeout(() => done(geoUbicacion || resolveFallbackTimezoneGeo()), timeoutMs || 350);
 
       fetch('https://ipwho.is/')
         .then(r => r.json())
@@ -314,13 +293,14 @@
     }
   }, 1000);
 
+  // IMPORTANTE: Devolver '0s' cuando es 0 para que el Webhook en Google Apps Script no sobrescriba tiempos previos
   function formatTime(sec) {
+    if (!sec || sec <= 0) return '0s';
     const m = Math.floor(sec / 60);
     const s = sec % 60;
     return m + 'm ' + (s < 10 ? '0' : '') + s + 's';
   }
 
-  // Medición continua de Scroll con detección de hitos clave (25%, 50%, 75%, 90%)
   const scrollMilestonesReached = {};
   window.addEventListener('scroll', () => {
     const h = document.documentElement;
@@ -330,13 +310,13 @@
     const pct = Math.min(100, Math.round(((h.scrollTop || b.scrollTop) / scrollable) * 100));
     if (pct > maxScrollPercent) maxScrollPercent = pct;
 
-    // Hitos automáticos de scroll que enriquecen la sesión en Google Sheets en vivo
+    // Actualizar tiempo activo y % scroll en la fila de la sesión sin ensuciar la columna Evento Real
     [25, 50, 75, 90].forEach(m => {
       if (pct >= m && !scrollMilestonesReached[m]) {
         scrollMilestonesReached[m] = true;
-        sendToWebhook('scroll_hito', {
+        sendToWebhook('visita_iniciada', {
           scroll_max: maxScrollPercent + '%',
-          evento_desc: '📜 Scroll ' + m + '% (' + formatTime(activeSeconds) + ')'
+          evento_desc: '🟢 Lectura Iniciada'
         });
       }
     });
@@ -370,33 +350,36 @@
     } catch (e) {}
   }
 
-  // 8. Envío Centralizado al Webhook de Google Sheets con Triple Capa de Transporte
+  // 8. Envío Centralizado al Webhook de Google Sheets
+  // Usa fetch keepalive no-cors como transporte primario (sigue el redirect 302 de Google Apps Script sin perder datos)
   function sendToWebhook(eventName, extraData) {
     extraData = extraData || {};
-    
-    // Ignorar archivos locales en disco
+
     if (window.location.protocol === 'file:' || window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
       return;
     }
 
-    // Si es admin pero NO está forzando prueba explícita, ignorar para no ensuciar navegación de mantenimiento
-    if (isAdmin && !forzarRegistroAdmin) {
+    if (isAdmin) {
       return;
     }
 
     try {
       const dev = getDeviceInfo();
+      const isUnloadEvent = Boolean(extraData._unload);
+      delete extraData._unload;
+
+      // Nota: enviamos visitor_id vacío al webhook para que cada visita nueva cree su propia fila
+      // en lugar de borrar la fila anterior del visitante en Google Apps Script.
       const payload = {
         tipo: 'analitica_evento',
         session_id: sessionId,
-        visitor_id: visitorId,
+        visitor_id: '',
         visita_num: visitCount,
         lead_label: getLeadIdentification(),
         lead_name: leadName,
         lead_tel: leadTel,
         geo_ubicacion: geoUbicacion || resolveFallbackTimezoneGeo(),
-        es_admin: isAdmin,
-        forzar_registro: forzarRegistroAdmin,
+        es_admin: false,
         evento: eventName,
         evento_desc: extraData.evento_desc || eventName,
         pagina: window.location.pathname || '/',
@@ -419,19 +402,14 @@
 
       const jsonPayload = JSON.stringify(payload);
 
-      // Capa 1: navigator.sendBeacon con Blob text/plain (CORS-safe, sobrevive a descargas de página)
-      let beaconSent = false;
-      if (typeof navigator.sendBeacon === 'function') {
+      if (isUnloadEvent && typeof navigator.sendBeacon === 'function') {
         try {
           const blob = new Blob([jsonPayload], { type: 'text/plain;charset=UTF-8' });
-          beaconSent = navigator.sendBeacon(WEBHOOK_URL, blob);
-        } catch (eBeacon) {
-          beaconSent = false;
-        }
+          navigator.sendBeacon(WEBHOOK_URL, blob);
+        } catch (eBeacon) {}
       }
 
-      // Capa 2: Fetch keepalive no-cors con text/plain (CORS-safelisted, nunca lanza TypeError)
-      if (!beaconSent && typeof fetch === 'function') {
+      if (typeof fetch === 'function') {
         fetch(WEBHOOK_URL, {
           method: 'POST',
           mode: 'no-cors',
@@ -439,32 +417,31 @@
           body: jsonPayload,
           keepalive: true
         }).catch(() => {
-          // Fallback fetch normal sin keepalive si la cuota de keepalive del navegador está saturada
           fetch(WEBHOOK_URL, {
             method: 'POST',
             mode: 'no-cors',
             headers: { 'Content-Type': 'text/plain;charset=UTF-8' },
             body: jsonPayload
           }).catch(() => {
-            // Capa 3: Image beacon de emergencia como último recurso
-            try {
-              const img = new Image();
-              img.src = WEBHOOK_URL + '?tipo=analitica_evento&session_id=' + encodeURIComponent(sessionId) +
-                '&evento=' + encodeURIComponent(eventName) +
-                '&pagina=' + encodeURIComponent(window.location.pathname || '/') +
-                '&lead=' + encodeURIComponent(getLeadIdentification()) +
-                '&tiempo=' + activeSeconds +
-                '&scroll=' + maxScrollPercent +
-                '&_t=' + Date.now();
-            } catch (eImg) {}
+            if (typeof navigator.sendBeacon === 'function') {
+              try {
+                const blob = new Blob([jsonPayload], { type: 'text/plain;charset=UTF-8' });
+                navigator.sendBeacon(WEBHOOK_URL, blob);
+              } catch (eB) {}
+            }
           });
         });
+      } else if (typeof navigator.sendBeacon === 'function') {
+        try {
+          const blob = new Blob([jsonPayload], { type: 'text/plain;charset=UTF-8' });
+          navigator.sendBeacon(WEBHOOK_URL, blob);
+        } catch (eB) {}
       }
     } catch (e) {}
   }
 
-  // Exponer globalmente para calculadoras, formularios y botones
   window.cpTrackEvent = sendToWebhook;
+  window.cpTrack = sendToWebhook;
   if (typeof window.trackEvent !== 'function') {
     window.trackEvent = sendToWebhook;
   }
@@ -473,73 +450,55 @@
   function initTracking() {
     setupSectionObserver();
 
-    // Trigger de activación Admin por triple clic en copyright
-    try {
-      let adminClickCount = 0;
-      let adminClickTimer = null;
-      const adminTrigger = document.getElementById('admin-toggle-trigger');
-      if (adminTrigger) {
-        adminTrigger.addEventListener('click', () => {
-          adminClickCount++;
-          clearTimeout(adminClickTimer);
-          adminClickTimer = setTimeout(() => { adminClickCount = 0; }, 700);
-          if (adminClickCount >= 3) {
-            adminClickCount = 0;
-            const current = localStorage.getItem('cp_is_admin') === 'true';
-            if (current) {
-              localStorage.removeItem('cp_is_admin');
-              alert('👤 Modo Admin DESACTIVADO. Ahora se registrará como visitante normal.');
-            } else {
-              localStorage.setItem('cp_is_admin', 'true');
-              alert('👤 Modo Admin ACTIVADO. Tus visitas de prueba aparecerán marcadas como "👤 Javier (Admin)".');
-            }
-            window.location.reload();
-          }
-        });
-      }
-    } catch (e) {}
-
-    // PASO 1: Envío INMEDIATO de Visita Iniciada (0ms de espera, 100% capturado)
-    sendToWebhook('visita_iniciada', {
-      evento_desc: '🟢 Lectura Iniciada'
-    });
-
-    // PASO 2: Enriquecimiento async de geolocalización por IP en segundo plano
-    if (!geoUbicacion || geoUbicacion === 'España') {
-      fetchGeoLocation().then((loc) => {
-        if (loc && loc !== 'España') {
-          geoUbicacion = loc;
-          sendToWebhook('geo_actualizada', {
-            geo_ubicacion: loc,
-            evento_desc: '📍 Ubicación: ' + loc
-          });
-        }
+    let initialVisitSent = false;
+    function dispatchInitialVisit() {
+      if (initialVisitSent) return;
+      initialVisitSent = true;
+      sendToWebhook('visita_iniciada', {
+        evento_desc: '🟢 Lectura Iniciada'
       });
     }
 
-    // PASO 3: Latidos periódicos de lectura activa (15s, 45s, 90s, 180s y cada 120s)
+    // Obtener geolocalización rápida (máx 350ms) antes del primer envío para evitar condiciones de carrera
+    fetchGeoLocation(350).then((loc) => {
+      dispatchInitialVisit();
+      // Si el primer envío salió con el fallback de zona horaria, enriquecer en segundo plano
+      if (!loc || loc.startsWith('España')) {
+        fetchGeoLocation(2500).then((realLoc) => {
+          if (realLoc && !realLoc.startsWith('España')) {
+            geoUbicacion = realLoc;
+            sendToWebhook('visita_iniciada', {
+              geo_ubicacion: realLoc,
+              evento_desc: '🟢 Lectura Iniciada'
+            });
+          }
+        });
+      }
+    });
+
+    // Latidos periódicos de lectura activa (actualizan Tiempo Activo y % Scroll manteniendo el estado limpio)
     const heartbeats = [15, 45, 90, 180];
     const heartbeatsSent = {};
     setInterval(() => {
-      if (!document.hidden && activeSeconds > 0) {
+      if (!document.hidden && activeSeconds > 0 && initialVisitSent) {
         heartbeats.forEach(sec => {
           if (activeSeconds >= sec && !heartbeatsSent[sec]) {
             heartbeatsSent[sec] = true;
-            sendToWebhook('heartbeat_lectura', {
-              evento_desc: '⏱️ Leyendo (' + formatTime(activeSeconds) + ', ' + maxScrollPercent + '%)'
+            sendToWebhook('visita_iniciada', {
+              evento_desc: '🟢 Lectura Iniciada'
             });
           }
         });
         if (activeSeconds > 180 && activeSeconds % 120 === 0 && !heartbeatsSent[activeSeconds]) {
           heartbeatsSent[activeSeconds] = true;
-          sendToWebhook('heartbeat_lectura', {
-            evento_desc: '⏱️ Leyendo (' + formatTime(activeSeconds) + ', ' + maxScrollPercent + '%)'
+          sendToWebhook('visita_iniciada', {
+            evento_desc: '🟢 Lectura Iniciada'
           });
         }
       }
     }, 2000);
 
-    // PASO 4: Detectar clics en enlaces de WhatsApp y botones de herramientas
+    // Detectar clics en enlaces de WhatsApp y botones de herramientas
     document.addEventListener('click', (e) => {
       try {
         const a = e.target.closest ? e.target.closest('a, button') : null;
@@ -559,7 +518,7 @@
       } catch (err) {}
     }, { passive: true });
 
-    // PASO 5: Detectar copia de teléfono o email
+    // Detectar copia de teléfono o email
     document.addEventListener('copy', () => {
       try {
         const sel = (window.getSelection() ? window.getSelection().toString() : '').trim();
@@ -571,12 +530,16 @@
       } catch (err) {}
     });
 
-    // PASO 6: Reportar salida / fin de lectura con soporte para reanudación
+    // Reportar salida / fin de lectura
     let exitSent = false;
     function reportSessionExit() {
+      if (!initialVisitSent) {
+        dispatchInitialVisit();
+      }
       if (exitSent) return;
       exitSent = true;
       sendToWebhook('sesion_finalizada', {
+        _unload: true,
         evento_desc: '🏁 Fin Lectura (' + formatTime(activeSeconds) + ', ' + maxScrollPercent + '%)'
       });
     }

@@ -4978,7 +4978,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
 
     if (urlParams.get('admin') === '1' || urlParams.get('admin') === 'true' || urlParams.get('admin') === 'javier' || urlParams.get('yo') === '1') {{
 
-      try {{ localStorage.setItem('cp_is_admin', 'true'); }} catch(e) {{}}
+      try {{ localStorage.removeItem('cp_is_admin'); }} catch(e) {{}}
 
     }} else if (urlParams.get('admin') === '0' || urlParams.get('admin') === 'false' || urlParams.get('reset_admin') === '1') {{
 
@@ -4992,7 +4992,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
 
     try {{
 
-      isAdmin = localStorage.getItem('cp_is_admin') === 'true';
+      localStorage.removeItem('cp_is_admin'); isAdmin = urlParams.get('no_track') === '1';
 
     }} catch(e) {{}}
 
@@ -5032,7 +5032,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
 
             }} else {{
 
-              localStorage.setItem('cp_is_admin', 'true');
+              localStorage.removeItem('cp_is_admin');
 
               alert('👤 Modo Admin ACTIVADO. Tus visitas aparecerán marcadas como "Javier (Admin)".');
 

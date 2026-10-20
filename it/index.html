@@ -3056,7 +3056,7 @@
 
   <!-- SCRIPTS & SISTEMA DE INTERNACIONALIZACIÓN (I18N) -->
 
-  <script src="/assets/js/cp-analytics.js"></script>
+  <script src="/assets/js/cp-analytics.js?v=20261020b"></script>
 
   <script>
 
@@ -4522,7 +4522,7 @@ Un saludo.`);
 
     if (urlParams.get('admin') === '1' || urlParams.get('admin') === 'true' || urlParams.get('admin') === 'javier' || urlParams.get('yo') === '1') {
 
-      try { localStorage.setItem('cp_is_admin', 'true'); } catch(e) {}
+      try { localStorage.removeItem('cp_is_admin'); } catch(e) {}
 
     } else if (urlParams.get('admin') === '0' || urlParams.get('admin') === 'false' || urlParams.get('reset_admin') === '1') {
 
@@ -4536,7 +4536,7 @@ Un saludo.`);
 
     try {
 
-      isAdmin = localStorage.getItem('cp_is_admin') === 'true';
+      localStorage.removeItem('cp_is_admin'); isAdmin = urlParams.get('no_track') === '1';
 
     } catch(e) {}
 
@@ -4576,7 +4576,7 @@ Un saludo.`);
 
             } else {
 
-              localStorage.setItem('cp_is_admin', 'true');
+              localStorage.removeItem('cp_is_admin');
 
               alert('👤 Modo Admin ACTIVADO. Tus visitas aparecerán marcadas como "Javier (Admin)".');
 
