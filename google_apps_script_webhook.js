@@ -2,7 +2,7 @@
  * GOOGLE APPS SCRIPT - WEBHOOK OFICIAL COOLPADEL & SAVE MY PLAY
  * 
  * Columnas Limpias y Accionables (12 Columnas Estándar):
- * 1. Fecha: día/mes (ej: 17/10)
+ * 1. Fecha: día/mes (ej: 20/10)
  * 2. Hora: HH:mm:ss (ej: 14:01:19)
  * 3. Lead / Club: Nombre/Tel si se conoce, o EN BLANCO si es anónimo
  * 4. Origen / Canal: WhatsApp, Email, Carta /camaras/, Blog, Home, Directo...
@@ -26,13 +26,35 @@ function doPost(e) {
   } catch (errLock) {}
 
   try {
-    if (!e || !e.postData || !e.postData.contents) {
+    if (!e) {
       return ContentService.createTextOutput(JSON.stringify({ status: "error", message: "Sin datos" })).setMimeType(ContentService.MimeType.JSON);
     }
 
-    const data = JSON.parse(e.postData.contents);
-    const ss = SpreadsheetApp.getActiveSpreadsheet();
+    let raw = "";
+    if (e.postData && e.postData.contents) {
+      raw = e.postData.contents;
+    } else if (e.parameter && e.parameter.data) {
+      raw = e.parameter.data;
+    }
 
+    // Limpieza de caracteres BOM (\uFEFF)
+    if (raw && typeof raw === "string") {
+      raw = raw.replace(/^\uFEFF/, "").trim();
+    }
+
+    let data = {};
+    if (raw) {
+      try {
+        data = JSON.parse(raw);
+      } catch (errJson) {
+        // Fallback si vino URL-encoded
+        data = e.parameter || {};
+      }
+    } else if (e.parameter) {
+      data = e.parameter;
+    }
+
+    const ss = SpreadsheetApp.getActiveSpreadsheet();
     const ahoraDate = new Date();
     const dia = Utilities.formatDate(ahoraDate, "Europe/Madrid", "dd/MM");
     const hora = Utilities.formatDate(ahoraDate, "Europe/Madrid", "HH:mm:ss");
@@ -142,10 +164,9 @@ function doPost(e) {
       return ContentService.createTextOutput(JSON.stringify({ status: "ignored_local", message: "Entorno local de desarrollo ignorado" })).setMimeType(ContentService.MimeType.JSON);
     }
 
-    // Descartar visitas del Administrador (Javier)
-    const leadRaw = ((data.lead_name || "") + " " + (data.lead_label || "")).toLowerCase();
-    if (data.es_admin || leadRaw.includes("admin") || leadRaw.includes("javier")) {
-      return ContentService.createTextOutput(JSON.stringify({ status: "ignored_admin", message: "Visita de admin ignorada" })).setMimeType(ContentService.MimeType.JSON);
+    // Descartar visitas rutinarias del Administrador (salvo si fuerza prueba con ?test=1 o ?yo=1)
+    if (data.es_admin && !data.forzar_registro && !data.ver_admin) {
+      return ContentService.createTextOutput(JSON.stringify({ status: "ignored_admin", message: "Navegación rutinaria de admin ignorada" })).setMimeType(ContentService.MimeType.JSON);
     }
 
     // Normalizar ruta de la página
@@ -153,9 +174,11 @@ function doPost(e) {
     pagina = pagina.replace(/^https?:\/\/(?:www\.)?coolpadelstudios\.com/i, "").replace(/^https?:\/\/(?:www\.)?savemyplay\.com/i, "");
     if (!pagina) pagina = "/";
 
-    // Lead / Club: EN BLANCO si es anónimo o no se sabe quién es
+    // Lead / Club: Nombre/Tel si se conoce, o Javier (Admin) si es prueba explícita, o EN BLANCO si es anónimo
     let leadLabel = "";
-    if (data.lead_name && data.lead_tel) {
+    if (data.forzar_registro && data.es_admin) {
+      leadLabel = "👤 Javier (Admin)";
+    } else if (data.lead_name && data.lead_tel) {
       leadLabel = data.lead_name + " (" + data.lead_tel + ")";
     } else if (data.lead_name) {
       leadLabel = data.lead_name;
@@ -165,7 +188,7 @@ function doPost(e) {
       leadLabel = data.lead_label;
     }
 
-    // Origen de acceso / Canal (Priorizar siempre buscadores orgánicos e IA sobre etiquetas estáticas de página)
+    // Origen de acceso / Canal (Priorizar siempre buscadores orgánicos e IA)
     let origenCanal = (data.origen_canal || "").trim();
     const src = (data.campana_utm || data.origen || "").toLowerCase();
     const ref = (data.referrer || "").toLowerCase();
@@ -215,7 +238,7 @@ function doPost(e) {
       }
     }
 
-    // Generar fallback de sesión si la página no envió session_id
+    // ID de Sesión e ID de Visitante
     const sessionId = (data.session_id || "").trim() || ("s_" + dia.replace("/", "") + "_" + (data.dispositivo || "web").toLowerCase() + "_" + Math.random().toString(36).substring(2, 6));
     const visitorId = (data.visitor_id || "").trim();
 
@@ -231,16 +254,22 @@ function doPost(e) {
     // Dispositivo limpio (iPhone, Android, Windows, Mac, etc.)
     const dispositivo = data.dispositivo || data.so || "Web";
 
+    // Medición de Tiempo Activo y Scroll
+    const tActivo = data.tiempo_activo || (data.tiempo_segundos ? formatSecondsGas(data.tiempo_segundos) : "0s");
+    const sMax = data.scroll_max || data.scroll_hito || "0%";
+
     // Evento Real comprensible
     let eventoReal = data.evento_desc || "";
     const evt = data.evento || "";
-    const tActivo = data.tiempo_activo || (data.tiempo_segundos ? data.tiempo_segundos + "s" : "0s");
-    const sMax = data.scroll_max || data.scroll_hito || "0%";
 
     if (evt === "visita_iniciada" || evt === "pageview" || evt === "visita_blog_pagina" || evt === "page_view_landing") {
       eventoReal = "🟢 Lectura Iniciada";
     } else if (evt === "sesion_finalizada") {
       eventoReal = "🏁 Fin Lectura (" + tActivo + ", " + sMax + ")";
+    } else if (evt === "heartbeat_lectura") {
+      eventoReal = "⏱️ Leyendo (" + tActivo + ", " + sMax + ")";
+    } else if (evt === "scroll_hito") {
+      eventoReal = data.evento_desc || ("📜 Scroll " + sMax);
     } else if (evt.indexOf("click_whatsapp") >= 0) {
       eventoReal = "🎯 Clic WhatsApp (" + (data.ubicacion || "Carta") + ")";
     } else if (evt === "copiar_telefono") {
@@ -249,88 +278,78 @@ function doPost(e) {
       eventoReal = "📋 Copió Email";
     } else if (evt === "calculadora_interaccion") {
       eventoReal = "📊 Calculadora (" + (data.tier_pistas || "") + " pistas)";
+    } else if (evt === "geo_actualizada") {
+      eventoReal = "📍 Ubicación: " + ubicacion;
     } else if (!eventoReal) {
       eventoReal = "Lectura (" + tActivo + ", " + sMax + ")";
     }
 
     // Secciones Leídas
     const seccionesLeidas = data.secciones_recorridas || data.seccion_actual || "";
-    const tiempoActivo = tActivo;
-    const scrollMax = sMax;
 
-    // Buscar si ya existe este visitante o sesión en las primeras 120 filas
-    let filaExistente = -1;
-    let notaExistente = "";
+    // Buscar si ya existe ESTA MISMA SESIÓN en las primeras 100 filas para consolidarla
+    let filaSesion = -1;
+    let notaSesion = "";
     const lastRow = sheetAnalitica.getLastRow();
     
     if (lastRow > 1) {
-      const numRows = Math.min(lastRow - 1, 120);
+      const numRows = Math.min(lastRow - 1, 100);
       const notasRange = sheetAnalitica.getRange(2, 5, numRows, 1).getNotes(); // Columna 5: Visitas
-      const valsLead = sheetAnalitica.getRange(2, 3, numRows, 1).getValues();  // Columna 3: Lead / Club
 
       for (let i = 0; i < numRows; i++) {
         const n = notasRange[i][0] || "";
-        const rLead = valsLead[i][0] || "";
-        
-        const matchSession = sessionId && n.indexOf(sessionId) >= 0;
-        const matchVisitor = visitorId && n.indexOf(visitorId) >= 0;
-        const matchTel = data.lead_tel && rLead.indexOf(data.lead_tel) >= 0;
-
-        if (matchSession || matchVisitor || matchTel) {
-          filaExistente = 2 + i;
-          notaExistente = n;
+        if (sessionId && n.indexOf(sessionId) >= 0) {
+          filaSesion = 2 + i;
+          notaSesion = n;
           break;
         }
       }
     }
 
-    if (filaExistente > 1) {
-      // CONSOLIDAR EN LA SESIÓN O VISITAS ANTERIORES DEL LEAD
-      const filaActual = sheetAnalitica.getRange(filaExistente, 1, 1, 12).getValues()[0];
-      const isMismaSesion = sessionId && notaExistente.indexOf(sessionId) >= 0;
-      
-      let nuevaNota = notaExistente;
+    if (filaSesion > 1) {
+      // ─────────────────────────────────────────────────────────────────
+      // CASO A: MISMA SESIÓN ACTIVA -> ACTUALIZAR Y CONSOLIDAR EN SU FILA
+      // ─────────────────────────────────────────────────────────────────
+      const filaActual = sheetAnalitica.getRange(filaSesion, 1, 1, 12).getValues()[0];
 
-      if (!isMismaSesion) {
-        // ES UNA VISITA NUEVA / REINCIDENTE DEL MISMO USUARIO:
-        // Guardar la visita anterior en el historial de la nota emergente
-        const prevFecha = filaActual[0] || dia;
-        const prevHora = filaActual[1] || hora;
-        const prevVisita = filaActual[4] || "1ª visita";
-        const prevOrigen = filaActual[3] || "Web";
-        const prevPagina = filaActual[7] || "/";
-        const prevEvento = filaActual[8] || "-";
-        const prevTiempo = filaActual[10] || "0s";
-        const prevScroll = filaActual[11] || "0%";
+      // Tiempo activo: nunca permitir retrocesos de segundos
+      const secPrevio = parseSecondsGas(filaActual[10]);
+      const secNuevo = Math.max(data.tiempo_segundos || 0, parseSecondsGas(tActivo));
+      const secFinal = Math.max(secPrevio, secNuevo);
+      const tiempoConsolidado = secFinal > 0 ? formatSecondsGas(secFinal) : (filaActual[10] || "0s");
 
-        const entradaHistorial = "• " + prevVisita + " (" + prevFecha + " " + prevHora + "):\n" +
-          "  Pág: " + prevPagina + " | Origen: " + prevOrigen + "\n" +
-          "  Lectura: " + prevTiempo + " (" + prevScroll + ") ➔ " + prevEvento;
+      // % Scroll: nunca permitir retrocesos de porcentaje
+      const scrollPrevio = parseScrollGas(filaActual[11]);
+      const scrollNuevo = Math.max(parseScrollGas(data.scroll_max), parseScrollGas(sMax));
+      const scrollFinal = Math.max(scrollPrevio, scrollNuevo);
+      const scrollConsolidado = scrollFinal + "%";
 
-        let cuerpoNota = notaExistente.replace(/\[id:[^\]]+\]/g, "").trim();
-        if (!cuerpoNota.includes("HISTORIAL DE VISITAS")) {
-          cuerpoNota = "📜 HISTORIAL DE VISITAS DE ESTE LEAD:\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" + (cuerpoNota ? cuerpoNota + "\n\n" : "");
-        }
-        cuerpoNota += "\n" + entradaHistorial + "\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━";
-
-        nuevaNota = cuerpoNota + "\n[id: " + (visitorId || "v") + " | " + sessionId + "]";
-
-      } else {
-        // MISMA SESIÓN ACTIVA: asegurar IDs técnicos en la nota
-        if (!nuevaNota.includes(sessionId)) {
-          nuevaNota = (nuevaNota.replace(/\[id:[^\]]+\]/g, "").trim() + "\n[id: " + (visitorId || "v") + " | " + sessionId + "]").trim();
-        }
-      }
-
-      // Actualizar evento real sin redundancia
+      // Actualizar evento real sin redundancias de "Fin Lectura" o "Leyendo"
       let eventosPrevios = filaActual[8] || "";
-      let eventosActualizados = isMismaSesion ? eventosPrevios : eventoReal;
-      if (isMismaSesion && eventoReal && !eventosPrevios.includes(eventoReal)) {
-        if (eventosPrevios.startsWith("🟢 Lectura Iniciada") && (eventoReal.startsWith("🏁 Fin Lectura") || eventoReal.startsWith("🎯 Clic"))) {
-          eventosActualizados = eventoReal;
+      let eventosActualizados = eventosPrevios;
+
+      if (!eventosPrevios || eventosPrevios === "🟢 Lectura Iniciada") {
+        eventosActualizados = eventoReal;
+      } else if (eventoReal.startsWith("⏱️ Leyendo") || eventoReal.startsWith("🏁 Fin Lectura")) {
+        // Reemplazar latido o fin previo por el estado más reciente
+        if (eventosPrevios.includes(" ➔ ⏱️ Leyendo")) {
+          eventosActualizados = eventosPrevios.replace(/ ➔ ⏱️ Leyendo.*$/, " ➔ " + eventoReal);
+        } else if (eventosPrevios.includes(" ➔ 🏁 Fin Lectura")) {
+          eventosActualizados = eventosPrevios.replace(/ ➔ 🏁 Fin Lectura.*$/, " ➔ " + eventoReal);
         } else {
           eventosActualizados = eventosPrevios + " ➔ " + eventoReal;
         }
+      } else if (eventoReal.startsWith("📍 Ubicación")) {
+        // No ensuciar la cadena de eventos con la actualización de ubicación
+        eventosActualizados = eventosPrevios;
+      } else if (!eventosPrevios.includes(eventoReal)) {
+        eventosActualizados = eventosPrevios + " ➔ " + eventoReal;
+      }
+
+      // Asegurar que el ID de sesión permanezca en la nota
+      let nuevaNota = notaSesion;
+      if (!nuevaNota.includes(sessionId)) {
+        nuevaNota = (nuevaNota.replace(/\[id:[^\]]+\]/g, "").trim() + "\n[id: " + (visitorId || "v") + " | " + sessionId + "]").trim();
       }
 
       const filaConsolidada = [
@@ -338,31 +357,25 @@ function doPost(e) {
         hora,                                                            // Col 2: Hora (HH:mm:ss)
         leadLabel || filaActual[2] || "",                               // Col 3: Lead / Club
         origenCanal || filaActual[3] || "🌐 Enlace Directo",            // Col 4: Origen / Canal
-        visitasStr || filaActual[4] || "1ª visita",                      // Col 5: Visitas (con nota emergente al pulsar)
-        ubicacion || filaActual[5] || "",                               // Col 6: Ubicación
+        visitasStr || filaActual[4] || "1ª visita",                      // Col 5: Visitas
+        ubicacion || filaActual[5] || "",                               // Col 6: Ubicación (enriquecida si llega nueva)
         dispositivo || filaActual[6] || "",                             // Col 7: Dispositivo
         pagina || filaActual[7] || "",                                  // Col 8: Página
         eventosActualizados,                                             // Col 9: Evento Real
         seccionesLeidas || filaActual[9] || "",                         // Col 10: Secciones Leídas
-        tiempoActivo !== "0s" ? tiempoActivo : (isMismaSesion ? (filaActual[10] || tiempoActivo) : tiempoActivo), // Col 11: Tiempo Activo
-        scrollMax !== "0%" ? scrollMax : (isMismaSesion ? (filaActual[11] || scrollMax) : scrollMax) // Col 12: % Scroll
+        tiempoConsolidado,                                               // Col 11: Tiempo Activo (máximo alcanzado)
+        scrollConsolidado                                                // Col 12: % Scroll (máximo alcanzado)
       ];
 
-      if (filaExistente === 2) {
-        // Ya está en la fila 2 (arriba del todo), actualizar directamente
-        sheetAnalitica.getRange(2, 1, 1, 12).setValues([filaConsolidada]);
-        sheetAnalitica.getRange(2, 5).setNote(nuevaNota);
-      } else {
-        // Mover a la fila 2 para mantener la sesión más reciente/activa arriba
-        sheetAnalitica.deleteRow(filaExistente);
-        sheetAnalitica.insertRowBefore(2);
-        sheetAnalitica.getRange(2, 1, 1, 12).setValues([filaConsolidada]);
-        sheetAnalitica.getRange(2, 5).setNote(nuevaNota);
-      }
+      sheetAnalitica.getRange(filaSesion, 1, 1, 12).setValues([filaConsolidada]);
+      sheetAnalitica.getRange(filaSesion, 5).setNote(nuevaNota);
 
     } else {
-      // NUEVA SESIÓN: Insertar en la fila 2 (arriba del todo, debajo del encabezado)
-      const notaInicial = "📜 Primera visita registrada:\n• 1ª visita: " + dia + " " + hora + "\n  Pág: " + pagina + " | Origen: " + origenCanal + "\n[id: " + (visitorId || "v") + " | " + sessionId + "]";
+      // ─────────────────────────────────────────────────────────────────
+      // CASO B: NUEVA VISITA / NUEVA SESIÓN -> INSERTAR NUEVA FILA EN FILA 2
+      // (NUNCA se borran visitas anteriores: cada sesión queda registrada)
+      // ─────────────────────────────────────────────────────────────────
+      let notaInicial = "📜 Visita registrada:\n• " + visitasStr + " (" + dia + " " + hora + ")\n  Pág: " + pagina + " | Origen: " + origenCanal + "\n[id: " + (visitorId || "v") + " | " + sessionId + "]";
 
       sheetAnalitica.insertRowBefore(2);
       sheetAnalitica.getRange(2, 1, 1, 12).setValues([[
@@ -376,8 +389,8 @@ function doPost(e) {
         pagina,
         eventoReal,
         seccionesLeidas,
-        tiempoActivo,
-        scrollMax
+        tActivo,
+        sMax
       ]]);
       sheetAnalitica.getRange(2, 5).setNote(notaInicial);
     }
@@ -393,14 +406,45 @@ function doPost(e) {
   }
 }
 
+/**
+ * Soporte para GET (Image Beacon o fallback de navegadores restringidos)
+ */
 function doGet(e) {
+  if (e && e.parameter && (e.parameter.tipo || e.parameter.evento || e.parameter.session_id)) {
+    return doPost(e);
+  }
   return ContentService.createTextOutput("CoolPadel Webhook Activo").setMimeType(ContentService.MimeType.TEXT);
+}
+
+// Utilidades auxiliares de formato y parsing
+function formatSecondsGas(sec) {
+  const sNum = parseInt(sec, 10) || 0;
+  const m = Math.floor(sNum / 60);
+  const s = sNum % 60;
+  return m + "m " + (s < 10 ? "0" : "") + s + "s";
+}
+
+function parseSecondsGas(str) {
+  if (!str) return 0;
+  let sec = 0;
+  const matchM = str.toString().match(/(\d+)\s*m/);
+  const matchS = str.toString().match(/(\d+)\s*s/);
+  if (matchM) sec += parseInt(matchM[1], 10) * 60;
+  if (matchS) sec += parseInt(matchS[1], 10);
+  if (!matchM && !matchS && /^\d+$/.test(str.toString().trim())) {
+    sec = parseInt(str.toString().trim(), 10);
+  }
+  return sec;
+}
+
+function parseScrollGas(str) {
+  if (!str) return 0;
+  const match = str.toString().match(/(\d+)/);
+  return match ? parseInt(match[1], 10) : 0;
 }
 
 /**
  * MENÚ Y VISOR DE HISTORIAL EN GOOGLE SHEETS
- * Permite ver las visitas anteriores tanto al pulsar sobre la celda (nota emergente)
- * como seleccionando la fila y haciendo clic en 'Analítica Web > Ver Historial'.
  */
 function onOpen() {
   try {
@@ -435,4 +479,3 @@ function verHistorialSeleccionado() {
     SpreadsheetApp.getUi().ButtonSet.OK
   );
 }
-

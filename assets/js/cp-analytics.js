@@ -4,8 +4,10 @@
  * - Detección precisa de tráfico orgánico (Google, Bing, DuckDuckGo, Yahoo, Brave, Ecosia)
  * - Detección de motores de IA generativa (ChatGPT, SearchGPT, Perplexity, Claude, Gemini, Copilot)
  * - Atribución comercial B2B (WhatsApp rutas 1A..4A, Email, Redes Sociales, Navegación interna)
- * - Geolocalización por IP con doble proveedor (ipwho.is + ipapi.co) antes del primer envío
- * - Medición de tiempo activo real, % de scroll máximo, ruta de secciones leídas e interacciones
+ * - Geolocalización dual (Timezone instantáneo 0ms + enriquecimiento async por IP)
+ * - Medición de tiempo activo real con latidos periódicos (15s, 45s, 90s, 180s)
+ * - Hitos de scroll automático (25%, 50%, 75%, 90%) para capturar lectura real sin depender de salida
+ * - Transporte ultra-resiliente con triple fallback (sendBeacon con Blob -> fetch no-cors -> Image beacon)
  */
 (function () {
   if (window.__CP_ANALYTICS_LOADED__) return;
@@ -15,9 +17,13 @@
 
   // 1. Modo Administrador (Javier)
   const urlParams = new URLSearchParams(window.location.search);
-  if (['1', 'true', 'javier'].includes((urlParams.get('admin') || '').toLowerCase()) || urlParams.get('yo') === '1') {
+  const paramAdmin = (urlParams.get('admin') || '').toLowerCase();
+  const paramYo = urlParams.get('yo') === '1';
+  const paramTest = urlParams.get('test') === '1' || urlParams.get('debug') === '1';
+
+  if (['1', 'true', 'javier'].includes(paramAdmin) || paramYo) {
     try { localStorage.setItem('cp_is_admin', 'true'); } catch (e) {}
-  } else if (['0', 'false'].includes((urlParams.get('admin') || '').toLowerCase()) || urlParams.get('reset_admin') === '1') {
+  } else if (['0', 'false'].includes(paramAdmin) || urlParams.get('reset_admin') === '1') {
     try { localStorage.removeItem('cp_is_admin'); } catch (e) {}
   }
 
@@ -26,8 +32,11 @@
     isAdmin = localStorage.getItem('cp_is_admin') === 'true';
   } catch (e) {}
 
+  // Si Javier fuerza prueba explícita con ?test=1, ?yo=1 o ?admin=1, registrar como Admin visible
+  const forzarRegistroAdmin = paramTest || paramYo || ['1', 'true', 'javier'].includes(paramAdmin);
+
   // 2. Atribución de Leads y Parámetros UTM / Buscadores
-  const pLead = urlParams.get('lead') || urlParams.get('club') || urlParams.get('nombre') || '';
+  const pLead = urlParams.get('lead') || urlParams.get('club') || urlParams.get('nombre') || urlParams.get('director') || '';
   const pTel = urlParams.get('tel') || urlParams.get('phone') || urlParams.get('c') || '';
   const pSource = urlParams.get('utm_source') || urlParams.get('src') || '';
   const pCampaign = urlParams.get('utm_campaign') || urlParams.get('camp') || urlParams.get('ruta') || '';
@@ -87,7 +96,7 @@
     visitorId = generateUid('v');
   }
 
-  // 4. Detección de Dispositivo
+  // 4. Detección de Dispositivo y Entorno (Webviews de WhatsApp, Instagram, LinkedIn, etc.)
   function getDeviceInfo() {
     const ua = navigator.userAgent || '';
     const platform = navigator.platform || '';
@@ -108,6 +117,7 @@
     else if (/Instagram/i.test(ua)) app = ' (Instagram)';
     else if (/FBAN|FBAV/i.test(ua)) app = ' (Facebook)';
     else if (/LinkedIn/i.test(ua)) app = ' (LinkedIn)';
+    else if (/Telegram/i.test(ua)) app = ' (Telegram)';
     else if (/GoogleApp|GSA\//i.test(ua)) app = ' (Google App)';
 
     return {
@@ -118,7 +128,7 @@
   }
 
   function getLeadIdentification() {
-    if (isAdmin) return 'Javier (Admin)';
+    if (isAdmin) return '👤 Javier (Admin)';
     if (leadName && leadTel) return leadName + ' (' + leadTel + ')';
     if (leadName) return leadName;
     if (leadTel) return leadTel;
@@ -193,9 +203,10 @@
     // 6. Redes Sociales
     if (/Instagram/i.test(ua) || ref.includes('instagram.com')) return '📷 Instagram';
     if (/LinkedIn/i.test(ua) || ref.includes('linkedin.com') || ref.includes('lnkd.in')) return '💼 LinkedIn';
-    if (/FBAN|FBAV/i.test(ua) || ref.includes('facebook.com')) return '👥 Facebook';
+    if (/FBAN|FBAV/i.test(ua) || ref.includes('facebook.com') || ref.includes('fb.me')) return '👥 Facebook';
     if (ref.includes('youtube.com') || ref.includes('youtu.be')) return '▶️ YouTube';
     if (ref.includes('t.co') || ref.includes('twitter.com') || ref.includes('x.com')) return '🐦 X / Twitter';
+    if (/TikTok/i.test(ua) || ref.includes('tiktok.com')) return '🎵 TikTok';
 
     // 7. Otras webs externas (Backlinks / Referrals)
     if (ref) {
@@ -216,7 +227,7 @@
     return '🌐 Home (coolpadelstudios.com)';
   }
 
-  // 6. Geolocalización Rápida con Doble Fallback (ipwho.is + ipapi.co + Timezone)
+  // 6. Geolocalización Dual: Fallback Timezone Inmediato (0ms) + Enriquecimiento Async por IP
   let geoUbicacion = '';
   try {
     geoUbicacion = sessionStorage.getItem('cp_geo') || '';
@@ -250,8 +261,7 @@
         resolve(geoUbicacion);
       };
 
-      // Timeout de 550ms para no retrasar nunca el registro de la visita
-      const timer = setTimeout(() => done(geoUbicacion || resolveFallbackTimezoneGeo()), 550);
+      const timer = setTimeout(() => done(geoUbicacion || resolveFallbackTimezoneGeo()), 600);
 
       fetch('https://ipwho.is/')
         .then(r => r.json())
@@ -310,6 +320,8 @@
     return m + 'm ' + (s < 10 ? '0' : '') + s + 's';
   }
 
+  // Medición continua de Scroll con detección de hitos clave (25%, 50%, 75%, 90%)
+  const scrollMilestonesReached = {};
   window.addEventListener('scroll', () => {
     const h = document.documentElement;
     const b = document.body;
@@ -317,6 +329,17 @@
     if (scrollable <= 0) return;
     const pct = Math.min(100, Math.round(((h.scrollTop || b.scrollTop) / scrollable) * 100));
     if (pct > maxScrollPercent) maxScrollPercent = pct;
+
+    // Hitos automáticos de scroll que enriquecen la sesión en Google Sheets en vivo
+    [25, 50, 75, 90].forEach(m => {
+      if (pct >= m && !scrollMilestonesReached[m]) {
+        scrollMilestonesReached[m] = true;
+        sendToWebhook('scroll_hito', {
+          scroll_max: maxScrollPercent + '%',
+          evento_desc: '📜 Scroll ' + m + '% (' + formatTime(activeSeconds) + ')'
+        });
+      }
+    });
   }, { passive: true });
 
   function setupSectionObserver() {
@@ -347,12 +370,20 @@
     } catch (e) {}
   }
 
-  // 8. Envío Centralizado al Webhook de Google Sheets
+  // 8. Envío Centralizado al Webhook de Google Sheets con Triple Capa de Transporte
   function sendToWebhook(eventName, extraData) {
     extraData = extraData || {};
-    if (window.location.protocol === 'file:' || window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' || isAdmin) {
+    
+    // Ignorar archivos locales en disco
+    if (window.location.protocol === 'file:' || window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
       return;
     }
+
+    // Si es admin pero NO está forzando prueba explícita, ignorar para no ensuciar navegación de mantenimiento
+    if (isAdmin && !forzarRegistroAdmin) {
+      return;
+    }
+
     try {
       const dev = getDeviceInfo();
       const payload = {
@@ -365,6 +396,7 @@
         lead_tel: leadTel,
         geo_ubicacion: geoUbicacion || resolveFallbackTimezoneGeo(),
         es_admin: isAdmin,
+        forzar_registro: forzarRegistroAdmin,
         evento: eventName,
         evento_desc: extraData.evento_desc || eventName,
         pagina: window.location.pathname || '/',
@@ -386,27 +418,58 @@
       };
 
       const jsonPayload = JSON.stringify(payload);
-      if (navigator.sendBeacon) {
-        navigator.sendBeacon(WEBHOOK_URL, jsonPayload);
-      } else {
+
+      // Capa 1: navigator.sendBeacon con Blob text/plain (CORS-safe, sobrevive a descargas de página)
+      let beaconSent = false;
+      if (typeof navigator.sendBeacon === 'function') {
+        try {
+          const blob = new Blob([jsonPayload], { type: 'text/plain;charset=UTF-8' });
+          beaconSent = navigator.sendBeacon(WEBHOOK_URL, blob);
+        } catch (eBeacon) {
+          beaconSent = false;
+        }
+      }
+
+      // Capa 2: Fetch keepalive no-cors con text/plain (CORS-safelisted, nunca lanza TypeError)
+      if (!beaconSent && typeof fetch === 'function') {
         fetch(WEBHOOK_URL, {
           method: 'POST',
           mode: 'no-cors',
-          headers: { 'Content-Type': 'application/json' },
+          headers: { 'Content-Type': 'text/plain;charset=UTF-8' },
           body: jsonPayload,
           keepalive: true
-        }).catch(() => {});
+        }).catch(() => {
+          // Fallback fetch normal sin keepalive si la cuota de keepalive del navegador está saturada
+          fetch(WEBHOOK_URL, {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: { 'Content-Type': 'text/plain;charset=UTF-8' },
+            body: jsonPayload
+          }).catch(() => {
+            // Capa 3: Image beacon de emergencia como último recurso
+            try {
+              const img = new Image();
+              img.src = WEBHOOK_URL + '?tipo=analitica_evento&session_id=' + encodeURIComponent(sessionId) +
+                '&evento=' + encodeURIComponent(eventName) +
+                '&pagina=' + encodeURIComponent(window.location.pathname || '/') +
+                '&lead=' + encodeURIComponent(getLeadIdentification()) +
+                '&tiempo=' + activeSeconds +
+                '&scroll=' + maxScrollPercent +
+                '&_t=' + Date.now();
+            } catch (eImg) {}
+          });
+        });
       }
     } catch (e) {}
   }
 
-  // Exponer globalmente para calculadoras, generadores y botones
+  // Exponer globalmente para calculadoras, formularios y botones
   window.cpTrackEvent = sendToWebhook;
   if (typeof window.trackEvent !== 'function') {
     window.trackEvent = sendToWebhook;
   }
 
-  // 9. Inicialización Automática en Carga y Salida
+  // 9. Inicialización Automática en Carga, Latidos y Salida
   function initTracking() {
     setupSectionObserver();
 
@@ -428,7 +491,7 @@
               alert('👤 Modo Admin DESACTIVADO. Ahora se registrará como visitante normal.');
             } else {
               localStorage.setItem('cp_is_admin', 'true');
-              alert('👤 Modo Admin ACTIVADO. Tus visitas aparecerán marcadas como "Javier (Admin)".');
+              alert('👤 Modo Admin ACTIVADO. Tus visitas de prueba aparecerán marcadas como "👤 Javier (Admin)".');
             }
             window.location.reload();
           }
@@ -436,13 +499,47 @@
       }
     } catch (e) {}
 
-    fetchGeoLocation().then(() => {
-      sendToWebhook('visita_iniciada', {
-        evento_desc: '🟢 Lectura Iniciada'
-      });
+    // PASO 1: Envío INMEDIATO de Visita Iniciada (0ms de espera, 100% capturado)
+    sendToWebhook('visita_iniciada', {
+      evento_desc: '🟢 Lectura Iniciada'
     });
 
-    // Detectar clics en enlaces de WhatsApp y botones de herramientas
+    // PASO 2: Enriquecimiento async de geolocalización por IP en segundo plano
+    if (!geoUbicacion || geoUbicacion === 'España') {
+      fetchGeoLocation().then((loc) => {
+        if (loc && loc !== 'España') {
+          geoUbicacion = loc;
+          sendToWebhook('geo_actualizada', {
+            geo_ubicacion: loc,
+            evento_desc: '📍 Ubicación: ' + loc
+          });
+        }
+      });
+    }
+
+    // PASO 3: Latidos periódicos de lectura activa (15s, 45s, 90s, 180s y cada 120s)
+    const heartbeats = [15, 45, 90, 180];
+    const heartbeatsSent = {};
+    setInterval(() => {
+      if (!document.hidden && activeSeconds > 0) {
+        heartbeats.forEach(sec => {
+          if (activeSeconds >= sec && !heartbeatsSent[sec]) {
+            heartbeatsSent[sec] = true;
+            sendToWebhook('heartbeat_lectura', {
+              evento_desc: '⏱️ Leyendo (' + formatTime(activeSeconds) + ', ' + maxScrollPercent + '%)'
+            });
+          }
+        });
+        if (activeSeconds > 180 && activeSeconds % 120 === 0 && !heartbeatsSent[activeSeconds]) {
+          heartbeatsSent[activeSeconds] = true;
+          sendToWebhook('heartbeat_lectura', {
+            evento_desc: '⏱️ Leyendo (' + formatTime(activeSeconds) + ', ' + maxScrollPercent + '%)'
+          });
+        }
+      }
+    }, 2000);
+
+    // PASO 4: Detectar clics en enlaces de WhatsApp y botones de herramientas
     document.addEventListener('click', (e) => {
       try {
         const a = e.target.closest ? e.target.closest('a, button') : null;
@@ -462,7 +559,7 @@
       } catch (err) {}
     }, { passive: true });
 
-    // Detectar copia de teléfono o email
+    // PASO 5: Detectar copia de teléfono o email
     document.addEventListener('copy', () => {
       try {
         const sel = (window.getSelection() ? window.getSelection().toString() : '').trim();
@@ -474,10 +571,10 @@
       } catch (err) {}
     });
 
-    // Reportar salida / fin de lectura
+    // PASO 6: Reportar salida / fin de lectura con soporte para reanudación
     let exitSent = false;
     function reportSessionExit() {
-      if (exitSent && activeSeconds < 3) return;
+      if (exitSent) return;
       exitSent = true;
       sendToWebhook('sesion_finalizada', {
         evento_desc: '🏁 Fin Lectura (' + formatTime(activeSeconds) + ', ' + maxScrollPercent + '%)'
@@ -485,7 +582,11 @@
     }
 
     window.addEventListener('visibilitychange', () => {
-      if (document.visibilityState === 'hidden') reportSessionExit();
+      if (document.visibilityState === 'hidden') {
+        reportSessionExit();
+      } else if (document.visibilityState === 'visible') {
+        exitSent = false;
+      }
     });
     window.addEventListener('pagehide', reportSessionExit);
   }
