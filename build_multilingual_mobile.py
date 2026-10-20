@@ -2474,7 +2474,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
 
         <!-- COLUMNA IZQUIERDA: 2 TARJETAS (TENIS & PADEL) MÁS GRANDES EN SUBGRID -->
 
-        <div class="lg:col-span-7 grid grid-cols-2 gap-3 sm:gap-4 h-full">
+        <div class="lg:col-span-8 grid grid-cols-2 gap-3 sm:gap-5 h-full">
 
           <!-- CARD IZQUIERDA: TENIS -->
 
@@ -2482,7 +2482,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
 
             <div class="aspect-[4/3] rounded-xl overflow-hidden mb-2 bg-slate-100 shadow-sm border border-slate-200/90">
 
-              <img src="{asset_prefix}assets/images/llaveros-tenis-personalizados-clubs.jpg?v=2" alt="Llaveros de tenis y pádel personalizados con relieve 3D para clubs y torneos" width="736" height="1408" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
+              <img src="{asset_prefix}assets/images/llaveros-tenis-personalizados-clubs.jpg?v=3" alt="Llaveros de tenis y pádel personalizados con relieve 3D para clubs y torneos" width="736" height="1408" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
 
             </div>
 
@@ -2502,7 +2502,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
 
             <div class="aspect-[4/3] rounded-xl overflow-hidden mb-2 bg-slate-100 shadow-sm border border-slate-200/90">
 
-              <img src="{asset_prefix}assets/images/llaveros-padel-personalizados-clubs.jpg?v=2" alt="Llaveros de pádel de goma 3D personalizados con logo para clubes de pádel" width="768" height="1344" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
+              <img src="{asset_prefix}assets/images/llaveros-padel-personalizados-clubs.jpg?v=3" alt="Llaveros de pádel de goma 3D personalizados con logo para clubes de pádel" width="768" height="1344" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
 
             </div>
 
@@ -2520,7 +2520,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
 
         <!-- COLUMNA DERECHA: CALCULADORA DE PRESUPUESTO OFICIAL (UN 20% MÁS ESTRECHA) -->
 
-        <div class="lg:col-span-5 bg-white rounded-2xl p-4 sm:p-5 border border-white/60 shadow-xl text-slate-950 flex flex-col justify-between">
+        <div class="lg:col-span-4 bg-white rounded-2xl p-3 sm:p-4 border border-white/60 shadow-xl text-slate-950 flex flex-col justify-between">
 
           <div class="text-center sm:text-left mb-2">
 
