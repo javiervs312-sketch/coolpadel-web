@@ -3,7 +3,7 @@
 <head>
   <title>Padel Industry Blog & Executive Newsletter | CoolPadel Studios</title>
   <meta name="description" content="Strategic analysis and data-driven reports on the global padel industry by Javier Villoria. Court cameras, club economics, and 2026 Barometer.">
-                                                                                                <link rel="canonical" href="https://coolpadelstudios.com/en/blog/">
+                                                                                                  <link rel="canonical" href="https://coolpadelstudios.com/en/blog/">
 
   <!-- SEO Multilingüe Hreflang -->
   <link rel="alternate" hreflang="es" href="https://coolpadelstudios.com/blog/">
@@ -12,6 +12,14 @@
   <link rel="alternate" hreflang="it" href="https://coolpadelstudios.com/it/blog/">
   <link rel="alternate" hreflang="x-default" href="https://coolpadelstudios.com/blog/">
   <meta name="language" content="en">
+
+  <!-- SEO Multilingüe Hreflang -->
+  <link rel="alternate" hreflang="es" href="https://coolpadelstudios.com/blog/">
+  <link rel="alternate" hreflang="en" href="https://coolpadelstudios.com/en/blog/">
+  <link rel="alternate" hreflang="fr" href="https://coolpadelstudios.com/fr/blog/">
+  <link rel="alternate" hreflang="it" href="https://coolpadelstudios.com/it/blog/">
+  <link rel="alternate" hreflang="x-default" href="https://coolpadelstudios.com/blog/">
+  <meta name="language" content="es">
 
   <!-- SEO Multilingüe Hreflang -->
   <link rel="alternate" hreflang="es" href="https://coolpadelstudios.com/blog/">
@@ -631,14 +639,20 @@
         </a>
       </nav>
 
-      <!-- DERECHA: SELECTOR IDIOMA + BOTÓN CONTACTAR + OJOS DEL LOGO A LA DERECHA DEL TODO -->
+      <!-- DERECHA: SELECTOR IDIOMA DESPLEGABLE + BOTÓN CONTACTAR + OJOS DEL LOGO A LA DERECHA DEL TODO -->
       <div class="hidden sm:flex items-center gap-2.5 sm:gap-3 lg:gap-3.5 shrink-0 ml-auto">
-        <!-- SELECTOR DE IDIOMA EN PÍLDORAS (ES EN FR IT) -->
-        <div class="inline-flex items-center bg-slate-100 rounded-full p-0.5 border border-slate-200/90 shadow-inner text-xs shrink-0 select-none">
-          <a href="/blog/" class="lang-btn bg-[#f2920b] text-slate-950 font-black shadow-xs px-2.5 py-1 rounded-full text-xs transition-all duration-200 select-none">ES</a>
-          <a href="/en/blog/" class="lang-btn text-slate-500 hover:text-slate-950 font-bold px-2.5 py-1 rounded-full text-xs transition-all duration-200 select-none">EN</a>
-          <a href="/fr/blog/" class="lang-btn text-slate-500 hover:text-slate-950 font-bold px-2.5 py-1 rounded-full text-xs transition-all duration-200 select-none">FR</a>
-          <a href="/it/blog/" class="lang-btn text-slate-500 hover:text-slate-950 font-bold px-2.5 py-1 rounded-full text-xs transition-all duration-200 select-none">IT</a>
+        <!-- SELECTOR DE IDIOMA EN DESPLEGABLE COMPACTO -->
+        <div class="relative inline-block text-left" id="lang-dropdown-container">
+          <button type="button" onclick="toggleLangDropdown(event)" id="lang-dropdown-btn" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-100 hover:bg-slate-200 border border-slate-200 text-xs font-black text-slate-900 shadow-xs transition cursor-pointer">
+            <span class="uppercase font-black">ES</span>
+            <i data-lucide="chevron-down" class="w-3.5 h-3.5 stroke-[2.5] text-slate-600 transition-transform duration-200" id="lang-dropdown-arrow"></i>
+          </button>
+          <div id="lang-dropdown-menu" class="hidden absolute right-0 mt-2 w-24 bg-white rounded-2xl shadow-[0_12px_30px_rgba(0,0,0,0.15)] border border-slate-200 py-1.5 z-50 transition-all overflow-hidden">
+            <a href="/blog/" class="lang-opt block lang-opt-active w-full text-center px-4 py-2 text-xs transition duration-150">ES</a>
+            <a href="/en/blog/" class="lang-opt block text-slate-700 hover:bg-[#f2920b] hover:text-slate-950 font-bold w-full text-center px-4 py-2 text-xs transition duration-150">EN</a>
+            <a href="/fr/blog/" class="lang-opt block text-slate-700 hover:bg-[#f2920b] hover:text-slate-950 font-bold w-full text-center px-4 py-2 text-xs transition duration-150">FR</a>
+            <a href="/it/blog/" class="lang-opt block text-slate-700 hover:bg-[#f2920b] hover:text-slate-950 font-bold w-full text-center px-4 py-2 text-xs transition duration-150">IT</a>
+          </div>
         </div>
 
         <!-- BOTÓN CONTACTAR CON FLECHA HACIA ABAJO -->
@@ -669,22 +683,12 @@
 
     </div>
 
-    <!-- MÓVIL SUB-NAV: ENLACES + IDIOMAS HORIZONTALES -->
-    <div class="flex md:hidden items-center justify-between w-full gap-2 px-3 py-1 border-t border-slate-100 overflow-x-auto text-[10px] font-heading font-black tracking-wider uppercase text-slate-900 bg-white">
-      <div class="flex items-center gap-3 shrink-0">
-        <a href="../../#llaveros" class="hover:text-[#f2920b] transition whitespace-nowrap">LLAVEROS</a>
-        <a href="../../camaras/" class="hover:text-[#f2920b] transition whitespace-nowrap">CÁMARAS</a>
-        <a href="./" class="text-[#f2920b] transition whitespace-nowrap">BLOG</a>
-        <a href="../../franquicias-padel/" class="hover:text-[#f2920b] transition whitespace-nowrap">CLUBS</a>
-      </div>
-      <div class="shrink-0 flex items-center">
-        <div class="inline-flex items-center bg-slate-100 rounded-full p-0.5 border border-slate-200/90 text-[10px] shrink-0">
-          <a href="/blog/" class="lang-btn bg-[#f2920b] text-slate-950 font-black px-1.5 py-0.5 rounded-full transition">ES</a>
-          <a href="/en/blog/" class="lang-btn text-slate-500 font-bold px-1.5 py-0.5 rounded-full transition">EN</a>
-          <a href="/fr/blog/" class="lang-btn text-slate-500 font-bold px-1.5 py-0.5 rounded-full transition">FR</a>
-          <a href="/it/blog/" class="lang-btn text-slate-500 font-bold px-1.5 py-0.5 rounded-full transition">IT</a>
-        </div>
-      </div>
+    <!-- MÓVIL SUB-NAV: ENLACES HORIZONTALES -->
+    <div class="flex md:hidden items-center justify-around w-full gap-2 px-3 py-1 border-t border-slate-100 overflow-x-auto text-[10px] font-heading font-black tracking-wider uppercase text-slate-900 bg-white">
+      <a href="../../#llaveros" class="hover:text-[#f2920b] transition whitespace-nowrap py-0.5">LLAVEROS</a>
+      <a href="../../camaras/" class="hover:text-[#f2920b] transition whitespace-nowrap py-0.5">CÁMARAS</a>
+      <a href="./" class="text-[#f2920b] transition whitespace-nowrap py-0.5">BLOG</a>
+      <a href="../../franquicias-padel/" class="hover:text-[#f2920b] transition whitespace-nowrap py-0.5">CLUBS</a>
     </div>
   </header>
 

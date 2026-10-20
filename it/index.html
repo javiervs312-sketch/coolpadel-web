@@ -1582,7 +1582,7 @@
 
 
 
-  <!-- 2. NAVBAR BLANCA OFICIAL (MASCOTA + ENLACES + IDIOMAS + CONTACTAR + OJOS DERECHA) -->
+  <!-- 2. NAVBAR BLANCA OFICIAL (MASCOTA + ENLACES + SELECTOR DESPLEGABLE + CONTACTAR + OJOS DERECHA) -->
   <header class="fixed top-0 left-0 w-full z-40 bg-white/95 backdrop-blur-md text-slate-900 border-b border-slate-200 shadow-xs">
     <div class="w-full max-w-[1700px] mx-auto px-3 sm:px-6 lg:px-8 py-1.5 sm:py-0 h-auto sm:h-16 lg:h-18 flex items-center justify-between gap-2 lg:gap-4">
 
@@ -1608,14 +1608,30 @@
         </a>
       </nav>
 
-      <!-- DERECHA: SELECTOR IDIOMA + BOTÓN CONTACTAR + OJOS DEL LOGO A LA DERECHA DEL TODO -->
+      <!-- DERECHA: SELECTOR IDIOMA DESPLEGABLE + BOTÓN CONTACTAR + OJOS DEL LOGO A LA DERECHA DEL TODO -->
       <div class="hidden sm:flex items-center gap-2.5 sm:gap-3 lg:gap-3.5 shrink-0 ml-auto">
-        <!-- SELECTOR DE IDIOMA EN PÍLDORAS (ES EN FR IT) -->
-        <div class="inline-flex items-center bg-slate-100 rounded-full p-0.5 border border-slate-200/90 shadow-inner text-xs shrink-0 select-none">
-          <a href="/" onclick="switchLanguage('es')" data-lang-btn="es" class="lang-btn text-slate-500 hover:text-slate-950 font-bold px-2.5 py-1 rounded-full text-xs transition-all duration-200 select-none cursor-pointer">ES</a>
-          <a href="/en/" onclick="switchLanguage('en')" data-lang-btn="en" class="lang-btn text-slate-500 hover:text-slate-950 font-bold px-2.5 py-1 rounded-full text-xs transition-all duration-200 select-none cursor-pointer">EN</a>
-          <a href="/fr/" onclick="switchLanguage('fr')" data-lang-btn="fr" class="lang-btn text-slate-500 hover:text-slate-950 font-bold px-2.5 py-1 rounded-full text-xs transition-all duration-200 select-none cursor-pointer">FR</a>
-          <a href="/it/" onclick="switchLanguage('it')" data-lang-btn="it" class="lang-btn bg-[#f2920b] text-slate-950 font-black shadow-xs px-2.5 py-1 rounded-full text-xs transition-all duration-200 select-none cursor-pointer">IT</a>
+        <!-- SELECTOR DE IDIOMA EN DESPLEGABLE COMPACTO -->
+        <div class="relative inline-block text-left" id="lang-dropdown-container">
+          <button type="button" onclick="toggleLangDropdown(event)" id="lang-dropdown-btn" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-100 hover:bg-slate-200 border border-slate-200 text-xs font-black text-slate-900 shadow-xs transition cursor-pointer" aria-expanded="false" aria-haspopup="true">
+            <span id="current-lang-code" class="uppercase font-black">IT</span>
+            <i data-lucide="chevron-down" class="w-3.5 h-3.5 stroke-[2.5] text-slate-600 transition-transform duration-200" id="lang-dropdown-arrow"></i>
+          </button>
+
+          <!-- MENÚ DESPLEGABLE FLOTANTE -->
+          <div id="lang-dropdown-menu" class="hidden absolute right-0 mt-2 w-24 bg-white rounded-2xl shadow-[0_12px_30px_rgba(0,0,0,0.15)] border border-slate-200 py-1.5 z-50 transition-all overflow-hidden">
+            <a href="/" onclick="switchLanguage('es')" data-lang-opt="es" class="lang-opt block text-slate-700 hover:bg-[#f2920b] hover:text-slate-950 font-bold w-full text-center px-4 py-2 text-xs transition duration-150">
+              ES
+            </a>
+            <a href="/en/" onclick="switchLanguage('en')" data-lang-opt="en" class="lang-opt block text-slate-700 hover:bg-[#f2920b] hover:text-slate-950 font-bold w-full text-center px-4 py-2 text-xs transition duration-150">
+              EN
+            </a>
+            <a href="/fr/" onclick="switchLanguage('fr')" data-lang-opt="fr" class="lang-opt block text-slate-700 hover:bg-[#f2920b] hover:text-slate-950 font-bold w-full text-center px-4 py-2 text-xs transition duration-150">
+              FR
+            </a>
+            <a href="/it/" onclick="switchLanguage('it')" data-lang-opt="it" class="lang-opt block lang-opt-active w-full text-center px-4 py-2 text-xs transition duration-150">
+              IT
+            </a>
+          </div>
         </div>
 
         <!-- BOTÓN CONTACTAR CON FLECHA HACIA ABAJO -->
@@ -1631,8 +1647,30 @@
         </a>
       </div>
 
-      <!-- MÓVIL (DERECHA): CONTACTAR + OJOS -->
+      <!-- MÓVIL (DERECHA): IDIOMA DESPLEGABLE + CONTACTAR + OJOS -->
       <div class="flex sm:hidden items-center gap-1.5 shrink-0">
+        <!-- DESPLEGABLE IDIOMA MÓVIL -->
+        <div class="relative inline-block text-left" id="lang-dropdown-container-mob">
+          <button type="button" onclick="toggleLangDropdownMob(event)" id="lang-dropdown-btn-mob" class="inline-flex items-center gap-1 px-2 py-1 rounded-full bg-slate-100 hover:bg-slate-200 border border-slate-200 text-[10px] font-black text-slate-900 shadow-xs transition cursor-pointer">
+            <span id="current-lang-code-mob" class="uppercase font-black">IT</span>
+            <i data-lucide="chevron-down" class="w-2.5 h-2.5 stroke-[2.5] text-slate-600" id="lang-dropdown-arrow-mob"></i>
+          </button>
+          <div id="lang-dropdown-menu-mob" class="hidden absolute right-0 mt-1 w-20 bg-white rounded-2xl shadow-xl border border-slate-200 py-1 z-50 transition-all overflow-hidden">
+            <a href="/" onclick="switchLanguage('es')" data-lang-opt="es" class="lang-opt block text-slate-700 hover:bg-[#f2920b] hover:text-slate-950 font-bold w-full text-center px-3 py-1.5 text-[11px] transition duration-150">
+              ES
+            </a>
+            <a href="/en/" onclick="switchLanguage('en')" data-lang-opt="en" class="lang-opt block text-slate-700 hover:bg-[#f2920b] hover:text-slate-950 font-bold w-full text-center px-3 py-1.5 text-[11px] transition duration-150">
+              EN
+            </a>
+            <a href="/fr/" onclick="switchLanguage('fr')" data-lang-opt="fr" class="lang-opt block text-slate-700 hover:bg-[#f2920b] hover:text-slate-950 font-bold w-full text-center px-3 py-1.5 text-[11px] transition duration-150">
+              FR
+            </a>
+            <a href="/it/" onclick="switchLanguage('it')" data-lang-opt="it" class="lang-opt block lang-opt-active w-full text-center px-3 py-1.5 text-[11px] transition duration-150">
+              IT
+            </a>
+          </div>
+        </div>
+
         <!-- BOTÓN CONTACTAR MÓVIL CON FLECHA -->
         <a id="nav-contact-btn-mob" href="../#contacto" 
            class="group relative inline-flex items-center justify-center gap-1 px-3 py-1 rounded-full bg-[#f2920b] active:bg-[#76d3f6] text-slate-950 active:scale-95 font-heading font-black text-[10px] uppercase tracking-wider transition-all duration-300 shadow-xs shrink-0 cursor-pointer">
@@ -1648,22 +1686,12 @@
 
     </div>
 
-    <!-- MÓVIL SUB-NAV: ENLACES + IDIOMAS HORIZONTALES -->
-    <div class="flex md:hidden items-center justify-between w-full gap-2 px-3 py-1 border-t border-slate-100 overflow-x-auto text-[10px] font-heading font-black tracking-wider uppercase text-slate-900 bg-white">
-      <div class="flex items-center gap-3 shrink-0">
-        <a href="../#llaveros" class="hover:text-[#f2920b] transition whitespace-nowrap">LLAVEROS</a>
-        <a href="camaras/" class="hover:text-[#f2920b] transition whitespace-nowrap">CÁMARAS</a>
-        <a href="../blog/" class="hover:text-[#f2920b] transition whitespace-nowrap">BLOG</a>
-        <a href="../franquicias-padel/" class="hover:text-[#f2920b] transition whitespace-nowrap">CLUBS</a>
-      </div>
-      <div class="shrink-0 flex items-center">
-        <div class="inline-flex items-center bg-slate-100 rounded-full p-0.5 border border-slate-200/90 text-[10px] shrink-0">
-          <a href="/" onclick="switchLanguage('es')" data-lang-btn="es" class="lang-btn text-slate-500 font-bold px-1.5 py-0.5 rounded-full transition">ES</a>
-          <a href="/en/" onclick="switchLanguage('en')" data-lang-btn="en" class="lang-btn text-slate-500 font-bold px-1.5 py-0.5 rounded-full transition">EN</a>
-          <a href="/fr/" onclick="switchLanguage('fr')" data-lang-btn="fr" class="lang-btn text-slate-500 font-bold px-1.5 py-0.5 rounded-full transition">FR</a>
-          <a href="/it/" onclick="switchLanguage('it')" data-lang-btn="it" class="lang-btn bg-[#f2920b] text-slate-950 font-black px-1.5 py-0.5 rounded-full transition">IT</a>
-        </div>
-      </div>
+    <!-- MÓVIL SUB-NAV: ENLACES HORIZONTALES -->
+    <div class="flex md:hidden items-center justify-around w-full gap-2 px-3 py-1 border-t border-slate-100 overflow-x-auto text-[10px] font-heading font-black tracking-wider uppercase text-slate-900 bg-white">
+      <a href="../#llaveros" class="hover:text-[#f2920b] transition whitespace-nowrap py-0.5">LLAVEROS</a>
+      <a href="camaras/" class="hover:text-[#f2920b] transition whitespace-nowrap py-0.5">CÁMARAS</a>
+      <a href="../blog/" class="hover:text-[#f2920b] transition whitespace-nowrap py-0.5">BLOG</a>
+      <a href="../franquicias-padel/" class="hover:text-[#f2920b] transition whitespace-nowrap py-0.5">CLUBS</a>
     </div>
   </header>
 
@@ -3281,13 +3309,15 @@
 
 
 
-      // Resaltar idioma activo con fondo naranja (#f2920b) y texto negro en las píldoras
-      document.querySelectorAll('[data-lang-btn]').forEach(btn => {
-        const bLang = btn.getAttribute('data-lang-btn');
-        if (bLang === lang) {
-          btn.className = 'lang-btn px-2.5 py-1 rounded-full text-xs font-black bg-[#f2920b] text-slate-950 shadow-xs transition-all duration-200 select-none cursor-pointer';
+      // Resaltar idioma activo en desplegable
+      document.querySelectorAll('[data-lang-opt]').forEach(btn => {
+        const optLang = btn.getAttribute('data-lang-opt');
+        if (optLang === lang) {
+          btn.classList.add('lang-opt-active');
+          btn.classList.remove('text-slate-700');
         } else {
-          btn.className = 'lang-btn px-2 py-1 rounded-full text-xs font-bold text-slate-500 hover:text-slate-950 transition-all duration-200 select-none cursor-pointer';
+          btn.classList.remove('lang-opt-active');
+          btn.classList.add('text-slate-700');
         }
       });
 
