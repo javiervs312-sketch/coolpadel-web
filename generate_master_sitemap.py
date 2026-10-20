@@ -2,7 +2,8 @@
 # -*- coding: utf-8 -*-
 """
 Generador Maestro del Sitemap XML Multilingüe (ES, EN, FR, IT) para coolpadelstudios.com.
-Genera todas las entradas con etiquetas xhtml:link rel="alternate" hreflang para máxima indexación SEO y GEO.
+Incluye únicamente URLs 100% originales y traducidas con hreflang simétrico válido,
+eliminando URLs fantasma (404) y duplicados en español bajo rutas /en/, /fr/, /it/.
 """
 import os
 import sys
@@ -12,15 +13,17 @@ if cur_dir not in sys.path:
     sys.path.insert(0, cur_dir)
 
 from dataset_franquicias import FRANQUICIAS
-from translations_landings import LANDINGS_I18N as LANDING_PAGES
-from translations_blog import FLAGSHIP_GUIDES_DATA
+from translations_landings import LANDINGS_I18N
 
+LANDING_SLUGS = list(LANDINGS_I18N["en"].keys())
 DOMAIN = "https://coolpadelstudios.com"
 TODAY = "2026-10-20"
 
-def get_cluster_xml(es_path, en_path, fr_path, it_path, priority="0.8", changefreq="weekly"):
+
+def get_cluster_xml(es_path, en_path, fr_path, it_path, priority="0.85", changefreq="weekly"):
     """
     Genera un bloque <url> para cada idioma con enlaces hreflang simétricos de 5 vías.
+    Solo para páginas 100% traducidas en los 4 idiomas.
     """
     es_url = f"{DOMAIN}{es_path}"
     en_url = f"{DOMAIN}{en_path}"
@@ -54,19 +57,30 @@ def get_cluster_xml(es_path, en_path, fr_path, it_path, priority="0.8", changefr
 
     return blocks
 
+
+def get_single_xml(path, priority="0.80", changefreq="weekly"):
+    url = f"{DOMAIN}{path}"
+    return f"""  <url>
+    <loc>{url}</loc>
+    <lastmod>{TODAY}</lastmod>
+    <changefreq>{changefreq}</changefreq>
+    <priority>{priority}</priority>
+  </url>"""
+
+
 def generate_sitemap():
-    print(">> Generando Sitemap Maestro Cuatrilingüe (ES, EN, FR, IT)...")
+    print(">> Generando Sitemap Maestro Optimizado (0 errores 404, 0 duplicados)...")
     all_blocks = []
 
-    # 1. Home
+    # 1. Home (4 idiomas 100% traducidos)
     all_blocks.extend(get_cluster_xml("/", "/en/", "/fr/", "/it/", priority="1.0", changefreq="daily"))
 
-    # 2. Cámaras Core Landing
+    # 2. Cámaras Core Landing (4 idiomas 100% traducidos)
     all_blocks.extend(get_cluster_xml("/camaras/", "/en/camaras/", "/fr/camaras/", "/it/camaras/", priority="0.95", changefreq="weekly"))
 
-    # 3. 11 B2B Landings
-    for slug in LANDING_PAGES:
-        priority = "0.9" if "camaras" in slug or "save-my-play" in slug else "0.85"
+    # 3. 11 B2B Landings Transaccionales (44 páginas 100% traducidas)
+    for slug in LANDING_SLUGS:
+        priority = "0.95" if ("camaras" in slug or "save-my-play" in slug or "llaveros-padel" in slug) else "0.90"
         all_blocks.extend(get_cluster_xml(
             f"/{slug}/",
             f"/en/{slug}/",
@@ -76,17 +90,17 @@ def generate_sitemap():
             changefreq="weekly"
         ))
 
-    # 4. Herramientas Hub
+    # 4. Herramientas Hub (4 idiomas 100% traducidos)
     all_blocks.extend(get_cluster_xml(
         "/herramientas/",
         "/en/herramientas/",
         "/fr/herramientas/",
         "/it/herramientas/",
-        priority="0.9",
+        priority="0.90",
         changefreq="weekly"
     ))
 
-    # 5. 4 Herramientas Interactivas
+    # 5. 4 Herramientas Interactivas (16 páginas 100% traducidas)
     tools_slugs = [
         "calculadora-roi-camaras-padel",
         "calculadora-coste-pistas-padel",
@@ -99,11 +113,11 @@ def generate_sitemap():
             f"/en/herramientas/{ts}/",
             f"/fr/herramientas/{ts}/",
             f"/it/herramientas/{ts}/",
-            priority="0.85",
+            priority="0.90",
             changefreq="weekly"
         ))
 
-    # 6. Directorio Franquicias Hub
+    # 6. Directorio Franquicias Hub (4 idiomas)
     all_blocks.extend(get_cluster_xml(
         "/franquicias-padel/",
         "/en/franquicias-padel/",
@@ -113,19 +127,7 @@ def generate_sitemap():
         changefreq="weekly"
     ))
 
-    # 7. 167 Fichas de Franquicias Individuales
-    for f in FRANQUICIAS:
-        fid = f["id"]
-        all_blocks.extend(get_cluster_xml(
-            f"/franquicias-padel/{fid}/",
-            f"/en/franquicias-padel/{fid}/",
-            f"/fr/franquicias-padel/{fid}/",
-            f"/it/franquicias-padel/{fid}/",
-            priority="0.75",
-            changefreq="monthly"
-        ))
-
-    # 8. Blog Hub
+    # 7. Blog Hub (4 idiomas)
     all_blocks.extend(get_cluster_xml(
         "/blog/",
         "/en/blog/",
@@ -135,49 +137,24 @@ def generate_sitemap():
         changefreq="weekly"
     ))
 
-    # 9. 7 Guías Flagship
-    for slug in FLAGSHIP_GUIDES_DATA:
-        priority = "0.9" if "barometro" in slug else "0.8"
-        all_blocks.extend(get_cluster_xml(
-            f"/blog/{slug}/",
-            f"/en/blog/{slug}/",
-            f"/fr/blog/{slug}/",
-            f"/it/blog/{slug}/",
-            priority=priority,
-            changefreq="weekly"
-        ))
-
-    # 10. Resto de artículos y newsletters del blog (solo ES con fallback)
-    all_blog_dirs = [d for d in os.listdir("coolpadel-web/blog") if os.path.isdir(f"coolpadel-web/blog/{d}")]
+    # 8. Todos los artículos y estudios del Blog en su URL canónica original (ES)
+    blog_root = os.path.join(cur_dir, "blog")
+    all_blog_dirs = sorted([d for d in os.listdir(blog_root) if os.path.isdir(os.path.join(blog_root, d))])
     for b_dir in all_blog_dirs:
-        if b_dir in FLAGSHIP_GUIDES_DATA:
-            continue
-        art_path = f"coolpadel-web/blog/{b_dir}/index.html"
+        art_path = os.path.join(blog_root, b_dir, "index.html")
         if not os.path.isfile(art_path):
             continue
-        art_url = f"{DOMAIN}/blog/{b_dir}/"
-        block = f"""  <url>
-    <loc>{art_url}</loc>
-    <lastmod>{TODAY}</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="es" href="{art_url}"/>
-    <xhtml:link rel="alternate" hreflang="en" href="{DOMAIN}/en/blog/"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="{DOMAIN}/fr/blog/"/>
-    <xhtml:link rel="alternate" hreflang="it" href="{DOMAIN}/it/blog/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="{art_url}"/>
-  </url>"""
-        all_blocks.append(block)
+        prio = "0.90" if "barometro" in b_dir or "comparativa" in b_dir or "rentabilidad" in b_dir else "0.80"
+        all_blocks.append(get_single_xml(f"/blog/{b_dir}/", priority=prio, changefreq="weekly"))
 
-    # 11. Páginas estáticas secundarias
-    all_blocks.append(f"""  <url>
-    <loc>{DOMAIN}/politica-de-devoluciones.html</loc>
-    <lastmod>{TODAY}</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>""")
+    # 9. Fichas de Franquicias Individuales en su URL canónica original (ES)
+    for f in FRANQUICIAS:
+        fid = f["id"]
+        all_blocks.append(get_single_xml(f"/franquicias-padel/{fid}/", priority="0.70", changefreq="monthly"))
 
-    # XML output
+    # 10. Páginas estáticas secundarias
+    all_blocks.append(get_single_xml("/politica-de-devoluciones.html", priority="0.30", changefreq="yearly"))
+
     xml_content = f"""<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
@@ -189,8 +166,9 @@ def generate_sitemap():
     with open(out_file, "w", encoding="utf-8") as f:
         f.write(xml_content)
 
-    print(f">> Sitemap XML generado con éxito: {len(all_blocks)} URLs registradas.")
+    print(f">> Sitemap XML generado con éxito: {len(all_blocks)} URLs canónicas registradas.")
     print(f"   Archivo guardado en: {out_file}")
+
 
 if __name__ == "__main__":
     generate_sitemap()
