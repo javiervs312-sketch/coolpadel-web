@@ -63,11 +63,11 @@ def get_facility_type(tech_dict):
 
 def render_html(lang="es"):
     t_nav = {
-        "es": {"llaveros": "LLAVEROS", "camaras": "CÁMARAS", "blog": "BLOG & NOTICIAS", "franquicias": "CADENAS DE CLUBS", "contacto": "CONTACTAR"},
-        "en": {"llaveros": "KEYCHAINS", "camaras": "CAMERAS", "blog": "BLOG & NEWS", "franquicias": "CLUB CHAINS", "contacto": "CONTACT"},
-        "fr": {"llaveros": "PORTE-CLÉS", "camaras": "CAMÉRAS", "blog": "BLOG & NOUVELLES", "franquicias": "CHAÎNES DE CLUBS", "contacto": "CONTACTER"},
-        "it": {"llaveros": "PORTACHIAVI", "camaras": "TELECAMERE", "blog": "BLOG & NOTIZIE", "franquicias": "CATENE DI CLUB", "contacto": "CONTATTARE"}
-    }.get(lang, {"llaveros": "LLAVEROS", "camaras": "CÁMARAS", "blog": "BLOG & NOTICIAS", "franquicias": "CADENAS DE CLUBS", "contacto": "CONTACTAR"})
+        "es": {"llaveros": "LLAVEROS", "camaras": "CÁMARAS", "blog": "BLOG", "franquicias": "CADENAS DE CLUBS", "contacto": "CONTACTAR"},
+        "en": {"llaveros": "KEYCHAINS", "camaras": "CAMERAS", "blog": "BLOG", "franquicias": "CLUB CHAINS", "contacto": "CONTACT"},
+        "fr": {"llaveros": "PORTE-CLÉS", "camaras": "CAMÉRAS", "blog": "BLOG", "franquicias": "CHAÎNES DE CLUBS", "contacto": "CONTACTER"},
+        "it": {"llaveros": "PORTACHIAVI", "camaras": "TELECAMERE", "blog": "BLOG", "franquicias": "CATENE DI CLUB", "contacto": "CONTATTARE"}
+    }.get(lang, {"llaveros": "LLAVEROS", "camaras": "CÁMARAS", "blog": "BLOG", "franquicias": "CADENAS DE CLUBS", "contacto": "CONTACTAR"})
     total_franquicias = len(FRANQUICIAS)
     paises_unicos = len(set(f["pais"] for f in FRANQUICIAS))
     path_prefix = "" if lang == "es" else f"{lang}/"

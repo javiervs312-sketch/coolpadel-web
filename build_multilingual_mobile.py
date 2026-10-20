@@ -2063,7 +2063,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
           CÁMARAS
         </a>
         <a href="{asset_prefix}blog/" class="font-heading font-black text-xs lg:text-[13px] tracking-wider uppercase text-slate-900 hover:text-[#f2920b] transition select-none whitespace-nowrap">
-          BLOG & NOTICIAS
+          BLOG
         </a>
         <a href="{asset_prefix}franquicias-padel/" class="font-heading font-black text-xs lg:text-[13px] tracking-wider uppercase text-slate-900 hover:text-[#f2920b] transition select-none whitespace-nowrap">
           CADENAS DE CLUBS
