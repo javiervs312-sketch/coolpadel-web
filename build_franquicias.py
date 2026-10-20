@@ -62,6 +62,12 @@ def get_facility_type(tech_dict):
 
 
 def render_html(lang="es"):
+    t_nav = {
+        "es": {"llaveros": "LLAVEROS", "camaras": "CÁMARAS", "blog": "BLOG & NOTICIAS", "franquicias": "CADENAS DE CLUBS", "contacto": "CONTACTAR"},
+        "en": {"llaveros": "KEYCHAINS", "camaras": "CAMERAS", "blog": "BLOG & NEWS", "franquicias": "CLUB CHAINS", "contacto": "CONTACT"},
+        "fr": {"llaveros": "PORTE-CLÉS", "camaras": "CAMÉRAS", "blog": "BLOG & NOUVELLES", "franquicias": "CHAÎNES DE CLUBS", "contacto": "CONTACTER"},
+        "it": {"llaveros": "PORTACHIAVI", "camaras": "TELECAMERE", "blog": "BLOG & NOTIZIE", "franquicias": "CATENE DI CLUB", "contacto": "CONTATTARE"}
+    }.get(lang, {"llaveros": "LLAVEROS", "camaras": "CÁMARAS", "blog": "BLOG & NOTICIAS", "franquicias": "CADENAS DE CLUBS", "contacto": "CONTACTAR"})
     total_franquicias = len(FRANQUICIAS)
     paises_unicos = len(set(f["pais"] for f in FRANQUICIAS))
     path_prefix = "" if lang == "es" else f"{lang}/"
@@ -458,16 +464,16 @@ def render_html(lang="es"):
       <!-- CENTRO: NAVEGACIÓN PRINCIPAL (DESKTOP) -->
       <nav class="hidden md:flex items-center gap-5 lg:gap-8 xl:gap-10 min-w-0">
         <a href="{home_url}#llaveros" class="font-heading font-black text-xs lg:text-[13px] tracking-wider uppercase text-slate-900 hover:text-[#f2920b] transition select-none whitespace-nowrap">
-          {t['nav_llaveros']}
+          {t_nav['llaveros']}
         </a>
         <a href="{home_url}camaras/" class="font-heading font-black text-xs lg:text-[13px] tracking-wider uppercase text-slate-900 hover:text-[#f2920b] transition select-none whitespace-nowrap">
-          {t['nav_camaras']}
+          {t_nav['camaras']}
         </a>
         <a href="{home_url}blog/" class="font-heading font-black text-xs lg:text-[13px] tracking-wider uppercase text-slate-900 hover:text-[#f2920b] transition select-none whitespace-nowrap">
-          {t['nav_blog']}
+          {t_nav['blog']}
         </a>
         <a href="{franquicias_hub_url}" class="font-heading font-black text-xs lg:text-[13px] tracking-wider uppercase text-[#f2920b] transition select-none whitespace-nowrap">
-          {t['nav_franquicias']}
+          {t_nav['franquicias']}
         </a>
       </nav>
 
@@ -484,7 +490,7 @@ def render_html(lang="es"):
         <!-- BOTÓN CONTACTAR CON FLECHA HACIA ABAJO -->
         <a href="{home_url}#contacto" 
            class="group relative inline-flex items-center justify-center gap-1.5 px-4 sm:px-5 py-2 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] active:bg-[#76d3f6] text-slate-950 active:scale-95 font-heading font-black text-xs sm:text-xs lg:text-sm tracking-wider uppercase transition-all duration-300 shadow-[0_4px_12px_rgba(242,146,11,0.2)] hover:scale-105 shrink-0 overflow-hidden cursor-pointer">
-          <span class="font-black">{t['nav_contacto']}</span>
+          <span class="font-black">{t_nav['contacto']}</span>
           <i data-lucide="arrow-down" class="w-3.5 h-3.5 stroke-[3] group-hover:translate-y-0.5 transition-transform duration-300"></i>
         </a>
 
@@ -498,7 +504,7 @@ def render_html(lang="es"):
       <div class="flex sm:hidden items-center gap-1.5 shrink-0">
         <a href="{home_url}#contacto" 
            class="group relative inline-flex items-center justify-center gap-1 px-3 py-1 rounded-full bg-[#f2920b] active:bg-[#76d3f6] text-slate-950 active:scale-95 font-heading font-black text-[10px] uppercase tracking-wider transition-all duration-300 shadow-xs shrink-0 cursor-pointer">
-          <span class="font-black">{t['nav_contacto']}</span>
+          <span class="font-black">{t_nav['contacto']}</span>
           <i data-lucide="arrow-down" class="w-2.5 h-2.5 stroke-[3]"></i>
         </a>
 
@@ -512,10 +518,10 @@ def render_html(lang="es"):
     <!-- MÓVIL SUB-NAV: ENLACES + IDIOMAS HORIZONTALES -->
     <div class="flex md:hidden items-center justify-between w-full gap-2 px-3 py-1 border-t border-slate-100 overflow-x-auto text-[10px] font-heading font-black tracking-wider uppercase text-slate-900 bg-white">
       <div class="flex items-center gap-3 shrink-0">
-        <a href="{home_url}#llaveros" class="hover:text-[#f2920b] transition whitespace-nowrap">{t['nav_llaveros']}</a>
-        <a href="{home_url}camaras/" class="hover:text-[#f2920b] transition whitespace-nowrap">{t['nav_camaras']}</a>
-        <a href="{home_url}blog/" class="hover:text-[#f2920b] transition whitespace-nowrap">{t['nav_blog']}</a>
-        <a href="{franquicias_hub_url}" class="text-[#f2920b] transition whitespace-nowrap">{t['nav_franquicias']}</a>
+        <a href="{home_url}#llaveros" class="hover:text-[#f2920b] transition whitespace-nowrap">{t_nav['llaveros']}</a>
+        <a href="{home_url}camaras/" class="hover:text-[#f2920b] transition whitespace-nowrap">{t_nav['camaras']}</a>
+        <a href="{home_url}blog/" class="hover:text-[#f2920b] transition whitespace-nowrap">{t_nav['blog']}</a>
+        <a href="{franquicias_hub_url}" class="text-[#f2920b] transition whitespace-nowrap">{t_nav['franquicias']}</a>
       </div>
       <div class="shrink-0 flex items-center">
         <div class="inline-flex items-center bg-slate-100 rounded-full p-0.5 border border-slate-200/90 text-[10px] shrink-0">
