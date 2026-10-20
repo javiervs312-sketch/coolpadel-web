@@ -66,7 +66,7 @@ def generate_single_page(f, lang="es"):
 
     path_prefix = "" if lang == "es" else f"{lang}/"
     asset_prefix = "../../" if lang == "es" else "../../../"
-    canonical_url = f"https://coolpadelstudios.com/{path_prefix}franquicias-padel/{fid}/"
+    canonical_url = f"https://coolpadelstudios.com/franquicias-padel/{fid}/"
     og_locale = {"es": "es_ES", "en": "en_US", "fr": "fr_FR", "it": "it_IT"}.get(lang, "es_ES")
 
     wa_msgs = {
@@ -171,7 +171,7 @@ def generate_single_page(f, lang="es"):
   <meta name="twitter:title" content="{escape_txt(localized_title)}">
   <meta name="twitter:description" content="{escape_txt(localized_desc)}">
   <meta name="twitter:image" content="https://coolpadelstudios.com/assets/images/savemyplay-1.jpg">
-  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+  <meta name="robots" content="{'index, follow, max-image-preview:large, max-snippet:-1' if lang == 'es' else 'noindex, follow'}">
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="{asset_prefix}assets/images/favicon_transparente.png?v=transp3">
@@ -291,7 +291,7 @@ def generate_single_page(f, lang="es"):
   <header class="border-b border-slate-200 bg-white sticky top-0 z-50 shadow-2xs">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between">
       <a href="/" class="flex items-center gap-2.5 sm:gap-3 group">
-        <img src="../../assets/images/coolpadel-mascot-hd.png" alt="CoolPadel Studios" width="40" height="40" fetchpriority="high" class="w-9 h-9 sm:w-10 sm:h-10 object-contain">
+        <img src="{asset_prefix}assets/images/coolpadel-mascot-hd.png" alt="CoolPadel Studios" width="40" height="40" fetchpriority="high" class="w-9 h-9 sm:w-10 sm:h-10 object-contain">
         <div>
           <span class="font-heading font-black text-lg sm:text-xl text-slate-950 tracking-tight flex items-center gap-1">
             COOLPADEL <span class="text-[#f2920b]">STUDIOS</span>
@@ -585,7 +585,7 @@ def generate_single_page(f, lang="es"):
       <!-- TOP: BRANDING Y DESCRIPCIÓN B2B -->
       <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pb-8 border-b border-white/20">
         <div class="flex items-center gap-3.5">
-          <img src="../../assets/images/coolpadel-mascot-hd.png" alt="CoolPadel Mascota" width="60" height="60" class="h-10 sm:h-12 w-auto object-contain drop-shadow-sm" loading="lazy">
+          <img src="{asset_prefix}assets/images/coolpadel-mascot-hd.png" alt="CoolPadel Mascota" width="60" height="60" class="h-10 sm:h-12 w-auto object-contain drop-shadow-sm" loading="lazy">
           <img src="../../assets/images/coolpadel-typography-hd.png" alt="CoolPadel" width="160" height="32" class="h-5 sm:h-6 w-auto object-contain drop-shadow-sm" loading="lazy">
         </div>
         <p class="text-white/80 text-xs text-center sm:text-right max-w-md font-medium">

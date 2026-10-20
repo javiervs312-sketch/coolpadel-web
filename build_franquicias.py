@@ -460,7 +460,7 @@ def render_html(lang="es"):
 <body class="bg-[#f8fafc] text-slate-800 antialiased selection:bg-[#f2920b] selection:text-slate-950 min-h-screen flex flex-col">
 
   <!-- NAVBAR BLANCA UNIFICADA COOLPADEL -->
-  <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-xs w-full">
+  <header class="fixed top-0 left-0 w-full z-50 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-xs w-full">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between">
       
       <!-- LOGO: MASCOTA + TIPOGRAFÍA -->
@@ -503,6 +503,8 @@ def render_html(lang="es"):
       </div>
     </div>
   </header>
+  <div class="h-16 sm:h-20 w-full shrink-0" aria-hidden="true"></div>
+
 
   <!-- MAIN -->
   <main class="flex-1">

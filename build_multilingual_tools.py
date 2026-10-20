@@ -55,7 +55,7 @@ def get_tool_header(lang, slug, active_title):
     bc_tools = {"es": "Herramientas", "en": "Tools", "fr": "Outils", "it": "Strumenti"}[lang]
 
     return f"""  <!-- HEADER -->
-  <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-xs w-full">
+  <header class="fixed top-0 left-0 w-full z-50 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-xs w-full">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between">
       
       <!-- LOGO: MASCOTA + TIPOGRAFÍA -->
@@ -98,6 +98,8 @@ def get_tool_header(lang, slug, active_title):
       </div>
     </div>
   </header>
+  <div class="h-16 sm:h-20 w-full shrink-0" aria-hidden="true"></div>
+
 
   <!-- BREADCRUMBS -->
   <div class="max-w-6xl mx-auto px-4 sm:px-6 pt-6 pb-2 text-xs text-slate-400 flex items-center gap-2">

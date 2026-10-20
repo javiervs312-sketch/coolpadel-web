@@ -90,7 +90,7 @@ def build_blog_hub(lang):
 
 def build_flagship_guide(slug, lang):
     is_es = (lang == "es")
-    canonical = f"https://coolpadelstudios.com/blog/{slug}/" if is_es else f"https://coolpadelstudios.com/{lang}/blog/{slug}/"
+    canonical = f"https://coolpadelstudios.com/blog/{slug}/"
     og_locale = {"es": "es_ES", "en": "en_US", "fr": "fr_FR", "it": "it_IT"}[lang]
     asset_prefix = "../../" if is_es else "../../../"
 
@@ -163,30 +163,7 @@ def run():
                 f.write(html)
             print(f"  [OK] Guía '{slug}' ({lang.upper()}): {out_path}")
 
-    # 3. Inyectar hreflangs en el resto de artículos ES
-    all_blog_dirs = [d for d in os.listdir("coolpadel-web/blog") if os.path.isdir(f"coolpadel-web/blog/{d}")]
-    for b_dir in all_blog_dirs:
-        if b_dir in FLAGSHIP_GUIDES_DATA:
-            continue
-        art_path = f"coolpadel-web/blog/{b_dir}/index.html"
-        if not os.path.isfile(art_path):
-            continue
-        with open(art_path, "r", encoding="utf-8") as f:
-            art_html = f.read()
-        if "<!-- SEO Multilingüe Hreflang -->" not in art_html:
-            art_hreflang = f"""  <!-- SEO Multilingüe Hreflang -->
-  <link rel="alternate" hreflang="es" href="https://coolpadelstudios.com/blog/{b_dir}/">
-  <link rel="alternate" hreflang="en" href="https://coolpadelstudios.com/en/blog/">
-  <link rel="alternate" hreflang="fr" href="https://coolpadelstudios.com/fr/blog/">
-  <link rel="alternate" hreflang="it" href="https://coolpadelstudios.com/it/blog/">
-  <link rel="alternate" hreflang="x-default" href="https://coolpadelstudios.com/blog/{b_dir}/">
-  <meta name="language" content="es">"""
-            art_html = re.sub(r'<link rel="canonical"[^>]*>', f'{art_hreflang}\n  <link rel="canonical" href="https://coolpadelstudios.com/blog/{b_dir}/">', art_html)
-            with open(art_path, "w", encoding="utf-8") as f:
-                f.write(art_html)
-            print(f"  [OK] Hreflang inyectado en artículo ES: {b_dir}")
-
-    print(">> Blog 100% Cuatrilingue Completado Con Exito!")
+        print(">> Blog 100% Cuatrilingue Completado Con Exito!")
 
 if __name__ == "__main__":
     run()
