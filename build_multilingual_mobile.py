@@ -2393,7 +2393,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
     </div>
 
     <!-- PASARELA DE LOGOS DIRECTAMENTE BAJO LA FOTO -->
-    <div class="mt-3 sm:mt-4 py-2 border-y border-slate-200/80 overflow-hidden">
+    <div class="mt-3 sm:mt-4 py-2 overflow-hidden">
       <div class="ticker-wrap py-0.5">
         <div class="ticker-content animate-ticker-trusted flex items-center gap-5 sm:gap-10 lg:gap-12">
           {ticker_html}
@@ -2457,9 +2457,9 @@ def get_base_html(active_lang="es", is_subfolder=False):
 
           <a href="/llaveros-tenis-personalizados/" class="bg-white border border-slate-200/90 rounded-2xl p-3 sm:p-4 shadow-md hover:shadow-xl transition-all duration-300 group flex flex-col justify-between hover:-translate-y-0.5">
 
-            <div class="aspect-[4/3] rounded-xl overflow-hidden mb-2 bg-slate-100 shadow-sm border border-slate-200/90">
+            <div class="rounded-xl overflow-hidden mb-2 shadow-sm border border-slate-200/90 bg-slate-100">
 
-              <img src="{asset_prefix}assets/images/llaveros-tenis-personalizados-clubs.jpg?v=6" alt="Llaveros de tenis y pádel personalizados con relieve 3D para clubs y torneos" width="736" height="1408" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
+              <img src="{asset_prefix}assets/images/llaveros-tenis-personalizados-clubs.jpg?v=7" alt="Llaveros de tenis y pádel personalizados con relieve 3D para clubs y torneos" width="1024" height="640" class="w-full h-auto block group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
 
             </div>
 
@@ -2477,9 +2477,9 @@ def get_base_html(active_lang="es", is_subfolder=False):
 
           <a href="/llaveros-padel-personalizados/" class="bg-white border border-slate-200/90 rounded-2xl p-3 sm:p-4 shadow-md hover:shadow-xl transition-all duration-300 group flex flex-col justify-between hover:-translate-y-0.5">
 
-            <div class="aspect-[4/3] rounded-xl overflow-hidden mb-2 bg-slate-100 shadow-sm border border-slate-200/90">
+            <div class="rounded-xl overflow-hidden mb-2 shadow-sm border border-slate-200/90 bg-slate-100">
 
-              <img src="{asset_prefix}assets/images/llaveros-padel-personalizados-clubs.jpg?v=6" alt="Llaveros de pádel de goma 3D personalizados con logo para clubes de pádel" width="768" height="1344" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
+              <img src="{asset_prefix}assets/images/llaveros-padel-personalizados-clubs.jpg?v=7" alt="Llaveros de pádel de goma 3D personalizados con logo para clubes de pádel" width="1024" height="737" class="w-full h-auto block group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
 
             </div>
 
