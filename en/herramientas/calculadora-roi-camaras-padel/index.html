@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Padel Court Camera ROI & Profitability Calculator | CoolPadel Studios</title>
+  <meta name="description" content="Calculate the return on investment of installing Save my Play cameras in your padel club. Simulate costs (€45/mo), off-peak court revenue, and payback timeline.">
+  <link rel="canonical" href="https://coolpadelstudios.com/en/herramientas/calculadora-roi-camaras-padel/">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+
+  <!-- SEO Multilingüe Hreflang -->
+  <link rel="alternate" hreflang="es" href="https://coolpadelstudios.com/herramientas/calculadora-roi-camaras-padel/">
+  <link rel="alternate" hreflang="en" href="https://coolpadelstudios.com/en/herramientas/calculadora-roi-camaras-padel/">
+  <link rel="alternate" hreflang="fr" href="https://coolpadelstudios.com/fr/herramientas/calculadora-roi-camaras-padel/">
+  <link rel="alternate" hreflang="it" href="https://coolpadelstudios.com/it/herramientas/calculadora-roi-camaras-padel/">
+  <link rel="alternate" hreflang="x-default" href="https://coolpadelstudios.com/herramientas/calculadora-roi-camaras-padel/">
+  <meta name="language" content="en">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Save my Play & CoolPadel Studios">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:url" content="https://coolpadelstudios.com/en/herramientas/calculadora-roi-camaras-padel/">
+  <meta property="og:title" content="Padel Court Camera ROI & Profitability Calculator | CoolPadel Studios">
+  <meta property="og:description" content="Calculate the return on investment of installing Save my Play cameras in your padel club. Simulate costs (€45/mo), off-peak court revenue, and payback timeline.">
+  <meta property="og:image" content="https://coolpadelstudios.com/assets/images/savemyplay-1.jpg">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Padel Court Camera ROI & Profitability Calculator | CoolPadel Studios">
+  <meta name="twitter:description" content="Calculate the return on investment of installing Save my Play cameras in your padel club. Simulate costs (€45/mo), off-peak court revenue, and payback timeline.">
+  <meta name="twitter:image" content="https://coolpadelstudios.com/assets/images/savemyplay-1.jpg">
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/png" href="../../../assets/images/favicon_transparente.png?v=transp3">
+  <link rel="apple-touch-icon" sizes="180x180" href="../../../assets/images/favicon_transparente.png?v=transp3">
+  <meta name="theme-color" content="#0b1626">
+
+  <!-- LLM & AI Discovery -->
+  <link rel="alternate" type="text/markdown" href="https://coolpadelstudios.com/llms.txt" title="LLMs.txt">
+  <link rel="alternate" type="text/markdown" href="https://coolpadelstudios.com/llms-full.txt" title="LLMs-Full.txt">
+
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"></script>
+
+  <style>
+    body { font-family: 'Plus Jakarta Sans', sans-serif; }
+    h1, h2, h3, h4, .font-heading { font-family: 'Outfit', sans-serif; }
+    .bg-textured-blue {
+      background-color: #3478a6;
+      background-image: linear-gradient(rgba(52, 120, 166, 0.40), rgba(52, 120, 166, 0.40)), url('/assets/images/branding/textura_editorial_coolpadel.webp');
+      background-blend-mode: normal, soft-light;
+      background-size: cover;
+      background-position: center;
+    }
+    input[type=range] { accent-color: #f2920b; }
+  </style>
+
+  <!-- Schema.org WebApplication & FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "@id": "https://coolpadelstudios.com/en/herramientas/calculadora-roi-camaras-padel/#app",
+        "name": "Padel Court Camera ROI & Profitability Calculator | CoolPadel Studios",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "All",
+        "description": "Calculate the return on investment of installing Save my Play cameras in your padel club. Simulate costs (€45/mo), off-peak court revenue, and payback timeline.",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://coolpadelstudios.com/en/" },
+          { "@type": "ListItem", "position": 2, "name": "Tools", "item": "https://coolpadelstudios.com/en/herramientas/" },
+          { "@type": "ListItem", "position": 3, "name": "Camera ROI Calculator", "item": "https://coolpadelstudios.com/en/herramientas/calculadora-roi-camaras-padel/" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Why is Save my Play's fee so affordable compared to others?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Traditional competitors charge €120 to €250/month because they bundle expensive touchscreen totems and complex cabling on 3 to 5-year leasing agreements. Save my Play uses high-efficiency sports optics mounted directly to the fence in 5 minutes with zero middlemen, passing that massive efficiency on to clubs at just €45/month."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does Save my Play take a commission on recorded matches?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Zero commission (0%). If your club chooses to charge players €1 or €2 per match download or include it as a club membership perk, 100% of that revenue stays with the club."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col selection:bg-[#f2920b] selection:text-slate-950">
+
+  <!-- HEADER -->
+  <header class="sticky top-0 z-50 bg-[#0b1626]/95 backdrop-blur-md border-b border-slate-800">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between">
+      <a href="../../../en/" class="flex items-center gap-2.5">
+        <img src="../../../assets/images/coolpadel-mascot-hd.png" alt="CoolPadel Studios" class="h-9 sm:h-11 w-auto object-contain">
+        <span class="font-heading font-black text-lg sm:text-xl tracking-tight text-white">CoolPadel <span class="text-[#f2920b]">Studios</span></span>
+      </a>
+
+      <nav class="hidden md:flex items-center gap-6 text-xs sm:text-sm font-bold uppercase tracking-wider text-slate-300">
+        <a href="../../../en/camaras/" class="hover:text-[#76d3f6] transition">AI Cameras</a>
+        <a href="../../../en/#llaveros" class="hover:text-[#f2920b] transition">3D Keychains</a>
+        <a href="../../../en/herramientas/" class="text-[#f2920b] font-black">Tools</a>
+        <a href="../../../en/blog/barometro-camaras-padel-2026/" class="hover:text-emerald-400 transition">Barometer</a>
+        <a href="../../../en/blog/" class="hover:text-white transition">Blog</a>
+      </nav>
+
+      <div class="flex items-center gap-3">
+        <div class="flex items-center gap-1 border border-slate-700 rounded-lg p-0.5 bg-slate-800/80"><a href="/herramientas/calculadora-roi-camaras-padel/" class="px-2 py-1 rounded text-xs transition text-slate-300 hover:text-white">ES</a><a href="/en/herramientas/calculadora-roi-camaras-padel/" class="px-2 py-1 rounded text-xs transition bg-[#f2920b] text-slate-950 font-black">EN</a><a href="/fr/herramientas/calculadora-roi-camaras-padel/" class="px-2 py-1 rounded text-xs transition text-slate-300 hover:text-white">FR</a><a href="/it/herramientas/calculadora-roi-camaras-padel/" class="px-2 py-1 rounded text-xs transition text-slate-300 hover:text-white">IT</a></div>
+        <a href="../../../en/camaras/" class="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-slate-800 hover:bg-slate-700 text-white font-heading font-bold text-xs uppercase tracking-wider transition">
+          <i data-lucide="video" class="w-3.5 h-3.5 text-[#76d3f6]"></i>
+          <span>Explore Save my Play</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- BREADCRUMBS -->
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 pt-6 pb-2 text-xs text-slate-400 flex items-center gap-2">
+    <a href="../../../en/" class="hover:text-white transition">Home</a>
+    <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+    <a href="../../../en/herramientas/" class="hover:text-white transition">Tools</a>
+    <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+    <span class="text-slate-200 font-bold">Camera ROI Calculator</span>
+  </div>
+
+  <main class="flex-1 py-6 sm:py-10">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+
+      <!-- HERO HEAD -->
+      <div class="text-center space-y-3 mb-10 max-w-3xl mx-auto">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-950/80 border border-sky-800/80 text-xs font-bold text-[#76d3f6] uppercase tracking-wider">
+          <i data-lucide="line-chart" class="w-3.5 h-3.5"></i>
+          <span>Official Save my Play 2026 Financial Simulator</span>
+        </div>
+        <h1 class="text-3xl sm:text-5xl font-black font-heading text-white tracking-tight leading-tight">
+          Court Camera ROI & <span class="text-[#76d3f6]">Profitability Calculator</span>
+        </h1>
+        <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+          Interactively see how much revenue your club will generate and how quickly the system pays for itself. Zero lock-in contracts and no hidden fees.
+        </p>
+      </div>
+
+      <!-- CALCULADORA INTERACTIVA -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start bg-slate-900 border border-slate-800 rounded-3xl p-6 sm:p-10 shadow-2xl">
+
+        <!-- PANEL IZQUIERDO -->
+        <div class="lg:col-span-7 space-y-6">
+          <h2 class="text-lg sm:text-xl font-black font-heading text-white border-b border-slate-800 pb-3 flex items-center gap-2">
+            <i data-lucide="sliders" class="w-5 h-5 text-[#f2920b]"></i>
+            <span>1. Configure Your Club Parameters</span>
+          </h2>
+
+          <!-- CONTROL 1: PISTAS -->
+          <div class="space-y-2">
+            <div class="flex justify-between items-center">
+              <label class="text-xs sm:text-sm font-bold text-slate-200">Number of courts to equip:</label>
+              <span id="label-pistas" class="text-base sm:text-lg font-black text-[#f2920b] font-heading bg-slate-800 px-3 py-0.5 rounded-lg">4 courts</span>
+            </div>
+            <input type="range" id="input-pistas" min="1" max="16" value="4" class="w-full h-2 bg-slate-800 rounded-lg cursor-pointer">
+            <div class="flex justify-between text-[10px] text-slate-500 font-bold">
+              <span>1 court</span>
+              <span>4 courts</span>
+              <span>8 courts</span>
+              <span>16 courts</span>
+            </div>
+          </div>
+
+          <!-- CONTROL 2: PLAN -->
+          <div class="space-y-2 pt-2">
+            <label class="text-xs sm:text-sm font-bold text-slate-200">Save my Play Software Plan:</label>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <button type="button" id="btn-plan-b" onclick="selectPlan('B')" class="p-3.5 rounded-2xl border-2 border-sky-400 bg-sky-950/40 text-left transition flex flex-col justify-between cursor-pointer">
+                <div class="flex items-center justify-between">
+                  <span class="text-xs font-black uppercase text-sky-300">Plan B (Recommended)</span>
+                  <i data-lucide="check-circle" class="w-4 h-4 text-sky-400"></i>
+                </div>
+                <div class="mt-2">
+                  <span class="text-2xl font-black font-heading text-white">45 €</span>
+                  <span class="text-xs text-slate-400">/ court / mo</span>
+                </div>
+                <p class="text-[11px] text-slate-300 mt-1">Complete match recording, net post smart button, instant AI highlights, and QR access without apps.</p>
+              </button>
+
+              <button type="button" id="btn-plan-a" onclick="selectPlan('A')" class="p-3.5 rounded-2xl border border-slate-700 bg-slate-800/40 text-left hover:border-slate-600 transition flex flex-col justify-between cursor-pointer">
+                <div class="flex items-center justify-between">
+                  <span class="text-xs font-black uppercase text-slate-300">Plan A (AI Pro Analytics)</span>
+                  <i data-lucide="circle" class="w-4 h-4 text-slate-500"></i>
+                </div>
+                <div class="mt-2">
+                  <span class="text-2xl font-black font-heading text-white">136 €</span>
+                  <span class="text-xs text-slate-400">/ court / mo</span>
+                </div>
+                <p class="text-[11px] text-slate-400 mt-1">Everything in Plan B + SportAI heatmaps, tactical shot counts, and coach analytics.</p>
+              </button>
+            </div>
+          </div>
+
+          <!-- CONTROL 3: PRECIO HORA -->
+          <div class="space-y-2 pt-2">
+            <div class="flex justify-between items-center">
+              <label class="text-xs sm:text-sm font-bold text-slate-200">Average court booking price per hour:</label>
+              <span id="label-precio" class="text-base sm:text-lg font-black text-white font-heading bg-slate-800 px-3 py-0.5 rounded-lg">26 € / h</span>
+            </div>
+            <input type="range" id="input-precio" min="16" max="44" step="2" value="26" class="w-full h-2 bg-slate-800 rounded-lg cursor-pointer">
+            <div class="flex justify-between text-[10px] text-slate-500 font-bold">
+              <span>16 €</span>
+              <span>26 €</span>
+              <span>36 €</span>
+              <span>44 €</span>
+            </div>
+          </div>
+
+          <!-- CONTROL 4: HORAS VALLE -->
+          <div class="space-y-2 pt-2">
+            <div class="flex justify-between items-center">
+              <label class="text-xs sm:text-sm font-bold text-slate-200">Extra off-peak court hours booked per month:</label>
+              <span id="label-horas-valle" class="text-base sm:text-lg font-black text-emerald-400 font-heading bg-slate-800 px-3 py-0.5 rounded-lg">+4 h / mo</span>
+            </div>
+            <input type="range" id="input-horas-valle" min="1" max="15" value="4" class="w-full h-2 bg-slate-800 rounded-lg cursor-pointer">
+            <p class="text-[11px] text-slate-400">Driven by video recording appeal, coaching clinics with replay, and morning sessions that were previously idle.</p>
+          </div>
+
+          <!-- CONTROL 5: SPONSOR -->
+          <div class="space-y-2 pt-2">
+            <div class="flex justify-between items-center">
+              <label class="text-xs sm:text-sm font-bold text-slate-200">Local video sponsorship revenue per court:</label>
+              <span id="label-sponsor" class="text-base sm:text-lg font-black text-white font-heading bg-slate-800 px-3 py-0.5 rounded-lg">30 € / mo / court</span>
+            </div>
+            <input type="range" id="input-sponsor" min="0" max="100" step="10" value="30" class="w-full h-2 bg-slate-800 rounded-lg cursor-pointer">
+            <p class="text-[11px] text-slate-400">Local businesses (clinics, car dealerships, sports brands) paying to place their brand logo on the intro or corner of shared highlights.</p>
+          </div>
+        </div>
+
+        <!-- PANEL DERECHO -->
+        <div class="lg:col-span-5 bg-gradient-to-br from-slate-800 to-slate-900 border-2 border-slate-700/80 rounded-3xl p-6 sm:p-8 space-y-6 flex flex-col justify-between">
+          <div class="space-y-5">
+            <div class="flex items-center justify-between border-b border-slate-700 pb-3">
+              <span class="text-xs font-black uppercase tracking-wider text-slate-400">Estimated Financial Balance</span>
+              <span class="px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-xs font-black border border-emerald-500/20">Positive ROI</span>
+            </div>
+
+            <div class="flex justify-between items-center text-xs sm:text-sm">
+              <span class="text-slate-300">Hardware investment (€180/court):</span>
+              <strong id="out-hardware" class="text-white font-black font-heading text-base sm:text-lg">720 €</strong>
+            </div>
+
+            <div class="flex justify-between items-center text-xs sm:text-sm">
+              <span class="text-slate-300">Save my Play monthly fee:</span>
+              <strong id="out-cuota-mensual" class="text-sky-400 font-black font-heading text-base sm:text-lg">180 € / mo</strong>
+            </div>
+
+            <div class="flex justify-between items-center text-xs sm:text-sm">
+              <span class="text-slate-300">Extra revenue (off-peak + sponsors):</span>
+              <strong id="out-ingresos-extra" class="text-emerald-400 font-black font-heading text-base sm:text-lg">+536 € / mo</strong>
+            </div>
+
+            <div class="bg-slate-950/80 border border-emerald-500/40 rounded-2xl p-5 text-center space-y-1">
+              <span class="text-xs uppercase font-extrabold text-slate-400 tracking-wider">Net Monthly Extra Profit</span>
+              <div id="out-beneficio-neto" class="text-3xl sm:text-4xl font-black font-heading text-emerald-400">+356 € / mo</div>
+              <p class="text-[11px] text-slate-400">Pure profit for the club each month after paying the software subscription.</p>
+            </div>
+
+            <div class="bg-slate-800/80 rounded-xl p-3.5 border border-slate-700 space-y-1 text-center">
+              <span class="text-[11px] font-bold text-slate-400">How many off-peak court hours do you need to sell to cover the fee?</span>
+              <div class="text-sm font-black text-white font-heading">
+                Just <span id="out-horas-amortizar" class="text-[#f2920b]">1,7 hours per month per court</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="pt-4 border-t border-slate-700/80">
+            <a id="btn-cta-wa" href="#" target="_blank" rel="noopener noreferrer" class="w-full inline-flex items-center justify-center gap-2 py-3.5 px-4 rounded-2xl bg-[#f2920b] hover:bg-[#76d3f6] text-slate-950 font-heading font-black text-xs sm:text-sm uppercase tracking-wider transition shadow-lg hover:scale-[1.02]">
+              <i data-lucide="message-circle" class="w-4 h-4 fill-slate-950"></i>
+              <span>Check Availability for My Club</span>
+            </a>
+            <p class="text-[10px] text-slate-400 text-center mt-2">5-minute installation · No long-term lock-in · Cancel anytime</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- FAQ SECTION -->
+      <section class="mt-16 border-t border-slate-800 pt-12 space-y-6">
+        <h2 class="text-2xl font-black font-heading text-white">Frequently Asked Questions about Camera ROI</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 space-y-2">
+            <h3 class="text-sm font-bold text-white">Why is Save my Play's fee so affordable compared to others?</h3>
+            <p class="text-xs text-slate-400 leading-relaxed">Traditional competitors charge €120 to €250/month because they bundle expensive touchscreen totems and complex cabling on 3 to 5-year leasing agreements. Save my Play uses high-efficiency sports optics mounted directly to the fence in 5 minutes with zero middlemen, passing that massive efficiency on to clubs at just €45/month.</p>
+          </div>
+          <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 space-y-2">
+            <h3 class="text-sm font-bold text-white">Does Save my Play take a commission on recorded matches?</h3>
+            <p class="text-xs text-slate-400 leading-relaxed">Zero commission (0%). If your club chooses to charge players €1 or €2 per match download or include it as a club membership perk, 100% of that revenue stays with the club.</p>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- FOOTER INFERIOR -->
+  <footer class="relative z-20 bg-[#3478a6] bg-textured-blue text-white pt-14 pb-10 border-t border-sky-700/40 text-xs">
+    <div class="max-w-[1700px] mx-auto px-4 sm:px-8 space-y-10">
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pb-8 border-b border-white/20">
+        <div class="flex items-center gap-3.5">
+          <img src="../../../assets/images/coolpadel-mascot-hd.png" alt="CoolPadel Mascota" width="60" height="60" class="h-10 sm:h-12 w-auto object-contain drop-shadow-sm" loading="lazy">
+          <img src="../../../assets/images/coolpadel-typography-hd.png" alt="CoolPadel" width="160" height="32" class="h-5 sm:h-6 w-auto object-contain drop-shadow-sm" loading="lazy">
+        </div>
+        <p class="text-white/80 text-xs text-center sm:text-right max-w-md font-medium">
+          CoolPadel Studios & Save my Play · Smart On-Court Camera Systems and B2B Club Solutions
+        </p>
+      </div>
+
+      <div class="pt-8 border-t border-white/20 flex flex-col sm:flex-row items-center justify-between gap-3 text-white/75 text-center sm:text-left">
+        <span>© 2026 CoolPadel Studios · All rights reserved</span>
+        <div class="flex items-center gap-3">
+          <a href="/politica-de-devoluciones.html" class="hover:text-white/90 underline decoration-white/30 underline-offset-2 transition">Return Policy</a>
+          <span class="opacity-40">·</span>
+          <a href="https://www.instagram.com/coolpadel_/" target="_blank" rel="noopener noreferrer" class="opacity-75 hover:opacity-100 transition text-white">@coolpadel_</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    lucide.createIcons();
+
+    let planSeleccionado = 'B';
+    const cuotaPorPista = { 'B': 45, 'A': 136 };
+    const pistasWord = "courts";
+    const pistaSing = "court";
+    const mesWord = "mo";
+    const amortizeSuffix = "hours per month per court";
+
+    const inPistas = document.getElementById('input-pistas');
+    const inPrecio = document.getElementById('input-precio');
+    const inHorasValle = document.getElementById('input-horas-valle');
+    const inSponsor = document.getElementById('input-sponsor');
+
+    function selectPlan(plan) {
+      planSeleccionado = plan;
+      const btnA = document.getElementById('btn-plan-a');
+      const btnB = document.getElementById('btn-plan-b');
+
+      if (plan === 'B') {
+        btnB.className = "p-3.5 rounded-2xl border-2 border-sky-400 bg-sky-950/40 text-left transition flex flex-col justify-between cursor-pointer";
+        btnB.querySelector('i').setAttribute('data-lucide', 'check-circle');
+        btnB.querySelector('i').className = "w-4 h-4 text-sky-400";
+        
+        btnA.className = "p-3.5 rounded-2xl border border-slate-700 bg-slate-800/40 text-left hover:border-slate-600 transition flex flex-col justify-between cursor-pointer";
+        btnA.querySelector('i').setAttribute('data-lucide', 'circle');
+        btnA.querySelector('i').className = "w-4 h-4 text-slate-500";
+      } else {
+        btnA.className = "p-3.5 rounded-2xl border-2 border-orange-400 bg-orange-950/40 text-left transition flex flex-col justify-between cursor-pointer";
+        btnA.querySelector('i').setAttribute('data-lucide', 'check-circle');
+        btnA.querySelector('i').className = "w-4 h-4 text-orange-400";
+
+        btnB.className = "p-3.5 rounded-2xl border border-slate-700 bg-slate-800/40 text-left hover:border-slate-600 transition flex flex-col justify-between cursor-pointer";
+        btnB.querySelector('i').setAttribute('data-lucide', 'circle');
+        btnB.querySelector('i').className = "w-4 h-4 text-slate-500";
+      }
+      lucide.createIcons();
+      recalcular();
+    }
+
+    function recalcular() {
+      const pistas = parseInt(inPistas.value, 10);
+      const precio = parseFloat(inPrecio.value);
+      const horasValle = parseInt(inHorasValle.value, 10);
+      const sponsor = parseInt(inSponsor.value, 10);
+
+      document.getElementById('label-pistas').textContent = pistas + ' ' + (pistas > 1 ? pistasWord : pistaSing);
+      document.getElementById('label-precio').textContent = precio + ' € / h';
+      document.getElementById('label-horas-valle').textContent = '+' + horasValle + ' h / ' + mesWord;
+      document.getElementById('label-sponsor').textContent = sponsor + ' € / ' + mesWord + ' / ' + pistaSing;
+
+      const costeHardware = pistas * 180;
+      const cuotaSoftware = pistas * cuotaPorPista[planSeleccionado];
+      const ingresosHorasValle = pistas * horasValle * precio;
+      const ingresosSponsor = pistas * sponsor;
+      const ingresosTotales = ingresosHorasValle + ingresosSponsor;
+      const beneficioNeto = ingresosTotales - cuotaSoftware;
+
+      const horasParaAmortizar = (cuotaPorPista[planSeleccionado] / precio).toFixed(1);
+
+      document.getElementById('out-hardware').textContent = costeHardware.toLocaleString('es-ES') + ' €';
+      document.getElementById('out-cuota-mensual').textContent = cuotaSoftware.toLocaleString('es-ES') + ' € / ' + mesWord;
+      document.getElementById('out-ingresos-extra').textContent = '+' + ingresosTotales.toLocaleString('es-ES') + ' € / ' + mesWord;
+      
+      const elBeneficio = document.getElementById('out-beneficio-neto');
+      if (beneficioNeto >= 0) {
+        elBeneficio.textContent = '+' + beneficioNeto.toLocaleString('es-ES') + ' € / ' + mesWord;
+        elBeneficio.className = "text-3xl sm:text-4xl font-black font-heading text-emerald-400";
+      } else {
+        elBeneficio.textContent = beneficioNeto.toLocaleString('es-ES') + ' € / ' + mesWord;
+        elBeneficio.className = "text-3xl sm:text-4xl font-black font-heading text-amber-400";
+      }
+
+      document.getElementById('out-horas-amortizar').textContent = horasParaAmortizar.replace('.', ',') + ' ' + amortizeSuffix;
+
+      const waMsg = encodeURIComponent(
+        "Hola! ROI Save my Play: " + pistas + " " + pistasWord + ", " +
+        (planSeleccionado === 'B' ? 'Plan B (45€)' : 'Plan A (136€)') + ", +" + beneficioNeto + " €/" + mesWord
+      );
+      document.getElementById('btn-cta-wa').href = "https://wa.me/34641695437?text=" + waMsg;
+    }
+
+    [inPistas, inPrecio, inHorasValle, inSponsor].forEach(input => {
+      input.addEventListener('input', recalcular);
+    });
+
+    recalcular();
+  </script>
+  <script src="/assets/js/cp-analytics.js" defer></script>
+</body>
+</html>

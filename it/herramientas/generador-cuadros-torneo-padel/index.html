@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="it" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Generatore Gratuito di Tabelloni di Torneo Padel | CoolPadel Studios</title>
+  <meta name="description" content="Generatore interattivo gratuito di tabelloni ad eliminazione diretta per 8, 16 o 32 coppie con torneo di consolazione, avanzamento vincitori ed esportazione PDF / WhatsApp.">
+    <!-- SEO Multilingüe Hreflang -->
+  <link rel="alternate" hreflang="es" href="https://coolpadelstudios.com/herramientas/generador-cuadros-torneo-padel/">
+  <link rel="alternate" hreflang="en" href="https://coolpadelstudios.com/en/herramientas/generador-cuadros-torneo-padel/">
+  <link rel="alternate" hreflang="fr" href="https://coolpadelstudios.com/fr/herramientas/generador-cuadros-torneo-padel/">
+  <link rel="alternate" hreflang="it" href="https://coolpadelstudios.com/it/herramientas/generador-cuadros-torneo-padel/">
+  <link rel="alternate" hreflang="x-default" href="https://coolpadelstudios.com/herramientas/generador-cuadros-torneo-padel/">
+  <meta name="language" content="es">
+    <link rel="canonical" href="https://coolpadelstudios.com/it/herramientas/generador-cuadros-torneo-padel/">
+
+  <!-- SEO Multilingüe Hreflang -->
+  <link rel="alternate" hreflang="es" href="https://coolpadelstudios.com/herramientas/generador-cuadros-torneo-padel/">
+  <link rel="alternate" hreflang="en" href="https://coolpadelstudios.com/en/herramientas/generador-cuadros-torneo-padel/">
+  <link rel="alternate" hreflang="fr" href="https://coolpadelstudios.com/fr/herramientas/generador-cuadros-torneo-padel/">
+  <link rel="alternate" hreflang="it" href="https://coolpadelstudios.com/it/herramientas/generador-cuadros-torneo-padel/">
+  <link rel="alternate" hreflang="x-default" href="https://coolpadelstudios.com/herramientas/generador-cuadros-torneo-padel/">
+  <meta name="language" content="it">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="CoolPadel Studios">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:url" content="https://coolpadelstudios.com/herramientas/generador-cuadros-torneo-padel/">
+  <meta property="og:title" content="Generador de Cuadros de Torneo de Pádel Gratis | Eliminatoria y Consolación">
+  <meta property="og:description" content="Crea el cuadro de tu torneo de pádel en segundos. Eliminatoria directa, consolación, resultados en vivo, impresión PDF y WhatsApp.">
+  <meta property="og:image" content="https://coolpadelstudios.com/assets/images/savemyplay-1.jpg">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Generador de Cuadros de Torneo de Pádel Gratis">
+  <meta name="twitter:description" content="Cuadros de eliminatoria para 8, 16 o 32 parejas con consolación y exportación instantánea.">
+  <meta name="twitter:image" content="https://coolpadelstudios.com/assets/images/savemyplay-1.jpg">
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/png" href="../../../assets/images/favicon_transparente.png?v=transp3">
+  <link rel="apple-touch-icon" sizes="180x180" href="../../../assets/images/favicon_transparente.png?v=transp3">
+  <meta name="theme-color" content="#0b1626">
+
+  <!-- Discovery -->
+  <link rel="alternate" type="text/markdown" href="https://coolpadelstudios.com/llms.txt" title="LLMs.txt">
+  <link rel="alternate" type="text/markdown" href="https://coolpadelstudios.com/llms-full.txt" title="LLMs-Full.txt">
+
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"></script>
+
+  <style>
+    body { font-family: 'Plus Jakarta Sans', sans-serif; }
+    h1, h2, h3, h4, .font-heading { font-family: 'Outfit', sans-serif; }
+    .bg-textured-blue {
+      background-color: #3478a6;
+      background-image: linear-gradient(rgba(52, 120, 166, 0.40), rgba(52, 120, 166, 0.40)), url('/assets/images/branding/textura_editorial_coolpadel.webp');
+      background-blend-mode: normal, soft-light;
+      background-size: cover;
+      background-position: center;
+    }
+    @media print {
+      header, footer, #panel-configuracion, #banner-promocional, .no-print {
+        display: none !important;
+      }
+      body {
+        background: white !important;
+        color: black !important;
+      }
+      .bracket-node {
+        border-color: #333 !important;
+        background: white !important;
+        color: black !important;
+        box-shadow: none !important;
+      }
+      .bracket-node input {
+        color: black !important;
+        background: white !important;
+      }
+      #cuadro-imprimible {
+        display: block !important;
+        width: 100% !important;
+      }
+    }
+  </style>
+
+  <!-- Schema.org WebApplication & FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "@id": "https://coolpadelstudios.com/herramientas/generador-cuadros-torneo-padel/#app",
+        "name": "Generador de Cuadros de Torneo de Pádel",
+        "applicationCategory": "SportsApplication",
+        "operatingSystem": "All",
+        "description": "Herramienta online gratuita para crear cuadros de torneo de pádel por eliminatoria directa para 8, 16 y 32 parejas con cuadro de consolación, avance de ganadores e impresión.",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "EUR"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Inicio",
+            "item": "https://coolpadelstudios.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Herramientas",
+            "item": "https://coolpadelstudios.com/herramientas/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Generador de Cuadros",
+            "item": "https://coolpadelstudios.com/herramientas/generador-cuadros-torneo-padel/"
+          }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "¿Cómo funciona un cuadro de torneo de pádel por eliminatoria directa?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Las parejas se enfrentan en cruces directos (octavos, cuartos, semifinales y final). La pareja ganadora de cada partido avanza a la siguiente ronda, mientras que las parejas derrotadas en primera ronda pasan al cuadro de consolación para garantizar que todos jueguen al menos 2 partidos."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Se puede imprimir el cuadro del torneo en papel o PDF?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Sí. Esta herramienta incluye un botón de impresión directa a PDF adaptado a formato póster o folio A4, perfecto para colgar en el corcho o tablón del club."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Cómo compartir los horarios y cruces por WhatsApp?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Pulsa el botón 'Copia Tabellone per WhatsApp'. La herramienta formateará automáticamente todos los cruces con emojis y horas listos para pegar en los grupos de jugadores de tu club."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col selection:bg-[#f2920b] selection:text-slate-950">
+
+    <!-- HEADER -->
+  <header class="sticky top-0 z-50 bg-[#0b1626]/95 backdrop-blur-md border-b border-slate-800">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between">
+      <a href="../../../it/" class="flex items-center gap-2.5">
+        <img src="../../../assets/images/coolpadel-mascot-hd.png" alt="CoolPadel Studios" class="h-9 sm:h-11 w-auto object-contain">
+        <span class="font-heading font-black text-lg sm:text-xl tracking-tight text-white">CoolPadel <span class="text-[#f2920b]">Studios</span></span>
+      </a>
+
+      <nav class="hidden md:flex items-center gap-6 text-xs sm:text-sm font-bold uppercase tracking-wider text-slate-300">
+        <a href="../../../it/camaras/" class="hover:text-[#76d3f6] transition">Telecamere IA</a>
+        <a href="../../../it/#llaveros" class="hover:text-[#f2920b] transition">Portachiavi 3D</a>
+        <a href="../../../it/herramientas/" class="text-[#f2920b] font-black">Strumenti</a>
+        <a href="../../../it/blog/barometro-camaras-padel-2026/" class="hover:text-emerald-400 transition">Barometro</a>
+        <a href="../../../it/blog/" class="hover:text-white transition">Blog</a>
+      </nav>
+
+      <div class="flex items-center gap-3">
+        <div class="flex items-center gap-1 border border-slate-700 rounded-lg p-0.5 bg-slate-800/80"><a href="/herramientas/generador-cuadros-torneo-padel/" class="px-2 py-1 rounded text-xs transition text-slate-300 hover:text-white">ES</a><a href="/en/herramientas/generador-cuadros-torneo-padel/" class="px-2 py-1 rounded text-xs transition text-slate-300 hover:text-white">EN</a><a href="/fr/herramientas/generador-cuadros-torneo-padel/" class="px-2 py-1 rounded text-xs transition text-slate-300 hover:text-white">FR</a><a href="/it/herramientas/generador-cuadros-torneo-padel/" class="px-2 py-1 rounded text-xs transition bg-[#f2920b] text-slate-950 font-black">IT</a></div>
+        <a href="../../../it/camaras/" class="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-slate-800 hover:bg-slate-700 text-white font-heading font-bold text-xs uppercase tracking-wider transition">
+          <i data-lucide="video" class="w-3.5 h-3.5 text-[#76d3f6]"></i>
+          <span>Scopri Save my Play</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- BREADCRUMBS -->
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 pt-6 pb-2 text-xs text-slate-400 flex items-center gap-2">
+    <a href="../../../it/" class="hover:text-white transition">Home</a>
+    <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+    <a href="../../../it/herramientas/" class="hover:text-white transition">Strumenti</a>
+    <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+    <span class="text-slate-200 font-bold">Tabelloni Torneo</span>
+  </div>
+
+  <main class="flex-1 py-6 sm:py-10">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+
+      <!-- HERO HEAD -->
+      <div class="text-center space-y-3 mb-8 max-w-3xl mx-auto no-print">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-950/80 border border-amber-800/80 text-xs font-bold text-[#f2920b] uppercase tracking-wider">
+          <i data-lucide="git-merge" class="w-3.5 h-3.5"></i>
+          <span>Generador Oficial de Eliminatorias &amp; Brackets</span>
+        </div>
+        <h1 class="text-3xl sm:text-5xl font-black font-heading text-white tracking-tight leading-tight">
+          Generatore di <span class="text-[#f2920b]">Tabelloni di Torneo</span> di Padel
+        </h1>
+        <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+          Crea el cuadro de tu torneo en segundos (8, 16 o 32 parejas). Asigna cabezas de serie, avanza ganadores automáticamente con los resultados y descarga en PDF o copia a WhatsApp. 100% gratis.
+        </p>
+      </div>
+
+      <!-- PANEL PRINCIPAL CONFIGURACIÓN -->
+      <div id="panel-configuracion" class="bg-slate-900 border border-slate-800 rounded-3xl p-6 sm:p-8 space-y-6 shadow-2xl mb-8 no-print">
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <div>
+            <label class="block text-xs font-bold text-slate-300 mb-1.5">Dimensione del Tabellone:</label>
+            <select id="select-tamano" onchange="cambiarTamanoCuadro()" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-3.5 py-2.5 text-sm text-white font-bold focus:border-[#f2920b] outline-none">
+              <option value="8" selected>8 Parejas (Cuartos de Final)</option>
+              <option value="16">16 Parejas (Octavos de Final)</option>
+              <option value="32">32 Parejas (Dieciseisavos)</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold text-slate-300 mb-1.5">Nome Torneo / Categoria:</label>
+            <input type="text" id="input-torneo-nombre" value="Torneo Fin de Semana - 2ª Categoría Masculina" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-3.5 py-2.5 text-sm text-white focus:border-[#f2920b] outline-none font-medium">
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold text-slate-300 mb-1.5">Tabellone di Consolazione:</label>
+            <select id="select-consolacion" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-3.5 py-2.5 text-sm text-white font-bold focus:border-[#f2920b] outline-none">
+              <option value="si" selected>Sí (Perdedores R1 juegan consolación)</option>
+              <option value="no">No (Solo cuadro principal)</option>
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <div class="flex items-center justify-between mb-1.5">
+            <label class="block text-xs font-bold text-slate-300">Nomi delle Coppie (1 per riga):</label>
+            <button type="button" onclick="cargarParejasEjemplo()" class="text-xs text-[#f2920b] hover:text-white underline font-bold transition">
+              Cargar nombres de ejemplo
+            </button>
+          </div>
+          <textarea id="textarea-parejas" rows="4" class="w-full bg-slate-800/80 border border-slate-700 rounded-xl p-3 text-xs sm:text-sm text-slate-200 focus:border-[#f2920b] outline-none font-mono" placeholder="Pareja 1 (García / López)&#10;Pareja 2 (Martínez / Ruiz)&#10;..."></textarea>
+        </div>
+
+        <div class="flex flex-wrap items-center justify-between gap-4 pt-2 border-t border-slate-800">
+          <div class="flex items-center gap-3">
+            <button type="button" onclick="generarCuadroEliminatoria()" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#f2920b] hover:bg-white text-slate-950 font-heading font-black text-xs sm:text-sm uppercase tracking-wider transition cursor-pointer shadow-md">
+              <i data-lucide="play" class="w-4 h-4 fill-slate-950"></i>
+              <span>Generar Cuadro Oficial</span>
+            </button>
+            <button type="button" onclick="resetearCuadro()" class="px-4 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-bold transition">
+              Limpiar
+            </button>
+          </div>
+
+          <div class="flex flex-wrap items-center gap-2">
+            <button type="button" id="btn-enviar-cuadro-wa" onclick="enviarCuadroDirectoWhatsApp()" class="inline-flex items-center gap-2 px-4 py-3 rounded-xl bg-[#25D366] hover:bg-[#20ba59] text-slate-950 font-heading font-black text-xs sm:text-sm uppercase tracking-wider transition cursor-pointer shadow-md">
+              <i data-lucide="send" class="w-4 h-4"></i>
+              <span>Enviar por WhatsApp</span>
+            </button>
+            <button type="button" id="btn-copiar-cuadro-wa" onclick="copiarCuadroWhatsApp()" class="inline-flex items-center gap-2 px-4 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-700 text-white font-heading font-bold text-xs sm:text-sm uppercase tracking-wider transition cursor-pointer">
+              <i data-lucide="copy" class="w-4 h-4 text-[#f2920b]"></i>
+              <span id="txt-btn-wa">Copiar Texto</span>
+            </button>
+            <button type="button" id="btn-imprimir" onclick="window.print()" class="inline-flex items-center gap-2 px-4 py-3 rounded-xl bg-slate-800 hover:bg-white hover:text-slate-950 border border-slate-700 text-white font-heading font-bold text-xs sm:text-sm uppercase tracking-wider transition cursor-pointer">
+              <i data-lucide="printer" class="w-4 h-4"></i>
+              <span>Imprimir / PDF</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- BANNER DE PATROCINIO / WELCOME PACK -->
+      <div id="banner-promocional" class="my-6 bg-gradient-to-r from-amber-950/40 to-slate-900 border border-amber-500/30 rounded-2xl p-4 sm:p-5 flex flex-col sm:flex-row items-center justify-between gap-4 no-print">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-[#f2920b]/20 text-[#f2920b] flex items-center justify-center shrink-0">
+            <i data-lucide="video" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <h3 class="text-xs sm:text-sm font-black text-white font-heading uppercase">Vuoi far rivivere ai giocatori i colpi migliori di questo torneo?</h3>
+            <p class="text-[11px] sm:text-xs text-slate-400">Instala cámaras <strong class="text-white">Save my Play</strong> en pista sin obras por solo 180 € y 45 €/mes. Repeticiones en móvil por QR y streaming en directo a YouTube.</p>
+          </div>
+        </div>
+        <div class="flex items-center gap-2 shrink-0">
+          <a href="../../../camaras/" class="px-4 py-2 rounded-xl bg-[#76d3f6] hover:bg-white text-slate-950 text-xs font-black uppercase font-heading tracking-wider transition">
+            Ver Cámaras
+          </a>
+          <a href="../../../welcome-packs-torneos-padel/" class="px-4 py-2 rounded-xl bg-[#f2920b] hover:bg-white text-slate-950 text-xs font-black uppercase font-heading tracking-wider transition">
+            Llaveros Torneo
+          </a>
+        </div>
+      </div>
+
+      <!-- ZONA DE BRACKETS VISUALES (INTERACTIVO + PRE-RENDER ESTÁTICO SEO) -->
+      <div id="zona-cuadro-eliminatoria" class="space-y-8">
+        <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 space-y-3">
+          <h2 class="text-lg font-black font-heading text-white">Cuadro de Eliminatoria Directa (Cuartos de Final, Semifinales y Final)</h2>
+          <p class="text-xs text-slate-400">Haz clic sobre el nombre de cualquier pareja para avanzarla de ronda o introduce el tanteo por sets (ej. 6-4 / 6-3).</p>
+        </div>
+      </div>
+
+      <!-- GUÍA EXPLICATIVA SEO AL PIE -->
+      <section class="mt-16 pt-12 border-t border-slate-800 space-y-8 text-slate-300 text-xs sm:text-sm leading-relaxed no-print">
+        <div class="space-y-2">
+          <span class="text-xs font-black uppercase tracking-widest text-[#f2920b]">Guía Técnica de Competición</span>
+          <h2 class="text-2xl sm:text-3xl font-black font-heading text-white">¿Cómo organizar un cuadro de torneo de pádel por eliminatoria directa con éxito?</h2>
+          <p class="text-slate-400">
+            El formato de cuadro por eliminatoria directa (<em>brackets</em>) es el estándar oficial en torneos federados FEP y FIP, ligas corporativas y campeonatos de fin de semana. Para maximizar la satisfacción de los jugadores inscritos y garantizar un mínimo de 2 partidos por pareja, habilita siempre el <strong>cuadro de consolación</strong> para los derrotados en primera ronda.
+          </p>
+        </div>
+
+        <div class="overflow-x-auto border border-slate-800 rounded-2xl">
+          <table class="w-full text-left text-xs sm:text-sm">
+            <thead class="bg-slate-900 text-white font-heading uppercase text-xs border-b border-slate-800">
+              <tr>
+                <th class="p-3.5">Tamaño del Cuadro</th>
+                <th class="p-3.5">Ronda Inicial</th>
+                <th class="p-3.5">Partidos Totales (Principal)</th>
+                <th class="p-3.5">Partidos con Consolación</th>
+                <th class="p-3.5">Horas de Pista Necesarias</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-800/80 bg-slate-900/40">
+              <tr>
+                <td class="p-3.5 font-bold text-white">8 Parejas (16 jugadores)</td>
+                <td class="p-3.5 text-[#76d3f6] font-bold">Cuartos de Final</td>
+                <td class="p-3.5">7 partidos</td>
+                <td class="p-3.5">10 partidos</td>
+                <td class="p-3.5">~12 a 15 horas de pista</td>
+              </tr>
+              <tr>
+                <td class="p-3.5 font-bold text-white">16 Parejas (32 jugadores)</td>
+                <td class="p-3.5 text-[#76d3f6] font-bold">Octavos de Final</td>
+                <td class="p-3.5">15 partidos</td>
+                <td class="p-3.5">22 partidos</td>
+                <td class="p-3.5">~28 a 33 horas de pista</td>
+              </tr>
+              <tr>
+                <td class="p-3.5 font-bold text-white">32 Parejas (64 jugadores)</td>
+                <td class="p-3.5 text-[#76d3f6] font-bold">Dieciseisavos de Final</td>
+                <td class="p-3.5">31 partidos</td>
+                <td class="p-3.5">46 partidos</td>
+                <td class="p-3.5">~60 a 68 horas de pista</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-2">
+          <div class="bg-slate-900/60 p-5 rounded-2xl border border-slate-800 space-y-2">
+            <h3 class="font-bold text-white text-sm">1. Asignación de Cabezas de Serie y Byes</h3>
+            <p class="text-slate-400 text-xs">
+              Coloca a la pareja Cabeza de Serie #1 en la parte superior del cuadro (Partido 1) y a la Cabeza de Serie #2 en la parte inferior para que solo puedan cruzarse en la gran final. Si tienes un número impar de parejas (ej. 12 parejas en un cuadro de 16), asigna 4 <em>BYEs</em> (exentos en primera ronda) a los 4 primeros cabezas de serie.
+            </p>
+          </div>
+          <div class="bg-slate-900/60 p-5 rounded-2xl border border-slate-800 space-y-2">
+            <h3 class="font-bold text-white text-sm">2. Gestión de Tiempos y Súper Tie-Break</h3>
+            <p class="text-slate-400 text-xs">
+              Para evitar retrasos acumulados en las pistas de tu club, programa turnos de 75 minutos en rondas previas aplicando <strong>Punto de Oro</strong> en el 40-40 y un <strong>Súper Tie-Break a 10 puntos</strong> en lugar de tercer set completo hasta semifinales.
+            </p>
+          </div>
+          <div class="bg-slate-900/60 p-5 rounded-2xl border border-slate-800 space-y-2">
+            <h3 class="font-bold text-white text-sm">3. Retransmisión en Directo y Welcome Pack</h3>
+            <p class="text-slate-400 text-xs">
+              Con las cámaras fijas <a href="../../../camaras/" class="text-[#76d3f6] underline font-bold">Save my Play</a> puedes emitir las semifinales y finales en directo por el canal de YouTube de tu club y entregar <a href="../../../welcome-packs-torneos-padel/" class="text-[#f2920b] underline font-bold">llaveros 3D personalizados</a> a todos los inscritos.
+            </p>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="relative z-20 bg-[#3478a6] bg-textured-blue text-white pt-14 pb-10 border-t border-sky-700/40 text-xs no-print">
+    <div class="max-w-[1700px] mx-auto px-4 sm:px-8 space-y-10">
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pb-8 border-b border-white/20">
+        <div class="flex items-center gap-3.5">
+          <img src="../../../assets/images/coolpadel-mascot-hd.png" alt="CoolPadel Mascota" class="h-10 sm:h-12 w-auto object-contain drop-shadow-sm">
+          <img src="../../../assets/images/coolpadel-typography-hd.png" alt="CoolPadel" class="h-5 sm:h-6 w-auto object-contain drop-shadow-sm">
+        </div>
+        <p class="text-white/80 text-xs text-center sm:text-right max-w-md font-medium">
+          Tecnología y merchandising oficial para clubes de pádel: cámaras Save my Play y llaveros 3D de alta densidad.
+        </p>
+      </div>
+
+      <nav aria-label="Estructura de CoolPadel" class="grid grid-cols-2 lg:grid-cols-4 gap-8 text-left">
+        <div class="space-y-3">
+          <div class="font-heading font-black text-sm uppercase tracking-wider text-white">Herramientas B2B</div>
+          <ul class="space-y-2 text-white/80 font-normal">
+            <li><a href="../generador-cuadros-torneo-padel/" class="hover:text-white underline font-bold">Generador de Cuadros de Torneo</a></li>
+            <li><a href="../../../it/herramientas/generador-americana-padel/" class="hover:text-white underline">Generador de Americana</a></li>
+            <li><a href="../calculadora-coste-pistas-padel/" class="hover:text-white underline">Calculadora Coste Pistas</a></li>
+            <li><a href="../calculadora-roi-camaras-padel/" class="hover:text-white underline">Calculadora ROI Cámaras</a></li>
+            <li><a href="../../../it/herramientas/" class="hover:text-white underline">Hub de Herramientas</a></li>
+          </ul>
+        </div>
+        <div class="space-y-3">
+          <div class="font-heading font-black text-sm uppercase tracking-wider text-white">Cámaras en Pista</div>
+          <ul class="space-y-2 text-white/80 font-normal">
+            <li><a href="../../../camaras/" class="hover:text-white underline">Save my Play en Pista</a></li>
+            <li><a href="../../../camaras-grabacion-pistas-padel/" class="hover:text-white underline">Grabación con IA</a></li>
+            <li><a href="../../../blog/sistemas-grabacion-pistas-padel-comparativa/" class="hover:text-white underline">Comparativa de Cámaras</a></li>
+          </ul>
+        </div>
+        <div class="space-y-3">
+          <div class="font-heading font-black text-sm uppercase tracking-wider text-white">Merchandising Oficial</div>
+          <ul class="space-y-2 text-white/80 font-normal">
+            <li><a href="../../../llaveros-padel-personalizados/" class="hover:text-white underline">Llaveros Pádel 3D</a></li>
+            <li><a href="../../../welcome-packs-torneos-padel/" class="hover:text-white underline">Welcome Packs Torneos</a></li>
+            <li><a href="../../../llaveros-personalizados-clubs-padel/" class="hover:text-white underline">Merchandising para Clubs</a></li>
+          </ul>
+        </div>
+        <div class="space-y-3">
+          <div class="font-heading font-black text-sm uppercase tracking-wider text-white">Directorio &amp; Datos</div>
+          <ul class="space-y-2 text-white/80 font-normal">
+            <li><a href="../../../franquicias-padel/" class="hover:text-white underline">167 Franquicias de Pádel</a></li>
+            <li><a href="../../../blog/barometro-camaras-padel-2026/" class="hover:text-white underline">Barómetro del Pádel 2026</a></li>
+            <li><a href="../../../blog/como-organizar-torneo-padel-americana-reglas-cuadros/" class="hover:text-white underline">Guía Torneo Americana</a></li>
+            <li><a href="../../../blog/cuanto-cuesta-montar-pista-padel-presupuesto-rentabilidad/" class="hover:text-white underline">Coste Pista Pádel 2026</a></li>
+            <li><a href="../../../blog/" class="hover:text-white underline">Blog Oficial</a></li>
+          </ul>
+        </div>
+      </nav>
+
+      <div class="pt-6 border-t border-white/20 text-center sm:text-left text-white/70 text-xs">
+        © 2026 CoolPadel Studios. Todos los derechos reservados.
+      </div>
+    </div>
+  </footer>
+
+  <!-- SCRIPT DE GESTIÓN DEL BRACKET INTERACTIVO -->
+  <script>
+    let bracketData = null;
+
+    function cambiarTamanoCuadro() {
+      const tam = parseInt(document.getElementById('select-tamano').value);
+      cargarParejasEjemplo(tam);
+    }
+
+    function cargarParejasEjemplo(tamano = null) {
+      const tam = tamano || parseInt(document.getElementById('select-tamano').value);
+      const ejemplos = [
+        "Alejandro Galán / Juan Lebrón (CS 1)",
+        "Arturo Coello / Agustín Tapia (CS 2)",
+        "Paquito Navarro / Fede Chingotto (CS 3)",
+        "Franco Stupaczuk / Martín Di Nenno (CS 4)",
+        "Mike Yanguas / Javi Garrido",
+        "Momo González / Álex Ruiz",
+        "Sanyo Gutiérrez / Maxi Sánchez",
+        "Coki Nieto / Jon Sanz",
+        "Lucas Bergamini / Víctor Ruiz",
+        "Gonzalo Rubio / Javi Ruiz",
+        "Lucho Capra / Álex Arroyo",
+        "Jairo Bautista / Fran Guerrero",
+        "Ramiro Moyano / Xisco Gil",
+        "Pincho Fernández / José García Diestro",
+        "Pablo Cardona / Javi Leal",
+        "Edu Alonso / Álex Arroyo",
+        "Pareja Local A (García / Ruiz)",
+        "Pareja Local B (López / Martínez)",
+        "Pareja Local C (Sánchez / Fernández)",
+        "Pareja Local D (Pérez / Gómez)",
+        "Pareja Local E (Moreno / Romero)",
+        "Pareja Local F (Navarro / Torres)",
+        "Pareja Local G (Domínguez / Gil)",
+        "Pareja Local H (Vázquez / Castro)",
+        "Pareja Local I (Ramos / Serrano)",
+        "Pareja Local J (Blanco / Molina)",
+        "Pareja Local K (Morales / Suárez)",
+        "Pareja Local L (Ortega / Delgado)",
+        "Pareja Local M (Castro / Ortiz)",
+        "Pareja Local N (Marín / Rubio)",
+        "Pareja Local O (Núñez / Medina)",
+        "Pareja Local P (Iglesias / Cortés)"
+      ];
+      document.getElementById('textarea-parejas').value = ejemplos.slice(0, tam).join("\n");
+    }
+
+    function generarCuadroEliminatoria() {
+      const tam = parseInt(document.getElementById('select-tamano').value);
+      const nombreTorneo = document.getElementById('input-torneo-nombre').value || "Torneo de Pádel";
+      const conConsolacion = document.getElementById('select-consolacion').value === 'si';
+      const lineas = document.getElementById('textarea-parejas').value
+        .split('\n')
+        .map(l => l.trim())
+        .filter(l => l.length > 0);
+
+      const parejas = [];
+      for (let i = 0; i < tam; i++) {
+        parejas.push(lineas[i] || `Pareja ${i + 1}`);
+      }
+
+      // Estructura de rondas
+      let rondas = [];
+      if (tam === 8) {
+        rondas = ["Cuartos de Final", "Semifinales", "Final"];
+      } else if (tam === 16) {
+        rondas = ["Octavos de Final", "Cuartos de Final", "Semifinales", "Final"];
+      } else {
+        rondas = ["Dieciseisavos", "Octavos de Final", "Cuartos de Final", "Semifinales", "Final"];
+      }
+
+      bracketData = {
+        tamano: tam,
+        nombre: nombreTorneo,
+        consolacion: conConsolacion,
+        rondas: rondas,
+        partidos: []
+      };
+
+      // Inicializar partidos ronda 1
+      const numPartidosR1 = tam / 2;
+      const r1 = [];
+      for (let i = 0; i < numPartidosR1; i++) {
+        r1.push({
+          id: `R0_M${i}`,
+          rondaIdx: 0,
+          matchIdx: i,
+          p1: parejas[i * 2],
+          p2: parejas[i * 2 + 1],
+          s1: "",
+          s2: "",
+          ganador: ""
+        });
+      }
+      bracketData.partidos.push(r1);
+
+      // Rondas subsecuentes vacías
+      let partidosEnRonda = numPartidosR1 / 2;
+      let rIdx = 1;
+      while (partidosEnRonda >= 1) {
+        const rList = [];
+        for (let j = 0; j < partidosEnRonda; j++) {
+          rList.push({
+            id: `R${rIdx}_M${j}`,
+            rondaIdx: rIdx,
+            matchIdx: j,
+            p1: "Por determinar",
+            p2: "Por determinar",
+            s1: "",
+            s2: "",
+            ganador: ""
+          });
+        }
+        bracketData.partidos.push(rList);
+        partidosEnRonda /= 2;
+        rIdx++;
+      }
+
+      renderizarBracket();
+      document.getElementById('btn-copiar-cuadro-wa').classList.remove('hidden');
+      document.getElementById('btn-imprimir').classList.remove('hidden');
+    }
+
+    function renderizarBracket() {
+      if (!bracketData) return;
+      const contenedor = document.getElementById('zona-cuadro-eliminatoria');
+      contenedor.innerHTML = "";
+
+      const titleCard = document.createElement('div');
+      titleCard.className = "flex flex-col sm:flex-row items-center justify-between pb-4 border-b border-slate-800 gap-2";
+      titleCard.innerHTML = `
+        <div>
+          <span class="text-xs font-black uppercase text-[#f2920b] tracking-wider">Cuadro Oficial en Vivo</span>
+          <h2 class="text-xl sm:text-2xl font-black font-heading text-white">${bracketData.nombre}</h2>
+        </div>
+        <div class="text-xs text-slate-400">
+          Haz clic en el ganador de cada cruce o ingresa el resultado para avanzar al vencedor.
+        </div>
+      `;
+      contenedor.appendChild(titleCard);
+
+      // Wrapper con scroll horizontal para el bracket
+      const bracketWrapper = document.createElement('div');
+      bracketWrapper.id = "cuadro-imprimible";
+      bracketWrapper.className = "overflow-x-auto pb-6 pt-2";
+
+      const gridDiv = document.createElement('div');
+      gridDiv.className = `grid grid-cols-${bracketData.rondas.length} gap-6 min-w-[${bracketData.rondas.length * 280}px] items-stretch`;
+      gridDiv.style.minWidth = `${bracketData.rondas.length * 270}px`;
+
+      bracketData.rondas.forEach((nombreRonda, rIdx) => {
+        const col = document.createElement('div');
+        col.className = "flex flex-col justify-around space-y-4";
+
+        const rondaHead = document.createElement('div');
+        rondaHead.className = "text-center py-2 px-3 rounded-xl bg-slate-900 border border-slate-800 font-heading font-black text-xs text-[#76d3f6] uppercase tracking-wider mb-2";
+        rondaHead.innerText = nombreRonda;
+        col.appendChild(rondaHead);
+
+        const partidosRonda = bracketData.partidos[rIdx];
+        partidosRonda.forEach((partido, mIdx) => {
+          const card = document.createElement('div');
+          card.className = "bracket-node bg-slate-900 border border-slate-800 rounded-2xl p-3 shadow-lg space-y-2 text-xs transition duration-200 hover:border-[#f2920b]";
+
+          // Pareja 1
+          const row1 = document.createElement('div');
+          row1.className = `flex items-center justify-between p-1.5 rounded-lg cursor-pointer transition ${partido.ganador === partido.p1 && partido.p1 !== 'Por determinar' ? 'bg-emerald-950/80 border border-emerald-500/50 text-emerald-300 font-bold' : 'hover:bg-slate-800 text-slate-200'}`;
+          row1.onclick = () => fijarGanador(rIdx, mIdx, partido.p1);
+          row1.innerHTML = `
+            <span class="truncate pr-2 select-none">${partido.p1}</span>
+            <input type="text" placeholder="-" value="${partido.s1}" oninput="actualizarResultado(event, ${rIdx}, ${mIdx}, 's1')" onclick="event.stopPropagation()" class="w-10 text-center bg-slate-800 border border-slate-700 rounded px-1 py-0.5 text-xs text-white outline-none">
+          `;
+
+          // Pareja 2
+          const row2 = document.createElement('div');
+          row2.className = `flex items-center justify-between p-1.5 rounded-lg cursor-pointer transition ${partido.ganador === partido.p2 && partido.p2 !== 'Por determinar' ? 'bg-emerald-950/80 border border-emerald-500/50 text-emerald-300 font-bold' : 'hover:bg-slate-800 text-slate-200'}`;
+          row2.onclick = () => fijarGanador(rIdx, mIdx, partido.p2);
+          row2.innerHTML = `
+            <span class="truncate pr-2 select-none">${partido.p2}</span>
+            <input type="text" placeholder="-" value="${partido.s2}" oninput="actualizarResultado(event, ${rIdx}, ${mIdx}, 's2')" onclick="event.stopPropagation()" class="w-10 text-center bg-slate-800 border border-slate-700 rounded px-1 py-0.5 text-xs text-white outline-none">
+          `;
+
+          card.appendChild(row1);
+          card.appendChild(row2);
+          col.appendChild(card);
+        });
+
+        gridDiv.appendChild(col);
+      });
+
+      bracketWrapper.appendChild(gridDiv);
+      contenedor.appendChild(bracketWrapper);
+      lucide.createIcons();
+    }
+
+    function actualizarResultado(e, rIdx, mIdx, campo) {
+      bracketData.partidos[rIdx][mIdx][campo] = e.target.value;
+    }
+
+    function fijarGanador(rIdx, mIdx, pareja) {
+      if (!pareja || pareja === "Por determinar") return;
+      bracketData.partidos[rIdx][mIdx].ganador = pareja;
+
+      // Si no es la final, propagar a la siguiente ronda
+      const proxRondaIdx = rIdx + 1;
+      if (proxRondaIdx < bracketData.partidos.length) {
+        const proxMatchIdx = Math.floor(mIdx / 2);
+        const slot = (mIdx % 2 === 0) ? 'p1' : 'p2';
+        bracketData.partidos[proxRondaIdx][proxMatchIdx][slot] = pareja;
+      }
+      renderizarBracket();
+    }
+
+    function resetearCuadro() {
+      bracketData = null;
+      document.getElementById('zona-cuadro-eliminatoria').innerHTML = "";
+      document.getElementById('btn-copiar-cuadro-wa').classList.add('hidden');
+      document.getElementById('btn-imprimir').classList.add('hidden');
+    }
+
+    function construirTextoBracketWA() {
+      if (!bracketData) generarCuadroEliminatoria();
+      let msg = `🏆 *${bracketData.nombre}* 🏆\n_Cuadro Oficial de Eliminatorias_\n\n`;
+
+      bracketData.rondas.forEach((ronda, rIdx) => {
+        msg += `📌 *${ronda.toUpperCase()}*\n`;
+        bracketData.partidos[rIdx].forEach((p, idx) => {
+          const score = (p.s1 || p.s2) ? ` [${p.s1 || '0'}-${p.s2 || '0'}]` : "";
+          const winnerEmoji = p.ganador ? ` 🥇 Ganador: ${p.ganador}` : "";
+          msg += `• Partido ${idx + 1}: ${p.p1} vs ${p.p2}${score}${winnerEmoji}\n`;
+        });
+        msg += `\n`;
+      });
+
+      msg += `🎾 *Organizado con el Generador de Cuadros de CoolPadel Studios:*\nhttps://coolpadelstudios.com/herramientas/generador-cuadros-torneo-padel/`;
+      return msg;
+    }
+
+    function copiarCuadroWhatsApp() {
+      const msg = construirTextoBracketWA();
+      navigator.clipboard.writeText(msg).then(() => {
+        const txt = document.getElementById('txt-btn-wa');
+        const prev = txt.innerText;
+        txt.innerText = "¡Copiado!";
+        setTimeout(() => txt.innerText = prev, 2500);
+      });
+    }
+
+    function enviarCuadroDirectoWhatsApp() {
+      const msg = construirTextoBracketWA();
+      window.open('https://api.whatsapp.com/send?text=' + encodeURIComponent(msg), '_blank', 'noopener,noreferrer');
+    }
+
+    // Inicializar con 8 parejas al cargar
+    window.addEventListener('DOMContentLoaded', () => {
+      cargarParejasEjemplo(8);
+      generarCuadroEliminatoria();
+    });
+  </script>
+  <script src="/assets/js/cp-analytics.js" defer></script>
+</body>
+</html>

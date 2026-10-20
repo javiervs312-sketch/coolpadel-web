@@ -35,7 +35,7 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 SITEMAP_FILE = os.path.join(BASE_DIR, "sitemap.xml")
 
 
-def extraer_urls_sitemap(sitemap_path: str, max_urls: int = 250) -> list[str]:
+def extraer_urls_sitemap(sitemap_path: str, max_urls: int = 1000) -> list[str]:
     """Extrae las URLs del sitemap.xml."""
     if not os.path.exists(sitemap_path):
         return [

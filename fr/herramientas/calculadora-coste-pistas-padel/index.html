@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculateur de Coût et Rentabilité des Pistes de Padel | CoolPadel Studios</title>
+  <meta name="description" content="Calculez le coût d'installation de pistes de padel (verre panoramique, dalle béton, LED, couverture) : chiffre d'affaires mensuel, coûts d'exploitation et amortissement exact.">
+  <link rel="canonical" href="https://coolpadelstudios.com/fr/herramientas/calculadora-coste-pistas-padel/">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+
+  <!-- SEO Multilingüe Hreflang -->
+  <link rel="alternate" hreflang="es" href="https://coolpadelstudios.com/herramientas/calculadora-coste-pistas-padel/">
+  <link rel="alternate" hreflang="en" href="https://coolpadelstudios.com/en/herramientas/calculadora-coste-pistas-padel/">
+  <link rel="alternate" hreflang="fr" href="https://coolpadelstudios.com/fr/herramientas/calculadora-coste-pistas-padel/">
+  <link rel="alternate" hreflang="it" href="https://coolpadelstudios.com/it/herramientas/calculadora-coste-pistas-padel/">
+  <link rel="alternate" hreflang="x-default" href="https://coolpadelstudios.com/herramientas/calculadora-coste-pistas-padel/">
+  <meta name="language" content="fr">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="CoolPadel Studios & Save my Play">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:url" content="https://coolpadelstudios.com/fr/herramientas/calculadora-coste-pistas-padel/">
+  <meta property="og:title" content="Calculateur de Coût et Rentabilité des Pistes de Padel | CoolPadel Studios">
+  <meta property="og:description" content="Calculez le coût d'installation de pistes de padel (verre panoramique, dalle béton, LED, couverture) : chiffre d'affaires mensuel, coûts d'exploitation et amortissement exact.">
+  <meta property="og:image" content="https://coolpadelstudios.com/assets/images/savemyplay-1.jpg">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Calculateur de Coût et Rentabilité des Pistes de Padel | CoolPadel Studios">
+  <meta name="twitter:description" content="Calculez le coût d'installation de pistes de padel (verre panoramique, dalle béton, LED, couverture) : chiffre d'affaires mensuel, coûts d'exploitation et amortissement exact.">
+  <meta name="twitter:image" content="https://coolpadelstudios.com/assets/images/savemyplay-1.jpg">
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/png" href="../../../assets/images/favicon_transparente.png?v=transp3">
+  <link rel="apple-touch-icon" sizes="180x180" href="../../../assets/images/favicon_transparente.png?v=transp3">
+  <meta name="theme-color" content="#0b1626">
+
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"></script>
+
+  <style>
+    body { font-family: 'Plus Jakarta Sans', sans-serif; }
+    h1, h2, h3, h4, .font-heading { font-family: 'Outfit', sans-serif; }
+    .bg-textured-blue {
+      background-color: #3478a6;
+      background-image: linear-gradient(rgba(52, 120, 166, 0.40), rgba(52, 120, 166, 0.40)), url('/assets/images/branding/textura_editorial_coolpadel.webp');
+      background-blend-mode: normal, soft-light;
+      background-size: cover;
+      background-position: center;
+    }
+    input[type=range] { accent-color: #f2920b; }
+  </style>
+
+  <!-- Schema.org WebApplication & FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "@id": "https://coolpadelstudios.com/fr/herramientas/calculadora-coste-pistas-padel/#app",
+        "name": "Calculateur de Coût et Rentabilité des Pistes de Padel | CoolPadel Studios",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "All",
+        "description": "Calculez le coût d'installation de pistes de padel (verre panoramique, dalle béton, LED, couverture) : chiffre d'affaires mensuel, coûts d'exploitation et amortissement exact.",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://coolpadelstudios.com/fr/" },
+          { "@type": "ListItem", "position": 2, "name": "Outils", "item": "https://coolpadelstudios.com/fr/herramientas/" },
+          { "@type": "ListItem", "position": 3, "name": "Coût et Rentabilité Pistes", "item": "https://coolpadelstudios.com/fr/herramientas/calculadora-coste-pistas-padel/" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Combien coûte environ la construction d'une piste de padel complète en 2026 ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Le coût moyen d'une piste de padel panoramique clé en main se situe entre 28 000 € et 38 000 € par piste si la dalle béton existe déjà. En cas de création de dalle, terrassement ou couverture spécifique, le budget global oscille entre 45 000 € et 65 000 € par piste."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "En combien de mois rentabilise-t-on une installation de pistes de padel ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Avec une occupation moyenne de 4 à 5 heures par jour à 24 €/heure, une piste génère entre 2 800 € et 3 600 € bruts par mois. Déduction faite des charges fixes, le retour sur investissement s'effectue généralement entre 14 et 24 mois."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col selection:bg-[#f2920b] selection:text-slate-950">
+
+  <!-- HEADER -->
+  <header class="sticky top-0 z-50 bg-[#0b1626]/95 backdrop-blur-md border-b border-slate-800">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between">
+      <a href="../../../fr/" class="flex items-center gap-2.5">
+        <img src="../../../assets/images/coolpadel-mascot-hd.png" alt="CoolPadel Studios" class="h-9 sm:h-11 w-auto object-contain">
+        <span class="font-heading font-black text-lg sm:text-xl tracking-tight text-white">CoolPadel <span class="text-[#f2920b]">Studios</span></span>
+      </a>
+
+      <nav class="hidden md:flex items-center gap-6 text-xs sm:text-sm font-bold uppercase tracking-wider text-slate-300">
+        <a href="../../../fr/camaras/" class="hover:text-[#76d3f6] transition">Caméras IA</a>
+        <a href="../../../fr/#llaveros" class="hover:text-[#f2920b] transition">Porte-clés 3D</a>
+        <a href="../../../fr/herramientas/" class="text-[#f2920b] font-black">Outils</a>
+        <a href="../../../fr/blog/barometro-camaras-padel-2026/" class="hover:text-emerald-400 transition">Baromètre</a>
+        <a href="../../../fr/blog/" class="hover:text-white transition">Blog</a>
+      </nav>
+
+      <div class="flex items-center gap-3">
+        <div class="flex items-center gap-1 border border-slate-700 rounded-lg p-0.5 bg-slate-800/80"><a href="/herramientas/calculadora-coste-pistas-padel/" class="px-2 py-1 rounded text-xs transition text-slate-300 hover:text-white">ES</a><a href="/en/herramientas/calculadora-coste-pistas-padel/" class="px-2 py-1 rounded text-xs transition text-slate-300 hover:text-white">EN</a><a href="/fr/herramientas/calculadora-coste-pistas-padel/" class="px-2 py-1 rounded text-xs transition bg-[#f2920b] text-slate-950 font-black">FR</a><a href="/it/herramientas/calculadora-coste-pistas-padel/" class="px-2 py-1 rounded text-xs transition text-slate-300 hover:text-white">IT</a></div>
+        <a href="../../../fr/camaras/" class="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-slate-800 hover:bg-slate-700 text-white font-heading font-bold text-xs uppercase tracking-wider transition">
+          <i data-lucide="video" class="w-3.5 h-3.5 text-[#76d3f6]"></i>
+          <span>Voir Save my Play</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- BREADCRUMBS -->
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 pt-6 pb-2 text-xs text-slate-400 flex items-center gap-2">
+    <a href="../../../fr/" class="hover:text-white transition">Accueil</a>
+    <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+    <a href="../../../fr/herramientas/" class="hover:text-white transition">Outils</a>
+    <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+    <span class="text-slate-200 font-bold">Coût et Rentabilité Pistes</span>
+  </div>
+
+  <main class="flex-1 py-6 sm:py-10">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+
+      <!-- HERO HEAD -->
+      <div class="text-center space-y-3 mb-8 max-w-3xl mx-auto">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-950/80 border border-sky-800/80 text-xs font-bold text-[#76d3f6] uppercase tracking-wider">
+          <i data-lucide="calculator" class="w-3.5 h-3.5"></i>
+          <span>Simulateur de Viabilité Économique 2026</span>
+        </div>
+        <h1 class="text-3xl sm:text-5xl font-black font-heading text-white tracking-tight leading-tight">
+          Calculateur de <span class="text-[#f2920b]">Coût et Rentabilité</span> des Pistes de Padel
+        </h1>
+        <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+          Simulez le budget d'investissement (génie civil, dalle, structure, gazon, éclairage LED et caméras) et projetez vos bénéfices nets mensuels ainsi que la durée d'amortissement.
+        </p>
+      </div>
+
+      <!-- GRID CALCULADORA -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-12">
+
+        <!-- PARÁMETROS (7 COLS) -->
+        <div class="lg:col-span-7 bg-slate-900 border border-slate-800 rounded-3xl p-6 sm:p-8 space-y-6 shadow-2xl">
+          <div class="flex items-center justify-between pb-3 border-b border-slate-800">
+            <h2 class="font-heading font-black text-lg text-white">1. Configuration des Pistes et Investissement</h2>
+            <span class="text-xs text-[#f2920b] font-bold">Données du marché 2026</span>
+          </div>
+
+          <!-- PISTAS -->
+          <div class="space-y-2">
+            <div class="flex justify-between text-xs font-bold text-slate-300">
+              <span>Nombre de pistes à installer :</span>
+              <span id="label-num-pistas" class="text-white text-sm font-black">4</span>
+            </div>
+            <input type="range" id="input-pistas" min="1" max="16" value="4" oninput="actualizarCalculo()" class="w-full h-2 bg-slate-800 rounded-lg cursor-pointer">
+          </div>
+
+          <!-- TIPO DE PISTA -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+            <div>
+              <label class="block text-xs font-bold text-slate-300 mb-1.5">Type de Piste :</label>
+              <select id="select-tipo-pista" onchange="actualizarCalculo()" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-3 py-2 text-xs sm:text-sm text-white font-bold focus:border-[#f2920b] outline-none">
+                <option value="panoramica" selected>Panoramique Pro (12mm) · ~23 500 €</option>
+                <option value="estandar">Standard avec Poteaux (10mm) · ~18 500 €</option>
+                <option value="superpanoramica">Super Panoramique WPT · ~27 000 €</option>
+              </select>
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold text-slate-300 mb-1.5">Dalle en Béton :</label>
+              <select id="select-solera" onchange="actualizarCalculo()" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-3 py-2 text-xs sm:text-sm text-white font-bold focus:border-[#f2920b] outline-none">
+                <option value="nueva" selected>Nouvelle dalle requise (~8 500 €/piste)</option>
+                <option value="existente">Dalle déjà existante (0 € supplémentaire)</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- CESPED Y CAMARAS -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-bold text-slate-300 mb-1.5">Gazon & Éclairage LED :</label>
+              <select id="select-cesped" onchange="actualizarCalculo()" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-3 py-2 text-xs sm:text-sm text-white font-bold focus:border-[#f2920b] outline-none">
+                <option value="texturado" selected>Gazon texturé Pro + 8 projecteurs LED 200W · 5 500 €</option>
+                <option value="monofilamento">Monofilament classique + 4 projecteurs LED · 4 200 €</option>
+              </select>
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold text-slate-300 mb-1.5">Caméras sur Piste Save my Play :</label>
+              <select id="select-camaras" onchange="actualizarCalculo()" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-3 py-2 text-xs sm:text-sm text-white font-bold focus:border-[#76d3f6] outline-none">
+                <option value="si" selected>Oui (180 € matériel + 45 €/mois abonnement)</option>
+                <option value="no">Ne pas installer de caméras</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="pt-4 border-t border-slate-800 flex items-center justify-between pb-2">
+            <h2 class="font-heading font-black text-lg text-white">2. Exploitation et Recettes</h2>
+            <span class="text-xs text-emerald-400 font-bold">Simulation d'occupation</span>
+          </div>
+
+          <!-- PRECIO HORA -->
+          <div class="space-y-2">
+            <div class="flex justify-between text-xs font-bold text-slate-300">
+              <span>Prix moyen de location par heure de piste :</span>
+              <span id="label-precio-hora" class="text-white text-sm font-black">24 € / h</span>
+            </div>
+            <input type="range" id="input-precio-hora" min="12" max="48" value="24" oninput="actualizarCalculo()" class="w-full h-2 bg-slate-800 rounded-lg cursor-pointer">
+          </div>
+
+          <!-- HORAS DIA -->
+          <div class="space-y-2">
+            <div class="flex justify-between text-xs font-bold text-slate-300">
+              <span>Heures d'occupation moyenne par piste / jour :</span>
+              <span id="label-horas-dia" class="text-white text-sm font-black">4.5 h</span>
+            </div>
+            <input type="range" id="input-horas-dia" min="2" max="10" step="0.5" value="4.5" oninput="actualizarCalculo()" class="w-full h-2 bg-slate-800 rounded-lg cursor-pointer">
+          </div>
+
+          <!-- GASTOS FIJOS -->
+          <div class="space-y-2">
+            <div class="flex justify-between text-xs font-bold text-slate-300">
+              <span>Charges fixes mensuelles de la structure (loyer, électricité, salaires) :</span>
+              <span id="label-gastos-fijos" class="text-white text-sm font-black">2.500 €</span>
+            </div>
+            <input type="range" id="input-gastos-fijos" min="500" max="15000" step="250" value="2500" oninput="actualizarCalculo()" class="w-full h-2 bg-slate-800 rounded-lg cursor-pointer">
+          </div>
+        </div>
+
+        <!-- RESULTADOS (5 COLS) -->
+        <div class="lg:col-span-5 bg-gradient-to-br from-slate-800 to-slate-900 border-2 border-slate-700/80 rounded-3xl p-6 sm:p-8 space-y-6 shadow-2xl">
+          <div class="border-b border-slate-700 pb-3 flex items-center justify-between">
+            <h3 class="font-heading font-black text-base text-white uppercase tracking-wider">Bilan Financier Prévisionnel</h3>
+            <span class="px-2.5 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 text-xs font-bold border border-emerald-500/20">Proyección</span>
+          </div>
+
+          <div class="space-y-4">
+            <div class="flex justify-between items-center text-xs sm:text-sm">
+              <span class="text-slate-300">Investissement Initial Total Estimé :</span>
+              <strong id="out-inversion" class="text-white font-black text-lg">150.000 €</strong>
+            </div>
+
+            <div class="flex justify-between items-center text-xs sm:text-sm">
+              <span class="text-slate-300">Chiffre d'Affaires Brut Estimé / Mois :</span>
+              <strong id="out-ingresos-brutos" class="text-emerald-400 font-black text-lg">12.960 € / mes</strong>
+            </div>
+
+            <div class="flex justify-between items-center text-xs sm:text-sm">
+              <span class="text-slate-300">Charges d'Exploitation / Mois :</span>
+              <strong id="out-gastos-totales" class="text-slate-400 font-bold text-base">2.680 € / mes</strong>
+            </div>
+
+            <div class="bg-slate-950/80 border border-emerald-500/40 rounded-2xl p-5 text-center space-y-1">
+              <span class="text-xs uppercase font-extrabold text-slate-400 tracking-wider">Bénéfice Net Estimé / Mois :</span>
+              <div id="out-beneficio-neto" class="text-3xl sm:text-4xl font-black font-heading text-emerald-400">+10.280 € / mes</div>
+            </div>
+
+            <div class="bg-slate-800/80 rounded-xl p-4 border border-slate-700 space-y-1 text-center">
+              <span class="text-xs font-bold text-slate-400">Délai d'Amortissement (Payback) :</span>
+              <div class="text-lg font-black text-[#f2920b] font-heading">
+                <span id="out-meses-amortizacion">15</span> mois d'activité
+              </div>
+            </div>
+          </div>
+
+          <!-- BANNER CAMARAS -->
+          <div class="pt-4 border-t border-slate-700/80 space-y-2">
+            <div class="p-4 rounded-2xl bg-sky-950/50 border border-sky-800/60 space-y-2">
+              <span class="text-[10px] font-black uppercase tracking-wider text-[#76d3f6]">Différenciation avec les Caméras Save my Play</span>
+              <h4 class="text-xs font-bold text-white">Saviez-vous que les pistes équipées de caméras affichent 18% d'occupation en plus ?</h4>
+              <p class="text-[11px] text-slate-300">Les joueurs réservent en priorité les pistes dotées du bouton d'enregistrement Save my Play pour recevoir leurs vidéos sur smartphone. Pour seulement 45 €/mois par piste, valorisez vos heures creuses.</p>
+              <a href="../../../fr/camaras/" class="inline-flex items-center gap-1.5 text-xs font-black text-[#76d3f6] hover:text-white transition pt-1">
+                <span>Découvrir les Caméras Save my Play</span>
+                <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- FAQ SECTION -->
+      <section class="border-t border-slate-800 pt-12 space-y-6">
+        <h2 class="text-2xl font-black font-heading text-white">FAQ</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 space-y-2">
+            <h3 class="text-sm font-bold text-white">Combien coûte environ la construction d'une piste de padel complète en 2026 ?</h3>
+            <p class="text-xs text-slate-400 leading-relaxed">Le coût moyen d'une piste de padel panoramique clé en main se situe entre 28 000 € et 38 000 € par piste si la dalle béton existe déjà. En cas de création de dalle, terrassement ou couverture spécifique, le budget global oscille entre 45 000 € et 65 000 € par piste.</p>
+          </div>
+          <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 space-y-2">
+            <h3 class="text-sm font-bold text-white">En combien de mois rentabilise-t-on une installation de pistes de padel ?</h3>
+            <p class="text-xs text-slate-400 leading-relaxed">Avec une occupation moyenne de 4 à 5 heures par jour à 24 €/heure, une piste génère entre 2 800 € et 3 600 € bruts par mois. Déduction faite des charges fixes, le retour sur investissement s'effectue généralement entre 14 et 24 mois.</p>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- FOOTER INFERIOR -->
+  <footer class="relative z-20 bg-[#3478a6] bg-textured-blue text-white pt-14 pb-10 border-t border-sky-700/40 text-xs">
+    <div class="max-w-[1700px] mx-auto px-4 sm:px-8 space-y-10">
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pb-8 border-b border-white/20">
+        <div class="flex items-center gap-3.5">
+          <img src="../../../assets/images/coolpadel-mascot-hd.png" alt="CoolPadel Mascota" width="60" height="60" class="h-10 sm:h-12 w-auto object-contain drop-shadow-sm" loading="lazy">
+          <img src="../../../assets/images/coolpadel-typography-hd.png" alt="CoolPadel" width="160" height="32" class="h-5 sm:h-6 w-auto object-contain drop-shadow-sm" loading="lazy">
+        </div>
+        <p class="text-white/80 text-xs text-center sm:text-right max-w-md font-medium">
+          CoolPadel Studios & Save my Play · Systèmes Connectés d'Enregistrement sur Piste et Solutions B2B
+        </p>
+      </div>
+
+      <div class="pt-8 border-t border-white/20 flex flex-col sm:flex-row items-center justify-between gap-3 text-white/75 text-center sm:text-left">
+        <span>© 2026 CoolPadel Studios · All rights reserved</span>
+        <div class="flex items-center gap-3">
+          <a href="/politica-de-devoluciones.html" class="hover:text-white/90 underline decoration-white/30 underline-offset-2 transition">Politique de Retour</a>
+          <span class="opacity-40">·</span>
+          <a href="https://www.instagram.com/coolpadel_/" target="_blank" rel="noopener noreferrer" class="opacity-75 hover:opacity-100 transition text-white">@coolpadel_</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    lucide.createIcons();
+
+    const COSTES_PISTA = {
+      panoramica: 23500,
+      estandar: 18500,
+      superpanoramica: 27000
+    };
+
+    const COSTES_CESPED = {
+      texturado: 5500,
+      monofilamento: 4200
+    };
+
+    function actualizarCalculo() {
+      const numPistas = parseInt(document.getElementById('input-pistas').value);
+      const tipoPista = document.getElementById('select-tipo-pista').value;
+      const tieneSolera = document.getElementById('select-solera').value === 'nueva';
+      const tipoCesped = document.getElementById('select-cesped').value;
+      const tieneCamaras = document.getElementById('select-camaras').value === 'si';
+
+      const precioHora = parseFloat(document.getElementById('input-precio-hora').value);
+      const horasDia = parseFloat(document.getElementById('input-horas-dia').value);
+      const gastosFijos = parseFloat(document.getElementById('input-gastos-fijos').value);
+
+      document.getElementById('label-num-pistas').innerText = numPistas;
+      document.getElementById('label-precio-hora').innerText = precioHora + ' € / h';
+      document.getElementById('label-horas-dia').innerText = horasDia + ' h';
+      document.getElementById('label-gastos-fijos').innerText = gastosFijos.toLocaleString('es-ES') + ' €';
+
+      let costePista = COSTES_PISTA[tipoPista] + COSTES_CESPED[tipoCesped];
+      if (tieneSolera) costePista += 8500;
+      if (tieneCamaras) costePista += 180;
+
+      const inversionTotal = costePista * numPistas;
+      const facturacionMes = numPistas * horasDia * precioHora * 30;
+      const cuotaCamarasMes = tieneCamaras ? (45 * numPistas) : 0;
+      const gastosTotalesMes = gastosFijos + cuotaCamarasMes;
+      const beneficioNetoMes = Math.max(0, facturacionMes - gastosTotalesMes);
+
+      let mesesAmortizacion = beneficioNetoMes > 0 ? (inversionTotal / beneficioNetoMes).toFixed(1) : '99+';
+
+      document.getElementById('out-inversion').innerText = inversionTotal.toLocaleString('es-ES') + ' €';
+      document.getElementById('out-ingresos-brutos').innerText = facturacionMes.toLocaleString('es-ES') + ' € / mes';
+      document.getElementById('out-gastos-totales').innerText = gastosTotalesMes.toLocaleString('es-ES') + ' € / mes';
+      document.getElementById('out-beneficio-neto').innerText = '+' + beneficioNetoMes.toLocaleString('es-ES') + ' € / mes';
+      document.getElementById('out-meses-amortizacion').innerText = mesesAmortizacion;
+    }
+
+    actualizarCalculo();
+  </script>
+  <script src="/assets/js/cp-analytics.js" defer></script>
+</body>
+</html>

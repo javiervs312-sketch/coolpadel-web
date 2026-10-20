@@ -173,3 +173,743 @@ TOOLS_HUB_DATA = {
         "banner_btn": "Leggi il Barometro Completo"
     }
 }
+
+CALCULADORA_ROI_DATA = {
+    "es": {
+        "title": "Calculadora de ROI y Rentabilidad de Cámaras de Pádel | CoolPadel Studios",
+        "desc": "Calcula la rentabilidad de instalar cámaras Save my Play en tu club de pádel. Simula costes (45€/mes), ingresos por horas valle y plazo de amortización.",
+        "badge": "Simulador Financiero Oficial Save my Play 2026",
+        "h1": "Calculadora de ROI y Rentabilidad de <span class=\"text-[#76d3f6]\">Cámaras en Pista</span>",
+        "lead": "Comprueba de forma interactiva cuánto ingresará tu club y en cuántos días amortizas el sistema. Sin contratos de permanencia ni costes ocultos.",
+        "s1_title": "1. Configura los Datos de tu Club",
+        "label_pistas": "Número de pistas a equipar:",
+        "label_plan": "Plan de Software Save my Play:",
+        "plan_b_tag": "Plan B (Recomendado)",
+        "plan_b_desc": "Grabación completa, pulsador en poste/red, highlights y QR sin app.",
+        "plan_a_tag": "Plan A (IA Pro)",
+        "plan_a_desc": "Todo el Plan B + SportAI analytics, mapas de calor y recuento táctico.",
+        "label_precio": "Precio medio de alquiler por hora de pista:",
+        "label_horas_valle": "Horas valle extra ocupadas al mes por pista:",
+        "horas_valle_desc": "Gracias al reclamo de grabación, clinics con vídeo o partidas de mañanas que antes no se jugaban.",
+        "label_sponsor": "Ingresos por patrocinio local en los vídeos:",
+        "sponsor_desc": "Marcas de la zona (fisioterapia, concesionarios, cervezas) que pagan por poner su logo en la intro o esquina de cada highlight compartido.",
+        "s2_title": "Balance Económico Estimado",
+        "roi_badge": "ROI Positivo",
+        "out_hardware_label": "Inversión hardware (180€/pista):",
+        "out_cuota_label": "Cuota mensual Save my Play:",
+        "out_ingresos_label": "Ingresos extra (horas valle + sponsor):",
+        "out_beneficio_badge": "Beneficio Neto Mensual Extra",
+        "out_beneficio_desc": "Limpio para el club cada mes tras pagar la cuota de software.",
+        "out_amortizar_q": "¿Cuántas horas valle necesitas vender para cubrir la cuota?",
+        "out_amortizar_prefix": "Tan solo",
+        "out_amortizar_suffix": "horas al mes por pista",
+        "cta_btn": "Consultar Disponibilidad para mi Club",
+        "cta_sub": "Instalación en 5 minutos · Sin permanencia · Cancela libremente",
+        "faq_title": "Preguntas Frecuentes sobre la Rentabilidad de Cámaras",
+        "faqs": [
+            {
+                "q": "¿Por qué es tan baja la cuota de Save my Play comparada con otros?",
+                "a": "Muchos proveedores aplican cuotas de 120€ a 250€/mes porque financian tótems táctiles costosos o cableados complejos con contratos de renting a 3 o 5 años. Save my Play utiliza óptica deportiva de alta eficiencia que se fija al poste en 5 minutos y no requiere intermediarios, repercutiendo ese ahorro directamente en un precio de 45 €/mes."
+            },
+            {
+                "q": "¿Save my Play cobra comisión por partido grabado?",
+                "a": "Cero comisiones (0%). Si tu club decide cobrar a los jugadores 1 € o 2 € por descargar el partido o incluirlo como extra en su cuota de socio, el 100% de ese ingreso es para el club."
+            }
+        ]
+    },
+    "en": {
+        "title": "Padel Court Camera ROI & Profitability Calculator | CoolPadel Studios",
+        "desc": "Calculate the return on investment of installing Save my Play cameras in your padel club. Simulate costs (€45/mo), off-peak court revenue, and payback timeline.",
+        "badge": "Official Save my Play 2026 Financial Simulator",
+        "h1": "Court Camera ROI & <span class=\"text-[#76d3f6]\">Profitability Calculator</span>",
+        "lead": "Interactively see how much revenue your club will generate and how quickly the system pays for itself. Zero lock-in contracts and no hidden fees.",
+        "s1_title": "1. Configure Your Club Parameters",
+        "label_pistas": "Number of courts to equip:",
+        "label_plan": "Save my Play Software Plan:",
+        "plan_b_tag": "Plan B (Recommended)",
+        "plan_b_desc": "Complete match recording, net post smart button, instant AI highlights, and QR access without apps.",
+        "plan_a_tag": "Plan A (AI Pro Analytics)",
+        "plan_a_desc": "Everything in Plan B + SportAI heatmaps, tactical shot counts, and coach analytics.",
+        "label_precio": "Average court booking price per hour:",
+        "label_horas_valle": "Extra off-peak court hours booked per month:",
+        "horas_valle_desc": "Driven by video recording appeal, coaching clinics with replay, and morning sessions that were previously idle.",
+        "label_sponsor": "Local video sponsorship revenue per court:",
+        "sponsor_desc": "Local businesses (clinics, car dealerships, sports brands) paying to place their brand logo on the intro or corner of shared highlights.",
+        "s2_title": "Estimated Financial Balance",
+        "roi_badge": "Positive ROI",
+        "out_hardware_label": "Hardware investment (€180/court):",
+        "out_cuota_label": "Save my Play monthly fee:",
+        "out_ingresos_label": "Extra revenue (off-peak + sponsors):",
+        "out_beneficio_badge": "Net Monthly Extra Profit",
+        "out_beneficio_desc": "Pure profit for the club each month after paying the software subscription.",
+        "out_amortizar_q": "How many off-peak court hours do you need to sell to cover the fee?",
+        "out_amortizar_prefix": "Just",
+        "out_amortizar_suffix": "hours per month per court",
+        "cta_btn": "Check Availability for My Club",
+        "cta_sub": "5-minute installation · No long-term lock-in · Cancel anytime",
+        "faq_title": "Frequently Asked Questions about Camera ROI",
+        "faqs": [
+            {
+                "q": "Why is Save my Play's fee so affordable compared to others?",
+                "a": "Traditional competitors charge €120 to €250/month because they bundle expensive touchscreen totems and complex cabling on 3 to 5-year leasing agreements. Save my Play uses high-efficiency sports optics mounted directly to the fence in 5 minutes with zero middlemen, passing that massive efficiency on to clubs at just €45/month."
+            },
+            {
+                "q": "Does Save my Play take a commission on recorded matches?",
+                "a": "Zero commission (0%). If your club chooses to charge players €1 or €2 per match download or include it as a club membership perk, 100% of that revenue stays with the club."
+            }
+        ]
+    },
+    "fr": {
+        "title": "Calculateur de ROI et Rentabilité Caméras Padel | CoolPadel Studios",
+        "desc": "Calculez la rentabilité de l'installation de caméras Save my Play dans votre club de padel. Simulez vos coûts (45€/mois), revenus en heures creuses et amortissement.",
+        "badge": "Simulateur Financier Officiel Save my Play 2026",
+        "h1": "Calculateur de ROI et Rentabilité des <span class=\"text-[#76d3f6]\">Caméras sur Piste</span>",
+        "lead": "Découvrez de manière interactive les revenus générés par votre club et le délai d'amortissement. Aucun engagement de durée ni frais cachés.",
+        "s1_title": "1. Configurez les Données de Votre Club",
+        "label_pistas": "Nombre de pistes à équiper :",
+        "label_plan": "Formule Logicielle Save my Play :",
+        "plan_b_tag": "Plan B (Recommandé)",
+        "plan_b_desc": "Enregistrement complet, bouton connecté au filet, résumés vidéo et QR code sans application.",
+        "plan_a_tag": "Plan A (IA Pro Analytics)",
+        "plan_a_desc": "Tout le Plan B + analyses SportAI, cartes de chaleur et statistiques tactiques.",
+        "label_precio": "Prix moyen de location par heure de piste :",
+        "label_horas_valle": "Heures creuses supplémentaires louées par mois :",
+        "horas_valle_desc": "Grâce à l'attractivité de l'enregistrement vidéo, stages avec replay et créneaux matinaux auparavant inoccupés.",
+        "label_sponsor": "Revenus de sponsors locaux sur les vidéos :",
+        "sponsor_desc": "Entreprises locales (kinés, concessions automobiles, marques) payant pour apposer leur logo sur les vidéos partagées.",
+        "s2_title": "Bilan Économique Estimé",
+        "roi_badge": "ROI Positif",
+        "out_hardware_label": "Investissement matériel (180€/piste) :",
+        "out_cuota_label": "Abonnement mensuel Save my Play :",
+        "out_ingresos_label": "Revenus supplémentaires (heures creuses + sponsors) :",
+        "out_beneficio_badge": "Bénéfice Net Mensuel Supplémentaire",
+        "out_beneficio_desc": "Bénéfice net pour le club chaque mois après règlement de l'abonnement logiciel.",
+        "out_amortizar_q": "Combien d'heures creuses devez-vous louer pour couvrir l'abonnement ?",
+        "out_amortizar_prefix": "Seulement",
+        "out_amortizar_suffix": "heures par mois et par piste",
+        "cta_btn": "Vérifier la Disponibilité pour Mon Club",
+        "cta_sub": "Installation en 5 minutes · Sans engagement · Résiliation libre",
+        "faq_title": "Questions Fréquentes sur la Rentabilité des Caméras",
+        "faqs": [
+            {
+                "q": "Pourquoi le tarif Save my Play est-il si attractif comparé aux autres ?",
+                "a": "De nombreux prestataires facturent entre 120€ et 250€/mois pour financer des bornes tactiles onéreuses et des câblages lourds sur des contrats de leasing de 3 à 5 ans. Save my Play s'appuie sur une optique sportive autonome fixée au poteau en 5 minutes sans intermédiaires, répercutant cette économie à 45 €/mois."
+            },
+            {
+                "q": "Save my Play prend-il une commission sur les matchs enregistrés ?",
+                "a": "Zéro commission (0%). Si votre club décide de facturer 1 € ou 2 € aux joueurs pour télécharger leur match ou l'inclut dans une formule premium, 100% des gains reviennent au club."
+            }
+        ]
+    },
+    "it": {
+        "title": "Calcolatore ROI e Redditività Telecamere Padel | CoolPadel Studios",
+        "desc": "Calcola la redditività dell'installazione delle telecamere Save my Play nel tuo circolo di padel. Simula costi (45€/mese), entrate da ore non di punta e ammortamento.",
+        "badge": "Simulatore Finanziario Ufficiale Save my Play 2026",
+        "h1": "Calcolatore ROI e Redditività <span class=\"text-[#76d3f6]\">Telecamere in Campo</span>",
+        "lead": "Scopri in modo interattivo quanto incasserà il tuo circolo e in quanti giorni ripagherai l'impianto. Nessun vincolo contrattuale né costi nascosti.",
+        "s1_title": "1. Configura i Dati del Tuo Circolo",
+        "label_pistas": "Numero di campi da dotare:",
+        "label_plan": "Piano Software Save my Play:",
+        "plan_b_tag": "Piano B (Consigliato)",
+        "plan_b_desc": "Registrazione completa, pulsante smart sul palo della rete, highlights e QR code senza app.",
+        "plan_a_tag": "Piano A (IA Pro Analytics)",
+        "plan_a_desc": "Tutto il Piano B + analisi SportAI, mappe di calore e statistiche tattiche.",
+        "label_precio": "Tariffa media di noleggio campo all'ora:",
+        "label_horas_valle": "Ore fuori punta extra prenotate al mese per campo:",
+        "horas_valle_desc": "Grazie all'attrattiva della registrazione video, lezioni con replay e partite mattutine prima vuote.",
+        "label_sponsor": "Ricavi da sponsorizzazioni locali sui video:",
+        "sponsor_desc": "Aziende del territorio (fisioterapia, concessionari, attività locali) che pagano per inserire il logo nei video condivisi.",
+        "s2_title": "Bilancio Economico Stimato",
+        "roi_badge": "ROI Positivo",
+        "out_hardware_label": "Investimento hardware (180€/campo):",
+        "out_cuota_label": "Canone mensile Save my Play:",
+        "out_ingresos_label": "Entrate extra (ore fuori punta + sponsor):",
+        "out_beneficio_badge": "Utile Netto Mensile Extra",
+        "out_beneficio_desc": "Guadagno netto per il circolo ogni mese dopo il canone software.",
+        "out_amortizar_q": "Quante ore fuori punta devi vendere per coprire il canone?",
+        "out_amortizar_prefix": "Solo",
+        "out_amortizar_suffix": "ore al mese per campo",
+        "cta_btn": "Verifica Disponibilità per il Mio Circolo",
+        "cta_sub": "Installazione in 5 minuti · Senza vincoli · Cancellazione libera",
+        "faq_title": "Domande Frequenti sulla Redditività delle Telecamere",
+        "faqs": [
+            {
+                "q": "Perché il canone Save my Play è così competitivo rispetto agli altri?",
+                "a": "Molti concorrenti applicano canoni da 120€ a 250€/mese per ammortizzare totem touch costosi o cablaggi complessi con contratti di leasing da 3 a 5 anni. Save my Play utilizza un'ottica sportiva ad alta efficienza montata al palo in 5 minuti senza intermediari, trasferendo questo risparmio a 45 €/mese."
+            },
+            {
+                "q": "Save my Play trattiene commissioni sulle partite registrate?",
+                "a": "Zero commissioni (0%). Se il tuo circolo sceglie di richiedere ai giocatori 1 € o 2 € per scaricare la partita o di includerla nella quota soci, il 100% dell'incasso resta al circolo."
+            }
+        ]
+    }
+}
+
+CALCULADORA_COSTES_DATA = {
+    "es": {
+        "title": "Calculadora de Coste y Rentabilidad de Pistas de Pádel | CoolPadel Studios",
+        "desc": "Calcula cuánto cuesta montar pistas de pádel (cristal, solera, LED, indoor): ingresos mensuales, costes operativos y amortización exacta en meses.",
+        "badge": "Simulador de Viabilidad Económica 2026",
+        "h1": "Calculadora de <span class=\"text-[#f2920b]\">Coste y Rentabilidad</span> de Pistas de Pádel",
+        "lead": "Simula el presupuesto de inversión (obra civil, solera, estructura, césped, LED y cámaras) y calcula los ingresos mensuales netos y el plazo de amortización de tu club o instalación.",
+        "s1_title": "1. Configuración de Pistas e Inversión",
+        "s1_badge": "Datos de mercado 2026",
+        "label_pistas": "Número de pistas a instalar:",
+        "label_tipo_pista": "Tipo de Pista:",
+        "opt_panoramica": "Panorámica Pro (12mm) · ~23.500 €",
+        "opt_estandar": "Estándar con Pilares (10mm) · ~18.500 €",
+        "opt_superpanoramica": "Súper Panorámica WPT · ~27.000 €",
+        "label_solera": "Solera de Hormigón:",
+        "opt_solera_nueva": "Requiere solera nueva (~8.500 €/pista)",
+        "opt_solera_existente": "Solera ya existente (0 € extra)",
+        "label_cesped": "Césped e Iluminación LED:",
+        "opt_cesped_texturado": "Texturado Pro + 8 Focos LED 200W · 5.500 €",
+        "opt_cesped_monofilamento": "Monofilamento Clásico + 4 Focos LED · 4.200 €",
+        "label_camaras": "Cámaras en Pista Save my Play:",
+        "opt_camaras_si": "Sí (180 € hardware + 45 €/mes cuota)",
+        "opt_camaras_no": "No instalar cámaras",
+        "s2_title": "2. Operativa e Ingresos",
+        "s2_badge": "Simulación de ocupación",
+        "label_precio_hora": "Precio medio de alquiler pista / hora:",
+        "label_horas_dia": "Horas de ocupación media por pista / día:",
+        "label_gastos_fijos": "Gastos fijos mensuales de la nave / club (alquiler, luz, nóminas):",
+        "s3_title": "Resumen Financiero Proyectado",
+        "out_inversion": "Inversión Inicial Total Estimada:",
+        "out_ingresos_brutos": "Ingresos Brutos Estimados / Mes:",
+        "out_gastos_operativos": "Gastos Operativos / Mes:",
+        "out_beneficio_neto": "Beneficio Neto Estimado / Mes:",
+        "out_payback_label": "Plazo de Amortización (Payback):",
+        "out_payback_suffix": "meses de actividad",
+        "banner_cam_badge": "Diferenciación con Cámaras Save my Play",
+        "banner_cam_title": "¿Sabías que las pistas con cámara tienen un 18% más de ocupación?",
+        "banner_cam_desc": "Los jugadores eligen antes una pista con botón de grabación Save my Play para tener sus highlights en el móvil. Por solo 45 €/mes por pista, eleva el ticket medio de tu club.",
+        "banner_cam_btn": "Ver Cámaras Save my Play",
+        "faqs": [
+            {
+                "q": "¿Cuánto cuesta aproximadamente construir una pista de pádel completa en 2026?",
+                "a": "El coste medio de una pista de pádel de cristal panorámico llave en mano oscila entre 28.000 € y 38.000 € por pista si ya se dispone de solera o nave cubierta. Si es necesario realizar solera de hormigón pulido, obra civil o cerramiento cubierto, el presupuesto puede alcanzar entre 45.000 € y 65.000 € por pista."
+            },
+            {
+                "q": "¿En cuántos meses se suele amortizar una instalación de pistas de pádel?",
+                "a": "Con una ocupación media de 4 a 5 horas diarias a 24 €/hora, una pista bien gestionada genera entre 2.800 € y 3.600 € brutos al mes. Tras descontar gastos fijos prorrateados, la inversión inicial suele recuperarse entre 14 y 24 meses."
+            }
+        ]
+    },
+    "en": {
+        "title": "Padel Court Construction & ROI Calculator | CoolPadel Studios",
+        "desc": "Calculate the total cost of building padel courts (panoramic glass, concrete slab, LED lighting, indoor canopies): monthly turnover, operating costs, and exact payback in months.",
+        "badge": "2026 Economic Feasibility Simulator",
+        "h1": "Padel Court <span class=\"text-[#f2920b]\">Cost & ROI</span> Calculator",
+        "lead": "Simulate your turnkey investment budget (civil works, concrete slab, structure, turf, LED, and cameras) and calculate monthly net profits and capital payback timeline.",
+        "s1_title": "1. Court Configuration & Capital Investment",
+        "s1_badge": "2026 Market Benchmarks",
+        "label_pistas": "Number of courts to install:",
+        "label_tipo_pista": "Court Type:",
+        "opt_panoramica": "Panoramic Pro (12mm) · ~€23,500",
+        "opt_estandar": "Standard Pillar Court (10mm) · ~€18,500",
+        "opt_superpanoramica": "Super Panoramic WPT Specs · ~€27,000",
+        "label_solera": "Concrete Base Slab:",
+        "opt_solera_nueva": "New concrete slab required (~€8,500/court)",
+        "opt_solera_existente": "Existing concrete slab (0 € extra)",
+        "label_cesped": "Turf & LED Lighting:",
+        "opt_cesped_texturado": "Textured Pro Turf + 8x 200W LED Projectors · €5,500",
+        "opt_cesped_monofilamento": "Classic Monofilament + 4x LED Projectors · €4,200",
+        "label_camaras": "Save my Play On-Court Cameras:",
+        "opt_camaras_si": "Yes (€180 hardware + €45/mo subscription)",
+        "opt_camaras_no": "No cameras installed",
+        "s2_title": "2. Operations & Court Revenues",
+        "s2_badge": "Occupancy Simulation",
+        "label_precio_hora": "Average booking court fee / hour:",
+        "label_horas_dia": "Average daily booked hours per court:",
+        "label_gastos_fijos": "Monthly fixed facility overheads (rent, electricity, staff):",
+        "s3_title": "Projected Financial Summary",
+        "out_inversion": "Estimated Total Initial Investment:",
+        "out_ingresos_brutos": "Estimated Gross Revenue / Month:",
+        "out_gastos_operativos": "Operating Expenses / Month:",
+        "out_beneficio_neto": "Estimated Net Profit / Month:",
+        "out_payback_label": "Capital Payback Timeline:",
+        "out_payback_suffix": "months of operation",
+        "banner_cam_badge": "Differentiation with Save my Play Cameras",
+        "banner_cam_title": "Did you know courts equipped with cameras average 18% higher occupancy?",
+        "banner_cam_desc": "Players preferentially book courts with Save my Play smart recording buttons to receive instant video highlights on their phones. At just €45/mo per court, it drives higher court yield.",
+        "banner_cam_btn": "Explore Save my Play Cameras",
+        "faqs": [
+            {
+                "q": "How much does it cost to build a complete padel court in 2026?",
+                "a": "A turnkey panoramic glass padel court typically costs between €28,000 and €38,000 per court if a concrete base slab is already present. When ground civil engineering, concrete sub-base, or indoor structural canopies are needed, total cost ranges between €45,000 and €65,000 per court."
+            },
+            {
+                "q": "How fast do new padel courts pay for themselves?",
+                "a": "With an average occupancy of 4 to 5 hours daily at €24/hour, a well-run court generates €2,800 to €3,600 in monthly gross revenue. After deducting allocated overheads, initial capital is typically recouped within 14 to 24 months."
+            }
+        ]
+    },
+    "fr": {
+        "title": "Calculateur de Coût et Rentabilité des Pistes de Padel | CoolPadel Studios",
+        "desc": "Calculez le coût d'installation de pistes de padel (verre panoramique, dalle béton, LED, couverture) : chiffre d'affaires mensuel, coûts d'exploitation et amortissement exact.",
+        "badge": "Simulateur de Viabilité Économique 2026",
+        "h1": "Calculateur de <span class=\"text-[#f2920b]\">Coût et Rentabilité</span> des Pistes de Padel",
+        "lead": "Simulez le budget d'investissement (génie civil, dalle, structure, gazon, éclairage LED et caméras) et projetez vos bénéfices nets mensuels ainsi que la durée d'amortissement.",
+        "s1_title": "1. Configuration des Pistes et Investissement",
+        "s1_badge": "Données du marché 2026",
+        "label_pistas": "Nombre de pistes à installer :",
+        "label_tipo_pista": "Type de Piste :",
+        "opt_panoramica": "Panoramique Pro (12mm) · ~23 500 €",
+        "opt_estandar": "Standard avec Poteaux (10mm) · ~18 500 €",
+        "opt_superpanoramica": "Super Panoramique WPT · ~27 000 €",
+        "label_solera": "Dalle en Béton :",
+        "opt_solera_nueva": "Nouvelle dalle requise (~8 500 €/piste)",
+        "opt_solera_existente": "Dalle déjà existante (0 € supplémentaire)",
+        "label_cesped": "Gazon & Éclairage LED :",
+        "opt_cesped_texturado": "Gazon texturé Pro + 8 projecteurs LED 200W · 5 500 €",
+        "opt_cesped_monofilamento": "Monofilament classique + 4 projecteurs LED · 4 200 €",
+        "label_camaras": "Caméras sur Piste Save my Play :",
+        "opt_camaras_si": "Oui (180 € matériel + 45 €/mois abonnement)",
+        "opt_camaras_no": "Ne pas installer de caméras",
+        "s2_title": "2. Exploitation et Recettes",
+        "s2_badge": "Simulation d'occupation",
+        "label_precio_hora": "Prix moyen de location par heure de piste :",
+        "label_horas_dia": "Heures d'occupation moyenne par piste / jour :",
+        "label_gastos_fijos": "Charges fixes mensuelles de la structure (loyer, électricité, salaires) :",
+        "s3_title": "Bilan Financier Prévisionnel",
+        "out_inversion": "Investissement Initial Total Estimé :",
+        "out_ingresos_brutos": "Chiffre d'Affaires Brut Estimé / Mois :",
+        "out_gastos_operativos": "Charges d'Exploitation / Mois :",
+        "out_beneficio_neto": "Bénéfice Net Estimé / Mois :",
+        "out_payback_label": "Délai d'Amortissement (Payback) :",
+        "out_payback_suffix": "mois d'activité",
+        "banner_cam_badge": "Différenciation avec les Caméras Save my Play",
+        "banner_cam_title": "Saviez-vous que les pistes équipées de caméras affichent 18% d'occupation en plus ?",
+        "banner_cam_desc": "Les joueurs réservent en priorité les pistes dotées du bouton d'enregistrement Save my Play pour recevoir leurs vidéos sur smartphone. Pour seulement 45 €/mois par piste, valorisez vos heures creuses.",
+        "banner_cam_btn": "Découvrir les Caméras Save my Play",
+        "faqs": [
+            {
+                "q": "Combien coûte environ la construction d'une piste de padel complète en 2026 ?",
+                "a": "Le coût moyen d'une piste de padel panoramique clé en main se situe entre 28 000 € et 38 000 € par piste si la dalle béton existe déjà. En cas de création de dalle, terrassement ou couverture spécifique, le budget global oscille entre 45 000 € et 65 000 € par piste."
+            },
+            {
+                "q": "En combien de mois rentabilise-t-on une installation de pistes de padel ?",
+                "a": "Avec une occupation moyenne de 4 à 5 heures par jour à 24 €/heure, une piste génère entre 2 800 € et 3 600 € bruts par mois. Déduction faite des charges fixes, le retour sur investissement s'effectue généralement entre 14 et 24 mois."
+            }
+        ]
+    },
+    "it": {
+        "title": "Calcolatore Costo e Redditività Campi Padel | CoolPadel Studios",
+        "desc": "Calcola quanto costa costruire campi da padel (vetro panoramico, soletta in cemento, LED, coperture indoor): ricavi mensili, costi operativi e ammortamento esatto in mesi.",
+        "badge": "Simulatore di Redditività Economica 2026",
+        "h1": "Calcolatore di <span class=\"text-[#f2920b]\">Costo e Redditività</span> dei Campi da Padel",
+        "lead": "Simula il budget di investimento chiavi in mano (opere edili, soletta, struttura, erba sintetica, illuminazione LED e telecamere) e calcola l'utile netto mensile e i tempi di rientro del capitale.",
+        "s1_title": "1. Configurazione dei Campi e Investimento",
+        "s1_badge": "Dati di mercato 2026",
+        "label_pistas": "Numero di campi da installare:",
+        "label_tipo_pista": "Tipologia di Campo:",
+        "opt_panoramica": "Panoramico Pro (12mm) · ~23.500 €",
+        "opt_estandar": "Standard con Pilastri (10mm) · ~18.500 €",
+        "opt_superpanoramica": "Super Panoramico WPT · ~27.000 €",
+        "label_solera": "Soletta in Calcestruzzo:",
+        "opt_solera_nueva": "Richiede nuova soletta (~8.500 €/campo)",
+        "opt_solera_existente": "Soletta già esistente (0 € aggiuntivi)",
+        "label_cesped": "Erba Sintetica & Luci LED:",
+        "opt_cesped_texturado": "Erba testurizzata Pro + 8 fari LED 200W · 5.500 €",
+        "opt_cesped_monofilamento": "Monofilamento classico + 4 fari LED · 4.200 €",
+        "label_camaras": "Telecamere Save my Play:",
+        "opt_camaras_si": "Sì (180 € hardware + 45 €/mese canone)",
+        "opt_camaras_no": "Non installare telecamere",
+        "s2_title": "2. Operatività e Ricavi",
+        "s2_badge": "Simulazione di occupazione",
+        "label_precio_hora": "Tariffa media oraria di noleggio campo:",
+        "label_horas_dia": "Ore medie di occupazione per campo al giorno:",
+        "label_gastos_fijos": "Costi fissi mensili della struttura (affitto, luce, personale):",
+        "s3_title": "Riepilogo Finanziario Previsto",
+        "out_inversion": "Investimento Iniziale Totale Stimato:",
+        "out_ingresos_brutos": "Ricavi Lordi Stimati / Mese:",
+        "out_gastos_operativos": "Costi Operativi / Mese:",
+        "out_beneficio_neto": "Utile Netto Stimato / Mese:",
+        "out_payback_label": "Tempo di Ammortamento (Payback):",
+        "out_payback_suffix": "mesi di attività",
+        "banner_cam_badge": "Differenziazione con Telecamere Save my Play",
+        "banner_cam_title": "Sapevi che i campi con telecamera registrano il 18% di occupazione in più?",
+        "banner_cam_desc": "I giocatori scelgono per primi i campi con pulsante Save my Play per avere i loro highlights direttamente sul cellulare. A soli 45 €/mese per campo, massimizzi la redditività dell'impianto.",
+        "banner_cam_btn": "Scopri le Telecamere Save my Play",
+        "faqs": [
+            {
+                "q": "Quanto costa mediamente costruire un campo da padel completo nel 2026?",
+                "a": "Il costo medio di un campo da padel panoramico chiavi in mano oscilla tra 28.000 € e 38.000 € per campo se la soletta in cemento è già presente. Se sono necessarie opere edili di platea o tensostruttura di copertura, il budget complessivo varia tra 45.000 € e 65.000 € a campo."
+            },
+            {
+                "q": "In quanti mesi si ammortizza mediamente un campo da padel?",
+                "a": "Con un'occupazione media di 4-5 ore al giorno a 24 €/ora, un campo genera tra 2.800 € e 3.600 € lordi al mese. Tolte le spese fisse imputate, l'investimento iniziale viene solitamente recuperato in 14-24 mesi."
+            }
+        ]
+    }
+}
+
+GENERADOR_AMERICANA_DATA = {
+    "es": {
+        "title": "Generador de Torneo Americana de Pádel Gratis | CoolPadel Studios",
+        "desc": "Generador gratis de americana y pozo de pádel para 8 a 24 jugadores. Genera cruces automáticos, clasificación en vivo y comparte por WhatsApp en 1 clic.",
+        "badge": "Generador de Torneos y Pozos Oficial 2026",
+        "h1": "Generador de <span class=\"text-[#f2920b]\">Torneos de Americana</span> y Pozo de Pádel",
+        "lead": "Crea cuadrantes y cruces equilibrados en 5 segundos. Todos juegan con todos y contra todos sin repetir compañeros. Listo para copiar y pegar en WhatsApp.",
+        "s1_title": "1. Configuración de la Americana",
+        "label_jugadores": "Número de Jugadores:",
+        "label_puntuacion": "Formato de Puntuación:",
+        "opt_pts_32": "A 32 Puntos (Estándar recomendado)",
+        "opt_pts_24": "A 24 Puntos (Rápido)",
+        "opt_pts_16": "A 16 Puntos (Express)",
+        "opt_pts_tiempo": "Por Tiempo (15 min por ronda)",
+        "label_nombre_torneo": "Nombre del Torneo / Club:",
+        "placeholder_nombre_torneo": "Ej: Americana Viernes Noche - Padel Club",
+        "label_nombres_jugadores": "Nombres de los Jugadores (separados por coma o salto de línea):",
+        "btn_generar": "Generar Cuadro de Americana",
+        "btn_copiar_wa": "Copiar Formato para WhatsApp",
+        "btn_enviar_wa": "Enviar Directo a WhatsApp",
+        "copied_txt": "¡Copiado!",
+        "btn_copy_original": "Copiar Formato para WhatsApp",
+        "badge_live": "Anota resultados para ver el campeón",
+        "ronda_prefix": "Ronda",
+        "pista_prefix": "Pista",
+        "descansa_txt": "Descansa",
+        "ranking_title": "Clasificación General en Vivo",
+        "th_pos": "Pos",
+        "th_jugador": "Jugador",
+        "th_puntos": "Puntos Favor",
+        "th_pj": "PJ",
+        "th_dif": "Diferencia",
+        "banner_cam_badge": "¿Organizas esta americana en tu club?",
+        "banner_cam_title": "Equipa tus pistas con cámaras Save my Play desde 45 €/mes",
+        "banner_cam_desc": "Graba automáticamente las finales y mejores jugadas de tus torneos. Los jugadores pulsarán el botón en la red y tendrán los highlights con tu logo para compartir en redes.",
+        "banner_cam_btn": "Ver Cámaras para Clubes",
+        "faqs": [
+            {
+                "q": "¿Cómo funciona el sistema de competición en una americana de pádel?",
+                "a": "En una americana individual, cada jugador cambia de pareja y de rivales en cada ronda. Al término de cada mini-partido (habitualmente a 32 puntos), cada jugador suma los puntos que su pareja haya conseguido en ese cruce. Quien más puntos acumule al finalizar todas las rondas resulta campeón."
+            },
+            {
+                "q": "¿Cuántas pistas y cuánto tiempo se necesita para jugar una americana?",
+                "a": "Para 8 jugadores se requieren 2 pistas (1h 30m). Para 12 jugadores, 3 pistas (2h). Para 16 jugadores, 4 pistas (2h a 2h 30m). El generador calcula automáticamente los cruces óptimos para que nadie juegue dos veces con el mismo compañero."
+            }
+        ]
+    },
+    "en": {
+        "title": "Free Padel Americano Tournament Generator | CoolPadel Studios",
+        "desc": "Free interactive Americano and Mexicano padel tournament generator for 8 to 24 players. Balanced partner rotations, live standings, and 1-click WhatsApp schedule copy.",
+        "badge": "Official 2026 Social Tournament Generator",
+        "h1": "Padel <span class=\"text-[#f2920b]\">Americano Tournament</span> Generator",
+        "lead": "Create balanced round-robin brackets in 5 seconds. Everyone partners and plays against everyone without repeated pairs. Ready to copy and paste to WhatsApp.",
+        "s1_title": "1. Configure Your Americano Tournament",
+        "label_jugadores": "Number of Players:",
+        "label_puntuacion": "Scoring Format:",
+        "opt_pts_32": "First to 32 Points (Recommended standard)",
+        "opt_pts_24": "First to 24 Points (Fast pace)",
+        "opt_pts_16": "First to 16 Points (Express)",
+        "opt_pts_tiempo": "Timed Rounds (15 min per round)",
+        "label_nombre_torneo": "Tournament / Club Name:",
+        "placeholder_nombre_torneo": "e.g., Friday Night Americano - Padel Club",
+        "label_nombres_jugadores": "Player Names (separated by comma or new line):",
+        "btn_generar": "Generate Americano Schedule",
+        "btn_copiar_wa": "Copy Format for WhatsApp",
+        "btn_enviar_wa": "Send Directly to WhatsApp",
+        "copied_txt": "Copied!",
+        "btn_copy_original": "Copy Format for WhatsApp",
+        "badge_live": "Enter match scores to view live champion",
+        "ronda_prefix": "Round",
+        "pista_prefix": "Court",
+        "descansa_txt": "Bye / Rest",
+        "ranking_title": "Live Tournament Leaderboard",
+        "th_pos": "Rank",
+        "th_jugador": "Player",
+        "th_puntos": "Points For",
+        "th_pj": "Matches",
+        "th_dif": "Differential",
+        "banner_cam_badge": "Organizing this Americano at your club?",
+        "banner_cam_title": "Equip your courts with Save my Play smart cameras from €45/month",
+        "banner_cam_desc": "Automatically record finals and epic rallies. Players press the smart button at the net to receive instant AI highlights featuring your club logo.",
+        "banner_cam_btn": "Explore Club Cameras",
+        "faqs": [
+            {
+                "q": "How does scoring work in a padel Americano tournament?",
+                "a": "In an individual Americano, players switch partners and opponents every round. At the end of each mini-match (commonly to 32 total points), each player receives the points scored by their pair. The player with the highest cumulative points after all rounds wins the tournament."
+            },
+            {
+                "q": "How many courts and time do you need for an Americano?",
+                "a": "For 8 players you need 2 courts (~1h 30m). For 12 players, 3 courts (~2h). For 16 players, 4 courts (~2h to 2h 30m). Our algorithm automatically computes perfect pairings so nobody plays with the same partner twice."
+            }
+        ]
+    },
+    "fr": {
+        "title": "Générateur Gratuit de Tournoi Américana Padel | CoolPadel Studios",
+        "desc": "Générateur interactif gratuit de tournoi à l'américaine et pozo pour 8 à 24 joueurs. Rotations équilibrées, classement en direct et export WhatsApp en 1 clic.",
+        "badge": "Générateur Officiel de Tournois Sociaux 2026",
+        "h1": "Générateur de <span class=\"text-[#f2920b]\">Tournoi Américana</span> de Padel",
+        "lead": "Générez des rotations équilibrées en 5 secondes. Chaque participant joue avec et contre tout le monde sans répétition. Prêt à copier-coller sur WhatsApp.",
+        "s1_title": "1. Configuration du Tournoi Américana",
+        "label_jugadores": "Nombre de Joueurs :",
+        "label_puntuacion": "Format de Points :",
+        "opt_pts_32": "En 32 Points (Standard recommandé)",
+        "opt_pts_24": "En 24 Points (Rythme rapide)",
+        "opt_pts_16": "En 16 Points (Express)",
+        "opt_pts_tiempo": "Au Temps (15 min par tour)",
+        "label_nombre_torneo": "Nom du Tournoi / Club :",
+        "placeholder_nombre_torneo": "Ex : Américana Vendredi Soir - Padel Club",
+        "label_nombres_jugadores": "Noms des Joueurs (séparés par virgule ou retour à la ligne) :",
+        "btn_generar": "Générer le Tableau Américana",
+        "btn_copiar_wa": "Copier le Format pour WhatsApp",
+        "btn_enviar_wa": "Envoyer Directement sur WhatsApp",
+        "copied_txt": "Copié !",
+        "btn_copy_original": "Copier le Format pour WhatsApp",
+        "badge_live": "Saisissez les scores pour désigner le vainqueur",
+        "ronda_prefix": "Tour",
+        "pista_prefix": "Piste",
+        "descansa_txt": "Repos",
+        "ranking_title": "Classement Général en Direct",
+        "th_pos": "Pos",
+        "th_jugador": "Joueur",
+        "th_puntos": "Points Pour",
+        "th_pj": "MJ",
+        "th_dif": "Différence",
+        "banner_cam_badge": "Vous organisez cette américaine dans votre club ?",
+        "banner_cam_title": "Équipez vos pistes avec les caméras Save my Play dès 45 €/mois",
+        "banner_cam_desc": "Enregistrez automatiquement les finales et temps forts. Les joueurs appuient sur le bouton au filet pour obtenir leurs clips vidéos avec votre logo de club.",
+        "banner_cam_btn": "Découvrir les Caméras pour Clubs",
+        "faqs": [
+            {
+                "q": "Comment fonctionnent les points dans un tournoi de padel à l'américaine ?",
+                "a": "Dans une américaine individuelle, chaque joueur change de partenaire et d'adversaires à chaque tour. À l'issue de chaque mini-match (généralement en 32 points), chaque joueur engrange les points marqués par sa paire. Le joueur cumulant le plus de points remporte l'épreuve."
+            },
+            {
+                "q": "Combien de pistes et de temps faut-il pour une américaine ?",
+                "a": "Pour 8 joueurs, il faut 2 pistes (1h 30m). Pour 12 joueurs, 3 pistes (2h). Pour 16 joueurs, 4 pistes (2h à 2h 30m). L'algorithme calcule automatiquement les rotations optimales sans doublon de partenaires."
+            }
+        ]
+    },
+    "it": {
+        "title": "Generatore Gratuito Torneo all'Americana Padel | CoolPadel Studios",
+        "desc": "Generatore interattivo gratuito di tornei all'americana per 8-24 giocatori. Rotazioni equilibrate, classifica in tempo reale e copia del programma WhatsApp in 1 clic.",
+        "badge": "Generatore Ufficiale di Tornei Sociali 2026",
+        "h1": "Generatore di <span class=\"text-[#f2920b]\">Tornei all'Americana</span> di Padel",
+        "lead": "Crea tabelloni e rotazioni bilanciate in 5 secondi. Ognuno gioca con tutti e contro tutti senza ripetere coppie. Pronto da copiare e incollare su WhatsApp.",
+        "s1_title": "1. Configurazione del Torneo all'Americana",
+        "label_jugadores": "Numero di Giocatori:",
+        "label_puntuacion": "Formato Punteggio:",
+        "opt_pts_32": "A 32 Punti (Standard consigliato)",
+        "opt_pts_24": "A 24 Punti (Veloce)",
+        "opt_pts_16": "A 16 Punti (Express)",
+        "opt_pts_tiempo": "A Tempo (15 min a turno)",
+        "label_nombre_torneo": "Nome Torneo / Circolo:",
+        "placeholder_nombre_torneo": "Es: Americana Venerdì Sera - Padel Club",
+        "label_nombres_jugadores": "Nomi dei Giocatori (separati da virgola o a capo):",
+        "btn_generar": "Genera Tabellone Americana",
+        "btn_copiar_wa": "Copia Formato per WhatsApp",
+        "btn_enviar_wa": "Invia Diretto su WhatsApp",
+        "copied_txt": "Copiato!",
+        "btn_copy_original": "Copia Formato per WhatsApp",
+        "badge_live": "Inserisci i risultati per vedere il vincitore",
+        "ronda_prefix": "Turno",
+        "pista_prefix": "Campo",
+        "descansa_txt": "Riposo",
+        "ranking_title": "Classifica Generale in Tempo Reale",
+        "th_pos": "Pos",
+        "th_jugador": "Giocatore",
+        "th_puntos": "Punti Fatti",
+        "th_pj": "PG",
+        "th_dif": "Differenza",
+        "banner_cam_badge": "Organizzi questo torneo all'americana nel tuo circolo?",
+        "banner_cam_title": "Dota i tuoi campi con le telecamere Save my Play da 45 €/mese",
+        "banner_cam_desc": "Registra in automatico le finali e le giocate migliori. I giocatori premono il pulsante sulla rete e ricevono gli highlights con il logo del tuo circolo.",
+        "banner_cam_btn": "Scopri le Telecamere per Circoli",
+        "faqs": [
+            {
+                "q": "Come funziona il punteggio in un torneo di padel all'americana?",
+                "a": "Nell'americana individuale, ogni giocatore cambia compagno e avversari ad ogni turno. Al termine di ogni mini-partita (solitamente a 32 punti), ogni giocatore somma i punti realizzati dalla propria coppia. Chi ottiene il punteggio cumulativo più alto vince il torneo."
+            },
+            {
+                "q": "Quanti campi e quanto tempo occorrono per un'americana?",
+                "a": "Per 8 giocatori servono 2 campi (1h 30m). Per 12 giocatori servono 3 campi (2h). Per 16 giocatori, 4 campi (2h - 2h 30m). L'algoritmo calcola in automatico le rotazioni ideali per evitare coppie ripetute."
+            }
+        ]
+    }
+}
+
+GENERADOR_CUADROS_DATA = {
+    "es": {
+        "title": "Generador de Cuadros de Torneo de Pádel Gratis | CoolPadel Studios",
+        "desc": "Generador gratis de cuadros de torneo de pádel para 8, 16 o 32 parejas con consolación, avance interactivo de ganadores y exportación a WhatsApp o PDF.",
+        "badge": "Generador de Cuadros de Eliminatoria Oficial 2026",
+        "h1": "Generador de <span class=\"text-[#f2920b]\">Cuadros de Torneo</span> de Pádel",
+        "lead": "Diseña cuadros de competición por eliminatoria directa en segundos. Asigna cabezas de serie, cuadro de consolación, avance automático de ganadores e imprime en PDF.",
+        "s1_title": "1. Configuración del Cuadro",
+        "label_tamano": "Tamaño del Cuadro:",
+        "opt_8": "8 Parejas (Cuartos de Final a Gran Final)",
+        "opt_16": "16 Parejas (Octavos a Gran Final)",
+        "opt_32": "32 Parejas (Dieciseisavos a Gran Final)",
+        "label_nombre_torneo": "Nombre del Torneo / Categoría:",
+        "placeholder_nombre_torneo": "Ej: I Torneo Primavera - 2ª Categoría Masculina",
+        "label_consolacion": "Cuadro de Consolación:",
+        "opt_consolacion_si": "Sí, incluir cuadro de consolación para primeras derrotas",
+        "opt_consolacion_no": "No, sólo cuadro principal",
+        "label_parejas": "Nombres de las Parejas (1 por línea):",
+        "btn_generar": "Generar Cuadro de Eliminatoria",
+        "btn_imprimir": "Imprimir Cuadro (PDF / Póster)",
+        "btn_copiar_wa": "Copiar Cuadro para WhatsApp",
+        "btn_enviar_wa": "Enviar a WhatsApp",
+        "copied_txt": "¡Copiado!",
+        "btn_copy_original": "Copiar Cuadro para WhatsApp",
+        "bracket_main_title": "Cuadro Principal de Eliminatoria",
+        "bracket_consolation_title": "Cuadro de Consolación",
+        "ronda_16_title": "Octavos de Final",
+        "ronda_qf_title": "Cuartos de Final",
+        "ronda_sf_title": "Semifinales",
+        "ronda_f_title": "Gran Final",
+        "campeon_label": "Campeón del Torneo",
+        "banner_cam_badge": "¿Quieres que los jugadores revivan las mejores jugadas de este torneo?",
+        "banner_cam_title": "Emite y graba torneos con las cámaras Save my Play",
+        "banner_cam_desc": "Permite que los participantes descarguen los vídeos de sus partidos de cuartos, semis y finales al instante con un simple botón en la red del poste.",
+        "banner_cam_btn": "Solicitar Información Cámaras",
+        "faqs": [
+            {
+                "q": "¿Cómo se estructuran los cabezas de serie en un cuadro de 8 o 16 parejas?",
+                "a": "En un cuadro estándar, los cabezas de serie 1 y 2 se colocan en los extremos opuestos del cuadro (arriba y abajo) para garantizar que sólo puedan medirse en la final. Los cabezas de serie 3 y 4 se distribuyen por sorteo en las dos mitades opuestas."
+            },
+            {
+                "q": "¿Cómo funciona el cuadro de consolación?",
+                "a": "Las parejas que pierden su primer partido disputado en el cuadro principal pasan automáticamente al cuadro de consolación. De este modo se garantiza que todas las parejas inscritas jueguen al menos dos partidos completos en el torneo."
+            }
+        ]
+    },
+    "en": {
+        "title": "Free Padel Tournament Bracket Generator | CoolPadel Studios",
+        "desc": "Free interactive single-elimination tournament bracket generator for 8, 16, or 32 pairs with automated consolation draw, live winner progression, and WhatsApp / PDF export.",
+        "badge": "Official 2026 Knockout Bracket Generator",
+        "h1": "Padel <span class=\"text-[#f2920b]\">Tournament Bracket</span> Generator",
+        "lead": "Design professional single-elimination tournament brackets in seconds. Seed placements, automated consolation draw, click-to-advance winners, and print-ready PDF export.",
+        "s1_title": "1. Configure Tournament Draw",
+        "label_tamano": "Draw Size:",
+        "opt_8": "8 Pairs (Quarterfinals to Grand Final)",
+        "opt_16": "16 Pairs (Round of 16 to Grand Final)",
+        "opt_32": "32 Pairs (Round of 32 to Grand Final)",
+        "label_nombre_torneo": "Tournament / Category Name:",
+        "placeholder_nombre_torneo": "e.g., Spring Open - Men's Level 2",
+        "label_consolacion": "Consolation Bracket:",
+        "opt_consolacion_si": "Yes, include consolation draw for first-round losers",
+        "opt_consolacion_no": "No, main knockout draw only",
+        "label_parejas": "Pair Names (1 per line):",
+        "btn_generar": "Generate Knockout Bracket",
+        "btn_imprimir": "Print Bracket (PDF / Poster)",
+        "btn_copiar_wa": "Copy Draw to WhatsApp",
+        "btn_enviar_wa": "Send to WhatsApp",
+        "copied_txt": "Copied!",
+        "btn_copy_original": "Copy Draw to WhatsApp",
+        "bracket_main_title": "Main Knockout Draw",
+        "bracket_consolation_title": "Consolation Draw",
+        "ronda_16_title": "Round of 16",
+        "ronda_qf_title": "Quarterfinals",
+        "ronda_sf_title": "Semifinals",
+        "ronda_f_title": "Grand Final",
+        "campeon_label": "Tournament Champion",
+        "banner_cam_badge": "Want players to relive epic moments from this tournament?",
+        "banner_cam_title": "Broadcast and record tournament finals with Save my Play cameras",
+        "banner_cam_desc": "Enable competitors to download high-definition match videos of quarters, semis, and finals instantly using a single smart button mounted on the net post.",
+        "banner_cam_btn": "Inquire About Club Cameras",
+        "faqs": [
+            {
+                "q": "How are seeds arranged in an 8 or 16-pair knockout draw?",
+                "a": "In a standard bracket, Seed #1 and Seed #2 are placed at opposite ends (top and bottom) ensuring they can only meet in the final. Seeds #3 and #4 are randomly assigned to opposite halves."
+            },
+            {
+                "q": "How does the consolation bracket work?",
+                "a": "Pairs that lose their first contested match in the main draw automatically advance into the consolation bracket. This guarantees that all registered pairs play at least two full tournament matches."
+            }
+        ]
+    },
+    "fr": {
+        "title": "Générateur Gratuit de Tableaux de Tournoi Padel | CoolPadel Studios",
+        "desc": "Générateur interactif gratuit de tableaux à élimination directe pour 8, 16 ou 32 paires avec consolante automatique, progression des vainqueurs et export PDF / WhatsApp.",
+        "badge": "Générateur Officiel de Tableaux 2026",
+        "h1": "Générateur de <span class=\"text-[#f2920b]\">Tableaux de Tournoi</span> de Padel",
+        "lead": "Créez des tableaux de compétition à élimination directe en quelques secondes. Têtes de série, tableau de consolante, progression interactive des vainqueurs et impression PDF.",
+        "s1_title": "1. Configuration du Tableau de Tournoi",
+        "label_tamano": "Format du Tableau :",
+        "opt_8": "8 Paires (Quarts de finale jusqu'à la finale)",
+        "opt_16": "16 Paires (Huitièmes de finale jusqu'à la finale)",
+        "opt_32": "32 Paires (Seizièmes de finale jusqu'à la finale)",
+        "label_nombre_torneo": "Nom du Tournoi / Catégorie :",
+        "placeholder_nombre_torneo": "Ex : Open de Printemps - Catégorie P250",
+        "label_consolacion": "Tableau de Consolante :",
+        "opt_consolacion_si": "Oui, inclure une consolante pour les perdants du premier tour",
+        "opt_consolacion_no": "Non, tableau principal uniquement",
+        "label_parejas": "Noms des Paires (1 par ligne) :",
+        "btn_generar": "Générer le Tableau Éliminatoire",
+        "btn_imprimir": "Imprimer le Tableau (PDF / Affiche)",
+        "btn_copiar_wa": "Copier le Tableau pour WhatsApp",
+        "btn_enviar_wa": "Envoyer sur WhatsApp",
+        "copied_txt": "Copié !",
+        "btn_copy_original": "Copier le Tableau pour WhatsApp",
+        "bracket_main_title": "Tableau Principal Éliminatoire",
+        "bracket_consolation_title": "Tableau de Consolante",
+        "ronda_16_title": "Huitièmes de Finale",
+        "ronda_qf_title": "Quarts de Finale",
+        "ronda_sf_title": "Demi-Finales",
+        "ronda_f_title": "Grande Finale",
+        "campeon_label": "Vainqueur du Tournoi",
+        "banner_cam_badge": "Offrez aux joueurs leurs meilleurs coups de ce tournoi",
+        "banner_cam_title": "Diffusez et enregistrez vos tournois avec les caméras Save my Play",
+        "banner_cam_desc": "Permettez aux compétiteurs de télécharger leurs vidéos de quarts, demis et finales instantanément grâce à un simple bouton connecté fixé au filet.",
+        "banner_cam_btn": "Demander des Infos Caméras",
+        "faqs": [
+            {
+                "q": "Comment sont réparties les têtes de série dans un tableau de 8 ou 16 paires ?",
+                "a": "Dans un tableau officiel, les têtes de série 1 et 2 sont placées aux deux extrémités (haut et bas) afin de ne pouvoir se croiser qu'en finale. Les têtes de série 3 et 4 sont affectées par tirage au sort dans les deux moitiés opposées."
+            },
+            {
+                "q": "Comment fonctionne le tableau de consolante ?",
+                "a": "Les paires qui s'inclinent lors de leur tout premier match dans le tableau principal sont automatiquement reversées dans le tableau de consolante. Cela assure à chaque paire au moins deux matchs complets dans le tournoi."
+            }
+        ]
+    },
+    "it": {
+        "title": "Generatore Gratuito di Tabelloni di Torneo Padel | CoolPadel Studios",
+        "desc": "Generatore interattivo gratuito di tabelloni ad eliminazione diretta per 8, 16 o 32 coppie con torneo di consolazione, avanzamento vincitori ed esportazione PDF / WhatsApp.",
+        "badge": "Generatore Ufficiale Tabelloni di Torneo 2026",
+        "h1": "Generatore di <span class=\"text-[#f2920b]\">Tabelloni di Torneo</span> di Padel",
+        "lead": "Crea tabelloni di gara ad eliminazione diretta in pochi secondi. Teste di serie, tabellone di consolazione, avanzamento automatico vincitori e stampa in formato PDF.",
+        "s1_title": "1. Configurazione del Tabellone",
+        "label_tamano": "Dimensione del Tabellone:",
+        "opt_8": "8 Coppie (Dai Quarti di Finale alla Finale)",
+        "opt_16": "16 Coppie (Dagli Ottavi di Finale alla Finale)",
+        "opt_32": "32 Coppie (Dai Sedicesimi di Finale alla Finale)",
+        "label_nombre_torneo": "Nome Torneo / Categoria:",
+        "placeholder_nombre_torneo": "Es: Torneo di Primavera - 2ª Categoria Maschile",
+        "label_consolacion": "Tabellone di Consolazione:",
+        "opt_consolacion_si": "Sì, includi torneo di consolazione per i primi sconfitti",
+        "opt_consolacion_no": "No, solo tabellone principale",
+        "label_parejas": "Nomi delle Coppie (1 per riga):",
+        "btn_generar": "Genera Tabellone ad Eliminazione",
+        "btn_imprimir": "Stampa Tabellone (PDF / Poster)",
+        "btn_copiar_wa": "Copia Tabellone per WhatsApp",
+        "btn_enviar_wa": "Invia su WhatsApp",
+        "copied_txt": "Copiato!",
+        "btn_copy_original": "Copia Tabellone per WhatsApp",
+        "bracket_main_title": "Tabellone Principale ad Eliminazione",
+        "bracket_consolation_title": "Tabellone di Consolazione",
+        "ronda_16_title": "Ottavi di Finale",
+        "ronda_qf_title": "Quarti di Finale",
+        "ronda_sf_title": "Semifinali",
+        "ronda_f_title": "Grande Finale",
+        "campeon_label": "Campione del Torneo",
+        "banner_cam_badge": "Vuoi far rivivere ai giocatori i colpi migliori di questo torneo?",
+        "banner_cam_title": "Trasmetti e registra i tornei con le telecamere Save my Play",
+        "banner_cam_desc": "Consenti ai partecipanti di scaricare all'istante i video delle partite di quarti, semifinali e finali tramite un pratico pulsante smart posizionato sul palo della rete.",
+        "banner_cam_btn": "Richiedi Info Telecamere",
+        "faqs": [
+            {
+                "q": "Come vengono posizionate le teste di serie in un tabellone da 8 o 16 coppie?",
+                "a": "Nei tabelloni standard, la testa di serie 1 e 2 vengono posizionate agli estremi opposti (cima e fondo) per garantire che possano affrontarsi solo in finale. Le teste di serie 3 e 4 vengono inserite per sorteggio nelle due metà opposte."
+            },
+            {
+                "q": "Come funziona il tabellone di consolazione?",
+                "a": "Le coppie che vengono sconfitte nel loro primo incontro disputato nel tabellone principale passano automaticamente al tabellone di consolazione. In questo modo a ciascuna coppia partecipante sono garantite almeno due partite intere nel torneo."
+            }
+        ]
+    }
+}
