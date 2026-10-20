@@ -3025,59 +3025,8 @@ def get_base_html(active_lang="es", is_subfolder=False):
       </div>
 
 
-
-    </div>
-
-  </section>
-
-
-
-  <!-- 7. SECCIÓN TESTIMONIOS Y VALORACIONES REALES DE CLUBES (SOCIAL PROOF & RESEÑAS VERIFICADAS) -->
-
-  <section id="testimonios" class="py-8 sm:py-12 bg-white relative border-b border-slate-200">
-
-    <div class="max-w-6xl mx-auto px-4 sm:px-6">
-
-      
-
-      <!-- CABECERA DE TESTIMONIOS CON BADGE DE NOTA MEDIA -->
-
-      <div class="text-center max-w-2xl mx-auto mb-8 sm:mb-10 space-y-2">
-
-        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-50 border border-amber-200/90 text-amber-950 text-xs font-black shadow-2xs">
-
-          <div class="flex text-[#f2920b] tracking-widest text-xs">
-
-            ★★★★★
-
-          </div>
-
-          <span class="font-bold">4.9 / 5</span>
-
-          <span class="text-slate-400">·</span>
-
-          <span class="text-slate-600 font-medium" data-i18n="reviews_badge_text">{seo['reviews_badge_text']}</span>
-
-        </div>
-
-        <h2 data-i18n="reviews_heading" class="text-xl sm:text-3xl font-black font-heading text-slate-950 uppercase tracking-tight">
-
-          {seo['reviews_heading']}
-
-        </h2>
-
-        <p data-i18n="reviews_subheading" class="text-xs sm:text-sm text-slate-600 font-medium">
-
-          {seo['reviews_subheading']}
-
-        </p>
-
-      </div>
-
-
-
-      <!-- GRID DE 6 RESEÑAS DE CLUBES VERIFICADOS -->
-
+      <!-- OPINIONES DE CLUBES (INTEGRADAS BAJO EL MAPA) -->
+      <div class="mt-6 sm:mt-8">
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
 
         
@@ -3128,16 +3077,8 @@ def get_base_html(active_lang="es", is_subfolder=False):
 
           </div>
 
-          <div class="pt-3 mt-3 border-t border-slate-100 flex items-center justify-between text-[10px] font-bold text-slate-500">
-
-            <span class="inline-flex items-center gap-1 text-emerald-600 font-bold">
-
-              <i data-lucide="check-circle" class="w-3 h-3"></i> {seo['reviews_verified']}
-
-            </span>
-
+          <div class="pt-3 mt-3 border-t border-slate-100 flex items-center justify-end text-[10px] font-bold text-slate-500">
             <span>Torneos y Clubes</span>
-
           </div>
 
         </div>
@@ -3190,16 +3131,8 @@ def get_base_html(active_lang="es", is_subfolder=False):
 
           </div>
 
-          <div class="pt-3 mt-3 border-t border-slate-100 flex items-center justify-between text-[10px] font-bold text-slate-500">
-
-            <span class="inline-flex items-center gap-1 text-emerald-600 font-bold">
-
-              <i data-lucide="check-circle" class="w-3 h-3"></i> {seo['reviews_verified']}
-
-            </span>
-
+          <div class="pt-3 mt-3 border-t border-slate-100 flex items-center justify-end text-[10px] font-bold text-slate-500">
             <span>Adhérents & Tournois</span>
-
           </div>
 
         </div>
@@ -3252,16 +3185,8 @@ def get_base_html(active_lang="es", is_subfolder=False):
 
           </div>
 
-          <div class="pt-3 mt-3 border-t border-slate-100 flex items-center justify-between text-[10px] font-bold text-slate-500">
-
-            <span class="inline-flex items-center gap-1 text-emerald-600 font-bold">
-
-              <i data-lucide="check-circle" class="w-3 h-3"></i> {seo['reviews_verified']}
-
-            </span>
-
+          <div class="pt-3 mt-3 border-t border-slate-100 flex items-center justify-end text-[10px] font-bold text-slate-500">
             <span>Socios y Torneos</span>
-
           </div>
 
         </div>
@@ -3314,16 +3239,8 @@ def get_base_html(active_lang="es", is_subfolder=False):
 
           </div>
 
-          <div class="pt-3 mt-3 border-t border-slate-100 flex items-center justify-between text-[10px] font-bold text-slate-500">
-
-            <span class="inline-flex items-center gap-1 text-emerald-600 font-bold">
-
-              <i data-lucide="check-circle" class="w-3 h-3"></i> {seo['reviews_verified']}
-
-            </span>
-
+          <div class="pt-3 mt-3 border-t border-slate-100 flex items-center justify-end text-[10px] font-bold text-slate-500">
             <span>Regalo Torneo y Socios</span>
-
           </div>
 
         </div>
@@ -3376,16 +3293,8 @@ def get_base_html(active_lang="es", is_subfolder=False):
 
           </div>
 
-          <div class="pt-3 mt-3 border-t border-slate-100 flex items-center justify-between text-[10px] font-bold text-slate-500">
-
-            <span class="inline-flex items-center gap-1 text-emerald-600 font-bold">
-
-              <i data-lucide="check-circle" class="w-3 h-3"></i> {seo['reviews_verified']}
-
-            </span>
-
+          <div class="pt-3 mt-3 border-t border-slate-100 flex items-center justify-end text-[10px] font-bold text-slate-500">
             <span>Pro-Shop & Tournois</span>
-
           </div>
 
         </div>
@@ -3438,21 +3347,15 @@ def get_base_html(active_lang="es", is_subfolder=False):
 
           </div>
 
-          <div class="pt-3 mt-3 border-t border-slate-100 flex items-center justify-between text-[10px] font-bold text-slate-500">
-
-            <span class="inline-flex items-center gap-1 text-emerald-600 font-bold">
-
-              <i data-lucide="check-circle" class="w-3 h-3"></i> {seo['reviews_verified']}
-
-            </span>
-
+          <div class="pt-3 mt-3 border-t border-slate-100 flex items-center justify-end text-[10px] font-bold text-slate-500">
             <span>Regalo para Socios</span>
-
           </div>
 
         </div>
 
 
+
+      </div>
 
       </div>
 
