@@ -61,9 +61,28 @@ def get_facility_type(tech_dict):
     return "indoor"
 
 
-def render_html():
+def render_html(lang="es"):
     total_franquicias = len(FRANQUICIAS)
     paises_unicos = len(set(f["pais"] for f in FRANQUICIAS))
+    path_prefix = "" if lang == "es" else f"{lang}/"
+    asset_prefix = "../" if lang == "es" else "../../"
+    page_url = f"https://coolpadelstudios.com/{path_prefix}franquicias-padel/"
+    og_locale = {"es": "es_ES", "en": "en_US", "fr": "fr_FR", "it": "it_IT"}.get(lang, "es_ES")
+
+    meta_titles = {
+        "es": f"Franquicias y Cadenas de Pádel ({total_franquicias} Operadores) | CoolPadel",
+        "en": f"Padel Club Networks & Franchises Directory ({total_franquicias} Operators) | CoolPadel",
+        "fr": f"Annuaire des Franchises et Réseaux de Padel ({total_franquicias} Opérateurs) | CoolPadel",
+        "it": f"Directory delle Franchigie e Catene di Padel ({total_franquicias} Operatori) | CoolPadel"
+    }
+    meta_descs = {
+        "es": f"Directorio y comparador de {total_franquicias} cadenas y franquicias de pádel: requisitos de nave, inversión, royalties, software y modelos para inversores.",
+        "en": f"Directory and side-by-side comparison of {total_franquicias} padel club networks and franchises: facility criteria, investment, royalties, and booking software.",
+        "fr": f"Annuaire et comparateur de {total_franquicias} réseaux et franchises de padel: critères d'implantation, investissement, royalties et logiciels de réservation.",
+        "it": f"Directory e confronto di {total_franquicias} catene e franchigie di padel: requisiti delle strutture, investimenti, royalties e software gestionali."
+    }
+    page_title = meta_titles.get(lang, meta_titles["es"])
+    page_desc = meta_descs.get(lang, meta_descs["es"])
 
     # Generación dinámica de opciones para el desplegable moderno de región
     region_dropdown_items_html = ""
@@ -209,17 +228,25 @@ def render_html():
 <html lang="es" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Franquicias y Cadenas de Pádel ({total_franquicias} Operadores) | CoolPadel</title>
-  <meta name="description" content="Directorio y comparador de {total_franquicias} cadenas y franquicias de pádel: requisitos de nave, inversión, royalties, software y modelos para inversores.">
-  <link rel="canonical" href="https://coolpadelstudios.com/franquicias-padel/">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>{page_title}</title>
+  <meta name="description" content="{page_desc}">
+  <link rel="canonical" href="{page_url}">
+
+  <!-- SEO Multilingüe Hreflang -->
+  <link rel="alternate" hreflang="es" href="https://coolpadelstudios.com/franquicias-padel/">
+  <link rel="alternate" hreflang="en" href="https://coolpadelstudios.com/en/franquicias-padel/">
+  <link rel="alternate" hreflang="fr" href="https://coolpadelstudios.com/fr/franquicias-padel/">
+  <link rel="alternate" hreflang="it" href="https://coolpadelstudios.com/it/franquicias-padel/">
+  <link rel="alternate" hreflang="x-default" href="https://coolpadelstudios.com/franquicias-padel/">
+  <meta name="language" content="{lang}">
 
   <!-- Favicon -->
-  <link rel="icon" type="image/png" href="../assets/images/coolpadel-mascot-hd.png">
+  <link rel="icon" type="image/png" href="{asset_prefix}assets/images/coolpadel-mascot-hd.png">
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
-  <meta property="og:locale" content="es_ES">
+  <meta property="og:locale" content="{og_locale}">
   <meta property="og:site_name" content="CoolPadel Studios">
   <meta property="og:url" content="https://coolpadelstudios.com/franquicias-padel/">
   <meta property="og:title" content="Directorio y Comparador B2B de Cadenas y Franquicias de Pádel | {total_franquicias} Operadores">
@@ -3119,15 +3146,20 @@ def render_html():
 
 
 def main():
-    target_dir = os.path.join(os.path.dirname(__file__), "franquicias-padel")
-    os.makedirs(target_dir, exist_ok=True)
-    target_file = os.path.join(target_dir, "index.html")
+    base_dir = os.path.dirname(os.path.abspath(__file__))
+    print(">> Generando Directorio de Franquicias en 4 Idiomas (ES, EN, FR, IT)...")
+    for lang in ["es", "en", "fr", "it"]:
+        if lang == "es":
+            target_dir = os.path.join(base_dir, "franquicias-padel")
+        else:
+            target_dir = os.path.join(base_dir, lang, "franquicias-padel")
+        os.makedirs(target_dir, exist_ok=True)
+        target_file = os.path.join(target_dir, "index.html")
+        html_content = render_html(lang=lang)
+        with open(target_file, "w", encoding="utf-8") as f:
+            f.write(html_content)
+        print(f"  [OK] Directorio Hub ({lang.upper()}): {target_file}")
 
-    html_content = render_html()
-    with open(target_file, "w", encoding="utf-8") as f:
-        f.write(html_content)
-
-    print(f"Directorio de franquicias y cadenas generado con exito en: {target_file}")
     print(f"Total de entidades incluidas: {len(FRANQUICIAS)}")
 
     try:

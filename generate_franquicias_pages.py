@@ -30,7 +30,7 @@ def escape_txt(text):
     return html.escape(str(text))
 
 
-def generate_single_page(f):
+def generate_single_page(f, lang="es"):
     fid = f["id"]
     nombre = f["nombre"]
     pais = f["pais"]
@@ -64,8 +64,18 @@ def generate_single_page(f):
     canon_royalties = exp.get("canon_royalties", "Consultar condiciones")
     inversion_media = exp.get("inversion_media", "A convenir")
 
-    canonical_url = f"https://coolpadelstudios.com/franquicias-padel/{fid}/"
-    wa_msg = f"Hola Javier, estoy viendo la ficha de {nombre} en el directorio de franquicias y quiero consultar sobre equipamiento de cámaras Save my Play y llaveros 3D."
+    path_prefix = "" if lang == "es" else f"{lang}/"
+    asset_prefix = "../../" if lang == "es" else "../../../"
+    canonical_url = f"https://coolpadelstudios.com/{path_prefix}franquicias-padel/{fid}/"
+    og_locale = {"es": "es_ES", "en": "en_US", "fr": "fr_FR", "it": "it_IT"}.get(lang, "es_ES")
+
+    wa_msgs = {
+        "es": f"Hola Javier, estoy viendo la ficha de {nombre} en el directorio de franquicias y quiero consultar sobre equipamiento de cámaras Save my Play y llaveros 3D.",
+        "en": f"Hello Javier, I am viewing {nombre} in the padel franchise directory and want to inquire about Save my Play cameras and 3D custom keychains.",
+        "fr": f"Bonjour Javier, je consulte la fiche de {nombre} sur l'annuaire des franchises et souhaite des informations sur les caméras Save my Play et porte-clés 3D.",
+        "it": f"Ciao Javier, sto guardando la scheda di {nombre} nella directory franchigie e vorrei informazioni su telecamere Save my Play e portachiavi 3D."
+    }
+    wa_msg = wa_msgs.get(lang, wa_msgs["es"])
     import urllib.parse
     wa_url = f"https://api.whatsapp.com/send?phone=34680317486&text={urllib.parse.quote(wa_msg)}"
 
@@ -123,15 +133,23 @@ def generate_single_page(f):
 <html lang="es" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{escape_txt(short_title)}</title>
-  <meta name="description" content="{escape_txt(meta_desc)}">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>{escape_txt(localized_title)}</title>
+  <meta name="description" content="{escape_txt(localized_desc)}">
   <link rel="canonical" href="{canonical_url}">
+
+  <!-- SEO Multilingüe Hreflang -->
+  <link rel="alternate" hreflang="es" href="https://coolpadelstudios.com/franquicias-padel/{fid}/">
+  <link rel="alternate" hreflang="en" href="https://coolpadelstudios.com/en/franquicias-padel/{fid}/">
+  <link rel="alternate" hreflang="fr" href="https://coolpadelstudios.com/fr/franquicias-padel/{fid}/">
+  <link rel="alternate" hreflang="it" href="https://coolpadelstudios.com/it/franquicias-padel/{fid}/">
+  <link rel="alternate" hreflang="x-default" href="https://coolpadelstudios.com/franquicias-padel/{fid}/">
+  <meta name="language" content="{lang}">
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="CoolPadel Studios">
-  <meta property="og:locale" content="es_ES">
+  <meta property="og:locale" content="{og_locale}">
   <meta property="og:url" content="{canonical_url}">
   <meta property="og:title" content="{escape_txt(nombre)} - Franquicia de Pádel ({escape_txt(pais)})">
   <meta property="og:description" content="{escape_txt(meta_desc)}">
@@ -145,8 +163,8 @@ def generate_single_page(f):
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
 
   <!-- Favicon -->
-  <link rel="icon" type="image/png" href="../../assets/images/favicon_transparente.png?v=transp3">
-  <link rel="apple-touch-icon" sizes="180x180" href="../../assets/images/favicon_transparente.png?v=transp3">
+  <link rel="icon" type="image/png" href="{asset_prefix}assets/images/favicon_transparente.png?v=transp3">
+  <link rel="apple-touch-icon" sizes="180x180" href="{asset_prefix}assets/images/favicon_transparente.png?v=transp3">
   <meta name="theme-color" content="#0b1626">
 
   <!-- LLM & AI Discovery -->
@@ -249,7 +267,7 @@ def generate_single_page(f):
     h1, h2, h3, h4, .font-heading {{ font-family: 'Outfit', sans-serif; }}
     .bg-textured-blue {{
       background-color: #3478a6;
-      background-image: linear-gradient(rgba(52, 120, 166, 0.40), rgba(52, 120, 166, 0.40)), url('/assets/images/branding/textura_editorial_coolpadel.webp');
+      background-image: linear-gradient(rgba(52, 120, 166, 0.40), rgba(52, 120, 166, 0.40)), url('{asset_prefix}assets/images/branding/textura_editorial_coolpadel.webp');
       background-blend-mode: normal, soft-light;
       background-size: cover;
       background-position: center;
@@ -651,7 +669,10 @@ def generate_single_page(f):
 </body>
 </html>
 """
-    target_dir = os.path.join(FRANQUICIAS_DIR, fid)
+    if lang == "es":
+        target_dir = os.path.join(BASE_DIR, "franquicias-padel", fid)
+    else:
+        target_dir = os.path.join(BASE_DIR, lang, "franquicias-padel", fid)
     os.makedirs(target_dir, exist_ok=True)
     target_file = os.path.join(target_dir, "index.html")
     with open(target_file, "w", encoding="utf-8") as fp:
@@ -660,12 +681,13 @@ def generate_single_page(f):
 
 
 def main():
-    print(f"Generando páginas individuales para {len(FRANQUICIAS)} franquicias...")
-    count = 0
-    for f in FRANQUICIAS:
-        generate_single_page(f)
-        count += 1
-    print(f"Completado: {count} páginas de franquicias generadas con éxito en coolpadel-web/franquicias-padel/<id>/index.html")
+    print(f">> Generando páginas individuales para {len(FRANQUICIAS)} franquicias en 4 idiomas (ES, EN, FR, IT)...")
+    for lang in ["es", "en", "fr", "it"]:
+        count = 0
+        for f in FRANQUICIAS:
+            generate_single_page(f, lang=lang)
+            count += 1
+        print(f"  [OK] Completadas {count} fichas de franquicias para {lang.upper()}")
 
 
 if __name__ == "__main__":
