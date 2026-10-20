@@ -2457,13 +2457,17 @@ def get_base_html(active_lang="es", is_subfolder=False):
 
           <a href="/llaveros-tenis-personalizados/" class="bg-white border border-slate-200/90 rounded-2xl p-3 sm:p-4 shadow-md hover:shadow-xl transition-all duration-300 group flex flex-col justify-between hover:-translate-y-0.5">
 
-            <div class="rounded-xl overflow-hidden mb-2 shadow-sm border border-slate-200/90 bg-slate-100">
+            <div class="flex-1 flex flex-col justify-center">
 
-              <img src="{asset_prefix}assets/images/llaveros-tenis-personalizados-clubs.jpg?v=7" alt="Llaveros de tenis y pádel personalizados con relieve 3D para clubs y torneos" width="1024" height="640" class="w-full h-auto block group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
+              <div class="rounded-xl overflow-hidden shadow-sm border border-slate-200/90 bg-slate-100 my-auto">
+
+                <img src="{asset_prefix}assets/images/llaveros-tenis-personalizados-clubs.jpg?v=8" alt="Llaveros de tenis y pádel personalizados con relieve 3D para clubs y torneos" width="1024" height="640" class="w-full h-auto block group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
+
+              </div>
 
             </div>
 
-            <h3 data-i18n="card_tenis" class="font-heading font-black text-xs sm:text-sm lg:text-base uppercase tracking-tight text-slate-950 text-center py-0.5">
+            <h3 data-i18n="card_tenis" class="font-heading font-black text-xs sm:text-sm lg:text-base uppercase tracking-tight text-slate-950 text-center py-0.5 mt-2">
 
               {t['card_tenis']}
 
@@ -2479,7 +2483,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
 
             <div class="rounded-xl overflow-hidden mb-2 shadow-sm border border-slate-200/90 bg-slate-100">
 
-              <img src="{asset_prefix}assets/images/llaveros-padel-personalizados-clubs.jpg?v=7" alt="Llaveros de pádel de goma 3D personalizados con logo para clubes de pádel" width="1024" height="737" class="w-full h-auto block group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
+              <img src="{asset_prefix}assets/images/llaveros-padel-personalizados-clubs.jpg?v=8" alt="Llaveros de pádel de goma 3D personalizados con logo para clubes de pádel" width="1024" height="737" class="w-full h-auto block group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
 
             </div>
 
