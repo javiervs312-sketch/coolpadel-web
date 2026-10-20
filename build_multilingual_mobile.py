@@ -4863,7 +4863,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
 
           center: [46.5, 3.5],
 
-          zoom: 4,
+          zoom: 3,
 
           minZoom: 3,
 
@@ -5135,7 +5135,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
 
       if (region === 'all') {{
 
-        leafletMapInstance.setView([47.5, 4.0], 4, {{ animate: true }});
+        leafletMapInstance.setView([47.5, 4.0], 3, {{ animate: true }});
 
         selectClubById('cambados');
 
