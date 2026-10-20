@@ -55,26 +55,45 @@ def get_tool_header(lang, slug, active_title):
     bc_tools = {"es": "Herramientas", "en": "Tools", "fr": "Outils", "it": "Strumenti"}[lang]
 
     return f"""  <!-- HEADER -->
-  <header class="sticky top-0 z-50 bg-[#0b1626]/95 backdrop-blur-md border-b border-slate-800">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between">
-      <a href="{home_href}" class="flex items-center gap-2.5">
-        <img src="{prefix}assets/images/coolpadel-mascot-hd.png" alt="CoolPadel Studios" class="h-9 sm:h-11 w-auto object-contain">
-        <span class="font-heading font-black text-lg sm:text-xl tracking-tight text-white">CoolPadel <span class="text-[#f2920b]">Studios</span></span>
+  <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-xs w-full">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between">
+      
+      <!-- LOGO: MASCOTA + TIPOGRAFÍA -->
+      <a href="{home_href}" class="flex items-center gap-2 group shrink-0" aria-label="CoolPadel Home">
+        <img src="{prefix}assets/images/coolpadel-mascot-hd.png" alt="Mascota CoolPadel" width="44" height="44" class="h-8 sm:h-11 w-auto object-contain group-hover:scale-105 transition" fetchpriority="high">
+        <img src="{prefix}assets/images/coolpadel-typography-hd.png" alt="CoolPadel" width="140" height="28" class="h-5 sm:h-7 w-auto object-contain" fetchpriority="high">
       </a>
 
-      <nav class="hidden md:flex items-center gap-6 text-xs sm:text-sm font-bold uppercase tracking-wider text-slate-300">
-        <a href="{camaras_href}" class="hover:text-[#76d3f6] transition">{nav_labels['camaras']}</a>
-        <a href="{llaveros_href}" class="hover:text-[#f2920b] transition">{nav_labels['llaveros']}</a>
-        <a href="{herramientas_href}" class="text-[#f2920b] font-black">{nav_labels['herramientas']}</a>
-        <a href="{barometro_href}" class="hover:text-emerald-400 transition">{nav_labels['barometro']}</a>
-        <a href="{blog_href}" class="hover:text-white transition">{nav_labels['blog']}</a>
-      </nav>
+      <!-- BLOQUE DE NAVEGACIÓN Y ACCIONES A LA DERECHA (ESTILO EXACTO LANDINGS) -->
+      <div class="flex items-center gap-2 sm:gap-4 lg:gap-6">
+        <a href="{home_href}#llaveros" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition whitespace-nowrap">Llaveros</a>
+        <a href="{camaras_href}" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition whitespace-nowrap">Cámaras</a>
+        <a href="{blog_href}" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition whitespace-nowrap">Blog</a>
+        <a href="{home_href}franquicias-padel/" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition whitespace-nowrap">Cadenas de clubs</a>
 
-      <div class="flex items-center gap-3">
-        {lang_switcher}
-        <a href="{camaras_href}" class="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-slate-800 hover:bg-slate-700 text-white font-heading font-bold text-xs uppercase tracking-wider transition">
-          <i data-lucide="video" class="w-3.5 h-3.5 text-[#76d3f6]"></i>
-          <span>{nav_labels['cta']}</span>
+        <!-- SELECTOR DE IDIOMA EN DESPLEGABLE COMPACTO -->
+        <div class="relative inline-block text-left" id="lang-dropdown-container">
+          <button type="button" onclick="toggleLangDropdown(event)" id="lang-dropdown-btn" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-100 hover:bg-slate-200 border border-slate-200 text-xs font-black text-slate-900 shadow-xs transition cursor-pointer" aria-expanded="false" aria-haspopup="true">
+            <span class="uppercase font-black">{lang.upper()}</span>
+            <i data-lucide="chevron-down" class="w-3.5 h-3.5 stroke-[2.5] text-slate-600 transition-transform duration-200" id="lang-dropdown-arrow"></i>
+          </button>
+          <div id="lang-dropdown-menu" class="hidden absolute right-0 mt-2 w-24 bg-white rounded-2xl shadow-[0_12px_30px_rgba(0,0,0,0.15)] border border-slate-200 py-1.5 z-50 transition-all overflow-hidden">
+            <a href="/herramientas/" class="lang-opt block {'lang-opt-active' if lang=='es' else 'text-slate-700 hover:bg-[#f2920b] hover:text-slate-950 font-bold'} w-full text-center px-4 py-2 text-xs transition duration-150">ES</a>
+            <a href="/en/herramientas/" class="lang-opt block {'lang-opt-active' if lang=='en' else 'text-slate-700 hover:bg-[#f2920b] hover:text-slate-950 font-bold'} w-full text-center px-4 py-2 text-xs transition duration-150">EN</a>
+            <a href="/fr/herramientas/" class="lang-opt block {'lang-opt-active' if lang=='fr' else 'text-slate-700 hover:bg-[#f2920b] hover:text-slate-950 font-bold'} w-full text-center px-4 py-2 text-xs transition duration-150">FR</a>
+            <a href="/it/herramientas/" class="lang-opt block {'lang-opt-active' if lang=='it' else 'text-slate-700 hover:bg-[#f2920b] hover:text-slate-950 font-bold'} w-full text-center px-4 py-2 text-xs transition duration-150">IT</a>
+          </div>
+        </div>
+
+        <!-- BOTÓN CONTACTAR (ESTILO EXACTO LANDINGS) -->
+        <a href="{home_href}#contacto" class="inline-flex items-center gap-1.5 px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] text-slate-950 font-heading font-black text-xs uppercase tracking-wider transition shadow-sm hover:scale-105 active:scale-95 cursor-pointer">
+          <span>Contactar</span>
+          <i data-lucide="arrow-down" class="w-3 h-3 stroke-[3]"></i>
+        </a>
+
+        <!-- OJOS DEL LOGO A LA DERECHA DEL TODO -->
+        <a href="{home_href}" class="group py-1 inline-flex items-center shrink-0 pl-1" aria-label="CoolPadel Eyes">
+          <img src="{prefix}assets/images/eyes-thumb.png?v=fixed_eyes" alt="CoolPadel Eyes" width="28" height="28" style="height: 26px; max-height: 26px; width: auto;" class="object-contain group-hover:scale-110 transition duration-300">
         </a>
       </div>
     </div>

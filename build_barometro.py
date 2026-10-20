@@ -218,30 +218,31 @@ def build_barometro():
 <body class="bg-[#0b1626] text-slate-100 antialiased selection:bg-[#f2920b] selection:text-slate-950">
 
   <!-- Header Superior -->
-  <header class="border-b border-slate-800/80 bg-[#0b1626]/95 backdrop-blur sticky top-0 z-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between">
-      <a href="/" class="flex items-center gap-3 group">
-        <img src="../../assets/images/coolpadel-mascot-hd.png" alt="CoolPadel Studios" class="w-10 h-10 object-contain drop-shadow">
-        <div>
-          <span class="font-heading font-black text-xl text-white tracking-tight flex items-center gap-1.5">
-            COOLPADEL <span class="text-[#f2920b]">STUDIOS</span>
-          </span>
-          <span class="text-[10px] text-slate-400 block tracking-widest font-semibold uppercase">Distribuidor Oficial Save my Play</span>
-        </div>
+  <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-xs w-full">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between">
+      
+      <!-- LOGO: MASCOTA + TIPOGRAFÍA -->
+      <a href="/" class="flex items-center gap-2 group shrink-0" aria-label="CoolPadel Home">
+        <img src="../../assets/images/coolpadel-mascot-hd.png" alt="Mascota CoolPadel" width="44" height="44" class="h-8 sm:h-11 w-auto object-contain group-hover:scale-105 transition" fetchpriority="high">
+        <img src="../../assets/images/coolpadel-typography-hd.png" alt="CoolPadel" width="140" height="28" class="h-5 sm:h-7 w-auto object-contain" fetchpriority="high">
       </a>
-      <div class="flex items-center gap-4">
-        <a href="/camaras/" class="hidden sm:inline-flex items-center gap-2 text-sm font-bold text-slate-300 hover:text-white transition">
-          <i data-lucide="video" class="w-4 h-4 text-[#3478a6]"></i>
-          <span>Cámaras Save my Play</span>
-        </a>
-        <a href="/franquicias-padel/" class="hidden md:inline-flex items-center gap-2 text-sm font-bold text-slate-300 hover:text-white transition">
-          <i data-lucide="layers" class="w-4 h-4 text-[#f2920b]"></i>
-          <span>Franquicias (+167)</span>
-        </a>
-        <a href="/#contacto" 
-           class="inline-flex items-center gap-2 bg-[#f2920b] hover:bg-[#76d3f6] text-slate-950 font-black px-4 py-2 rounded-xl text-xs sm:text-sm transition shadow-lg">
-          <i data-lucide="message-square" class="w-4 h-4"></i>
+
+      <!-- BLOQUE DE NAVEGACIÓN Y ACCIONES A LA DERECHA (ESTILO EXACTO LANDINGS) -->
+      <div class="flex items-center gap-2 sm:gap-4 lg:gap-6">
+        <a href="/#llaveros" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition whitespace-nowrap">Llaveros</a>
+        <a href="/camaras/" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition whitespace-nowrap">Cámaras</a>
+        <a href="/blog/" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition whitespace-nowrap">Blog</a>
+        <a href="/franquicias-padel/" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition whitespace-nowrap">Cadenas de clubs</a>
+
+        <!-- BOTÓN CONTACTAR (ESTILO EXACTO LANDINGS) -->
+        <a href="/#contacto" class="inline-flex items-center gap-1.5 px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] text-slate-950 font-heading font-black text-xs uppercase tracking-wider transition shadow-sm hover:scale-105 active:scale-95 cursor-pointer">
           <span>Contactar</span>
+          <i data-lucide="arrow-down" class="w-3 h-3 stroke-[3]"></i>
+        </a>
+
+        <!-- OJOS DEL LOGO A LA DERECHA DEL TODO -->
+        <a href="/" class="group py-1 inline-flex items-center shrink-0 pl-1" aria-label="CoolPadel Eyes">
+          <img src="../../assets/images/eyes-thumb.png?v=fixed_eyes" alt="CoolPadel Eyes" width="28" height="28" style="height: 26px; max-height: 26px; width: auto;" class="object-contain group-hover:scale-110 transition duration-300">
         </a>
       </div>
     </div>
