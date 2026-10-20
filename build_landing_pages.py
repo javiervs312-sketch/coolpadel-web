@@ -1387,6 +1387,11 @@ def render_landing(landing, lang="es"):
           <span>{ui['nav_contacto']}</span>
           <i data-lucide="arrow-down" class="w-3 h-3 stroke-[3]"></i>
         </a>
+
+        <!-- OJOS DEL LOGO A LA DERECHA DEL TODO -->
+        <a href="{asset_prefix}" class="group py-1 inline-flex items-center shrink-0 pl-1" aria-label="CoolPadel Eyes">
+          <img src="{asset_prefix}assets/images/eyes-thumb.png?v=fixed_eyes" alt="CoolPadel Eyes" width="28" height="28" style="height: 26px; max-height: 26px; width: auto;" class="object-contain group-hover:scale-110 transition duration-300">
+        </a>
       </div>
     </div>
   </header>
