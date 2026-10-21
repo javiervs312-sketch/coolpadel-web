@@ -1289,7 +1289,10 @@ def render_landing(landing, lang="es"):
           "@type": "Organization",
           "name": "CoolPadel"
         }},
-        "copyrightNotice": "© CoolPadel"
+        "copyrightNotice": "© CoolPadel",
+        "creditText": "CoolPadel Studios",
+        "license": "https://coolpadelstudios.com/politica-de-devoluciones.html",
+        "acquireLicensePage": "{page_url}"
       }},
       {{
         "@type": "Organization",

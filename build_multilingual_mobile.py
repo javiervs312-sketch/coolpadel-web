@@ -628,7 +628,13 @@ def get_base_html(active_lang="es", is_subfolder=False):
 
         }},
 
-        "copyrightNotice": "© CoolPadel"
+        "copyrightNotice": "© CoolPadel",
+
+        "creditText": "CoolPadel Studios",
+
+        "license": "https://coolpadelstudios.com/politica-de-devoluciones.html",
+
+        "acquireLicensePage": "https://coolpadelstudios.com/"
 
       }},
 
