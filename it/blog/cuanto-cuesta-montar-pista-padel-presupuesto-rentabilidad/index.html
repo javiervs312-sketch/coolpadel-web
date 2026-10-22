@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Quanto Costa Costruire un Campo e un Circolo di Padel nel 2026: Budget e Redditività</title>
   <meta name="description" content="Costo esatto per realizzare campi da padel (vetro panoramico, soletta, erba sintetica, LED e coperture): preventivi, autorizzazioni e ammortamento.">
-                                                                                                                                <link rel="canonical" href="https://coolpadelstudios.com/blog/cuanto-cuesta-montar-pista-padel-presupuesto-rentabilidad/">
+                                                                                                                                  <link rel="canonical" href="https://coolpadelstudios.com/blog/cuanto-cuesta-montar-pista-padel-presupuesto-rentabilidad/">
   <meta name="robots" content="noindex, follow">
 
   <!-- Open Graph -->
@@ -141,7 +141,26 @@
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-3FY3DTNN21');
+    // Eventos clave (leads): WhatsApp, email, teléfono, demo, dossier
+    document.addEventListener('click', function (e) {
+      try {
+        var a = e.target.closest && e.target.closest('a, button');
+        if (!a) return;
+        var href = (a.getAttribute('href') || '').toLowerCase();
+        var txt = (a.innerText || '').replace(/\s+/g, ' ').trim().slice(0, 60);
+        var p = { link_text: txt, link_url: href, page_path: location.pathname };
+        if (href.indexOf('wa.me') > -1 || href.indexOf('whatsapp.com') > -1) gtag('event', 'click_whatsapp', p);
+        else if (href.indexOf('mailto:') === 0) gtag('event', 'click_email', p);
+        else if (href.indexOf('tel:') === 0) gtag('event', 'click_telefono', p);
+        else if (/\.pdf($|\?)/.test(href) || /dossier/i.test(href + ' ' + txt)) gtag('event', 'descarga_dossier', p);
+        else if (/demo|reuni[oó]n|meeting|calendly|agenda|r[eé]serv|prueba gratis|free trial/i.test(href + ' ' + txt)) gtag('event', 'solicitar_demo', p);
+      } catch (err) {}
+    }, { passive: true });
+    document.addEventListener('submit', function (e) {
+      try { gtag('event', 'enviar_formulario', { form_id: (e.target && (e.target.id || e.target.name)) || '', page_path: location.pathname }); } catch (err) {}
+    }, true);
   </script>
+  <!-- /GA4 -->
 </head>
 <body class="bg-white text-slate-900 min-h-screen flex flex-col selection:bg-[#f2920b] selection:text-slate-950">
 

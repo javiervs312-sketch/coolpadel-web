@@ -19,8 +19,28 @@ GA4_SNIPPET = f"""  <!-- Google Analytics 4 -->
     function gtag(){{dataLayer.push(arguments);}}
     gtag('js', new Date());
     gtag('config', '{GA4_ID}');
+    // Eventos clave (leads): WhatsApp, email, teléfono, demo, dossier
+    document.addEventListener('click', function (e) {{
+      try {{
+        var a = e.target.closest && e.target.closest('a, button');
+        if (!a) return;
+        var href = (a.getAttribute('href') || '').toLowerCase();
+        var txt = (a.innerText || '').replace(/\\s+/g, ' ').trim().slice(0, 60);
+        var p = {{ link_text: txt, link_url: href, page_path: location.pathname }};
+        if (href.indexOf('wa.me') > -1 || href.indexOf('whatsapp.com') > -1) gtag('event', 'click_whatsapp', p);
+        else if (href.indexOf('mailto:') === 0) gtag('event', 'click_email', p);
+        else if (href.indexOf('tel:') === 0) gtag('event', 'click_telefono', p);
+        else if (/\\.pdf($|\\?)/.test(href) || /dossier/i.test(href + ' ' + txt)) gtag('event', 'descarga_dossier', p);
+        else if (/demo|reuni[oó]n|meeting|calendly|agenda|r[eé]serv|prueba gratis|free trial/i.test(href + ' ' + txt)) gtag('event', 'solicitar_demo', p);
+      }} catch (err) {{}}
+    }}, {{ passive: true }});
+    document.addEventListener('submit', function (e) {{
+      try {{ gtag('event', 'enviar_formulario', {{ form_id: (e.target && (e.target.id || e.target.name)) || '', page_path: location.pathname }}); }} catch (err) {{}}
+    }}, true);
   </script>
+  <!-- /GA4 -->
 """
+GA4_OLD_RE = re.compile(r"[ \t]*<!-- Google Analytics 4 -->.*?(?:<!-- /GA4 -->|gtag\('config', '" + GA4_ID + r"'\);\s*</script>)\n?", re.S)
 
 CLARITY_SNIPPET = """  <!-- Microsoft Clarity -->
   <script type="text/javascript">
@@ -116,7 +136,8 @@ def run_seo_post_build():
             full = os.path.join(r, f)
             c = open(full, encoding="utf-8", errors="ignore").read()
             changed = False
-            if GA4_ID not in c and "</head>" in c:
+            if "</head>" in c and GA4_SNIPPET not in c:
+                c = GA4_OLD_RE.sub("", c)
                 c = c.replace("</head>", GA4_SNIPPET + "</head>", 1)
                 changed = True
             if "clarity.ms" not in c and "</head>" in c:
