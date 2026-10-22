@@ -11,6 +11,17 @@ import os
 import re
 import shutil
 
+GA4_ID = "G-3FY3DTNN21"
+GA4_SNIPPET = f"""  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id={GA4_ID}"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){{dataLayer.push(arguments);}}
+    gtag('js', new Date());
+    gtag('config', '{GA4_ID}');
+  </script>
+"""
+
 CLARITY_SNIPPET = """  <!-- Microsoft Clarity -->
   <script type="text/javascript">
     (function(c,l,a,r,i,t,y){
@@ -105,6 +116,9 @@ def run_seo_post_build():
             full = os.path.join(r, f)
             c = open(full, encoding="utf-8", errors="ignore").read()
             changed = False
+            if GA4_ID not in c and "</head>" in c:
+                c = c.replace("</head>", GA4_SNIPPET + "</head>", 1)
+                changed = True
             if "clarity.ms" not in c and "</head>" in c:
                 c = c.replace("</head>", CLARITY_SNIPPET + "</head>", 1)
                 changed = True
