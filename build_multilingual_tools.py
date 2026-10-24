@@ -1100,7 +1100,7 @@ def build_americana_page(lang):
 
     # Footer
     footer_block = get_tool_footer(lang)
-    html = re.sub(r'<!-- FOOTER INFERIOR.*?</footer>', footer_block, html, flags=re.DOTALL)
+    html = re.sub(r'<!-- FOOTER.*?</footer>', footer_block, html, flags=re.DOTALL)
 
     return html
 
@@ -1190,7 +1190,7 @@ def build_cuadros_page(lang):
 
     # Footer
     footer_block = get_tool_footer(lang)
-    html = re.sub(r'<!-- FOOTER INFERIOR.*?</footer>', footer_block, html, flags=re.DOTALL)
+    html = re.sub(r'<!-- FOOTER.*?</footer>', footer_block, html, flags=re.DOTALL)
 
     return html
 
