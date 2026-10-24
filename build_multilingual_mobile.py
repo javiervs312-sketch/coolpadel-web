@@ -120,7 +120,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
 
     # Pre-calcular JSON de traducciones para inyectar en JS
 
-    translations_json = json.dumps(TRANSLATIONS, ensure_ascii=False)
+    translations_json = json.dumps({active_lang: t}, ensure_ascii=False)
 
 
 
@@ -1909,16 +1909,16 @@ def get_base_html(active_lang="es", is_subfolder=False):
 
           <!-- MENÚ DESPLEGABLE FLOTANTE -->
           <div id="lang-dropdown-menu" class="hidden absolute right-0 mt-2 w-24 bg-white rounded-2xl shadow-[0_12px_30px_rgba(0,0,0,0.15)] border border-slate-200 py-1.5 z-50 transition-all overflow-hidden">
-            <a href="/" onclick="switchLanguage('es')" data-lang-opt="es" class="lang-opt block {'lang-opt-active' if active_lang=='es' else 'text-slate-700 hover:bg-[#f2920b] hover:text-slate-950 font-bold'} w-full text-center px-4 py-2 text-xs transition duration-150">
+            <a href="/" data-lang-opt="es" class="lang-opt block {'lang-opt-active' if active_lang=='es' else 'text-slate-700 hover:bg-[#f2920b] hover:text-slate-950 font-bold'} w-full text-center px-4 py-2 text-xs transition duration-150">
               ES
             </a>
-            <a href="/en/" onclick="switchLanguage('en')" data-lang-opt="en" class="lang-opt block {'lang-opt-active' if active_lang=='en' else 'text-slate-700 hover:bg-[#f2920b] hover:text-slate-950 font-bold'} w-full text-center px-4 py-2 text-xs transition duration-150">
+            <a href="/en/" data-lang-opt="en" class="lang-opt block {'lang-opt-active' if active_lang=='en' else 'text-slate-700 hover:bg-[#f2920b] hover:text-slate-950 font-bold'} w-full text-center px-4 py-2 text-xs transition duration-150">
               EN
             </a>
-            <a href="/fr/" onclick="switchLanguage('fr')" data-lang-opt="fr" class="lang-opt block {'lang-opt-active' if active_lang=='fr' else 'text-slate-700 hover:bg-[#f2920b] hover:text-slate-950 font-bold'} w-full text-center px-4 py-2 text-xs transition duration-150">
+            <a href="/fr/" data-lang-opt="fr" class="lang-opt block {'lang-opt-active' if active_lang=='fr' else 'text-slate-700 hover:bg-[#f2920b] hover:text-slate-950 font-bold'} w-full text-center px-4 py-2 text-xs transition duration-150">
               FR
             </a>
-            <a href="/it/" onclick="switchLanguage('it')" data-lang-opt="it" class="lang-opt block {'lang-opt-active' if active_lang=='it' else 'text-slate-700 hover:bg-[#f2920b] hover:text-slate-950 font-bold'} w-full text-center px-4 py-2 text-xs transition duration-150">
+            <a href="/it/" data-lang-opt="it" class="lang-opt block {'lang-opt-active' if active_lang=='it' else 'text-slate-700 hover:bg-[#f2920b] hover:text-slate-950 font-bold'} w-full text-center px-4 py-2 text-xs transition duration-150">
               IT
             </a>
           </div>

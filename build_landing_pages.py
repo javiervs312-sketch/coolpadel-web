@@ -1203,7 +1203,9 @@ def render_landing(landing, lang="es"):
         "sku": "SMP-COURT-CAM-2026",
         "brand": {{
           "@type": "Brand",
-          "name": "Save my Play"
+          "name": "Save my Play",
+          "url": "https://savemyplay.com",
+          "sameAs": "https://savemyplay.com"
         }},
         "offers": [
           {{
