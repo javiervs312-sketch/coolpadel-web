@@ -171,7 +171,7 @@ def run_seo_post_build():
     # 5. Mark internal drafts, private sales letters & redirect stubs with noindex, nofollow
     for fn in [
         "propuesta-2.html", "propuesta-3.html", "manual-marca.html",
-        "camaras/index.html", "en/camaras/index.html", "fr/camaras/index.html", "it/camaras/index.html",
+
         "camaras.html", "camaras/articulo_camaras_club.html", "si-estas-pensando-en-poner-camaras-en-el-club.html", "404.html"
     ]:
         fp = os.path.join(web_dir, fn)

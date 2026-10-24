@@ -187,6 +187,11 @@ def build_roi_page(lang):
   <link rel="alternate" hreflang="x-default" href="https://coolpadelstudios.com/herramientas/{slug}/">
   <meta name="language" content="{lang}">
 
+  <!-- LLM & AI Discovery -->
+  <link rel="alternate" type="text/markdown" href="https://coolpadelstudios.com/llms.txt" title="LLMs.txt">
+  <link rel="alternate" type="text/markdown" href="https://coolpadelstudios.com/llms-full.txt" title="LLMs-Full.txt">
+
+
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Save my Play & CoolPadel Studios">
@@ -581,6 +586,11 @@ def build_costes_page(lang):
   <link rel="alternate" hreflang="x-default" href="https://coolpadelstudios.com/herramientas/{slug}/">
   <meta name="language" content="{lang}">
 
+  <!-- LLM & AI Discovery -->
+  <link rel="alternate" type="text/markdown" href="https://coolpadelstudios.com/llms.txt" title="LLMs.txt">
+  <link rel="alternate" type="text/markdown" href="https://coolpadelstudios.com/llms-full.txt" title="LLMs-Full.txt">
+
+
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="CoolPadel Studios & Save my Play">
@@ -940,7 +950,12 @@ def build_americana_page(lang):
   <link rel="alternate" hreflang="fr" href="https://coolpadelstudios.com/fr/herramientas/{slug}/">
   <link rel="alternate" hreflang="it" href="https://coolpadelstudios.com/it/herramientas/{slug}/">
   <link rel="alternate" hreflang="x-default" href="https://coolpadelstudios.com/herramientas/{slug}/">
-  <meta name="language" content="{lang}">"""
+  <meta name="language" content="{lang}">
+
+  <!-- LLM & AI Discovery -->
+  <link rel="alternate" type="text/markdown" href="https://coolpadelstudios.com/llms.txt" title="LLMs.txt">
+  <link rel="alternate" type="text/markdown" href="https://coolpadelstudios.com/llms-full.txt" title="LLMs-Full.txt">
+"""
 
     import re
     html = re.sub(r'<link rel="canonical"[^>]*>', hreflangs, html)
@@ -1029,7 +1044,12 @@ def build_cuadros_page(lang):
   <link rel="alternate" hreflang="fr" href="https://coolpadelstudios.com/fr/herramientas/{slug}/">
   <link rel="alternate" hreflang="it" href="https://coolpadelstudios.com/it/herramientas/{slug}/">
   <link rel="alternate" hreflang="x-default" href="https://coolpadelstudios.com/herramientas/{slug}/">
-  <meta name="language" content="{lang}">"""
+  <meta name="language" content="{lang}">
+
+  <!-- LLM & AI Discovery -->
+  <link rel="alternate" type="text/markdown" href="https://coolpadelstudios.com/llms.txt" title="LLMs.txt">
+  <link rel="alternate" type="text/markdown" href="https://coolpadelstudios.com/llms-full.txt" title="LLMs-Full.txt">
+"""
 
     import re
     html = re.sub(r'<link rel="canonical"[^>]*>', hreflangs, html)

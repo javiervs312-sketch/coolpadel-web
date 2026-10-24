@@ -249,6 +249,11 @@ def render_html(lang="es"):
   <link rel="alternate" hreflang="x-default" href="https://coolpadelstudios.com/franquicias-padel/">
   <meta name="language" content="{lang}">
 
+  <!-- LLM & AI Discovery -->
+  <link rel="alternate" type="text/markdown" href="https://coolpadelstudios.com/llms.txt" title="LLMs.txt">
+  <link rel="alternate" type="text/markdown" href="https://coolpadelstudios.com/llms-full.txt" title="LLMs-Full.txt">
+
+
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="{asset_prefix}assets/images/coolpadel-mascot-hd.png">
 

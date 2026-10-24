@@ -76,7 +76,10 @@ def generate_sitemap():
     # 1. Home (4 idiomas 100% traducidos)
     all_blocks.extend(get_cluster_xml("/", "/en/", "/fr/", "/it/", priority="1.0", changefreq="daily"))
 
-    # 2. 11 B2B Landings Transaccionales (44 páginas 100% traducidas)
+    # 2. Cámaras Core Landing (4 idiomas 100% traducidos)
+    all_blocks.extend(get_cluster_xml("/camaras/", "/en/camaras/", "/fr/camaras/", "/it/camaras/", priority="0.95", changefreq="weekly"))
+
+    # 3. 11 B2B Landings Transaccionales (44 páginas 100% traducidas)
     for slug in LANDING_SLUGS:
         priority = "0.95" if ("camaras" in slug or "save-my-play" in slug or "llaveros-padel" in slug) else "0.90"
         all_blocks.extend(get_cluster_xml(
