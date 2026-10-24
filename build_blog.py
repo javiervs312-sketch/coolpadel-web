@@ -423,7 +423,7 @@ def generate_blog_index():
         "@type": "ItemList",
         "name": "Guías e Informes de la Industria del Pádel - CoolPadel Studios",
         "description": "Directorio completo de guías de rentabilidad, tecnología de grabación, smart courts, organización de americanas, coste de pistas, welcome packs y análisis de mercado para clubes de pádel.",
-        "numberOfItems": 17,
+        "numberOfItems": 22,
         "itemListElement": [
           {{
             "@type": "ListItem",
@@ -922,7 +922,7 @@ def generate_blog_index():
 
                 <div class="space-y-1">
                   <div class="flex items-center gap-1.5 text-[10px] font-bold text-slate-400">
-                    <span>Octubre 2026</span>
+                    <span>Agosto 2025</span>
                     <span>•</span>
                     <span>Lectura 8 min</span>
                   </div>
@@ -959,7 +959,7 @@ def generate_blog_index():
 
                 <div class="space-y-1">
                   <div class="flex items-center gap-1.5 text-[10px] font-bold text-slate-400">
-                    <span>Octubre 2026</span>
+                    <span>Febrero 2025</span>
                     <span>•</span>
                     <span>Lectura 9 min</span>
                   </div>
@@ -996,7 +996,7 @@ def generate_blog_index():
 
                 <div class="space-y-1">
                   <div class="flex items-center gap-1.5 text-[10px] font-bold text-slate-400">
-                    <span>Octubre 2026</span>
+                    <span>Diciembre 2025</span>
                     <span>•</span>
                     <span>Lectura 6 min</span>
                   </div>
@@ -1037,7 +1037,7 @@ def generate_blog_index():
 
                 <div class="space-y-1">
                   <div class="flex items-center gap-1.5 text-[10px] font-bold text-slate-400">
-                    <span>Octubre 2026</span>
+                    <span>Septiembre 2026</span>
                     <span>•</span>
                     <span>Lectura 7 min</span>
                   </div>
@@ -1074,7 +1074,7 @@ def generate_blog_index():
 
                 <div class="space-y-1">
                   <div class="flex items-center gap-1.5 text-[10px] font-bold text-slate-400">
-                    <span>Octubre 2026</span>
+                    <span>Mayo 2026</span>
                     <span>•</span>
                     <span>Lectura 5 min</span>
                   </div>
@@ -1111,7 +1111,7 @@ def generate_blog_index():
 
                 <div class="space-y-1">
                   <div class="flex items-center gap-1.5 text-[10px] font-bold text-slate-400">
-                    <span>Octubre 2026</span>
+                    <span>Octubre 2025</span>
                     <span>•</span>
                     <span>Lectura 4 min</span>
                   </div>
@@ -1148,7 +1148,7 @@ def generate_blog_index():
 
                 <div class="space-y-1">
                   <div class="flex items-center gap-1.5 text-[10px] font-bold text-slate-400">
-                    <span>Octubre 2026</span>
+                    <span>Noviembre 2025</span>
                     <span>•</span>
                     <span>Lectura 5 min</span>
                   </div>
@@ -1185,7 +1185,7 @@ def generate_blog_index():
 
                 <div class="space-y-1">
                   <div class="flex items-center gap-1.5 text-[10px] font-bold text-slate-400">
-                    <span>Octubre 2026</span>
+                    <span>Diciembre 2024</span>
                     <span>•</span>
                     <span>Lectura 4 min</span>
                   </div>
@@ -1222,7 +1222,7 @@ def generate_blog_index():
 
                 <div class="space-y-1">
                   <div class="flex items-center gap-1.5 text-[10px] font-bold text-slate-400">
-                    <span>Octubre 2026</span>
+                    <span>Marzo 2025</span>
                     <span>•</span>
                     <span>Lectura 5 min</span>
                   </div>
@@ -1259,7 +1259,7 @@ def generate_blog_index():
 
                 <div class="space-y-1">
                   <div class="flex items-center gap-1.5 text-[10px] font-bold text-slate-400">
-                    <span>Octubre 2026</span>
+                    <span>Febrero 2026</span>
                     <span>•</span>
                     <span>Lectura 5 min</span>
                   </div>
@@ -1296,7 +1296,7 @@ def generate_blog_index():
 
                 <div class="space-y-1">
                   <div class="flex items-center gap-1.5 text-[10px] font-bold text-slate-400">
-                    <span>Octubre 2026</span>
+                    <span>Junio 2025</span>
                     <span>•</span>
                     <span>Lectura 6 min</span>
                   </div>
@@ -1333,7 +1333,7 @@ def generate_blog_index():
 
                 <div class="space-y-1">
                   <div class="flex items-center gap-1.5 text-[10px] font-bold text-slate-400">
-                    <span>Octubre 2026</span>
+                    <span>Mayo 2025</span>
                     <span>•</span>
                     <span>Lectura 5 min</span>
                   </div>
@@ -1355,7 +1355,193 @@ def generate_blog_index():
                   </div>
                 </a>
               </div>
+            
+            <!-- NUEVA GUÍA: EXPANSIÓN PÁDEL ESTADOS UNIDOS -->
+            <div class="bg-white border-2 border-[#3478a6]/30 rounded-2xl p-4 sm:p-5 shadow-2xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between group hover:-translate-y-0.5">
+              <div class="space-y-3">
+                <div class="aspect-[16/10] rounded-xl overflow-hidden bg-slate-900 border border-slate-200/90 shadow-2xs relative">
+                  <img src="../assets/images/gallery-padel-1.jpg" alt="La Expansión del Pádel en Estados Unidos: Radiografía 2026" width="600" height="375" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
+                  <span class="absolute bottom-2 left-2 text-[9px] font-black uppercase tracking-wider px-2 py-0.5 rounded-full bg-[#3478a6] text-white shadow-xs">
+                    Mercado USA &amp; Crecimiento
+                  </span>
+                </div>
+
+                <div class="space-y-1">
+                  <div class="flex items-center gap-1.5 text-[10px] font-bold text-slate-400">
+                    <span>Julio 2026</span>
+                    <span>•</span>
+                    <span>Lectura 8 min</span>
+                  </div>
+                  <h3 class="font-heading font-black text-sm sm:text-base text-slate-950 leading-snug group-hover:text-[#f2920b] transition">
+                    La Expansión del Pádel en Estados Unidos: Radiografía 2026, Retos y Oportunidades
+                  </h3>
+                  <p class="text-xs text-slate-600 font-medium leading-relaxed line-clamp-2">
+                    Datos reales de +1.112 pistas en 38 estados, tarifas de $80-$100/h, barreras climáticas y lecciones para marcas y operadores.
+                  </p>
+                </div>
+              </div>
+
+              <div class="pt-3.5 border-t border-slate-100 mt-4">
+                <a href="./expansion-padel-estados-unidos-oportunidad-clubes-marcas/"
+                   class="group relative w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-full bg-slate-900 hover:bg-[#f2920b] text-white hover:text-slate-950 active:scale-95 font-heading font-black text-xs uppercase tracking-wider transition-all duration-300 shadow-2xs">
+                  <span>Leer Informe USA</span>
+                  <div class="w-4 h-4 rounded-full bg-white/20 group-hover:bg-slate-950/20 flex items-center justify-center transition-all duration-300">
+                    <i data-lucide="arrow-right" class="w-3 h-3 stroke-[3] group-hover:translate-x-0.5 transition-transform duration-300"></i>
+                  </div>
+                </a>
+              </div>
             </div>
+
+            <!-- NUEVA GUÍA: PROCESO ARTESANAL LLAVEROS 3D -->
+            <div class="bg-white border-2 border-[#f2920b]/30 rounded-2xl p-4 sm:p-5 shadow-2xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between group hover:-translate-y-0.5">
+              <div class="space-y-3">
+                <div class="aspect-[16/10] rounded-xl overflow-hidden bg-slate-900 border border-slate-200/90 shadow-2xs relative">
+                  <img src="../assets/images/llaveros-corazon-pista.jpg" alt="Proceso Artesanal de Fabricación de Llaveros 3D de Pádel" width="600" height="375" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
+                  <span class="absolute bottom-2 left-2 text-[9px] font-black uppercase tracking-wider px-2 py-0.5 rounded-full bg-[#f2920b] text-slate-950 shadow-xs">
+                    Artesanía 3D &amp; Identidad
+                  </span>
+                </div>
+
+                <div class="space-y-1">
+                  <div class="flex items-center gap-1.5 text-[10px] font-bold text-slate-400">
+                    <span>Noviembre 2024</span>
+                    <span>•</span>
+                    <span>Lectura 6 min</span>
+                  </div>
+                  <h3 class="font-heading font-black text-sm sm:text-base text-slate-950 leading-snug group-hover:text-[#f2920b] transition">
+                    Por Qué Huir del Merchandising Plano: El Proceso Artesanal del Siglo XXI en Goma 3D
+                  </h3>
+                  <p class="text-xs text-slate-600 font-medium leading-relaxed line-clamp-2">
+                    Frente al producto plano de catálogo: cómo creamos un llavero en relieve, con colores Pantone reales y detalles que unen a tu comunidad.
+                  </p>
+                </div>
+              </div>
+
+              <div class="pt-3.5 border-t border-slate-100 mt-4">
+                <a href="./proceso-artesanal-fabricacion-llaveros-3d-personalizados-clubs/"
+                   class="group relative w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-full bg-slate-900 hover:bg-[#f2920b] text-white hover:text-slate-950 active:scale-95 font-heading font-black text-xs uppercase tracking-wider transition-all duration-300 shadow-2xs">
+                  <span>Descubrir Proceso 3D</span>
+                  <div class="w-4 h-4 rounded-full bg-white/20 group-hover:bg-slate-950/20 flex items-center justify-center transition-all duration-300">
+                    <i data-lucide="arrow-right" class="w-3 h-3 stroke-[3] group-hover:translate-x-0.5 transition-transform duration-300"></i>
+                  </div>
+                </a>
+              </div>
+            </div>
+
+            <!-- NUEVA GUÍA: PICKLEBALL VS PÁDEL -->
+            <div class="bg-white border border-slate-200/90 rounded-2xl p-4 sm:p-5 shadow-2xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between group hover:-translate-y-0.5">
+              <div class="space-y-3">
+                <div class="aspect-[16/10] rounded-xl overflow-hidden bg-slate-900 border border-slate-200/90 shadow-2xs relative">
+                  <img src="../assets/images/gallery-padel-3.jpg" alt="Pickleball vs Pádel en Clubes de Raqueta" width="600" height="375" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
+                  <span class="absolute bottom-2 left-2 text-[9px] font-black uppercase tracking-wider px-2 py-0.5 rounded-full bg-[#f2920b] text-slate-950 shadow-xs">
+                    Estrategia Multirraqueta
+                  </span>
+                </div>
+
+                <div class="space-y-1">
+                  <div class="flex items-center gap-1.5 text-[10px] font-bold text-slate-400">
+                    <span>Abril 2025</span>
+                    <span>•</span>
+                    <span>Lectura 7 min</span>
+                  </div>
+                  <h3 class="font-heading font-black text-sm sm:text-base text-slate-950 leading-snug group-hover:text-[#f2920b] transition">
+                    Pickleball vs Pádel en Clubes de Raqueta: ¿Enemigos o Aliados Estratégicos?
+                  </h3>
+                  <p class="text-xs text-slate-600 font-medium leading-relaxed line-clamp-2">
+                    El 43,9% de complejos multideporte en EE.UU. ya ofrecen ambos. Cómo crear el jugador híbrido y rentabilizar cada metro cuadrado.
+                  </p>
+                </div>
+              </div>
+
+              <div class="pt-3.5 border-t border-slate-100 mt-4">
+                <a href="./pickleball-vs-padel-oportunidad-o-amenaza-clubs/"
+                   class="group relative w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-full bg-slate-900 hover:bg-[#f2920b] text-white hover:text-slate-950 active:scale-95 font-heading font-black text-xs uppercase tracking-wider transition-all duration-300 shadow-2xs">
+                  <span>Leer Comparativa</span>
+                  <div class="w-4 h-4 rounded-full bg-white/20 group-hover:bg-slate-950/20 flex items-center justify-center transition-all duration-300">
+                    <i data-lucide="arrow-right" class="w-3 h-3 stroke-[3] group-hover:translate-x-0.5 transition-transform duration-300"></i>
+                  </div>
+                </a>
+              </div>
+            </div>
+
+            <!-- NUEVA GUÍA: MODELO CLUB AMERICANO Y PADEL LIFESTYLE -->
+            <div class="bg-white border border-slate-200/90 rounded-2xl p-4 sm:p-5 shadow-2xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between group hover:-translate-y-0.5">
+              <div class="space-y-3">
+                <div class="aspect-[16/10] rounded-xl overflow-hidden bg-slate-900 border border-slate-200/90 shadow-2xs relative">
+                  <img src="../assets/images/foto-reportaje.jpg" alt="Del Alquiler de Pistas al Padel Lifestyle: El Modelo de Club Americano" width="600" height="375" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
+                  <span class="absolute bottom-2 left-2 text-[9px] font-black uppercase tracking-wider px-2 py-0.5 rounded-full bg-[#f2920b] text-slate-950 shadow-xs">
+                    Gestión &amp; Padel Lifestyle
+                  </span>
+                </div>
+
+                <div class="space-y-1">
+                  <div class="flex items-center gap-1.5 text-[10px] font-bold text-slate-400">
+                    <span>Abril 2026</span>
+                    <span>•</span>
+                    <span>Lectura 7 min</span>
+                  </div>
+                  <h3 class="font-heading font-black text-sm sm:text-base text-slate-950 leading-snug group-hover:text-[#f2920b] transition">
+                    Del Alquiler de Pistas al Padel Lifestyle: El Modelo de Club Americano y Bienestar
+                  </h3>
+                  <p class="text-xs text-slate-600 font-medium leading-relaxed line-clamp-2">
+                    Coworking, cafetería saludable, recuperación deportiva y sinergias de lujo: la fórmula para llenar horas valle y retener abonados.
+                  </p>
+                </div>
+              </div>
+
+              <div class="pt-3.5 border-t border-slate-100 mt-4">
+                <a href="./modelos-club-padel-americano-lifestyle-servicios-adicionales/"
+                   class="group relative w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-full bg-slate-900 hover:bg-[#f2920b] text-white hover:text-slate-950 active:scale-95 font-heading font-black text-xs uppercase tracking-wider transition-all duration-300 shadow-2xs">
+                  <span>Ver Modelo Lifestyle</span>
+                  <div class="w-4 h-4 rounded-full bg-white/20 group-hover:bg-slate-950/20 flex items-center justify-center transition-all duration-300">
+                    <i data-lucide="arrow-right" class="w-3 h-3 stroke-[3] group-hover:translate-x-0.5 transition-transform duration-300"></i>
+                  </div>
+                </a>
+              </div>
+            </div>
+
+            <!-- NUEVA GUÍA: GUÍA STAND EN FERIAS -->
+            <div class="bg-white border border-slate-200/90 rounded-2xl p-4 sm:p-5 shadow-2xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between group hover:-translate-y-0.5">
+              <div class="space-y-3">
+                <div class="aspect-[16/10] rounded-xl overflow-hidden bg-slate-900 border border-slate-200/90 shadow-2xs relative">
+                  <img src="../assets/images/slide-1.jpg" alt="Guía de Rentabilidad para Stands en Ferias de Pádel" width="600" height="375" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
+                  <span class="absolute bottom-2 left-2 text-[9px] font-black uppercase tracking-wider px-2 py-0.5 rounded-full bg-[#f2920b] text-slate-950 shadow-xs">
+                    Ferias B2B &amp; ROI
+                  </span>
+                </div>
+
+                <div class="space-y-1">
+                  <div class="flex items-center gap-1.5 text-[10px] font-bold text-slate-400">
+                    <span>Julio 2025</span>
+                    <span>•</span>
+                    <span>Lectura 8 min</span>
+                  </div>
+                  <h3 class="font-heading font-black text-sm sm:text-base text-slate-950 leading-snug group-hover:text-[#f2920b] transition">
+                    ¿Merece la Pena un Stand en Ferias de Pádel? Guía de Rentabilidad para el PWS y RacquetX
+                  </h3>
+                  <p class="text-xs text-slate-600 font-medium leading-relaxed line-clamp-2">
+                    De 3.000 € a más de 10.000 € en 3 días: qué stands atraen decisores, errores de diseño 'fuerte romano' y cómo rentabilizar tu espacio.
+                  </p>
+                </div>
+              </div>
+
+              <div class="pt-3.5 border-t border-slate-100 mt-4">
+                <a href="./como-acertar-stand-feria-padel-pws-racquetx-roi/"
+                   class="group relative w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-full bg-slate-900 hover:bg-[#f2920b] text-white hover:text-slate-950 active:scale-95 font-heading font-black text-xs uppercase tracking-wider transition-all duration-300 shadow-2xs">
+                  <span>Leer Guía de Ferias</span>
+                  <div class="w-4 h-4 rounded-full bg-white/20 group-hover:bg-slate-950/20 flex items-center justify-center transition-all duration-300">
+                    <i data-lucide="arrow-right" class="w-3 h-3 stroke-[3] group-hover:translate-x-0.5 transition-transform duration-300"></i>
+                  </div>
+                </a>
+              </div>
+            </div>
+
+</div>
 
 
 
@@ -2653,8 +2839,8 @@ def generate_all():
         title="¿Cuánto cuesta instalar cámaras en una pista de pádel y cómo se amortizan? [Precios y ROI 2026]",
         subtitle="Desglose real de inversión (hardware de 180 € y 45 €/mes) y los 3 modelos para generar ingresos con la grabación de partidos en tu club.",
         meta_desc="Coste de cámaras en pistas de pádel (180 € hardware, 45 €/mes) y los 3 modelos probados para amortizar la inversión en menos de 90 días.",
-        date_str="Octubre 2026",
-        date_iso="2026-10-15",
+        date_str="Mayo 2026",
+        date_iso="2026-10-22",
         read_time="Lectura 5 min",
         cover_img="savemyplay-1.jpg",
         content_html=content_camaras_rentabilidad,
@@ -2770,8 +2956,8 @@ def generate_all():
         title="Welcome Pack para Torneos de Pádel: 10 Ideas de Regalos que los Jugadores No Tiran [Checklist PDF]",
         subtitle="Por qué las camisetas genéricas acaban en el fondo del cajón y cómo los llaveros de pala a escala 3D autofinanciados por patrocinadores multiplican el recuerdo de marca.",
         meta_desc="Welcome packs para torneos de pádel: ideas rentables por menos de 5 €, alternativas a la camiseta y cómo financiar el 100% del coste con sponsors.",
-        date_str="Octubre 2026",
-        date_iso="2026-10-14",
+        date_str="Octubre 2025",
+        date_iso="2025-10-18",
         read_time="Lectura 4 min",
         cover_img="llaveros-1.jpg",
         content_html=content_welcome_pack,
@@ -3080,8 +3266,8 @@ def generate_all():
         title="Los 9 Mejores Sistemas de Cámaras con IA para Pistas de Pádel en 2026: Comparativa de Precios, Grabación y ROI",
         subtitle="Análisis técnico independiente y comparativa de mercado: Save My Play, PUSHIT, MATCHi TV, Wingfield, PlaySight, Clutch, GameCam y PadX. Costes reales de instalación, cuotas mensuales públicas, fricción para el jugador y cumplimiento RGPD.",
         meta_desc="Comparativa 2026 de cámaras con IA para pistas de pádel: Save My Play, PUSHIT, MATCHi TV, Wingfield, PlaySight y GameCam. Precios, hardware y ROI.",
-        date_str="Octubre 2026",
-        date_iso="2026-10-17",
+        date_str="Noviembre 2025",
+        date_iso="2025-11-22",
         read_time="Lectura 7 min",
         cover_img="savemyplay-2.jpg",
         content_html=content_camaras_comparativa,
@@ -3228,8 +3414,8 @@ def generate_all():
         title="Regalos para eventos de pádel, torneos sociales y cenas de socios [Detalles de Club]",
         subtitle="Por qué los trofeos convencionales y el vino no crean comunidad y cómo los llaveros de pala 3D personalizados se convierten en el símbolo de pertenencia de tus abonados.",
         meta_desc="Ideas de regalos para eventos de pádel, cenas de socios y aniversarios de club. Guía sobre el impacto y utilidad de los llaveros de pala en 3D.",
-        date_str="Octubre 2026",
-        date_iso="2026-10-15",
+        date_str="Diciembre 2024",
+        date_iso="2024-12-18",
         read_time="Lectura 4 min",
         cover_img="llaveros-2.jpg",
         content_html=content_eventos_cenas,
@@ -3365,8 +3551,8 @@ def generate_all():
         title="Cómo vender llaveros en la pro-shop de tu club: producto de impulso con +60% de margen [Simulador]",
         subtitle="Evita el stock muerto de palas y ropa cara: coste desde 1,50 €, PVP recomendado de 5 € a 6 € y rotación constante junto al mostrador de pago.",
         meta_desc="Guía para rentabilizar la pro-shop de tu club de pádel vendiendo llaveros personalizados de pala 3D. Márgenes de beneficio y precios de venta.",
-        date_str="Octubre 2026",
-        date_iso="2026-10-16",
+        date_str="Marzo 2025",
+        date_iso="2025-03-20",
         read_time="Lectura 5 min",
         cover_img="gallery-padel-3.jpg",
         content_html=content_tienda_proshop,
@@ -3452,8 +3638,8 @@ def generate_all():
         title="Política de regalos en ferias y torneos de pádel: Qué regalar y errores costosos [Guía B2B]",
         subtitle="Analizamos los errores de más de 120 stands en ferias como PWS y RacquetX: cómo invertir tu presupuesto de merchandising en recuerdos de alto valor percibido que tus clientes no tiren a la basura.",
         meta_desc="Estrategia de regalos promocionales para marcas en torneos y ferias de pádel. Evita errores costosos y maximiza el recuerdo de marca.",
-        date_str="Octubre 2026",
-        date_iso="2026-10-16",
+        date_str="Febrero 2026",
+        date_iso="2026-02-24",
         read_time="Lectura 5 min",
         cover_img="foto-reportaje.jpg",
         content_html=content_merch_ferias,
@@ -3546,8 +3732,8 @@ def generate_all():
         title="Cómo retransmitir torneos de pádel en directo por YouTube sin operadores [Streaming Full HD]",
         subtitle="Emisión Full HD automatizada a 4 metros de altura, marcador digital e inserción de patrocinadores locales: la guía para profesionalizar las finales de tu club sin arruinarte.",
         meta_desc="Cómo retransmitir partidos y torneos de pádel en YouTube Live desde tu club. Sistema autónomo Save my Play sin operadores ni unidades móviles.",
-        date_str="Octubre 2026",
-        date_iso="2026-10-16",
+        date_str="Junio 2025",
+        date_iso="2025-06-19",
         read_time="Lectura 6 min",
         cover_img="savemyplay-3.jpg",
         content_html=content_streaming_camaras,
@@ -3628,8 +3814,8 @@ def generate_all():
         title="Pistas de Pádel Inteligentes (Smart Courts): Cómo llenar horas valle de 10:00 a 17:00 [Protocolo PDF]",
         subtitle="Los 4 pilares tecnológicos que reducen costes operativos y transforman una pista convencional en un centro de experiencia deportiva para clases y torneos.",
         meta_desc="Cómo una pista inteligente (Smart Court) reduce costes operativos y llena horas valle en tu club de pádel mediante domótica y vídeo en pista.",
-        date_str="Octubre 2026",
-        date_iso="2026-10-16",
+        date_str="Mayo 2025",
+        date_iso="2025-05-22",
         read_time="Lectura 5 min",
         cover_img="savemyplay-2.jpg",
         content_html=content_smart_courts,
@@ -3976,8 +4162,8 @@ def generate_all():
         title="15 Regalos de Pádel Originales y Baratos para Jugadores, Clubs y Torneos (2026)",
         subtitle="De detalles por menos de 3 € (llaveros de pala en 3D con logo) a accesorios útiles para el paletero y welcome packs que los participantes no tiran a la basura.",
         meta_desc="15 ideas originales y baratas de regalos de pádel por menos de 3€, 5€ y 10€ para torneos, jugadores y socios de club. Precios y comparativa 2026.",
-        date_str="Octubre 2026",
-        date_iso="2026-10-19",
+        date_str="Diciembre 2025",
+        date_iso="2025-12-15",
         read_time="Lectura 6 min",
         cover_img="llaveros-1.jpg",
         content_html=content_regalos_padel,
@@ -4281,8 +4467,8 @@ def generate_all():
         title="Normativa RGPD para Cámaras en Pistas de Pádel: Guía Legal 2026 para Clubes",
         subtitle="Cartelería obligatoria en pista, consentimiento informado, streaming y grabación de menores: cómo instalar cámaras de vídeo sin riesgo de multas de la AEPD.",
         meta_desc="Guía legal RGPD 2026 para instalar cámaras en pistas de pádel: cartelería homologada, menores, streaming y cómo evitar sanciones de la AEPD en tu club.",
-        date_str="Octubre 2026",
-        date_iso="2026-10-20",
+        date_str="Septiembre 2026",
+        date_iso="2026-09-10",
         read_time="Lectura 7 min",
         cover_img="savemyplay-1.jpg",
         content_html=content_normativa_rgpd,
@@ -4291,7 +4477,94 @@ def generate_all():
     )
 
 
-generate_blog_html = generate_all
+
+    # -------------------------------------------------------------
+    # 5 NUEVOS ARTÍCULOS ESTRATÉGICOS (CONTENIDO EXTENSO Y CITAS)
+    # -------------------------------------------------------------
+    from new_articles_data import (
+        CONTENT_USA_EXPANSION, FAQS_USA_EXPANSION,
+        CONTENT_ARTESANIA_LLAVEROS, FAQS_ARTESANIA_LLAVEROS,
+        CONTENT_PICKLEBALL_VS_PADEL, FAQS_PICKLEBALL_VS_PADEL,
+        CONTENT_CLUB_LIFESTYLE, FAQS_CLUB_LIFESTYLE,
+        CONTENT_STAND_FERIAS, FAQS_STAND_FERIAS
+    )
+
+    generate_guide_page(
+        slug="expansion-padel-estados-unidos-oportunidad-clubes-marcas",
+        category_badge="Mercado USA & Crecimiento",
+        title="La Expansión del Pádel en Estados Unidos: Radiografía 2026, Retos y Oportunidades",
+        subtitle="Análisis profundo del mercado estadounidense (+1.112 pistas en 38 estados): modelo premium, barreras climáticas, costes y desembarco para marcas europeas.",
+        meta_desc="Radiografía del pádel en EE.UU. 2026: censo de 1.112 pistas, tarifas de $80-$100/h, reto inmobiliario y claves para clubes y marcas.",
+        date_str="Julio 2026",
+        date_iso="2026-07-14",
+        read_time="Lectura 8 min",
+        cover_img="gallery-padel-1.jpg",
+        content_html=CONTENT_USA_EXPANSION,
+        faqs=FAQS_USA_EXPANSION,
+        cta_type="camaras"
+    )
+
+    generate_guide_page(
+        slug="proceso-artesanal-fabricacion-llaveros-3d-personalizados-clubs",
+        category_badge="Artesanía 3D & Identidad",
+        title="Por Qué Huir del Merchandising Plano: El Proceso Artesanal del Siglo XXI en Goma 3D",
+        subtitle="Frente al regalo plano e impersonal: molde CNC a medida, inyección manual por capas con colores Pantone oficiales y un detalle duradero que une a tu comunidad.",
+        meta_desc="Por qué no regalar merchandising plano: proceso de fabricación de llaveros de pádel 3D en goma inyectada con colores y logo oficial para clubes.",
+        date_str="Noviembre 2024",
+        date_iso="2024-11-12",
+        read_time="Lectura 6 min",
+        cover_img="llaveros-corazon-pista.jpg",
+        content_html=CONTENT_ARTESANIA_LLAVEROS,
+        faqs=FAQS_ARTESANIA_LLAVEROS,
+        cta_type="llaveros"
+    )
+
+    generate_guide_page(
+        slug="pickleball-vs-padel-oportunidad-o-amenaza-clubs",
+        category_badge="Estrategia Multirraqueta",
+        title="Pickleball vs Pádel en Clubes de Raqueta: ¿Enemigos o Aliados Estratégicos?",
+        subtitle="El 43,9% de complejos multideporte en EE.UU. combinan ambos deportes. Cómo crear el jugador híbrido y maximizar la rentabilidad de tus instalaciones.",
+        meta_desc="Pickleball vs pádel: comparativa de rentabilidad, ticket medio y cómo utilizar el pickleball como embudo para llenar tus pistas de pádel.",
+        date_str="Abril 2025",
+        date_iso="2025-04-16",
+        read_time="Lectura 7 min",
+        cover_img="gallery-padel-3.jpg",
+        content_html=CONTENT_PICKLEBALL_VS_PADEL,
+        faqs=FAQS_PICKLEBALL_VS_PADEL,
+        cta_type="camaras"
+    )
+
+    generate_guide_page(
+        slug="modelos-club-padel-americano-lifestyle-servicios-adicionales",
+        category_badge="Gestión & Padel Lifestyle",
+        title="Del Alquiler de Pistas al Padel Lifestyle: El Modelo de Club Americano y Bienestar",
+        subtitle="Coworking, cafetería saludable, wellness de recuperación y convenios con marcas de prestigio: cómo llenar mañanas valle y elevar el ticket medio por socio.",
+        meta_desc="El modelo de club de pádel americano y padel lifestyle: servicios de coworking, recuperación física, cafetería y retención de abonados en horas valle.",
+        date_str="Abril 2026",
+        date_iso="2026-04-20",
+        read_time="Lectura 7 min",
+        cover_img="foto-reportaje.jpg",
+        content_html=CONTENT_CLUB_LIFESTYLE,
+        faqs=FAQS_CLUB_LIFESTYLE,
+        cta_type="llaveros"
+    )
+
+    generate_guide_page(
+        slug="como-acertar-stand-feria-padel-pws-racquetx-roi",
+        category_badge="Ferias B2B & ROI",
+        title="¿Merece la Pena un Stand en Ferias de Pádel? Guía de Rentabilidad para el PWS y RacquetX",
+        subtitle="De 3.000 € a más de 10.000 € en 3 días: qué stands captan clientes reales, los graves errores del diseño 'fuerte romano' y cómo rentabilizar tu inversión.",
+        meta_desc="Guía para montar un stand rentable en ferias de pádel (PWS Barcelona, RacquetX Miami): costes reales, diseño abierto y política de regalos efectiva.",
+        date_str="Julio 2025",
+        date_iso="2025-07-28",
+        read_time="Lectura 8 min",
+        cover_img="slide-1.jpg",
+        content_html=CONTENT_STAND_FERIAS,
+        faqs=FAQS_STAND_FERIAS,
+        cta_type="llaveros"
+    )
+
+    generate_blog_html = generate_all
 
 if __name__ == "__main__":
     generate_all()
