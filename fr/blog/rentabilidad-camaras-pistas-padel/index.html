@@ -213,112 +213,27 @@
 <body class="bg-white text-slate-900 min-h-screen relative selection:bg-[#f2920b] selection:text-white flex flex-col justify-between">
 
   <div>
-    <!-- NAVBAR BLANCA -->
-    <header class="sticky top-0 z-40 bg-white text-slate-900 border-b border-slate-200 shadow-sm w-full">
-      <div class="w-full max-w-[1700px] mx-auto px-3 sm:px-6 lg:px-10 py-1.5 sm:py-0 h-auto sm:h-16 lg:h-18">
-        
-        <!-- DESKTOP NAVBAR -->
-        <div class="hidden sm:grid grid-cols-[1fr_auto_1fr] items-center h-full w-full gap-2 lg:gap-4">
-          
-          <!-- COLUMNA 1 -->
-          <div class="flex items-center justify-between min-w-0 h-full">
-            <a href="../../../" class="group py-1 inline-flex items-center shrink-0">
-              <img src="../../../assets/images/eyes-thumb.png?v=fixed_eyes" alt="CoolPadel Eyes" width="24" height="24" style="height: 24px; max-height: 24px; width: auto;" class="object-contain group-hover:scale-110 transition duration-300">
-            </a>
-            <div class="flex-1 flex items-center justify-center min-w-0 gap-5 sm:gap-6 lg:gap-9 xl:gap-11 pl-2 sm:pl-4 lg:pl-6">
-              <a href="../../../#llaveros" class="font-heading font-black text-xs lg:text-[13px] tracking-wider uppercase text-slate-950 hover:text-[#f2920b] transition select-none whitespace-nowrap">
-                Llaveros
-              </a>
-              <a href="../../../camaras/" class="font-heading font-black text-xs lg:text-[13px] tracking-wider uppercase text-slate-950 hover:text-[#f2920b] transition select-none whitespace-nowrap">
-                Cámaras pistas
-              </a>
-              <a href="../../../fr/blog/" class="font-heading font-black text-xs lg:text-[13px] tracking-wider uppercase text-[#f2920b] transition select-none whitespace-nowrap border-b-2 border-[#f2920b] pb-0.5">
-                Blog
-              </a>
-            </div>
-          </div>
+    <!-- NAVBAR OFICIAL COOLPADEL -->
+    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between">
+        <a href="../../../" class="flex items-center gap-2.5">
+          <img src="../../../assets/images/coolpadel-mascot-hd.png" alt="CoolPadel Studios" class="h-9 sm:h-11 w-auto object-contain">
+          <span class="font-heading font-black text-lg sm:text-xl tracking-tight text-slate-950">CoolPadel <span class="text-[#f2920b]">Studios</span></span>
+        </a>
 
-          <!-- COLUMNA 2: LOGO -->
-          <div class="flex items-center justify-center shrink-0 px-2 lg:px-4">
-            <a href="../../../" class="flex items-center justify-center gap-2 sm:gap-3 group py-1">
-              <img src="../../../assets/images/coolpadel-mascot-hd.png" alt="Mascota CoolPadel" width="46" height="46" style="height: 46px; max-height: 46px; width: auto;" class="object-contain group-hover:scale-105 transition">
-              <img src="../../../assets/images/coolpadel-typography-hd.png" alt="CoolPadel" width="130" height="26" style="height: 26px; max-height: 26px; width: auto;" class="object-contain">
-            </a>
-          </div>
+        <nav class="hidden md:flex items-center gap-6 text-xs sm:text-sm font-bold uppercase tracking-wider text-slate-700">
+          <a href="../../../camaras/" class="hover:text-[#f2920b] transition">Cámaras IA</a>
+          <a href="../../../#llaveros" class="hover:text-[#f2920b] transition">Llaveros 3D</a>
+          <a href="../../../herramientas/" class="hover:text-[#f2920b] transition">Herramientas</a>
+          <a href="../../../franquicias-padel/" class="hover:text-[#f2920b] transition">Franquicias</a>
+          <a href="../../../fr/blog/" class="text-[#f2920b] font-black pb-0.5">Blog</a>
+        </nav>
 
-          <!-- COLUMNA 3 -->
-          <div class="flex items-center justify-between min-w-0 h-full">
-            <div class="flex-1 flex items-center justify-center min-w-0 pr-4 lg:pr-8">
-              <a href="../../../franquicias-padel/" class="font-heading font-black text-xs lg:text-[13px] tracking-wider uppercase text-slate-950 hover:text-[#f2920b] transition select-none whitespace-nowrap">
-                Cadenas de clubs
-              </a>
-            </div>
-
-            <!-- CONTROLES DERECHA -->
-            <div class="flex items-center gap-2 sm:gap-3 shrink-0 ml-auto">
-              <div class="relative inline-block text-left" id="lang-dropdown-container">
-                <button type="button" onclick="toggleLangDropdown(event)" id="lang-dropdown-btn" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-100 hover:bg-slate-200 border border-slate-200 text-xs font-black text-slate-900 shadow-xs transition cursor-pointer" aria-expanded="false" aria-haspopup="true">
-                  <span id="current-lang-code" class="uppercase font-black">ES</span>
-                  <i data-lucide="chevron-down" class="w-3.5 h-3.5 stroke-[2.5] text-slate-600 transition-transform duration-200" id="lang-dropdown-arrow"></i>
-                </button>
-                <div id="lang-dropdown-menu" class="hidden absolute right-0 mt-2 w-24 bg-white rounded-2xl shadow-[0_12px_30px_rgba(0,0,0,0.15)] border border-slate-200 py-1.5 z-50 transition-all overflow-hidden">
-                  <button type="button" onclick="switchLanguage('es')" data-lang-opt="es" class="lang-opt lang-opt-active w-full text-center px-4 py-2 text-xs transition duration-150 cursor-pointer">ES</button>
-                  <button type="button" onclick="switchLanguage('en')" data-lang-opt="en" class="lang-opt text-slate-700 hover:bg-[#f2920b] hover:text-slate-950 font-bold w-full text-center px-4 py-2 text-xs transition duration-150 cursor-pointer">EN</button>
-                  <button type="button" onclick="switchLanguage('fr')" data-lang-opt="fr" class="lang-opt text-slate-700 hover:bg-[#f2920b] hover:text-slate-950 font-bold w-full text-center px-4 py-2 text-xs transition duration-150 cursor-pointer">FR</button>
-                  <button type="button" onclick="switchLanguage('it')" data-lang-opt="it" class="lang-opt text-slate-700 hover:bg-[#f2920b] hover:text-slate-950 font-bold w-full text-center px-4 py-2 text-xs transition duration-150 cursor-pointer">IT</button>
-                </div>
-              </div>
-
-              <!-- BOTÓN CONTACTAR -->
-              <a href="../../../#contacto" class="group relative inline-flex items-center justify-center px-4 sm:px-5 py-1.5 sm:py-2 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] active:bg-[#76d3f6] text-slate-950 active:scale-95 font-heading font-black text-xs sm:text-xs lg:text-sm tracking-wider uppercase transition-all duration-300 shadow-[0_4px_12px_rgba(242,146,11,0.2)] hover:scale-105 shrink-0 overflow-hidden cursor-pointer">
-                <span class="font-black">Contactar</span>
-              </a>
-            </div>
-          </div>
+        <div class="flex items-center gap-3">
+          <a href="../../../#contacto" class="px-4 py-2 rounded-xl bg-[#f2920b] hover:bg-[#76d3f6] text-slate-950 font-heading font-black text-xs uppercase tracking-wider transition">
+            Contactar
+          </a>
         </div>
-
-        <!-- MÓVIL NAVBAR -->
-        <div class="flex sm:hidden flex-col gap-1.5 py-1.5 w-full">
-          <div class="flex items-center justify-between w-full px-2">
-            <a href="../../../" class="py-0.5 inline-flex items-center shrink-0">
-              <img src="../../../assets/images/eyes-thumb.png?v=fixed_eyes" alt="CoolPadel Eyes" width="18" height="18" style="height: 18px; max-height: 18px; width: auto;" class="object-contain">
-            </a>
-            <a href="../../../" class="flex items-center justify-center gap-1.5 py-0.5">
-              <img src="../../../assets/images/coolpadel-mascot-hd.png" alt="Mascota CoolPadel" width="28" height="28" style="height: 28px; max-height: 28px; width: auto;" class="object-contain">
-              <img src="../../../assets/images/coolpadel-typography-hd.png" alt="CoolPadel" width="90" height="18" style="height: 18px; max-height: 18px; width: auto;" class="object-contain">
-            </a>
-            <div class="w-[18px]"></div>
-          </div>
-          <div class="flex items-center justify-between w-full gap-1 pt-1 border-t border-slate-100 px-1 overflow-x-auto">
-            <div class="flex items-center gap-3.5 sm:gap-4 shrink-0">
-              <a href="../../../#llaveros" class="font-heading font-black text-[10px] tracking-wider uppercase text-slate-950 hover:text-[#f2920b] transition whitespace-nowrap">Llaveros</a>
-              <a href="../../../camaras/" class="font-heading font-black text-[10px] tracking-wider uppercase text-slate-950 hover:text-[#f2920b] transition whitespace-nowrap">Cámaras pistas</a>
-              <a href="../../../fr/blog/" class="font-heading font-black text-[10px] tracking-wider uppercase text-[#f2920b] whitespace-nowrap border-b border-[#f2920b]">Blog</a>
-              <a href="../../../franquicias-padel/" class="font-heading font-black text-[10px] tracking-wider uppercase text-slate-950 hover:text-[#f2920b] transition whitespace-nowrap">Cadenas de clubs</a>
-            </div>
-
-            <div class="flex items-center gap-1 shrink-0">
-              <div class="relative inline-block text-left" id="lang-dropdown-container-mob">
-                <button type="button" onclick="toggleLangDropdownMob(event)" id="lang-dropdown-btn-mob" class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-slate-100 hover:bg-slate-200 border border-slate-200 text-[10px] font-black text-slate-900 shadow-xs transition cursor-pointer">
-                  <span id="current-lang-code-mob" class="uppercase font-black">ES</span>
-                  <i data-lucide="chevron-down" class="w-2.5 h-2.5 stroke-[2.5] text-slate-600" id="lang-dropdown-arrow-mob"></i>
-                </button>
-                <div id="lang-dropdown-menu-mob" class="hidden absolute right-0 mt-1 w-20 bg-white rounded-2xl shadow-xl border border-slate-200 py-1 z-50 transition-all overflow-hidden">
-                  <button type="button" onclick="switchLanguage('es')" data-lang-opt="es" class="lang-opt lang-opt-active w-full text-center px-3 py-1.5 text-[11px] transition duration-150 cursor-pointer">ES</button>
-                  <button type="button" onclick="switchLanguage('en')" data-lang-opt="en" class="lang-opt text-slate-700 hover:bg-[#f2920b] hover:text-slate-950 font-bold w-full text-center px-3 py-1.5 text-[11px] transition duration-150 cursor-pointer">EN</button>
-                  <button type="button" onclick="switchLanguage('fr')" data-lang-opt="fr" class="lang-opt text-slate-700 hover:bg-[#f2920b] hover:text-slate-950 font-bold w-full text-center px-3 py-1.5 text-[11px] transition duration-150 cursor-pointer">FR</button>
-                  <button type="button" onclick="switchLanguage('it')" data-lang-opt="it" class="lang-opt text-slate-700 hover:bg-[#f2920b] hover:text-slate-950 font-bold w-full text-center px-3 py-1.5 text-[11px] transition duration-150 cursor-pointer">IT</button>
-                </div>
-              </div>
-
-              <!-- BOTÓN CONTACTAR MÓVIL -->
-              <a href="../../../#contacto" class="group relative inline-flex items-center justify-center px-3 py-1 rounded-full bg-[#f2920b] active:bg-[#76d3f6] text-slate-950 active:scale-95 font-heading font-black text-[10px] uppercase tracking-wider transition shadow-xs shrink-0 cursor-pointer">
-                <span class="font-black">Contactar</span>
-              </a>
-            </div>
-          </div>
-        </div>
-
       </div>
     </header>
 
@@ -326,8 +241,8 @@
     <main class="py-10 sm:py-16 bg-white relative">
       <article class="max-w-3xl mx-auto px-4 sm:px-6">
         
-        <!-- HEADER DEL ARTÍCULO -->
-        <div class="space-y-4 mb-8 sm:mb-12">
+        <!-- HEADER DEL ARTÍCULO LIMPIO -->
+        <div class="space-y-4 mb-8 sm:mb-10">
           <!-- BREADCRUMBS -->
           <nav class="flex items-center gap-2 text-xs text-slate-500 font-medium" aria-label="Breadcrumb">
             <a href="../../../" class="hover:text-slate-900 transition">Inicio</a>
@@ -337,38 +252,9 @@
             <span class="text-slate-900 font-bold truncate max-w-[200px] sm:max-w-xs">¿Cuánto cuesta instalar cámaras en una pista de pádel y cómo se amortizan? [Precios y ROI 2026]</span>
           </nav>
 
-          <div class="flex flex-wrap items-center gap-2.5 text-xs font-bold text-slate-500 pt-1">
-            <span class="px-3 py-1 rounded-full bg-amber-100 text-[#f2920b] font-black uppercase tracking-wider text-[11px]">
-              Guía Económica · Cámaras
-            </span>
-            <span>•</span>
-            <span>Octubre 2026</span>
-            <span>•</span>
-            <span>Lectura 5 min</span>
-          </div>
-
-          <h1 class="text-2xl sm:text-4xl font-extrabold font-sans text-slate-900 tracking-tight leading-tight">
+          <h1 class="text-3xl sm:text-5xl font-black font-heading text-slate-950 tracking-tight leading-tight">
             ¿Cuánto cuesta instalar cámaras en una pista de pádel y cómo se amortizan? [Precios y ROI 2026]
           </h1>
-
-          <p class="text-sm sm:text-lg text-slate-600 font-medium leading-relaxed">
-            Desglose real de inversión (hardware de 180 € y 45 €/mes) y los 3 modelos para generar ingresos con la grabación de partidos en tu club.
-          </p>
-
-          <div class="flex items-center gap-3 pt-3 border-t border-slate-100">
-            <a href="https://www.linkedin.com/in/javier-villoria-soleto-606737298/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 group">
-              <div class="w-10 h-10 rounded-full bg-slate-950 text-white font-heading font-black flex items-center justify-center text-sm group-hover:bg-[#f2920b] transition">
-                JV
-              </div>
-              <div>
-                <div class="font-heading font-black text-sm text-slate-950 group-hover:text-[#f2920b] transition flex items-center gap-1.5">
-                  <span>Javier Villoria</span>
-                  <i data-lucide="linkedin" class="w-3.5 h-3.5 text-sky-600"></i>
-                </div>
-                <div class="text-xs text-slate-500 font-medium">Fundador de CoolPadel Studios · Ver perfil en LinkedIn</div>
-              </div>
-            </a>
-          </div>
         </div>
 
         <!-- FOTO PORTADA DEL ARTÍCULO -->
@@ -649,26 +535,25 @@
     
 
         
-        <!-- CTA SAVE MY PLAY CÁMARAS -->
-        <div class="bg-gradient-to-br from-slate-900 to-slate-950 text-white border border-slate-800 rounded-3xl p-7 sm:p-10 mt-12 sm:mt-16 space-y-6 shadow-2xl relative overflow-hidden">
-          <div class="absolute -right-10 -bottom-10 w-48 h-48 bg-[#f2920b]/10 rounded-full blur-2xl pointer-events-none"></div>
+                <!-- CTA SAVE MY PLAY CÁMARAS (FORMATO TEXTURA) -->
+        <div class="my-12 bg-[#3478a6] bg-textured-blue rounded-3xl p-7 sm:p-10 text-white space-y-6 shadow-xl border border-sky-400/30">
           <div class="max-w-xl space-y-2">
-            <span class="inline-block px-3 py-1 rounded-full bg-[#f2920b]/20 text-[#f2920b] font-mono text-[11px] font-bold uppercase tracking-wider">
+            <span class="inline-block px-3 py-1 rounded-full bg-white/20 text-white font-heading font-black text-xs uppercase tracking-wider">
               Tecnología Save my Play
             </span>
             <h2 class="font-heading font-black text-2xl sm:text-3xl text-white tracking-tight">
               ¿Quieres probar las cámaras en las pistas de tu club?
             </h2>
-            <p class="text-slate-300 text-xs sm:text-sm leading-relaxed">
-              Instalación rápida en menos de 2 horas. Hardware a 180 € y software con almacenamiento ilimitado por 45 €/mes. Agenda una demo o pregúntanos por WhatsApp sin compromiso.
+            <p class="text-white/90 text-sm leading-relaxed">
+              Instalación rápida en menos de 2 horas. Hardware a 180 € y software con almacenamiento ilimitado por 45 €/mes. Pregúntanos por WhatsApp sin compromiso.
             </p>
           </div>
           <div class="flex flex-col sm:flex-row items-center gap-3 pt-2">
-            <a href="https://wa.me/34680317486?text=Hola%20Javier,%20he%20le%C3%ADdo%20el%20art%C3%ADculo%20sobre%20c%C3%A1maras%20de%20p%C3%A1del%20y%20me%20gustar%C3%ADa%20informaci%C3%B3n%20para%20mi%20club" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] text-slate-950 font-heading font-black text-xs uppercase tracking-wider transition-all duration-300 shadow-md">
+            <a href="https://wa.me/34680317486?text=Hola%20Javier,%20he%20le%C3%ADdo%20el%20art%C3%ADculo%20sobre%20c%C3%A1maras%20de%20p%C3%A1del%20y%20me%20gustar%C3%ADa%20informaci%C3%B3n%20para%20mi%20club" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-[#f2920b] hover:bg-white text-slate-950 font-heading font-black text-xs uppercase tracking-wider transition-all duration-300 shadow-md">
               <i data-lucide="message-circle" class="w-4 h-4 stroke-[2.5]"></i>
               <span>Consultar por WhatsApp</span>
             </a>
-            <a href="../../../camaras/" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-white/10 hover:bg-white/20 text-white font-heading font-bold text-xs uppercase tracking-wider transition-all duration-300 border border-white/20">
+            <a href="../../../camaras/" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-white/10 hover:bg-white/20 text-white font-heading font-bold text-xs uppercase tracking-wider transition border border-white/20">
               <span>Ver Especificaciones Técnicas</span>
               <i data-lucide="arrow-right" class="w-3.5 h-3.5 stroke-[2.5]"></i>
             </a>
@@ -701,9 +586,7 @@
           <img src="../../../assets/images/coolpadel-mascot-hd.png" alt="CoolPadel Mascota" width="60" height="60" class="h-10 sm:h-12 w-auto object-contain drop-shadow-sm" loading="lazy">
           <img src="../../../assets/images/coolpadel-typography-hd.png" alt="CoolPadel" width="160" height="32" class="h-5 sm:h-6 w-auto object-contain drop-shadow-sm" loading="lazy">
         </div>
-        <p class="text-white/80 text-xs text-center sm:text-right max-w-md font-medium">
-          Fabricación de llaveros de pádel personalizados 3D y sistemas de cámaras de grabación en pista Save my Play.
-        </p>
+        
       </div>
 
       <!-- 4 COLUMNAS DE SILOS TEMÁTICOS SEO -->

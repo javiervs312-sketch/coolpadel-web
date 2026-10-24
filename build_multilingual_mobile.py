@@ -206,7 +206,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
 
             "reviews_badge_text": "Encuestas Oficiales de Clubs",
 
-            "reviews_heading": "Opiniones de Clubs y Federaciones",
+            "reviews_heading": "Opiniones de Clubs, Marcas y Federaciones",
 
             "reviews_subheading": "Valoración media de 4.9/5 basada en encuestas reales de satisfacción de directores y clubes en Europa",
 
@@ -366,7 +366,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
 
             "reviews_badge_text": "Enquêtes Officielles des Clubs",
 
-            "reviews_heading": "Avis des Clubs & Fédérations",
+            "reviews_heading": "Opiniones de Clubs, Marcas y Federaciones",
 
             "reviews_subheading": "Note moyenne de 4.9/5 basée sur les avis réels des directeurs de clubs en Europe",
 
@@ -2317,17 +2317,11 @@ def get_base_html(active_lang="es", is_subfolder=False):
   <section id="opiniones-clubs" class="py-10 sm:py-14 bg-slate-50 relative border-b border-slate-200">
     <div class="max-w-6xl mx-auto px-4 sm:px-6">
       
-      <!-- CABECERA OPINIONES -->
-      <div class="text-center max-w-2xl mx-auto mb-6 sm:mb-8 space-y-1">
-        <span class="inline-block px-3 py-1 rounded-full bg-[#f2920b]/15 text-[#f2920b] font-heading font-black text-xs uppercase tracking-wider">
-          {seo['reviews_badge_text']}
-        </span>
-        <h3 class="text-xl sm:text-3xl font-black font-heading text-slate-950 uppercase tracking-tight">
-          {seo['reviews_heading']}
-        </h3>
-        <p class="text-xs sm:text-sm text-slate-600 font-medium">
-          {seo['reviews_subheading']}
-        </p>
+      <!-- CABECERA OPINIONES (SOLO TÍTULO) -->
+      <div class="text-center max-w-2xl mx-auto mb-6 sm:mb-8">
+        <h2 class="text-2xl sm:text-4xl font-black font-heading text-slate-950 uppercase tracking-tight">
+          Opiniones de Clubs, Marcas y Federaciones
+        </h2>
       </div>
 
       <!-- Listado semántico HTML accesible de clubes para indexación de clientes y GEO (sr-only) -->

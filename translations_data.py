@@ -129,7 +129,7 @@ TRANSLATIONS = {
         "wa_floating_tooltip": "¿Hablamos?",
         "wa_prefilled_msg": "Hola Javier",
         "reviews_badge_text": "Encuestas Oficiales de Clubs",
-        "reviews_heading": "Opiniones de Clubs y Federaciones",
+        "reviews_heading": "Opiniones de Clubs, Marcas y Federaciones",
         "reviews_subheading": "Valoración media de 4.9/5 basada en encuestas reales de directores y organizadores en Europa",
         "reviews_verified": "Club Verificado",
         "reviews_btn_ver_mas": "Ver todos los clubs en el mapa"
