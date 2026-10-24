@@ -2291,66 +2291,6 @@ def get_base_html(active_lang="es", is_subfolder=False):
 
             </div>
 
-            <!-- Desplegable visible de tarifas mayoristas y comparativa técnica AEO/GEO -->
-            <details class="mt-3 pt-2 border-t border-slate-100 text-left group">
-              <summary class="cursor-pointer list-none flex items-center justify-between text-xs font-bold text-slate-600 hover:text-slate-950 transition py-1">
-                <span>{"Ver tabla completa de tarifas por volumen y comparativa de materiales (Goma 3D vs PLA 3D vs Metal)" if active_lang=="es" else "View full wholesale pricing table & material comparison (3D Rubber vs 3D PLA vs Metal)" if active_lang=="en" else "Voir le tableau des tarifs de gros et comparatif des matériaux (Gomme 3D vs PLA 3D vs Métal)" if active_lang=="fr" else "Vedi tabella tariffe all'ingrosso e confronto materiali (Gomma 3D vs PLA 3D vs Metallo)"}</span>
-                <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400 group-open:rotate-180 transition-transform"></i>
-              </summary>
-              <div class="mt-3 space-y-4 text-xs text-slate-700">
-                <div class="overflow-x-auto rounded-xl border border-slate-200">
-                  <table class="w-full text-left border-collapse">
-                    <thead class="bg-slate-50 text-slate-900 font-bold border-b border-slate-200">
-                      <tr>
-                        <th class="p-2.5">{seo['sr_th_tier']}</th>
-                        <th class="p-2.5">{seo['sr_th_unit']}</th>
-                        <th class="p-2.5">{seo['sr_th_total']}</th>
-                        <th class="p-2.5">{seo['sr_th_cond']}</th>
-                      </tr>
-                    </thead>
-                    <tbody class="divide-y divide-slate-100">
-                      <tr><td class="p-2.5 font-bold">{seo['sr_r1_c1']}</td><td class="p-2.5">3,00 € / ud</td><td class="p-2.5">300 € (+IVA)</td><td class="p-2.5">{seo['sr_r1_c4']}</td></tr>
-                      <tr><td class="p-2.5 font-bold">{seo['sr_r2_c1']}</td><td class="p-2.5">2,50 € / ud</td><td class="p-2.5">625 € (+IVA)</td><td class="p-2.5">{seo['sr_r2_c4']}</td></tr>
-                      <tr><td class="p-2.5 font-bold">{seo['sr_r3_c1']}</td><td class="p-2.5">2,00 € / ud</td><td class="p-2.5">1.000 € (+IVA)</td><td class="p-2.5">{seo['sr_r3_c4']}</td></tr>
-                      <tr><td class="p-2.5 font-bold">{seo['sr_r4_c1']}</td><td class="p-2.5">1,50 € / ud</td><td class="p-2.5">2.250 € (+IVA)</td><td class="p-2.5">{seo['sr_r4_c4']}</td></tr>
-                    </tbody>
-                  </table>
-                </div>
-                <div class="overflow-x-auto rounded-xl border border-slate-200">
-                  <table class="w-full text-left border-collapse">
-                    <thead class="bg-slate-50 text-slate-900 font-bold border-b border-slate-200">
-                      <tr>
-                        <th class="p-2.5">{"Material / Tecnología" if active_lang=="es" else "Material / Tech"}</th>
-                        <th class="p-2.5">{"Acabado y Relieve" if active_lang=="es" else "Finish & Relief"}</th>
-                        <th class="p-2.5">{"Resistencia en Paletero" if active_lang=="es" else "Racket Bag Durability"}</th>
-                        <th class="p-2.5">{"Muestra Física Previa" if active_lang=="es" else "Physical Sample"}</th>
-                      </tr>
-                    </thead>
-                    <tbody class="divide-y divide-slate-100">
-                      <tr class="bg-amber-50/40">
-                        <td class="p-2.5 font-bold text-slate-950">Goma PVC 3D Microinyectada (CoolPadel)</td>
-                        <td class="p-2.5">Relieve 3D multinivel por ambas caras, colores Pantone exactos sin líneas de capa</td>
-                        <td class="p-2.5">Flexible, lavable, no raya el móvil ni las palas de carbono (vida útil +5 años)</td>
-                        <td class="p-2.5 font-bold text-emerald-700">Sí, por 15 € en ~15 días (100% descontable)</td>
-                      </tr>
-                      <tr>
-                        <td class="p-2.5 font-semibold">Impresión 3D PLA / Filamento</td>
-                        <td class="p-2.5">Estrías visibles de boquilla, acabado rígido de plástico doméstico</td>
-                        <td class="p-2.5">Frágil ante impactos y se deforma en el coche a más de 50 °C en verano</td>
-                        <td class="p-2.5">Variable según taller local</td>
-                      </tr>
-                      <tr>
-                        <td class="p-2.5 font-semibold">Metal / Zamak Esmaltado</td>
-                        <td class="p-2.5">Pesado (35–50 g), limitado en degradados y detalles finos de palas</td>
-                        <td class="p-2.5">Raya pantallas de móvil y marcos de pala al colgarse en la cremallera</td>
-                        <td class="p-2.5">Coste de molde elevado (120 €–250 €)</td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            </details>
-
           </div>
 
         </div>
