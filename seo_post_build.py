@@ -97,8 +97,7 @@ def build_blog_silo_mesh(current_slug):
         <div>
           <h3 class="font-heading font-black text-xs uppercase tracking-wider text-[#76d3f6] mb-3">Soluciones B2B &amp; Save my Play</h3>
           <ul class="space-y-2 text-xs">
-            <li><a href="/camaras/" class="text-white font-bold hover:text-[#76d3f6] transition">→ Cámaras IA Save my Play para Pistas</a></li>
-            <li><a href="/save-my-play/" class="text-slate-300 hover:text-[#76d3f6] transition">→ Hub Oficial Save my Play España</a></li>
+            <li><a href="/save-my-play/" class="text-white font-bold hover:text-[#76d3f6] transition">→ Hub Oficial Save my Play España</a></li>
             <li><a href="/camaras-grabacion-pistas-padel/" class="text-slate-300 hover:text-[#76d3f6] transition">→ Grabación de Partidos sin Obras</a></li>
             <li><a href="/camaras-padel-playtomic/" class="text-slate-300 hover:text-[#76d3f6] transition">→ Cámaras para Clubes con Playtomic</a></li>
             <li><a href="/camaras-padel-matchi/" class="text-slate-300 hover:text-[#76d3f6] transition">→ Cámaras para Clubes con Matchi</a></li>
@@ -164,19 +163,16 @@ def run_seo_post_build():
     # 4. Preservar hreflangs e indexabilidad multilingüe en artículos y guías del blog
     # (Las guías flagship y el blog hub están 100% traducidos en ES, EN, FR, IT con hreflangs simétricos)
 
-    # 5. Mark internal drafts & redirect stubs with noindex
-    for fn in ["propuesta-2.html", "propuesta-3.html", "manual-marca.html"]:
+    # 5. Mark internal drafts, private sales letters & redirect stubs with noindex, nofollow
+    for fn in [
+        "propuesta-2.html", "propuesta-3.html", "manual-marca.html",
+        "camaras/index.html", "en/camaras/index.html", "fr/camaras/index.html", "it/camaras/index.html",
+        "camaras.html", "camaras/articulo_camaras_club.html", "si-estas-pensando-en-poner-camaras-en-el-club.html", "404.html"
+    ]:
         fp = os.path.join(web_dir, fn)
         if os.path.exists(fp):
             c = open(fp, encoding="utf-8").read()
             c = re.sub(r'<meta name="robots" content="[^"]*">', '<meta name="robots" content="noindex, nofollow">', c) if 'name="robots"' in c else c.replace("<head>", '<head>\n  <meta name="robots" content="noindex, nofollow">', 1)
-            open(fp, "w", encoding="utf-8").write(c)
-
-    for fn in ["camaras.html", "camaras/articulo_camaras_club.html", "si-estas-pensando-en-poner-camaras-en-el-club.html", "404.html"]:
-        fp = os.path.join(web_dir, fn)
-        if os.path.exists(fp):
-            c = open(fp, encoding="utf-8").read()
-            c = re.sub(r'<meta name="robots" content="[^"]*">', '<meta name="robots" content="noindex, follow">', c) if 'name="robots"' in c else c.replace("<head>", '<head>\n  <meta name="robots" content="noindex, follow">', 1)
             open(fp, "w", encoding="utf-8").write(c)
 
     print("  [OK] Post-procesador SEO y Malla de Enlazado Interno aplicados.")

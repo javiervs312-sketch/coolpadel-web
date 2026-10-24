@@ -67,7 +67,7 @@ def get_tool_header(lang, slug, active_title):
       <!-- BLOQUE DE NAVEGACIÓN Y ACCIONES A LA DERECHA (ESTILO EXACTO LANDINGS) -->
       <div class="flex items-center gap-2 sm:gap-4 lg:gap-6">
         <a href="{home_href}#llaveros" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition whitespace-nowrap">Llaveros</a>
-        <a href="{camaras_href}" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition whitespace-nowrap">Cámaras</a>
+        <a href="{herramientas_href}" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-[#f2920b] transition whitespace-nowrap">{nav_labels['herramientas']}</a>
         <a href="{blog_href}" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition whitespace-nowrap">Blog</a>
         <a href="{home_href}franquicias-padel/" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition whitespace-nowrap">Cadenas de clubs</a>
 
@@ -561,7 +561,7 @@ def build_costes_page(lang):
             <p class="text-xs text-slate-600 leading-relaxed">{item['a']}</p>
           </div>''' for item in d["faqs"]]
 
-    camaras_url = "../../camaras/" if is_es else f"../../../{lang}/camaras/"
+    camaras_url = "../../save-my-play/" if is_es else f"../../../{lang}/save-my-play/"
 
     return f"""<!DOCTYPE html>
 <html lang="{lang}" class="scroll-smooth">

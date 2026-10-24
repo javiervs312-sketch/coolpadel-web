@@ -472,7 +472,6 @@ def render_html(lang="es"):
       <!-- BLOQUE DE NAVEGACIÓN Y ACCIONES A LA DERECHA (ESTILO EXACTO LANDINGS) -->
       <div class="flex items-center gap-2 sm:gap-4 lg:gap-6">
         <a href="{home_url}#llaveros" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition whitespace-nowrap">{t_nav['llaveros']}</a>
-        <a href="{home_url}camaras/" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition whitespace-nowrap">{t_nav['camaras']}</a>
         <a href="{home_url}blog/" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition whitespace-nowrap">{t_nav['blog']}</a>
         <a href="{franquicias_hub_url}" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-[#f2920b] transition whitespace-nowrap">{t_nav['franquicias']}</a>
 
@@ -792,7 +791,7 @@ def render_html(lang="es"):
               </ul>
             </div>
 
-            <a href="../camaras/" class="inline-flex items-center justify-between px-6 py-3.5 rounded-2xl bg-[#76d3f6] hover:bg-[#f2920b] text-slate-950 font-heading font-black text-xs uppercase tracking-wider transition group">
+            <a href="{home_url}save-my-play/" class="inline-flex items-center justify-between px-6 py-3.5 rounded-2xl bg-[#76d3f6] hover:bg-[#f2920b] text-slate-950 font-heading font-black text-xs uppercase tracking-wider transition group">
               <span>Ver Tecnología de Cámaras Save My Play</span>
               <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
             </a>
@@ -833,7 +832,7 @@ def render_html(lang="es"):
             <li><a href="/llaveros-tenis-personalizados/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Llaveros de Tenis y Pickleball</a></li>
             <li><a href="/welcome-packs-torneos-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Welcome Packs para Torneos</a></li>
             <li><a href="/llaveros-personalizados-clubs-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Merchandising para Clubs</a></li>
-            <li><a href="/camaras/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Cámaras Save my Play</a></li>
+            <li><a href="/save-my-play/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Cámaras Save my Play</a></li>
             <li><a href="/camaras-grabacion-pistas-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Grabación en Pista de Pádel</a></li>
           </ul>
         </div>

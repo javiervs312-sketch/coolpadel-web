@@ -366,7 +366,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
 
             "reviews_badge_text": "Enquêtes Officielles des Clubs",
 
-            "reviews_heading": "Opiniones de Clubs, Marcas y Federaciones",
+            "reviews_heading": "Avis des Clubs, Marques et Fédérations",
 
             "reviews_subheading": "Note moyenne de 4.9/5 basée sur les avis réels des directeurs de clubs en Europe",
 
@@ -428,7 +428,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
 
             "sr_r2_c4": "Campione fisico deducibile · Consegna ordine in ~1 mese",
 
-            "sr_r3_c1": "500 unidades",
+            "sr_r3_c1": "500 unità",
 
             "sr_r3_c4": "Campione deducibile e spedizione inclusa · Consegna in ~1 mese",
 
@@ -744,7 +744,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
 
               "description": "Sistema autónomo de grabación Full HD en pista sin obras, repeticiones instantáneas con pulsador y streaming en YouTube.",
 
-              "url": "https://coolpadelstudios.com/camaras/"
+              "url": "https://coolpadelstudios.com/save-my-play/"
 
             }},
 
@@ -1086,13 +1086,11 @@ def get_base_html(active_lang="es", is_subfolder=False):
 
             "applicableCountry": "ES",
 
-            "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+            "returnPolicyCategory": "https://schema.org/MerchantReturnNotPermitted",
 
-            "merchantReturnDays": 14,
+            "merchantReturnLink": "https://coolpadelstudios.com/politica-de-devoluciones.html",
 
-            "returnMethod": "https://schema.org/ReturnByMail",
-
-            "returnFees": "https://schema.org/FreeReturn"
+            "description": "Productos B2B fabricados a medida tras validación de muestra física previa; reposición sin coste ante defectos de fabricación."
 
           }},
 
@@ -1304,7 +1302,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
 
                 "name": "Cámaras con IA para Pistas de Pádel Save my Play",
 
-                "url": "https://coolpadelstudios.com/camaras/"
+                "url": "https://coolpadelstudios.com/save-my-play/"
 
               }}
 
@@ -1897,10 +1895,10 @@ def get_base_html(active_lang="es", is_subfolder=False):
 
       <!-- BLOQUE DE NAVEGACIÓN Y ACCIONES A LA DERECHA (ESTILO EXACTO LANDINGS) -->
       <div class="flex items-center gap-2 sm:gap-4 lg:gap-6">
-        <a href="{asset_prefix}#llaveros" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition whitespace-nowrap">Llaveros</a>
-        <a href="camaras/" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition whitespace-nowrap">Cámaras</a>
-        <a href="{asset_prefix}blog/" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition whitespace-nowrap">Blog</a>
-        <a href="{asset_prefix}franquicias-padel/" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition whitespace-nowrap">Cadenas de clubs</a>
+        <a href="#llaveros" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition whitespace-nowrap">{t['nav_tenis_padel']}</a>
+        <a href="herramientas/" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition whitespace-nowrap">{t['nav_herramientas']}</a>
+        <a href="blog/" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition whitespace-nowrap">Blog</a>
+        <a href="franquicias-padel/" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition whitespace-nowrap">{"Franchises" if active_lang in ("en", "fr") else "Franchigie" if active_lang=="it" else "Cadenas de clubs"}</a>
 
         <!-- SELECTOR DE IDIOMA EN DESPLEGABLE COMPACTO -->
         <div class="relative inline-block text-left" id="lang-dropdown-container">
@@ -2056,7 +2054,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-6 mb-6 sm:mb-8">
         
         <!-- CARD IZQUIERDA: TENIS -->
-        <a href="/llaveros-tenis-personalizados/" class="relative overflow-hidden cursor-pointer bg-white border-2 border-slate-200/90 hover:border-[#f2920b] hover:ring-4 hover:ring-[#f2920b]/20 hover:shadow-[0_14px_35px_rgba(242,146,11,0.25)] hover:bg-amber-50/30 hover:scale-[1.015] active:scale-[0.98] transition-all duration-300 rounded-3xl p-4 sm:p-6 flex flex-col justify-between group">
+        <a href="llaveros-tenis-personalizados/" class="relative overflow-hidden cursor-pointer bg-white border-2 border-slate-200/90 hover:border-[#f2920b] hover:ring-4 hover:ring-[#f2920b]/20 hover:shadow-[0_14px_35px_rgba(242,146,11,0.25)] hover:bg-amber-50/30 hover:scale-[1.015] active:scale-[0.98] transition-all duration-300 rounded-3xl p-4 sm:p-6 flex flex-col justify-between group">
           <div class="flex-1 flex flex-col justify-center">
             <div class="rounded-2xl overflow-hidden shadow-sm border border-slate-200/90 bg-slate-100 my-auto">
               <img src="{asset_prefix}assets/images/llaveros-tenis-personalizados-clubs.jpg?v=16" alt="Llaveros de tenis y pádel personalizados con relieve 3D para clubs y torneos" width="1024" height="640" class="w-full h-auto block group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
@@ -2067,14 +2065,14 @@ def get_base_html(active_lang="es", is_subfolder=False):
               {t['card_tenis']}
             </h3>
             <span class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-slate-100 group-hover:bg-[#f2920b] text-slate-900 group-hover:text-slate-950 text-xs font-black uppercase tracking-wider transition">
-              <span>Ver modelos</span>
+              <span>{"Ver modelos" if active_lang=="es" else "View models" if active_lang=="en" else "Voir modèles" if active_lang=="fr" else "Vedi modelli"}</span>
               <i data-lucide="arrow-right" class="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform"></i>
             </span>
           </div>
         </a>
 
         <!-- CARD DERECHA: PADEL -->
-        <a href="/llaveros-padel-personalizados/" class="relative overflow-hidden cursor-pointer bg-white border-2 border-slate-200/90 hover:border-[#f2920b] hover:ring-4 hover:ring-[#f2920b]/20 hover:shadow-[0_14px_35px_rgba(242,146,11,0.25)] hover:bg-amber-50/30 hover:scale-[1.015] active:scale-[0.98] transition-all duration-300 rounded-3xl p-4 sm:p-6 flex flex-col justify-between group">
+        <a href="llaveros-padel-personalizados/" class="relative overflow-hidden cursor-pointer bg-white border-2 border-slate-200/90 hover:border-[#f2920b] hover:ring-4 hover:ring-[#f2920b]/20 hover:shadow-[0_14px_35px_rgba(242,146,11,0.25)] hover:bg-amber-50/30 hover:scale-[1.015] active:scale-[0.98] transition-all duration-300 rounded-3xl p-4 sm:p-6 flex flex-col justify-between group">
           <div class="flex-1 flex flex-col justify-center">
             <div class="rounded-2xl overflow-hidden shadow-sm border border-slate-200/90 bg-slate-100 my-auto">
               <img src="{asset_prefix}assets/images/llaveros-padel-personalizados-clubs.jpg?v=16" alt="Llaveros de pádel de goma 3D personalizados con logo para clubes de pádel" width="1024" height="737" class="w-full h-auto block group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
@@ -2085,7 +2083,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
               {t['card_padel']}
             </h3>
             <span class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-[#f2920b]/15 group-hover:bg-[#f2920b] text-slate-950 text-xs font-black uppercase tracking-wider transition">
-              <span>Ver modelos</span>
+              <span>{"Ver modelos" if active_lang=="es" else "View models" if active_lang=="en" else "Voir modèles" if active_lang=="fr" else "Vedi modelli"}</span>
               <i data-lucide="arrow-right" class="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform"></i>
             </span>
           </div>
@@ -2293,6 +2291,66 @@ def get_base_html(active_lang="es", is_subfolder=False):
 
             </div>
 
+            <!-- Desplegable visible de tarifas mayoristas y comparativa técnica AEO/GEO -->
+            <details class="mt-3 pt-2 border-t border-slate-100 text-left group">
+              <summary class="cursor-pointer list-none flex items-center justify-between text-xs font-bold text-slate-600 hover:text-slate-950 transition py-1">
+                <span>{"Ver tabla completa de tarifas por volumen y comparativa de materiales (Goma 3D vs PLA 3D vs Metal)" if active_lang=="es" else "View full wholesale pricing table & material comparison (3D Rubber vs 3D PLA vs Metal)" if active_lang=="en" else "Voir le tableau des tarifs de gros et comparatif des matériaux (Gomme 3D vs PLA 3D vs Métal)" if active_lang=="fr" else "Vedi tabella tariffe all'ingrosso e confronto materiali (Gomma 3D vs PLA 3D vs Metallo)"}</span>
+                <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400 group-open:rotate-180 transition-transform"></i>
+              </summary>
+              <div class="mt-3 space-y-4 text-xs text-slate-700">
+                <div class="overflow-x-auto rounded-xl border border-slate-200">
+                  <table class="w-full text-left border-collapse">
+                    <thead class="bg-slate-50 text-slate-900 font-bold border-b border-slate-200">
+                      <tr>
+                        <th class="p-2.5">{seo['sr_th_tier']}</th>
+                        <th class="p-2.5">{seo['sr_th_unit']}</th>
+                        <th class="p-2.5">{seo['sr_th_total']}</th>
+                        <th class="p-2.5">{seo['sr_th_cond']}</th>
+                      </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-100">
+                      <tr><td class="p-2.5 font-bold">{seo['sr_r1_c1']}</td><td class="p-2.5">3,00 € / ud</td><td class="p-2.5">300 € (+IVA)</td><td class="p-2.5">{seo['sr_r1_c4']}</td></tr>
+                      <tr><td class="p-2.5 font-bold">{seo['sr_r2_c1']}</td><td class="p-2.5">2,50 € / ud</td><td class="p-2.5">625 € (+IVA)</td><td class="p-2.5">{seo['sr_r2_c4']}</td></tr>
+                      <tr><td class="p-2.5 font-bold">{seo['sr_r3_c1']}</td><td class="p-2.5">2,00 € / ud</td><td class="p-2.5">1.000 € (+IVA)</td><td class="p-2.5">{seo['sr_r3_c4']}</td></tr>
+                      <tr><td class="p-2.5 font-bold">{seo['sr_r4_c1']}</td><td class="p-2.5">1,50 € / ud</td><td class="p-2.5">2.250 € (+IVA)</td><td class="p-2.5">{seo['sr_r4_c4']}</td></tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="overflow-x-auto rounded-xl border border-slate-200">
+                  <table class="w-full text-left border-collapse">
+                    <thead class="bg-slate-50 text-slate-900 font-bold border-b border-slate-200">
+                      <tr>
+                        <th class="p-2.5">{"Material / Tecnología" if active_lang=="es" else "Material / Tech"}</th>
+                        <th class="p-2.5">{"Acabado y Relieve" if active_lang=="es" else "Finish & Relief"}</th>
+                        <th class="p-2.5">{"Resistencia en Paletero" if active_lang=="es" else "Racket Bag Durability"}</th>
+                        <th class="p-2.5">{"Muestra Física Previa" if active_lang=="es" else "Physical Sample"}</th>
+                      </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-100">
+                      <tr class="bg-amber-50/40">
+                        <td class="p-2.5 font-bold text-slate-950">Goma PVC 3D Microinyectada (CoolPadel)</td>
+                        <td class="p-2.5">Relieve 3D multinivel por ambas caras, colores Pantone exactos sin líneas de capa</td>
+                        <td class="p-2.5">Flexible, lavable, no raya el móvil ni las palas de carbono (vida útil +5 años)</td>
+                        <td class="p-2.5 font-bold text-emerald-700">Sí, por 15 € en ~15 días (100% descontable)</td>
+                      </tr>
+                      <tr>
+                        <td class="p-2.5 font-semibold">Impresión 3D PLA / Filamento</td>
+                        <td class="p-2.5">Estrías visibles de boquilla, acabado rígido de plástico doméstico</td>
+                        <td class="p-2.5">Frágil ante impactos y se deforma en el coche a más de 50 °C en verano</td>
+                        <td class="p-2.5">Variable según taller local</td>
+                      </tr>
+                      <tr>
+                        <td class="p-2.5 font-semibold">Metal / Zamak Esmaltado</td>
+                        <td class="p-2.5">Pesado (35–50 g), limitado en degradados y detalles finos de palas</td>
+                        <td class="p-2.5">Raya pantallas de móvil y marcos de pala al colgarse en la cremallera</td>
+                        <td class="p-2.5">Coste de molde elevado (120 €–250 €)</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </details>
+
           </div>
 
         </div>
@@ -2320,7 +2378,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
       <!-- CABECERA OPINIONES (SOLO TÍTULO) -->
       <div class="text-center max-w-2xl mx-auto mb-6 sm:mb-8">
         <h2 class="text-2xl sm:text-4xl font-black font-heading text-slate-950 uppercase tracking-tight">
-          Opiniones de Clubs, Marcas y Federaciones
+          {seo['reviews_heading']}
         </h2>
       </div>
 
@@ -2658,9 +2716,18 @@ def get_base_html(active_lang="es", is_subfolder=False):
 
         </div>
 
-
-
       </div>
+
+      <!-- Listado desplegable visible de los 27 clubs, marcas y federaciones verificados (GEO & E-E-A-T) -->
+      <details class="mt-6 bg-white border border-slate-200/90 rounded-2xl p-4 sm:p-5 shadow-2xs group">
+        <summary class="cursor-pointer list-none flex items-center justify-between text-xs sm:text-sm font-heading font-black text-slate-800 hover:text-[#f2920b] transition">
+          <span>{seo['sr_clubs_h4']} (27)</span>
+          <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400 group-open:rotate-180 transition-transform"></i>
+        </summary>
+        <ul class="mt-3 pt-3 border-t border-slate-100 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 text-xs text-slate-600">
+          {club_list_html}
+        </ul>
+      </details>
 
       </div>
 
@@ -3001,8 +3068,6 @@ def get_base_html(active_lang="es", is_subfolder=False):
             <li><a href="/welcome-packs-torneos-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Welcome Packs para Torneos</a></li>
 
             <li><a href="/llaveros-personalizados-clubs-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Merchandising para Clubs</a></li>
-
-            <li><a href="/camaras/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Cámaras Save my Play</a></li>
 
             <li><a href="/save-my-play/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition font-bold text-amber-300">Save my Play España (+1.500)</a></li>
 
@@ -5958,6 +6023,8 @@ def build_all():
         print(f"  [ERROR] Al generar Herramientas Multilingüe: {e}")
 
     try:
+        from build_blog import generate_all as build_es_blog
+        build_es_blog()
         from build_multilingual_blog import run as build_blog_multilingual
         build_blog_multilingual()
     except Exception as e:

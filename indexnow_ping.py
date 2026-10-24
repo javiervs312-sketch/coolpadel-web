@@ -40,7 +40,7 @@ def extraer_urls_sitemap(sitemap_path: str, max_urls: int = 1000) -> list[str]:
     if not os.path.exists(sitemap_path):
         return [
             f"https://{HOST}/",
-            f"https://{HOST}/camaras/",
+            f"https://{HOST}/save-my-play/",
             f"https://{HOST}/franquicias-padel/",
             f"https://{HOST}/blog/barometro-camaras-padel-2026/",
         ]

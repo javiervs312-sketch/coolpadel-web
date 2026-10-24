@@ -863,15 +863,15 @@ def render_landing(landing, lang="es"):
 
     # Breadcrumb names
     parent_names = {
-        "es": ("Cámaras de Pádel", "https://coolpadelstudios.com/camaras/", "Merchandising Pádel", "https://coolpadelstudios.com/#llaveros"),
-        "en": ("Padel Court Cameras", "https://coolpadelstudios.com/en/camaras/", "Padel Merchandising", "https://coolpadelstudios.com/en/#llaveros"),
-        "fr": ("Caméras Terrains Padel", "https://coolpadelstudios.com/fr/camaras/", "Merchandising Padel", "https://coolpadelstudios.com/fr/#llaveros"),
-        "it": ("Telecamere Campi Padel", "https://coolpadelstudios.com/it/camaras/", "Merchandising Padel", "https://coolpadelstudios.com/it/#llaveros")
+        "es": ("Cámaras de Pádel", "https://coolpadelstudios.com/save-my-play/", "Merchandising Pádel", "https://coolpadelstudios.com/#llaveros"),
+        "en": ("Padel Court Cameras", "https://coolpadelstudios.com/en/save-my-play/", "Padel Merchandising", "https://coolpadelstudios.com/en/#llaveros"),
+        "fr": ("Caméras Terrains Padel", "https://coolpadelstudios.com/fr/save-my-play/", "Merchandising Padel", "https://coolpadelstudios.com/fr/#llaveros"),
+        "it": ("Telecamere Campi Padel", "https://coolpadelstudios.com/it/save-my-play/", "Merchandising Padel", "https://coolpadelstudios.com/it/#llaveros")
     }
     p_cam, p_cam_url, p_merch, p_merch_url = parent_names.get(lang, parent_names["es"])
     parent_breadcrumb_name = p_cam if is_camaras else p_merch
     parent_breadcrumb_url = p_cam_url if is_camaras else p_merch_url
-    parent_breadcrumb_rel_url = f"{asset_prefix}camaras/" if is_camaras else f"{asset_prefix}#llaveros"
+    parent_breadcrumb_rel_url = f"{asset_prefix}save-my-play/" if is_camaras else f"{asset_prefix}#llaveros"
     leaf_breadcrumb_name = l_leaf
 
     # Quick summary items
@@ -1455,7 +1455,6 @@ def render_landing(landing, lang="es"):
       
       <div class="flex items-center gap-2 sm:gap-4 lg:gap-6">
         <a href="{asset_prefix}#llaveros" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition">{ui['nav_llaveros']}</a>
-        <a href="{asset_prefix}camaras/" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition">{ui['nav_camaras']}</a>
         <a href="{asset_prefix}blog/" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition">{ui['nav_blog']}</a>
         <a href="{asset_prefix}franquicias-padel/" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition">{"Franchises" if lang=="en" else "Franchises" if lang=="fr" else "Franchigie" if lang=="it" else "Cadenas de clubs"}</a>
         
@@ -1728,7 +1727,7 @@ def render_landing(landing, lang="es"):
             <li><a href="/llaveros-padel-personalizados/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Llaveros de Pádel 3D</a></li>
             <li><a href="/llaveros-tenis-personalizados/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Llaveros de Tenis</a></li>
             <li><a href="/welcome-packs-torneos-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Welcome Packs para Torneos</a></li>
-            <li><a href="/camaras/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Cámaras Save my Play</a></li>
+            <li><a href="/save-my-play/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Cámaras Save my Play</a></li>
           </ul>
         </div>
         <div class="space-y-3">

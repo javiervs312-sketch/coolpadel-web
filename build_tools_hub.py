@@ -53,7 +53,6 @@ def get_hub_nav(lang):
 
       <nav class="hidden md:flex items-center gap-6 text-xs sm:text-sm font-bold uppercase tracking-wider text-slate-700">
         <a href="{llaveros_href}" class="hover:text-[#f2920b] transition">{labels['llaveros']}</a>
-        <a href="{camaras_href}" class="hover:text-[#f2920b] transition">{labels['camaras']}</a>
         <a href="{herramientas_href}" class="text-[#f2920b] font-black pb-0.5">{labels['herramientas']}</a>
         <a href="{prefix}franquicias-padel/" class="hover:text-[#f2920b] transition">Franquicias</a>
         <a href="{blog_href}" class="hover:text-[#f2920b] transition">{labels['blog']}</a>
@@ -109,7 +108,7 @@ def get_hub_footer(lang):
             <li><a href="{root_url}/llaveros-padel-personalizados/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Llaveros Pádel 3D</a></li>
             <li><a href="{root_url}/llaveros-tenis-personalizados/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Llaveros Tenis & Pickleball</a></li>
             <li><a href="{root_url}/welcome-packs-torneos-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Welcome Packs Torneos</a></li>
-            <li><a href="{root_url}/camaras/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Cámaras Save my Play</a></li>
+            <li><a href="{root_url}/save-my-play/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Cámaras Save my Play</a></li>
             <li><a href="{root_url}/camaras-grabacion-pistas-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Grabación en Pista</a></li>
           </ul>
         </div>
