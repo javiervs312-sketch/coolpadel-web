@@ -121,8 +121,8 @@
         "description": "Official Save my Play partner. Proprietary rectilinear lens, automated net button replays, 1080p YouTube streaming, and zero lock-in from €45/mo.",
         "image": [
           "https://coolpadelstudios.com/assets/images/savemyplay-1.jpg",
-          "https://coolpadelstudios.com/assets/images/llaveros-padel-personalizados-clubs.jpg",
-          "https://coolpadelstudios.com/assets/images/llaveros-padel-personalizados-3d.jpg"
+          "https://coolpadelstudios.com/assets/images/savemyplay-1.jpg",
+          "https://coolpadelstudios.com/assets/images/savemyplay-2.jpg"
         ],
         "sku": "SMP-COURT-CAM-2026",
         "brand": {
@@ -222,33 +222,6 @@
       background-position: center;
     }
   </style>
-  <!-- Google Analytics 4 -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-3FY3DTNN21"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-3FY3DTNN21');
-    // Eventos clave (leads): WhatsApp, email, teléfono, demo, dossier
-    document.addEventListener('click', function (e) {
-      try {
-        var a = e.target.closest && e.target.closest('a, button');
-        if (!a) return;
-        var href = (a.getAttribute('href') || '').toLowerCase();
-        var txt = (a.innerText || '').replace(/\s+/g, ' ').trim().slice(0, 60);
-        var p = { link_text: txt, link_url: href, page_path: location.pathname };
-        if (href.indexOf('wa.me') > -1 || href.indexOf('whatsapp.com') > -1) gtag('event', 'click_whatsapp', p);
-        else if (href.indexOf('mailto:') === 0) gtag('event', 'click_email', p);
-        else if (href.indexOf('tel:') === 0) gtag('event', 'click_telefono', p);
-        else if (/\.pdf($|\?)/.test(href) || /dossier/i.test(href + ' ' + txt)) gtag('event', 'descarga_dossier', p);
-        else if (/demo|reuni[oó]n|meeting|calendly|agenda|r[eé]serv|prueba gratis|free trial/i.test(href + ' ' + txt)) gtag('event', 'solicitar_demo', p);
-      } catch (err) {}
-    }, { passive: true });
-    document.addEventListener('submit', function (e) {
-      try { gtag('event', 'enviar_formulario', { form_id: (e.target && (e.target.id || e.target.name)) || '', page_path: location.pathname }); } catch (err) {}
-    }, true);
-  </script>
-  <!-- /GA4 -->
 </head>
 <body class="bg-[#f8fafc] text-slate-800 antialiased selection:bg-[#f2920b] selection:text-slate-950 min-h-screen flex flex-col">
 
@@ -583,40 +556,7 @@
       </div>
     </section>
 
-    <!-- CÓMO FUNCIONA / PROCESO (FORMATO TEXTURA) -->
-    <section class="py-14 sm:py-20 bg-[#3478a6] bg-textured-blue text-white border-b border-sky-700/40">
-      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center max-w-2xl mx-auto mb-10 space-y-2">
-          <span class="inline-block px-3.5 py-1 rounded-full bg-white/20 text-white font-heading font-black text-xs uppercase tracking-wider">
-            Step by Step
-          </span>
-          <h2 class="font-heading font-black text-2xl sm:text-4xl uppercase tracking-tight">
-            How to get started for your club?
-          </h2>
-        </div>
 
-        <!-- 3 PASOS CON TEXTURA Y TARJETAS BLANCAS DESTACADAS -->
-        <div class="grid sm:grid-cols-3 gap-6 text-left">
-          <div class="bg-white/95 rounded-2xl p-6 text-slate-900 shadow-md border border-white/40 space-y-2.5">
-            <div class="w-9 h-9 rounded-full bg-[#f2920b] text-slate-950 font-heading font-black text-sm flex items-center justify-center">1</div>
-            <h3 class="font-heading font-black text-lg text-slate-950">Envíanos tu logo</h3>
-            <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">Envíanos el logo de tu club en cualquier formato y preparamos tu diseño digital 3D gratuito.</p>
-          </div>
-
-          <div class="bg-white/95 rounded-2xl p-6 text-slate-900 shadow-md border border-white/40 space-y-2.5">
-            <div class="w-9 h-9 rounded-full bg-[#f2920b] text-slate-950 font-heading font-black text-sm flex items-center justify-center">2</div>
-            <h3 class="font-heading font-black text-lg text-slate-950">Diseño 3D y Muestra Física Previa 15€</h3>
-            <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">Fabricamos una muestra real con tu logo antes de confirmar la tirada completa. 15 € reembolsables al confirmar el pedido.</p>
-          </div>
-
-          <div class="bg-white/95 rounded-2xl p-6 text-slate-900 shadow-md border border-white/40 space-y-2.5">
-            <div class="w-9 h-9 rounded-full bg-[#f2920b] text-slate-950 font-heading font-black text-sm flex items-center justify-center">3</div>
-            <h3 class="font-heading font-black text-lg text-slate-950">Producción y Entrega</h3>
-            <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">Pedido mínimo 100 unidades y entrega en torno a un mes con envíos incluidos.</p>
-          </div>
-        </div>
-      </div>
-    </section>
 
     <!-- PREGUNTAS FRECUENTES -->
     <section class="py-14 sm:py-20 bg-white border-b border-slate-200">
@@ -783,6 +723,6 @@
       lucide.createIcons();
     }
   </script>
-  <script src="/assets/js/cp-analytics.js?v=20261020b" defer></script>
+  <script src="/assets/js/cp-analytics.js" defer></script>
 </body>
 </html>

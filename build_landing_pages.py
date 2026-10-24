@@ -1197,8 +1197,8 @@ def render_landing(landing, lang="es"):
         "description": "{l_meta_desc}",
         "image": [
           "https://coolpadelstudios.com/{hero_img_encoded}",
-          "https://coolpadelstudios.com/assets/images/llaveros-padel-personalizados-clubs.jpg",
-          "https://coolpadelstudios.com/assets/images/llaveros-padel-personalizados-3d.jpg"
+          "https://coolpadelstudios.com/assets/images/savemyplay-1.jpg",
+          "https://coolpadelstudios.com/assets/images/savemyplay-2.jpg"
         ],
         "sku": "SMP-COURT-CAM-2026",
         "brand": {{
@@ -1594,6 +1594,7 @@ def render_landing(landing, lang="es"):
       </div>
     </section>
 
+{"" if is_camaras else f'''
     <!-- CÓMO FUNCIONA / PROCESO (FORMATO TEXTURA) -->
     <section class="py-14 sm:py-20 bg-[#3478a6] bg-textured-blue text-white border-b border-sky-700/40">
       <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -1602,7 +1603,7 @@ def render_landing(landing, lang="es"):
             {"Paso a Paso" if lang=="es" else "Step by Step" if lang=="en" else "Étape par Étape" if lang=="fr" else "Passo dopo Passo"}
           </span>
           <h2 class="font-heading font-black text-2xl sm:text-4xl uppercase tracking-tight">
-            {"¿Cómo pedir para tu club?" if not is_camaras and lang=="es" else "¿Cómo empezar con tu club?" if lang=="es" else "How to get started for your club?"}
+            {"¿Cómo pedir para tu club?" if lang=="es" else "How to order for your club?"}
           </h2>
         </div>
 
@@ -1628,6 +1629,7 @@ def render_landing(landing, lang="es"):
         </div>
       </div>
     </section>
+'''}
 
     <!-- PREGUNTAS FRECUENTES -->
     <section class="py-14 sm:py-20 bg-white border-b border-slate-200">

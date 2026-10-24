@@ -422,7 +422,7 @@ def generate_blog_index():
         "@type": "ItemList",
         "name": "Guías e Informes de la Industria del Pádel - CoolPadel Studios",
         "description": "Directorio completo de guías de rentabilidad, tecnología de grabación, smart courts, organización de americanas, coste de pistas, welcome packs y análisis de mercado para clubes de pádel.",
-        "numberOfItems": 27,
+        "numberOfItems": 29,
         "itemListElement": [
           {{
             "@type": "ListItem",
@@ -1645,6 +1645,81 @@ def generate_blog_index():
               </div>
             </div>
 
+
+            <!-- MONOGRÁFICO OFICIAL: PLAYTOMIC GLOBAL PADEL REPORT 2026 -->
+            <div class="bg-white border-2 border-[#f2920b]/40 rounded-2xl p-4 sm:p-5 shadow-2xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between group hover:-translate-y-0.5">
+              <div class="space-y-3">
+                <div class="aspect-[16/10] rounded-xl overflow-hidden bg-slate-900 border border-slate-200/90 shadow-2xs relative">
+                  <img src="../assets/images/foto-reportaje.jpg" alt="Resumen del Playtomic Global Padel Report 2026" width="600" height="375" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
+                  <span class="absolute bottom-2 left-2 text-[9px] font-black uppercase tracking-wider px-2 py-0.5 rounded-full bg-[#f2920b] text-slate-950 shadow-xs">
+                    Informe Playtomic &amp; PwC 2026
+                  </span>
+                </div>
+
+                <div class="space-y-1">
+                  <div class="flex items-center gap-1.5 text-[10px] font-bold text-slate-400">
+                    <span>Junio 2026</span>
+                    <span>•</span>
+                    <span>Lectura 9 min</span>
+                  </div>
+                  <h3 class="font-heading font-black text-sm sm:text-base text-slate-950 leading-snug group-hover:text-[#f2920b] transition">
+                    Resumen del Playtomic Global Padel Report 2026: Las Claves del Mercado
+                  </h3>
+                  <p class="text-xs text-slate-600 font-medium leading-relaxed line-clamp-2">
+                    58.334 pistas en el mundo, los 4 arquetipos de mercado, el Court-Hour Engine y el pádel como activo inmobiliario.
+                  </p>
+                </div>
+              </div>
+
+              <div class="pt-3.5 border-t border-slate-100 mt-4">
+                <a href="./resumen-playtomic-global-padel-report-2026-claves-mercado/"
+                   class="group relative w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-full bg-slate-900 hover:bg-[#f2920b] text-white hover:text-slate-950 active:scale-95 font-heading font-black text-xs uppercase tracking-wider transition-all duration-300 shadow-2xs">
+                  <span>Leer Resumen Playtomic</span>
+                  <div class="w-4 h-4 rounded-full bg-white/20 group-hover:bg-slate-950/20 flex items-center justify-center transition-all duration-300">
+                    <i data-lucide="arrow-right" class="w-3 h-3 stroke-[3] group-hover:translate-x-0.5 transition-transform duration-300"></i>
+                  </div>
+                </a>
+              </div>
+            </div>
+
+            <!-- MONOGRÁFICO OFICIAL: US PADEL REPORT 2026 MISTRANO -->
+            <div class="bg-white border-2 border-[#3478a6]/40 rounded-2xl p-4 sm:p-5 shadow-2xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between group hover:-translate-y-0.5">
+              <div class="space-y-3">
+                <div class="aspect-[16/10] rounded-xl overflow-hidden bg-slate-900 border border-slate-200/90 shadow-2xs relative">
+                  <img src="../assets/images/gallery-padel-1.jpg" alt="US Padel Report 2026 de Mistrano Consulting" width="600" height="375" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
+                  <span class="absolute bottom-2 left-2 text-[9px] font-black uppercase tracking-wider px-2 py-0.5 rounded-full bg-[#3478a6] text-white shadow-xs">
+                    US Report Oficial 2026
+                  </span>
+                </div>
+
+                <div class="space-y-1">
+                  <div class="flex items-center gap-1.5 text-[10px] font-bold text-slate-400">
+                    <span>Septiembre 2026</span>
+                    <span>•</span>
+                    <span>Lectura 9 min</span>
+                  </div>
+                  <h3 class="font-heading font-black text-sm sm:text-base text-slate-950 leading-snug group-hover:text-[#f2920b] transition">
+                    US Padel Report 2026 de Mistrano Consulting: Radiografía del Mercado en EE.UU.
+                  </h3>
+                  <p class="text-xs text-slate-600 font-medium leading-relaxed line-clamp-2">
+                    Estudio de Patricio Misitrano: 1.112 pistas en 38 estados, 463.000 jugadores, tarifas por región y primeros cierres.
+                  </p>
+                </div>
+              </div>
+
+              <div class="pt-3.5 border-t border-slate-100 mt-4">
+                <a href="./us-padel-report-2026-mistrano-analisis-estados-unidos/"
+                   class="group relative w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-full bg-slate-900 hover:bg-[#f2920b] text-white hover:text-slate-950 active:scale-95 font-heading font-black text-xs uppercase tracking-wider transition-all duration-300 shadow-2xs">
+                  <span>Leer US Padel Report</span>
+                  <div class="w-4 h-4 rounded-full bg-white/20 group-hover:bg-slate-950/20 flex items-center justify-center transition-all duration-300">
+                    <i data-lucide="arrow-right" class="w-3 h-3 stroke-[3] group-hover:translate-x-0.5 transition-transform duration-300"></i>
+                  </div>
+                </a>
+              </div>
+            </div>
+
 </div>
 
 
@@ -1695,6 +1770,21 @@ def generate_blog_index():
     print("  [OK] coolpadel-web/blog/index.html")
 
 ALL_ARTICLES_CATALOG = {
+    "resumen-playtomic-global-padel-report-2026-claves-mercado": {
+        "title": "Resumen del Playtomic Global Padel Report 2026: Las Claves del Mercado",
+        "badge": "Informe Playtomic & PwC 2026",
+        "url": "../resumen-playtomic-global-padel-report-2026-claves-mercado/",
+        "img": "foto-reportaje.jpg",
+        "desc": "Análisis del informe de Playtomic & PwC: 58.334 pistas en el mundo, los 4 arquetipos de mercado y el modelo Court-Hour Engine."
+    },
+    "us-padel-report-2026-mistrano-analisis-estados-unidos": {
+        "title": "US Padel Report 2026 de Mistrano Consulting: Radiografía del Mercado en EE.UU.",
+        "badge": "US Report Oficial 2026",
+        "url": "../us-padel-report-2026-mistrano-analisis-estados-unidos/",
+        "img": "gallery-padel-1.jpg",
+        "desc": "Estudio oficial independiente: 1.112 pistas en 38 estados, 463.000 jugadores, costes por región y primeros cierres de clubes."
+    },
+
     "crisis-tenis-profesional-formato-intennse-vs-padel": {
         "title": "La Crisis del Tenis Profesional vs el Auge del Pádel: El Caso Intennse",
         "badge": "Tenis vs Pádel & Negocio",
@@ -1889,6 +1979,9 @@ ALL_ARTICLES_CATALOG = {
 }
 
 RELATED_SLUGS_MAP = {
+    "resumen-playtomic-global-padel-report-2026-claves-mercado": ["us-padel-report-2026-mistrano-analisis-estados-unidos", "modelos-club-padel-americano-lifestyle-servicios-adicionales", "barometro-camaras-padel-2026"],
+    "us-padel-report-2026-mistrano-analisis-estados-unidos": ["expansion-padel-estados-unidos-oportunidad-clubes-marcas", "pickleball-vs-padel-oportunidad-o-amenaza-clubs", "resumen-playtomic-global-padel-report-2026-claves-mercado"],
+
     "crisis-tenis-profesional-formato-intennse-vs-padel": ["pickleball-vs-padel-oportunidad-o-amenaza-clubs", "expansion-padel-estados-unidos-oportunidad-clubes-marcas", "como-acertar-stand-feria-padel-pws-racquetx-roi"],
     "lecciones-burbuja-suecia-padel-crecimiento-sostenible-clubes": ["cuanto-cuesta-montar-pista-padel-presupuesto-rentabilidad", "modelos-club-padel-americano-lifestyle-servicios-adicionales", "smart-courts-pistas-inteligentes-padel-horas-valle"],
     "playtomic-vs-playbypoint-vs-courtreserve-software-reservas-padel": ["barometro-camaras-padel-2026", "smart-courts-pistas-inteligentes-padel-horas-valle", "rentabilidad-camaras-pistas-padel"],
@@ -2273,6 +2366,23 @@ def generate_article_page(slug, edition_num, title, date_str, read_time, cover_i
     print(f"  [OK] {dest_dir}/index.html")
 
 DOWNLOAD_BOXES = {
+    "resumen-playtomic-global-padel-report-2026-claves-mercado": {
+        "badge": "Dossier Oficial PDF",
+        "title": "Resumen Ejecutivo: Playtomic Global Padel Report 2026",
+        "desc": "Principales gráficos y conclusiones del informe de Playtomic y PwC: arquetipos de mercado, impacto del modelo indoor y pautas para nuevos inversores.",
+        "file_url": "../../assets/reports/padel-industry-report-es.pdf",
+        "btn_text": "Descargar Resumen Ejecutivo (PDF)",
+        "wa_msg": "Hola Javier, me interesa el resumen del Global Padel Report 2026 para mi club"
+    },
+    "us-padel-report-2026-mistrano-analisis-estados-unidos": {
+        "badge": "Reporte Completo PDF",
+        "title": "Resumen Estadístico: U.S. Padel Report 2026 (Mistrano Consulting)",
+        "desc": "Desglose por estados y regiones, tarifas medianas outdoor e indoor y análisis de viabilidad para operadores e inversores en Norteamérica.",
+        "file_url": "../../assets/reports/padel-industry-report-es.pdf",
+        "btn_text": "Descargar Resumen USA Report",
+        "wa_msg": "Hola Javier, me interesa el informe de Mistrano Consulting sobre el mercado de pádel en EE.UU."
+    },
+
     "crisis-tenis-profesional-formato-intennse-vs-padel": {
         "badge": "Informe Comparativo PDF",
         "title": "Dossier: Economía del Deporte de Raqueta y Nuevos Circuitos",
@@ -2430,6 +2540,9 @@ DOWNLOAD_BOXES = {
 }
 
 SHORT_SEO_TITLES = {
+    "resumen-playtomic-global-padel-report-2026-claves-mercado": "Playtomic Global Padel Report 2026: Resumen | CoolPadel",
+    "us-padel-report-2026-mistrano-analisis-estados-unidos": "US Padel Report 2026 (Mistrano): Análisis Completo | CoolPadel",
+
     "crisis-tenis-profesional-formato-intennse-vs-padel": "Crisis del Tenis vs Auge del Pádel (Intennse) | CoolPadel",
     "lecciones-burbuja-suecia-padel-crecimiento-sostenible-clubes": "Lecciones de la Burbuja Sueca del Pádel | CoolPadel",
     "playtomic-vs-playbypoint-vs-courtreserve-software-reservas-padel": "Playtomic vs Playbypoint vs CourtReserve | CoolPadel",
@@ -4915,6 +5028,45 @@ def generate_all():
         cover_img="savemyplay-1.jpg",
         content_html=CONTENT_MONETIZAR_STREAMING_TORNEOS,
         faqs=FAQS_MONETIZAR_STREAMING_TORNEOS,
+        cta_type="camaras"
+    )
+
+    
+    # -------------------------------------------------------------
+    # 2 ARTÍCULOS MONOGRÁFICOS OFICIALES (PLAYTOMIC & US REPORT)
+    # -------------------------------------------------------------
+    from new_articles_data_reports import (
+        CONTENT_PLAYTOMIC_MONOGRAFICO, FAQS_PLAYTOMIC_MONOGRAFICO,
+        CONTENT_US_REPORT_MONOGRAFICO, FAQS_US_REPORT_MONOGRAFICO
+    )
+
+    generate_guide_page(
+        slug="resumen-playtomic-global-padel-report-2026-claves-mercado",
+        category_badge="Informe Playtomic & PwC 2026",
+        title="Resumen del Playtomic Global Padel Report 2026: Las Claves del Mercado",
+        subtitle="Publicado en junio de 2026 por Playtomic y Strategy& (PwC): 58.334 pistas en el mundo, los 4 arquetipos de mercado, el Court-Hour Engine y el pádel como activo inmobiliario.",
+        meta_desc="Resumen ejecutivo del Playtomic Global Padel Report 2026 con PwC: estadísticas mundiales de 58.334 pistas, arquetipos de mercado y modelo Court-Hour Engine.",
+        date_str="Junio 2026",
+        date_iso="2026-06-02",
+        read_time="Lectura 9 min",
+        cover_img="foto-reportaje.jpg",
+        content_html=CONTENT_PLAYTOMIC_MONOGRAFICO,
+        faqs=FAQS_PLAYTOMIC_MONOGRAFICO,
+        cta_type="camaras"
+    )
+
+    generate_guide_page(
+        slug="us-padel-report-2026-mistrano-analisis-estados-unidos",
+        category_badge="US Report Oficial 2026",
+        title="US Padel Report 2026 de Mistrano Consulting: Radiografía del Mercado en EE.UU.",
+        subtitle="El estudio independiente de Patricio Misitrano (corte Q2 2026): 1.112 pistas en 38 estados, 463.000 jugadores, tarifas por región y la advertencia de los primeros cierres.",
+        meta_desc="Análisis completo del U.S. Padel Report 2026 de Mistrano Consulting: censo de 1.112 pistas en 38 estados, tarifas, regiones y lecciones operativas en EE.UU.",
+        date_str="Septiembre 2026",
+        date_iso="2026-09-26",
+        read_time="Lectura 9 min",
+        cover_img="gallery-padel-1.jpg",
+        content_html=CONTENT_US_REPORT_MONOGRAFICO,
+        faqs=FAQS_US_REPORT_MONOGRAFICO,
         cta_type="camaras"
     )
 
