@@ -233,7 +233,7 @@ def render_html(lang="es"):
         """
 
     full_html = f"""<!DOCTYPE html>
-<html lang="es" class="scroll-smooth overflow-x-hidden">
+<html lang="{lang}" class="scroll-smooth overflow-x-hidden">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
@@ -256,15 +256,15 @@ def render_html(lang="es"):
   <meta property="og:type" content="website">
   <meta property="og:locale" content="{og_locale}">
   <meta property="og:site_name" content="CoolPadel Studios">
-  <meta property="og:url" content="https://coolpadelstudios.com/franquicias-padel/">
-  <meta property="og:title" content="Directorio y Comparador B2B de Cadenas y Franquicias de Pádel | {total_franquicias} Operadores">
-  <meta property="og:description" content="Guía y comparador cara a cara para inversores y clubes: contrasta royalties, requisitos de nave, software y modelos de negocio en {paises_unicos} países.">
+  <meta property="og:url" content="{page_url}">
+  <meta property="og:title" content="{page_title}">
+  <meta property="og:description" content="{page_desc}">
   <meta property="og:image" content="https://coolpadelstudios.com/assets/images/savemyplay-1.jpg">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Directorio y Comparador de Franquicias de Pádel | CoolPadel Studios">
-  <meta name="twitter:description" content="Censo internacional de {total_franquicias} cadenas de pádel con varias sedes bajo el mismo nombre y franquicias en más de 20 países.">
+  <meta name="twitter:title" content="{page_title}">
+  <meta name="twitter:description" content="{page_desc}">
   <meta name="twitter:image" content="https://coolpadelstudios.com/assets/images/savemyplay-1.jpg">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
 

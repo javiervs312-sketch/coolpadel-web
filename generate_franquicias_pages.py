@@ -66,7 +66,7 @@ def generate_single_page(f, lang="es"):
 
     path_prefix = "" if lang == "es" else f"{lang}/"
     asset_prefix = "../../" if lang == "es" else "../../../"
-    canonical_url = f"https://coolpadelstudios.com/franquicias-padel/{fid}/"
+    canonical_url = f"https://coolpadelstudios.com/franquicias-padel/{fid}/" if lang == "es" else f"https://coolpadelstudios.com/{lang}/franquicias-padel/{fid}/"
     og_locale = {"es": "es_ES", "en": "en_US", "fr": "fr_FR", "it": "it_IT"}.get(lang, "es_ES")
 
     wa_msgs = {
@@ -171,7 +171,7 @@ def generate_single_page(f, lang="es"):
   <meta name="twitter:title" content="{escape_txt(localized_title)}">
   <meta name="twitter:description" content="{escape_txt(localized_desc)}">
   <meta name="twitter:image" content="https://coolpadelstudios.com/assets/images/savemyplay-1.jpg">
-  <meta name="robots" content="{'index, follow, max-image-preview:large, max-snippet:-1' if lang == 'es' else 'noindex, follow'}">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="{asset_prefix}assets/images/favicon_transparente.png?v=transp3">

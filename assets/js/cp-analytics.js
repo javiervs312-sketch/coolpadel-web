@@ -365,14 +365,14 @@
 
     try {
       const dev = getDeviceInfo();
-      const isUnloadEvent = Boolean(extraData._unload);
       delete extraData._unload;
+      const origenActual = getChannelOrigin();
 
       // Nota: enviamos visitor_id vacío al webhook para que cada visita nueva cree su propia fila
-      // en lugar de borrar la fila anterior del visitante en Google Apps Script.
+      // e incluimos el origen real tras '||' en session_id para que el normalizador lo extraiga con precisión.
       const payload = {
         tipo: 'analitica_evento',
-        session_id: sessionId,
+        session_id: sessionId + '||' + origenActual,
         visitor_id: '',
         visita_num: visitCount,
         lead_label: getLeadIdentification(),
@@ -395,19 +395,12 @@
         dispositivo: dev.dispositivo,
         resolucion: dev.resolucion,
         idioma: (document.documentElement.lang || navigator.language || 'es').toLowerCase(),
-        origen_canal: getChannelOrigin(),
+        origen_canal: origenActual,
         campana_utm: utmCampaign || utmSource || '',
         ...extraData
       };
 
       const jsonPayload = JSON.stringify(payload);
-
-      if (isUnloadEvent && typeof navigator.sendBeacon === 'function') {
-        try {
-          const blob = new Blob([jsonPayload], { type: 'text/plain;charset=UTF-8' });
-          navigator.sendBeacon(WEBHOOK_URL, blob);
-        } catch (eBeacon) {}
-      }
 
       if (typeof fetch === 'function') {
         fetch(WEBHOOK_URL, {
