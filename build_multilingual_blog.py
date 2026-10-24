@@ -60,6 +60,7 @@ def build_blog_hub(lang):
     html = re.sub(r'<title>.*?</title>', f'<title>{d["title"]}</title>', html)
     html = re.sub(r'<meta name="description" content=".*?">', f'<meta name="description" content="{d["desc"]}">', html)
     html = html.replace('content="es_ES"', f'content="{og_locale}"')
+    html = html.replace('content="https://coolpadelstudios.com/blog/"', f'content="{canonical}"')
     html = html.replace('href="../', f'href="{asset_prefix}')
     html = html.replace('src="../', f'src="{asset_prefix}')
     html = html.replace('"inLanguage": "es"', f'"inLanguage": "{lang}"')
@@ -90,7 +91,7 @@ def build_blog_hub(lang):
 
 def build_flagship_guide(slug, lang):
     is_es = (lang == "es")
-    canonical = f"https://coolpadelstudios.com/blog/{slug}/"
+    canonical = f"https://coolpadelstudios.com/blog/{slug}/" if is_es else f"https://coolpadelstudios.com/{lang}/blog/{slug}/"
     og_locale = {"es": "es_ES", "en": "en_US", "fr": "fr_FR", "it": "it_IT"}[lang]
     asset_prefix = "../../" if is_es else "../../../"
 
@@ -122,6 +123,7 @@ def build_flagship_guide(slug, lang):
     html = re.sub(r'<title>.*?</title>', f'<title>{d["title"]}</title>', html)
     html = re.sub(r'<meta name="description" content=".*?">', f'<meta name="description" content="{d["desc"]}">', html)
     html = html.replace('content="es_ES"', f'content="{og_locale}"')
+    html = re.sub(r'<meta property="og:url" content="[^"]*">', f'<meta property="og:url" content="{canonical}">', html)
     html = html.replace('href="../../', f'href="{asset_prefix}')
     html = html.replace('src="../../', f'src="{asset_prefix}')
     html = html.replace('href="../"', f'href="{asset_prefix}{lang}/blog/"')

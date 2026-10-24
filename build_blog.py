@@ -2091,6 +2091,14 @@ def generate_guide_page(slug, category_badge, title, subtitle, meta_desc, date_s
   <title>{seo_doc_title}</title>
   <meta name="description" content="{meta_desc}">
   <link rel="canonical" href="https://coolpadelstudios.com/blog/{slug}/">
+
+  <!-- SEO Multilingüe Hreflang -->
+  <link rel="alternate" hreflang="es" href="https://coolpadelstudios.com/blog/{slug}/">
+  <link rel="alternate" hreflang="en" href="https://coolpadelstudios.com/en/blog/{slug}/">
+  <link rel="alternate" hreflang="fr" href="https://coolpadelstudios.com/fr/blog/{slug}/">
+  <link rel="alternate" hreflang="it" href="https://coolpadelstudios.com/it/blog/{slug}/">
+  <link rel="alternate" hreflang="x-default" href="https://coolpadelstudios.com/blog/{slug}/">
+  <meta name="language" content="es">
   
   <!-- Open Graph / Redes Sociales -->
   <meta property="og:type" content="article">

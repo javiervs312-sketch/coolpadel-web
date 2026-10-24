@@ -14,6 +14,7 @@ if cur_dir not in sys.path:
 
 from dataset_franquicias import FRANQUICIAS
 from translations_landings import LANDINGS_I18N
+from translations_blog import FLAGSHIP_GUIDES_DATA
 
 LANDING_SLUGS = list(LANDINGS_I18N["en"].keys())
 DOMAIN = "https://coolpadelstudios.com"
@@ -137,20 +138,39 @@ def generate_sitemap():
         changefreq="weekly"
     ))
 
-    # 8. Todos los artículos y estudios del Blog en su URL canónica original (ES)
+    flagship_slugs = set(FLAGSHIP_GUIDES_DATA.keys())
+
+    # 8. Artículos del Blog: Flagship Guides (4 idiomas con clúster simétrico) y Artículos ES
     blog_root = os.path.join(cur_dir, "blog")
     all_blog_dirs = sorted([d for d in os.listdir(blog_root) if os.path.isdir(os.path.join(blog_root, d))])
     for b_dir in all_blog_dirs:
         art_path = os.path.join(blog_root, b_dir, "index.html")
         if not os.path.isfile(art_path):
             continue
-        prio = "0.90" if "barometro" in b_dir or "comparativa" in b_dir or "rentabilidad" in b_dir else "0.80"
-        all_blocks.append(get_single_xml(f"/blog/{b_dir}/", priority=prio, changefreq="weekly"))
+        if b_dir in flagship_slugs:
+            prio = "0.90" if "barometro" in b_dir or "comparativa" in b_dir or "rentabilidad" in b_dir else "0.85"
+            all_blocks.extend(get_cluster_xml(
+                f"/blog/{b_dir}/",
+                f"/en/blog/{b_dir}/",
+                f"/fr/blog/{b_dir}/",
+                f"/it/blog/{b_dir}/",
+                priority=prio,
+                changefreq="weekly"
+            ))
+        else:
+            all_blocks.append(get_single_xml(f"/blog/{b_dir}/", priority="0.80", changefreq="weekly"))
 
-    # 9. Fichas de Franquicias Individuales en su URL canónica original (ES)
+    # 9. Fichas de Franquicias Individuales (100% traducidas en 4 idiomas con clúster simétrico)
     for f in FRANQUICIAS:
         fid = f["id"]
-        all_blocks.append(get_single_xml(f"/franquicias-padel/{fid}/", priority="0.70", changefreq="monthly"))
+        all_blocks.extend(get_cluster_xml(
+            f"/franquicias-padel/{fid}/",
+            f"/en/franquicias-padel/{fid}/",
+            f"/fr/franquicias-padel/{fid}/",
+            f"/it/franquicias-padel/{fid}/",
+            priority="0.75",
+            changefreq="monthly"
+        ))
 
     # 10. Páginas estáticas secundarias
     all_blocks.append(get_single_xml("/politica-de-devoluciones.html", priority="0.30", changefreq="yearly"))

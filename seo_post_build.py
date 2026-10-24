@@ -150,46 +150,19 @@ def run_seo_post_build():
             if changed:
                 open(full, "w", encoding="utf-8").write(c)
 
-    # 3. Canonicalize & noindex untranslated franchise subpages
-    from dataset_franquicias import FRANQUICIAS
-    for f in FRANQUICIAS:
-        fid = f["id"]
-        es_url = f"https://coolpadelstudios.com/franquicias-padel/{fid}/"
-        es_file = os.path.join(web_dir, "franquicias-padel", fid, "index.html")
-        if os.path.exists(es_file):
-            c = open(es_file, encoding="utf-8").read()
-            c = re.sub(r'\s*<!-- SEO Multilingüe Hreflang -->.*?<meta name="language" content="es">', '\n  <meta name="language" content="es">', c, flags=re.S)
-            open(es_file, "w", encoding="utf-8").write(c)
-        for lang in ["en", "fr", "it"]:
-            lf = os.path.join(web_dir, lang, "franquicias-padel", fid, "index.html")
-            if os.path.exists(lf):
-                c = open(lf, encoding="utf-8").read()
-                c = re.sub(r'<link rel="canonical" href="[^"]*">', f'<link rel="canonical" href="{es_url}">', c)
-                c = re.sub(r'<meta name="robots" content="[^"]*">', '<meta name="robots" content="noindex, follow">', c)
-                c = re.sub(r'\s*<!-- SEO Multilingüe Hreflang -->.*?<meta name="language" content="[^"]*">', '', c, flags=re.S)
-                c = c.replace('src="../../assets/images/coolpadel-mascot-hd.png"', 'src="../../../assets/images/coolpadel-mascot-hd.png"')
-                open(lf, "w", encoding="utf-8").write(c)
-
-    # 4. Canonicalize & noindex untranslated blog subpages + inject SEO Silo Mesh on ES blog articles
-    blog_root = os.path.join(web_dir, "blog")
-    for b_dir in os.listdir(blog_root):
-        es_art = os.path.join(blog_root, b_dir, "index.html")
-        if not os.path.isfile(es_art):
-            continue
-        es_url = f"https://coolpadelstudios.com/blog/{b_dir}/"
-        c = open(es_art, encoding="utf-8").read()
-        c = re.sub(r'\s*<!-- SEO Multilingüe Hreflang -->.*?<meta name="language" content="[^"]*">', '', c, flags=re.S)
-        c = re.sub(r'\s*<!-- SEO INTERNAL SILO MESH -->.*?</section>', '', c, flags=re.S)
-        open(es_art, "w", encoding="utf-8").write(c)
-
-        for lang in ["en", "fr", "it"]:
-            lf = os.path.join(web_dir, lang, "blog", b_dir, "index.html")
-            if os.path.isfile(lf):
-                lc = open(lf, encoding="utf-8").read()
-                lc = re.sub(r'<link rel="canonical" href="[^"]*">', f'<link rel="canonical" href="{es_url}">', lc)
-                lc = re.sub(r'<meta name="robots" content="[^"]*">', '<meta name="robots" content="noindex, follow">', lc)
-                lc = re.sub(r'\s*<!-- SEO Multilingüe Hreflang -->.*?<meta name="language" content="[^"]*">', '', lc, flags=re.S)
-                open(lf, "w", encoding="utf-8").write(lc)
+    # 3. Preservar SEO Internacional en subpáginas de franquicias (ES, EN, FR, IT)
+    for lang in ["en", "fr", "it"]:
+        lang_dir = os.path.join(web_dir, lang, "franquicias-padel")
+        if os.path.exists(lang_dir):
+            for fid in os.listdir(lang_dir):
+                lf = os.path.join(lang_dir, fid, "index.html")
+                if os.path.isfile(lf):
+                    c = open(lf, encoding="utf-8").read()
+                    if 'src="../../assets/images/coolpadel-mascot-hd.png"' in c:
+                        c = c.replace('src="../../assets/images/coolpadel-mascot-hd.png"', 'src="../../../assets/images/coolpadel-mascot-hd.png"')
+                        open(lf, "w", encoding="utf-8").write(c)
+    # 4. Preservar hreflangs e indexabilidad multilingüe en artículos y guías del blog
+    # (Las guías flagship y el blog hub están 100% traducidos en ES, EN, FR, IT con hreflangs simétricos)
 
     # 5. Mark internal drafts & redirect stubs with noindex
     for fn in ["propuesta-2.html", "propuesta-3.html", "manual-marca.html"]:
