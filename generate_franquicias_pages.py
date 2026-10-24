@@ -79,20 +79,45 @@ def generate_single_page(f, lang="es"):
     import urllib.parse
     wa_url = f"https://api.whatsapp.com/send?phone=34680317486&text={urllib.parse.quote(wa_msg)}"
 
-    # Sedes HTML
+    # Sedes HTML interactivas y clickables
     sedes_items = []
     if sub_clubs:
         for sc in sub_clubs[:12]:
             s_nom = sc.get("nombre", "")
             s_ciu = sc.get("ciudad", "")
             s_pis = sc.get("pistas", "")
-            extra = f" ({s_pis})" if s_pis else ""
-            sedes_items.append(f'<li class="flex items-start gap-2.5 py-1.5"><i data-lucide="map-pin" class="w-4 h-4 text-[#f2920b] shrink-0 mt-0.5"></i><span><strong>{escape_txt(s_nom)}</strong> ({escape_txt(s_ciu)}){escape_txt(extra)}</span></li>')
+            extra = f" · {s_pis}" if s_pis else ""
+            q = urllib.parse.quote(f"{s_nom} {s_ciu} padel")
+            maps_link = f"https://www.google.com/maps/search/?api=1&query={q}"
+            sedes_items.append(f'''<li class="p-2.5 rounded-xl bg-slate-50 hover:bg-amber-50/70 border border-slate-200/80 transition flex items-center justify-between gap-3 group">
+              <div class="flex items-center gap-2.5 min-w-0">
+                <span class="w-7 h-7 rounded-lg bg-white border border-slate-200 flex items-center justify-center text-xs group-hover:bg-[#f2920b] group-hover:text-slate-950 shrink-0 shadow-2xs">🎾</span>
+                <div class="truncate">
+                  <strong class="text-xs sm:text-sm font-black text-slate-950 group-hover:text-[#f2920b] transition block truncate">{escape_txt(s_nom)}</strong>
+                  <span class="text-[11px] text-slate-500 font-medium">{escape_txt(s_ciu)}{escape_txt(extra)}</span>
+                </div>
+              </div>
+              <a href="{maps_link}" target="_blank" rel="noopener noreferrer" class="shrink-0 inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-white hover:bg-[#f2920b] hover:text-slate-950 border border-slate-200 text-[11px] font-bold text-slate-600 transition shadow-2xs">
+                <span>Google Maps</span>
+                <i data-lucide="arrow-up-right" class="w-3 h-3"></i>
+              </a>
+            </li>''')
         if len(sub_clubs) > 12:
-            sedes_items.append(f'<li class="text-xs text-slate-500 font-bold italic pt-2">+ {len(sub_clubs) - 12} centros adicionales verificados en red.</li>')
+            sedes_items.append(f'<li class="text-xs text-slate-500 font-bold italic pt-2 text-center">+ {len(sub_clubs) - 12} centros adicionales verificados en red.</li>')
     elif sedes:
         for s in sedes[:12]:
-            sedes_items.append(f'<li class="flex items-start gap-2.5 py-1.5"><i data-lucide="map-pin" class="w-4 h-4 text-[#f2920b] shrink-0 mt-0.5"></i><span>{escape_txt(s)}</span></li>')
+            q = urllib.parse.quote(f"{s} padel")
+            maps_link = f"https://www.google.com/maps/search/?api=1&query={q}"
+            sedes_items.append(f'''<li class="p-2.5 rounded-xl bg-slate-50 hover:bg-amber-50/70 border border-slate-200/80 transition flex items-center justify-between gap-3 group">
+              <div class="flex items-center gap-2.5 min-w-0">
+                <span class="w-7 h-7 rounded-lg bg-white border border-slate-200 flex items-center justify-center text-xs group-hover:bg-[#f2920b] group-hover:text-slate-950 shrink-0 shadow-2xs">🎾</span>
+                <strong class="text-xs sm:text-sm font-black text-slate-950 group-hover:text-[#f2920b] transition truncate">{escape_txt(s)}</strong>
+              </div>
+              <a href="{maps_link}" target="_blank" rel="noopener noreferrer" class="shrink-0 inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-white hover:bg-[#f2920b] hover:text-slate-950 border border-slate-200 text-[11px] font-bold text-slate-600 transition shadow-2xs">
+                <span>Google Maps</span>
+                <i data-lucide="arrow-up-right" class="w-3 h-3"></i>
+              </a>
+            </li>''')
     else:
         sedes_items.append(f'<li class="flex items-start gap-2.5 py-1.5"><i data-lucide="map-pin" class="w-4 h-4 text-[#f2920b] shrink-0 mt-0.5"></i><span>Instalaciones en {escape_txt(ciudad)}, {escape_txt(pais)}</span></li>')
     sedes_html = "\n".join(sedes_items)

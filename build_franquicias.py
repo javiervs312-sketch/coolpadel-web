@@ -110,6 +110,21 @@ def render_html(lang="es"):
                 <span class="text-[11px] font-mono opacity-60 bg-slate-100 px-1.5 py-0.5 rounded-md">{cnt}</span>
               </button>"""
 
+    # Labels CTA adaptados
+    txt_cta_view = {
+        "es": "Ver ficha y clubes",
+        "en": "View profile & clubs",
+        "fr": "Voir la fiche & clubs",
+        "it": "Vedi scheda e club"
+    }.get(lang, "Ver ficha y clubes")
+    txt_dossier = "Dossier"
+    txt_compare = {
+        "es": "Comparar",
+        "en": "Compare",
+        "fr": "Comparer",
+        "it": "Confronta"
+    }.get(lang, "Comparar")
+
     # Cards HTML para el grid
     cards_html = ""
     for f in FRANQUICIAS:
@@ -132,7 +147,7 @@ def render_html(lang="es"):
         facility_type = get_facility_type(f.get("tecnologia_pistas", {}))
 
         cards_html += f"""
-        <article class="franchise-card group bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/90 shadow-2xs hover:shadow-lg hover:border-[#f2920b]/40 transition-all duration-300 flex flex-col justify-between cursor-pointer relative"
+        <article class="franchise-card group bg-white rounded-2xl p-4 sm:p-5 border-2 border-slate-200/90 shadow-2xs hover:shadow-xl hover:border-[#f2920b] hover:ring-4 hover:ring-[#f2920b]/20 hover:-translate-y-1.5 active:scale-[0.99] transition-all duration-300 flex flex-col justify-between cursor-pointer relative"
                  data-id="{fid}"
                  data-region="{region_f}"
                  data-model="{tipo_cat}"
@@ -149,7 +164,7 @@ def render_html(lang="es"):
                 <button onclick="toggleCompare('{fid}')" id="compare-btn-{fid}"
                         class="compare-card-btn inline-flex items-center gap-1 px-2 py-0.5 rounded-lg text-[10px] font-bold border border-slate-200 bg-white text-slate-600 hover:border-[#f2920b] hover:text-[#f2920b] transition">
                   <i data-lucide="scale" class="w-3 h-3"></i>
-                  <span class="compare-label">Comparar</span>
+                  <span class="compare-label">{txt_compare}</span>
                 </button>
                 <span class="text-xl" title="{pais}">{bandera}</span>
               </div>
@@ -157,7 +172,9 @@ def render_html(lang="es"):
 
             <h3 class="font-heading font-black text-lg sm:text-xl text-slate-950 group-hover:text-[#f2920b] transition-colors mb-1 flex items-center justify-between">
               <span>{nombre}</span>
-              <i data-lucide="chevron-right" class="w-4 h-4 text-slate-400 group-hover:text-[#f2920b] group-hover:translate-x-0.5 transition-all"></i>
+              <span class="w-7 h-7 rounded-full bg-slate-100 group-hover:bg-[#f2920b] group-hover:text-slate-950 flex items-center justify-center transition-all shrink-0">
+                <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+              </span>
             </h3>
             
             <p class="text-[11px] font-semibold text-slate-500 mb-2 flex items-center gap-1">
@@ -186,13 +203,15 @@ def render_html(lang="es"):
             </div>
           </div>
 
-          <div class="pt-2 border-t border-slate-100 flex items-center justify-between">
-            <a href="./{fid}/" onclick="event.stopPropagation()" class="text-[11px] font-bold text-slate-500 hover:text-[#f2920b] transition flex items-center gap-1">
-              <span>Ver Ficha & Dossier</span>
+          <div class="pt-3 border-t border-slate-100 flex items-center gap-2">
+            <a href="./{fid}/" onclick="event.stopPropagation()" class="flex-1 py-2 px-3 rounded-xl bg-slate-900 group-hover:bg-[#f2920b] text-white group-hover:text-slate-950 font-heading font-black text-xs uppercase tracking-wider flex items-center justify-center gap-1.5 transition-all duration-200 shadow-xs hover:scale-[1.02] active:scale-[0.98] cursor-pointer">
+              <span>{txt_cta_view}</span>
+              <i data-lucide="arrow-right" class="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform"></i>
             </a>
-            <a href="./{fid}/" onclick="event.stopPropagation()" class="inline-flex items-center justify-center w-7 h-7 rounded-full bg-slate-100 group-hover:bg-[#f2920b] group-hover:text-white transition" title="Ver ficha completa de {nombre}">
-              <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
-            </a>
+            <button type="button" onclick="event.stopPropagation(); openDrawer('{fid}')" class="px-3 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs uppercase tracking-wider transition flex items-center gap-1 cursor-pointer" title="Vista rápida de {nombre}">
+              <i data-lucide="eye" class="w-3.5 h-3.5"></i>
+              <span>{txt_dossier}</span>
+            </button>
           </div>
         </article>
         """
@@ -2897,6 +2916,33 @@ def render_html(lang="es"):
     }}
 
     // =========================================================================
+    // ENFOCAR CLUB CONCRETO EN EL MAPA Y HACER ZOOM A SU MARCADOR
+    // =========================================================================
+    function focusSpecificClub(id, idx) {{
+      const f = FRANQUICIAS.find(item => item.id === id);
+      if (!f) return;
+      closeDrawer();
+      if (currentView === 'table') switchView('grid');
+
+      const mapContainer = document.getElementById('mapContainer');
+      if (mapContainer) {{
+        mapContainer.scrollIntoView({{ behavior: 'smooth', block: 'center' }});
+      }}
+
+      if (f.sub_clubs && f.sub_clubs[idx]) {{
+        deploySubClubs(f);
+        const sc = f.sub_clubs[idx];
+        if (map && sc.coords && sc.coords.length === 2) {{
+          setTimeout(() => {{
+            map.flyTo(sc.coords, 14, {{ duration: 1.2 }});
+          }}, 300);
+        }}
+      }} else {{
+        zoomToClubRegion(f, id);
+      }}
+    }}
+
+    // =========================================================================
     // SLIDE-OVER DRAWER LOGIC
     // =========================================================================
     function openDrawer(id) {{
@@ -2924,7 +2970,7 @@ def render_html(lang="es"):
       document.getElementById('drawerSoftware').textContent = f.software;
       document.getElementById('drawerFundadores').textContent = f.fundadores;
 
-      // Sedes
+      // Sedes interactivas y clickables
       const sedesList = document.getElementById('drawerSedes');
       if (f.sub_clubs && f.sub_clubs.length > 0) {{
         sedesList.innerHTML = `
@@ -2935,9 +2981,34 @@ def render_html(lang="es"):
             </span>
             <button onclick="closeDrawer(); focusClubOnMap('${{f.id}}');" class="text-[#f2920b] hover:text-[#d97f08] font-black text-xs uppercase tracking-wider cursor-pointer">Ver en Mapa →</button>
           </div>
-        ` + f.sub_clubs.slice(0, 10).map((s, i) => `<li class="flex items-start gap-2"><span class="text-[#f2920b] font-bold">•</span><span><strong>${{s.nombre}}</strong> (${{s.ciudad}}) <span class="text-slate-400 font-normal">· ${{s.pistas || 'Pistas'}}</span></span></li>`).join('') + (f.sub_clubs.length > 10 ? `<li class="text-xs font-bold text-slate-500 italic pt-1">+ ${{f.sub_clubs.length - 10}} clubes adicionales desplegados en el mapa interactivo...</li>` : '');
+        ` + f.sub_clubs.slice(0, 12).map((s, i) => `
+          <div onclick="focusSpecificClub('${{f.id}}', ${{i}})" class="p-2.5 rounded-xl bg-slate-50 hover:bg-amber-50 hover:border-[#f2920b] border border-slate-200/90 transition-all cursor-pointer flex items-center justify-between gap-2 group/sub mb-2 shadow-2xs">
+            <div class="flex items-center gap-2 truncate">
+              <span class="w-7 h-7 rounded-lg bg-white border border-slate-200 flex items-center justify-center text-xs group-hover/sub:bg-[#f2920b] group-hover/sub:text-slate-950 shrink-0 shadow-2xs">🎾</span>
+              <div class="truncate">
+                <span class="text-xs font-black text-slate-950 group-hover/sub:text-[#f2920b] transition block truncate">${{s.nombre}}</span>
+                <span class="text-[11px] text-slate-500 font-medium">${{s.ciudad}}${{s.pistas ? ' · ' + s.pistas : ''}}</span>
+              </div>
+            </div>
+            <span class="text-[10px] font-bold text-slate-400 group-hover/sub:text-[#f2920b] flex items-center gap-1 shrink-0">
+              <span>Ver mapa</span>
+              <i data-lucide="map-pin" class="w-3 h-3"></i>
+            </span>
+          </div>
+        `).join('') + (f.sub_clubs.length > 12 ? `<div class="text-xs font-bold text-slate-500 italic pt-1 text-center">+ ${{f.sub_clubs.length - 12}} clubes adicionales desplegados en el mapa interactivo...</div>` : '');
       }} else {{
-        sedesList.innerHTML = f.sedes_principales.map(s => `<li class="flex items-start gap-2"><span class="text-[#f2920b] font-bold">•</span><span>${{s}}</span></li>`).join('');
+        sedesList.innerHTML = f.sedes_principales.map(s => `
+          <div onclick="closeDrawer(); focusClubOnMap('${{f.id}}');" class="p-2.5 rounded-xl bg-slate-50 hover:bg-amber-50 hover:border-[#f2920b] border border-slate-200/90 transition-all cursor-pointer flex items-center justify-between gap-2 group/sub mb-2 shadow-2xs">
+            <div class="flex items-center gap-2 truncate">
+              <span class="w-7 h-7 rounded-lg bg-white border border-slate-200 flex items-center justify-center text-xs group-hover/sub:bg-[#f2920b] group-hover/sub:text-slate-950 shrink-0 shadow-2xs">🎾</span>
+              <span class="text-xs font-black text-slate-950 group-hover/sub:text-[#f2920b] transition truncate">${{s}}</span>
+            </div>
+            <span class="text-[10px] font-bold text-slate-400 group-hover/sub:text-[#f2920b] flex items-center gap-1 shrink-0">
+              <span>Ver mapa</span>
+              <i data-lucide="map-pin" class="w-3 h-3"></i>
+            </span>
+          </div>
+        `).join('');
       }}
 
       // Tech
