@@ -669,11 +669,14 @@ def generate_blog_index():
       <div class="max-w-[1700px] mx-auto px-4 sm:px-6 lg:px-10">
         
         <!-- CABECERA DE SECCIÓN -->
-        <div class="max-w-3xl mx-auto text-center space-y-2 mb-10 sm:mb-14">
-          <h1 class="text-2xl sm:text-4xl font-black font-heading text-slate-950 uppercase tracking-tight">
-            Blog de Gestión de Clubes, Torneos y Cámaras de Pádel
+        <div class="max-w-3xl mx-auto text-center space-y-3 mb-10 sm:mb-14">
+          <span class="inline-block px-3.5 py-1 rounded-full bg-[#f2920b]/15 text-[#f2920b] font-heading font-black text-xs uppercase tracking-wider">
+            La newsletter de moda en la industria del padel
+          </span>
+          <h1 class="text-3xl sm:text-5xl font-black font-heading text-slate-950 uppercase tracking-tight">
+            Highlights by CoolPadel
           </h1>
-          <p class="text-slate-600 text-xs sm:text-base font-medium">
+          <p class="text-slate-600 text-sm sm:text-base font-medium">
             Estudios del sector, guías prácticas de rentabilidad, organización de americanas y tecnología B2B para pistas de pádel
           </p>
         </div>
@@ -773,23 +776,23 @@ def generate_blog_index():
 
         </div>
 
-        <!-- DEBAJO: REPORTAJE DE LA INDUSTRIA DEL PÁDEL (MUCHO MÁS PEQUEÑO Y COMPACTO) -->
-        <div class="max-w-3xl mx-auto mt-6 sm:mt-8">
-          <div class="bg-white border border-slate-200/90 rounded-2xl p-3.5 sm:p-4 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col sm:flex-row items-center gap-3.5 sm:gap-5 group">
-            <div class="w-full sm:w-40 md:w-48 aspect-[16/10] sm:aspect-[4/3] rounded-xl overflow-hidden bg-slate-900 border border-slate-200/90 shadow-2xs shrink-0 relative">
-              <img src="../assets/images/foto-reportaje.jpg" alt="Informe PDF sobre tendencias de la industria del padel 2026" width="400" height="300" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
-              <span class="absolute bottom-1.5 left-1.5 text-[9px] font-black uppercase tracking-wider px-2 py-0.5 rounded-full bg-white text-slate-950 shadow-xs">
+        <!-- REPORTAJE DE LA INDUSTRIA DEL PÁDEL (20% MÁS GRANDE Y CLICABLE) -->
+        <div class="max-w-4xl mx-auto mt-8 sm:mt-10">
+          <div class="bg-white border-2 border-slate-200/90 hover:border-[#f2920b] hover:ring-4 hover:ring-[#f2920b]/20 hover:shadow-[0_12px_30px_rgba(242,146,11,0.2)] rounded-3xl p-5 sm:p-7 transition-all duration-300 flex flex-col sm:flex-row items-center gap-5 sm:gap-7 group">
+            <div class="w-full sm:w-52 md:w-60 aspect-[16/10] sm:aspect-[4/3] rounded-2xl overflow-hidden bg-slate-900 border border-slate-200/90 shadow-sm shrink-0 relative">
+              <img src="../assets/images/foto-reportaje.jpg" alt="Informe PDF sobre tendencias de la industria del padel 2026" width="480" height="360" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
+              <span class="absolute bottom-2 left-2 text-[10px] font-black uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-white text-slate-950 shadow-xs">
                 Informe PDF
               </span>
             </div>
 
-            <div class="flex-1 min-w-0 space-y-1.5 text-center sm:text-left w-full">
+            <div class="flex-1 min-w-0 space-y-2 text-center sm:text-left w-full">
               <div>
-                <h2 class="font-heading font-black text-sm sm:text-base text-slate-950 leading-tight">
+                <h2 class="font-heading font-black text-base sm:text-xl text-slate-950 leading-tight">
                   Reportaje de la Industria del Pádel 2026
                 </h2>
-                <p class="text-xs text-slate-600 font-medium leading-relaxed mt-0.5 line-clamp-2">
-                  Radiografía de 116 empresas del sector: pistas, software, tendencias y proyección internacional.
+                <p class="text-xs sm:text-sm text-slate-600 font-medium leading-relaxed mt-1">
+                  Lo que tu club y marca deben saber
                 </p>
               </div>
 
@@ -805,8 +808,8 @@ def generate_blog_index():
           </div>
         </div>
 
-        <!-- BANNER HERRAMIENTAS INTERACTIVAS GRATUITAS -->
-        <div class="mt-8 sm:mt-10 bg-slate-900 text-white rounded-3xl p-6 sm:p-8 border border-slate-800 shadow-lg">
+        <!-- BANNER HERRAMIENTAS INTERACTIVAS GRATUITAS (FORMATO TEXTURA) -->
+        <div class="mt-8 sm:mt-10 bg-[#3478a6] bg-textured-blue text-white rounded-3xl p-6 sm:p-8 border border-sky-400/30 shadow-xl">
           <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 mb-6">
             <div>
               <span class="inline-block px-2.5 py-0.5 rounded-full bg-[#f2920b]/20 text-[#f2920b] text-[10px] font-black uppercase tracking-wider mb-1">
@@ -822,49 +825,43 @@ def generate_blog_index():
             </a>
           </div>
           <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-xs">
-            <a href="../herramientas/generador-americana-padel/" class="p-3.5 rounded-2xl bg-slate-800/90 hover:bg-slate-800 border border-slate-700 hover:border-[#f2920b] transition flex items-center justify-between group">
+            <a href="../herramientas/generador-americana-padel/" class="p-3.5 rounded-2xl bg-white/95 hover:bg-white text-slate-900 border border-white/40 hover:border-[#f2920b] shadow-sm transition flex items-center justify-between group">
               <div>
-                <span class="font-heading font-black text-white group-hover:text-[#f2920b] block text-sm">🎾 Generador de Americana</span>
-                <span class="text-slate-400 text-[11px]">Cruces 8, 12, 16 y 20 jugadores + Ranking</span>
+                <span class="font-heading font-black text-slate-950 group-hover:text-[#f2920b] block text-sm">🎾 Generador de Americana</span>
+                <span class="text-slate-600 text-[11px]">Cruces 8, 12, 16 y 20 jugadores + Ranking</span>
               </div>
               <i data-lucide="chevron-right" class="w-4 h-4 text-slate-500 group-hover:text-[#f2920b]"></i>
             </a>
-            <a href="../herramientas/generador-cuadros-torneo-padel/" class="p-3.5 rounded-2xl bg-slate-800/90 hover:bg-slate-800 border border-slate-700 hover:border-[#f2920b] transition flex items-center justify-between group">
+            <a href="../herramientas/generador-cuadros-torneo-padel/" class="p-3.5 rounded-2xl bg-white/95 hover:bg-white text-slate-900 border border-white/40 hover:border-[#f2920b] shadow-sm transition flex items-center justify-between group">
               <div>
-                <span class="font-heading font-black text-white group-hover:text-[#f2920b] block text-sm">🏆 Sorteo Cuadros Torneo</span>
-                <span class="text-slate-400 text-[11px]">8, 16 y 32 parejas con cabezas de serie</span>
+                <span class="font-heading font-black text-slate-950 group-hover:text-[#f2920b] block text-sm">🏆 Sorteo Cuadros Torneo</span>
+                <span class="text-slate-600 text-[11px]">8, 16 y 32 parejas con cabezas de serie</span>
               </div>
               <i data-lucide="chevron-right" class="w-4 h-4 text-slate-500 group-hover:text-[#f2920b]"></i>
             </a>
-            <a href="../herramientas/calculadora-coste-pistas-padel/" class="p-3.5 rounded-2xl bg-slate-800/90 hover:bg-slate-800 border border-slate-700 hover:border-[#f2920b] transition flex items-center justify-between group">
+            <a href="../herramientas/calculadora-coste-pistas-padel/" class="p-3.5 rounded-2xl bg-white/95 hover:bg-white text-slate-900 border border-white/40 hover:border-[#f2920b] shadow-sm transition flex items-center justify-between group">
               <div>
-                <span class="font-heading font-black text-white group-hover:text-[#f2920b] block text-sm">🏗️ Coste Montar Pistas</span>
-                <span class="text-slate-400 text-[11px]">Presupuesto CAPEX 2026 y amortización</span>
+                <span class="font-heading font-black text-slate-950 group-hover:text-[#f2920b] block text-sm">🏗️ Coste Montar Pistas</span>
+                <span class="text-slate-600 text-[11px]">Presupuesto CAPEX 2026 y amortización</span>
               </div>
               <i data-lucide="chevron-right" class="w-4 h-4 text-slate-500 group-hover:text-[#f2920b]"></i>
             </a>
-            <a href="../herramientas/calculadora-roi-camaras-padel/" class="p-3.5 rounded-2xl bg-slate-800/90 hover:bg-slate-800 border border-slate-700 hover:border-[#f2920b] transition flex items-center justify-between group">
+            <a href="../herramientas/calculadora-roi-camaras-padel/" class="p-3.5 rounded-2xl bg-white/95 hover:bg-white text-slate-900 border border-white/40 hover:border-[#f2920b] shadow-sm transition flex items-center justify-between group">
               <div>
-                <span class="font-heading font-black text-white group-hover:text-[#f2920b] block text-sm">📹 Calculadora ROI Cámaras</span>
-                <span class="text-slate-400 text-[11px]">Simulador de ingresos Save my Play</span>
+                <span class="font-heading font-black text-slate-950 group-hover:text-[#f2920b] block text-sm">📹 Calculadora ROI Cámaras</span>
+                <span class="text-slate-600 text-[11px]">Simulador de ingresos Save my Play</span>
               </div>
               <i data-lucide="chevron-right" class="w-4 h-4 text-slate-500 group-hover:text-[#f2920b]"></i>
             </a>
           </div>
         </div>
 
-        <!-- GUÍAS TÉCNICAS Y RECURSOS PARA CLUBES Y TORNEOS (AEO / GEO - COMPACTOS) -->
+        <!-- ARTÍCULOS RELEVANTES -->
         <div class="mt-10 sm:mt-14 pt-8 border-t border-slate-200">
           <div class="max-w-3xl mx-auto text-center space-y-1.5 mb-6 sm:mb-8">
-            <span class="inline-block px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-800 text-[10px] font-bold uppercase tracking-wider">
-              Guías Técnicas y Recursos para Clubes
-            </span>
-            <h2 class="text-xl sm:text-2xl lg:text-3xl font-black font-heading text-slate-950 uppercase tracking-tight">
-              Artículos y Recursos de Gestión
+            <h2 class="text-2xl sm:text-3xl lg:text-4xl font-black font-heading text-slate-950 uppercase tracking-tight">
+              Artículos relevantes
             </h2>
-            <p class="text-slate-600 text-xs sm:text-sm font-medium">
-              Respuestas directas, números reales y análisis de expertos sobre tecnología, rentabilidad y merchandising para instalaciones de pádel.
-            </p>
           </div>
 
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 max-w-[1700px] w-full mx-auto">
@@ -876,7 +873,7 @@ def generate_blog_index():
                   <img src="../assets/images/savemyplay-1.jpg" alt="Barómetro de Cámaras y Digitalización en Clubes de Pádel 2026" width="600" height="375" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
                   <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
                   <span class="absolute bottom-2 left-2 text-[9px] font-black uppercase tracking-wider px-2 py-0.5 rounded-full bg-[#3478a6] text-white shadow-xs">
-                    Barómetro Oficial 2026
+                    Cámaras & Digitalización
                   </span>
                 </div>
 
@@ -1913,18 +1910,15 @@ def generate_article_page(slug, edition_num, title, date_str, read_time, cover_i
           </h1>
 
           <div class="flex items-center gap-3 pt-2 border-t border-slate-100">
-            <a href="https://www.linkedin.com/in/javier-villoria-soleto-606737298/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 group">
-              <div class="w-10 h-10 rounded-full bg-slate-950 text-white font-heading font-black flex items-center justify-center text-sm group-hover:bg-[#f2920b] transition">
+            <div class="flex items-center gap-3">
+              <div class="w-9 h-9 rounded-full bg-slate-950 text-white font-heading font-black flex items-center justify-center text-xs">
                 JV
               </div>
               <div>
-                <div class="font-heading font-black text-sm text-slate-950 group-hover:text-[#f2920b] transition flex items-center gap-1.5">
-                  <span>Javier Villoria</span>
-                  <i data-lucide="linkedin" class="w-3.5 h-3.5 text-sky-600"></i>
-                </div>
-                <div class="text-xs text-slate-500 font-medium">Fundador de CoolPadel Studios · Ver en LinkedIn</div>
+                <div class="font-heading font-black text-sm text-slate-950">Javier Villoria</div>
+                <div class="text-xs text-slate-500 font-medium">Fundador de CoolPadel</div>
               </div>
-            </a>
+            </div>
           </div>
         </div>
 
@@ -1942,13 +1936,10 @@ def generate_article_page(slug, edition_num, title, date_str, read_time, cover_i
 
         {related_articles_html}
 
-        <!-- ENLACE DISCRETO A HOME -->
-        <div class="pt-6 border-t border-slate-200 mt-10 text-xs text-slate-400 text-center sm:text-left">
-          <a href="../../" class="text-slate-600 hover:text-[#f2920b] underline underline-offset-2 transition font-medium">← Volver a CoolPadel Studios (Llaveros de Pádel Personalizados)</a>
-        </div>
+        
 
         <!-- CAJA DE SUSCRIPCIÓN FINAL A LA NEWSLETTER -->
-        <div class="bg-slate-50 border border-slate-200/90 rounded-3xl p-6 sm:p-8 mt-12 sm:mt-16 text-center space-y-4 shadow-sm">
+        <div class="bg-slate-50 border-2 border-slate-200/90 hover:border-[#f2920b] hover:ring-4 hover:ring-[#f2920b]/20 hover:shadow-[0_12px_30px_rgba(242,146,11,0.2)] rounded-3xl p-6 sm:p-8 mt-8 sm:mt-12 text-center space-y-4 shadow-sm transition-all duration-300">
           <div class="w-12 h-12 rounded-full bg-[#f2920b]/10 text-[#f2920b] flex items-center justify-center mx-auto">
             <i data-lucide="mail" class="w-6 h-6 stroke-[2.5]"></i>
           </div>
@@ -2598,7 +2589,7 @@ def generate_all():
         read_time="Lectura 3 min",
         cover_img="cover_highlights_03.jpg",
         paragraphs=p03,
-        faqs=faqs_p03
+        faqs=None
     )
 
     # 2. Highlights #02

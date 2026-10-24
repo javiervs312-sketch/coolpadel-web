@@ -1,3 +1,66 @@
+
+def get_llaveros_calculator_html(lang="es", asset_prefix="../"):
+    return f'''
+    <div class="max-w-4xl mx-auto w-full bg-white rounded-3xl p-5 sm:p-8 border border-slate-200/90 shadow-xl text-slate-950">
+      <div class="text-center mb-6 space-y-1">
+        <h3 class="text-xl sm:text-3xl font-black font-heading text-slate-950 uppercase tracking-tight">
+          Calcula tu pedido
+        </h3>
+        <p class="text-xs sm:text-sm text-slate-500 font-medium">
+          Muestra 15€ reembolsable · Tarifa directa de fábrica
+        </p>
+      </div>
+
+      <div class="space-y-6">
+        <div class="flex justify-between items-end pb-3 border-b border-slate-100">
+          <div>
+            <span class="text-[11px] font-bold text-slate-500 uppercase tracking-wider block">Nº de llaveros:</span>
+            <span id="landing-calc-qty" class="text-xl sm:text-3xl font-black font-heading text-slate-950">100 unidades</span>
+          </div>
+          <div class="text-right">
+            <span class="text-[11px] font-bold text-slate-500 uppercase tracking-wider block">Importe estimado:</span>
+            <div class="flex items-baseline justify-end gap-1.5">
+              <span id="landing-calc-price" class="text-xl sm:text-3xl font-black font-heading text-[#f2920b]">300 €</span>
+              <span id="landing-calc-unit" class="text-xs font-bold text-slate-500">(3,00 €/ud)</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slider -->
+        <div class="py-2">
+          <div class="relative w-full h-3 bg-slate-200 rounded-full cursor-pointer" id="landing-slider-track" onclick="handleLandingSliderClick(event)">
+            <div id="landing-slider-prog" class="absolute top-0 left-0 h-full bg-[#f2920b] rounded-full" style="width: 0%;"></div>
+            <div id="landing-slider-thumb" class="absolute top-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-4 flex items-center justify-center cursor-grab active:cursor-grabbing hover:scale-110 transition-transform" style="left: 0%;">
+              <img src="{asset_prefix}assets/images/eyes-thumb.png" alt="Selector" width="36" height="18" class="w-full h-full object-contain drop-shadow-sm select-none">
+            </div>
+          </div>
+          <div class="relative w-full text-[11px] font-extrabold text-slate-500 h-6 mt-3">
+            <button type="button" onclick="setLandingTier(0)" class="absolute left-0 hover:text-[#f2920b] transition">100 uds</button>
+            <button type="button" onclick="setLandingTier(1)" class="absolute left-[33.3%] -translate-x-1/2 hover:text-[#f2920b] transition">250 uds</button>
+            <button type="button" onclick="setLandingTier(2)" class="absolute left-[66.6%] -translate-x-1/2 hover:text-[#f2920b] transition">500 uds</button>
+            <button type="button" onclick="setLandingTier(3)" class="absolute right-0 hover:text-[#f2920b] transition">1.500 uds</button>
+          </div>
+        </div>
+
+        <div class="flex flex-wrap items-center justify-center gap-3 pt-2 text-xs font-bold">
+          <span class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-200/80">
+            <i data-lucide="check-circle" class="w-4 h-4 text-emerald-600"></i>
+            Muestra 15€ reembolsable
+          </span>
+          <span class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-slate-100 text-slate-700 border border-slate-200">
+            IVA no incluido
+          </span>
+        </div>
+
+        <div class="pt-2">
+          <a href="#contacto" class="w-full py-3.5 rounded-2xl font-heading font-black text-sm uppercase tracking-wider bg-[#f2920b] hover:bg-[#76d3f6] text-slate-950 shadow-md hover:shadow-lg hover:scale-[1.01] active:scale-[0.98] flex items-center justify-center gap-2 transition-all">
+            <span>Contactar</span>
+            <i data-lucide="arrow-down" class="w-4 h-4 stroke-[3]"></i>
+          </a>
+        </div>
+      </div>
+    </div>'''
+
 #!/usr/bin/env python3
 
 """
@@ -43,13 +106,13 @@ LANDINGS = [
 
         "meta_desc": "Fabricante de llaveros de pádel personalizados en goma 3D con forma de pala y logo oficial. Pedidos desde 100 uds y muestra física real por 15€.",
 
-        "badge": "FABRICACIÓN DIRECTA B2B",
+        "badge": "",
 
         "breadcrumb_leaf": "Llaveros Pádel 3D",
 
         "h1": "Llaveros de Pádel Personalizados con Forma de Pala y Logo Oficial",
 
-        "subtitle": "Fabricamos los llaveros oficiales de tu club o torneo en microinyección de PVC blando 3D con forma de pala o tu escudo exacto. El detalle de merchandising de pádel que tus jugadores llevan siempre en el paletero.",
+        "subtitle": "El detalle que tus jugadores llevan siempre en su paletero.",
 
         "hero_img": "assets/images/llaveros-padel-personalizados-clubs.jpg",
 
@@ -59,7 +122,7 @@ LANDINGS = [
 
         "price_anchor": "Desde 1,50 € / ud · Pedido mínimo 100 uds",
 
-        "target_audience": "Clubes de pádel, federaciones, organizadores de torneos y escuelas deportivas que buscan merchandising de alta calidad con el escudo de su club.",
+        "target_audience": "",
 
         "quick_summary": {
 
@@ -113,7 +176,7 @@ LANDINGS = [
 
         "meta_desc": "Llaveros de tenis personalizados en relieve 3D con el escudo de tu club o torneo. Goma flexible de calidad, pedidos desde 100 uds y muestra física por 15€.",
 
-        "badge": "ESPECIAL CLUBS & ACADEMIAS DE TENIS",
+        "badge": "",
 
         "breadcrumb_leaf": "Llaveros de Tenis",
 
@@ -1192,22 +1255,34 @@ def render_landing(landing, lang="es"):
         ]
       }}"""
 
-    # FAQ HTML
+    # FAQ HTML (Desplegable y compacto)
     faq_html = ""
     for q, a in l_faqs:
         faq_html += f"""
-        <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-xs space-y-2">
-          <h3 class="font-heading font-black text-lg sm:text-xl text-slate-950">{q}</h3>
-          <p class="text-slate-600 text-sm sm:text-base leading-relaxed">{a}</p>
-        </div>"""
+        <details class="group bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/90 shadow-2xs transition hover:border-[#f2920b]">
+          <summary class="flex items-center justify-between font-heading font-black text-sm sm:text-base text-slate-950 cursor-pointer list-none select-none">
+            <span>{q}</span>
+            <span class="w-6 h-6 rounded-full bg-slate-100 text-slate-700 group-open:rotate-180 group-open:bg-[#f2920b] group-open:text-slate-950 flex items-center justify-center transition-transform text-xs shrink-0 ml-3">▼</span>
+          </summary>
+          <p class="mt-3 text-slate-600 text-xs sm:text-sm leading-relaxed border-t border-slate-100 pt-3">{a}</p>
+        </details>"""
 
-    # Language Switcher items
+    # Language Switcher dropdown (matching home page)
     lang_opts = []
     for l_code, l_label in [("es", "ES"), ("en", "EN"), ("fr", "FR"), ("it", "IT")]:
         target_url = f"/{landing['slug']}/" if l_code == "es" else f"/{l_code}/{landing['slug']}/"
-        active_cls = "bg-[#f2920b] text-slate-950 font-black" if l_code == lang else "text-slate-700 hover:text-[#f2920b]"
-        lang_opts.append(f'<a href="{target_url}" class="px-2 py-1 rounded text-xs transition {active_cls}">{l_label}</a>')
-    lang_switcher_html = '<div class="flex items-center gap-1 border border-slate-200 rounded-lg p-0.5 bg-slate-50">' + "".join(lang_opts) + '</div>'
+        active_cls = "lang-opt-active bg-[#f2920b] text-slate-950 font-black" if l_code == lang else "text-slate-700 hover:bg-[#f2920b] hover:text-slate-950 font-bold"
+        lang_opts.append(f'<a href="{target_url}" class="lang-opt block {active_cls} w-full text-center px-4 py-2 text-xs transition duration-150">{l_label}</a>')
+    lang_switcher_html = f'''
+        <div class="relative inline-block text-left" id="lang-dropdown-container">
+          <button type="button" onclick="toggleLangDropdown(event)" id="lang-dropdown-btn" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-100 hover:bg-slate-200 border border-slate-200 text-xs font-black text-slate-900 shadow-xs transition cursor-pointer" aria-expanded="false" aria-haspopup="true">
+            <span id="current-lang-code" class="uppercase font-black">{lang.upper()}</span>
+            <i data-lucide="chevron-down" class="w-3.5 h-3.5 stroke-[2.5] text-slate-600 transition-transform duration-200" id="lang-dropdown-arrow"></i>
+          </button>
+          <div id="lang-dropdown-menu" class="hidden absolute right-0 mt-2 w-24 bg-white rounded-2xl shadow-[0_12px_30px_rgba(0,0,0,0.15)] border border-slate-200 py-1.5 z-50 transition-all overflow-hidden">
+            {"".join(lang_opts)}
+          </div>
+        </div>'''
 
     html = f"""<!DOCTYPE html>
 <html lang="{lang}" class="scroll-smooth">
@@ -1510,40 +1585,45 @@ def render_landing(landing, lang="es"):
 
     {videos_html}
 
-    <!-- TABLA DE PRECIOS TRANSPARENTE -->
+    <!-- TABLA DE PRECIOS O CALCULADORA INTERACTIVA -->
     <section id="precios" class="py-14 sm:py-20 bg-slate-50 border-b border-slate-200 scroll-mt-20">
       <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center max-w-2xl mx-auto mb-10 space-y-2">
-          <span class="inline-block px-3.5 py-1 rounded-full bg-emerald-100 text-emerald-800 font-heading font-black text-xs uppercase tracking-wider">
-            {"100% Transparencia B2B" if lang=="es" else "100% Transparent B2B Pricing" if lang=="en" else "Tarification B2B 100% Transparente" if lang=="fr" else "Prezzi B2B 100% Trasparenti"}
-          </span>
-          <h2 class="font-heading font-black text-2xl sm:text-4xl text-slate-950 uppercase tracking-tight">
-            {precios_title}
-          </h2>
-          <p class="text-sm sm:text-base text-slate-600 font-medium">
-            {precios_sub}
-          </p>
-        </div>
-
-        <div class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm">
-          {table_html}
-        </div>
+        {table_html if is_camaras else get_llaveros_calculator_html(lang, asset_prefix)}
       </div>
     </section>
 
-    <!-- CÓMO FUNCIONA / PROCESO -->
-    <section class="py-14 sm:py-20 bg-slate-900 text-white border-b border-slate-800">
+    <!-- CÓMO FUNCIONA / PROCESO (FORMATO TEXTURA) -->
+    <section class="py-14 sm:py-20 bg-[#3478a6] bg-textured-blue text-white border-b border-sky-700/40">
       <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center max-w-2xl mx-auto mb-10 space-y-2">
-          <span class="inline-block px-3.5 py-1 rounded-full bg-white/10 text-[#f2920b] font-heading font-black text-xs uppercase tracking-wider">
+          <span class="inline-block px-3.5 py-1 rounded-full bg-white/20 text-white font-heading font-black text-xs uppercase tracking-wider">
             {"Paso a Paso" if lang=="es" else "Step by Step" if lang=="en" else "Étape par Étape" if lang=="fr" else "Passo dopo Passo"}
           </span>
           <h2 class="font-heading font-black text-2xl sm:text-4xl uppercase tracking-tight">
-            {"¿Cómo empezar con tu club?" if lang=="es" else "How to get started for your club?" if lang=="en" else "Comment démarrer avec votre club ?" if lang=="fr" else "Come iniziare con il tuo circolo?"}
+            {"¿Cómo pedir para tu club?" if not is_camaras and lang=="es" else "¿Cómo empezar con tu club?" if lang=="es" else "How to get started for your club?"}
           </h2>
         </div>
 
-        {pasos_html}
+        <!-- 3 PASOS CON TEXTURA Y TARJETAS BLANCAS DESTACADAS -->
+        <div class="grid sm:grid-cols-3 gap-6 text-left">
+          <div class="bg-white/95 rounded-2xl p-6 text-slate-900 shadow-md border border-white/40 space-y-2.5">
+            <div class="w-9 h-9 rounded-full bg-[#f2920b] text-slate-950 font-heading font-black text-sm flex items-center justify-center">1</div>
+            <h3 class="font-heading font-black text-lg text-slate-950">Envíanos tu logo</h3>
+            <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">Envíanos el logo de tu club en cualquier formato y preparamos tu diseño digital 3D gratuito.</p>
+          </div>
+
+          <div class="bg-white/95 rounded-2xl p-6 text-slate-900 shadow-md border border-white/40 space-y-2.5">
+            <div class="w-9 h-9 rounded-full bg-[#f2920b] text-slate-950 font-heading font-black text-sm flex items-center justify-center">2</div>
+            <h3 class="font-heading font-black text-lg text-slate-950">Diseño 3D y Muestra Física Previa 15€</h3>
+            <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">Fabricamos una muestra real con tu logo antes de confirmar la tirada completa. 15 € reembolsables al confirmar el pedido.</p>
+          </div>
+
+          <div class="bg-white/95 rounded-2xl p-6 text-slate-900 shadow-md border border-white/40 space-y-2.5">
+            <div class="w-9 h-9 rounded-full bg-[#f2920b] text-slate-950 font-heading font-black text-sm flex items-center justify-center">3</div>
+            <h3 class="font-heading font-black text-lg text-slate-950">Producción y Entrega</h3>
+            <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">Pedido mínimo 100 unidades y entrega en torno a un mes con envíos incluidos.</p>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -1594,46 +1674,51 @@ def render_landing(landing, lang="es"):
     </section>
   </main>
 
-  <!-- FOOTER OFICIAL -->
-  <footer class="bg-slate-950 text-white text-xs py-12 border-t border-slate-800">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
-      <div>
-        <div class="flex items-center gap-2 mb-3">
-          <img src="{asset_prefix}assets/images/coolpadel-mascot-hd.png" alt="Mascota CoolPadel" width="32" height="32" class="h-8 w-auto">
-          <span class="font-heading font-black text-sm text-white">CoolPadel</span>
+  <!-- FOOTER OFICIAL (FORMATO EXACTO HOME) -->
+  <footer class="relative z-20 bg-[#3478a6] bg-textured-blue text-white pt-14 pb-10 border-t border-sky-700/40 text-xs">
+    <div class="max-w-[1700px] mx-auto px-4 sm:px-8 space-y-10">
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pb-8 border-b border-white/20">
+        <div class="flex items-center gap-3.5">
+          <img src="{asset_prefix}assets/images/coolpadel-mascot-hd.png" alt="CoolPadel Mascota" width="60" height="60" class="h-10 sm:h-12 w-auto object-contain drop-shadow-sm" loading="lazy">
+          <img src="{asset_prefix}assets/images/coolpadel-typography-hd.png" alt="CoolPadel" width="160" height="32" class="h-5 sm:h-6 w-auto object-contain drop-shadow-sm" loading="lazy">
         </div>
-        <p class="text-white/60 text-xs leading-relaxed">
-          {footer_tagline}
-        </p>
       </div>
-      <div>
-        <div class="font-heading font-bold text-white uppercase tracking-wider mb-2">{"Navegación" if lang=="es" else "Navigation"}</div>
-        <ul class="space-y-1.5 text-white/60">
-          <li><a href="{asset_prefix}" class="hover:text-white transition">{ui['nav_home']}</a></li>
-          <li><a href="{asset_prefix}#llaveros" class="hover:text-white transition">{ui['nav_llaveros']}</a></li>
-          <li><a href="{asset_prefix}camaras/" class="hover:text-white transition">{ui['nav_camaras']}</a></li>
-          <li><a href="{asset_prefix}blog/" class="hover:text-white transition">{ui['nav_blog']}</a></li>
-          <li><a href="{asset_prefix}franquicias-padel/" class="hover:text-white transition">{"Cadenas de Clubs" if lang=="es" else "Clubs & Franchises" if lang=="en" else "Clubs & Franchises" if lang=="fr" else "Club e Franchigie"}</a></li>
-        </ul>
+
+      <nav aria-label="Estructura y Silos SEO de CoolPadel" class="grid grid-cols-2 lg:grid-cols-4 gap-8 text-left">
+        <div class="space-y-3">
+          <div class="font-heading font-black text-sm uppercase tracking-wider text-white">Soluciones B2B</div>
+          <ul class="space-y-2 text-white/80 font-normal">
+            <li><a href="/llaveros-padel-personalizados/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Llaveros de Pádel 3D</a></li>
+            <li><a href="/llaveros-tenis-personalizados/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Llaveros de Tenis</a></li>
+            <li><a href="/welcome-packs-torneos-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Welcome Packs para Torneos</a></li>
+            <li><a href="/camaras/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Cámaras Save my Play</a></li>
+          </ul>
+        </div>
+        <div class="space-y-3">
+          <div class="font-heading font-black text-sm uppercase tracking-wider text-white">Herramientas</div>
+          <ul class="space-y-2 text-white/80 font-normal">
+            <li><a href="/herramientas/generador-americana-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Generador de Americana</a></li>
+            <li><a href="/herramientas/generador-cuadros-torneo-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Sorteo de Cuadros</a></li>
+            <li><a href="/herramientas/calculadora-coste-pistas-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Calculadora Coste Pistas</a></li>
+            <li><a href="/herramientas/calculadora-roi-camaras-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Calculadora ROI Cámaras</a></li>
+          </ul>
+        </div>
+        <div class="space-y-3">
+          <div class="font-heading font-black text-sm uppercase tracking-wider text-white">Ecosistema</div>
+          <ul class="space-y-2 text-white/80 font-normal">
+            <li><a href="/franquicias-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Cadenas de Clubs</a></li>
+            <li><a href="/blog/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Blog & Newsletter</a></li>
+            <li><a href="/blog/highlights-03/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Highlights #03</a></li>
+          </ul>
+        </div>
+        <div class="space-y-3">
+          <div class="font-heading font-black text-sm uppercase tracking-wider text-white">Legal & Contacto</div>
+          <p class="text-white/80">Javier Villoria Soleto<br>Chamartín, Madrid<br>WhatsApp: +34 680 31 74 86</p>
+        </div>
+      </nav>
+      <div class="border-t border-white/20 pt-6 text-center text-white/60">
+        <p>© 2026 CoolPadel. Todos los derechos reservados.</p>
       </div>
-      <div>
-        <div class="font-heading font-bold text-white uppercase tracking-wider mb-2">{"Idiomas" if lang=="es" else "Languages" if lang=="en" else "Langues" if lang=="fr" else "Lingue"}</div>
-        <ul class="space-y-1.5 text-white/60">
-          <li><a href="/{landing['slug']}/" class="hover:text-white transition">Español (ES)</a></li>
-          <li><a href="/en/{landing['slug']}/" class="hover:text-white transition">English (EN)</a></li>
-          <li><a href="/fr/{landing['slug']}/" class="hover:text-white transition">Français (FR)</a></li>
-          <li><a href="/it/{landing['slug']}/" class="hover:text-white transition">Italiano (IT)</a></li>
-        </ul>
-      </div>
-      <div>
-        <div class="font-heading font-bold text-white uppercase tracking-wider mb-2">{"Legal & Contacto" if lang=="es" else "Legal & Contact" if lang=="en" else "Légal & Contact" if lang=="fr" else "Legale & Contatto"}</div>
-        <p class="text-white/60">Javier Villoria Soleto</p>
-        <p class="text-white/60">Chamartín, 28036 Madrid</p>
-        <p class="text-white/60">WhatsApp: +34 680 31 74 86</p>
-      </div>
-    </div>
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-t border-slate-800/80 pt-6 text-center text-white/40">
-      <p>{footer_tagline}</p>
     </div>
   </footer>
 

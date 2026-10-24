@@ -142,8 +142,8 @@ def render_html(lang="es"):
                  onclick="openDrawer('{fid}')">
           <div>
             <div class="flex items-start justify-between gap-2 mb-2.5">
-              <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[11px] font-bold border {badge_cls}">
-                {modelo}
+              <span class="text-[11px] font-bold text-slate-500 uppercase tracking-wider">
+                {modelo.replace('(Mismo Nombre)', '').strip()}
               </span>
               <div class="flex items-center gap-1.5" onclick="event.stopPropagation()">
                 <button onclick="toggleCompare('{fid}')" id="compare-btn-{fid}"
@@ -233,7 +233,7 @@ def render_html(lang="es"):
         """
 
     full_html = f"""<!DOCTYPE html>
-<html lang="es" class="scroll-smooth">
+<html lang="es" class="scroll-smooth overflow-x-hidden">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
@@ -457,7 +457,7 @@ def render_html(lang="es"):
     }})(window, document, "clarity", "script", "q7p8g52y9e");
   </script>
 </head>
-<body class="bg-[#f8fafc] text-slate-800 antialiased selection:bg-[#f2920b] selection:text-slate-950 min-h-screen flex flex-col">
+<body class="bg-[#f8fafc] text-slate-800 antialiased selection:bg-[#f2920b] selection:text-slate-950 min-h-screen flex flex-col overflow-x-hidden">
 
   <!-- NAVBAR BLANCA UNIFICADA COOLPADEL -->
   <header class="fixed top-0 left-0 w-full z-50 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-xs w-full">
@@ -519,45 +519,39 @@ def render_html(lang="es"):
               Directorio y Comparador de Franquicias de Pádel
             </h1>
 
-            <p class="text-sm sm:text-base text-slate-600 font-medium leading-relaxed">
-              El directorio para operadores y clubes que quieren franquiciarse:<br class="hidden sm:inline">
-              Ponte en contacto con más de 153 cadenas y franquicias de más de 25 países. Infórmate, compara y encuentra el modelo que tu club necesita.
+            <p class="text-base sm:text-lg text-slate-700 font-semibold leading-relaxed">
+              El directorio para operadores y clubes que quieren franquiciarse
             </p>
           </div>
 
           <!-- Botón Alta de Franquicia fuera de la barra -->
           <div class="shrink-0">
-            <button onclick="openOnboardingModal()" class="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-[#f2920b] hover:bg-[#d97f08] text-slate-950 font-heading font-black text-xs sm:text-sm uppercase tracking-wider transition shadow-md hover:scale-105 active:scale-95 whitespace-nowrap cursor-pointer">
-              <i data-lucide="plus-circle" class="w-4 h-4 sm:w-5 sm:h-5 stroke-[2.5]"></i>
-              <span>¿Tienes una Franquicia? Date de Alta / Reclama tu Ficha</span>
+            <button onclick="openOnboardingModal()" class="inline-flex items-center text-left gap-2 px-4 py-2.5 rounded-xl bg-[#f2920b] hover:bg-[#d97f08] text-slate-950 font-heading font-black text-xs uppercase tracking-wider transition shadow-md hover:scale-105 active:scale-95 cursor-pointer ml-auto">
+              <i data-lucide="plus-circle" class="w-4 h-4 stroke-[2.5] shrink-0"></i>
+              <span class="leading-tight">¿Tienes una Franquicia?<br><span class="text-[11px] font-bold">Date de Alta / Reclama tu Ficha</span></span>
             </button>
           </div>
         </div>
 
-        <!-- KPI BANNER (3 TARJETAS BIEN PROPORCIONADAS) -->
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-5 mt-6 pt-5 border-t border-slate-200/90">
-          <div class="bg-white px-5 py-4 rounded-2xl border border-slate-200/90 shadow-xs flex sm:flex-col justify-between items-center sm:items-start transition hover:border-[#f2920b]/40 hover:shadow-sm">
+        <!-- KPI BANNER FORMATO TEXTURA -->
+        <div class="mt-6 p-6 sm:p-8 rounded-3xl bg-textured-blue text-white shadow-lg">
+          <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 text-center">
             <div>
-              <span class="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-0.5">Cadenas / Franquicias</span>
-              <span class="font-heading font-black text-2xl sm:text-3xl lg:text-4xl text-slate-950 leading-tight">+153</span>
+              <div class="font-heading font-black text-2xl sm:text-3xl lg:text-4xl text-white">+165</div>
+              <div class="text-xs sm:text-sm font-bold uppercase tracking-wider text-white/90 mt-1">Franquicias y Cadenas</div>
             </div>
-            <span class="text-xs sm:text-sm text-slate-500 font-medium mt-1">Con +1 club abierto</span>
-          </div>
-          
-          <div class="bg-white px-5 py-4 rounded-2xl border border-slate-200/90 shadow-xs flex sm:flex-col justify-between items-center sm:items-start transition hover:border-[#f2920b]/40 hover:shadow-sm">
             <div>
-              <span class="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-0.5">Pistas Totales</span>
-              <span class="font-heading font-black text-2xl sm:text-3xl lg:text-4xl text-slate-950 leading-tight">+8.500 pistas</span>
+              <div class="font-heading font-black text-2xl sm:text-3xl lg:text-4xl text-[#76d3f6]">+5.500</div>
+              <div class="text-xs sm:text-sm font-bold uppercase tracking-wider text-white/90 mt-1">Pistas Gestionadas</div>
             </div>
-            <span class="text-xs sm:text-sm text-slate-500 font-medium mt-1">Bajo gestión analizada</span>
-          </div>
-
-          <div class="bg-white px-5 py-4 rounded-2xl border border-slate-200/90 shadow-xs flex sm:flex-col justify-between items-center sm:items-start transition hover:border-[#f2920b]/40 hover:shadow-sm">
             <div>
-              <span class="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-0.5">Presencia Global</span>
-              <span class="font-heading font-black text-2xl sm:text-3xl lg:text-4xl text-slate-950 leading-tight">+25 países</span>
+              <div class="font-heading font-black text-2xl sm:text-3xl lg:text-4xl text-white">+25</div>
+              <div class="text-xs sm:text-sm font-bold uppercase tracking-wider text-white/90 mt-1">Países con Presencia</div>
             </div>
-            <span class="text-xs sm:text-sm text-slate-500 font-medium mt-1">Europa, América, Oriente Medio, África y Oceanía</span>
+            <div>
+              <div class="font-heading font-black text-2xl sm:text-3xl lg:text-4xl text-[#f2920b]">7</div>
+              <div class="text-xs sm:text-sm font-bold uppercase tracking-wider text-white/90 mt-1">Modelos de Expansión</div>
+            </div>
           </div>
         </div>
 
@@ -707,8 +701,8 @@ def render_html(lang="es"):
         </div>
       </div>
 
-      <!-- VISTA GRID (TARJETAS COMPACTAS) -->
-      <div id="gridView" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+      <!-- VISTA GRID (TARJETAS COMPACTAS CON FONDO TEXTURADO PARA RESALTAR) -->
+      <div id="gridView" class="bg-textured-blue rounded-3xl p-5 sm:p-7 shadow-inner grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
         {cards_html}
       </div>
 

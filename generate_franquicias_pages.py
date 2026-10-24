@@ -285,43 +285,42 @@ def generate_single_page(f, lang="es"):
     }}
   </style>
 </head>
-<body class="bg-slate-50 text-slate-900 antialiased selection:bg-[#f2920b] selection:text-slate-950">
+<body class="bg-textured-blue text-slate-900 antialiased selection:bg-[#f2920b] selection:text-slate-950 min-h-screen flex flex-col">
 
-  <!-- Top Nav -->
-  <header class="border-b border-slate-200 bg-white sticky top-0 z-50 shadow-2xs">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between">
-      <a href="/" class="flex items-center gap-2.5 sm:gap-3 group">
-        <img src="{asset_prefix}assets/images/coolpadel-mascot-hd.png" alt="CoolPadel Studios" width="40" height="40" fetchpriority="high" class="w-9 h-9 sm:w-10 sm:h-10 object-contain">
-        <div>
-          <span class="font-heading font-black text-lg sm:text-xl text-slate-950 tracking-tight flex items-center gap-1">
-            COOLPADEL <span class="text-[#f2920b]">STUDIOS</span>
-          </span>
-          <span class="text-[9px] sm:text-[10px] text-slate-500 block tracking-widest font-bold uppercase">Directorio Oficial de Franquicias</span>
-        </div>
+  <!-- Header Oficial CoolPadel -->
+  <header class="border-b border-slate-200 bg-white/95 backdrop-blur-md sticky top-0 z-50 shadow-xs">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-2 group shrink-0" aria-label="CoolPadel Home">
+        <img src="{asset_prefix}assets/images/coolpadel-mascot-hd.png" alt="CoolPadel Studios" width="44" height="44" class="h-9 sm:h-11 w-auto object-contain transition group-hover:scale-105">
+        <img src="{asset_prefix}assets/images/coolpadel-typography-hd.png" alt="CoolPadel" width="160" height="32" class="h-5 sm:h-6 w-auto object-contain hidden sm:block">
       </a>
+      
+      <nav class="hidden md:flex items-center gap-6 text-xs sm:text-sm font-bold uppercase tracking-wider text-slate-700">
+        <a href="/llaveros-padel-personalizados/" class="hover:text-[#f2920b] transition">Llaveros</a>
+        <a href="/camaras/" class="hover:text-[#f2920b] transition">Cámaras</a>
+        <a href="/franquicias-padel/" class="text-[#f2920b] transition">Franquicias</a>
+        <a href="/herramientas/" class="hover:text-[#f2920b] transition">Herramientas</a>
+        <a href="/blog/" class="hover:text-[#f2920b] transition">Blog</a>
+      </nav>
+
       <div class="flex items-center gap-3">
-        <a href="/franquicias-padel/" class="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-slate-700 hover:text-[#f2920b] transition">
-          <i data-lucide="layers" class="w-4 h-4 text-[#f2920b]"></i>
-          <span class="hidden sm:inline">Ver +167 Franquicias</span>
-          <span class="sm:hidden">Directorio</span>
-        </a>
-        <a href="{wa_url}" target="_blank" rel="noopener"
-           class="inline-flex items-center gap-1.5 bg-[#25D366] hover:bg-[#20ba5a] text-slate-950 font-black px-3.5 py-2 rounded-xl text-xs sm:text-sm transition shadow-sm">
-          <i data-lucide="message-circle" class="w-4 h-4"></i>
-          <span>Consultar</span>
+        <a href="#contacto" class="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-[#f2920b] hover:bg-[#d97f08] text-slate-950 font-heading font-black text-xs uppercase tracking-wider transition shadow-sm">
+          <span>Contactar</span>
         </a>
       </div>
     </div>
   </header>
 
-  <!-- Breadcrumbs -->
-  <nav class="max-w-5xl mx-auto px-4 sm:px-6 pt-6 pb-2 text-xs text-slate-500 flex items-center gap-2 flex-wrap" aria-label="Breadcrumb">
-    <a href="/" class="hover:text-slate-900 transition">Inicio</a>
-    <i data-lucide="chevron-right" class="w-3.5 h-3.5 text-slate-400"></i>
-    <a href="/franquicias-padel/" class="hover:text-slate-900 transition">Franquicias de Pádel</a>
-    <i data-lucide="chevron-right" class="w-3.5 h-3.5 text-slate-400"></i>
-    <span class="text-[#f2920b] font-bold">{escape_txt(nombre)}</span>
-  </nav>
+    <!-- Breadcrumbs -->
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 pt-6 pb-2">
+    <nav class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/90 backdrop-blur-xs shadow-xs text-xs text-slate-600 flex-wrap" aria-label="Breadcrumb">
+      <a href="/" class="hover:text-[#f2920b] transition">Inicio</a>
+      <i data-lucide="chevron-right" class="w-3.5 h-3.5 text-slate-400"></i>
+      <a href="/franquicias-padel/" class="hover:text-[#f2920b] transition">Franquicias Pádel</a>
+      <i data-lucide="chevron-right" class="w-3.5 h-3.5 text-slate-400"></i>
+      <span class="text-slate-950 font-bold">{escape_txt(nombre)}</span>
+    </nav>
+  </div>
 
   <!-- Contenedor Principal -->
   <main class="max-w-5xl mx-auto px-4 sm:px-6 py-6 pb-16">
@@ -568,11 +567,56 @@ def generate_single_page(f, lang="es"):
       </div>
     </div>
 
+        <!-- CONTACTO DIRECTO -->
+    <section id="contacto" class="mt-12 bg-white rounded-3xl p-6 sm:p-10 border border-slate-200/90 shadow-md text-center">
+      <span class="inline-block px-3 py-1 rounded-full bg-[#f2920b]/15 text-slate-900 text-xs font-bold uppercase tracking-wider mb-3">
+        Contacto B2B CoolPadel
+      </span>
+      <h2 class="font-heading font-black text-2xl sm:text-3xl text-slate-950 uppercase tracking-tight mb-3">
+        ¿Interesado en {escape_txt(nombre)} o en Franquicias de Pádel?
+      </h2>
+      <p class="text-slate-600 text-sm sm:text-base max-w-xl mx-auto mb-8">
+        Te asesoramos sobre digitalización, cámaras Save my Play y merchandising para instalaciones de pádel.
+      </p>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-2xl mx-auto text-left">
+        <div class="bg-slate-50 rounded-2xl p-5 border border-slate-200 flex flex-col justify-between">
+          <div>
+            <div class="w-10 h-10 rounded-xl bg-[#25D366]/15 text-[#25D366] flex items-center justify-center mb-3">
+              <i data-lucide="message-circle" class="w-5 h-5 stroke-[2.5]"></i>
+            </div>
+            <h3 class="font-heading font-black text-base text-slate-950 mb-1">WhatsApp Directo</h3>
+            <p class="text-slate-500 text-xs mb-3">Respuesta inmediata por chat para dudas sobre clubes.</p>
+          </div>
+          <a href="{wa_url}" target="_blank" rel="noopener noreferrer"
+             class="inline-flex items-center justify-center gap-2 w-full py-2.5 rounded-xl bg-[#25D366] hover:bg-[#20ba5a] text-slate-950 font-black text-xs uppercase tracking-wider transition">
+            <i data-lucide="message-circle" class="w-4 h-4"></i>
+            <span>Hablar por WhatsApp</span>
+          </a>
+        </div>
+
+        <div class="bg-slate-50 rounded-2xl p-5 border border-slate-200 flex flex-col justify-between">
+          <div>
+            <div class="w-10 h-10 rounded-xl bg-[#f2920b]/15 text-[#f2920b] flex items-center justify-center mb-3">
+              <i data-lucide="mail" class="w-5 h-5 stroke-[2.5]"></i>
+            </div>
+            <h3 class="font-heading font-black text-base text-slate-950 mb-1">Email Corporativo</h3>
+            <p class="text-slate-500 text-xs mb-3">Envíanos tu propuesta de expansión o dossier de club.</p>
+          </div>
+          <a href="mailto:info@coolpadelstudios.com"
+             class="inline-flex items-center justify-center gap-2 w-full py-2.5 rounded-xl bg-slate-950 hover:bg-slate-800 text-white font-black text-xs uppercase tracking-wider transition">
+            <i data-lucide="mail" class="w-4 h-4"></i>
+            <span>info@coolpadelstudios.com</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
     <!-- Enlaces de Retorno y Directorio -->
     <div class="text-center py-6">
-      <a href="/franquicias-padel/" class="inline-flex items-center gap-2 text-sm font-bold text-slate-600 hover:text-[#f2920b] transition">
+      <a href="/franquicias-padel/" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/90 text-sm font-bold text-slate-800 hover:text-[#f2920b] shadow-xs transition">
         <i data-lucide="arrow-left" class="w-4 h-4"></i>
-        <span>Volver al Directorio y Comparador de 167 Franquicias de Pádel</span>
+        <span>Volver al Directorio y Comparador de Franquicias de Pádel</span>
       </a>
     </div>
 

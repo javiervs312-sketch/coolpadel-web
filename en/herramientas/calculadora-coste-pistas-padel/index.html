@@ -138,7 +138,7 @@
   </script>
   <!-- /GA4 -->
 </head>
-<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col selection:bg-[#f2920b] selection:text-slate-950">
+<body class="bg-slate-50 text-slate-900 min-h-screen flex flex-col selection:bg-[#f2920b] selection:text-slate-950">
 
   <!-- HEADER -->
   <header class="fixed top-0 left-0 w-full z-50 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-xs w-full">
@@ -217,7 +217,7 @@
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-12">
 
         <!-- PARÁMETROS (7 COLS) -->
-        <div class="lg:col-span-7 bg-slate-900 border border-slate-800 rounded-3xl p-6 sm:p-8 space-y-6 shadow-2xl">
+        <div class="lg:col-span-7 bg-white border border-slate-200/90 rounded-3xl p-6 sm:p-8 space-y-6 shadow-lg text-slate-900">
           <div class="flex items-center justify-between pb-3 border-b border-slate-800">
             <h2 class="font-heading font-black text-lg text-white">1. Court Configuration & Capital Investment</h2>
             <span class="text-xs text-[#f2920b] font-bold">2026 Market Benchmarks</span>
@@ -236,7 +236,7 @@
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
             <div>
               <label class="block text-xs font-bold text-slate-300 mb-1.5">Court Type:</label>
-              <select id="select-tipo-pista" onchange="actualizarCalculo()" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-3 py-2 text-xs sm:text-sm text-white font-bold focus:border-[#f2920b] outline-none">
+              <select id="select-tipo-pista" onchange="actualizarCalculo()" class="w-full bg-slate-50 border border-slate-300 text-slate-900 rounded-xl px-3 py-2 text-xs sm:text-sm text-white font-bold focus:border-[#f2920b] outline-none">
                 <option value="panoramica" selected>Panoramic Pro (12mm) · ~€23,500</option>
                 <option value="estandar">Standard Pillar Court (10mm) · ~€18,500</option>
                 <option value="superpanoramica">Super Panoramic WPT Specs · ~€27,000</option>
@@ -245,7 +245,7 @@
 
             <div>
               <label class="block text-xs font-bold text-slate-300 mb-1.5">Concrete Base Slab:</label>
-              <select id="select-solera" onchange="actualizarCalculo()" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-3 py-2 text-xs sm:text-sm text-white font-bold focus:border-[#f2920b] outline-none">
+              <select id="select-solera" onchange="actualizarCalculo()" class="w-full bg-slate-50 border border-slate-300 text-slate-900 rounded-xl px-3 py-2 text-xs sm:text-sm text-white font-bold focus:border-[#f2920b] outline-none">
                 <option value="nueva" selected>New concrete slab required (~€8,500/court)</option>
                 <option value="existente">Existing concrete slab (0 € extra)</option>
               </select>
@@ -256,7 +256,7 @@
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
               <label class="block text-xs font-bold text-slate-300 mb-1.5">Turf & LED Lighting:</label>
-              <select id="select-cesped" onchange="actualizarCalculo()" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-3 py-2 text-xs sm:text-sm text-white font-bold focus:border-[#f2920b] outline-none">
+              <select id="select-cesped" onchange="actualizarCalculo()" class="w-full bg-slate-50 border border-slate-300 text-slate-900 rounded-xl px-3 py-2 text-xs sm:text-sm text-white font-bold focus:border-[#f2920b] outline-none">
                 <option value="texturado" selected>Textured Pro Turf + 8x 200W LED Projectors · €5,500</option>
                 <option value="monofilamento">Classic Monofilament + 4x LED Projectors · €4,200</option>
               </select>
@@ -264,7 +264,7 @@
 
             <div>
               <label class="block text-xs font-bold text-slate-300 mb-1.5">Save my Play On-Court Cameras:</label>
-              <select id="select-camaras" onchange="actualizarCalculo()" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-3 py-2 text-xs sm:text-sm text-white font-bold focus:border-[#76d3f6] outline-none">
+              <select id="select-camaras" onchange="actualizarCalculo()" class="w-full bg-slate-50 border border-slate-300 text-slate-900 rounded-xl px-3 py-2 text-xs sm:text-sm text-white font-bold focus:border-[#76d3f6] outline-none">
                 <option value="si" selected>Yes (€180 hardware + €45/mo subscription)</option>
                 <option value="no">No cameras installed</option>
               </select>
@@ -327,12 +327,12 @@
               <strong id="out-gastos-totales" class="text-slate-400 font-bold text-base">2.680 € / mes</strong>
             </div>
 
-            <div class="bg-slate-950/80 border border-emerald-500/40 rounded-2xl p-5 text-center space-y-1">
+            <div class="bg-emerald-50 border border-emerald-300 text-slate-900 rounded-2xl p-5 text-center space-y-1">
               <span class="text-xs uppercase font-extrabold text-slate-400 tracking-wider">Estimated Net Profit / Month:</span>
               <div id="out-beneficio-neto" class="text-3xl sm:text-4xl font-black font-heading text-emerald-400">+10.280 € / mes</div>
             </div>
 
-            <div class="bg-slate-800/80 rounded-xl p-4 border border-slate-700 space-y-1 text-center">
+            <div class="bg-slate-50 rounded-xl p-4 border border-slate-200 text-slate-900 space-y-1 text-center">
               <span class="text-xs font-bold text-slate-400">Capital Payback Timeline:</span>
               <div class="text-lg font-black text-[#f2920b] font-heading">
                 <span id="out-meses-amortizacion">15</span> months of operation
@@ -360,13 +360,13 @@
       <section class="border-t border-slate-800 pt-12 space-y-6">
         <h2 class="text-2xl font-black font-heading text-white">FAQ</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 space-y-2">
-            <h3 class="text-sm font-bold text-white">How much does it cost to build a complete padel court in 2026?</h3>
-            <p class="text-xs text-slate-400 leading-relaxed">A turnkey panoramic glass padel court typically costs between €28,000 and €38,000 per court if a concrete base slab is already present. When ground civil engineering, concrete sub-base, or indoor structural canopies are needed, total cost ranges between €45,000 and €65,000 per court.</p>
+          <div class="bg-white border border-slate-200/90 rounded-2xl p-5 space-y-2 text-slate-900 shadow-xs">
+            <h3 class="text-sm font-bold text-slate-950">How much does it cost to build a complete padel court in 2026?</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">A turnkey panoramic glass padel court typically costs between €28,000 and €38,000 per court if a concrete base slab is already present. When ground civil engineering, concrete sub-base, or indoor structural canopies are needed, total cost ranges between €45,000 and €65,000 per court.</p>
           </div>
-          <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 space-y-2">
-            <h3 class="text-sm font-bold text-white">How fast do new padel courts pay for themselves?</h3>
-            <p class="text-xs text-slate-400 leading-relaxed">With an average occupancy of 4 to 5 hours daily at €24/hour, a well-run court generates €2,800 to €3,600 in monthly gross revenue. After deducting allocated overheads, initial capital is typically recouped within 14 to 24 months.</p>
+          <div class="bg-white border border-slate-200/90 rounded-2xl p-5 space-y-2 text-slate-900 shadow-xs">
+            <h3 class="text-sm font-bold text-slate-950">How fast do new padel courts pay for themselves?</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">With an average occupancy of 4 to 5 hours daily at €24/hour, a well-run court generates €2,800 to €3,600 in monthly gross revenue. After deducting allocated overheads, initial capital is typically recouped within 14 to 24 months.</p>
           </div>
         </div>
       </section>
@@ -382,9 +382,7 @@
           <img src="../../../assets/images/coolpadel-mascot-hd.png" alt="CoolPadel Mascota" width="60" height="60" class="h-10 sm:h-12 w-auto object-contain drop-shadow-sm" loading="lazy">
           <img src="../../../assets/images/coolpadel-typography-hd.png" alt="CoolPadel" width="160" height="32" class="h-5 sm:h-6 w-auto object-contain drop-shadow-sm" loading="lazy">
         </div>
-        <p class="text-white/80 text-xs text-center sm:text-right max-w-md font-medium">
-          CoolPadel Studios & Save my Play · Smart On-Court Camera Systems and B2B Club Solutions
-        </p>
+        
       </div>
 
       <div class="pt-8 border-t border-white/20 flex flex-col sm:flex-row items-center justify-between gap-3 text-white/75 text-center sm:text-left">

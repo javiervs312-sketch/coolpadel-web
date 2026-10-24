@@ -104,57 +104,33 @@
       y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
     })(window, document, "clarity", "script", "q7p8g52y9e");
   </script>
-  <!-- Google Analytics 4 -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-3FY3DTNN21"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-3FY3DTNN21');
-    // Eventos clave (leads): WhatsApp, email, teléfono, demo, dossier
-    document.addEventListener('click', function (e) {
-      try {
-        var a = e.target.closest && e.target.closest('a, button');
-        if (!a) return;
-        var href = (a.getAttribute('href') || '').toLowerCase();
-        var txt = (a.innerText || '').replace(/\s+/g, ' ').trim().slice(0, 60);
-        var p = { link_text: txt, link_url: href, page_path: location.pathname };
-        if (href.indexOf('wa.me') > -1 || href.indexOf('whatsapp.com') > -1) gtag('event', 'click_whatsapp', p);
-        else if (href.indexOf('mailto:') === 0) gtag('event', 'click_email', p);
-        else if (href.indexOf('tel:') === 0) gtag('event', 'click_telefono', p);
-        else if (/\.pdf($|\?)/.test(href) || /dossier/i.test(href + ' ' + txt)) gtag('event', 'descarga_dossier', p);
-        else if (/demo|reuni[oó]n|meeting|calendly|agenda|r[eé]serv|prueba gratis|free trial/i.test(href + ' ' + txt)) gtag('event', 'solicitar_demo', p);
-      } catch (err) {}
-    }, { passive: true });
-    document.addEventListener('submit', function (e) {
-      try { gtag('event', 'enviar_formulario', { form_id: (e.target && (e.target.id || e.target.name)) || '', page_path: location.pathname }); } catch (err) {}
-    }, true);
-  </script>
-  <!-- /GA4 -->
 </head>
-<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col selection:bg-[#f2920b] selection:text-slate-950">
+<body class="bg-slate-50 text-slate-900 min-h-screen flex flex-col selection:bg-[#f2920b] selection:text-slate-950">
 
   <!-- TOP NAV -->
-  <header class="sticky top-0 z-50 bg-[#0b1626]/95 backdrop-blur-md border-b border-slate-800">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between">
-      <a href="../" class="flex items-center gap-2.5">
-        <img src="../assets/images/coolpadel-mascot-hd.png" alt="CoolPadel Studios" class="h-9 sm:h-11 w-auto object-contain">
-        <span class="font-heading font-black text-lg sm:text-xl tracking-tight text-white">CoolPadel <span class="text-[#f2920b]">Studios</span></span>
+    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200/90 shadow-xs">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between">
+      <a href="../" class="flex items-center gap-2 group shrink-0" aria-label="CoolPadel Home">
+        <img src="../assets/images/coolpadel-mascot-hd.png" alt="CoolPadel Studios" class="h-9 sm:h-11 w-auto object-contain transition group-hover:scale-105">
+        <img src="../assets/images/coolpadel-typography-hd.png" alt="CoolPadel" width="160" height="32" class="h-5 sm:h-6 w-auto object-contain hidden sm:block">
       </a>
 
-      <nav class="hidden md:flex items-center gap-6 text-xs sm:text-sm font-bold uppercase tracking-wider text-slate-300">
-        <a href="../camaras/" class="hover:text-[#76d3f6] transition">Cámaras IA</a>
+      <nav class="hidden md:flex items-center gap-6 text-xs sm:text-sm font-bold uppercase tracking-wider text-slate-700">
         <a href="../#llaveros" class="hover:text-[#f2920b] transition">Llaveros 3D</a>
-        <a href="./" class="text-[#f2920b] font-black border-b-2 border-[#f2920b] pb-0.5">Herramientas</a>
-        <a href="../blog/barometro-camaras-padel-2026/" class="hover:text-emerald-400 transition">Barómetro</a>
-        <a href="../blog/" class="hover:text-white transition">Blog</a>
+        <a href="../camaras/" class="hover:text-[#f2920b] transition">Cámaras IA</a>
+        <a href="./" class="text-[#f2920b] font-black pb-0.5">Herramientas</a>
+        <a href="../franquicias-padel/" class="hover:text-[#f2920b] transition">Franquicias</a>
+        <a href="../blog/" class="hover:text-[#f2920b] transition">Blog</a>
       </nav>
 
       <div class="flex items-center gap-3">
-        <div class="flex items-center gap-1 border border-slate-700 rounded-lg p-0.5 bg-slate-800/80"><a href="/herramientas/" class="px-2 py-1 rounded text-xs transition bg-[#f2920b] text-slate-950 font-black">ES</a><a href="/en/herramientas/" class="px-2 py-1 rounded text-xs transition text-slate-300 hover:text-white">EN</a><a href="/fr/herramientas/" class="px-2 py-1 rounded text-xs transition text-slate-300 hover:text-white">FR</a><a href="/it/herramientas/" class="px-2 py-1 rounded text-xs transition text-slate-300 hover:text-white">IT</a></div>
-        <a href="../#contacto" class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] text-slate-950 font-heading font-black text-xs uppercase tracking-wider transition">
-          <span>Contactar</span>
-          <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 stroke-[3]"></i>
+        <!-- SELECTOR DE IDIOMA MINIMALISTA -->
+        <div class="flex items-center gap-1 border border-slate-200 rounded-lg p-0.5 bg-slate-50">
+          <a href="/herramientas/" class="px-2 py-1 rounded text-xs transition bg-[#f2920b] text-slate-950 font-black">ES</a><a href="/en/herramientas/" class="px-2 py-1 rounded text-xs transition text-slate-300 hover:text-white">EN</a><a href="/fr/herramientas/" class="px-2 py-1 rounded text-xs transition text-slate-300 hover:text-white">FR</a><a href="/it/herramientas/" class="px-2 py-1 rounded text-xs transition text-slate-300 hover:text-white">IT</a>
+        </div>
+
+        <a href="../#contacto" class="px-4 py-2 rounded-xl bg-[#f2920b] hover:bg-[#d97f08] text-slate-950 font-heading font-black text-xs uppercase tracking-wider transition shadow-sm">
+          Contactar
         </a>
       </div>
     </div>
@@ -163,14 +139,14 @@
   <!-- HERO -->
   <main class="flex-1">
     <section class="py-12 sm:py-20 px-4 sm:px-6 max-w-5xl mx-auto text-center space-y-4">
-      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-800 border border-slate-700 text-xs font-bold text-[#f2920b] uppercase tracking-wider">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-slate-200 text-xs font-bold text-slate-800 uppercase tracking-wider shadow-xs">
         <i data-lucide="wrench" class="w-3.5 h-3.5"></i>
         <span>Recursos B2B Gratuitos Sin Registro</span>
       </div>
-      <h1 class="text-3xl sm:text-5xl font-black font-heading text-white tracking-tight leading-tight max-w-3xl mx-auto">
+      <h1 class="text-3xl sm:text-5xl font-black font-heading text-slate-950 tracking-tight leading-tight max-w-3xl mx-auto">
         Herramientas Gratuitas para <span class="text-[#f2920b]">Directores y Clubes</span> de Pádel
       </h1>
-      <p class="text-sm sm:text-base text-slate-400 max-w-2xl mx-auto leading-relaxed">
+      <p class="text-sm sm:text-base text-slate-600 max-w-2xl mx-auto font-medium leading-relaxed">
         Simuladores económicos interactivos, generadores de torneos y calculadoras de rentabilidad desarrolladas con datos de más de 4.800 clubes analizados en Europa.
       </p>
     </section>
@@ -180,21 +156,21 @@
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
 
         <!-- HERRAMIENTA 1: CALCULADORA DE ROI CÁMARAS -->
-        <article class="bg-slate-800/80 border border-slate-700 rounded-3xl p-6 sm:p-8 flex flex-col justify-between hover:border-[#76d3f6] transition duration-300 group shadow-xl">
+        <article class="bg-white border border-slate-200/90 rounded-3xl p-6 sm:p-8 flex flex-col justify-between hover:border-[#f2920b] hover:shadow-xl transition duration-300 group shadow-sm text-slate-900">
           <div class="space-y-4">
             <div class="w-12 h-12 rounded-2xl bg-sky-500/10 border border-sky-400/20 text-[#76d3f6] flex items-center justify-center">
               <i data-lucide="calculator" class="w-6 h-6 stroke-[2.5]"></i>
             </div>
             <div>
               <span class="text-xs font-black uppercase tracking-wider text-[#76d3f6]">Finanzas & Tecnología en Pista</span>
-              <h2 class="text-xl sm:text-2xl font-black font-heading text-white mt-1 group-hover:text-[#76d3f6] transition">
+              <h2 class="text-xl sm:text-2xl font-black font-heading text-slate-950 mt-1 group-hover:text-[#f2920b] transition">
                 Calculadora de ROI y Rentabilidad de Cámaras
               </h2>
             </div>
-            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+            <p class="text-xs sm:text-sm text-slate-600 text-xs sm:text-sm leading-relaxed">
               Calcula al instante cuánto tarda tu club en amortizar la instalación de cámaras de grabación con IA Save my Play (180 € hardware y 45 €/mes). Simula ingresos por ocupación extra en horas valle y venta de patrocinios locales en los vídeos.
             </p>
-            <ul class="text-xs text-slate-400 space-y-1.5 pt-2">
+            <ul class="text-xs text-slate-500 space-y-1.5 pt-2">
               <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-400"></i> Simulación por número de pistas (1 a 20)</li>
               <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-400"></i> Comparativa Plan B (45 €) vs Plan A (136 €)</li>
               <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-400"></i> Cálculo de horas valle necesarias para amortizar el 100%</li>
@@ -209,21 +185,21 @@
         </article>
 
         <!-- HERRAMIENTA 2: GENERADOR DE AMERICANA -->
-        <article class="bg-slate-800/80 border border-slate-700 rounded-3xl p-6 sm:p-8 flex flex-col justify-between hover:border-[#f2920b] transition duration-300 group shadow-xl">
+        <article class="bg-white border border-slate-200/90 rounded-3xl p-6 sm:p-8 flex flex-col justify-between hover:border-[#f2920b] hover:shadow-xl transition duration-300 group shadow-sm text-slate-900">
           <div class="space-y-4">
             <div class="w-12 h-12 rounded-2xl bg-amber-500/10 border border-amber-400/20 text-[#f2920b] flex items-center justify-center">
               <i data-lucide="trophy" class="w-6 h-6 stroke-[2.5]"></i>
             </div>
             <div>
               <span class="text-xs font-black uppercase tracking-wider text-[#f2920b]">Torneos Sociales & Pozos</span>
-              <h2 class="text-xl sm:text-2xl font-black font-heading text-white mt-1 group-hover:text-[#f2920b] transition">
+              <h2 class="text-xl sm:text-2xl font-black font-heading text-slate-950 mt-1 group-hover:text-[#f2920b] transition">
                 Generador Gratuito de Torneos de Americana
               </h2>
             </div>
-            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+            <p class="text-xs sm:text-sm text-slate-600 text-xs sm:text-sm leading-relaxed">
               Crea los cruces y rondas de tu torneo social, pozo o americana en 5 segundos. Rotación perfecta de compañeros y rivales para 8, 12, 16 o 24 jugadores, con botón directo para copiar el formato listo para WhatsApp.
             </p>
-            <ul class="text-xs text-slate-400 space-y-1.5 pt-2">
+            <ul class="text-xs text-slate-500 space-y-1.5 pt-2">
               <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-400"></i> Generación automática de rondas sin emparejamientos repetidos</li>
               <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-400"></i> 1 clic para copiar texto ordenado a grupos de WhatsApp</li>
               <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-400"></i> 100% gratis y sin registros molestos</li>
@@ -245,14 +221,14 @@
             </div>
             <div>
               <span class="text-xs font-black uppercase tracking-wider text-[#f2920b]">Torneos Oficiales & Eliminatorias</span>
-              <h2 class="text-xl sm:text-2xl font-black font-heading text-white mt-1 group-hover:text-amber-400 transition">
+              <h2 class="text-xl sm:text-2xl font-black font-heading text-slate-950 mt-1 group-hover:text-[#f2920b] transition">
                 Generador de Cuadros de Torneo (Brackets)
               </h2>
             </div>
-            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+            <p class="text-xs sm:text-sm text-slate-600 text-xs sm:text-sm leading-relaxed">
               Genera cuadros de competición por eliminatoria directa para 8, 16 o 32 parejas. Asigna cabezas de serie, anota resultados en vivo, avanza ganadores automáticamente, incluye cuadro de consolación e imprime en PDF.
             </p>
-            <ul class="text-xs text-slate-400 space-y-1.5 pt-2">
+            <ul class="text-xs text-slate-500 space-y-1.5 pt-2">
               <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-400"></i> Cuadro para 8, 16 o 32 parejas con cuadro de consolación</li>
               <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-400"></i> Avance interactivo de ganadores según marcador</li>
               <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-400"></i> Formato póster imprimible en PDF y exportación a WhatsApp</li>
@@ -274,14 +250,14 @@
             </div>
             <div>
               <span class="text-xs font-black uppercase tracking-wider text-emerald-400">Inversión & Montaje de Pistas</span>
-              <h2 class="text-xl sm:text-2xl font-black font-heading text-white mt-1 group-hover:text-emerald-400 transition">
+              <h2 class="text-xl sm:text-2xl font-black font-heading text-slate-950 mt-1 group-hover:text-[#f2920b] transition">
                 Calculadora de Coste y Rentabilidad de Pistas
               </h2>
             </div>
-            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+            <p class="text-xs sm:text-sm text-slate-600 text-xs sm:text-sm leading-relaxed">
               Simulador financiero para proyectar cuánto cuesta construir pistas de pádel (cristal panorámico, césped, LED, solera e indoor) y calcular ingresos mensuales, beneficio neto y meses de amortización.
             </p>
-            <ul class="text-xs text-slate-400 space-y-1.5 pt-2">
+            <ul class="text-xs text-slate-500 space-y-1.5 pt-2">
               <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-400"></i> Simulación configurable de 1 a 16 pistas llave en mano</li>
               <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-400"></i> Cálculo de ocupación, precio hora y gastos fijos de nave</li>
               <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-400"></i> Proyección de payback en meses y exportación por WhatsApp</li>
@@ -302,7 +278,7 @@
         <div class="space-y-2 text-center md:text-left">
           <span class="text-xs font-black text-emerald-400 uppercase tracking-wider">Investigación & Datos de Mercado</span>
           <h3 class="text-xl sm:text-2xl font-black font-heading text-white">Barómetro de Cámaras y Digitalización 2026</h3>
-          <p class="text-xs sm:text-sm text-slate-400 max-w-xl">
+          <p class="text-xs sm:text-sm text-white/90 max-w-xl font-medium">
             Estudio técnico de +4.800 clubes europeos: penetración de cámaras (8,4%), cuota de Playtomic vs Matchi vs Resasports y modelos de amortización.
           </p>
         </div>
@@ -322,9 +298,7 @@
           <img src="../assets/images/coolpadel-mascot-hd.png" alt="CoolPadel Mascota" width="60" height="60" class="h-10 sm:h-12 w-auto object-contain drop-shadow-sm" loading="lazy">
           <img src="../assets/images/coolpadel-typography-hd.png" alt="CoolPadel" width="160" height="32" class="h-5 sm:h-6 w-auto object-contain drop-shadow-sm" loading="lazy">
         </div>
-        <p class="text-white/80 text-xs text-center sm:text-right max-w-md font-medium">
-          Fabricación de llaveros de pádel personalizados 3D y sistemas de cámaras de grabación en pista Save my Play.
-        </p>
+        
       </div>
 
       <nav aria-label="Silos SEO" class="grid grid-cols-2 lg:grid-cols-4 gap-8 text-left">
@@ -386,6 +360,6 @@
   <script>
     lucide.createIcons();
   </script>
-  <script src="/assets/js/cp-analytics.js?v=20261020b" defer></script>
+  <script src="/assets/js/cp-analytics.js" defer></script>
 </body>
 </html>

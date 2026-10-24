@@ -1086,11 +1086,7 @@
 
 
 
-  <!-- Leaflet CSS y JS para Mapa Interactivo de Clubes -->
-
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
-
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  
 
 
 
@@ -1419,167 +1415,6 @@
       -webkit-tap-highlight-color: transparent;
 
     }
-
-
-
-    /* Estilos Leaflet Map Google Relieve */
-
-    #coolpadel-leaflet-map {
-
-      background: #e2e8f0;
-
-      transition: background-color 0.3s ease;
-
-    }
-
-    .country-map-label {
-
-      background: transparent !important;
-
-      border: none !important;
-
-      box-shadow: none !important;
-
-      display: flex !important;
-
-      align-items: center;
-
-      justify-content: center;
-
-      pointer-events: none !important;
-
-    }
-
-    .country-map-label span {
-
-      font-family: 'Outfit', sans-serif;
-
-      font-weight: 800;
-
-      font-size: 11px;
-
-      letter-spacing: 0.16em;
-
-      text-transform: uppercase;
-
-      color: #1e293b;
-
-      text-shadow: 0 1px 3px rgba(255, 255, 255, 0.9), 0 0 8px rgba(255, 255, 255, 0.7);
-
-      pointer-events: none;
-
-      white-space: nowrap;
-
-      user-select: none;
-
-      transition: color 0.3s ease;
-
-    }
-
-    .custom-pin-container {
-
-      position: relative;
-
-      width: 28px;
-
-      height: 28px;
-
-      display: flex;
-
-      align-items: center;
-
-      justify-content: center;
-
-      cursor: pointer;
-
-    }
-
-    .custom-pin-ping {
-
-      position: absolute;
-
-      width: 100%;
-
-      height: 100%;
-
-      border-radius: 9999px;
-
-      background: rgba(242, 146, 11, 0.45);
-
-      animation: ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
-
-    }
-
-    .custom-pin-dot {
-
-      position: relative;
-
-      width: 18px;
-
-      height: 18px;
-
-      border-radius: 9999px;
-
-      background: #091322;
-
-      border: 2px solid #f2920b;
-
-      box-shadow: 0 0 10px rgba(242, 146, 11, 0.8);
-
-      display: flex;
-
-      align-items: center;
-
-      justify-content: center;
-
-      transition: all 0.2s ease;
-
-    }
-
-    .custom-pin-container:hover .custom-pin-dot {
-
-      transform: scale(1.35);
-
-      background-color: #38bdf8;
-
-      border-color: #ffffff;
-
-      box-shadow: 0 0 16px rgba(56, 189, 248, 0.95);
-
-    }
-
-    .leaflet-popup-content-wrapper {
-
-      background: #ffffff !important;
-
-      color: #0f172a !important;
-
-      border: 1px solid rgba(226, 232, 240, 0.9) !important;
-
-      border-radius: 14px !important;
-
-      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2) !important;
-
-      padding: 0 !important;
-
-      overflow: hidden !important;
-
-    }
-
-    .leaflet-popup-content {
-
-      margin: 0 !important;
-
-      line-height: 1.4 !important;
-
-    }
-
-    .leaflet-popup-tip {
-
-      background: #ffffff !important;
-
-    }
-
   </style>
 
   <!-- Google Analytics 4 -->
@@ -1782,67 +1617,50 @@
 
 
 
-      <!-- GRID DESKTOP LADO A LADO: TARJETAS FOTOS (IZQ) Y CALCULADORA (DCHA) -->
-
-      <div class="grid grid-cols-1 lg:grid-cols-[65fr_35fr] gap-4 lg:gap-6 items-stretch">
-
+      <!-- 1. TARJETAS TENIS Y PÁDEL (LADO A LADO, ALTAMENTE CLICABLES CON EFECTO GLOW) -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-6 mb-6 sm:mb-8">
         
-
-        <!-- COLUMNA IZQUIERDA: 2 TARJETAS (TENIS & PADEL) MÁS GRANDES EN SUBGRID -->
-
-        <div class="w-full grid grid-cols-2 gap-3 sm:gap-5 h-full">
-
-          <!-- CARD IZQUIERDA: TENIS -->
-
-          <a href="/llaveros-tenis-personalizados/" class="bg-white border border-slate-200/90 rounded-2xl p-3 sm:p-4 shadow-md hover:shadow-xl transition-all duration-300 group flex flex-col justify-between hover:-translate-y-0.5">
-
-            <div class="flex-1 flex flex-col justify-center">
-
-              <div class="rounded-xl overflow-hidden shadow-sm border border-slate-200/90 bg-slate-100 my-auto">
-
-                <img src="assets/images/llaveros-tenis-personalizados-clubs.jpg?v=16" alt="Llaveros de tenis y pádel personalizados con relieve 3D para clubs y torneos" width="1024" height="640" class="w-full h-auto block group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
-
-              </div>
-
+        <!-- CARD IZQUIERDA: TENIS -->
+        <a href="/llaveros-tenis-personalizados/" class="relative overflow-hidden cursor-pointer bg-white border-2 border-slate-200/90 hover:border-[#f2920b] hover:ring-4 hover:ring-[#f2920b]/20 hover:shadow-[0_14px_35px_rgba(242,146,11,0.25)] hover:bg-amber-50/30 hover:scale-[1.015] active:scale-[0.98] transition-all duration-300 rounded-3xl p-4 sm:p-6 flex flex-col justify-between group">
+          <div class="flex-1 flex flex-col justify-center">
+            <div class="rounded-2xl overflow-hidden shadow-sm border border-slate-200/90 bg-slate-100 my-auto">
+              <img src="assets/images/llaveros-tenis-personalizados-clubs.jpg?v=16" alt="Llaveros de tenis y pádel personalizados con relieve 3D para clubs y torneos" width="1024" height="640" class="w-full h-auto block group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
             </div>
-
-            <h3 data-i18n="card_tenis" class="font-heading font-black text-xs sm:text-sm lg:text-base uppercase tracking-tight text-slate-950 text-center py-0.5 mt-2">
-
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between">
+            <h3 data-i18n="card_tenis" class="font-heading font-black text-sm sm:text-base lg:text-lg uppercase tracking-tight text-slate-950 group-hover:text-[#f2920b] transition">
               Llaveros de Tenis
-
             </h3>
+            <span class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-slate-100 group-hover:bg-[#f2920b] text-slate-900 group-hover:text-slate-950 text-xs font-black uppercase tracking-wider transition">
+              <span>Ver modelos</span>
+              <i data-lucide="arrow-right" class="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform"></i>
+            </span>
+          </div>
+        </a>
 
-          </a>
-
-
-
-          <!-- CARD DERECHA: PADEL -->
-
-          <a href="/llaveros-padel-personalizados/" class="bg-white border border-slate-200/90 rounded-2xl p-3 sm:p-4 shadow-md hover:shadow-xl transition-all duration-300 group flex flex-col justify-between hover:-translate-y-0.5">
-
-            <div class="rounded-xl overflow-hidden mb-2 shadow-sm border border-slate-200/90 bg-slate-100">
-
+        <!-- CARD DERECHA: PADEL -->
+        <a href="/llaveros-padel-personalizados/" class="relative overflow-hidden cursor-pointer bg-white border-2 border-slate-200/90 hover:border-[#f2920b] hover:ring-4 hover:ring-[#f2920b]/20 hover:shadow-[0_14px_35px_rgba(242,146,11,0.25)] hover:bg-amber-50/30 hover:scale-[1.015] active:scale-[0.98] transition-all duration-300 rounded-3xl p-4 sm:p-6 flex flex-col justify-between group">
+          <div class="flex-1 flex flex-col justify-center">
+            <div class="rounded-2xl overflow-hidden shadow-sm border border-slate-200/90 bg-slate-100 my-auto">
               <img src="assets/images/llaveros-padel-personalizados-clubs.jpg?v=16" alt="Llaveros de pádel de goma 3D personalizados con logo para clubes de pádel" width="1024" height="737" class="w-full h-auto block group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
-
             </div>
-
-            <h3 data-i18n="card_padel" class="font-heading font-black text-xs sm:text-sm lg:text-base uppercase tracking-tight text-[#f2920b] text-center py-0.5">
-
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between">
+            <h3 data-i18n="card_padel" class="font-heading font-black text-sm sm:text-base lg:text-lg uppercase tracking-tight text-[#f2920b] transition">
               Llaveros de Pádel
-
             </h3>
+            <span class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-[#f2920b]/15 group-hover:bg-[#f2920b] text-slate-950 text-xs font-black uppercase tracking-wider transition">
+              <span>Ver modelos</span>
+              <i data-lucide="arrow-right" class="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform"></i>
+            </span>
+          </div>
+        </a>
 
-          </a>
+      </div>
 
-        </div>
-
-
-
-        <!-- COLUMNA DERECHA: CALCULADORA DE PRESUPUESTO OFICIAL (UN 20% MÁS ESTRECHA) -->
-
-        <div class="w-full bg-white rounded-2xl p-3.5 sm:p-4 border border-white/60 shadow-xl text-slate-950 flex flex-col justify-between">
-
-          <div class="text-center sm:text-left mb-2">
+      <!-- 2. CALCULADORA DE PRESUPUESTO OFICIAL (DEBAJO, CENTRADA Y PROMINENTE) -->
+      <div class="max-w-4xl mx-auto w-full bg-white rounded-3xl p-5 sm:p-8 border border-white/60 shadow-xl text-slate-950 flex flex-col justify-between">
+        <div class="text-center sm:text-left mb-2">
 
             <h3 data-i18n="calc_title" class="text-base sm:text-xl font-black font-heading text-slate-950">
 
@@ -2060,197 +1878,31 @@
 
 
 
-  <!-- 6. MAPA INTERACTIVO: CLUBS Y MARCAS CON LLAVEROS COOLPADEL (COMPACTO) -->
-
-  <section id="mapa-clubs" class="py-6 sm:py-8 lg:py-10 bg-slate-50 relative border-b border-slate-200">
-
+  <!-- 6. OPINIONES DE CLUBES Y FEDERACIONES -->
+  <section id="opiniones-clubs" class="py-10 sm:py-14 bg-slate-50 relative border-b border-slate-200">
     <div class="max-w-6xl mx-auto px-4 sm:px-6">
-
       
-
-      <!-- CABECERA DEL MAPA -->
-
-      <div class="text-center max-w-2xl mx-auto mb-3 sm:mb-4 space-y-1">
-
-        <h3 class="text-lg sm:text-2xl font-black font-heading text-slate-950 uppercase tracking-tight">
-
-          Clubs y Marcas con Llaveros CoolPadel
-
+      <!-- CABECERA OPINIONES -->
+      <div class="text-center max-w-2xl mx-auto mb-6 sm:mb-8 space-y-1">
+        <span class="inline-block px-3 py-1 rounded-full bg-[#f2920b]/15 text-[#f2920b] font-heading font-black text-xs uppercase tracking-wider">
+          Encuestas Oficiales de Clubs
+        </span>
+        <h3 class="text-xl sm:text-3xl font-black font-heading text-slate-950 uppercase tracking-tight">
+          Opiniones de Clubs y Federaciones
         </h3>
-
         <p class="text-xs sm:text-sm text-slate-600 font-medium">
-
-          Selecciona una zona o haz clic en cualquier marcador para explorar nuestros clubs oficiales
-
+          Valoración media de 4.9/5 basada en encuestas reales de satisfacción de directores y clubes en Europa
         </p>
-
       </div>
 
-
-
-      <!-- CONTENEDOR DEL MAPA Y DETALLES -->
-
-      <div class="bg-white rounded-2xl p-3 sm:p-5 border border-slate-200/90 shadow-md">
-
-        
-
-        <!-- Listado semántico HTML accesible de clubes para indexación de clientes y GEO (sr-only) -->
-
-        <div class="sr-only">
-
-          <h4>Clubes, academias y federaciones clientes oficiales de CoolPadel:</h4>
-
-          <ul>
-
-            <li>Club de Tenis Cambados</li><li>Pinondo Padel Zaleak</li><li>Tenis Club El Soto (Zaragoza)</li><li>Fiorfiore Padel (Italia)</li><li>Tennis Life Canzo (Italia)</li><li>Club Deportivo Pádel Higueruela</li><li>Vitasports Escuela de Tenis y Pádel</li><li>Club de Pádel Ortigueira</li><li>Tennis Club Sant'Agostino (Italia)</li><li>Club Tennis Reus Monterols</li><li>Club Pádel Vilamalla</li><li>Padel Club Cabrera d'Anoia</li><li>ALM Évreux Tennis Padel (Francia)</li><li>Club Green Park (Italia)</li><li>Royal Excelsior Tennis Club (Bélgica)</li><li>Le Garden Rennes (Francia)</li><li>Austrian Padel Union (Austria)</li><li>Padel Alba (Alicante)</li><li>Padeleiros Vigo</li><li>A.T.M. Amigos del Tenis de Málaga</li><li>CBS Padel (Dinamarca)</li><li>USP Tennis 17 (París)</li><li>Padel Kiosk (Bélgica)</li><li>Padel Addict</li><li>Backspin Academy (Madrid)</li><li>Espacio Herrería (Madrid)</li>
-
-          </ul>
-
-        </div>
-
-        
-
-        <!-- FILTROS POR REGIÓN -->
-
-        <div class="flex items-center justify-center gap-1 sm:gap-2 flex-wrap pb-2.5 sm:pb-3 border-b border-slate-100" id="map-filter-bar">
-
-          <button type="button" onclick="focusMapRegion('all')" class="map-filter-btn px-2.5 sm:px-3 py-1 rounded-full text-[11px] sm:text-xs font-bold transition cursor-pointer bg-slate-950 text-white shadow-xs" data-region="all">
-
-            Todos (27)
-
-          </button>
-
-          <button type="button" onclick="focusMapRegion('es')" class="map-filter-btn px-2.5 sm:px-3 py-1 rounded-full text-[11px] sm:text-xs font-bold transition cursor-pointer bg-slate-100 text-slate-700 hover:bg-slate-200" data-region="es">
-
-            España (15)
-
-          </button>
-
-          <button type="button" onclick="focusMapRegion('it')" class="map-filter-btn px-2.5 sm:px-3 py-1 rounded-full text-[11px] sm:text-xs font-bold transition cursor-pointer bg-slate-100 text-slate-700 hover:bg-slate-200" data-region="it">
-
-            Italia (5)
-
-          </button>
-
-          <button type="button" onclick="focusMapRegion('fr')" class="map-filter-btn px-2.5 sm:px-3 py-1 rounded-full text-[11px] sm:text-xs font-bold transition cursor-pointer bg-slate-100 text-slate-700 hover:bg-slate-200" data-region="fr">
-
-            Francia (3)
-
-          </button>
-
-          <button type="button" onclick="focusMapRegion('be')" class="map-filter-btn px-2.5 sm:px-3 py-1 rounded-full text-[11px] sm:text-xs font-bold transition cursor-pointer bg-slate-100 text-slate-700 hover:bg-slate-200" data-region="be">
-
-            Bélgica (2)
-
-          </button>
-
-          <button type="button" onclick="focusMapRegion('other')" class="map-filter-btn px-2.5 sm:px-3 py-1 rounded-full text-[11px] sm:text-xs font-bold transition cursor-pointer bg-slate-100 text-slate-700 hover:bg-slate-200" data-region="other">
-
-            Austria & Dinamarca (2)
-
-          </button>
-
-        </div>
-
-
-
-        <!-- GRID INTERACTIVO: MAPA LEAFLET A LA IZQUIERDA + PANEL DETALLE A LA DERECHA -->
-
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-4 items-stretch pt-2 sm:pt-3">
-
-          
-
-          <!-- MAPA LEAFLET INTERACTIVO PANNABLE/ZOOMABLE (360px DE ALTURA) -->
-
-          <div class="lg:col-span-8 relative bg-slate-100 rounded-xl border border-slate-200/90 overflow-hidden shadow-inner min-h-[340px] sm:min-h-[360px] h-[340px] sm:h-[360px]">
-
-            <div id="coolpadel-leaflet-map" class="w-full h-full min-h-[340px] sm:min-h-[360px] z-10" style="min-height: 360px; height: 360px; width: 100%; background: #e2e8f0;"></div>
-
-
-
-            <!-- OVERLAY DE AYUDA DE ZOOM ESTILO GOOGLE MAPS -->
-
-            <div id="map-scroll-hint" class="absolute inset-0 z-[500] bg-slate-950/60 backdrop-blur-xs flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300">
-
-              <div class="bg-slate-900/95 text-white px-4 py-2 rounded-xl text-xs font-bold shadow-xl border border-slate-700/80 flex items-center gap-2">
-
-                <i data-lucide="info" class="w-4 h-4 text-[#f2920b]"></i>
-
-                <span data-i18n="map_zoom_hint">Usa Ctrl + desplazamiento para hacer zoom en el mapa</span>
-
-              </div>
-
-            </div>
-
-
-
-            <!-- HINT FLOTANTE INFERIOR -->
-
-            <div class="absolute bottom-2.5 left-2.5 z-[400] bg-white/95 backdrop-blur-sm px-3 py-1 rounded-full border border-slate-200/90 shadow-xs pointer-events-none hidden sm:flex items-center gap-1.5 text-[10px] font-bold text-slate-700">
-
-              <i data-lucide="hand" class="w-3 h-3 text-[#f2920b]"></i>
-
-              <span>Arrastra para mover el mapa · Ctrl + rueda para zoom</span>
-
-            </div>
-
-          </div>
-
-
-
-          <!-- PANEL LATERAL: INFORMACIÓN Y LOGO REAL DEL CLUB SELECCIONADO -->
-
-          <div class="lg:col-span-4 flex flex-col justify-center items-center bg-white rounded-xl p-3 sm:p-4 border border-slate-200 min-h-[340px] sm:min-h-[360px] shadow-xs text-center" id="club-info-card">
-
-            
-
-            <div class="w-full flex-1 flex flex-col items-center justify-center p-4 bg-slate-50/70 rounded-xl border border-slate-200/80">
-
-              <!-- CONTENEDOR LOGO REAL DEL CLUB -->
-
-              <div class="h-28 sm:h-32 w-full flex items-center justify-center">
-
-                <img id="club-logo-img" src="assets/images/Clubs/client-02.png" alt="Logo Club de Tenis Cambados" width="200" height="140" loading="lazy" decoding="async" class="max-h-24 sm:max-h-28 max-w-[180px] w-auto h-auto object-contain transition-all duration-300">
-
-              </div>
-
-
-
-              <!-- NOMBRE Y UBICACIÓN CENTRADOS -->
-
-              <div class="mt-3 space-y-0.5 text-center">
-
-                <h4 id="club-name" class="font-heading font-black text-base sm:text-lg text-slate-950">
-
-                  Club de Tenis Cambados
-
-                </h4>
-
-                <p id="club-location" class="text-[11px] sm:text-xs font-bold text-slate-500">
-
-                  Cambados, Galicia (España)
-
-                </p>
-
-              </div>
-
-            </div>
-
-
-
-          </div>
-
-
-
-        </div>
-
-
-
+      <!-- Listado semántico HTML accesible de clubes para indexación de clientes y GEO (sr-only) -->
+      <div class="sr-only">
+        <h4>Clubes, academias y federaciones clientes oficiales de CoolPadel:</h4>
+        <ul>
+          <li>Club de Tenis Cambados</li><li>Pinondo Padel Zaleak</li><li>Tenis Club El Soto (Zaragoza)</li><li>Fiorfiore Padel (Italia)</li><li>Tennis Life Canzo (Italia)</li><li>Club Deportivo Pádel Higueruela</li><li>Vitasports Escuela de Tenis y Pádel</li><li>Club de Pádel Ortigueira</li><li>Tennis Club Sant'Agostino (Italia)</li><li>Club Tennis Reus Monterols</li><li>Club Pádel Vilamalla</li><li>Padel Club Cabrera d'Anoia</li><li>ALM Évreux Tennis Padel (Francia)</li><li>Club Green Park (Italia)</li><li>Royal Excelsior Tennis Club (Bélgica)</li><li>Le Garden Rennes (Francia)</li><li>Austrian Padel Union (Austria)</li><li>Padel Alba (Alicante)</li><li>Padeleiros Vigo</li><li>A.T.M. Amigos del Tenis de Málaga</li><li>CBS Padel (Dinamarca)</li><li>USP Tennis 17 (París)</li><li>Padel Kiosk (Bélgica)</li><li>Padel Addict</li><li>Backspin Academy (Madrid)</li><li>Espacio Herrería (Madrid)</li>
+        </ul>
       </div>
 
-
-      <!-- OPINIONES DE CLUBES (INTEGRADAS BAJO EL MAPA) -->
-      <div class="mt-6 sm:mt-8">
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
 
         

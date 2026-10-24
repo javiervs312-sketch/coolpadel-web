@@ -110,35 +110,8 @@
       y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
     })(window, document, "clarity", "script", "q7p8g52y9e");
   </script>
-  <!-- Google Analytics 4 -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-3FY3DTNN21"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-3FY3DTNN21');
-    // Eventos clave (leads): WhatsApp, email, teléfono, demo, dossier
-    document.addEventListener('click', function (e) {
-      try {
-        var a = e.target.closest && e.target.closest('a, button');
-        if (!a) return;
-        var href = (a.getAttribute('href') || '').toLowerCase();
-        var txt = (a.innerText || '').replace(/\s+/g, ' ').trim().slice(0, 60);
-        var p = { link_text: txt, link_url: href, page_path: location.pathname };
-        if (href.indexOf('wa.me') > -1 || href.indexOf('whatsapp.com') > -1) gtag('event', 'click_whatsapp', p);
-        else if (href.indexOf('mailto:') === 0) gtag('event', 'click_email', p);
-        else if (href.indexOf('tel:') === 0) gtag('event', 'click_telefono', p);
-        else if (/\.pdf($|\?)/.test(href) || /dossier/i.test(href + ' ' + txt)) gtag('event', 'descarga_dossier', p);
-        else if (/demo|reuni[oó]n|meeting|calendly|agenda|r[eé]serv|prueba gratis|free trial/i.test(href + ' ' + txt)) gtag('event', 'solicitar_demo', p);
-      } catch (err) {}
-    }, { passive: true });
-    document.addEventListener('submit', function (e) {
-      try { gtag('event', 'enviar_formulario', { form_id: (e.target && (e.target.id || e.target.name)) || '', page_path: location.pathname }); } catch (err) {}
-    }, true);
-  </script>
-  <!-- /GA4 -->
 </head>
-<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col selection:bg-[#f2920b] selection:text-slate-950">
+<body class="bg-slate-50 text-slate-900 min-h-screen flex flex-col selection:bg-[#f2920b] selection:text-slate-950">
 
   <!-- HEADER -->
   <header class="fixed top-0 left-0 w-full z-50 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-xs w-full">
@@ -217,7 +190,7 @@
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-12">
 
         <!-- PARÁMETROS (7 COLS) -->
-        <div class="lg:col-span-7 bg-slate-900 border border-slate-800 rounded-3xl p-6 sm:p-8 space-y-6 shadow-2xl">
+        <div class="lg:col-span-7 bg-white border border-slate-200/90 rounded-3xl p-6 sm:p-8 space-y-6 shadow-lg text-slate-900">
           <div class="flex items-center justify-between pb-3 border-b border-slate-800">
             <h2 class="font-heading font-black text-lg text-white">1. Configuration des Pistes et Investissement</h2>
             <span class="text-xs text-[#f2920b] font-bold">Données du marché 2026</span>
@@ -236,7 +209,7 @@
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
             <div>
               <label class="block text-xs font-bold text-slate-300 mb-1.5">Type de Piste :</label>
-              <select id="select-tipo-pista" onchange="actualizarCalculo()" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-3 py-2 text-xs sm:text-sm text-white font-bold focus:border-[#f2920b] outline-none">
+              <select id="select-tipo-pista" onchange="actualizarCalculo()" class="w-full bg-slate-50 border border-slate-300 text-slate-900 rounded-xl px-3 py-2 text-xs sm:text-sm text-white font-bold focus:border-[#f2920b] outline-none">
                 <option value="panoramica" selected>Panoramique Pro (12mm) · ~23 500 €</option>
                 <option value="estandar">Standard avec Poteaux (10mm) · ~18 500 €</option>
                 <option value="superpanoramica">Super Panoramique WPT · ~27 000 €</option>
@@ -245,7 +218,7 @@
 
             <div>
               <label class="block text-xs font-bold text-slate-300 mb-1.5">Dalle en Béton :</label>
-              <select id="select-solera" onchange="actualizarCalculo()" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-3 py-2 text-xs sm:text-sm text-white font-bold focus:border-[#f2920b] outline-none">
+              <select id="select-solera" onchange="actualizarCalculo()" class="w-full bg-slate-50 border border-slate-300 text-slate-900 rounded-xl px-3 py-2 text-xs sm:text-sm text-white font-bold focus:border-[#f2920b] outline-none">
                 <option value="nueva" selected>Nouvelle dalle requise (~8 500 €/piste)</option>
                 <option value="existente">Dalle déjà existante (0 € supplémentaire)</option>
               </select>
@@ -256,7 +229,7 @@
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
               <label class="block text-xs font-bold text-slate-300 mb-1.5">Gazon & Éclairage LED :</label>
-              <select id="select-cesped" onchange="actualizarCalculo()" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-3 py-2 text-xs sm:text-sm text-white font-bold focus:border-[#f2920b] outline-none">
+              <select id="select-cesped" onchange="actualizarCalculo()" class="w-full bg-slate-50 border border-slate-300 text-slate-900 rounded-xl px-3 py-2 text-xs sm:text-sm text-white font-bold focus:border-[#f2920b] outline-none">
                 <option value="texturado" selected>Gazon texturé Pro + 8 projecteurs LED 200W · 5 500 €</option>
                 <option value="monofilamento">Monofilament classique + 4 projecteurs LED · 4 200 €</option>
               </select>
@@ -264,7 +237,7 @@
 
             <div>
               <label class="block text-xs font-bold text-slate-300 mb-1.5">Caméras sur Piste Save my Play :</label>
-              <select id="select-camaras" onchange="actualizarCalculo()" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-3 py-2 text-xs sm:text-sm text-white font-bold focus:border-[#76d3f6] outline-none">
+              <select id="select-camaras" onchange="actualizarCalculo()" class="w-full bg-slate-50 border border-slate-300 text-slate-900 rounded-xl px-3 py-2 text-xs sm:text-sm text-white font-bold focus:border-[#76d3f6] outline-none">
                 <option value="si" selected>Oui (180 € matériel + 45 €/mois abonnement)</option>
                 <option value="no">Ne pas installer de caméras</option>
               </select>
@@ -327,12 +300,12 @@
               <strong id="out-gastos-totales" class="text-slate-400 font-bold text-base">2.680 € / mes</strong>
             </div>
 
-            <div class="bg-slate-950/80 border border-emerald-500/40 rounded-2xl p-5 text-center space-y-1">
+            <div class="bg-emerald-50 border border-emerald-300 text-slate-900 rounded-2xl p-5 text-center space-y-1">
               <span class="text-xs uppercase font-extrabold text-slate-400 tracking-wider">Bénéfice Net Estimé / Mois :</span>
               <div id="out-beneficio-neto" class="text-3xl sm:text-4xl font-black font-heading text-emerald-400">+10.280 € / mes</div>
             </div>
 
-            <div class="bg-slate-800/80 rounded-xl p-4 border border-slate-700 space-y-1 text-center">
+            <div class="bg-slate-50 rounded-xl p-4 border border-slate-200 text-slate-900 space-y-1 text-center">
               <span class="text-xs font-bold text-slate-400">Délai d'Amortissement (Payback) :</span>
               <div class="text-lg font-black text-[#f2920b] font-heading">
                 <span id="out-meses-amortizacion">15</span> mois d'activité
@@ -360,13 +333,13 @@
       <section class="border-t border-slate-800 pt-12 space-y-6">
         <h2 class="text-2xl font-black font-heading text-white">FAQ</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 space-y-2">
-            <h3 class="text-sm font-bold text-white">Combien coûte environ la construction d'une piste de padel complète en 2026 ?</h3>
-            <p class="text-xs text-slate-400 leading-relaxed">Le coût moyen d'une piste de padel panoramique clé en main se situe entre 28 000 € et 38 000 € par piste si la dalle béton existe déjà. En cas de création de dalle, terrassement ou couverture spécifique, le budget global oscille entre 45 000 € et 65 000 € par piste.</p>
+          <div class="bg-white border border-slate-200/90 rounded-2xl p-5 space-y-2 text-slate-900 shadow-xs">
+            <h3 class="text-sm font-bold text-slate-950">Combien coûte environ la construction d'une piste de padel complète en 2026 ?</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">Le coût moyen d'une piste de padel panoramique clé en main se situe entre 28 000 € et 38 000 € par piste si la dalle béton existe déjà. En cas de création de dalle, terrassement ou couverture spécifique, le budget global oscille entre 45 000 € et 65 000 € par piste.</p>
           </div>
-          <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 space-y-2">
-            <h3 class="text-sm font-bold text-white">En combien de mois rentabilise-t-on une installation de pistes de padel ?</h3>
-            <p class="text-xs text-slate-400 leading-relaxed">Avec une occupation moyenne de 4 à 5 heures par jour à 24 €/heure, une piste génère entre 2 800 € et 3 600 € bruts par mois. Déduction faite des charges fixes, le retour sur investissement s'effectue généralement entre 14 et 24 mois.</p>
+          <div class="bg-white border border-slate-200/90 rounded-2xl p-5 space-y-2 text-slate-900 shadow-xs">
+            <h3 class="text-sm font-bold text-slate-950">En combien de mois rentabilise-t-on une installation de pistes de padel ?</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">Avec une occupation moyenne de 4 à 5 heures par jour à 24 €/heure, une piste génère entre 2 800 € et 3 600 € bruts par mois. Déduction faite des charges fixes, le retour sur investissement s'effectue généralement entre 14 et 24 mois.</p>
           </div>
         </div>
       </section>
@@ -382,9 +355,7 @@
           <img src="../../../assets/images/coolpadel-mascot-hd.png" alt="CoolPadel Mascota" width="60" height="60" class="h-10 sm:h-12 w-auto object-contain drop-shadow-sm" loading="lazy">
           <img src="../../../assets/images/coolpadel-typography-hd.png" alt="CoolPadel" width="160" height="32" class="h-5 sm:h-6 w-auto object-contain drop-shadow-sm" loading="lazy">
         </div>
-        <p class="text-white/80 text-xs text-center sm:text-right max-w-md font-medium">
-          CoolPadel Studios & Save my Play · Systèmes Connectés d'Enregistrement sur Piste et Solutions B2B
-        </p>
+        
       </div>
 
       <div class="pt-8 border-t border-white/20 flex flex-col sm:flex-row items-center justify-between gap-3 text-white/75 text-center sm:text-left">
@@ -449,6 +420,6 @@
 
     actualizarCalculo();
   </script>
-  <script src="/assets/js/cp-analytics.js?v=20261020b" defer></script>
+  <script src="/assets/js/cp-analytics.js" defer></script>
 </body>
 </html>

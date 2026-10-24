@@ -114,35 +114,8 @@
       y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
     })(window, document, "clarity", "script", "q7p8g52y9e");
   </script>
-  <!-- Google Analytics 4 -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-3FY3DTNN21"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-3FY3DTNN21');
-    // Eventos clave (leads): WhatsApp, email, teléfono, demo, dossier
-    document.addEventListener('click', function (e) {
-      try {
-        var a = e.target.closest && e.target.closest('a, button');
-        if (!a) return;
-        var href = (a.getAttribute('href') || '').toLowerCase();
-        var txt = (a.innerText || '').replace(/\s+/g, ' ').trim().slice(0, 60);
-        var p = { link_text: txt, link_url: href, page_path: location.pathname };
-        if (href.indexOf('wa.me') > -1 || href.indexOf('whatsapp.com') > -1) gtag('event', 'click_whatsapp', p);
-        else if (href.indexOf('mailto:') === 0) gtag('event', 'click_email', p);
-        else if (href.indexOf('tel:') === 0) gtag('event', 'click_telefono', p);
-        else if (/\.pdf($|\?)/.test(href) || /dossier/i.test(href + ' ' + txt)) gtag('event', 'descarga_dossier', p);
-        else if (/demo|reuni[oó]n|meeting|calendly|agenda|r[eé]serv|prueba gratis|free trial/i.test(href + ' ' + txt)) gtag('event', 'solicitar_demo', p);
-      } catch (err) {}
-    }, { passive: true });
-    document.addEventListener('submit', function (e) {
-      try { gtag('event', 'enviar_formulario', { form_id: (e.target && (e.target.id || e.target.name)) || '', page_path: location.pathname }); } catch (err) {}
-    }, true);
-  </script>
-  <!-- /GA4 -->
 </head>
-<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col selection:bg-[#f2920b] selection:text-slate-950">
+<body class="bg-slate-50 text-slate-900 min-h-screen flex flex-col selection:bg-[#f2920b] selection:text-slate-950">
 
   <!-- HEADER -->
   <header class="fixed top-0 left-0 w-full z-50 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-xs w-full">
@@ -218,7 +191,7 @@
       </div>
 
       <!-- CALCULADORA INTERACTIVA -->
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start bg-slate-900 border border-slate-800 rounded-3xl p-6 sm:p-10 shadow-2xl">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start bg-white border border-slate-200/90 rounded-3xl p-6 sm:p-10 shadow-lg text-slate-900">
 
         <!-- PANEL IZQUIERDO -->
         <div class="lg:col-span-7 space-y-6">
@@ -231,7 +204,7 @@
           <div class="space-y-2">
             <div class="flex justify-between items-center">
               <label class="text-xs sm:text-sm font-bold text-slate-200">Numero di campi da dotare:</label>
-              <span id="label-pistas" class="text-base sm:text-lg font-black text-[#f2920b] font-heading bg-slate-800 px-3 py-0.5 rounded-lg">4 campi</span>
+              <span id="label-pistas" class="text-base sm:text-lg font-black text-[#f2920b] font-heading bg-slate-100 px-3 py-0.5 rounded-lg">4 campi</span>
             </div>
             <input type="range" id="input-pistas" min="1" max="16" value="4" class="w-full h-2 bg-slate-800 rounded-lg cursor-pointer">
             <div class="flex justify-between text-[10px] text-slate-500 font-bold">
@@ -258,7 +231,7 @@
                 <p class="text-[11px] text-slate-300 mt-1">Registrazione completa, pulsante smart sul palo della rete, highlights e QR code senza app.</p>
               </button>
 
-              <button type="button" id="btn-plan-a" onclick="selectPlan('A')" class="p-3.5 rounded-2xl border border-slate-700 bg-slate-800/40 text-left hover:border-slate-600 transition flex flex-col justify-between cursor-pointer">
+              <button type="button" id="btn-plan-a" onclick="selectPlan('A')" class="p-3.5 rounded-2xl border border-slate-200 bg-slate-50 text-left hover:border-[#f2920b] text-slate-900 transition flex flex-col justify-between cursor-pointer">
                 <div class="flex items-center justify-between">
                   <span class="text-xs font-black uppercase text-slate-300">Piano A (IA Pro Analytics)</span>
                   <i data-lucide="circle" class="w-4 h-4 text-slate-500"></i>
@@ -276,7 +249,7 @@
           <div class="space-y-2 pt-2">
             <div class="flex justify-between items-center">
               <label class="text-xs sm:text-sm font-bold text-slate-200">Tariffa media di noleggio campo all'ora:</label>
-              <span id="label-precio" class="text-base sm:text-lg font-black text-white font-heading bg-slate-800 px-3 py-0.5 rounded-lg">26 € / h</span>
+              <span id="label-precio" class="text-base sm:text-lg font-black text-slate-950 font-heading bg-slate-100 px-3 py-0.5 rounded-lg">26 € / h</span>
             </div>
             <input type="range" id="input-precio" min="16" max="44" step="2" value="26" class="w-full h-2 bg-slate-800 rounded-lg cursor-pointer">
             <div class="flex justify-between text-[10px] text-slate-500 font-bold">
@@ -291,7 +264,7 @@
           <div class="space-y-2 pt-2">
             <div class="flex justify-between items-center">
               <label class="text-xs sm:text-sm font-bold text-slate-200">Ore fuori punta extra prenotate al mese per campo:</label>
-              <span id="label-horas-valle" class="text-base sm:text-lg font-black text-emerald-400 font-heading bg-slate-800 px-3 py-0.5 rounded-lg">+4 h / mese</span>
+              <span id="label-horas-valle" class="text-base sm:text-lg font-black text-emerald-600 font-heading bg-slate-100 px-3 py-0.5 rounded-lg">+4 h / mese</span>
             </div>
             <input type="range" id="input-horas-valle" min="1" max="15" value="4" class="w-full h-2 bg-slate-800 rounded-lg cursor-pointer">
             <p class="text-[11px] text-slate-400">Grazie all'attrattiva della registrazione video, lezioni con replay e partite mattutine prima vuote.</p>
@@ -301,7 +274,7 @@
           <div class="space-y-2 pt-2">
             <div class="flex justify-between items-center">
               <label class="text-xs sm:text-sm font-bold text-slate-200">Ricavi da sponsorizzazioni locali sui video:</label>
-              <span id="label-sponsor" class="text-base sm:text-lg font-black text-white font-heading bg-slate-800 px-3 py-0.5 rounded-lg">30 € / mese / campo</span>
+              <span id="label-sponsor" class="text-base sm:text-lg font-black text-slate-950 font-heading bg-slate-100 px-3 py-0.5 rounded-lg">30 € / mese / campo</span>
             </div>
             <input type="range" id="input-sponsor" min="0" max="100" step="10" value="30" class="w-full h-2 bg-slate-800 rounded-lg cursor-pointer">
             <p class="text-[11px] text-slate-400">Aziende del territorio (fisioterapia, concessionari, attività locali) che pagano per inserire il logo nei video condivisi.</p>
@@ -331,13 +304,13 @@
               <strong id="out-ingresos-extra" class="text-emerald-400 font-black font-heading text-base sm:text-lg">+536 € / mese</strong>
             </div>
 
-            <div class="bg-slate-950/80 border border-emerald-500/40 rounded-2xl p-5 text-center space-y-1">
+            <div class="bg-emerald-50 border border-emerald-300 text-slate-900 rounded-2xl p-5 text-center space-y-1">
               <span class="text-xs uppercase font-extrabold text-slate-400 tracking-wider">Utile Netto Mensile Extra</span>
               <div id="out-beneficio-neto" class="text-3xl sm:text-4xl font-black font-heading text-emerald-400">+356 € / mese</div>
               <p class="text-[11px] text-slate-400">Guadagno netto per il circolo ogni mese dopo il canone software.</p>
             </div>
 
-            <div class="bg-slate-800/80 rounded-xl p-3.5 border border-slate-700 space-y-1 text-center">
+            <div class="bg-slate-50 rounded-xl p-3.5 border border-slate-200 text-slate-900 space-y-1 text-center">
               <span class="text-[11px] font-bold text-slate-400">Quante ore fuori punta devi vendere per coprire il canone?</span>
               <div class="text-sm font-black text-white font-heading">
                 Solo <span id="out-horas-amortizar" class="text-[#f2920b]">1,7 ore al mese per campo</span>
@@ -360,13 +333,13 @@
       <section class="mt-16 border-t border-slate-800 pt-12 space-y-6">
         <h2 class="text-2xl font-black font-heading text-white">Domande Frequenti sulla Redditività delle Telecamere</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 space-y-2">
-            <h3 class="text-sm font-bold text-white">Perché il canone Save my Play è così competitivo rispetto agli altri?</h3>
-            <p class="text-xs text-slate-400 leading-relaxed">Molti concorrenti applicano canoni da 120€ a 250€/mese per ammortizzare totem touch costosi o cablaggi complessi con contratti di leasing da 3 a 5 anni. Save my Play utilizza un'ottica sportiva ad alta efficienza montata al palo in 5 minuti senza intermediari, trasferendo questo risparmio a 45 €/mese.</p>
+          <div class="bg-white border border-slate-200/90 rounded-2xl p-5 space-y-2 text-slate-900 shadow-xs">
+            <h3 class="text-sm font-bold text-slate-950">Perché il canone Save my Play è così competitivo rispetto agli altri?</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">Molti concorrenti applicano canoni da 120€ a 250€/mese per ammortizzare totem touch costosi o cablaggi complessi con contratti di leasing da 3 a 5 anni. Save my Play utilizza un'ottica sportiva ad alta efficienza montata al palo in 5 minuti senza intermediari, trasferendo questo risparmio a 45 €/mese.</p>
           </div>
-          <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 space-y-2">
-            <h3 class="text-sm font-bold text-white">Save my Play trattiene commissioni sulle partite registrate?</h3>
-            <p class="text-xs text-slate-400 leading-relaxed">Zero commissioni (0%). Se il tuo circolo sceglie di richiedere ai giocatori 1 € o 2 € per scaricare la partita o di includerla nella quota soci, il 100% dell'incasso resta al circolo.</p>
+          <div class="bg-white border border-slate-200/90 rounded-2xl p-5 space-y-2 text-slate-900 shadow-xs">
+            <h3 class="text-sm font-bold text-slate-950">Save my Play trattiene commissioni sulle partite registrate?</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">Zero commissioni (0%). Se il tuo circolo sceglie di richiedere ai giocatori 1 € o 2 € per scaricare la partita o di includerla nella quota soci, il 100% dell'incasso resta al circolo.</p>
           </div>
         </div>
       </section>
@@ -382,9 +355,7 @@
           <img src="../../../assets/images/coolpadel-mascot-hd.png" alt="CoolPadel Mascota" width="60" height="60" class="h-10 sm:h-12 w-auto object-contain drop-shadow-sm" loading="lazy">
           <img src="../../../assets/images/coolpadel-typography-hd.png" alt="CoolPadel" width="160" height="32" class="h-5 sm:h-6 w-auto object-contain drop-shadow-sm" loading="lazy">
         </div>
-        <p class="text-white/80 text-xs text-center sm:text-right max-w-md font-medium">
-          CoolPadel Studios & Save my Play · Telecamere Intelligenti da Campo e Soluzioni B2B
-        </p>
+        
       </div>
 
       <div class="pt-8 border-t border-white/20 flex flex-col sm:flex-row items-center justify-between gap-3 text-white/75 text-center sm:text-left">
@@ -423,7 +394,7 @@
         btnB.querySelector('i').setAttribute('data-lucide', 'check-circle');
         btnB.querySelector('i').className = "w-4 h-4 text-sky-400";
         
-        btnA.className = "p-3.5 rounded-2xl border border-slate-700 bg-slate-800/40 text-left hover:border-slate-600 transition flex flex-col justify-between cursor-pointer";
+        btnA.className = "p-3.5 rounded-2xl border border-slate-200 bg-slate-50 text-left hover:border-[#f2920b] text-slate-900 transition flex flex-col justify-between cursor-pointer";
         btnA.querySelector('i').setAttribute('data-lucide', 'circle');
         btnA.querySelector('i').className = "w-4 h-4 text-slate-500";
       } else {
@@ -431,7 +402,7 @@
         btnA.querySelector('i').setAttribute('data-lucide', 'check-circle');
         btnA.querySelector('i').className = "w-4 h-4 text-orange-400";
 
-        btnB.className = "p-3.5 rounded-2xl border border-slate-700 bg-slate-800/40 text-left hover:border-slate-600 transition flex flex-col justify-between cursor-pointer";
+        btnB.className = "p-3.5 rounded-2xl border border-slate-200 bg-slate-50 text-left hover:border-[#f2920b] text-slate-900 transition flex flex-col justify-between cursor-pointer";
         btnB.querySelector('i').setAttribute('data-lucide', 'circle');
         btnB.querySelector('i').className = "w-4 h-4 text-slate-500";
       }
@@ -487,6 +458,6 @@
 
     recalcular();
   </script>
-  <script src="/assets/js/cp-analytics.js?v=20261020b" defer></script>
+  <script src="/assets/js/cp-analytics.js" defer></script>
 </body>
 </html>

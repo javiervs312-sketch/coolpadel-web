@@ -110,35 +110,8 @@
       y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
     })(window, document, "clarity", "script", "q7p8g52y9e");
   </script>
-  <!-- Google Analytics 4 -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-3FY3DTNN21"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-3FY3DTNN21');
-    // Eventos clave (leads): WhatsApp, email, teléfono, demo, dossier
-    document.addEventListener('click', function (e) {
-      try {
-        var a = e.target.closest && e.target.closest('a, button');
-        if (!a) return;
-        var href = (a.getAttribute('href') || '').toLowerCase();
-        var txt = (a.innerText || '').replace(/\s+/g, ' ').trim().slice(0, 60);
-        var p = { link_text: txt, link_url: href, page_path: location.pathname };
-        if (href.indexOf('wa.me') > -1 || href.indexOf('whatsapp.com') > -1) gtag('event', 'click_whatsapp', p);
-        else if (href.indexOf('mailto:') === 0) gtag('event', 'click_email', p);
-        else if (href.indexOf('tel:') === 0) gtag('event', 'click_telefono', p);
-        else if (/\.pdf($|\?)/.test(href) || /dossier/i.test(href + ' ' + txt)) gtag('event', 'descarga_dossier', p);
-        else if (/demo|reuni[oó]n|meeting|calendly|agenda|r[eé]serv|prueba gratis|free trial/i.test(href + ' ' + txt)) gtag('event', 'solicitar_demo', p);
-      } catch (err) {}
-    }, { passive: true });
-    document.addEventListener('submit', function (e) {
-      try { gtag('event', 'enviar_formulario', { form_id: (e.target && (e.target.id || e.target.name)) || '', page_path: location.pathname }); } catch (err) {}
-    }, true);
-  </script>
-  <!-- /GA4 -->
 </head>
-<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col selection:bg-[#f2920b] selection:text-slate-950">
+<body class="bg-slate-50 text-slate-900 min-h-screen flex flex-col selection:bg-[#f2920b] selection:text-slate-950">
 
   <!-- HEADER -->
   <header class="fixed top-0 left-0 w-full z-50 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-xs w-full">
@@ -217,7 +190,7 @@
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-12">
 
         <!-- PARÁMETROS (7 COLS) -->
-        <div class="lg:col-span-7 bg-slate-900 border border-slate-800 rounded-3xl p-6 sm:p-8 space-y-6 shadow-2xl">
+        <div class="lg:col-span-7 bg-white border border-slate-200/90 rounded-3xl p-6 sm:p-8 space-y-6 shadow-lg text-slate-900">
           <div class="flex items-center justify-between pb-3 border-b border-slate-800">
             <h2 class="font-heading font-black text-lg text-white">1. Configuración de Pistas e Inversión</h2>
             <span class="text-xs text-[#f2920b] font-bold">Datos de mercado 2026</span>
@@ -236,7 +209,7 @@
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
             <div>
               <label class="block text-xs font-bold text-slate-300 mb-1.5">Tipo de Pista:</label>
-              <select id="select-tipo-pista" onchange="actualizarCalculo()" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-3 py-2 text-xs sm:text-sm text-white font-bold focus:border-[#f2920b] outline-none">
+              <select id="select-tipo-pista" onchange="actualizarCalculo()" class="w-full bg-slate-50 border border-slate-300 text-slate-900 rounded-xl px-3 py-2 text-xs sm:text-sm text-white font-bold focus:border-[#f2920b] outline-none">
                 <option value="panoramica" selected>Panorámica Pro (12mm) · ~23.500 €</option>
                 <option value="estandar">Estándar con Pilares (10mm) · ~18.500 €</option>
                 <option value="superpanoramica">Súper Panorámica WPT · ~27.000 €</option>
@@ -245,7 +218,7 @@
 
             <div>
               <label class="block text-xs font-bold text-slate-300 mb-1.5">Solera de Hormigón:</label>
-              <select id="select-solera" onchange="actualizarCalculo()" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-3 py-2 text-xs sm:text-sm text-white font-bold focus:border-[#f2920b] outline-none">
+              <select id="select-solera" onchange="actualizarCalculo()" class="w-full bg-slate-50 border border-slate-300 text-slate-900 rounded-xl px-3 py-2 text-xs sm:text-sm text-white font-bold focus:border-[#f2920b] outline-none">
                 <option value="nueva" selected>Requiere solera nueva (~8.500 €/pista)</option>
                 <option value="existente">Solera ya existente (0 € extra)</option>
               </select>
@@ -256,7 +229,7 @@
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
               <label class="block text-xs font-bold text-slate-300 mb-1.5">Césped e Iluminación LED:</label>
-              <select id="select-cesped" onchange="actualizarCalculo()" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-3 py-2 text-xs sm:text-sm text-white font-bold focus:border-[#f2920b] outline-none">
+              <select id="select-cesped" onchange="actualizarCalculo()" class="w-full bg-slate-50 border border-slate-300 text-slate-900 rounded-xl px-3 py-2 text-xs sm:text-sm text-white font-bold focus:border-[#f2920b] outline-none">
                 <option value="texturado" selected>Texturado Pro + 8 Focos LED 200W · 5.500 €</option>
                 <option value="monofilamento">Monofilamento Clásico + 4 Focos LED · 4.200 €</option>
               </select>
@@ -264,7 +237,7 @@
 
             <div>
               <label class="block text-xs font-bold text-slate-300 mb-1.5">Cámaras en Pista Save my Play:</label>
-              <select id="select-camaras" onchange="actualizarCalculo()" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-3 py-2 text-xs sm:text-sm text-white font-bold focus:border-[#76d3f6] outline-none">
+              <select id="select-camaras" onchange="actualizarCalculo()" class="w-full bg-slate-50 border border-slate-300 text-slate-900 rounded-xl px-3 py-2 text-xs sm:text-sm text-white font-bold focus:border-[#76d3f6] outline-none">
                 <option value="si" selected>Sí (180 € hardware + 45 €/mes cuota)</option>
                 <option value="no">No instalar cámaras</option>
               </select>
@@ -327,12 +300,12 @@
               <strong id="out-gastos-totales" class="text-slate-400 font-bold text-base">2.680 € / mes</strong>
             </div>
 
-            <div class="bg-slate-950/80 border border-emerald-500/40 rounded-2xl p-5 text-center space-y-1">
+            <div class="bg-emerald-50 border border-emerald-300 text-slate-900 rounded-2xl p-5 text-center space-y-1">
               <span class="text-xs uppercase font-extrabold text-slate-400 tracking-wider">Beneficio Neto Estimado / Mes:</span>
               <div id="out-beneficio-neto" class="text-3xl sm:text-4xl font-black font-heading text-emerald-400">+10.280 € / mes</div>
             </div>
 
-            <div class="bg-slate-800/80 rounded-xl p-4 border border-slate-700 space-y-1 text-center">
+            <div class="bg-slate-50 rounded-xl p-4 border border-slate-200 text-slate-900 space-y-1 text-center">
               <span class="text-xs font-bold text-slate-400">Plazo de Amortización (Payback):</span>
               <div class="text-lg font-black text-[#f2920b] font-heading">
                 <span id="out-meses-amortizacion">15</span> meses de actividad
@@ -360,13 +333,13 @@
       <section class="border-t border-slate-800 pt-12 space-y-6">
         <h2 class="text-2xl font-black font-heading text-white">FAQ</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 space-y-2">
-            <h3 class="text-sm font-bold text-white">¿Cuánto cuesta aproximadamente construir una pista de pádel completa en 2026?</h3>
-            <p class="text-xs text-slate-400 leading-relaxed">El coste medio de una pista de pádel de cristal panorámico llave en mano oscila entre 28.000 € y 38.000 € por pista si ya se dispone de solera o nave cubierta. Si es necesario realizar solera de hormigón pulido, obra civil o cerramiento cubierto, el presupuesto puede alcanzar entre 45.000 € y 65.000 € por pista.</p>
+          <div class="bg-white border border-slate-200/90 rounded-2xl p-5 space-y-2 text-slate-900 shadow-xs">
+            <h3 class="text-sm font-bold text-slate-950">¿Cuánto cuesta aproximadamente construir una pista de pádel completa en 2026?</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">El coste medio de una pista de pádel de cristal panorámico llave en mano oscila entre 28.000 € y 38.000 € por pista si ya se dispone de solera o nave cubierta. Si es necesario realizar solera de hormigón pulido, obra civil o cerramiento cubierto, el presupuesto puede alcanzar entre 45.000 € y 65.000 € por pista.</p>
           </div>
-          <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 space-y-2">
-            <h3 class="text-sm font-bold text-white">¿En cuántos meses se suele amortizar una instalación de pistas de pádel?</h3>
-            <p class="text-xs text-slate-400 leading-relaxed">Con una ocupación media de 4 a 5 horas diarias a 24 €/hora, una pista bien gestionada genera entre 2.800 € y 3.600 € brutos al mes. Tras descontar gastos fijos prorrateados, la inversión inicial suele recuperarse entre 14 y 24 meses.</p>
+          <div class="bg-white border border-slate-200/90 rounded-2xl p-5 space-y-2 text-slate-900 shadow-xs">
+            <h3 class="text-sm font-bold text-slate-950">¿En cuántos meses se suele amortizar una instalación de pistas de pádel?</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">Con una ocupación media de 4 a 5 horas diarias a 24 €/hora, una pista bien gestionada genera entre 2.800 € y 3.600 € brutos al mes. Tras descontar gastos fijos prorrateados, la inversión inicial suele recuperarse entre 14 y 24 meses.</p>
           </div>
         </div>
       </section>
@@ -382,9 +355,7 @@
           <img src="../../assets/images/coolpadel-mascot-hd.png" alt="CoolPadel Mascota" width="60" height="60" class="h-10 sm:h-12 w-auto object-contain drop-shadow-sm" loading="lazy">
           <img src="../../assets/images/coolpadel-typography-hd.png" alt="CoolPadel" width="160" height="32" class="h-5 sm:h-6 w-auto object-contain drop-shadow-sm" loading="lazy">
         </div>
-        <p class="text-white/80 text-xs text-center sm:text-right max-w-md font-medium">
-          CoolPadel Studios & Save my Play · Sistemas Inteligentes de Grabación en Pista y Soluciones B2B
-        </p>
+        
       </div>
 
       <div class="pt-8 border-t border-white/20 flex flex-col sm:flex-row items-center justify-between gap-3 text-white/75 text-center sm:text-left">
@@ -449,6 +420,6 @@
 
     actualizarCalculo();
   </script>
-  <script src="/assets/js/cp-analytics.js?v=20261020b" defer></script>
+  <script src="/assets/js/cp-analytics.js" defer></script>
 </body>
 </html>

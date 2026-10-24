@@ -204,33 +204,34 @@
   </script>
   <!-- /GA4 -->
 </head>
-<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col selection:bg-[#f2920b] selection:text-slate-950">
+<body class="bg-slate-50 text-slate-900 min-h-screen flex flex-col selection:bg-[#f2920b] selection:text-slate-950">
 
   <!-- HEADER -->
-  <header class="sticky top-0 z-50 bg-[#0b1626]/95 backdrop-blur-md border-b border-slate-800 no-print">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between">
-      <a href="../../" class="flex items-center gap-2.5">
-        <img src="../../assets/images/coolpadel-mascot-hd.png" alt="CoolPadel Studios" class="h-9 sm:h-11 w-auto object-contain">
-        <span class="font-heading font-black text-lg sm:text-xl tracking-tight text-white">CoolPadel <span class="text-[#f2920b]">Studios</span></span>
+    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200/90 shadow-xs no-print">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-2 group shrink-0" aria-label="CoolPadel Home">
+        <img src="../../assets/images/coolpadel-mascot-hd.png" alt="CoolPadel Studios" class="h-9 sm:h-11 w-auto object-contain transition group-hover:scale-105">
+        <img src="../../assets/images/coolpadel-typography-hd.png" alt="CoolPadel" width="160" height="32" class="h-5 sm:h-6 w-auto object-contain hidden sm:block">
       </a>
 
-      <nav class="hidden md:flex items-center gap-6 text-xs sm:text-sm font-bold uppercase tracking-wider text-slate-300">
-        <a href="../../camaras/" class="hover:text-[#76d3f6] transition">Cámaras IA</a>
-        <a href="../../#llaveros" class="hover:text-[#f2920b] transition">Llaveros 3D</a>
-        <a href="../" class="text-[#f2920b] font-black">Herramientas</a>
-        <a href="../generador-cuadros-torneo-padel/" class="hover:text-white transition">Brackets</a>
-        <a href="../../blog/" class="hover:text-white transition">Blog</a>
+      <nav class="hidden md:flex items-center gap-6 text-xs sm:text-sm font-bold uppercase tracking-wider text-slate-700">
+        <a href="/llaveros-padel-personalizados/" class="hover:text-[#f2920b] transition">Llaveros</a>
+        <a href="/camaras/" class="hover:text-[#f2920b] transition">Cámaras</a>
+        <a href="/herramientas/" class="text-[#f2920b] font-black pb-0.5">Herramientas</a>
+        <a href="/franquicias-padel/" class="hover:text-[#f2920b] transition">Franquicias</a>
+        <a href="/blog/" class="hover:text-[#f2920b] transition">Blog</a>
       </nav>
 
-      <a href="../../welcome-packs-torneos-padel/" class="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#f2920b] hover:bg-white text-slate-950 font-heading font-bold text-xs uppercase tracking-wider transition">
-        <i data-lucide="gift" class="w-3.5 h-3.5"></i>
-        <span>Welcome Packs Torneo</span>
-      </a>
+      <div class="flex items-center gap-3">
+        <a href="/#contacto" class="px-4 py-2 rounded-xl bg-[#f2920b] hover:bg-[#d97f08] text-slate-950 font-heading font-black text-xs uppercase tracking-wider transition shadow-sm">
+          Contactar
+        </a>
+      </div>
     </div>
   </header>
 
   <!-- BREADCRUMBS -->
-  <div class="max-w-6xl mx-auto px-4 sm:px-6 pt-6 pb-2 text-xs text-slate-400 flex items-center gap-2 no-print">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 pt-6 pb-2 text-xs text-slate-600 flex items-center gap-2 no-print">
     <a href="../../" class="hover:text-white transition">Inicio</a>
     <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
     <a href="../" class="hover:text-white transition">Herramientas</a>
@@ -250,17 +251,17 @@
         <h1 class="text-3xl sm:text-5xl font-black font-heading text-white tracking-tight leading-tight">
           Generador de <span class="text-[#f2920b]">Torneos de Americana</span> y Pozo de Pádel
         </h1>
-        <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+        <p class="text-xs sm:text-sm text-slate-700 leading-relaxed">
           Crea las rondas para 8, 12, 16, 20 o 24 jugadores sin repetir parejas, anota los marcadores para calcular la <strong>clasificación individual automática</strong> y envía el cuadro directo por WhatsApp.
         </p>
       </div>
 
       <!-- PANEL PRINCIPAL CONFIGURACIÓN -->
-      <div class="bg-slate-900 border border-slate-800 rounded-3xl p-6 sm:p-8 space-y-6 shadow-2xl no-print">
+      <div class="bg-white border border-slate-200/90 text-slate-900 shadow-md rounded-3xl p-6 sm:p-8 space-y-6 shadow-2xl no-print">
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
           <div>
-            <label for="select-jugadores" class="block text-xs font-bold text-slate-300 mb-1.5">Número de Jugadores:</label>
-            <select id="select-jugadores" onchange="actualizarPlantilla(); generarCuadro();" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-3.5 py-2.5 text-sm text-white font-bold focus:border-[#f2920b] outline-none">
+            <label for="select-jugadores" class="block text-xs font-bold text-slate-700 mb-1.5">Número de Jugadores:</label>
+            <select id="select-jugadores" onchange="actualizarPlantilla(); generarCuadro();" class="w-full bg-slate-50 border border-slate-300 text-slate-900 rounded-xl px-3.5 py-2.5 text-sm text-white font-bold focus:border-[#f2920b] outline-none">
               <option value="8">8 Jugadores (2 pistas · 7 rondas)</option>
               <option value="12" selected>12 Jugadores (3 pistas · 6 rondas)</option>
               <option value="16">16 Jugadores (4 pistas · 6 rondas)</option>
@@ -270,8 +271,8 @@
           </div>
 
           <div>
-            <label for="select-puntos" class="block text-xs font-bold text-slate-300 mb-1.5">Formato de Puntuación:</label>
-            <select id="select-puntos" onchange="generarCuadro()" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-3.5 py-2.5 text-sm text-white font-bold focus:border-[#f2920b] outline-none">
+            <label for="select-puntos" class="block text-xs font-bold text-slate-700 mb-1.5">Formato de Puntuación:</label>
+            <select id="select-puntos" onchange="generarCuadro()" class="w-full bg-slate-50 border border-slate-300 text-slate-900 rounded-xl px-3.5 py-2.5 text-sm text-white font-bold focus:border-[#f2920b] outline-none">
               <option value="21" selected>A 21 Puntos (Clásico)</option>
               <option value="24">A 24 Puntos (6 saques x 4)</option>
               <option value="32">A 32 Puntos (8 saques x 4)</option>
@@ -280,14 +281,14 @@
           </div>
 
           <div>
-            <label for="input-torneo" class="block text-xs font-bold text-slate-300 mb-1.5">Nombre del Torneo / Club:</label>
-            <input type="text" id="input-torneo" value="Americana de Pádel Fin de Semana" oninput="actualizarTituloEnVivo()" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-3.5 py-2.5 text-sm text-white focus:border-[#f2920b] outline-none font-medium">
+            <label for="input-torneo" class="block text-xs font-bold text-slate-700 mb-1.5">Nombre del Torneo / Club:</label>
+            <input type="text" id="input-torneo" value="Americana de Pádel Fin de Semana" oninput="actualizarTituloEnVivo()" class="w-full bg-slate-50 border border-slate-300 text-slate-900 rounded-xl px-3.5 py-2.5 text-sm text-white focus:border-[#f2920b] outline-none font-medium">
           </div>
         </div>
 
         <div>
           <div class="flex items-center justify-between mb-1.5">
-            <label for="textarea-nombres" class="block text-xs font-bold text-slate-300">Nombres de los Jugadores (separados por coma o salto de línea):</label>
+            <label for="textarea-nombres" class="block text-xs font-bold text-slate-700">Nombres de los Jugadores (separados por coma o salto de línea):</label>
             <button type="button" onclick="cargarNombresReales(); generarCuadro();" class="text-xs text-[#f2920b] hover:text-white underline font-bold transition">
               Cargar nombres de ejemplo
             </button>
@@ -307,7 +308,7 @@
               <span>Enviar por WhatsApp</span>
             </button>
 
-            <button type="button" id="btn-copiar-wa" onclick="copiarParaWhatsApp()" class="inline-flex items-center gap-2 px-4 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-700 text-white font-heading font-bold text-xs sm:text-sm uppercase tracking-wider transition cursor-pointer">
+            <button type="button" id="btn-copiar-wa" onclick="copiarParaWhatsApp()" class="inline-flex items-center gap-2 px-4 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-950 font-heading font-bold text-xs sm:text-sm uppercase tracking-wider transition cursor-pointer">
               <i data-lucide="copy" class="w-4 h-4 text-[#f2920b]"></i>
               <span id="txt-copiar-wa">Copiar Texto</span>
             </button>
@@ -327,8 +328,8 @@
             <i data-lucide="gift" class="w-5 h-5"></i>
           </div>
           <div>
-            <h3 class="text-xs sm:text-sm font-black text-white font-heading uppercase">¿Organizas esta americana en tu club?</h3>
-            <p class="text-[11px] sm:text-xs text-slate-400">Entrega <strong class="text-white">llaveros de pala 3D personalizados</strong> en el welcome pack desde 1,50 €/ud o graba los mejores puntos con <strong class="text-[#76d3f6]">cámaras Save my Play</strong> (45 €/mes sin obras).</p>
+            <h3 class="text-xs sm:text-sm font-black text-slate-950 font-heading uppercase">¿Organizas esta americana en tu club?</h3>
+            <p class="text-[11px] sm:text-xs text-slate-600">Entrega <strong class="text-white">llaveros de pala 3D personalizados</strong> en el welcome pack desde 1,50 €/ud o graba los mejores puntos con <strong class="text-[#76d3f6]">cámaras Save my Play</strong> (45 €/mes sin obras).</p>
           </div>
         </div>
         <div class="flex items-center gap-2 shrink-0">
@@ -344,39 +345,39 @@
       <!-- ZONA DE RESULTADOS, MARCADORES EN VIVO Y CLASIFICACIÓN INDIVIDUAL -->
       <div id="zona-cuadro" class="space-y-8">
         <!-- Pre-rendered default state for SEO crawlers & instant load -->
-        <div class="bg-slate-900 border border-slate-800 rounded-3xl p-6 sm:p-8 space-y-6">
+        <div class="bg-white border border-slate-200/90 text-slate-900 shadow-md rounded-3xl p-6 sm:p-8 space-y-6">
           <div class="border-b border-slate-800 pb-4 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
             <div>
               <h2 class="text-xl sm:text-2xl font-black font-heading text-white">Cuadro de Rotaciones: Americana de Pádel (12 Jugadores · 3 Pistas)</h2>
-              <p class="text-xs text-slate-400 font-bold uppercase tracking-wider mt-0.5">6 Rondas Equilibradas · Puntuación a 21 Puntos · Introduce el resultado de cada partido para actualizar el ranking</p>
+              <p class="text-xs text-slate-600 font-bold uppercase tracking-wider mt-0.5">6 Rondas Equilibradas · Puntuación a 21 Puntos · Introduce el resultado de cada partido para actualizar el ranking</p>
             </div>
             <span class="px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-xs font-black border border-emerald-500/20 self-start sm:self-center">Ranking en Vivo Activo</span>
           </div>
           <div class="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs">
             <div class="bg-slate-800/80 border border-slate-700 rounded-2xl p-4">
               <div class="font-black text-[#f2920b] uppercase mb-1">Ronda 1 · Pista 1</div>
-              <div class="text-white font-bold">Carlos &amp; Alejandro <span class="text-slate-400">vs</span> Lucía &amp; Marta</div>
+              <div class="text-white font-bold">Carlos &amp; Alejandro <span class="text-slate-600">vs</span> Lucía &amp; Marta</div>
             </div>
             <div class="bg-slate-800/80 border border-slate-700 rounded-2xl p-4">
               <div class="font-black text-[#f2920b] uppercase mb-1">Ronda 1 · Pista 2</div>
-              <div class="text-white font-bold">Javier &amp; Sofía <span class="text-slate-400">vs</span> Pablo &amp; Elena</div>
+              <div class="text-white font-bold">Javier &amp; Sofía <span class="text-slate-600">vs</span> Pablo &amp; Elena</div>
             </div>
             <div class="bg-slate-800/80 border border-slate-700 rounded-2xl p-4">
               <div class="font-black text-[#f2920b] uppercase mb-1">Ronda 1 · Pista 3</div>
-              <div class="text-white font-bold">Diego &amp; Paula <span class="text-slate-400">vs</span> Marcos &amp; Claudia</div>
+              <div class="text-white font-bold">Diego &amp; Paula <span class="text-slate-600">vs</span> Marcos &amp; Claudia</div>
             </div>
           </div>
         </div>
       </div>
 
       <!-- GUÍA COMPLETA SEO / GEO / AEO AL PIE DE LA HERRAMIENTA -->
-      <section class="mt-16 pt-12 border-t border-slate-800 space-y-10 text-slate-300 text-xs sm:text-sm leading-relaxed no-print">
+      <section class="mt-16 pt-12 border-t border-slate-800 space-y-10 text-slate-700 text-xs sm:text-sm leading-relaxed no-print">
         <div class="space-y-3">
           <span class="text-xs font-black uppercase tracking-widest text-[#f2920b]">Guía Técnica para Organizadores y Monitores</span>
           <h2 class="text-2xl sm:text-3xl font-black font-heading text-white">
             Cómo Organizar una Americana o Pozo de Pádel Perfecto: Reglas, Puntuación y Tablas
           </h2>
-          <p class="text-slate-400">
+          <p class="text-slate-600">
             El torneo tipo <strong>Americana de pádel</strong> (también llamado <em>formato todos contra todos individual</em>) es el evento social más rentable para cualquier club de pádel: garantiza una ocupación del 100% en franjas matinales o de fin de semana, integra a socios de distintos niveles y evita que ninguna pareja quede eliminada a las primeras de cambio.
           </p>
         </div>
@@ -386,7 +387,7 @@
           <h3 class="text-lg sm:text-xl font-black font-heading text-white">1. Tabla Oficial de Pistas, Jugadores y Tiempos por Formato</h3>
           <div class="overflow-x-auto border border-slate-800 rounded-2xl">
             <table class="w-full text-left text-xs sm:text-sm">
-              <thead class="bg-slate-900 text-white font-heading uppercase text-xs border-b border-slate-800">
+              <thead class="bg-slate-900 text-slate-950 font-heading uppercase text-xs border-b border-slate-800">
                 <tr>
                   <th class="p-3.5">Participantes</th>
                   <th class="p-3.5">Pistas Necesarias</th>
@@ -440,19 +441,19 @@
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div class="bg-slate-900/70 border border-slate-800 rounded-2xl p-5 space-y-2">
             <h3 class="font-heading font-black text-white text-base">2. Regla de los 21, 24 o 32 Puntos</h3>
-            <p class="text-slate-400 text-xs leading-relaxed">
+            <p class="text-slate-600 text-xs leading-relaxed">
               En lugar de contar juegos tradicionales (15, 30, 40), cada pelota jugada vale <strong>1 punto directo</strong>. Cada jugador realiza 4 saques consecutivos (2 al lado derecho y 2 al izquierdo) antes de pasar el servicio. El partido termina cuando la suma de ambas parejas alcanza los 21, 24 o 32 puntos (ej. 13-8 en un partido a 21).
             </p>
           </div>
           <div class="bg-slate-900/70 border border-slate-800 rounded-2xl p-5 space-y-2">
             <h3 class="font-heading font-black text-white text-base">3. Clasificación Individual</h3>
-            <p class="text-slate-400 text-xs leading-relaxed">
+            <p class="text-slate-600 text-xs leading-relaxed">
               Aunque el pádel se juega en pareja, la puntuación de la americana es <strong>100% individual</strong>. Si Carlos y Alejandro ganan 14-7 a Lucía y Marta en la Ronda 1, tanto Carlos como Alejandro suman +14 puntos a su marcador personal, mientras que Lucía y Marta suman +7 puntos cada una.
             </p>
           </div>
           <div class="bg-slate-900/70 border border-slate-800 rounded-2xl p-5 space-y-2">
             <h3 class="font-heading font-black text-white text-base">4. Diferencia con el Pozo (Escalerilla)</h3>
-            <p class="text-slate-400 text-xs leading-relaxed">
+            <p class="text-slate-600 text-xs leading-relaxed">
               Si prefieres organizar un <strong>Pozo o Rey de la Pista</strong> por niveles, utiliza la Ronda 1 de este generador para sortear las pistas iniciales y, cada 15 minutos, haz que la pareja ganadora suba a la pista de numeración inferior (hacia Pista 1) y la perdedora baje de pista.
             </p>
           </div>
@@ -462,15 +463,15 @@
         <div class="space-y-4">
           <h3 class="text-lg sm:text-xl font-black font-heading text-white">Preguntas Frecuentes sobre el Generador de Americana</h3>
           <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 space-y-1.5">
+            <div class="bg-white border border-slate-200/90 text-slate-900 shadow-md rounded-2xl p-5 space-y-1.5">
               <h4 class="font-bold text-white text-sm">¿Se autocompletan los puntos del rival al meter un resultado?</h4>
-              <p class="text-xs text-slate-400">
+              <p class="text-xs text-slate-600">
                 Sí. Si eliges el formato a 21, 24 o 32 puntos y escribes que la Pareja 1 ha conseguido 13 puntos, la calculadora rellena automáticamente 8 puntos para la Pareja 2 y recalcula al instante la tabla general de posiciones.
               </p>
             </div>
-            <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 space-y-1.5">
+            <div class="bg-white border border-slate-200/90 text-slate-900 shadow-md rounded-2xl p-5 space-y-1.5">
               <h4 class="font-bold text-white text-sm">¿Puedo organizar un cuadro con eliminatoria directa en lugar de americana?</h4>
-              <p class="text-xs text-slate-400">
+              <p class="text-xs text-slate-600">
                 Por supuesto. Si tu torneo es por parejas fijas con octavos, cuartos, semifinales y cuadro de consolación, utiliza nuestro <a href="../generador-cuadros-torneo-padel/" class="text-[#f2920b] underline font-bold">Generador de Cuadros de Eliminatoria (Brackets)</a>.
               </p>
             </div>
@@ -478,10 +479,10 @@
         </div>
 
         <!-- ENLACES INTERNOS DE SILO -->
-        <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div class="bg-white border border-slate-200/90 text-slate-900 shadow-md rounded-2xl p-6 flex flex-col sm:flex-row items-center justify-between gap-4">
           <div>
             <h3 class="font-heading font-black text-white text-base">¿Quieres profundizar en cómo rentabilizar los torneos de tu club?</h3>
-            <p class="text-xs text-slate-400">Lee nuestra guía paso a paso o calcula el retorno de instalar cámaras en tus pistas centrales.</p>
+            <p class="text-xs text-slate-600">Lee nuestra guía paso a paso o calcula el retorno de instalar cámaras en tus pistas centrales.</p>
           </div>
           <div class="flex flex-wrap gap-2.5 shrink-0">
             <a href="../../blog/como-organizar-torneo-padel-americana-reglas-cuadros/" class="px-4 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-white text-xs font-bold transition">
@@ -506,9 +507,7 @@
           <img src="../../assets/images/coolpadel-mascot-hd.png" alt="CoolPadel Mascota" width="60" height="60" class="h-10 sm:h-12 w-auto object-contain drop-shadow-sm" loading="lazy">
           <img src="../../assets/images/coolpadel-typography-hd.png" alt="CoolPadel" width="160" height="32" class="h-5 sm:h-6 w-auto object-contain drop-shadow-sm" loading="lazy">
         </div>
-        <p class="text-white/80 text-xs text-center sm:text-right max-w-md font-medium">
-          Fabricación de llaveros de pádel personalizados 3D y sistemas de cámaras de grabación en pista Save my Play.
-        </p>
+        
       </div>
 
       <nav aria-label="Estructura y Silos SEO de CoolPadel" class="grid grid-cols-2 lg:grid-cols-4 gap-8 text-left">
@@ -750,11 +749,11 @@
         const rowClass = idx === 0 && jug.pf > 0 ? 'bg-amber-500/10 text-white font-bold' : '';
         const diffStr = jug.diff > 0 ? `+${jug.diff}` : `${jug.diff}`;
         html += `<tr class="border-b border-slate-800/70 ${rowClass}">
-          <td class="py-2.5 px-3 font-black text-slate-400">${idx + 1}º</td>
+          <td class="py-2.5 px-3 font-black text-slate-600">${idx + 1}º</td>
           <td class="py-2.5 px-3 font-bold text-white">${medal}${jug.nombre}</td>
-          <td class="py-2.5 px-3 text-center text-slate-300">${jug.pj}</td>
+          <td class="py-2.5 px-3 text-center text-slate-700">${jug.pj}</td>
           <td class="py-2.5 px-3 text-center text-emerald-400 font-bold">${jug.pg}</td>
-          <td class="py-2.5 px-3 text-center text-slate-300">${diffStr}</td>
+          <td class="py-2.5 px-3 text-center text-slate-700">${diffStr}</td>
           <td class="py-2.5 px-3 text-right font-black text-[#f2920b] text-sm">${jug.pf} pts</td>
         </tr>`;
       });
@@ -765,10 +764,10 @@
       const cont = document.getElementById('zona-cuadro');
       const descPuntos = puntos === 'tiempo' ? 'Por Tiempo (Juegos)' : `A ${puntos} Puntos`;
 
-      let html = `<div class="bg-slate-900 border border-slate-800 rounded-3xl p-6 sm:p-8 space-y-6 shadow-xl">`;
+      let html = `<div class="bg-white border border-slate-200/90 text-slate-900 shadow-md rounded-3xl p-6 sm:p-8 space-y-6 shadow-xl">`;
       html += `<div class="border-b border-slate-800 pb-4 flex flex-col sm:flex-row sm:items-center justify-between gap-2">`;
       html += `<div><h2 id="titulo-cuadro-vivo" class="text-xl sm:text-2xl font-black font-heading text-white">${nombreTorneo}</h2>`;
-      html += `<p class="text-xs text-slate-400 font-bold uppercase tracking-wider mt-0.5">${rondaGenerada.length} Rondas · ${rondaGenerada[0].partidos.length} Pistas · Formato: ${descPuntos}</p></div>`;
+      html += `<p class="text-xs text-slate-600 font-bold uppercase tracking-wider mt-0.5">${rondaGenerada.length} Rondas · ${rondaGenerada[0].partidos.length} Pistas · Formato: ${descPuntos}</p></div>`;
       html += `<span class="px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-xs font-black border border-emerald-500/20 self-start sm:self-center">Anota resultados para ver el campeón</span>`;
       html += `</div>`;
 
@@ -779,7 +778,7 @@
 
         r.partidos.forEach((p, pIdx) => {
           html += `<div class="bg-slate-800/80 border border-slate-700/80 rounded-2xl p-3.5 sm:p-4 flex items-center justify-between gap-2">`;
-          html += `<div class="text-[11px] font-black uppercase text-slate-400 bg-slate-900 px-2.5 py-1 rounded-lg shrink-0">Pista ${p.pista}</div>`;
+          html += `<div class="text-[11px] font-black uppercase text-slate-600 bg-slate-900 px-2.5 py-1 rounded-lg shrink-0">Pista ${p.pista}</div>`;
           html += `<div class="flex-1 text-center font-bold text-xs sm:text-sm text-white leading-snug">`;
           html += `<span class="text-sky-300">${p.pareja1[0]} + ${p.pareja1[1]}</span>`;
           html += `<span class="px-1.5 text-slate-500 text-[10px] font-black uppercase">vs</span>`;
@@ -799,13 +798,13 @@
       html += `</div>`;
 
       // Tabla de Clasificación Individual en Vivo
-      html += `<div class="bg-slate-900 border border-slate-800 rounded-3xl p-6 sm:p-8 space-y-4 shadow-xl">`;
+      html += `<div class="bg-white border border-slate-200/90 text-slate-900 shadow-md rounded-3xl p-6 sm:p-8 space-y-4 shadow-xl">`;
       html += `<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-800 pb-3">`;
       html += `<div><h3 class="text-lg sm:text-xl font-black font-heading text-white flex items-center gap-2"><i data-lucide="award" class="w-5 h-5 text-[#f2920b]"></i> Clasificación Individual en Vivo</h3>`;
-      html += `<p class="text-xs text-slate-400">Se actualiza automáticamente al anotar los puntos de cada partido arriba.</p></div>`;
+      html += `<p class="text-xs text-slate-600">Se actualiza automáticamente al anotar los puntos de cada partido arriba.</p></div>`;
       html += `</div>`;
       html += `<div class="overflow-x-auto"><table class="w-full text-left text-xs sm:text-sm">`;
-      html += `<thead><tr class="border-b border-slate-800 text-[11px] uppercase tracking-wider text-slate-400 font-heading">
+      html += `<thead><tr class="border-b border-slate-800 text-[11px] uppercase tracking-wider text-slate-600 font-heading">
         <th class="py-2 px-3">Pos.</th>
         <th class="py-2 px-3">Jugador</th>
         <th class="py-2 px-3 text-center">Rondas</th>

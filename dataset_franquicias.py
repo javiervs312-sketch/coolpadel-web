@@ -17,7 +17,7 @@ FRANQUICIAS = [
             51.5761,
             0.4887
         ],
-        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo": "Cadena Multiclub",
         "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
         "tipo_categoria": "cadena",
         "escala": "macro",
@@ -65,7 +65,7 @@ FRANQUICIAS = [
             54.52,
             -5.92
         ],
-        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo": "Cadena Multiclub",
         "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
         "tipo_categoria": "cadena",
         "escala": "media",
@@ -111,7 +111,7 @@ FRANQUICIAS = [
             51.5105,
             -0.595
         ],
-        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo": "Cadena Multiclub",
         "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
         "tipo_categoria": "cadena",
         "escala": "macro",
@@ -158,7 +158,7 @@ FRANQUICIAS = [
             53.49,
             -2.24
         ],
-        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo": "Cadena Multiclub",
         "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
         "tipo_categoria": "cadena",
         "escala": "media",
@@ -204,7 +204,7 @@ FRANQUICIAS = [
             51.433,
             -0.198
         ],
-        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo": "Cadena Multiclub",
         "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
         "tipo_categoria": "cadena",
         "escala": "media",
@@ -250,7 +250,7 @@ FRANQUICIAS = [
             51.898,
             -1.155
         ],
-        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo": "Cadena Multiclub",
         "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
         "tipo_categoria": "cadena",
         "escala": "media",
@@ -295,7 +295,7 @@ FRANQUICIAS = [
             51.5074,
             -0.1278
         ],
-        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo": "Cadena Multiclub",
         "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
         "tipo_categoria": "cadena",
         "escala": "media",
@@ -339,7 +339,7 @@ FRANQUICIAS = [
             51.556,
             -0.2795
         ],
-        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo": "Cadena Multiclub",
         "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
         "tipo_categoria": "cadena",
         "escala": "media",
@@ -384,7 +384,7 @@ FRANQUICIAS = [
             53.328,
             -2.23
         ],
-        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo": "Cadena Multiclub",
         "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
         "tipo_categoria": "cadena",
         "escala": "macro",
@@ -473,7 +473,7 @@ FRANQUICIAS = [
             51.4545,
             -2.5879
         ],
-        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo": "Cadena Multiclub",
         "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
         "tipo_categoria": "cadena",
         "escala": "macro",
@@ -517,7 +517,7 @@ FRANQUICIAS = [
             52.6309,
             1.2974
         ],
-        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo": "Cadena Multiclub",
         "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
         "tipo_categoria": "cadena",
         "escala": "media",
@@ -602,7 +602,7 @@ FRANQUICIAS = [
             51.718,
             -1.968
         ],
-        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo": "Cadena Multiclub",
         "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
         "tipo_categoria": "cadena",
         "escala": "boutique",
@@ -691,7 +691,7 @@ FRANQUICIAS = [
             51.7311,
             0.6746
         ],
-        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo": "Cadena Multiclub",
         "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
         "tipo_categoria": "cadena",
         "escala": "macro",
@@ -736,7 +736,7 @@ FRANQUICIAS = [
             53.4084,
             -2.1494
         ],
-        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo": "Cadena Multiclub",
         "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
         "tipo_categoria": "cadena",
         "escala": "media",
@@ -780,7 +780,7 @@ FRANQUICIAS = [
             53.235,
             -1.428
         ],
-        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo": "Cadena Multiclub",
         "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
         "tipo_categoria": "cadena",
         "escala": "media",
@@ -825,7 +825,7 @@ FRANQUICIAS = [
             53.3498,
             -6.2603
         ],
-        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo": "Cadena Multiclub",
         "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
         "tipo_categoria": "cadena",
         "escala": "media",
@@ -870,7 +870,7 @@ FRANQUICIAS = [
             52.68,
             -1.93
         ],
-        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo": "Cadena Multiclub",
         "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
         "tipo_categoria": "cadena",
         "escala": "media",
@@ -912,7 +912,7 @@ FRANQUICIAS = [
             51.65,
             -0.22
         ],
-        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo": "Cadena Multiclub",
         "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
         "tipo_categoria": "cadena",
         "escala": "media",
@@ -957,7 +957,7 @@ FRANQUICIAS = [
             53.9921,
             -1.5418
         ],
-        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo": "Cadena Multiclub",
         "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
         "tipo_categoria": "cadena",
         "escala": "media",
@@ -1000,7 +1000,7 @@ FRANQUICIAS = [
             54.7761,
             -1.5733
         ],
-        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo": "Cadena Multiclub",
         "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
         "tipo_categoria": "cadena",
         "escala": "media",
@@ -1042,7 +1042,7 @@ FRANQUICIAS = [
             51.408,
             -0.237
         ],
-        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo": "Cadena Multiclub",
         "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
         "tipo_categoria": "cadena",
         "escala": "gran_operador",
@@ -1088,7 +1088,7 @@ FRANQUICIAS = [
             53.295,
             -6.375
         ],
-        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo": "Cadena Multiclub",
         "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
         "tipo_categoria": "cadena",
         "escala": "media",
@@ -1130,7 +1130,7 @@ FRANQUICIAS = [
             51.528,
             -1.825
         ],
-        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo": "Cadena Multiclub",
         "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
         "tipo_categoria": "cadena",
         "escala": "media",
@@ -1175,7 +1175,7 @@ FRANQUICIAS = [
             41.398,
             2.19
         ],
-        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo": "Cadena Multiclub",
         "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
         "tipo_categoria": "cadena",
         "escala": "media",
@@ -1220,7 +1220,7 @@ FRANQUICIAS = [
             40.5756,
             -3.9303
         ],
-        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo": "Cadena Multiclub",
         "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
         "tipo_categoria": "cadena",
         "escala": "boutique",
@@ -1262,7 +1262,7 @@ FRANQUICIAS = [
             40.45,
             -3.68
         ],
-        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo": "Cadena Multiclub",
         "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
         "tipo_categoria": "cadena",
         "escala": "macro",
@@ -1386,7 +1386,7 @@ FRANQUICIAS = [
             41.545,
             2.108
         ],
-        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo": "Cadena Multiclub",
         "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
         "tipo_categoria": "cadena",
         "escala": "macro",
@@ -1618,7 +1618,7 @@ FRANQUICIAS = [
             41.3851,
             2.1734
         ],
-        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo": "Cadena Multiclub",
         "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
         "tipo_categoria": "cadena",
         "escala": "macro",
@@ -1662,7 +1662,7 @@ FRANQUICIAS = [
             36.7213,
             -4.4214
         ],
-        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo": "Cadena Multiclub",
         "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
         "tipo_categoria": "cadena",
         "escala": "macro",
@@ -1707,7 +1707,7 @@ FRANQUICIAS = [
             41.6488,
             -0.8891
         ],
-        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo": "Cadena Multiclub",
         "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
         "tipo_categoria": "cadena",
         "escala": "macro",
@@ -1750,7 +1750,7 @@ FRANQUICIAS = [
             40.3222,
             -3.8649
         ],
-        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo": "Cadena Multiclub",
         "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
         "tipo_categoria": "cadena",
         "escala": "media",
@@ -1792,7 +1792,7 @@ FRANQUICIAS = [
             40.4168,
             -3.7038
         ],
-        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo": "Cadena Multiclub",
         "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
         "tipo_categoria": "cadena",
         "escala": "macro",
@@ -1836,7 +1836,7 @@ FRANQUICIAS = [
             39.412,
             -0.4
         ],
-        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo": "Cadena Multiclub",
         "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
         "tipo_categoria": "cadena",
         "escala": "macro",
@@ -1878,7 +1878,7 @@ FRANQUICIAS = [
             43.2928,
             -2.8872
         ],
-        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo": "Cadena Multiclub",
         "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
         "tipo_categoria": "cadena",
         "escala": "media",
@@ -1962,7 +1962,7 @@ FRANQUICIAS = [
             41.608,
             2.288
         ],
-        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo": "Cadena Multiclub",
         "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
         "tipo_categoria": "cadena",
         "escala": "media",
@@ -2004,7 +2004,7 @@ FRANQUICIAS = [
             42.3358,
             -7.8639
         ],
-        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo": "Cadena Multiclub",
         "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
         "tipo_categoria": "cadena",
         "escala": "media",
@@ -2047,7 +2047,7 @@ FRANQUICIAS = [
             42.215,
             -8.765
         ],
-        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo": "Cadena Multiclub",
         "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
         "tipo_categoria": "cadena",
         "escala": "media",
@@ -2089,7 +2089,7 @@ FRANQUICIAS = [
             45.764,
             4.8357
         ],
-        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo": "Cadena Multiclub",
         "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
         "tipo_categoria": "cadena",
         "escala": "macro",
@@ -2134,7 +2134,7 @@ FRANQUICIAS = [
             48.8566,
             2.3522
         ],
-        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo": "Cadena Multiclub",
         "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
         "tipo_categoria": "cadena",
         "escala": "macro",
@@ -2180,7 +2180,7 @@ FRANQUICIAS = [
             50.6292,
             3.0573
         ],
-        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo": "Cadena Multiclub",
         "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
         "tipo_categoria": "cadena",
         "escala": "macro",
@@ -2225,7 +2225,7 @@ FRANQUICIAS = [
             49.1828,
             -0.3707
         ],
-        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo": "Cadena Multiclub",
         "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
         "tipo_categoria": "cadena",
         "escala": "media",
@@ -2269,7 +2269,7 @@ FRANQUICIAS = [
             48.92,
             2.36
         ],
-        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo": "Cadena Multiclub",
         "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
         "tipo_categoria": "cadena",
         "escala": "macro",
@@ -2311,7 +2311,7 @@ FRANQUICIAS = [
             48.7711,
             2.5233
         ],
-        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo": "Cadena Multiclub",
         "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
         "tipo_categoria": "cadena",
         "escala": "media",
@@ -2353,7 +2353,7 @@ FRANQUICIAS = [
             43.6047,
             1.4442
         ],
-        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo": "Cadena Multiclub",
         "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
         "tipo_categoria": "cadena",
         "escala": "media",
@@ -2397,7 +2397,7 @@ FRANQUICIAS = [
             45.6961,
             4.945
         ],
-        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo": "Cadena Multiclub",
         "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
         "tipo_categoria": "cadena",
         "escala": "media",
@@ -2481,7 +2481,7 @@ FRANQUICIAS = [
             43.435,
             5.34
         ],
-        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo": "Cadena Multiclub",
         "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
         "tipo_categoria": "cadena",
         "escala": "macro",
@@ -2523,7 +2523,7 @@ FRANQUICIAS = [
             43.5283,
             3.9317
         ],
-        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo": "Cadena Multiclub",
         "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
         "tipo_categoria": "cadena",
         "escala": "media",
@@ -2566,7 +2566,7 @@ FRANQUICIAS = [
             48.8319,
             2.2778
         ],
-        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo": "Cadena Multiclub",
         "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
         "tipo_categoria": "cadena",
         "escala": "macro",
@@ -2610,7 +2610,7 @@ FRANQUICIAS = [
             49.1828,
             -0.3707
         ],
-        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo": "Cadena Multiclub",
         "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
         "tipo_categoria": "cadena",
         "escala": "media",
@@ -2654,7 +2654,7 @@ FRANQUICIAS = [
             45.4642,
             9.19
         ],
-        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo": "Cadena Multiclub",
         "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
         "tipo_categoria": "cadena",
         "escala": "macro",
@@ -2700,7 +2700,7 @@ FRANQUICIAS = [
             45.5786,
             9.1258
         ],
-        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo": "Cadena Multiclub",
         "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
         "tipo_categoria": "cadena",
         "escala": "macro",
@@ -2742,7 +2742,7 @@ FRANQUICIAS = [
             45.495,
             9.215
         ],
-        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo": "Cadena Multiclub",
         "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
         "tipo_categoria": "cadena",
         "escala": "boutique",
@@ -2869,7 +2869,7 @@ FRANQUICIAS = [
             45.36,
             9.16
         ],
-        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo": "Cadena Multiclub",
         "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
         "tipo_categoria": "cadena",
         "escala": "media",
@@ -2911,7 +2911,7 @@ FRANQUICIAS = [
             43.91,
             12.91
         ],
-        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo": "Cadena Multiclub",
         "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
         "tipo_categoria": "cadena",
         "escala": "media",
@@ -2953,7 +2953,7 @@ FRANQUICIAS = [
             41.9028,
             12.4964
         ],
-        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo": "Cadena Multiclub",
         "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
         "tipo_categoria": "cadena",
         "escala": "macro",
@@ -2995,7 +2995,7 @@ FRANQUICIAS = [
             41.83,
             12.47
         ],
-        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo": "Cadena Multiclub",
         "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
         "tipo_categoria": "cadena",
         "escala": "media",
@@ -3037,7 +3037,7 @@ FRANQUICIAS = [
             45.4064,
             11.8768
         ],
-        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo": "Cadena Multiclub",
         "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
         "tipo_categoria": "cadena",
         "escala": "media",
@@ -3079,7 +3079,7 @@ FRANQUICIAS = [
             43.7228,
             10.4017
         ],
-        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo": "Cadena Multiclub",
         "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
         "tipo_categoria": "cadena",
         "escala": "media",
@@ -3122,7 +3122,7 @@ FRANQUICIAS = [
             51.0257,
             4.4776
         ],
-        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo": "Cadena Multiclub",
         "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
         "tipo_categoria": "cadena",
         "escala": "macro",
@@ -3168,7 +3168,7 @@ FRANQUICIAS = [
             51.0543,
             3.7174
         ],
-        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo": "Cadena Multiclub",
         "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
         "tipo_categoria": "cadena",
         "escala": "macro",
@@ -3212,7 +3212,7 @@ FRANQUICIAS = [
             52.3676,
             4.9041
         ],
-        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo": "Cadena Multiclub",
         "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
         "tipo_categoria": "cadena",
         "escala": "macro",
@@ -3257,7 +3257,7 @@ FRANQUICIAS = [
             52.337,
             4.92
         ],
-        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo": "Cadena Multiclub",
         "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
         "tipo_categoria": "cadena",
         "escala": "macro",
@@ -3302,7 +3302,7 @@ FRANQUICIAS = [
             52.37,
             4.89
         ],
-        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo": "Cadena Multiclub",
         "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
         "tipo_categoria": "cadena",
         "escala": "macro",
@@ -3346,7 +3346,7 @@ FRANQUICIAS = [
             51.05,
             3.73
         ],
-        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo": "Cadena Multiclub",
         "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
         "tipo_categoria": "cadena",
         "escala": "media",
@@ -3388,7 +3388,7 @@ FRANQUICIAS = [
             52.3,
             4.86
         ],
-        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo": "Cadena Multiclub",
         "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
         "tipo_categoria": "cadena",
         "escala": "media",
@@ -3430,7 +3430,7 @@ FRANQUICIAS = [
             52.375,
             4.85
         ],
-        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo": "Cadena Multiclub",
         "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
         "tipo_categoria": "cadena",
         "escala": "media",
@@ -3472,7 +3472,7 @@ FRANQUICIAS = [
             50.93,
             5.33
         ],
-        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo": "Cadena Multiclub",
         "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
         "tipo_categoria": "cadena",
         "escala": "media",
@@ -3514,7 +3514,7 @@ FRANQUICIAS = [
             50.7147,
             4.3997
         ],
-        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo": "Cadena Multiclub",
         "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
         "tipo_categoria": "cadena",
         "escala": "macro",
@@ -3558,7 +3558,7 @@ FRANQUICIAS = [
             50.8503,
             4.3517
         ],
-        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo": "Cadena Multiclub",
         "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
         "tipo_categoria": "cadena",
         "escala": "media",
@@ -3604,7 +3604,7 @@ FRANQUICIAS = [
             48.2082,
             16.3738
         ],
-        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo": "Cadena Multiclub",
         "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
         "tipo_categoria": "cadena",
         "escala": "macro",
@@ -3649,7 +3649,7 @@ FRANQUICIAS = [
             48.19,
             16.41
         ],
-        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo": "Cadena Multiclub",
         "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
         "tipo_categoria": "cadena",
         "escala": "macro",
@@ -3692,7 +3692,7 @@ FRANQUICIAS = [
             48.1351,
             11.582
         ],
-        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo": "Cadena Multiclub",
         "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
         "tipo_categoria": "cadena",
         "escala": "macro",
@@ -3736,7 +3736,7 @@ FRANQUICIAS = [
             50.9375,
             6.9603
         ],
-        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo": "Cadena Multiclub",
         "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
         "tipo_categoria": "cadena",
         "escala": "macro",
@@ -3781,7 +3781,7 @@ FRANQUICIAS = [
             51.2277,
             6.7735
         ],
-        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo": "Cadena Multiclub",
         "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
         "tipo_categoria": "cadena",
         "escala": "macro",
@@ -3823,7 +3823,7 @@ FRANQUICIAS = [
             48.14,
             11.57
         ],
-        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo": "Cadena Multiclub",
         "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
         "tipo_categoria": "cadena",
         "escala": "media",
@@ -3865,7 +3865,7 @@ FRANQUICIAS = [
             46.2044,
             6.1432
         ],
-        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo": "Cadena Multiclub",
         "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
         "tipo_categoria": "cadena",
         "escala": "media",
@@ -3908,7 +3908,7 @@ FRANQUICIAS = [
             47.5596,
             7.5886
         ],
-        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo": "Cadena Multiclub",
         "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
         "tipo_categoria": "cadena",
         "escala": "media",
@@ -3950,7 +3950,7 @@ FRANQUICIAS = [
             47.5186,
             8.5408
         ],
-        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo": "Cadena Multiclub",
         "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
         "tipo_categoria": "cadena",
         "escala": "media",
@@ -3992,7 +3992,7 @@ FRANQUICIAS = [
             48.2082,
             16.3738
         ],
-        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo": "Cadena Multiclub",
         "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
         "tipo_categoria": "cadena",
         "escala": "macro",
@@ -4037,7 +4037,7 @@ FRANQUICIAS = [
             48.005,
             16.23
         ],
-        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo": "Cadena Multiclub",
         "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
         "tipo_categoria": "cadena",
         "escala": "media",
@@ -4080,7 +4080,7 @@ FRANQUICIAS = [
             47.0707,
             15.4395
         ],
-        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo": "Cadena Multiclub",
         "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
         "tipo_categoria": "cadena",
         "escala": "media",
@@ -4123,7 +4123,7 @@ FRANQUICIAS = [
             51.3397,
             12.3731
         ],
-        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo": "Cadena Multiclub",
         "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
         "tipo_categoria": "cadena",
         "escala": "media",
@@ -4167,7 +4167,7 @@ FRANQUICIAS = [
             48.1351,
             11.582
         ],
-        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo": "Cadena Multiclub",
         "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
         "tipo_categoria": "cadena",
         "escala": "media",
@@ -4210,7 +4210,7 @@ FRANQUICIAS = [
             47.3769,
             8.5417
         ],
-        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo": "Cadena Multiclub",
         "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
         "tipo_categoria": "cadena",
         "escala": "gran_operador",
@@ -4257,7 +4257,7 @@ FRANQUICIAS = [
             59.9139,
             10.7522
         ],
-        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo": "Cadena Multiclub",
         "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
         "tipo_categoria": "cadena",
         "escala": "macro",
@@ -4302,7 +4302,7 @@ FRANQUICIAS = [
             58.1599,
             8.0182
         ],
-        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo": "Cadena Multiclub",
         "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
         "tipo_categoria": "cadena",
         "escala": "macro",
@@ -4347,7 +4347,7 @@ FRANQUICIAS = [
             59.74,
             10.42
         ],
-        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo": "Cadena Multiclub",
         "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
         "tipo_categoria": "cadena",
         "escala": "media",
@@ -4389,7 +4389,7 @@ FRANQUICIAS = [
             55.4038,
             10.4024
         ],
-        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo": "Cadena Multiclub",
         "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
         "tipo_categoria": "cadena",
         "escala": "macro",
@@ -4433,7 +4433,7 @@ FRANQUICIAS = [
             55.6761,
             12.5683
         ],
-        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo": "Cadena Multiclub",
         "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
         "tipo_categoria": "cadena",
         "escala": "macro",
@@ -4478,7 +4478,7 @@ FRANQUICIAS = [
             55.67,
             12.6
         ],
-        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo": "Cadena Multiclub",
         "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
         "tipo_categoria": "cadena",
         "escala": "macro",
@@ -4521,7 +4521,7 @@ FRANQUICIAS = [
             57.0488,
             9.9217
         ],
-        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo": "Cadena Multiclub",
         "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
         "tipo_categoria": "cadena",
         "escala": "media",
@@ -4653,7 +4653,7 @@ FRANQUICIAS = [
             57.7089,
             11.9746
         ],
-        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo": "Cadena Multiclub",
         "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
         "tipo_categoria": "cadena",
         "escala": "macro",
@@ -4696,7 +4696,7 @@ FRANQUICIAS = [
             59.29,
             18.03
         ],
-        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo": "Cadena Multiclub",
         "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
         "tipo_categoria": "cadena",
         "escala": "macro",
@@ -4740,7 +4740,7 @@ FRANQUICIAS = [
             60.2055,
             24.6559
         ],
-        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo": "Cadena Multiclub",
         "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
         "tipo_categoria": "cadena",
         "escala": "macro",
@@ -4784,7 +4784,7 @@ FRANQUICIAS = [
             60.19,
             24.96
         ],
-        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo": "Cadena Multiclub",
         "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
         "tipo_categoria": "cadena",
         "escala": "media",
@@ -4826,7 +4826,7 @@ FRANQUICIAS = [
             60.17,
             24.94
         ],
-        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo": "Cadena Multiclub",
         "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
         "tipo_categoria": "cadena",
         "escala": "media",
@@ -4869,7 +4869,7 @@ FRANQUICIAS = [
             57.7089,
             11.9746
         ],
-        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo": "Cadena Multiclub",
         "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
         "tipo_categoria": "cadena",
         "escala": "macro",
@@ -4914,7 +4914,7 @@ FRANQUICIAS = [
             56.0465,
             12.6945
         ],
-        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo": "Cadena Multiclub",
         "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
         "tipo_categoria": "cadena",
         "escala": "media",
@@ -4957,7 +4957,7 @@ FRANQUICIAS = [
             60.3913,
             5.3221
         ],
-        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo": "Cadena Multiclub",
         "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
         "tipo_categoria": "cadena",
         "escala": "media",
@@ -5000,7 +5000,7 @@ FRANQUICIAS = [
             55.6761,
             12.5683
         ],
-        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo": "Cadena Multiclub",
         "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
         "tipo_categoria": "cadena",
         "escala": "media",
@@ -5043,7 +5043,7 @@ FRANQUICIAS = [
             60.25,
             24.0667
         ],
-        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo": "Cadena Multiclub",
         "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
         "tipo_categoria": "cadena",
         "escala": "media",
@@ -5086,7 +5086,7 @@ FRANQUICIAS = [
             62.79,
             22.84
         ],
-        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo": "Cadena Multiclub",
         "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
         "tipo_categoria": "cadena",
         "escala": "media",
@@ -5129,7 +5129,7 @@ FRANQUICIAS = [
             38.755,
             -9.158
         ],
-        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo": "Cadena Multiclub",
         "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
         "tipo_categoria": "cadena",
         "escala": "macro",
@@ -5174,7 +5174,7 @@ FRANQUICIAS = [
             41.1579,
             -8.6291
         ],
-        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo": "Cadena Multiclub",
         "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
         "tipo_categoria": "cadena",
         "escala": "macro",
@@ -5219,7 +5219,7 @@ FRANQUICIAS = [
             38.7555,
             -9.155
         ],
-        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo": "Cadena Multiclub",
         "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
         "tipo_categoria": "cadena",
         "escala": "media",
@@ -5261,7 +5261,7 @@ FRANQUICIAS = [
             41.5454,
             -8.4265
         ],
-        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo": "Cadena Multiclub",
         "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
         "tipo_categoria": "cadena",
         "escala": "media",
@@ -5303,7 +5303,7 @@ FRANQUICIAS = [
             41.18,
             -8.69
         ],
-        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo": "Cadena Multiclub",
         "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
         "tipo_categoria": "cadena",
         "escala": "macro",
@@ -5347,7 +5347,7 @@ FRANQUICIAS = [
             38.7071,
             -9.1764
         ],
-        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo": "Cadena Multiclub",
         "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
         "tipo_categoria": "cadena",
         "escala": "macro",
@@ -5391,7 +5391,7 @@ FRANQUICIAS = [
             38.8,
             -9.38
         ],
-        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo": "Cadena Multiclub",
         "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
         "tipo_categoria": "cadena",
         "escala": "media",
@@ -5523,7 +5523,7 @@ FRANQUICIAS = [
             25.82,
             -80.19
         ],
-        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo": "Cadena Multiclub",
         "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
         "tipo_categoria": "cadena",
         "escala": "macro",
@@ -5565,7 +5565,7 @@ FRANQUICIAS = [
             32.7157,
             -117.1611
         ],
-        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo": "Cadena Multiclub",
         "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
         "tipo_categoria": "cadena",
         "escala": "macro",
@@ -5608,7 +5608,7 @@ FRANQUICIAS = [
             37.7749,
             -122.4194
         ],
-        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo": "Cadena Multiclub",
         "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
         "tipo_categoria": "cadena",
         "escala": "media",
@@ -5650,7 +5650,7 @@ FRANQUICIAS = [
             25.8,
             -80.198
         ],
-        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo": "Cadena Multiclub",
         "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
         "tipo_categoria": "cadena",
         "escala": "media",
@@ -5692,7 +5692,7 @@ FRANQUICIAS = [
             30.2672,
             -97.7431
         ],
-        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo": "Cadena Multiclub",
         "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
         "tipo_categoria": "cadena",
         "escala": "media",
@@ -5734,7 +5734,7 @@ FRANQUICIAS = [
             26.3683,
             -80.1289
         ],
-        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo": "Cadena Multiclub",
         "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
         "tipo_categoria": "cadena",
         "escala": "media",
@@ -5818,7 +5818,7 @@ FRANQUICIAS = [
             32.7157,
             -117.1611
         ],
-        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo": "Cadena Multiclub",
         "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
         "tipo_categoria": "cadena",
         "escala": "media",
@@ -5861,7 +5861,7 @@ FRANQUICIAS = [
             37.7749,
             -122.4194
         ],
-        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo": "Cadena Multiclub",
         "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
         "tipo_categoria": "cadena",
         "escala": "media",
@@ -5947,7 +5947,7 @@ FRANQUICIAS = [
             19.3,
             -99.2
         ],
-        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo": "Cadena Multiclub",
         "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
         "tipo_categoria": "cadena",
         "escala": "macro",
@@ -5991,7 +5991,7 @@ FRANQUICIAS = [
             19.36,
             -99.26
         ],
-        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo": "Cadena Multiclub",
         "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
         "tipo_categoria": "cadena",
         "escala": "media",
@@ -6034,7 +6034,7 @@ FRANQUICIAS = [
             25.6667,
             -100.35
         ],
-        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo": "Cadena Multiclub",
         "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
         "tipo_categoria": "cadena",
         "escala": "macro",
@@ -6077,7 +6077,7 @@ FRANQUICIAS = [
             -33.37,
             -70.67
         ],
-        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo": "Cadena Multiclub",
         "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
         "tipo_categoria": "cadena",
         "escala": "macro",
@@ -6164,7 +6164,7 @@ FRANQUICIAS = [
             -33.45,
             -70.66
         ],
-        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo": "Cadena Multiclub",
         "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
         "tipo_categoria": "cadena",
         "escala": "media",
@@ -6207,7 +6207,7 @@ FRANQUICIAS = [
             -33.42,
             -70.6
         ],
-        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo": "Cadena Multiclub",
         "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
         "tipo_categoria": "cadena",
         "escala": "media",
@@ -6249,7 +6249,7 @@ FRANQUICIAS = [
             -34.628,
             -58.455
         ],
-        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo": "Cadena Multiclub",
         "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
         "tipo_categoria": "cadena",
         "escala": "media",
@@ -6291,7 +6291,7 @@ FRANQUICIAS = [
             -34.46,
             -58.91
         ],
-        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo": "Cadena Multiclub",
         "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
         "tipo_categoria": "cadena",
         "escala": "macro",
@@ -6333,7 +6333,7 @@ FRANQUICIAS = [
             -26.98,
             -48.63
         ],
-        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo": "Cadena Multiclub",
         "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
         "tipo_categoria": "cadena",
         "escala": "macro",
@@ -6376,7 +6376,7 @@ FRANQUICIAS = [
             -30.0346,
             -51.2177
         ],
-        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo": "Cadena Multiclub",
         "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
         "tipo_categoria": "cadena",
         "escala": "media",
@@ -6418,7 +6418,7 @@ FRANQUICIAS = [
             19.298,
             -99.135
         ],
-        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo": "Cadena Multiclub",
         "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
         "tipo_categoria": "cadena",
         "escala": "macro",
@@ -6463,7 +6463,7 @@ FRANQUICIAS = [
             20.5888,
             -100.3899
         ],
-        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo": "Cadena Multiclub",
         "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
         "tipo_categoria": "cadena",
         "escala": "media",
@@ -6505,7 +6505,7 @@ FRANQUICIAS = [
             -33.48,
             -70.52
         ],
-        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo": "Cadena Multiclub",
         "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
         "tipo_categoria": "cadena",
         "escala": "media",
@@ -6548,7 +6548,7 @@ FRANQUICIAS = [
             -33.44,
             -70.65
         ],
-        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo": "Cadena Multiclub",
         "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
         "tipo_categoria": "cadena",
         "escala": "media",
@@ -6590,7 +6590,7 @@ FRANQUICIAS = [
             25.6866,
             -100.3161
         ],
-        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo": "Cadena Multiclub",
         "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
         "tipo_categoria": "cadena",
         "escala": "media",
@@ -6632,7 +6632,7 @@ FRANQUICIAS = [
             25.2854,
             51.531
         ],
-        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo": "Cadena Multiclub",
         "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
         "tipo_categoria": "cadena",
         "escala": "macro",
@@ -6721,7 +6721,7 @@ FRANQUICIAS = [
             25.22,
             55.28
         ],
-        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo": "Cadena Multiclub",
         "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
         "tipo_categoria": "cadena",
         "escala": "macro",
@@ -6764,7 +6764,7 @@ FRANQUICIAS = [
             25.26,
             55.27
         ],
-        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo": "Cadena Multiclub",
         "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
         "tipo_categoria": "cadena",
         "escala": "macro",
@@ -6849,7 +6849,7 @@ FRANQUICIAS = [
             25.11,
             55.13
         ],
-        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo": "Cadena Multiclub",
         "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
         "tipo_categoria": "cadena",
         "escala": "media",
@@ -6891,7 +6891,7 @@ FRANQUICIAS = [
             29.35,
             47.95
         ],
-        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo": "Cadena Multiclub",
         "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
         "tipo_categoria": "cadena",
         "escala": "macro",
@@ -6933,7 +6933,7 @@ FRANQUICIAS = [
             24.7136,
             46.6753
         ],
-        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo": "Cadena Multiclub",
         "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
         "tipo_categoria": "cadena",
         "escala": "media",
@@ -6975,7 +6975,7 @@ FRANQUICIAS = [
             -33.9249,
             18.4241
         ],
-        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo": "Cadena Multiclub",
         "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
         "tipo_categoria": "cadena",
         "escala": "macro",
@@ -7020,7 +7020,7 @@ FRANQUICIAS = [
             -33.95,
             18.38
         ],
-        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo": "Cadena Multiclub",
         "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
         "tipo_categoria": "cadena",
         "escala": "macro",
@@ -7065,7 +7065,7 @@ FRANQUICIAS = [
             -33.9,
             151.19
         ],
-        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo": "Cadena Multiclub",
         "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
         "tipo_categoria": "cadena",
         "escala": "macro",
@@ -7107,7 +7107,7 @@ FRANQUICIAS = [
             -33.79,
             151.13
         ],
-        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo": "Cadena Multiclub",
         "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
         "tipo_categoria": "cadena",
         "escala": "media",
@@ -7149,7 +7149,7 @@ FRANQUICIAS = [
             -33.8688,
             151.2093
         ],
-        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo": "Cadena Multiclub",
         "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
         "tipo_categoria": "cadena",
         "escala": "media",
@@ -7191,7 +7191,7 @@ FRANQUICIAS = [
             -26.2041,
             28.0473
         ],
-        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo": "Cadena Multiclub",
         "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
         "tipo_categoria": "cadena",
         "escala": "media",
@@ -7236,7 +7236,7 @@ FRANQUICIAS = [
             -33.8688,
             151.2093
         ],
-        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo": "Cadena Multiclub",
         "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
         "tipo_categoria": "cadena",
         "escala": "media",
@@ -7278,7 +7278,7 @@ FRANQUICIAS = [
             -33.9249,
             18.4241
         ],
-        "modelo": "Cadena Multiclub (Mismo Nombre)",
+        "modelo": "Cadena Multiclub",
         "modelo_badge": "bg-sky-100 text-sky-800 border-sky-200",
         "tipo_categoria": "cadena",
         "escala": "media",

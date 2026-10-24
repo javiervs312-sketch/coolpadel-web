@@ -180,11 +180,6 @@ def run_seo_post_build():
         c = open(es_art, encoding="utf-8").read()
         c = re.sub(r'\s*<!-- SEO Multilingüe Hreflang -->.*?<meta name="language" content="[^"]*">', '', c, flags=re.S)
         c = re.sub(r'\s*<!-- SEO INTERNAL SILO MESH -->.*?</section>', '', c, flags=re.S)
-        mesh_html = build_blog_silo_mesh(b_dir)
-        if "<footer" in c:
-            c = c.replace("<footer", mesh_html + "\n  <footer", 1)
-        elif "</body>" in c:
-            c = c.replace("</body>", mesh_html + "\n</body>", 1)
         open(es_art, "w", encoding="utf-8").write(c)
 
         for lang in ["en", "fr", "it"]:

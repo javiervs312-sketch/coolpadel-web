@@ -198,7 +198,7 @@
   </script>
   <!-- /GA4 -->
 </head>
-<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col selection:bg-[#f2920b] selection:text-slate-950">
+<body class="bg-slate-50 text-slate-900 min-h-screen flex flex-col selection:bg-[#f2920b] selection:text-slate-950">
 
     <!-- HEADER -->
   <header class="fixed top-0 left-0 w-full z-50 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-xs w-full">
@@ -268,17 +268,17 @@
         <h1 class="text-3xl sm:text-5xl font-black font-heading text-white tracking-tight leading-tight">
           Générateur de <span class="text-[#f2920b]">Tableaux de Tournoi</span> de Padel
         </h1>
-        <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+        <p class="text-xs sm:text-sm text-slate-700 leading-relaxed">
           Crea el cuadro de tu torneo en segundos (8, 16 o 32 parejas). Asigna cabezas de serie, avanza ganadores automáticamente con los resultados y descarga en PDF o copia a WhatsApp. 100% gratis.
         </p>
       </div>
 
       <!-- PANEL PRINCIPAL CONFIGURACIÓN -->
-      <div id="panel-configuracion" class="bg-slate-900 border border-slate-800 rounded-3xl p-6 sm:p-8 space-y-6 shadow-2xl mb-8 no-print">
+      <div id="panel-configuracion" class="bg-white border border-slate-200/90 text-slate-900 shadow-md rounded-3xl p-6 sm:p-8 space-y-6 shadow-2xl mb-8 no-print">
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
           <div>
-            <label class="block text-xs font-bold text-slate-300 mb-1.5">Format du Tableau :</label>
-            <select id="select-tamano" onchange="cambiarTamanoCuadro()" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-3.5 py-2.5 text-sm text-white font-bold focus:border-[#f2920b] outline-none">
+            <label class="block text-xs font-bold text-slate-700 mb-1.5">Format du Tableau :</label>
+            <select id="select-tamano" onchange="cambiarTamanoCuadro()" class="w-full bg-slate-50 border border-slate-300 text-slate-900 rounded-xl px-3.5 py-2.5 text-sm text-white font-bold focus:border-[#f2920b] outline-none">
               <option value="8" selected>8 Parejas (Cuartos de Final)</option>
               <option value="16">16 Parejas (Octavos de Final)</option>
               <option value="32">32 Parejas (Dieciseisavos)</option>
@@ -286,13 +286,13 @@
           </div>
 
           <div>
-            <label class="block text-xs font-bold text-slate-300 mb-1.5">Nom du Tournoi / Catégorie :</label>
-            <input type="text" id="input-torneo-nombre" value="Torneo Fin de Semana - 2ª Categoría Masculina" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-3.5 py-2.5 text-sm text-white focus:border-[#f2920b] outline-none font-medium">
+            <label class="block text-xs font-bold text-slate-700 mb-1.5">Nom du Tournoi / Catégorie :</label>
+            <input type="text" id="input-torneo-nombre" value="Torneo Fin de Semana - 2ª Categoría Masculina" class="w-full bg-slate-50 border border-slate-300 text-slate-900 rounded-xl px-3.5 py-2.5 text-sm text-white focus:border-[#f2920b] outline-none font-medium">
           </div>
 
           <div>
-            <label class="block text-xs font-bold text-slate-300 mb-1.5">Tableau de Consolante :</label>
-            <select id="select-consolacion" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-3.5 py-2.5 text-sm text-white font-bold focus:border-[#f2920b] outline-none">
+            <label class="block text-xs font-bold text-slate-700 mb-1.5">Tableau de Consolante :</label>
+            <select id="select-consolacion" class="w-full bg-slate-50 border border-slate-300 text-slate-900 rounded-xl px-3.5 py-2.5 text-sm text-white font-bold focus:border-[#f2920b] outline-none">
               <option value="si" selected>Sí (Perdedores R1 juegan consolación)</option>
               <option value="no">No (Solo cuadro principal)</option>
             </select>
@@ -301,7 +301,7 @@
 
         <div>
           <div class="flex items-center justify-between mb-1.5">
-            <label class="block text-xs font-bold text-slate-300">Noms des Paires (1 par ligne) :</label>
+            <label class="block text-xs font-bold text-slate-700">Noms des Paires (1 par ligne) :</label>
             <button type="button" onclick="cargarParejasEjemplo()" class="text-xs text-[#f2920b] hover:text-white underline font-bold transition">
               Cargar nombres de ejemplo
             </button>
@@ -315,7 +315,7 @@
               <i data-lucide="play" class="w-4 h-4 fill-slate-950"></i>
               <span>Generar Cuadro Oficial</span>
             </button>
-            <button type="button" onclick="resetearCuadro()" class="px-4 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-bold transition">
+            <button type="button" onclick="resetearCuadro()" class="px-4 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-700 text-xs font-bold transition">
               Limpiar
             </button>
           </div>
@@ -325,11 +325,11 @@
               <i data-lucide="send" class="w-4 h-4"></i>
               <span>Enviar por WhatsApp</span>
             </button>
-            <button type="button" id="btn-copiar-cuadro-wa" onclick="copiarCuadroWhatsApp()" class="inline-flex items-center gap-2 px-4 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-700 text-white font-heading font-bold text-xs sm:text-sm uppercase tracking-wider transition cursor-pointer">
+            <button type="button" id="btn-copiar-cuadro-wa" onclick="copiarCuadroWhatsApp()" class="inline-flex items-center gap-2 px-4 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-950 font-heading font-bold text-xs sm:text-sm uppercase tracking-wider transition cursor-pointer">
               <i data-lucide="copy" class="w-4 h-4 text-[#f2920b]"></i>
               <span id="txt-btn-wa">Copiar Texto</span>
             </button>
-            <button type="button" id="btn-imprimir" onclick="window.print()" class="inline-flex items-center gap-2 px-4 py-3 rounded-xl bg-slate-800 hover:bg-white hover:text-slate-950 border border-slate-700 text-white font-heading font-bold text-xs sm:text-sm uppercase tracking-wider transition cursor-pointer">
+            <button type="button" id="btn-imprimir" onclick="window.print()" class="inline-flex items-center gap-2 px-4 py-3 rounded-xl bg-slate-800 hover:bg-white hover:text-slate-950 border border-slate-700 text-slate-950 font-heading font-bold text-xs sm:text-sm uppercase tracking-wider transition cursor-pointer">
               <i data-lucide="printer" class="w-4 h-4"></i>
               <span>Imprimir / PDF</span>
             </button>
@@ -344,8 +344,8 @@
             <i data-lucide="video" class="w-5 h-5"></i>
           </div>
           <div>
-            <h3 class="text-xs sm:text-sm font-black text-white font-heading uppercase">Offrez aux joueurs leurs meilleurs coups de ce tournoi</h3>
-            <p class="text-[11px] sm:text-xs text-slate-400">Instala cámaras <strong class="text-white">Save my Play</strong> en pista sin obras por solo 180 € y 45 €/mes. Repeticiones en móvil por QR y streaming en directo a YouTube.</p>
+            <h3 class="text-xs sm:text-sm font-black text-slate-950 font-heading uppercase">Offrez aux joueurs leurs meilleurs coups de ce tournoi</h3>
+            <p class="text-[11px] sm:text-xs text-slate-600">Instala cámaras <strong class="text-white">Save my Play</strong> en pista sin obras por solo 180 € y 45 €/mes. Repeticiones en móvil por QR y streaming en directo a YouTube.</p>
           </div>
         </div>
         <div class="flex items-center gap-2 shrink-0">
@@ -360,25 +360,25 @@
 
       <!-- ZONA DE BRACKETS VISUALES (INTERACTIVO + PRE-RENDER ESTÁTICO SEO) -->
       <div id="zona-cuadro-eliminatoria" class="space-y-8">
-        <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 space-y-3">
+        <div class="bg-white border border-slate-200/90 text-slate-900 shadow-md rounded-2xl p-6 space-y-3">
           <h2 class="text-lg font-black font-heading text-white">Cuadro de Eliminatoria Directa (Cuartos de Final, Semifinales y Final)</h2>
-          <p class="text-xs text-slate-400">Haz clic sobre el nombre de cualquier pareja para avanzarla de ronda o introduce el tanteo por sets (ej. 6-4 / 6-3).</p>
+          <p class="text-xs text-slate-600">Haz clic sobre el nombre de cualquier pareja para avanzarla de ronda o introduce el tanteo por sets (ej. 6-4 / 6-3).</p>
         </div>
       </div>
 
       <!-- GUÍA EXPLICATIVA SEO AL PIE -->
-      <section class="mt-16 pt-12 border-t border-slate-800 space-y-8 text-slate-300 text-xs sm:text-sm leading-relaxed no-print">
+      <section class="mt-16 pt-12 border-t border-slate-800 space-y-8 text-slate-700 text-xs sm:text-sm leading-relaxed no-print">
         <div class="space-y-2">
           <span class="text-xs font-black uppercase tracking-widest text-[#f2920b]">Guía Técnica de Competición</span>
           <h2 class="text-2xl sm:text-3xl font-black font-heading text-white">¿Cómo organizar un cuadro de torneo de pádel por eliminatoria directa con éxito?</h2>
-          <p class="text-slate-400">
+          <p class="text-slate-600">
             El formato de cuadro por eliminatoria directa (<em>brackets</em>) es el estándar oficial en torneos federados FEP y FIP, ligas corporativas y campeonatos de fin de semana. Para maximizar la satisfacción de los jugadores inscritos y garantizar un mínimo de 2 partidos por pareja, habilita siempre el <strong>cuadro de consolación</strong> para los derrotados en primera ronda.
           </p>
         </div>
 
         <div class="overflow-x-auto border border-slate-800 rounded-2xl">
           <table class="w-full text-left text-xs sm:text-sm">
-            <thead class="bg-slate-900 text-white font-heading uppercase text-xs border-b border-slate-800">
+            <thead class="bg-slate-900 text-slate-950 font-heading uppercase text-xs border-b border-slate-800">
               <tr>
                 <th class="p-3.5">Tamaño del Cuadro</th>
                 <th class="p-3.5">Ronda Inicial</th>
@@ -416,19 +416,19 @@
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-2">
           <div class="bg-slate-900/60 p-5 rounded-2xl border border-slate-800 space-y-2">
             <h3 class="font-bold text-white text-sm">1. Asignación de Cabezas de Serie y Byes</h3>
-            <p class="text-slate-400 text-xs">
+            <p class="text-slate-600 text-xs">
               Coloca a la pareja Cabeza de Serie #1 en la parte superior del cuadro (Partido 1) y a la Cabeza de Serie #2 en la parte inferior para que solo puedan cruzarse en la gran final. Si tienes un número impar de parejas (ej. 12 parejas en un cuadro de 16), asigna 4 <em>BYEs</em> (exentos en primera ronda) a los 4 primeros cabezas de serie.
             </p>
           </div>
           <div class="bg-slate-900/60 p-5 rounded-2xl border border-slate-800 space-y-2">
             <h3 class="font-bold text-white text-sm">2. Gestión de Tiempos y Súper Tie-Break</h3>
-            <p class="text-slate-400 text-xs">
+            <p class="text-slate-600 text-xs">
               Para evitar retrasos acumulados en las pistas de tu club, programa turnos de 75 minutos en rondas previas aplicando <strong>Punto de Oro</strong> en el 40-40 y un <strong>Súper Tie-Break a 10 puntos</strong> en lugar de tercer set completo hasta semifinales.
             </p>
           </div>
           <div class="bg-slate-900/60 p-5 rounded-2xl border border-slate-800 space-y-2">
             <h3 class="font-bold text-white text-sm">3. Retransmisión en Directo y Welcome Pack</h3>
-            <p class="text-slate-400 text-xs">
+            <p class="text-slate-600 text-xs">
               Con las cámaras fijas <a href="../../../camaras/" class="text-[#76d3f6] underline font-bold">Save my Play</a> puedes emitir las semifinales y finales en directo por el canal de YouTube de tu club y entregar <a href="../../../welcome-packs-torneos-padel/" class="text-[#f2920b] underline font-bold">llaveros 3D personalizados</a> a todos los inscritos.
             </p>
           </div>
@@ -632,7 +632,7 @@
           <span class="text-xs font-black uppercase text-[#f2920b] tracking-wider">Cuadro Oficial en Vivo</span>
           <h2 class="text-xl sm:text-2xl font-black font-heading text-white">${bracketData.nombre}</h2>
         </div>
-        <div class="text-xs text-slate-400">
+        <div class="text-xs text-slate-600">
           Haz clic en el ganador de cada cruce o ingresa el resultado para avanzar al vencedor.
         </div>
       `;
@@ -652,14 +652,14 @@
         col.className = "flex flex-col justify-around space-y-4";
 
         const rondaHead = document.createElement('div');
-        rondaHead.className = "text-center py-2 px-3 rounded-xl bg-slate-900 border border-slate-800 font-heading font-black text-xs text-[#76d3f6] uppercase tracking-wider mb-2";
+        rondaHead.className = "text-center py-2 px-3 rounded-xl bg-white border border-slate-200/90 text-slate-900 shadow-md font-heading font-black text-xs text-[#76d3f6] uppercase tracking-wider mb-2";
         rondaHead.innerText = nombreRonda;
         col.appendChild(rondaHead);
 
         const partidosRonda = bracketData.partidos[rIdx];
         partidosRonda.forEach((partido, mIdx) => {
           const card = document.createElement('div');
-          card.className = "bracket-node bg-slate-900 border border-slate-800 rounded-2xl p-3 shadow-lg space-y-2 text-xs transition duration-200 hover:border-[#f2920b]";
+          card.className = "bracket-node bg-white border border-slate-200/90 text-slate-900 shadow-md rounded-2xl p-3 shadow-lg space-y-2 text-xs transition duration-200 hover:border-[#f2920b]";
 
           // Pareja 1
           const row1 = document.createElement('div');
@@ -667,7 +667,7 @@
           row1.onclick = () => fijarGanador(rIdx, mIdx, partido.p1);
           row1.innerHTML = `
             <span class="truncate pr-2 select-none">${partido.p1}</span>
-            <input type="text" placeholder="-" value="${partido.s1}" oninput="actualizarResultado(event, ${rIdx}, ${mIdx}, 's1')" onclick="event.stopPropagation()" class="w-10 text-center bg-slate-800 border border-slate-700 rounded px-1 py-0.5 text-xs text-white outline-none">
+            <input type="text" placeholder="-" value="${partido.s1}" oninput="actualizarResultado(event, ${rIdx}, ${mIdx}, 's1')" onclick="event.stopPropagation()" class="w-10 text-center bg-slate-50 border border-slate-300 text-slate-900 rounded px-1 py-0.5 text-xs text-white outline-none">
           `;
 
           // Pareja 2
@@ -676,7 +676,7 @@
           row2.onclick = () => fijarGanador(rIdx, mIdx, partido.p2);
           row2.innerHTML = `
             <span class="truncate pr-2 select-none">${partido.p2}</span>
-            <input type="text" placeholder="-" value="${partido.s2}" oninput="actualizarResultado(event, ${rIdx}, ${mIdx}, 's2')" onclick="event.stopPropagation()" class="w-10 text-center bg-slate-800 border border-slate-700 rounded px-1 py-0.5 text-xs text-white outline-none">
+            <input type="text" placeholder="-" value="${partido.s2}" oninput="actualizarResultado(event, ${rIdx}, ${mIdx}, 's2')" onclick="event.stopPropagation()" class="w-10 text-center bg-slate-50 border border-slate-300 text-slate-900 rounded px-1 py-0.5 text-xs text-white outline-none">
           `;
 
           card.appendChild(row1);

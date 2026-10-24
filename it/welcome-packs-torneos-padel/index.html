@@ -208,33 +208,6 @@
       background-position: center;
     }
   </style>
-  <!-- Google Analytics 4 -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-3FY3DTNN21"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-3FY3DTNN21');
-    // Eventos clave (leads): WhatsApp, email, teléfono, demo, dossier
-    document.addEventListener('click', function (e) {
-      try {
-        var a = e.target.closest && e.target.closest('a, button');
-        if (!a) return;
-        var href = (a.getAttribute('href') || '').toLowerCase();
-        var txt = (a.innerText || '').replace(/\s+/g, ' ').trim().slice(0, 60);
-        var p = { link_text: txt, link_url: href, page_path: location.pathname };
-        if (href.indexOf('wa.me') > -1 || href.indexOf('whatsapp.com') > -1) gtag('event', 'click_whatsapp', p);
-        else if (href.indexOf('mailto:') === 0) gtag('event', 'click_email', p);
-        else if (href.indexOf('tel:') === 0) gtag('event', 'click_telefono', p);
-        else if (/\.pdf($|\?)/.test(href) || /dossier/i.test(href + ' ' + txt)) gtag('event', 'descarga_dossier', p);
-        else if (/demo|reuni[oó]n|meeting|calendly|agenda|r[eé]serv|prueba gratis|free trial/i.test(href + ' ' + txt)) gtag('event', 'solicitar_demo', p);
-      } catch (err) {}
-    }, { passive: true });
-    document.addEventListener('submit', function (e) {
-      try { gtag('event', 'enviar_formulario', { form_id: (e.target && (e.target.id || e.target.name)) || '', page_path: location.pathname }); } catch (err) {}
-    }, true);
-  </script>
-  <!-- /GA4 -->
 </head>
 <body class="bg-[#f8fafc] text-slate-800 antialiased selection:bg-[#f2920b] selection:text-slate-950 min-h-screen flex flex-col">
 
@@ -252,7 +225,16 @@
         <a href="../../blog/" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition">Blog</a>
         <a href="../../franquicias-padel/" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition">Franchigie</a>
         
-        <div class="flex items-center gap-1 border border-slate-200 rounded-lg p-0.5 bg-slate-50"><a href="/welcome-packs-torneos-padel/" class="px-2 py-1 rounded text-xs transition text-slate-700 hover:text-[#f2920b]">ES</a><a href="/en/welcome-packs-torneos-padel/" class="px-2 py-1 rounded text-xs transition text-slate-700 hover:text-[#f2920b]">EN</a><a href="/fr/welcome-packs-torneos-padel/" class="px-2 py-1 rounded text-xs transition text-slate-700 hover:text-[#f2920b]">FR</a><a href="/it/welcome-packs-torneos-padel/" class="px-2 py-1 rounded text-xs transition bg-[#f2920b] text-slate-950 font-black">IT</a></div>
+        
+        <div class="relative inline-block text-left" id="lang-dropdown-container">
+          <button type="button" onclick="toggleLangDropdown(event)" id="lang-dropdown-btn" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-100 hover:bg-slate-200 border border-slate-200 text-xs font-black text-slate-900 shadow-xs transition cursor-pointer" aria-expanded="false" aria-haspopup="true">
+            <span id="current-lang-code" class="uppercase font-black">IT</span>
+            <i data-lucide="chevron-down" class="w-3.5 h-3.5 stroke-[2.5] text-slate-600 transition-transform duration-200" id="lang-dropdown-arrow"></i>
+          </button>
+          <div id="lang-dropdown-menu" class="hidden absolute right-0 mt-2 w-24 bg-white rounded-2xl shadow-[0_12px_30px_rgba(0,0,0,0.15)] border border-slate-200 py-1.5 z-50 transition-all overflow-hidden">
+            <a href="/welcome-packs-torneos-padel/" class="lang-opt block text-slate-700 hover:bg-[#f2920b] hover:text-slate-950 font-bold w-full text-center px-4 py-2 text-xs transition duration-150">ES</a><a href="/en/welcome-packs-torneos-padel/" class="lang-opt block text-slate-700 hover:bg-[#f2920b] hover:text-slate-950 font-bold w-full text-center px-4 py-2 text-xs transition duration-150">EN</a><a href="/fr/welcome-packs-torneos-padel/" class="lang-opt block text-slate-700 hover:bg-[#f2920b] hover:text-slate-950 font-bold w-full text-center px-4 py-2 text-xs transition duration-150">FR</a><a href="/it/welcome-packs-torneos-padel/" class="lang-opt block lang-opt-active bg-[#f2920b] text-slate-950 font-black w-full text-center px-4 py-2 text-xs transition duration-150">IT</a>
+          </div>
+        </div>
 
         <a href="#contacto" class="inline-flex items-center gap-1.5 px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] text-slate-950 font-heading font-black text-xs uppercase tracking-wider transition shadow-sm hover:scale-105 active:scale-95">
           <span>Contatti</span>
@@ -402,100 +384,102 @@
 
     
 
-    <!-- TABLA DE PRECIOS TRANSPARENTE -->
+    <!-- TABLA DE PRECIOS O CALCULADORA INTERACTIVA -->
     <section id="precios" class="py-14 sm:py-20 bg-slate-50 border-b border-slate-200 scroll-mt-20">
       <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center max-w-2xl mx-auto mb-10 space-y-2">
-          <span class="inline-block px-3.5 py-1 rounded-full bg-emerald-100 text-emerald-800 font-heading font-black text-xs uppercase tracking-wider">
-            Prezzi B2B 100% Trasparenti
-          </span>
-          <h2 class="font-heading font-black text-2xl sm:text-4xl text-slate-950 uppercase tracking-tight">
-            Tariffe Dirette di Produzione B2B
-          </h2>
-          <p class="text-sm sm:text-base text-slate-600 font-medium">
-            Prezzi diretti di fabbrica calibrati sul numero di soci o giocatori
-          </p>
+        
+    <div class="max-w-4xl mx-auto w-full bg-white rounded-3xl p-5 sm:p-8 border border-slate-200/90 shadow-xl text-slate-950">
+      <div class="text-center mb-6 space-y-1">
+        <h3 class="text-xl sm:text-3xl font-black font-heading text-slate-950 uppercase tracking-tight">
+          Calcula tu pedido
+        </h3>
+        <p class="text-xs sm:text-sm text-slate-500 font-medium">
+          Muestra 15€ reembolsable · Tarifa directa de fábrica
+        </p>
+      </div>
+
+      <div class="space-y-6">
+        <div class="flex justify-between items-end pb-3 border-b border-slate-100">
+          <div>
+            <span class="text-[11px] font-bold text-slate-500 uppercase tracking-wider block">Nº de llaveros:</span>
+            <span id="landing-calc-qty" class="text-xl sm:text-3xl font-black font-heading text-slate-950">100 unidades</span>
+          </div>
+          <div class="text-right">
+            <span class="text-[11px] font-bold text-slate-500 uppercase tracking-wider block">Importe estimado:</span>
+            <div class="flex items-baseline justify-end gap-1.5">
+              <span id="landing-calc-price" class="text-xl sm:text-3xl font-black font-heading text-[#f2920b]">300 €</span>
+              <span id="landing-calc-unit" class="text-xs font-bold text-slate-500">(3,00 €/ud)</span>
+            </div>
+          </div>
         </div>
 
-        <div class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm">
-          
-          <div class="overflow-x-auto">
-            <table class="w-full text-left text-sm sm:text-base">
-              <thead>
-                <tr class="border-b border-slate-200 text-xs uppercase tracking-wider text-slate-500">
-                  <th class="py-3 px-3">Lotto</th>
-                  <th class="py-3 px-3">Prezzo unitario</th>
-                  <th class="py-3 px-3">Totale stimato</th>
-                  <th class="py-3 px-3">Campione fisico</th>
-                </tr>
-              </thead>
-              <tbody class="divide-y divide-slate-100 font-bold">
-                <tr>
-                  <td class="py-4 px-3 text-slate-900">100 unità (Minimo)</td>
-                  <td class="py-4 px-3 text-[#f2920b]">3,00 € / pz</td>
-                  <td class="py-4 px-3 text-slate-700">300 € (+IVA)</td>
-                  <td class="py-4 px-3 text-slate-500 text-xs">15 € (100% deducible)</td>
-                </tr>
-                <tr>
-                  <td class="py-4 px-3 text-slate-900">250 unità</td>
-                  <td class="py-4 px-3 text-[#f2920b]">2,50 € / pz</td>
-                  <td class="py-4 px-3 text-slate-700">625 € (+IVA)</td>
-                  <td class="py-4 px-3 text-slate-500 text-xs">Campione deducibile · Consegna ~1 mese</td>
-                </tr>
-                <tr>
-                  <td class="py-4 px-3 text-slate-900">500 unità</td>
-                  <td class="py-4 px-3 text-[#f2920b]">2,00 € / pz</td>
-                  <td class="py-4 px-3 text-slate-700">1.000 € (+IVA)</td>
-                  <td class="py-4 px-3 text-slate-500 text-xs">Campione deducibile e spedizione inclusa</td>
-                </tr>
-                <tr>
-                  <td class="py-4 px-3 text-slate-900">1.500 unità</td>
-                  <td class="py-4 px-3 text-[#f2920b]">1,50 € / pz</td>
-                  <td class="py-4 px-3 text-slate-700">2.250 € (+IVA)</td>
-                  <td class="py-4 px-3 text-slate-500 text-xs">Tariffa diretta di fabbrica grande volume</td>
-                </tr>
-              </tbody>
-            </table>
+        <!-- Slider -->
+        <div class="py-2">
+          <div class="relative w-full h-3 bg-slate-200 rounded-full cursor-pointer" id="landing-slider-track" onclick="handleLandingSliderClick(event)">
+            <div id="landing-slider-prog" class="absolute top-0 left-0 h-full bg-[#f2920b] rounded-full" style="width: 0%;"></div>
+            <div id="landing-slider-thumb" class="absolute top-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-4 flex items-center justify-center cursor-grab active:cursor-grabbing hover:scale-110 transition-transform" style="left: 0%;">
+              <img src="../../assets/images/eyes-thumb.png" alt="Selector" width="36" height="18" class="w-full h-full object-contain drop-shadow-sm select-none">
+            </div>
           </div>
-          
-          <div class="mt-6 pt-5 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-4">
-            <span class="text-xs text-slate-500">* Prezzi IVA esclusa. Campione reale in ~15 giorni lavorativi, fornitura in ~1 mese.</span>
-            <a href="#contacto" class="px-6 py-3 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] text-slate-950 font-heading font-black text-xs uppercase tracking-wider transition">
-              Contatta / Richiedi preventivo
-            </a>
+          <div class="relative w-full text-[11px] font-extrabold text-slate-500 h-6 mt-3">
+            <button type="button" onclick="setLandingTier(0)" class="absolute left-0 hover:text-[#f2920b] transition">100 uds</button>
+            <button type="button" onclick="setLandingTier(1)" class="absolute left-[33.3%] -translate-x-1/2 hover:text-[#f2920b] transition">250 uds</button>
+            <button type="button" onclick="setLandingTier(2)" class="absolute left-[66.6%] -translate-x-1/2 hover:text-[#f2920b] transition">500 uds</button>
+            <button type="button" onclick="setLandingTier(3)" class="absolute right-0 hover:text-[#f2920b] transition">1.500 uds</button>
           </div>
         </div>
+
+        <div class="flex flex-wrap items-center justify-center gap-3 pt-2 text-xs font-bold">
+          <span class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-200/80">
+            <i data-lucide="check-circle" class="w-4 h-4 text-emerald-600"></i>
+            Muestra 15€ reembolsable
+          </span>
+          <span class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-slate-100 text-slate-700 border border-slate-200">
+            IVA no incluido
+          </span>
+        </div>
+
+        <div class="pt-2">
+          <a href="#contacto" class="w-full py-3.5 rounded-2xl font-heading font-black text-sm uppercase tracking-wider bg-[#f2920b] hover:bg-[#76d3f6] text-slate-950 shadow-md hover:shadow-lg hover:scale-[1.01] active:scale-[0.98] flex items-center justify-center gap-2 transition-all">
+            <span>Contactar</span>
+            <i data-lucide="arrow-down" class="w-4 h-4 stroke-[3]"></i>
+          </a>
+        </div>
+      </div>
+    </div>
       </div>
     </section>
 
-    <!-- CÓMO FUNCIONA / PROCESO -->
-    <section class="py-14 sm:py-20 bg-slate-900 text-white border-b border-slate-800">
+    <!-- CÓMO FUNCIONA / PROCESO (FORMATO TEXTURA) -->
+    <section class="py-14 sm:py-20 bg-[#3478a6] bg-textured-blue text-white border-b border-sky-700/40">
       <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center max-w-2xl mx-auto mb-10 space-y-2">
-          <span class="inline-block px-3.5 py-1 rounded-full bg-white/10 text-[#f2920b] font-heading font-black text-xs uppercase tracking-wider">
+          <span class="inline-block px-3.5 py-1 rounded-full bg-white/20 text-white font-heading font-black text-xs uppercase tracking-wider">
             Passo dopo Passo
           </span>
           <h2 class="font-heading font-black text-2xl sm:text-4xl uppercase tracking-tight">
-            Come iniziare con il tuo circolo?
+            How to get started for your club?
           </h2>
         </div>
 
-        
-        <div class="grid sm:grid-cols-3 gap-6 text-center">
-          <div class="space-y-2">
-            <div class="w-10 h-10 rounded-full bg-white/20 text-white font-heading font-black text-base flex items-center justify-center mx-auto">1</div>
-            <h3 class="font-heading font-black text-lg">Invia il Tuo Logo</h3>
-            <p class="text-white/80 text-xs">Bozza digitale 3D gratuita per confermare proporzioni e tinte.</p>
+        <!-- 3 PASOS CON TEXTURA Y TARJETAS BLANCAS DESTACADAS -->
+        <div class="grid sm:grid-cols-3 gap-6 text-left">
+          <div class="bg-white/95 rounded-2xl p-6 text-slate-900 shadow-md border border-white/40 space-y-2.5">
+            <div class="w-9 h-9 rounded-full bg-[#f2920b] text-slate-950 font-heading font-black text-sm flex items-center justify-center">1</div>
+            <h3 class="font-heading font-black text-lg text-slate-950">Envíanos tu logo</h3>
+            <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">Envíanos el logo de tu club en cualquier formato y preparamos tu diseño digital 3D gratuito.</p>
           </div>
-          <div class="space-y-2">
-            <div class="w-10 h-10 rounded-full bg-white/20 text-white font-heading font-black text-base flex items-center justify-center mx-auto">2</div>
-            <h3 class="font-heading font-black text-lg">Campione Fisico (15€)</h3>
-            <p class="text-white/80 text-xs">Produzione e spedizione di un campione reale in ~15 giorni lavorativi (100% deducibile).</p>
+
+          <div class="bg-white/95 rounded-2xl p-6 text-slate-900 shadow-md border border-white/40 space-y-2.5">
+            <div class="w-9 h-9 rounded-full bg-[#f2920b] text-slate-950 font-heading font-black text-sm flex items-center justify-center">2</div>
+            <h3 class="font-heading font-black text-lg text-slate-950">Diseño 3D y Muestra Física Previa 15€</h3>
+            <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">Fabricamos una muestra real con tu logo antes de confirmar la tirada completa. 15 € reembolsables al confirmar el pedido.</p>
           </div>
-          <div class="space-y-2">
-            <div class="w-10 h-10 rounded-full bg-white/20 text-white font-heading font-black text-base flex items-center justify-center mx-auto">3</div>
-            <h3 class="font-heading font-black text-lg">Produzione e Consegna</h3>
-            <p class="text-white/80 text-xs">Produzione in serie da 100 pezzi con consegna in circa un mese.</p>
+
+          <div class="bg-white/95 rounded-2xl p-6 text-slate-900 shadow-md border border-white/40 space-y-2.5">
+            <div class="w-9 h-9 rounded-full bg-[#f2920b] text-slate-950 font-heading font-black text-sm flex items-center justify-center">3</div>
+            <h3 class="font-heading font-black text-lg text-slate-950">Producción y Entrega</h3>
+            <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">Pedido mínimo 100 unidades y entrega en torno a un mes con envíos incluidos.</p>
           </div>
         </div>
       </div>
@@ -515,18 +499,27 @@
 
         <div class="space-y-4">
           
-        <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-xs space-y-2">
-          <h3 class="font-heading font-black text-lg sm:text-xl text-slate-950">Con quanto anticipo ordinare per il nostro torneo?</h3>
-          <p class="text-slate-600 text-sm sm:text-base leading-relaxed">Consigliamo di contattarci 5 o 6 settimane prima per produrre il campione (~15 giorni) e poi la fornitura (~3-4 settimane).</p>
-        </div>
-        <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-xs space-y-2">
-          <h3 class="font-heading font-black text-lg sm:text-xl text-slate-950">Possiamo inserire due loghi (circolo + sponsor)?</h3>
-          <p class="text-slate-600 text-sm sm:text-base leading-relaxed">Sì, realizziamo modelli con stampa fronte-retro o integrando entrambi i marchi sulla sagoma della racchetta.</p>
-        </div>
-        <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-xs space-y-2">
-          <h3 class="font-heading font-black text-lg sm:text-xl text-slate-950">Qual è il costo a giocatore?</h3>
-          <p class="text-slate-600 text-sm sm:text-base leading-relaxed">Per 250 pezzi (125 coppie), il costo scende a 2,50 € a giocatore, coperto facilmente dalla quota d'iscrizione.</p>
-        </div>
+        <details class="group bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/90 shadow-2xs transition hover:border-[#f2920b]">
+          <summary class="flex items-center justify-between font-heading font-black text-sm sm:text-base text-slate-950 cursor-pointer list-none select-none">
+            <span>Con quanto anticipo ordinare per il nostro torneo?</span>
+            <span class="w-6 h-6 rounded-full bg-slate-100 text-slate-700 group-open:rotate-180 group-open:bg-[#f2920b] group-open:text-slate-950 flex items-center justify-center transition-transform text-xs shrink-0 ml-3">▼</span>
+          </summary>
+          <p class="mt-3 text-slate-600 text-xs sm:text-sm leading-relaxed border-t border-slate-100 pt-3">Consigliamo di contattarci 5 o 6 settimane prima per produrre il campione (~15 giorni) e poi la fornitura (~3-4 settimane).</p>
+        </details>
+        <details class="group bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/90 shadow-2xs transition hover:border-[#f2920b]">
+          <summary class="flex items-center justify-between font-heading font-black text-sm sm:text-base text-slate-950 cursor-pointer list-none select-none">
+            <span>Possiamo inserire due loghi (circolo + sponsor)?</span>
+            <span class="w-6 h-6 rounded-full bg-slate-100 text-slate-700 group-open:rotate-180 group-open:bg-[#f2920b] group-open:text-slate-950 flex items-center justify-center transition-transform text-xs shrink-0 ml-3">▼</span>
+          </summary>
+          <p class="mt-3 text-slate-600 text-xs sm:text-sm leading-relaxed border-t border-slate-100 pt-3">Sì, realizziamo modelli con stampa fronte-retro o integrando entrambi i marchi sulla sagoma della racchetta.</p>
+        </details>
+        <details class="group bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/90 shadow-2xs transition hover:border-[#f2920b]">
+          <summary class="flex items-center justify-between font-heading font-black text-sm sm:text-base text-slate-950 cursor-pointer list-none select-none">
+            <span>Qual è il costo a giocatore?</span>
+            <span class="w-6 h-6 rounded-full bg-slate-100 text-slate-700 group-open:rotate-180 group-open:bg-[#f2920b] group-open:text-slate-950 flex items-center justify-center transition-transform text-xs shrink-0 ml-3">▼</span>
+          </summary>
+          <p class="mt-3 text-slate-600 text-xs sm:text-sm leading-relaxed border-t border-slate-100 pt-3">Per 250 pezzi (125 coppie), il costo scende a 2,50 € a giocatore, coperto facilmente dalla quota d'iscrizione.</p>
+        </details>
         </div>
       </div>
     </section>
@@ -560,46 +553,51 @@
     </section>
   </main>
 
-  <!-- FOOTER OFICIAL -->
-  <footer class="bg-slate-950 text-white text-xs py-12 border-t border-slate-800">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
-      <div>
-        <div class="flex items-center gap-2 mb-3">
-          <img src="../../assets/images/coolpadel-mascot-hd.png" alt="Mascota CoolPadel" width="32" height="32" class="h-8 w-auto">
-          <span class="font-heading font-black text-sm text-white">CoolPadel</span>
+  <!-- FOOTER OFICIAL (FORMATO EXACTO HOME) -->
+  <footer class="relative z-20 bg-[#3478a6] bg-textured-blue text-white pt-14 pb-10 border-t border-sky-700/40 text-xs">
+    <div class="max-w-[1700px] mx-auto px-4 sm:px-8 space-y-10">
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pb-8 border-b border-white/20">
+        <div class="flex items-center gap-3.5">
+          <img src="../../assets/images/coolpadel-mascot-hd.png" alt="CoolPadel Mascota" width="60" height="60" class="h-10 sm:h-12 w-auto object-contain drop-shadow-sm" loading="lazy">
+          <img src="../../assets/images/coolpadel-typography-hd.png" alt="CoolPadel" width="160" height="32" class="h-5 sm:h-6 w-auto object-contain drop-shadow-sm" loading="lazy">
         </div>
-        <p class="text-white/60 text-xs leading-relaxed">
-          © 2026 CoolPadel Studios · Produttore Diretto B2B di Portachiavi Padel e Tennis in Gomma 3D · Madrid, Spagna
-        </p>
       </div>
-      <div>
-        <div class="font-heading font-bold text-white uppercase tracking-wider mb-2">Navigation</div>
-        <ul class="space-y-1.5 text-white/60">
-          <li><a href="../../" class="hover:text-white transition">Home</a></li>
-          <li><a href="../../#llaveros" class="hover:text-white transition">Portachiavi</a></li>
-          <li><a href="../../camaras/" class="hover:text-white transition">Telecamere Campo</a></li>
-          <li><a href="../../blog/" class="hover:text-white transition">Blog</a></li>
-          <li><a href="../../franquicias-padel/" class="hover:text-white transition">Club e Franchigie</a></li>
-        </ul>
+
+      <nav aria-label="Estructura y Silos SEO de CoolPadel" class="grid grid-cols-2 lg:grid-cols-4 gap-8 text-left">
+        <div class="space-y-3">
+          <div class="font-heading font-black text-sm uppercase tracking-wider text-white">Soluciones B2B</div>
+          <ul class="space-y-2 text-white/80 font-normal">
+            <li><a href="/llaveros-padel-personalizados/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Llaveros de Pádel 3D</a></li>
+            <li><a href="/llaveros-tenis-personalizados/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Llaveros de Tenis</a></li>
+            <li><a href="/welcome-packs-torneos-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Welcome Packs para Torneos</a></li>
+            <li><a href="/camaras/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Cámaras Save my Play</a></li>
+          </ul>
+        </div>
+        <div class="space-y-3">
+          <div class="font-heading font-black text-sm uppercase tracking-wider text-white">Herramientas</div>
+          <ul class="space-y-2 text-white/80 font-normal">
+            <li><a href="/herramientas/generador-americana-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Generador de Americana</a></li>
+            <li><a href="/herramientas/generador-cuadros-torneo-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Sorteo de Cuadros</a></li>
+            <li><a href="/herramientas/calculadora-coste-pistas-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Calculadora Coste Pistas</a></li>
+            <li><a href="/herramientas/calculadora-roi-camaras-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Calculadora ROI Cámaras</a></li>
+          </ul>
+        </div>
+        <div class="space-y-3">
+          <div class="font-heading font-black text-sm uppercase tracking-wider text-white">Ecosistema</div>
+          <ul class="space-y-2 text-white/80 font-normal">
+            <li><a href="/franquicias-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Cadenas de Clubs</a></li>
+            <li><a href="/blog/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Blog & Newsletter</a></li>
+            <li><a href="/blog/highlights-03/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Highlights #03</a></li>
+          </ul>
+        </div>
+        <div class="space-y-3">
+          <div class="font-heading font-black text-sm uppercase tracking-wider text-white">Legal & Contacto</div>
+          <p class="text-white/80">Javier Villoria Soleto<br>Chamartín, Madrid<br>WhatsApp: +34 680 31 74 86</p>
+        </div>
+      </nav>
+      <div class="border-t border-white/20 pt-6 text-center text-white/60">
+        <p>© 2026 CoolPadel. Todos los derechos reservados.</p>
       </div>
-      <div>
-        <div class="font-heading font-bold text-white uppercase tracking-wider mb-2">Lingue</div>
-        <ul class="space-y-1.5 text-white/60">
-          <li><a href="/welcome-packs-torneos-padel/" class="hover:text-white transition">Español (ES)</a></li>
-          <li><a href="/en/welcome-packs-torneos-padel/" class="hover:text-white transition">English (EN)</a></li>
-          <li><a href="/fr/welcome-packs-torneos-padel/" class="hover:text-white transition">Français (FR)</a></li>
-          <li><a href="/it/welcome-packs-torneos-padel/" class="hover:text-white transition">Italiano (IT)</a></li>
-        </ul>
-      </div>
-      <div>
-        <div class="font-heading font-bold text-white uppercase tracking-wider mb-2">Legale & Contatto</div>
-        <p class="text-white/60">Javier Villoria Soleto</p>
-        <p class="text-white/60">Chamartín, 28036 Madrid</p>
-        <p class="text-white/60">WhatsApp: +34 680 31 74 86</p>
-      </div>
-    </div>
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-t border-slate-800/80 pt-6 text-center text-white/40">
-      <p>© 2026 CoolPadel Studios · Produttore Diretto B2B di Portachiavi Padel e Tennis in Gomma 3D · Madrid, Spagna</p>
     </div>
   </footer>
 
@@ -608,6 +606,6 @@
       lucide.createIcons();
     }
   </script>
-  <script src="/assets/js/cp-analytics.js?v=20261020b" defer></script>
+  <script src="/assets/js/cp-analytics.js" defer></script>
 </body>
 </html>

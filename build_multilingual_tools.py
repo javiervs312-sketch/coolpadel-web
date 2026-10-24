@@ -128,9 +128,7 @@ def get_tool_footer(lang):
           <img src="{prefix}assets/images/coolpadel-mascot-hd.png" alt="CoolPadel Mascota" width="60" height="60" class="h-10 sm:h-12 w-auto object-contain drop-shadow-sm" loading="lazy">
           <img src="{prefix}assets/images/coolpadel-typography-hd.png" alt="CoolPadel" width="160" height="32" class="h-5 sm:h-6 w-auto object-contain drop-shadow-sm" loading="lazy">
         </div>
-        <p class="text-white/80 text-xs text-center sm:text-right max-w-md font-medium">
-          {desc}
-        </p>
+        
       </div>
 
       <div class="pt-8 border-t border-white/20 flex flex-col sm:flex-row items-center justify-between gap-3 text-white/75 text-center sm:text-left">
@@ -162,9 +160,9 @@ def build_roi_page(lang):
               "text": "{item['a']}"
             }}
           }}''' for item in d["faqs"]]
-    faqs_cards_html = [f'''          <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 space-y-2">
-            <h3 class="text-sm font-bold text-white">{item['q']}</h3>
-            <p class="text-xs text-slate-400 leading-relaxed">{item['a']}</p>
+    faqs_cards_html = [f'''          <div class="bg-white border border-slate-200/90 rounded-2xl p-5 space-y-2 text-slate-900 shadow-xs">
+            <h3 class="text-sm font-bold text-slate-950">{item['q']}</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">{item['a']}</p>
           </div>''' for item in d["faqs"]]
 
     pistas_word = {"es": "pistas", "en": "courts", "fr": "pistes", "it": "campi"}[lang]
@@ -273,7 +271,7 @@ def build_roi_page(lang):
     }})(window, document, "clarity", "script", "q7p8g52y9e");
   </script>
 </head>
-<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col selection:bg-[#f2920b] selection:text-slate-950">
+<body class="bg-slate-50 text-slate-900 min-h-screen flex flex-col selection:bg-[#f2920b] selection:text-slate-950">
 
 {get_tool_header(lang, slug, bc_current)}
 
@@ -295,7 +293,7 @@ def build_roi_page(lang):
       </div>
 
       <!-- CALCULADORA INTERACTIVA -->
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start bg-slate-900 border border-slate-800 rounded-3xl p-6 sm:p-10 shadow-2xl">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start bg-white border border-slate-200/90 rounded-3xl p-6 sm:p-10 shadow-lg text-slate-900">
 
         <!-- PANEL IZQUIERDO -->
         <div class="lg:col-span-7 space-y-6">
@@ -308,7 +306,7 @@ def build_roi_page(lang):
           <div class="space-y-2">
             <div class="flex justify-between items-center">
               <label class="text-xs sm:text-sm font-bold text-slate-200">{d['label_pistas']}</label>
-              <span id="label-pistas" class="text-base sm:text-lg font-black text-[#f2920b] font-heading bg-slate-800 px-3 py-0.5 rounded-lg">4 {pistas_word}</span>
+              <span id="label-pistas" class="text-base sm:text-lg font-black text-[#f2920b] font-heading bg-slate-100 px-3 py-0.5 rounded-lg">4 {pistas_word}</span>
             </div>
             <input type="range" id="input-pistas" min="1" max="16" value="4" class="w-full h-2 bg-slate-800 rounded-lg cursor-pointer">
             <div class="flex justify-between text-[10px] text-slate-500 font-bold">
@@ -335,7 +333,7 @@ def build_roi_page(lang):
                 <p class="text-[11px] text-slate-300 mt-1">{d['plan_b_desc']}</p>
               </button>
 
-              <button type="button" id="btn-plan-a" onclick="selectPlan('A')" class="p-3.5 rounded-2xl border border-slate-700 bg-slate-800/40 text-left hover:border-slate-600 transition flex flex-col justify-between cursor-pointer">
+              <button type="button" id="btn-plan-a" onclick="selectPlan('A')" class="p-3.5 rounded-2xl border border-slate-200 bg-slate-50 text-left hover:border-[#f2920b] text-slate-900 transition flex flex-col justify-between cursor-pointer">
                 <div class="flex items-center justify-between">
                   <span class="text-xs font-black uppercase text-slate-300">{d['plan_a_tag']}</span>
                   <i data-lucide="circle" class="w-4 h-4 text-slate-500"></i>
@@ -353,7 +351,7 @@ def build_roi_page(lang):
           <div class="space-y-2 pt-2">
             <div class="flex justify-between items-center">
               <label class="text-xs sm:text-sm font-bold text-slate-200">{d['label_precio']}</label>
-              <span id="label-precio" class="text-base sm:text-lg font-black text-white font-heading bg-slate-800 px-3 py-0.5 rounded-lg">26 € / h</span>
+              <span id="label-precio" class="text-base sm:text-lg font-black text-slate-950 font-heading bg-slate-100 px-3 py-0.5 rounded-lg">26 € / h</span>
             </div>
             <input type="range" id="input-precio" min="16" max="44" step="2" value="26" class="w-full h-2 bg-slate-800 rounded-lg cursor-pointer">
             <div class="flex justify-between text-[10px] text-slate-500 font-bold">
@@ -368,7 +366,7 @@ def build_roi_page(lang):
           <div class="space-y-2 pt-2">
             <div class="flex justify-between items-center">
               <label class="text-xs sm:text-sm font-bold text-slate-200">{d['label_horas_valle']}</label>
-              <span id="label-horas-valle" class="text-base sm:text-lg font-black text-emerald-400 font-heading bg-slate-800 px-3 py-0.5 rounded-lg">+4 h / {mes_word}</span>
+              <span id="label-horas-valle" class="text-base sm:text-lg font-black text-emerald-600 font-heading bg-slate-100 px-3 py-0.5 rounded-lg">+4 h / {mes_word}</span>
             </div>
             <input type="range" id="input-horas-valle" min="1" max="15" value="4" class="w-full h-2 bg-slate-800 rounded-lg cursor-pointer">
             <p class="text-[11px] text-slate-400">{d['horas_valle_desc']}</p>
@@ -378,7 +376,7 @@ def build_roi_page(lang):
           <div class="space-y-2 pt-2">
             <div class="flex justify-between items-center">
               <label class="text-xs sm:text-sm font-bold text-slate-200">{d['label_sponsor']}</label>
-              <span id="label-sponsor" class="text-base sm:text-lg font-black text-white font-heading bg-slate-800 px-3 py-0.5 rounded-lg">30 € / {mes_word} / {pista_sing}</span>
+              <span id="label-sponsor" class="text-base sm:text-lg font-black text-slate-950 font-heading bg-slate-100 px-3 py-0.5 rounded-lg">30 € / {mes_word} / {pista_sing}</span>
             </div>
             <input type="range" id="input-sponsor" min="0" max="100" step="10" value="30" class="w-full h-2 bg-slate-800 rounded-lg cursor-pointer">
             <p class="text-[11px] text-slate-400">{d['sponsor_desc']}</p>
@@ -408,13 +406,13 @@ def build_roi_page(lang):
               <strong id="out-ingresos-extra" class="text-emerald-400 font-black font-heading text-base sm:text-lg">+536 € / {mes_word}</strong>
             </div>
 
-            <div class="bg-slate-950/80 border border-emerald-500/40 rounded-2xl p-5 text-center space-y-1">
+            <div class="bg-emerald-50 border border-emerald-300 text-slate-900 rounded-2xl p-5 text-center space-y-1">
               <span class="text-xs uppercase font-extrabold text-slate-400 tracking-wider">{d['out_beneficio_badge']}</span>
               <div id="out-beneficio-neto" class="text-3xl sm:text-4xl font-black font-heading text-emerald-400">+356 € / {mes_word}</div>
               <p class="text-[11px] text-slate-400">{d['out_beneficio_desc']}</p>
             </div>
 
-            <div class="bg-slate-800/80 rounded-xl p-3.5 border border-slate-700 space-y-1 text-center">
+            <div class="bg-slate-50 rounded-xl p-3.5 border border-slate-200 text-slate-900 space-y-1 text-center">
               <span class="text-[11px] font-bold text-slate-400">{d['out_amortizar_q']}</span>
               <div class="text-sm font-black text-white font-heading">
                 {d['out_amortizar_prefix']} <span id="out-horas-amortizar" class="text-[#f2920b]">1,7 {d['out_amortizar_suffix']}</span>
@@ -471,7 +469,7 @@ def build_roi_page(lang):
         btnB.querySelector('i').setAttribute('data-lucide', 'check-circle');
         btnB.querySelector('i').className = "w-4 h-4 text-sky-400";
         
-        btnA.className = "p-3.5 rounded-2xl border border-slate-700 bg-slate-800/40 text-left hover:border-slate-600 transition flex flex-col justify-between cursor-pointer";
+        btnA.className = "p-3.5 rounded-2xl border border-slate-200 bg-slate-50 text-left hover:border-[#f2920b] text-slate-900 transition flex flex-col justify-between cursor-pointer";
         btnA.querySelector('i').setAttribute('data-lucide', 'circle');
         btnA.querySelector('i').className = "w-4 h-4 text-slate-500";
       }} else {{
@@ -479,7 +477,7 @@ def build_roi_page(lang):
         btnA.querySelector('i').setAttribute('data-lucide', 'check-circle');
         btnA.querySelector('i').className = "w-4 h-4 text-orange-400";
 
-        btnB.className = "p-3.5 rounded-2xl border border-slate-700 bg-slate-800/40 text-left hover:border-slate-600 transition flex flex-col justify-between cursor-pointer";
+        btnB.className = "p-3.5 rounded-2xl border border-slate-200 bg-slate-50 text-left hover:border-[#f2920b] text-slate-900 transition flex flex-col justify-between cursor-pointer";
         btnB.querySelector('i').setAttribute('data-lucide', 'circle');
         btnB.querySelector('i').className = "w-4 h-4 text-slate-500";
       }}
@@ -558,9 +556,9 @@ def build_costes_page(lang):
               "text": "{item['a']}"
             }}
           }}''' for item in d["faqs"]]
-    faqs_cards_html = [f'''          <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 space-y-2">
-            <h3 class="text-sm font-bold text-white">{item['q']}</h3>
-            <p class="text-xs text-slate-400 leading-relaxed">{item['a']}</p>
+    faqs_cards_html = [f'''          <div class="bg-white border border-slate-200/90 rounded-2xl p-5 space-y-2 text-slate-900 shadow-xs">
+            <h3 class="text-sm font-bold text-slate-950">{item['q']}</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">{item['a']}</p>
           </div>''' for item in d["faqs"]]
 
     camaras_url = "../../camaras/" if is_es else f"../../../{lang}/camaras/"
@@ -663,7 +661,7 @@ def build_costes_page(lang):
     }})(window, document, "clarity", "script", "q7p8g52y9e");
   </script>
 </head>
-<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col selection:bg-[#f2920b] selection:text-slate-950">
+<body class="bg-slate-50 text-slate-900 min-h-screen flex flex-col selection:bg-[#f2920b] selection:text-slate-950">
 
 {get_tool_header(lang, slug, bc_current)}
 
@@ -688,7 +686,7 @@ def build_costes_page(lang):
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-12">
 
         <!-- PARÁMETROS (7 COLS) -->
-        <div class="lg:col-span-7 bg-slate-900 border border-slate-800 rounded-3xl p-6 sm:p-8 space-y-6 shadow-2xl">
+        <div class="lg:col-span-7 bg-white border border-slate-200/90 rounded-3xl p-6 sm:p-8 space-y-6 shadow-lg text-slate-900">
           <div class="flex items-center justify-between pb-3 border-b border-slate-800">
             <h2 class="font-heading font-black text-lg text-white">{d['s1_title']}</h2>
             <span class="text-xs text-[#f2920b] font-bold">{d['s1_badge']}</span>
@@ -707,7 +705,7 @@ def build_costes_page(lang):
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
             <div>
               <label class="block text-xs font-bold text-slate-300 mb-1.5">{d['label_tipo_pista']}</label>
-              <select id="select-tipo-pista" onchange="actualizarCalculo()" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-3 py-2 text-xs sm:text-sm text-white font-bold focus:border-[#f2920b] outline-none">
+              <select id="select-tipo-pista" onchange="actualizarCalculo()" class="w-full bg-slate-50 border border-slate-300 text-slate-900 rounded-xl px-3 py-2 text-xs sm:text-sm text-white font-bold focus:border-[#f2920b] outline-none">
                 <option value="panoramica" selected>{d['opt_panoramica']}</option>
                 <option value="estandar">{d['opt_estandar']}</option>
                 <option value="superpanoramica">{d['opt_superpanoramica']}</option>
@@ -716,7 +714,7 @@ def build_costes_page(lang):
 
             <div>
               <label class="block text-xs font-bold text-slate-300 mb-1.5">{d['label_solera']}</label>
-              <select id="select-solera" onchange="actualizarCalculo()" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-3 py-2 text-xs sm:text-sm text-white font-bold focus:border-[#f2920b] outline-none">
+              <select id="select-solera" onchange="actualizarCalculo()" class="w-full bg-slate-50 border border-slate-300 text-slate-900 rounded-xl px-3 py-2 text-xs sm:text-sm text-white font-bold focus:border-[#f2920b] outline-none">
                 <option value="nueva" selected>{d['opt_solera_nueva']}</option>
                 <option value="existente">{d['opt_solera_existente']}</option>
               </select>
@@ -727,7 +725,7 @@ def build_costes_page(lang):
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
               <label class="block text-xs font-bold text-slate-300 mb-1.5">{d['label_cesped']}</label>
-              <select id="select-cesped" onchange="actualizarCalculo()" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-3 py-2 text-xs sm:text-sm text-white font-bold focus:border-[#f2920b] outline-none">
+              <select id="select-cesped" onchange="actualizarCalculo()" class="w-full bg-slate-50 border border-slate-300 text-slate-900 rounded-xl px-3 py-2 text-xs sm:text-sm text-white font-bold focus:border-[#f2920b] outline-none">
                 <option value="texturado" selected>{d['opt_cesped_texturado']}</option>
                 <option value="monofilamento">{d['opt_cesped_monofilamento']}</option>
               </select>
@@ -735,7 +733,7 @@ def build_costes_page(lang):
 
             <div>
               <label class="block text-xs font-bold text-slate-300 mb-1.5">{d['label_camaras']}</label>
-              <select id="select-camaras" onchange="actualizarCalculo()" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-3 py-2 text-xs sm:text-sm text-white font-bold focus:border-[#76d3f6] outline-none">
+              <select id="select-camaras" onchange="actualizarCalculo()" class="w-full bg-slate-50 border border-slate-300 text-slate-900 rounded-xl px-3 py-2 text-xs sm:text-sm text-white font-bold focus:border-[#76d3f6] outline-none">
                 <option value="si" selected>{d['opt_camaras_si']}</option>
                 <option value="no">{d['opt_camaras_no']}</option>
               </select>
@@ -798,12 +796,12 @@ def build_costes_page(lang):
               <strong id="out-gastos-totales" class="text-slate-400 font-bold text-base">2.680 € / mes</strong>
             </div>
 
-            <div class="bg-slate-950/80 border border-emerald-500/40 rounded-2xl p-5 text-center space-y-1">
+            <div class="bg-emerald-50 border border-emerald-300 text-slate-900 rounded-2xl p-5 text-center space-y-1">
               <span class="text-xs uppercase font-extrabold text-slate-400 tracking-wider">{d['out_beneficio_neto']}</span>
               <div id="out-beneficio-neto" class="text-3xl sm:text-4xl font-black font-heading text-emerald-400">+10.280 € / mes</div>
             </div>
 
-            <div class="bg-slate-800/80 rounded-xl p-4 border border-slate-700 space-y-1 text-center">
+            <div class="bg-slate-50 rounded-xl p-4 border border-slate-200 text-slate-900 space-y-1 text-center">
               <span class="text-xs font-bold text-slate-400">{d['out_payback_label']}</span>
               <div class="text-lg font-black text-[#f2920b] font-heading">
                 <span id="out-meses-amortizacion">15</span> {d['out_payback_suffix']}
