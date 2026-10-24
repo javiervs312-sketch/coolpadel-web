@@ -207,6 +207,8 @@ def build_roi_page(lang):
             <h3 class="text-sm font-bold text-slate-950">{item['q']}</h3>
             <p class="text-xs text-slate-600 leading-relaxed font-medium">{item['a']}</p>
           </div>''' for item in d["faqs"]]
+    faqs_schema_json = ',\n'.join(faqs_schema_items)
+    faqs_cards_joined = '\n'.join(faqs_cards_html)
 
     pistas_word = {"es": "pistas", "en": "courts", "fr": "pistes", "it": "campi"}[lang]
     pista_sing = {"es": "pista", "en": "court", "fr": "piste", "it": "campo"}[lang]
@@ -299,8 +301,7 @@ def build_roi_page(lang):
       {{
         "@type": "FAQPage",
         "mainEntity": [
-{',
-'.join(faqs_schema_items)}
+{faqs_schema_json}
         ]
       }}
     ]
@@ -479,7 +480,7 @@ def build_roi_page(lang):
       <section class="mt-16 border-t border-slate-200 pt-12 space-y-6">
         <h2 class="text-2xl font-black font-heading text-slate-950">{d['faq_title']}</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-{chr(10).join(faqs_cards_html)}
+{faqs_cards_joined}
         </div>
       </section>
 
@@ -632,6 +633,8 @@ def build_costes_page(lang):
             <h3 class="text-sm font-bold text-slate-950">{item['q']}</h3>
             <p class="text-xs text-slate-600 leading-relaxed font-medium">{item['a']}</p>
           </div>''' for item in d["faqs"]]
+    faqs_schema_json = ',\n'.join(faqs_schema_items)
+    faqs_cards_joined = '\n'.join(faqs_cards_html)
 
     camaras_url = "../../save-my-play/" if is_es else f"../../../{lang}/save-my-play/"
 
@@ -722,8 +725,7 @@ def build_costes_page(lang):
       {{
         "@type": "FAQPage",
         "mainEntity": [
-{',
-'.join(faqs_schema_items)}
+{faqs_schema_json}
         ]
       }}
     ]
@@ -906,7 +908,7 @@ def build_costes_page(lang):
       <section class="border-t border-slate-200 pt-12 space-y-6">
         <h2 class="text-2xl font-black font-heading text-slate-950">FAQ</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-{chr(10).join(faqs_cards_html)}
+{faqs_cards_joined}
         </div>
       </section>
 
