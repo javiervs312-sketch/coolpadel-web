@@ -6,6 +6,13 @@
   <title>Padel People (España) | Franquicia de Pádel</title>
   <meta name="description" content="Padel People (España): 2 centros con el mismo nombre, 14+ pistas, reservas en Playtomic, modelo Cadena Multiclub e inversión para clubes de pádel.">
   <link rel="canonical" href="https://coolpadelstudios.com/franquicias-padel/padel-people-madrid/">
+
+  <!-- SEO Multilingüe Hreflang -->
+  <link rel="alternate" hreflang="es" href="https://coolpadelstudios.com/franquicias-padel/padel-people-madrid/">
+  <link rel="alternate" hreflang="en" href="https://coolpadelstudios.com/en/franquicias-padel/padel-people-madrid/">
+  <link rel="alternate" hreflang="fr" href="https://coolpadelstudios.com/fr/franquicias-padel/padel-people-madrid/">
+  <link rel="alternate" hreflang="it" href="https://coolpadelstudios.com/it/franquicias-padel/padel-people-madrid/">
+  <link rel="alternate" hreflang="x-default" href="https://coolpadelstudios.com/franquicias-padel/padel-people-madrid/">
   <meta name="language" content="es">
 
   <!-- Open Graph -->
@@ -135,33 +142,6 @@
       background-position: center;
     }
   </style>
-  <!-- Google Analytics 4 -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-3FY3DTNN21"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-3FY3DTNN21');
-    // Eventos clave (leads): WhatsApp, email, teléfono, demo, dossier
-    document.addEventListener('click', function (e) {
-      try {
-        var a = e.target.closest && e.target.closest('a, button');
-        if (!a) return;
-        var href = (a.getAttribute('href') || '').toLowerCase();
-        var txt = (a.innerText || '').replace(/\s+/g, ' ').trim().slice(0, 60);
-        var p = { link_text: txt, link_url: href, page_path: location.pathname };
-        if (href.indexOf('wa.me') > -1 || href.indexOf('whatsapp.com') > -1) gtag('event', 'click_whatsapp', p);
-        else if (href.indexOf('mailto:') === 0) gtag('event', 'click_email', p);
-        else if (href.indexOf('tel:') === 0) gtag('event', 'click_telefono', p);
-        else if (/\.pdf($|\?)/.test(href) || /dossier/i.test(href + ' ' + txt)) gtag('event', 'descarga_dossier', p);
-        else if (/demo|reuni[oó]n|meeting|calendly|agenda|r[eé]serv|prueba gratis|free trial/i.test(href + ' ' + txt)) gtag('event', 'solicitar_demo', p);
-      } catch (err) {}
-    }, { passive: true });
-    document.addEventListener('submit', function (e) {
-      try { gtag('event', 'enviar_formulario', { form_id: (e.target && (e.target.id || e.target.name)) || '', page_path: location.pathname }); } catch (err) {}
-    }, true);
-  </script>
-  <!-- /GA4 -->
 </head>
 <body class="bg-textured-blue text-slate-900 antialiased selection:bg-[#f2920b] selection:text-slate-950 min-h-screen flex flex-col">
 
@@ -646,6 +626,6 @@
   <script>
     lucide.createIcons();
   </script>
-  <script src="/assets/js/cp-analytics.js?v=20261020b" defer></script>
+  <script src="/assets/js/cp-analytics.js" defer></script>
 </body>
 </html>
