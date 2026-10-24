@@ -2014,7 +2014,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
 
   <!-- 5. SECCIÓN DETALLADA: LLAVEROS PARA CLUBS (FONDO CELESTE #3478a6 CON TEXTURA CANVA) -->
 
-  <section id="llaveros" class="py-6 sm:py-8 lg:py-10 bg-[#3478a6] bg-textured-blue relative z-20 border-b border-sky-700/40 text-white overflow-hidden">
+  <section id="llaveros" class="py-5 sm:py-7 lg:py-8 bg-[#3478a6] bg-textured-blue relative z-20 border-b border-sky-700/40 text-white overflow-hidden">
 
     <!-- GEO & Generative AI Semantic Block (Invisible visually, accessible to Screen Readers and AI Crawlers) -->
 
@@ -2032,7 +2032,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
 
       <!-- CABECERA DE SECCIÓN LLAVEROS (COMPACTA) -->
 
-      <div class="max-w-3xl mx-auto text-center space-y-1 mb-4 sm:mb-6">
+      <div class="max-w-3xl mx-auto text-center space-y-1 mb-3 sm:mb-4">
 
         <h2 data-i18n="llaveros_title" class="text-xl sm:text-3xl lg:text-4xl font-black font-heading text-white uppercase tracking-tight leading-tight">
 
@@ -2050,41 +2050,41 @@ def get_base_html(active_lang="es", is_subfolder=False):
 
 
 
-      <!-- 1. TARJETAS TENIS Y PÁDEL (LADO A LADO, ALTAMENTE CLICABLES CON EFECTO GLOW) -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-6 mb-6 sm:mb-8">
+      <!-- 1. TARJETAS TENIS Y PÁDEL (LADO A LADO, COMPACTAS, ALTAMENTE CLICABLES CON EFECTO GLOW) -->
+      <div class="grid grid-cols-2 gap-2.5 sm:gap-5 mb-4 sm:mb-6">
         
         <!-- CARD IZQUIERDA: TENIS -->
-        <a href="llaveros-tenis-personalizados/" class="relative overflow-hidden cursor-pointer bg-slate-50/90 hover:bg-white border-2 border-slate-200/90 hover:border-[#f2920b] hover:ring-4 hover:ring-[#f2920b]/25 hover:shadow-[0_16px_40px_rgba(0,0,0,0.2)] hover:scale-[1.015] active:scale-[0.98] transition-all duration-300 rounded-3xl p-4 sm:p-6 flex flex-col justify-between group">
+        <a href="llaveros-tenis-personalizados/" class="relative overflow-hidden cursor-pointer bg-slate-50/90 hover:bg-white border-2 border-slate-200/90 hover:border-[#f2920b] hover:ring-4 hover:ring-[#f2920b]/25 hover:shadow-[0_16px_40px_rgba(0,0,0,0.2)] hover:scale-[1.015] active:scale-[0.98] transition-all duration-300 rounded-2xl sm:rounded-3xl p-2.5 sm:p-5 flex flex-col justify-between group">
           <div class="flex-1 flex flex-col justify-center">
-            <div class="rounded-2xl overflow-hidden shadow-sm border border-slate-200/90 bg-slate-100 my-auto">
-              <img src="{asset_prefix}assets/images/llaveros-tenis-personalizados-clubs.jpg?v=16" alt="Llaveros de tenis y pádel personalizados con relieve 3D para clubs y torneos" width="1024" height="640" class="w-full h-auto block group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
+            <div class="rounded-xl sm:rounded-2xl overflow-hidden shadow-sm border border-slate-200/90 bg-slate-100 my-auto aspect-[16/11] sm:aspect-[16/10]">
+              <img src="{asset_prefix}assets/images/llaveros-tenis-personalizados-clubs.jpg?v=16" alt="Llaveros de tenis y pádel personalizados con relieve 3D para clubs y torneos" width="1024" height="640" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
             </div>
           </div>
-          <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between">
-            <h3 data-i18n="card_tenis" class="font-heading font-black text-sm sm:text-base lg:text-lg uppercase tracking-tight text-slate-950 group-hover:text-[#f2920b] transition">
+          <div class="mt-2 pt-1.5 sm:mt-3 sm:pt-3 border-t border-slate-100 flex items-center justify-between gap-1">
+            <h3 data-i18n="card_tenis" class="font-heading font-black text-xs sm:text-base lg:text-lg uppercase tracking-tight text-slate-950 group-hover:text-[#f2920b] transition truncate">
               {t['card_tenis']}
             </h3>
-            <span class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-slate-100 group-hover:bg-[#f2920b] text-slate-900 group-hover:text-slate-950 text-xs font-black uppercase tracking-wider transition">
+            <span class="inline-flex items-center gap-1 px-2 py-0.5 sm:px-3 sm:py-1 rounded-full bg-slate-100 group-hover:bg-[#f2920b] text-slate-900 group-hover:text-slate-950 text-[10px] sm:text-xs font-black uppercase tracking-wider transition shrink-0">
               <span>{"Ver modelos" if active_lang=="es" else "View models" if active_lang=="en" else "Voir modèles" if active_lang=="fr" else "Vedi modelli"}</span>
-              <i data-lucide="arrow-right" class="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform"></i>
+              <i data-lucide="arrow-right" class="w-3 h-3 sm:w-3.5 sm:h-3.5 group-hover:translate-x-0.5 transition-transform"></i>
             </span>
           </div>
         </a>
 
         <!-- CARD DERECHA: PADEL -->
-        <a href="llaveros-padel-personalizados/" class="relative overflow-hidden cursor-pointer bg-slate-50/90 hover:bg-white border-2 border-slate-200/90 hover:border-[#f2920b] hover:ring-4 hover:ring-[#f2920b]/25 hover:shadow-[0_16px_40px_rgba(0,0,0,0.2)] hover:scale-[1.015] active:scale-[0.98] transition-all duration-300 rounded-3xl p-4 sm:p-6 flex flex-col justify-between group">
+        <a href="llaveros-padel-personalizados/" class="relative overflow-hidden cursor-pointer bg-slate-50/90 hover:bg-white border-2 border-slate-200/90 hover:border-[#f2920b] hover:ring-4 hover:ring-[#f2920b]/25 hover:shadow-[0_16px_40px_rgba(0,0,0,0.2)] hover:scale-[1.015] active:scale-[0.98] transition-all duration-300 rounded-2xl sm:rounded-3xl p-2.5 sm:p-5 flex flex-col justify-between group">
           <div class="flex-1 flex flex-col justify-center">
-            <div class="rounded-2xl overflow-hidden shadow-sm border border-slate-200/90 bg-slate-100 my-auto">
-              <img src="{asset_prefix}assets/images/llaveros-padel-personalizados-clubs.jpg?v=16" alt="Llaveros de pádel de goma 3D personalizados con logo para clubes de pádel" width="1024" height="737" class="w-full h-auto block group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
+            <div class="rounded-xl sm:rounded-2xl overflow-hidden shadow-sm border border-slate-200/90 bg-slate-100 my-auto aspect-[16/11] sm:aspect-[16/10]">
+              <img src="{asset_prefix}assets/images/llaveros-padel-personalizados-clubs.jpg?v=16" alt="Llaveros de pádel de goma 3D personalizados con logo para clubes de pádel" width="1024" height="737" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
             </div>
           </div>
-          <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between">
-            <h3 data-i18n="card_padel" class="font-heading font-black text-sm sm:text-base lg:text-lg uppercase tracking-tight text-slate-950 group-hover:text-[#f2920b] transition">
+          <div class="mt-2 pt-1.5 sm:mt-3 sm:pt-3 border-t border-slate-100 flex items-center justify-between gap-1">
+            <h3 data-i18n="card_padel" class="font-heading font-black text-xs sm:text-base lg:text-lg uppercase tracking-tight text-slate-950 group-hover:text-[#f2920b] transition truncate">
               {t['card_padel']}
             </h3>
-            <span class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-slate-100 group-hover:bg-[#f2920b] text-slate-900 group-hover:text-slate-950 text-xs font-black uppercase tracking-wider transition">
+            <span class="inline-flex items-center gap-1 px-2 py-0.5 sm:px-3 sm:py-1 rounded-full bg-slate-100 group-hover:bg-[#f2920b] text-slate-900 group-hover:text-slate-950 text-[10px] sm:text-xs font-black uppercase tracking-wider transition shrink-0">
               <span>{"Ver modelos" if active_lang=="es" else "View models" if active_lang=="en" else "Voir modèles" if active_lang=="fr" else "Vedi modelli"}</span>
-              <i data-lucide="arrow-right" class="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform"></i>
+              <i data-lucide="arrow-right" class="w-3 h-3 sm:w-3.5 sm:h-3.5 group-hover:translate-x-0.5 transition-transform"></i>
             </span>
           </div>
         </a>
@@ -2092,7 +2092,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
       </div>
 
       <!-- 2. CALCULADORA DE PRESUPUESTO OFICIAL (DEBAJO, CENTRADA Y PROMINENTE) -->
-      <div class="max-w-4xl mx-auto w-full bg-white rounded-3xl p-5 sm:p-8 border border-white/60 shadow-xl text-slate-950 flex flex-col justify-between">
+      <div class="max-w-4xl mx-auto w-full bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-6 border border-white/60 shadow-xl text-slate-950 flex flex-col justify-between">
         <div class="text-center sm:text-left mb-2">
 
             <h3 data-i18n="calc_title" class="text-base sm:text-xl font-black font-heading text-slate-950">
@@ -2313,14 +2313,14 @@ def get_base_html(active_lang="es", is_subfolder=False):
 
 
   <!-- SECCIÓN SAVE MY PLAY: CÁMARAS CON IA PARA PISTAS DE PÁDEL (FONDO VERDE OFICIAL #4bbb81) -->
-  <section id="camaras" class="py-12 sm:py-16 bg-[#4bbb81] relative border-b border-emerald-600/30 overflow-hidden text-slate-900 scroll-mt-20">
+  <section id="camaras" class="py-6 sm:py-8 lg:py-10 bg-[#4bbb81] relative border-b border-emerald-600/30 overflow-hidden text-slate-900 scroll-mt-20">
     <div class="absolute inset-0 bg-gradient-to-b from-black/5 via-transparent to-black/10 pointer-events-none"></div>
 
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
       
       <!-- CABECERA DE SECCIÓN -->
-      <div class="max-w-3xl mx-auto text-center space-y-2 sm:space-y-3 mb-8 sm:mb-12">
-        <div class="inline-flex items-center gap-2 text-slate-950 text-xs font-black tracking-wider uppercase mb-1">
+      <div class="max-w-3xl mx-auto text-center space-y-1.5 sm:space-y-2 mb-4 sm:mb-6">
+        <div class="inline-flex items-center gap-2 text-slate-950 text-xs font-black tracking-wider uppercase mb-0.5">
           <i data-lucide="video" class="w-3.5 h-3.5"></i>
           <span>Partner Oficial Save my Play · +1.500 Pistas</span>
         </div>
@@ -2332,28 +2332,28 @@ def get_base_html(active_lang="es", is_subfolder=False):
         </p>
       </div>
 
-      <!-- 3 FOTOS EN FILA CON BORDE NEGRO Y SOMBRA 3D -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6 lg:gap-8 max-w-6xl sm:max-w-7xl mx-auto mb-10 sm:mb-12">
+      <!-- 3 FOTOS EN FILA CON BORDE NEGRO Y SOMBRA 3D (COMPACTAS) -->
+      <div class="grid grid-cols-3 gap-2 sm:gap-4 lg:gap-6 max-w-5xl mx-auto mb-4 sm:mb-6">
         
         <!-- FOTO 1 -->
-        <div class="rounded-3xl overflow-hidden shadow-[0_15px_35px_-10px_rgba(0,0,0,0.5)] transition-all duration-300 group border-2 border-slate-900 bg-slate-800 hover:-translate-y-1">
-          <div class="relative aspect-[16/10] overflow-hidden">
+        <div class="rounded-xl sm:rounded-2xl overflow-hidden shadow-md transition-all duration-300 group border-2 border-slate-900 bg-slate-800 hover:-translate-y-0.5">
+          <div class="relative aspect-[4/3] sm:aspect-[16/10] overflow-hidden">
             <img src="{asset_prefix}assets/images/savemyplay-1.jpg" alt="Cámara Save my Play grabando partido en pista de pádel" width="600" height="375" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" decoding="async">
             <div class="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent"></div>
           </div>
         </div>
 
         <!-- FOTO 2 -->
-        <div class="rounded-3xl overflow-hidden shadow-[0_15px_35px_-10px_rgba(0,0,0,0.5)] transition-all duration-300 group border-2 border-slate-900 bg-slate-800 hover:-translate-y-1">
-          <div class="relative aspect-[16/10] overflow-hidden">
+        <div class="rounded-xl sm:rounded-2xl overflow-hidden shadow-md transition-all duration-300 group border-2 border-slate-900 bg-slate-800 hover:-translate-y-0.5">
+          <div class="relative aspect-[4/3] sm:aspect-[16/10] overflow-hidden">
             <img src="{asset_prefix}assets/images/savemyplay-2.jpg" alt="Jugadores de pádel usando la app Save my Play para ver repeticiones" width="600" height="375" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" decoding="async">
             <div class="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent"></div>
           </div>
         </div>
 
         <!-- FOTO 3 -->
-        <div class="rounded-3xl overflow-hidden shadow-[0_15px_35px_-10px_rgba(0,0,0,0.5)] transition-all duration-300 group border-2 border-slate-900 bg-slate-800 hover:-translate-y-1">
-          <div class="relative aspect-[16/10] overflow-hidden">
+        <div class="rounded-xl sm:rounded-2xl overflow-hidden shadow-md transition-all duration-300 group border-2 border-slate-900 bg-slate-800 hover:-translate-y-0.5">
+          <div class="relative aspect-[4/3] sm:aspect-[16/10] overflow-hidden">
             <img src="{asset_prefix}assets/images/savemyplay-3.jpg" alt="Pista panorámica con sistema de vídeo inteligente Save my Play" width="600" height="375" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" decoding="async">
             <div class="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent"></div>
           </div>
@@ -2362,10 +2362,10 @@ def get_base_html(active_lang="es", is_subfolder=False):
       </div>
 
       <!-- BOTÓN CONTACTAR SAVE MY PLAY ÚNICO Y CENTRADO -->
-      <div class="text-center pt-2 pb-2">
+      <div class="text-center pt-1 pb-1">
         <a id="smp-contact-btn" href="https://wa.me/34680317486?text={wa_prefilled_encoded}" 
            target="_blank" rel="noopener noreferrer"
-           class="group relative inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] active:bg-[#76d3f6] text-slate-950 active:scale-95 font-heading font-black text-sm uppercase tracking-wider transition-all duration-300 shadow-xl hover:scale-105 overflow-hidden cursor-pointer">
+           class="group relative inline-flex items-center justify-center gap-2.5 px-7 py-3 sm:px-8 sm:py-3.5 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] active:bg-[#76d3f6] text-slate-950 active:scale-95 font-heading font-black text-sm uppercase tracking-wider transition-all duration-300 shadow-xl hover:scale-105 overflow-hidden cursor-pointer">
           <span data-i18n="smp_btn" class="font-black">{t['smp_btn']}</span>
           <div class="w-6 h-6 rounded-full bg-slate-950/10 group-hover:bg-slate-950 group-hover:text-white flex items-center justify-center transition-all duration-300">
             <i data-lucide="arrow-down" class="w-3.5 h-3.5 stroke-[3] group-hover:translate-y-0.5 transition-transform duration-300"></i>
