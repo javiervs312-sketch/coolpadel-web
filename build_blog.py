@@ -1405,6 +1405,42 @@ def generate_blog_index():
     print("  [OK] coolpadel-web/blog/index.html")
 
 ALL_ARTICLES_CATALOG = {
+    "expansion-padel-estados-unidos-oportunidad-clubes-marcas": {
+        "title": "La Expansión del Pádel en Estados Unidos: Radiografía 2026, Retos y Oportunidades",
+        "badge": "Mercado USA & Crecimiento",
+        "url": "../expansion-padel-estados-unidos-oportunidad-clubes-marcas/",
+        "img": "gallery-padel-1.jpg",
+        "desc": "Análisis del mercado estadounidense (+1.112 pistas en 38 estados): modelo premium, costes de alquiler y desembarco europeo."
+    },
+    "proceso-artesanal-fabricacion-llaveros-3d-personalizados-clubs": {
+        "title": "Por Qué Huir del Merchandising Plano: El Proceso Artesanal del Siglo XXI en Goma 3D",
+        "badge": "Artesanía 3D & Identidad",
+        "url": "../proceso-artesanal-fabricacion-llaveros-3d-personalizados-clubs/",
+        "img": "llaveros-corazon-pista.jpg",
+        "desc": "Frente al producto plano de catálogo importado: molde a medida, colores Pantone reales y relieve táctil que une a tu comunidad."
+    },
+    "pickleball-vs-padel-oportunidad-o-amenaza-clubs": {
+        "title": "Pickleball vs Pádel en Clubes de Raqueta: ¿Enemigos o Aliados Estratégicos?",
+        "badge": "Estrategia Multirraqueta",
+        "url": "../pickleball-vs-padel-oportunidad-o-amenaza-clubs/",
+        "img": "gallery-padel-3.jpg",
+        "desc": "El 43,9% de clubes multideporte en EE.UU. combinan ambos deportes. Cómo crear el jugador híbrido y maximizar rentabilidad por metro cuadrado."
+    },
+    "modelos-club-padel-americano-lifestyle-servicios-adicionales": {
+        "title": "Del Alquiler de Pistas al Padel Lifestyle: El Modelo de Club Americano y Bienestar",
+        "badge": "Gestión & Padel Lifestyle",
+        "url": "../modelos-club-padel-americano-lifestyle-servicios-adicionales/",
+        "img": "foto-reportaje.jpg",
+        "desc": "Coworking, saunas, clínicas de recuperación y sinergias con marcas premium. Por qué alquilar pistas ya no basta para retener al socio."
+    },
+    "como-acertar-stand-feria-padel-pws-racquetx-roi": {
+        "title": "¿Merece la Pena un Stand en Ferias de Pádel? Guía de Rentabilidad para el PWS y RacquetX",
+        "badge": "Ferias B2B & ROI",
+        "url": "../como-acertar-stand-feria-padel-pws-racquetx-roi/",
+        "img": "slide-1.jpg",
+        "desc": "De 3.000 € a más de 10.000 € en 3 días: qué stands triunfan, errores de diseño 'fuerte romano' y cómo rentabilizar tu inversión."
+    },
+
     "barometro-camaras-padel-2026": {
         "title": "Barómetro de Cámaras y Digitalización en Clubes de Pádel 2026: Datos de +4.800 Pistas",
         "badge": "Barómetro Oficial · 2026",
@@ -1520,6 +1556,12 @@ ALL_ARTICLES_CATALOG = {
 }
 
 RELATED_SLUGS_MAP = {
+    "expansion-padel-estados-unidos-oportunidad-clubes-marcas": ["pickleball-vs-padel-oportunidad-o-amenaza-clubs", "modelos-club-padel-americano-lifestyle-servicios-adicionales", "highlights-03"],
+    "proceso-artesanal-fabricacion-llaveros-3d-personalizados-clubs": ["welcome-pack-torneo-padel-ideas", "vender-llaveros-tienda-club-padel-pro-shop", "regalos-eventos-padel-cenas-socios-llaveros"],
+    "pickleball-vs-padel-oportunidad-o-amenaza-clubs": ["expansion-padel-estados-unidos-oportunidad-clubes-marcas", "smart-courts-pistas-inteligentes-padel-horas-valle", "cuanto-cuesta-montar-pista-padel-presupuesto-rentabilidad"],
+    "modelos-club-padel-americano-lifestyle-servicios-adicionales": ["expansion-padel-estados-unidos-oportunidad-clubes-marcas", "smart-courts-pistas-inteligentes-padel-horas-valle", "como-organizar-torneo-padel-americana-reglas-cuadros"],
+    "como-acertar-stand-feria-padel-pws-racquetx-roi": ["merchandising-ferias-torneos-padel-regalos-marcas", "highlights-01", "expansion-padel-estados-unidos-oportunidad-clubes-marcas"],
+
     "normativa-rgpd-camaras-pistas-padel": ["barometro-camaras-padel-2026", "sistemas-grabacion-pistas-padel-comparativa", "rentabilidad-camaras-pistas-padel"],
     "rentabilidad-camaras-pistas-padel": ["normativa-rgpd-camaras-pistas-padel", "sistemas-grabacion-pistas-padel-comparativa", "barometro-camaras-padel-2026"],
     "sistemas-grabacion-pistas-padel-comparativa": ["normativa-rgpd-camaras-pistas-padel", "barometro-camaras-padel-2026", "rentabilidad-camaras-pistas-padel"],
@@ -1863,6 +1905,47 @@ def generate_article_page(slug, edition_num, title, date_str, read_time, cover_i
     print(f"  [OK] {dest_dir}/index.html")
 
 DOWNLOAD_BOXES = {
+    "expansion-padel-estados-unidos-oportunidad-clubes-marcas": {
+        "badge": "Reporte de Mercado PDF",
+        "title": "Informe Ejecutivo: El Mercado del Pádel en Estados Unidos 2026",
+        "desc": "Datos verificados de pistas por estado, tarifas medias (Peak vs Off-Peak) y modelos operativos indoor. Claves para clubes y marcas en expansión.",
+        "file_url": "../../assets/reports/padel-industry-report-es.pdf",
+        "btn_text": "Descargar Informe USA (PDF)",
+        "wa_msg": "Hola Javier, me interesa el informe de expansión del pádel en Estados Unidos y las oportunidades para marcas"
+    },
+    "proceso-artesanal-fabricacion-llaveros-3d-personalizados-clubs": {
+        "badge": "Muestra Digital y Dossier PDF",
+        "title": "Guía de Fabricación Artesanal 3D y Muestra Digital para tu Club",
+        "desc": "Descubre cómo recreamos tu pala, tu escudo y tus colores Pantone oficiales en relieve de goma 3D inyectada. Solicita un boceto 3D gratuito en 24h.",
+        "file_url": "../../assets/downloads/checklist-organizacion-torneos-padel.pdf",
+        "btn_text": "Descargar Guía y Dossier",
+        "wa_msg": "Hola Javier, quiero un boceto digital de muestra 3D con el logo y colores de nuestro club"
+    },
+    "pickleball-vs-padel-oportunidad-o-amenaza-clubs": {
+        "badge": "Estudio Comparativo PDF",
+        "title": "Guía de Integración Dual Pádel & Pickleball para Clubes",
+        "desc": "Estrategias de dinamización cruzada, ratios de ocupación y calendario de eventos híbridos para convertir jugadores de pickleball al pádel sin canibalizar.",
+        "file_url": "../../assets/downloads/protocolo-smart-court-horas-valle.pdf",
+        "btn_text": "Descargar Guía Multirraqueta",
+        "wa_msg": "Hola Javier, tenemos instalaciones de raqueta y queremos integrar pádel y pickleball con Save my Play y CoolPadel"
+    },
+    "modelos-club-padel-americano-lifestyle-servicios-adicionales": {
+        "badge": "Plantilla Operativa PDF",
+        "title": "Matriz de Servicios Adicionales e Ingresos Post-Partido para Clubes",
+        "desc": "Checklist de amenidades de alto margen: áreas de coworking, cafetería saludable, recuperación física, eventos multidisciplinares y convenios de patrocinio local.",
+        "file_url": "../../assets/downloads/checklist-organizacion-torneos-padel.pdf",
+        "btn_text": "Descargar Matriz Lifestyle",
+        "wa_msg": "Hola Javier, queremos implementar nuevos servicios y experiencia de club premium en nuestras instalaciones"
+    },
+    "como-acertar-stand-feria-padel-pws-racquetx-roi": {
+        "badge": "Checklist para Expositores PDF",
+        "title": "Checklist de Preparación para Ferias de Pádel (PWS, RacquetX)",
+        "desc": "Cronograma de 90 días para ferias B2B: diseño de stand abierto, cálculo de costes (suelo, montaje, viajes), política de regalos y captación de leads en vivo.",
+        "file_url": "../../assets/downloads/checklist-organizacion-torneos-padel.pdf",
+        "btn_text": "Descargar Checklist de Ferias",
+        "wa_msg": "Hola Javier, estamos valorando montar stand en una feria de pádel y me gustaría comentar detalles"
+    },
+
     "rentabilidad-camaras-pistas-padel": {
         "badge": "Plantilla Excel .XLSX",
         "title": "Calculadora de Amortización y ROI de Cámaras en Pistas de Pádel",
@@ -1938,6 +2021,12 @@ DOWNLOAD_BOXES = {
 }
 
 SHORT_SEO_TITLES = {
+    "expansion-padel-estados-unidos-oportunidad-clubes-marcas": "Expansión del Pádel en Estados Unidos 2026 | CoolPadel",
+    "proceso-artesanal-fabricacion-llaveros-3d-personalizados-clubs": "Fabricación Artesanal de Llaveros de Pádel 3D | CoolPadel",
+    "pickleball-vs-padel-oportunidad-o-amenaza-clubs": "Pickleball vs Pádel en Clubes de Raqueta | CoolPadel",
+    "modelos-club-padel-americano-lifestyle-servicios-adicionales": "Padel Lifestyle y Modelo de Club Americano | CoolPadel",
+    "como-acertar-stand-feria-padel-pws-racquetx-roi": "Guía de Stands en Ferias de Pádel (PWS, RacquetX) | CoolPadel",
+
     "highlights-03": "Highlights #03: Crecimiento Industria del Pádel | CoolPadel",
     "highlights-02": "Highlights #02: ¿Pádel Olímpico en 2032? | CoolPadel",
     "highlights-01": "Highlights #01: Startups Padel World Summit 2026 | CoolPadel",
