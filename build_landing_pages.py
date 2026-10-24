@@ -1457,6 +1457,7 @@ def render_landing(landing, lang="es"):
       
       <div class="flex items-center gap-2 sm:gap-4 lg:gap-6">
         <a href="{asset_prefix}#llaveros" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition">{ui['nav_llaveros']}</a>
+        <a href="{asset_prefix}camaras/" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition whitespace-nowrap">{"CAMERAS" if lang=="en" else "CAMÉRAS" if lang=="fr" else "TELECAMERE" if lang=="it" else "CÁMARAS"}</a>
         <a href="{asset_prefix}blog/" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition">{ui['nav_blog']}</a>
         <a href="{asset_prefix}franquicias-padel/" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition">{"Franchises" if lang=="en" else "Franchises" if lang=="fr" else "Franchigie" if lang=="it" else "Cadenas de clubs"}</a>
         

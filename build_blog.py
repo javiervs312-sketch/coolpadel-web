@@ -499,7 +499,7 @@ def generate_blog_index():
           {{
             "@type": "ListItem",
             "position": 13,
-            "name": "Highlights #03: ¿Cómo crece realmente la industria del pádel? [Mercado y Retención]",
+            "name": "Highlights #03: ¿Cómo crece realmente la industria del pádel?",
             "url": "https://coolpadelstudios.com/blog/highlights-03/"
           }},
           {{
@@ -530,144 +530,63 @@ def generate_blog_index():
 <body class="bg-white text-slate-900 min-h-screen relative selection:bg-[#f2920b] selection:text-white flex flex-col justify-between">
 
   <div>
-    <!-- 2. NAVBAR BLANCA IDÉNTICA A LA PRINCIPAL -->
-    <header class="sticky top-0 z-40 bg-white text-slate-900 border-b border-slate-200 shadow-sm w-full">
-      <div class="w-full max-w-[1700px] mx-auto px-3 sm:px-6 lg:px-10 py-1.5 sm:py-0 h-auto sm:h-16 lg:h-18">
+    <!-- CABECERA OFICIAL COOLPADEL (EXACTA A HOME) -->
+    <header class="fixed top-0 left-0 w-full z-50 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-xs w-full">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between">
         
-        <!-- DESKTOP NAVBAR (3 COLUMNAS: IZQUIERDA + CENTRO 100% + DERECHA) -->
-        <div class="hidden sm:grid grid-cols-[1fr_auto_1fr] items-center h-full w-full gap-2 lg:gap-4">
-          
-          <!-- COLUMNA 1: OJOS + LLAVEROS, CÁMARAS PISTAS Y BLOG CENTRADOS ENTRE OJOS Y LOGO -->
-          <div class="flex items-center justify-between min-w-0 h-full">
-            <a href="../" class="group py-1 inline-flex items-center shrink-0">
-              <img src="../assets/images/eyes-thumb.png?v=fixed_eyes" alt="CoolPadel Eyes" width="24" height="24" style="height: 24px; max-height: 24px; width: auto;" class="object-contain group-hover:scale-110 transition duration-300">
-            </a>
-            <div class="flex-1 flex items-center justify-center min-w-0 gap-5 sm:gap-6 lg:gap-9 xl:gap-11 pl-2 sm:pl-4 lg:pl-6">
-              <a href="../#llaveros" class="font-heading font-black text-xs lg:text-[13px] tracking-wider uppercase text-slate-950 hover:text-[#f2920b] transition select-none whitespace-nowrap">
-                Llaveros
+        <!-- LOGO: MASCOTA + TIPOGRAFÍA -->
+        <a href="../" class="flex items-center gap-2 group shrink-0" aria-label="CoolPadel Home">
+          <img src="../assets/images/coolpadel-mascot-hd.png" alt="Mascota CoolPadel" width="44" height="44" class="h-8 sm:h-11 w-auto object-contain group-hover:scale-105 transition" fetchpriority="high">
+          <img src="../assets/images/coolpadel-typography-hd.png" alt="CoolPadel" width="140" height="28" class="h-5 sm:h-7 w-auto object-contain" fetchpriority="high">
+        </a>
+
+        <!-- BLOQUE DE NAVEGACIÓN Y ACCIONES A LA DERECHA (ESTILO EXACTO LANDINGS Y HOME) -->
+        <div class="flex items-center gap-2 sm:gap-4 lg:gap-6">
+          <a href="../#llaveros" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition whitespace-nowrap">LLAVEROS</a>
+          <a href="../camaras/" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition whitespace-nowrap">CÁMARAS</a>
+          <a href="./" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-[#f2920b] transition whitespace-nowrap">Blog</a>
+          <a href="../franquicias-padel/" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition whitespace-nowrap">Cadenas de clubs</a>
+
+          <!-- SELECTOR DE IDIOMA EN DESPLEGABLE COMPACTO -->
+          <div class="relative inline-block text-left" id="lang-dropdown-container">
+            <button type="button" onclick="toggleLangDropdown(event)" id="lang-dropdown-btn" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-100 hover:bg-slate-200 border border-slate-200 text-xs font-black text-slate-900 shadow-xs transition cursor-pointer" aria-expanded="false" aria-haspopup="true">
+              <span id="current-lang-code" class="uppercase font-black">ES</span>
+              <i data-lucide="chevron-down" class="w-3.5 h-3.5 stroke-[2.5] text-slate-600 transition-transform duration-200" id="lang-dropdown-arrow"></i>
+            </button>
+
+            <!-- MENÚ DESPLEGABLE FLOTANTE -->
+            <div id="lang-dropdown-menu" class="hidden absolute right-0 mt-2 w-24 bg-white rounded-2xl shadow-[0_12px_30px_rgba(0,0,0,0.15)] border border-slate-200 py-1.5 z-50 transition-all overflow-hidden">
+              <a href="/blog/" data-lang-opt="es" class="lang-opt block lang-opt-active font-black w-full text-center px-4 py-2 text-xs transition duration-150">
+                ES
               </a>
-              <a href="../herramientas/" class="font-heading font-black text-xs lg:text-[13px] tracking-wider uppercase text-slate-950 hover:text-[#f2920b] transition select-none whitespace-nowrap">
-                Herramientas
+              <a href="/en/blog/" data-lang-opt="en" class="lang-opt block text-slate-700 hover:bg-[#f2920b] hover:text-slate-950 font-bold w-full text-center px-4 py-2 text-xs transition duration-150">
+                EN
               </a>
-              <a href="./" class="font-heading font-black text-xs lg:text-[13px] tracking-wider uppercase text-[#f2920b] transition select-none whitespace-nowrap border-b-2 border-[#f2920b] pb-0.5">
-                Blog
+              <a href="/fr/blog/" data-lang-opt="fr" class="lang-opt block text-slate-700 hover:bg-[#f2920b] hover:text-slate-950 font-bold w-full text-center px-4 py-2 text-xs transition duration-150">
+                FR
               </a>
-            </div>
-          </div>
-
-          <!-- COLUMNA 2: MASCOTA + COOLPADEL CENTRADO -->
-          <div class="flex items-center justify-center shrink-0 px-2 lg:px-4">
-            <a href="../" class="flex items-center justify-center gap-2 sm:gap-3 group py-1">
-              <img src="../assets/images/coolpadel-mascot-hd.png" alt="Mascota CoolPadel" width="46" height="46" style="height: 46px; max-height: 46px; width: auto;" class="object-contain group-hover:scale-105 transition">
-              <img src="../assets/images/coolpadel-typography-hd.png" alt="CoolPadel" width="130" height="26" style="height: 26px; max-height: 26px; width: auto;" class="object-contain">
-            </a>
-          </div>
-
-          <!-- COLUMNA 3: CADENAS DE CLUBS CENTRADO ENTRE LOGO Y SELECTOR DE IDIOMA + CONTROLES A LA DERECHA -->
-          <div class="flex items-center justify-between min-w-0 h-full">
-            <div class="flex-1 flex items-center justify-center min-w-0 pr-4 lg:pr-8">
-              <a href="../franquicias-padel/" class="font-heading font-black text-xs lg:text-[13px] tracking-wider uppercase text-slate-950 hover:text-[#f2920b] transition select-none whitespace-nowrap">
-                Cadenas de clubs
-              </a>
-            </div>
-
-            <!-- BLOQUE A LA DERECHA DEL TODO: SELECTOR IDIOMA + CONTACTAR (SIN OJOS) -->
-            <div class="flex items-center gap-2 sm:gap-3 shrink-0 ml-auto">
-              <!-- SELECTOR DE IDIOMA EN DESPLEGABLE COMPACTO -->
-              <div class="relative inline-block text-left" id="lang-dropdown-container">
-                <button type="button" onclick="toggleLangDropdown(event)" id="lang-dropdown-btn" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-100 hover:bg-slate-200 border border-slate-200 text-xs font-black text-slate-900 shadow-xs transition cursor-pointer" aria-expanded="false" aria-haspopup="true">
-                  <span id="current-lang-code" class="uppercase font-black">ES</span>
-                  <i data-lucide="chevron-down" class="w-3.5 h-3.5 stroke-[2.5] text-slate-600 transition-transform duration-200" id="lang-dropdown-arrow"></i>
-                </button>
-
-                <!-- MENÚ DESPLEGABLE FLOTANTE -->
-                <div id="lang-dropdown-menu" class="hidden absolute right-0 mt-2 w-24 bg-white rounded-2xl shadow-[0_12px_30px_rgba(0,0,0,0.15)] border border-slate-200 py-1.5 z-50 transition-all overflow-hidden">
-                  <button type="button" onclick="switchLanguage('es')" data-lang-opt="es" class="lang-opt lang-opt-active w-full text-center px-4 py-2 text-xs transition duration-150 cursor-pointer">
-                    ES
-                  </button>
-                  <button type="button" onclick="switchLanguage('en')" data-lang-opt="en" class="lang-opt text-slate-700 hover:bg-[#f2920b] hover:text-slate-950 font-bold w-full text-center px-4 py-2 text-xs transition duration-150 cursor-pointer">
-                    EN
-                  </button>
-                  <button type="button" onclick="switchLanguage('fr')" data-lang-opt="fr" class="lang-opt text-slate-700 hover:bg-[#f2920b] hover:text-slate-950 font-bold w-full text-center px-4 py-2 text-xs transition duration-150 cursor-pointer">
-                    FR
-                  </button>
-                  <button type="button" onclick="switchLanguage('it')" data-lang-opt="it" class="lang-opt text-slate-700 hover:bg-[#f2920b] hover:text-slate-950 font-bold w-full text-center px-4 py-2 text-xs transition duration-150 cursor-pointer">
-                    IT
-                  </button>
-                </div>
-              </div>
-
-              <!-- BOTÓN CONTACTAR -->
-              <a href="../#contacto" class="group relative inline-flex items-center justify-center px-4 sm:px-5 py-1.5 sm:py-2 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] active:bg-[#76d3f6] text-slate-950 active:scale-95 font-heading font-black text-xs sm:text-xs lg:text-sm tracking-wider uppercase transition-all duration-300 shadow-[0_4px_12px_rgba(242,146,11,0.2)] hover:scale-105 shrink-0 overflow-hidden cursor-pointer">
-                <span class="font-black">Contactar</span>
+              <a href="/it/blog/" data-lang-opt="it" class="lang-opt block text-slate-700 hover:bg-[#f2920b] hover:text-slate-950 font-bold w-full text-center px-4 py-2 text-xs transition duration-150">
+                IT
               </a>
             </div>
           </div>
+
+          <!-- BOTÓN CONTACTAR -->
+          <a id="nav-contact-btn" href="../#contacto" class="inline-flex items-center gap-1.5 px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] text-slate-950 font-heading font-black text-xs uppercase tracking-wider transition shadow-sm hover:scale-105 active:scale-95 cursor-pointer">
+            <span data-i18n="nav_contact">Contactar</span>
+            <i data-lucide="arrow-down" class="w-3 h-3 stroke-[3]"></i>
+          </a>
+
+          <!-- OJOS DEL LOGO A LA DERECHA DEL TODO -->
+          <a href="../" class="group py-1 inline-flex items-center shrink-0 pl-1" aria-label="CoolPadel Eyes">
+            <img src="../assets/images/eyes-thumb.png?v=fixed_eyes" alt="CoolPadel Eyes" width="28" height="28" style="height: 26px; max-height: 26px; width: auto;" class="object-contain group-hover:scale-110 transition duration-300">
+          </a>
         </div>
-
-        <!-- MÓVIL NAVBAR -->
-        <div class="flex sm:hidden flex-col gap-1.5 py-1.5 w-full">
-          <!-- FILA 1: LOGO CENTRADO (SIN OJOS A LA DERECHA) -->
-          <div class="flex items-center justify-between w-full px-2">
-            <a href="../" class="py-0.5 inline-flex items-center shrink-0">
-              <img src="../assets/images/eyes-thumb.png?v=fixed_eyes" alt="CoolPadel Eyes" width="18" height="18" style="height: 18px; max-height: 18px; width: auto;" class="object-contain">
-            </a>
-            <a href="../" class="flex items-center justify-center gap-1.5 py-0.5">
-              <img src="../assets/images/coolpadel-mascot-hd.png" alt="Mascota CoolPadel" width="28" height="28" style="height: 28px; max-height: 28px; width: auto;" class="object-contain">
-              <img src="../assets/images/coolpadel-typography-hd.png" alt="CoolPadel" width="90" height="18" style="height: 18px; max-height: 18px; width: auto;" class="object-contain">
-            </a>
-            <div class="w-[18px]"></div>
-          </div>
-          <!-- FILA 2: LLAVEROS + CÁMARAS PISTAS + BLOG + CADENAS DE CLUBS + IDIOMA + CONTACTAR -->
-          <div class="flex items-center justify-between w-full gap-1 pt-1 border-t border-slate-100 px-1 overflow-x-auto">
-            <div class="flex items-center gap-3.5 sm:gap-4 shrink-0">
-              <a href="../#llaveros" class="font-heading font-black text-[10px] tracking-wider uppercase text-slate-950 hover:text-[#f2920b] transition whitespace-nowrap">
-                Llaveros
-              </a>
-              <a href="../herramientas/" class="font-heading font-black text-[10px] tracking-wider uppercase text-slate-950 hover:text-[#f2920b] transition whitespace-nowrap">
-                Herramientas
-              </a>
-              <a href="./" class="font-heading font-black text-[10px] tracking-wider uppercase text-[#f2920b] whitespace-nowrap border-b border-[#f2920b]">
-                Blog
-              </a>
-              <a href="../franquicias-padel/" class="font-heading font-black text-[10px] tracking-wider uppercase text-slate-950 hover:text-[#f2920b] transition whitespace-nowrap">
-                Cadenas de clubs
-              </a>
-            </div>
-
-            <div class="flex items-center gap-1 shrink-0">
-              <!-- DESPLEGABLE IDIOMA MÓVIL -->
-              <div class="relative inline-block text-left" id="lang-dropdown-container-mob">
-                <button type="button" onclick="toggleLangDropdownMob(event)" id="lang-dropdown-btn-mob" class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-slate-100 hover:bg-slate-200 border border-slate-200 text-[10px] font-black text-slate-900 shadow-xs transition cursor-pointer">
-                  <span id="current-lang-code-mob" class="uppercase font-black">ES</span>
-                  <i data-lucide="chevron-down" class="w-2.5 h-2.5 stroke-[2.5] text-slate-600" id="lang-dropdown-arrow-mob"></i>
-                </button>
-                <div id="lang-dropdown-menu-mob" class="hidden absolute right-0 mt-1 w-20 bg-white rounded-2xl shadow-xl border border-slate-200 py-1 z-50 transition-all overflow-hidden">
-                  <button type="button" onclick="switchLanguage('es')" data-lang-opt="es" class="lang-opt lang-opt-active w-full text-center px-3 py-1.5 text-[11px] transition duration-150 cursor-pointer">
-                    ES
-                  </button>
-                  <button type="button" onclick="switchLanguage('en')" data-lang-opt="en" class="lang-opt text-slate-700 hover:bg-[#f2920b] hover:text-slate-950 font-bold w-full text-center px-3 py-1.5 text-[11px] transition duration-150 cursor-pointer">
-                    EN
-                  </button>
-                  <button type="button" onclick="switchLanguage('fr')" data-lang-opt="fr" class="lang-opt text-slate-700 hover:bg-[#f2920b] hover:text-slate-950 font-bold w-full text-center px-3 py-1.5 text-[11px] transition duration-150 cursor-pointer">
-                    FR
-                  </button>
-                  <button type="button" onclick="switchLanguage('it')" data-lang-opt="it" class="lang-opt text-slate-700 hover:bg-[#f2920b] hover:text-slate-950 font-bold w-full text-center px-3 py-1.5 text-[11px] transition duration-150 cursor-pointer">
-                    IT
-                  </button>
-                </div>
-              </div>
-
-              <!-- BOTÓN CONTACTAR MÓVIL -->
-              <a href="../#contacto" class="group relative inline-flex items-center justify-center px-3 py-1 rounded-full bg-[#f2920b] active:bg-[#76d3f6] text-slate-950 active:scale-95 font-heading font-black text-[10px] uppercase tracking-wider transition shadow-xs shrink-0 cursor-pointer">
-                <span class="font-black">Contactar</span>
-              </a>
-            </div>
-          </div>
-        </div>
-
       </div>
     </header>
+
+    <!-- Espaciador para compensar cabecera fija que acompaña al scroll -->
+    <div class="h-16 sm:h-20 w-full shrink-0" aria-hidden="true"></div>
 
     <!-- 3. SECCIÓN: BLOG & CONTENIDO EXCLUSIVO -->
     <main class="py-10 sm:py-16 bg-white relative">
@@ -1933,7 +1852,7 @@ ALL_ARTICLES_CATALOG = {
         "desc": "Por qué no regalar bolígrafos baratos ni jamón sin estrategia y qué funciona."
     },
     "highlights-03": {
-        "title": "Highlights #03: ¿Cómo crece realmente la industria del pádel? [Mercado y Retención]",
+        "title": "Highlights #03: ¿Cómo crece realmente la industria del pádel?",
         "badge": "Newsletter · Industria",
         "url": "../highlights-03/",
         "img": "cover_highlights_03.jpg",
@@ -2219,44 +2138,71 @@ def generate_article_page(slug, edition_num, title, date_str, read_time, cover_i
 <body class="bg-white text-slate-900 min-h-screen relative selection:bg-[#f2920b] selection:text-white flex flex-col justify-between">
 
   <div>
-    <!-- NAVBAR OFICIAL COOLPADEL -->
-    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200">
-      <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between">
-        <a href="../../" class="flex items-center gap-2.5">
-          <img src="../../assets/images/coolpadel-mascot-hd.png" alt="CoolPadel Studios" class="h-9 sm:h-11 w-auto object-contain">
-          <span class="font-heading font-black text-lg sm:text-xl tracking-tight text-slate-950">CoolPadel <span class="text-[#f2920b]">Studios</span></span>
+    <!-- CABECERA OFICIAL COOLPADEL (EXACTA A HOME) -->
+    <header class="fixed top-0 left-0 w-full z-50 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-xs w-full">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between">
+        
+        <!-- LOGO: MASCOTA + TIPOGRAFÍA -->
+        <a href="../../" class="flex items-center gap-2 group shrink-0" aria-label="CoolPadel Home">
+          <img src="../../assets/images/coolpadel-mascot-hd.png" alt="Mascota CoolPadel" width="44" height="44" class="h-8 sm:h-11 w-auto object-contain group-hover:scale-105 transition" fetchpriority="high">
+          <img src="../../assets/images/coolpadel-typography-hd.png" alt="CoolPadel" width="140" height="28" class="h-5 sm:h-7 w-auto object-contain" fetchpriority="high">
         </a>
 
-        <nav class="hidden md:flex items-center gap-6 text-xs sm:text-sm font-bold uppercase tracking-wider text-slate-700">
-          <a href="../../#llaveros" class="hover:text-[#f2920b] transition">Llaveros 3D</a>
-          <a href="../../herramientas/" class="hover:text-[#f2920b] transition">Herramientas</a>
-          <a href="../../franquicias-padel/" class="hover:text-[#f2920b] transition">Franquicias</a>
-          <a href="../" class="text-[#f2920b] font-black pb-0.5">Blog</a>
-        </nav>
+        <!-- BLOQUE DE NAVEGACIÓN Y ACCIONES A LA DERECHA (ESTILO EXACTO LANDINGS Y HOME) -->
+        <div class="flex items-center gap-2 sm:gap-4 lg:gap-6">
+          <a href="../../#llaveros" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition whitespace-nowrap">LLAVEROS</a>
+          <a href="../../camaras/" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition whitespace-nowrap">CÁMARAS</a>
+          <a href="../" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-[#f2920b] transition whitespace-nowrap">Blog</a>
+          <a href="../../franquicias-padel/" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition whitespace-nowrap">Cadenas de clubs</a>
 
-        <div class="flex items-center gap-3">
-          <a href="../../#contacto" class="px-4 py-2 rounded-xl bg-[#f2920b] hover:bg-[#76d3f6] text-slate-950 font-heading font-black text-xs uppercase tracking-wider transition">
-            Contactar
+          <!-- SELECTOR DE IDIOMA EN DESPLEGABLE COMPACTO -->
+          <div class="relative inline-block text-left" id="lang-dropdown-container">
+            <button type="button" onclick="toggleLangDropdown(event)" id="lang-dropdown-btn" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-100 hover:bg-slate-200 border border-slate-200 text-xs font-black text-slate-900 shadow-xs transition cursor-pointer" aria-expanded="false" aria-haspopup="true">
+              <span id="current-lang-code" class="uppercase font-black">ES</span>
+              <i data-lucide="chevron-down" class="w-3.5 h-3.5 stroke-[2.5] text-slate-600 transition-transform duration-200" id="lang-dropdown-arrow"></i>
+            </button>
+
+            <!-- MENÚ DESPLEGABLE FLOTANTE -->
+            <div id="lang-dropdown-menu" class="hidden absolute right-0 mt-2 w-24 bg-white rounded-2xl shadow-[0_12px_30px_rgba(0,0,0,0.15)] border border-slate-200 py-1.5 z-50 transition-all overflow-hidden">
+              <a href="/blog/{slug}/" data-lang-opt="es" class="lang-opt block lang-opt-active font-black w-full text-center px-4 py-2 text-xs transition duration-150">
+                ES
+              </a>
+              <a href="/en/blog/{slug}/" data-lang-opt="en" class="lang-opt block text-slate-700 hover:bg-[#f2920b] hover:text-slate-950 font-bold w-full text-center px-4 py-2 text-xs transition duration-150">
+                EN
+              </a>
+              <a href="/fr/blog/{slug}/" data-lang-opt="fr" class="lang-opt block text-slate-700 hover:bg-[#f2920b] hover:text-slate-950 font-bold w-full text-center px-4 py-2 text-xs transition duration-150">
+                FR
+              </a>
+              <a href="/it/blog/{slug}/" data-lang-opt="it" class="lang-opt block text-slate-700 hover:bg-[#f2920b] hover:text-slate-950 font-bold w-full text-center px-4 py-2 text-xs transition duration-150">
+                IT
+              </a>
+            </div>
+          </div>
+
+          <!-- BOTÓN CONTACTAR -->
+          <a id="nav-contact-btn" href="../../#contacto" class="inline-flex items-center gap-1.5 px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] text-slate-950 font-heading font-black text-xs uppercase tracking-wider transition shadow-sm hover:scale-105 active:scale-95 cursor-pointer">
+            <span data-i18n="nav_contact">Contactar</span>
+            <i data-lucide="arrow-down" class="w-3 h-3 stroke-[3]"></i>
+          </a>
+
+          <!-- OJOS DEL LOGO A LA DERECHA DEL TODO -->
+          <a href="../../" class="group py-1 inline-flex items-center shrink-0 pl-1" aria-label="CoolPadel Eyes">
+            <img src="../../assets/images/eyes-thumb.png?v=fixed_eyes" alt="CoolPadel Eyes" width="28" height="28" style="height: 26px; max-height: 26px; width: auto;" class="object-contain group-hover:scale-110 transition duration-300">
           </a>
         </div>
       </div>
     </header>
+
+    <!-- Espaciador para compensar cabecera fija que acompaña al scroll -->
+    <div class="h-16 sm:h-20 w-full shrink-0" aria-hidden="true"></div>
 
     <!-- ARTÍCULO COMPLETO -->
     <main class="py-10 sm:py-16 bg-white relative">
       <article class="max-w-3xl mx-auto px-4 sm:px-6">
         
         <!-- HEADER DEL ARTÍCULO LIMPIO -->
-        <div class="space-y-4 mb-8 sm:mb-10">
-          <!-- BREADCRUMBS -->
-          <nav class="flex items-center gap-2 text-xs text-slate-500 font-medium" aria-label="Breadcrumb">
-            <a href="../../" class="hover:text-slate-900 transition">Inicio</a>
-            <span>/</span>
-            <a href="../" class="hover:text-slate-900 transition">Blog</a>
-            <span>/</span>
-            <span class="text-slate-900 font-bold truncate max-w-[200px] sm:max-w-xs">{title}</span>
-          </nav>
-
+        <div class="space-y-3 mb-8 sm:mb-10">
+          <div class="text-xs sm:text-sm font-bold text-slate-500 tracking-wide">Por <strong class="text-slate-900">Javier Villoria</strong></div>
           <h1 class="text-3xl sm:text-5xl font-black font-heading text-slate-950 tracking-tight leading-tight">
             {title}
           </h1>
@@ -2274,25 +2220,7 @@ def generate_article_page(slug, edition_num, title, date_str, read_time, cover_i
 
         {faq_html}
 
-        <!-- CAJA DE AUTOR VERIFICADO E-E-A-T (JAVIER VILLORIA) -->
-        <aside class="mt-10 sm:mt-12 p-5 sm:p-6 rounded-2xl bg-slate-50 border border-slate-200/90 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4" aria-label="Sobre el autor">
-          <div class="space-y-1.5">
-            <div class="flex flex-wrap items-center gap-2">
-              <span class="text-[10px] font-black uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-slate-900 text-[#f2920b]">Autor Verificado · E-E-A-T</span>
-              <span class="text-xs font-bold text-slate-500">+1.600 pistas conectadas · +27 clubs equipados en Europa</span>
-            </div>
-            <h3 class="font-heading font-black text-base sm:text-lg text-slate-950">Análisis elaborado por Javier Villoria</h3>
-            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed max-w-xl">
-              Fundador de <strong>CoolPadel Studios</strong> (fabricación de llaveros 3D personalizados para clubs) y responsable de expansión en <strong>Save my Play</strong> (sistema de grabación de partidos e IA en pistas de pádel y tenis).
-            </p>
-          </div>
-          <div class="flex items-center gap-2.5 shrink-0">
-            <a href="https://www.linkedin.com/in/javier-villoria-alvarez/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-white hover:bg-slate-900 text-slate-900 hover:text-white border border-slate-200 text-xs font-heading font-black transition shadow-2xs">
-              <span>LinkedIn Oficial</span>
-              <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
-            </a>
-          </div>
-        </aside>
+        
 
         {related_articles_html}
 
@@ -2764,44 +2692,71 @@ def generate_guide_page(slug, category_badge, title, subtitle, meta_desc, date_s
 <body class="bg-white text-slate-900 min-h-screen relative selection:bg-[#f2920b] selection:text-white flex flex-col justify-between">
 
   <div>
-    <!-- NAVBAR OFICIAL COOLPADEL -->
-    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200">
-      <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between">
-        <a href="../../" class="flex items-center gap-2.5">
-          <img src="../../assets/images/coolpadel-mascot-hd.png" alt="CoolPadel Studios" class="h-9 sm:h-11 w-auto object-contain">
-          <span class="font-heading font-black text-lg sm:text-xl tracking-tight text-slate-950">CoolPadel <span class="text-[#f2920b]">Studios</span></span>
+    <!-- CABECERA OFICIAL COOLPADEL (EXACTA A HOME) -->
+    <header class="fixed top-0 left-0 w-full z-50 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-xs w-full">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between">
+        
+        <!-- LOGO: MASCOTA + TIPOGRAFÍA -->
+        <a href="../../" class="flex items-center gap-2 group shrink-0" aria-label="CoolPadel Home">
+          <img src="../../assets/images/coolpadel-mascot-hd.png" alt="Mascota CoolPadel" width="44" height="44" class="h-8 sm:h-11 w-auto object-contain group-hover:scale-105 transition" fetchpriority="high">
+          <img src="../../assets/images/coolpadel-typography-hd.png" alt="CoolPadel" width="140" height="28" class="h-5 sm:h-7 w-auto object-contain" fetchpriority="high">
         </a>
 
-        <nav class="hidden md:flex items-center gap-6 text-xs sm:text-sm font-bold uppercase tracking-wider text-slate-700">
-          <a href="../../#llaveros" class="hover:text-[#f2920b] transition">Llaveros 3D</a>
-          <a href="../../herramientas/" class="hover:text-[#f2920b] transition">Herramientas</a>
-          <a href="../../franquicias-padel/" class="hover:text-[#f2920b] transition">Franquicias</a>
-          <a href="../" class="text-[#f2920b] font-black pb-0.5">Blog</a>
-        </nav>
+        <!-- BLOQUE DE NAVEGACIÓN Y ACCIONES A LA DERECHA (ESTILO EXACTO LANDINGS Y HOME) -->
+        <div class="flex items-center gap-2 sm:gap-4 lg:gap-6">
+          <a href="../../#llaveros" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition whitespace-nowrap">LLAVEROS</a>
+          <a href="../../camaras/" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition whitespace-nowrap">CÁMARAS</a>
+          <a href="../" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-[#f2920b] transition whitespace-nowrap">Blog</a>
+          <a href="../../franquicias-padel/" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition whitespace-nowrap">Cadenas de clubs</a>
 
-        <div class="flex items-center gap-3">
-          <a href="../../#contacto" class="px-4 py-2 rounded-xl bg-[#f2920b] hover:bg-[#76d3f6] text-slate-950 font-heading font-black text-xs uppercase tracking-wider transition">
-            Contactar
+          <!-- SELECTOR DE IDIOMA EN DESPLEGABLE COMPACTO -->
+          <div class="relative inline-block text-left" id="lang-dropdown-container">
+            <button type="button" onclick="toggleLangDropdown(event)" id="lang-dropdown-btn" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-100 hover:bg-slate-200 border border-slate-200 text-xs font-black text-slate-900 shadow-xs transition cursor-pointer" aria-expanded="false" aria-haspopup="true">
+              <span id="current-lang-code" class="uppercase font-black">ES</span>
+              <i data-lucide="chevron-down" class="w-3.5 h-3.5 stroke-[2.5] text-slate-600 transition-transform duration-200" id="lang-dropdown-arrow"></i>
+            </button>
+
+            <!-- MENÚ DESPLEGABLE FLOTANTE -->
+            <div id="lang-dropdown-menu" class="hidden absolute right-0 mt-2 w-24 bg-white rounded-2xl shadow-[0_12px_30px_rgba(0,0,0,0.15)] border border-slate-200 py-1.5 z-50 transition-all overflow-hidden">
+              <a href="/blog/{slug}/" data-lang-opt="es" class="lang-opt block lang-opt-active font-black w-full text-center px-4 py-2 text-xs transition duration-150">
+                ES
+              </a>
+              <a href="/en/blog/{slug}/" data-lang-opt="en" class="lang-opt block text-slate-700 hover:bg-[#f2920b] hover:text-slate-950 font-bold w-full text-center px-4 py-2 text-xs transition duration-150">
+                EN
+              </a>
+              <a href="/fr/blog/{slug}/" data-lang-opt="fr" class="lang-opt block text-slate-700 hover:bg-[#f2920b] hover:text-slate-950 font-bold w-full text-center px-4 py-2 text-xs transition duration-150">
+                FR
+              </a>
+              <a href="/it/blog/{slug}/" data-lang-opt="it" class="lang-opt block text-slate-700 hover:bg-[#f2920b] hover:text-slate-950 font-bold w-full text-center px-4 py-2 text-xs transition duration-150">
+                IT
+              </a>
+            </div>
+          </div>
+
+          <!-- BOTÓN CONTACTAR -->
+          <a id="nav-contact-btn" href="../../#contacto" class="inline-flex items-center gap-1.5 px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] text-slate-950 font-heading font-black text-xs uppercase tracking-wider transition shadow-sm hover:scale-105 active:scale-95 cursor-pointer">
+            <span data-i18n="nav_contact">Contactar</span>
+            <i data-lucide="arrow-down" class="w-3 h-3 stroke-[3]"></i>
+          </a>
+
+          <!-- OJOS DEL LOGO A LA DERECHA DEL TODO -->
+          <a href="../../" class="group py-1 inline-flex items-center shrink-0 pl-1" aria-label="CoolPadel Eyes">
+            <img src="../../assets/images/eyes-thumb.png?v=fixed_eyes" alt="CoolPadel Eyes" width="28" height="28" style="height: 26px; max-height: 26px; width: auto;" class="object-contain group-hover:scale-110 transition duration-300">
           </a>
         </div>
       </div>
     </header>
+
+    <!-- Espaciador para compensar cabecera fija que acompaña al scroll -->
+    <div class="h-16 sm:h-20 w-full shrink-0" aria-hidden="true"></div>
 
     <!-- ARTÍCULO COMPLETO -->
     <main class="py-10 sm:py-16 bg-white relative">
       <article class="max-w-3xl mx-auto px-4 sm:px-6">
         
         <!-- HEADER DEL ARTÍCULO LIMPIO -->
-        <div class="space-y-4 mb-8 sm:mb-10">
-          <!-- BREADCRUMBS -->
-          <nav class="flex items-center gap-2 text-xs text-slate-500 font-medium" aria-label="Breadcrumb">
-            <a href="../../" class="hover:text-slate-900 transition">Inicio</a>
-            <span>/</span>
-            <a href="../" class="hover:text-slate-900 transition">Blog</a>
-            <span>/</span>
-            <span class="text-slate-900 font-bold truncate max-w-[200px] sm:max-w-xs">{title}</span>
-          </nav>
-
+        <div class="space-y-3 mb-8 sm:mb-10">
+          <div class="text-xs sm:text-sm font-bold text-slate-500 tracking-wide">Por <strong class="text-slate-900">Javier Villoria</strong></div>
           <h1 class="text-3xl sm:text-5xl font-black font-heading text-slate-950 tracking-tight leading-tight">
             {title}
           </h1>
@@ -2836,25 +2791,7 @@ def generate_guide_page(slug, category_badge, title, subtitle, meta_desc, date_s
           </div>
         </div>
 
-        <!-- CAJA DE AUTOR VERIFICADO E-E-A-T (JAVIER VILLORIA) -->
-        <aside class="mt-10 sm:mt-12 p-5 sm:p-6 rounded-2xl bg-slate-50 border border-slate-200/90 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4" aria-label="Sobre el autor">
-          <div class="space-y-1.5">
-            <div class="flex flex-wrap items-center gap-2">
-              <span class="text-[10px] font-black uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-slate-900 text-[#f2920b]">Autor Verificado · E-E-A-T</span>
-              <span class="text-xs font-bold text-slate-500">+1.600 pistas conectadas · +27 clubs equipados en Europa</span>
-            </div>
-            <h3 class="font-heading font-black text-base sm:text-lg text-slate-950">Análisis elaborado por Javier Villoria</h3>
-            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed max-w-xl">
-              Fundador de <strong>CoolPadel Studios</strong> (fabricación de llaveros 3D personalizados para clubs) y responsable de expansión en <strong>Save my Play</strong> (sistema de grabación de partidos e IA en pistas de pádel y tenis).
-            </p>
-          </div>
-          <div class="flex items-center gap-2.5 shrink-0">
-            <a href="https://www.linkedin.com/in/javier-villoria-alvarez/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-white hover:bg-slate-900 text-slate-900 hover:text-white border border-slate-200 text-xs font-heading font-black transition shadow-2xs">
-              <span>LinkedIn Oficial</span>
-              <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
-            </a>
-          </div>
-        </aside>
+        
 
         {related_articles_html}
 
@@ -2943,7 +2880,7 @@ def generate_all():
     generate_article_page(
         slug="highlights-03",
         edition_num="03",
-        title="¿Cómo crece realmente la industria del pádel? [Mercado y Retención]",
+        title="¿Cómo crece realmente la industria del pádel?",
         date_str="Octubre 2026",
         read_time="Lectura 3 min",
         cover_img="cover_highlights_03.jpg",

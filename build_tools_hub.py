@@ -5,71 +5,71 @@ import os
 from translations_tools import TOOLS_HUB_DATA
 
 def get_hub_nav(lang):
-    if lang == "es":
-        prefix = "../"
-        home_href = "../"
-        camaras_href = "../camaras/"
-        llaveros_href = "../#llaveros"
-        herramientas_href = "./"
-        barometro_href = "../blog/barometro-camaras-padel-2026/"
-        blog_href = "../blog/"
-        contacto_href = "../#contacto"
-        contact_txt = "Contactar"
-    else:
-        prefix = f"../../"
-        home_href = f"../../{lang}/"
-        camaras_href = f"../../{lang}/camaras/"
-        llaveros_href = f"../../{lang}/#llaveros"
-        herramientas_href = "./"
-        barometro_href = f"../../{lang}/blog/barometro-camaras-padel-2026/"
-        blog_href = f"../../{lang}/blog/"
-        contacto_href = f"../../{lang}/#contacto"
-        contact_txt = {"en": "Contact", "fr": "Contact", "it": "Contatti"}[lang]
-
-    labels = {
-        "es": {"camaras": "Cámaras IA", "llaveros": "Llaveros 3D", "herramientas": "Herramientas", "barometro": "Barómetro", "blog": "Blog"},
-        "en": {"camaras": "AI Cameras", "llaveros": "3D Keychains", "herramientas": "Tools", "barometro": "Barometer", "blog": "Blog"},
-        "fr": {"camaras": "Caméras IA", "llaveros": "Porte-clés 3D", "herramientas": "Outils", "barometro": "Baromètre", "blog": "Blog"},
-        "it": {"camaras": "Telecamere IA", "llaveros": "Portachiavi 3D", "herramientas": "Strumenti", "barometro": "Barometro", "blog": "Blog"}
-    }[lang]
-
-    langs = ["es", "en", "fr", "it"]
-    lang_links = []
-    for l in langs:
-        url = "/herramientas/" if l == "es" else f"/{l}/herramientas/"
-        if l == lang:
-            lang_links.append(f'<a href="{url}" class="px-2 py-1 rounded text-xs transition bg-[#f2920b] text-slate-950 font-black">{l.upper()}</a>')
-        else:
-            lang_links.append(f'<a href="{url}" class="px-2 py-1 rounded text-xs transition text-slate-300 hover:text-white">{l.upper()}</a>')
-    lang_switcher = f'<div class="flex items-center gap-1 border border-slate-700 rounded-lg p-0.5 bg-slate-800/80">{"".join(lang_links)}</div>'
-
-    return f"""  <!-- TOP NAV -->
-    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200/90 shadow-xs">
+    prefix = "../" if lang == "es" else "../../"
+    home_href = "../" if lang == "es" else f"../../{lang}/"
+    llaveros_href = f"{home_href}#llaveros"
+    camaras_href = f"{home_href}camaras/"
+    franquicias_href = f"{home_href}franquicias-padel/"
+    blog_href = f"{home_href}blog/"
+    contacto_href = f"{home_href}#contacto"
+    
+    return f"""  <!-- CABECERA OFICIAL COOLPADEL (EXACTA A HOME) -->
+  <header class="fixed top-0 left-0 w-full z-50 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-xs w-full">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between">
+      
+      <!-- LOGO: MASCOTA + TIPOGRAFÍA -->
       <a href="{home_href}" class="flex items-center gap-2 group shrink-0" aria-label="CoolPadel Home">
-        <img src="{prefix}assets/images/coolpadel-mascot-hd.png" alt="CoolPadel Studios" class="h-9 sm:h-11 w-auto object-contain transition group-hover:scale-105">
-        <img src="{prefix}assets/images/coolpadel-typography-hd.png" alt="CoolPadel" width="160" height="32" class="h-5 sm:h-6 w-auto object-contain hidden sm:block">
+        <img src="{prefix}assets/images/coolpadel-mascot-hd.png" alt="Mascota CoolPadel" width="44" height="44" class="h-8 sm:h-11 w-auto object-contain group-hover:scale-105 transition" fetchpriority="high">
+        <img src="{prefix}assets/images/coolpadel-typography-hd.png" alt="CoolPadel" width="140" height="28" class="h-5 sm:h-7 w-auto object-contain" fetchpriority="high">
       </a>
 
-      <nav class="hidden md:flex items-center gap-6 text-xs sm:text-sm font-bold uppercase tracking-wider text-slate-700">
-        <a href="{llaveros_href}" class="hover:text-[#f2920b] transition">{labels['llaveros']}</a>
-        <a href="{herramientas_href}" class="text-[#f2920b] font-black pb-0.5">{labels['herramientas']}</a>
-        <a href="{prefix}franquicias-padel/" class="hover:text-[#f2920b] transition">Franquicias</a>
-        <a href="{blog_href}" class="hover:text-[#f2920b] transition">{labels['blog']}</a>
-      </nav>
+      <!-- BLOQUE DE NAVEGACIÓN Y ACCIONES A LA DERECHA (ESTILO EXACTO LANDINGS Y HOME) -->
+      <div class="flex items-center gap-2 sm:gap-4 lg:gap-6">
+        <a href="{llaveros_href}" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition whitespace-nowrap">LLAVEROS</a>
+        <a href="{camaras_href}" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition whitespace-nowrap">CÁMARAS</a>
+        <a href="{blog_href}" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition whitespace-nowrap">Blog</a>
+        <a href="{franquicias_href}" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition whitespace-nowrap">Cadenas de clubs</a>
 
-      <div class="flex items-center gap-3">
-        <!-- SELECTOR DE IDIOMA MINIMALISTA -->
-        <div class="flex items-center gap-1 border border-slate-200 rounded-lg p-0.5 bg-slate-50">
-          {''.join(lang_links)}
+        <!-- SELECTOR DE IDIOMA EN DESPLEGABLE COMPACTO -->
+        <div class="relative inline-block text-left" id="lang-dropdown-container">
+          <button type="button" onclick="toggleLangDropdown(event)" id="lang-dropdown-btn" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-100 hover:bg-slate-200 border border-slate-200 text-xs font-black text-slate-900 shadow-xs transition cursor-pointer" aria-expanded="false" aria-haspopup="true">
+            <span id="current-lang-code" class="uppercase font-black">{lang.upper()}</span>
+            <i data-lucide="chevron-down" class="w-3.5 h-3.5 stroke-[2.5] text-slate-600 transition-transform duration-200" id="lang-dropdown-arrow"></i>
+          </button>
+
+          <!-- MENÚ DESPLEGABLE FLOTANTE -->
+          <div id="lang-dropdown-menu" class="hidden absolute right-0 mt-2 w-24 bg-white rounded-2xl shadow-[0_12px_30px_rgba(0,0,0,0.15)] border border-slate-200 py-1.5 z-50 transition-all overflow-hidden">
+            <a href="/herramientas/" data-lang-opt="es" class="lang-opt block {'lang-opt-active font-black' if lang=='es' else 'text-slate-700 hover:bg-[#f2920b] hover:text-slate-950 font-bold'} w-full text-center px-4 py-2 text-xs transition duration-150">
+              ES
+            </a>
+            <a href="/en/herramientas/" data-lang-opt="en" class="lang-opt block {'lang-opt-active font-black' if lang=='en' else 'text-slate-700 hover:bg-[#f2920b] hover:text-slate-950 font-bold'} w-full text-center px-4 py-2 text-xs transition duration-150">
+              EN
+            </a>
+            <a href="/fr/herramientas/" data-lang-opt="fr" class="lang-opt block {'lang-opt-active font-black' if lang=='fr' else 'text-slate-700 hover:bg-[#f2920b] hover:text-slate-950 font-bold'} w-full text-center px-4 py-2 text-xs transition duration-150">
+              FR
+            </a>
+            <a href="/it/herramientas/" data-lang-opt="it" class="lang-opt block {'lang-opt-active font-black' if lang=='it' else 'text-slate-700 hover:bg-[#f2920b] hover:text-slate-950 font-bold'} w-full text-center px-4 py-2 text-xs transition duration-150">
+              IT
+            </a>
+          </div>
         </div>
 
-        <a href="{contacto_href}" class="px-4 py-2 rounded-xl bg-[#f2920b] hover:bg-[#d97f08] text-slate-950 font-heading font-black text-xs uppercase tracking-wider transition shadow-sm">
-          {contact_txt}
+        <!-- BOTÓN CONTACTAR -->
+        <a id="nav-contact-btn" href="{contacto_href}" class="inline-flex items-center gap-1.5 px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] text-slate-950 font-heading font-black text-xs uppercase tracking-wider transition shadow-sm hover:scale-105 active:scale-95 cursor-pointer">
+          <span data-i18n="nav_contact">Contactar</span>
+          <i data-lucide="arrow-down" class="w-3 h-3 stroke-[3]"></i>
+        </a>
+
+        <!-- OJOS DEL LOGO A LA DERECHA DEL TODO -->
+        <a href="{home_href}" class="group py-1 inline-flex items-center shrink-0 pl-1" aria-label="CoolPadel Eyes">
+          <img src="{prefix}assets/images/eyes-thumb.png?v=fixed_eyes" alt="CoolPadel Eyes" width="28" height="28" style="height: 26px; max-height: 26px; width: auto;" class="object-contain group-hover:scale-110 transition duration-300">
         </a>
       </div>
     </div>
-  </header>"""
+  </header>
+
+  <!-- Espaciador para compensar cabecera fija que acompaña al scroll -->
+  <div class="h-16 sm:h-20 w-full shrink-0" aria-hidden="true"></div>"""
 
 def get_hub_footer(lang):
     prefix = "../" if lang == "es" else "../../"
@@ -316,7 +316,7 @@ def build_hub(lang):
               <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-400"></i> {d['t1_b3']}</li>
             </ul>
           </div>
-          <div class="pt-6 border-t border-slate-700/60 mt-6">
+          <div class="pt-6 border-t border-slate-100 mt-6">
             <a href="{tool_prefix}calculadora-roi-camaras-padel/" class="w-full inline-flex items-center justify-center gap-2 py-3 rounded-2xl bg-[#76d3f6] hover:bg-white text-slate-950 font-heading font-black text-xs sm:text-sm uppercase tracking-wider transition">
               <span>{d['t1_btn']}</span>
               <i data-lucide="arrow-right" class="w-4 h-4 stroke-[3]"></i>
@@ -345,7 +345,7 @@ def build_hub(lang):
               <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-400"></i> {d['t2_b3']}</li>
             </ul>
           </div>
-          <div class="pt-6 border-t border-slate-700/60 mt-6">
+          <div class="pt-6 border-t border-slate-100 mt-6">
             <a href="{tool_prefix}generador-americana-padel/" class="w-full inline-flex items-center justify-center gap-2 py-3 rounded-2xl bg-[#f2920b] hover:bg-white text-slate-950 font-heading font-black text-xs sm:text-sm uppercase tracking-wider transition">
               <span>{d['t2_btn']}</span>
               <i data-lucide="arrow-right" class="w-4 h-4 stroke-[3]"></i>
@@ -354,7 +354,7 @@ def build_hub(lang):
         </article>
 
         <!-- HERRAMIENTA 3: GENERADOR DE CUADROS DE TORNEO -->
-        <article class="bg-slate-800/80 border border-slate-700 rounded-3xl p-6 sm:p-8 flex flex-col justify-between hover:border-amber-400 transition duration-300 group shadow-xl">
+        <article class="bg-white border border-slate-200/90 rounded-3xl p-6 sm:p-8 flex flex-col justify-between hover:border-[#f2920b] hover:shadow-xl transition duration-300 group shadow-sm text-slate-900">
           <div class="space-y-4">
             <div class="text-[#f2920b] flex items-center justify-start">
               <i data-lucide="git-merge" class="w-6 h-6 stroke-[2.5]"></i>
@@ -374,8 +374,8 @@ def build_hub(lang):
               <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-400"></i> {d['t3_b3']}</li>
             </ul>
           </div>
-          <div class="pt-6 border-t border-slate-700/60 mt-6">
-            <a href="{tool_prefix}generador-cuadros-torneo-padel/" class="w-full inline-flex items-center justify-center gap-2 py-3 rounded-2xl bg-gradient-to-r from-amber-500 to-[#f2920b] hover:from-white hover:to-white text-slate-950 font-heading font-black text-xs sm:text-sm uppercase tracking-wider transition">
+          <div class="pt-6 border-t border-slate-100 mt-6">
+            <a href="{tool_prefix}generador-cuadros-torneo-padel/" class="w-full inline-flex items-center justify-center gap-2 py-3 rounded-2xl bg-[#f2920b] hover:bg-slate-900 hover:text-white text-slate-950 font-heading font-black text-xs sm:text-sm uppercase tracking-wider transition">
               <span>{d['t3_btn']}</span>
               <i data-lucide="arrow-right" class="w-4 h-4 stroke-[3]"></i>
             </a>
@@ -383,13 +383,13 @@ def build_hub(lang):
         </article>
 
         <!-- HERRAMIENTA 4: CALCULADORA DE COSTE Y MONTAJE DE PISTAS -->
-        <article class="bg-slate-800/80 border border-slate-700 rounded-3xl p-6 sm:p-8 flex flex-col justify-between hover:border-emerald-400 transition duration-300 group shadow-xl">
+        <article class="bg-white border border-slate-200/90 rounded-3xl p-6 sm:p-8 flex flex-col justify-between hover:border-[#f2920b] hover:shadow-xl transition duration-300 group shadow-sm text-slate-900">
           <div class="space-y-4">
-            <div class="w-12 h-12 rounded-2xl bg-emerald-500/10 border border-emerald-400/20 text-emerald-400 flex items-center justify-center">
+            <div class="text-emerald-600 flex items-center justify-start">
               <i data-lucide="trending-up" class="w-6 h-6 stroke-[2.5]"></i>
             </div>
             <div>
-              <span class="text-xs font-black uppercase tracking-wider text-emerald-400">{d['t4_tag']}</span>
+              <span class="text-xs font-black uppercase tracking-wider text-emerald-600">{d['t4_tag']}</span>
               <h2 class="text-xl sm:text-2xl font-black font-heading text-slate-950 mt-1 group-hover:text-[#f2920b] transition">
                 {d['t4_title']}
               </h2>
@@ -403,8 +403,8 @@ def build_hub(lang):
               <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-400"></i> {d['t4_b3']}</li>
             </ul>
           </div>
-          <div class="pt-6 border-t border-slate-700/60 mt-6">
-            <a href="{tool_prefix}calculadora-coste-pistas-padel/" class="w-full inline-flex items-center justify-center gap-2 py-3 rounded-2xl bg-emerald-400 hover:bg-white text-slate-950 font-heading font-black text-xs sm:text-sm uppercase tracking-wider transition">
+          <div class="pt-6 border-t border-slate-100 mt-6">
+            <a href="{tool_prefix}calculadora-coste-pistas-padel/" class="w-full inline-flex items-center justify-center gap-2 py-3 rounded-2xl bg-emerald-500 hover:bg-emerald-600 text-white font-heading font-black text-xs sm:text-sm uppercase tracking-wider transition">
               <span>{d['t4_btn']}</span>
               <i data-lucide="arrow-right" class="w-4 h-4 stroke-[3]"></i>
             </a>
@@ -413,17 +413,17 @@ def build_hub(lang):
 
       </div>
 
-      <!-- BANNER DE RECURSOS DESCARGABLES ADICIONALES -->
-      <div class="mt-12 bg-gradient-to-r from-slate-800 to-slate-800/60 border border-slate-700 rounded-3xl p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6">
+      <!-- BANNER DE RECURSOS DESCARGABLES ADICIONALES (FORMATO CLARO / TEXTURA) -->
+      <div class="mt-12 bg-white border border-slate-200/90 rounded-3xl p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6 shadow-sm hover:border-[#f2920b] transition duration-300">
         <div class="space-y-2 text-center md:text-left">
-          <span class="text-xs font-black text-emerald-400 uppercase tracking-wider">{d['banner_tag']}</span>
-          <h3 class="text-xl sm:text-2xl font-black font-heading text-white">{d['banner_title']}</h3>
-          <p class="text-xs sm:text-sm text-white/90 max-w-xl font-medium">
+          <span class="text-xs font-black text-[#f2920b] uppercase tracking-wider">{d['banner_tag']}</span>
+          <h3 class="text-xl sm:text-2xl font-black font-heading text-slate-950">{d['banner_title']}</h3>
+          <p class="text-xs sm:text-sm text-slate-600 max-w-xl font-medium leading-relaxed">
             {d['banner_desc']}
           </p>
         </div>
-        <a href="{barometro_href}" class="px-6 py-3 rounded-2xl bg-white hover:bg-[#76d3f6] text-slate-950 font-heading font-black text-xs uppercase tracking-wider transition shrink-0">
-          {d['banner_btn']}
+        <a href="{barometro_href}" class="px-6 py-3 rounded-2xl bg-[#f2920b] hover:bg-[#76d3f6] text-slate-950 font-heading font-black text-xs uppercase tracking-wider transition shrink-0 shadow-sm hover:scale-105 active:scale-95 cursor-pointer">
+          <span>{d['banner_btn']}</span>
         </a>
       </div>
     </section>
@@ -435,6 +435,32 @@ def build_hub(lang):
     lucide.createIcons();
   </script>
   <script src="/assets/js/cp-analytics.js" defer></script>
+
+  <script>
+    function toggleLangDropdown(e) {{
+      if (e) e.stopPropagation();
+      const menu = document.getElementById('lang-dropdown-menu');
+      const arrow = document.getElementById('lang-dropdown-arrow');
+      if (!menu) return;
+      const isHidden = menu.classList.contains('hidden');
+      if (isHidden) {{
+        menu.classList.remove('hidden');
+        if (arrow) arrow.style.transform = 'rotate(180deg)';
+      }} else {{
+        menu.classList.add('hidden');
+        if (arrow) arrow.style.transform = 'rotate(0deg)';
+      }}
+    }}
+    document.addEventListener('click', function(e) {{
+      const container = document.getElementById('lang-dropdown-container');
+      const menu = document.getElementById('lang-dropdown-menu');
+      const arrow = document.getElementById('lang-dropdown-arrow');
+      if (container && !container.contains(e.target) && menu && !menu.classList.contains('hidden')) {{
+        menu.classList.add('hidden');
+        if (arrow) arrow.style.transform = 'rotate(0deg)';
+      }}
+    }});
+  </script>
 </body>
 </html>
 """
