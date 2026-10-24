@@ -2082,7 +2082,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
             <h3 data-i18n="card_padel" class="font-heading font-black text-sm sm:text-base lg:text-lg uppercase tracking-tight text-[#f2920b] transition">
               {t['card_padel']}
             </h3>
-            <span class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-[#f2920b]/15 group-hover:bg-[#f2920b] text-slate-950 text-xs font-black uppercase tracking-wider transition">
+            <span class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-slate-100 group-hover:bg-[#f2920b] text-slate-900 group-hover:text-slate-950 text-xs font-black uppercase tracking-wider transition">
               <span>{"Ver modelos" if active_lang=="es" else "View models" if active_lang=="en" else "Voir modèles" if active_lang=="fr" else "Vedi modelli"}</span>
               <i data-lucide="arrow-right" class="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform"></i>
             </span>

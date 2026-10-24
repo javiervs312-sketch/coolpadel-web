@@ -675,7 +675,7 @@ def generate_blog_index():
         
         <!-- CABECERA DE SECCIÓN -->
         <div class="max-w-3xl mx-auto text-center space-y-3 mb-10 sm:mb-14">
-          <span class="inline-block px-3.5 py-1 rounded-full bg-[#f2920b]/15 text-[#f2920b] font-heading font-black text-xs uppercase tracking-wider">
+          <span class="inline-block text-[#f2920b] font-heading font-black text-xs uppercase tracking-wider">
             La newsletter de moda en la industria del padel
           </span>
           <h1 class="text-3xl sm:text-5xl font-black font-heading text-slate-950 uppercase tracking-tight">
@@ -817,7 +817,7 @@ def generate_blog_index():
         <div class="mt-8 sm:mt-10 bg-[#3478a6] bg-textured-blue text-white rounded-3xl p-6 sm:p-8 border border-sky-400/30 shadow-xl">
           <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 mb-6">
             <div>
-              <span class="inline-block px-2.5 py-0.5 rounded-full bg-[#f2920b]/20 text-[#f2920b] text-[10px] font-black uppercase tracking-wider mb-1">
+              <span class="inline-block text-[#f2920b] text-[10px] font-black uppercase tracking-wider mb-1">
                 Calculadoras y Sorteos Online 100% Gratis
               </span>
               <h2 class="text-lg sm:text-2xl font-heading font-black text-white">
@@ -2300,7 +2300,7 @@ def generate_article_page(slug, edition_num, title, date_str, read_time, cover_i
 
         <!-- CAJA DE SUSCRIPCIÓN FINAL A LA NEWSLETTER -->
         <div class="bg-slate-50 border-2 border-slate-200/90 hover:border-[#f2920b] hover:ring-4 hover:ring-[#f2920b]/20 hover:shadow-[0_12px_30px_rgba(242,146,11,0.2)] rounded-3xl p-6 sm:p-8 mt-8 sm:mt-12 text-center space-y-4 shadow-sm transition-all duration-300">
-          <div class="w-12 h-12 rounded-full bg-[#f2920b]/10 text-[#f2920b] flex items-center justify-center mx-auto">
+          <div class="text-[#f2920b] flex items-center justify-center mx-auto">
             <i data-lucide="mail" class="w-6 h-6 stroke-[2.5]"></i>
           </div>
           <div class="space-y-1.5">
@@ -4285,7 +4285,7 @@ def generate_all():
           <h3 class="font-heading font-black text-base sm:text-lg text-slate-950">
             9. Tubo Presurizador de Pelotas (Pascal Box, Ball Rescuer, TuboPlus)
           </h3>
-          <span class="text-xs font-black px-2.5 py-1 rounded-full bg-amber-100 text-amber-900 shrink-0">12,00 € - 25,00 €</span>
+          <span class="text-xs font-black text-[#f2920b] shrink-0">12,00 € - 25,00 €</span>
         </div>
         <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
           Uno de los accesorios más valorados por cualquier jugador frecuente: mantiene la presión de las pelotas después de cada partido, permitiendo utilizarlas entre 4 y 6 partidos en lugar de tirarlas al segundo uso. Supone un ahorro anual de más de 100 € en bolas.
@@ -4297,7 +4297,7 @@ def generate_all():
           <h3 class="font-heading font-black text-base sm:text-lg text-slate-950">
             10. Botella Térmica de Acero Inoxidable (Doble Pared 750ml)
           </h3>
-          <span class="text-xs font-black px-2.5 py-1 rounded-full bg-amber-100 text-amber-900 shrink-0">9,00 € - 16,00 €</span>
+          <span class="text-xs font-black text-[#f2920b] shrink-0">9,00 € - 16,00 €</span>
         </div>
         <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
           Mantiene el agua fría durante partidos de 2 horas a pleno sol en verano. Ecológica, libre de BPA y reutilizable durante años.
@@ -4309,7 +4309,7 @@ def generate_all():
           <h3 class="font-heading font-black text-base sm:text-lg text-slate-950">
             11. Marcador Manual de Puntuación para Fijar a la Malla Metálica
           </h3>
-          <span class="text-xs font-black px-2.5 py-1 rounded-full bg-amber-100 text-amber-900 shrink-0">8,00 € - 18,00 €</span>
+          <span class="text-xs font-black text-[#f2920b] shrink-0">8,00 € - 18,00 €</span>
         </div>
         <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
           Pequeño dispositivo visual que se engancha con pinzas o imanes a la reja exterior de la pista para llevar los juegos y sets de forma clara, evitando discusiones típicas de "¿quién sacaba y cuánto íbamos?".
@@ -4321,7 +4321,7 @@ def generate_all():
           <h3 class="font-heading font-black text-base sm:text-lg text-slate-950">
             12. Bolsa Zapatillero Independiente Ventilada
           </h3>
-          <span class="text-xs font-black px-2.5 py-1 rounded-full bg-amber-100 text-amber-900 shrink-0">8,00 € - 15,00 €</span>
+          <span class="text-xs font-black text-[#f2920b] shrink-0">8,00 € - 15,00 €</span>
         </div>
         <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
           Evita que la arena y el olor del calzado de pádel contaminen las toallas o la ropa limpia dentro del paletero principal. Con rejilla de transpiración y asa reforzada.
@@ -4366,7 +4366,7 @@ def generate_all():
           <h3 class="font-heading font-black text-base sm:text-lg text-slate-950">
             15. Bono de Grabación en Pista Save my Play con IA
           </h3>
-          <span class="text-xs font-black px-2.5 py-1 rounded-full bg-amber-100 text-amber-900 shrink-0">Tecnología de Club</span>
+          <span class="text-xs font-black text-[#f2920b] shrink-0">Tecnología de Club</span>
         </div>
         <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
           La experiencia más moderna para cualquier aficionado: un bono para disputar su partido en una pista equipada con el sistema Save my Play, pulsando el botón en la red para recibir sus mejores puntos en vídeo Full HD listos para compartir en WhatsApp e Instagram.

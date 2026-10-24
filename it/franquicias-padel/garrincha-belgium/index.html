@@ -142,33 +142,6 @@
       background-position: center;
     }
   </style>
-  <!-- Google Analytics 4 -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-3FY3DTNN21"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-3FY3DTNN21');
-    // Eventos clave (leads): WhatsApp, email, teléfono, demo, dossier
-    document.addEventListener('click', function (e) {
-      try {
-        var a = e.target.closest && e.target.closest('a, button');
-        if (!a) return;
-        var href = (a.getAttribute('href') || '').toLowerCase();
-        var txt = (a.innerText || '').replace(/\s+/g, ' ').trim().slice(0, 60);
-        var p = { link_text: txt, link_url: href, page_path: location.pathname };
-        if (href.indexOf('wa.me') > -1 || href.indexOf('whatsapp.com') > -1) gtag('event', 'click_whatsapp', p);
-        else if (href.indexOf('mailto:') === 0) gtag('event', 'click_email', p);
-        else if (href.indexOf('tel:') === 0) gtag('event', 'click_telefono', p);
-        else if (/\.pdf($|\?)/.test(href) || /dossier/i.test(href + ' ' + txt)) gtag('event', 'descarga_dossier', p);
-        else if (/demo|reuni[oó]n|meeting|calendly|agenda|r[eé]serv|prueba gratis|free trial/i.test(href + ' ' + txt)) gtag('event', 'solicitar_demo', p);
-      } catch (err) {}
-    }, { passive: true });
-    document.addEventListener('submit', function (e) {
-      try { gtag('event', 'enviar_formulario', { form_id: (e.target && (e.target.id || e.target.name)) || '', page_path: location.pathname }); } catch (err) {}
-    }, true);
-  </script>
-  <!-- /GA4 -->
 </head>
 <body class="bg-textured-blue text-slate-900 antialiased selection:bg-[#f2920b] selection:text-slate-950 min-h-screen flex flex-col">
 
@@ -505,7 +478,7 @@
 
         <!-- CONTACTO DIRECTO -->
     <section id="contacto" class="mt-12 bg-white rounded-3xl p-6 sm:p-10 border border-slate-200/90 shadow-md text-center">
-      <span class="inline-block px-3 py-1 rounded-full bg-[#f2920b]/15 text-slate-900 text-xs font-bold uppercase tracking-wider mb-3">
+      <span class="inline-block text-[#f2920b] text-xs font-bold uppercase tracking-wider mb-3">
         Contacto B2B CoolPadel
       </span>
       <h2 class="font-heading font-black text-2xl sm:text-3xl text-slate-950 uppercase tracking-tight mb-3">
@@ -533,7 +506,7 @@
 
         <div class="bg-slate-50 rounded-2xl p-5 border border-slate-200 flex flex-col justify-between">
           <div>
-            <div class="w-10 h-10 rounded-xl bg-[#f2920b]/15 text-[#f2920b] flex items-center justify-center mb-3">
+            <div class="text-[#f2920b] flex items-center justify-start mb-3">
               <i data-lucide="mail" class="w-5 h-5 stroke-[2.5]"></i>
             </div>
             <h3 class="font-heading font-black text-base text-slate-950 mb-1">Email Corporativo</h3>
@@ -656,6 +629,6 @@
   <script>
     lucide.createIcons();
   </script>
-  <script src="/assets/js/cp-analytics.js?v=20261020b" defer></script>
+  <script src="/assets/js/cp-analytics.js" defer></script>
 </body>
 </html>

@@ -327,7 +327,7 @@ def build_hub(lang):
         <!-- HERRAMIENTA 2: GENERADOR DE AMERICANA -->
         <article class="bg-white border border-slate-200/90 rounded-3xl p-6 sm:p-8 flex flex-col justify-between hover:border-[#f2920b] hover:shadow-xl transition duration-300 group shadow-sm text-slate-900">
           <div class="space-y-4">
-            <div class="w-12 h-12 rounded-2xl bg-amber-500/10 border border-amber-400/20 text-[#f2920b] flex items-center justify-center">
+            <div class="text-[#f2920b] flex items-center justify-start">
               <i data-lucide="trophy" class="w-6 h-6 stroke-[2.5]"></i>
             </div>
             <div>
@@ -356,7 +356,7 @@ def build_hub(lang):
         <!-- HERRAMIENTA 3: GENERADOR DE CUADROS DE TORNEO -->
         <article class="bg-slate-800/80 border border-slate-700 rounded-3xl p-6 sm:p-8 flex flex-col justify-between hover:border-amber-400 transition duration-300 group shadow-xl">
           <div class="space-y-4">
-            <div class="w-12 h-12 rounded-2xl bg-amber-500/10 border border-amber-400/20 text-[#f2920b] flex items-center justify-center">
+            <div class="text-[#f2920b] flex items-center justify-start">
               <i data-lucide="git-merge" class="w-6 h-6 stroke-[2.5]"></i>
             </div>
             <div>

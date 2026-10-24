@@ -750,7 +750,7 @@ def render_html(lang="es"):
           <!-- Solución 1: Llaveros Merchandising -->
           <div class="bg-slate-800/80 rounded-3xl p-8 border border-slate-700/80 flex flex-col justify-between">
             <div>
-              <div class="w-12 h-12 rounded-2xl bg-[#f2920b]/20 text-[#f2920b] flex items-center justify-center mb-6">
+              <div class="text-[#f2920b] flex items-center justify-start mb-4">
                 <i data-lucide="sparkles" class="w-6 h-6 stroke-[2.5]"></i>
               </div>
               <h3 class="font-heading font-black text-2xl text-white uppercase mb-3">
@@ -932,7 +932,7 @@ def render_html(lang="es"):
       <!-- Header Modal -->
       <div class="p-5 sm:p-6 bg-slate-900 text-white flex items-center justify-between border-b border-slate-800 shrink-0">
         <div class="flex items-center gap-3">
-          <div class="w-10 h-10 rounded-2xl bg-[#f2920b]/20 text-[#f2920b] flex items-center justify-center shrink-0">
+          <div class="text-[#f2920b] flex items-center justify-center shrink-0">
             <i data-lucide="scale" class="w-5 h-5"></i>
           </div>
           <div>
@@ -1084,7 +1084,7 @@ def render_html(lang="es"):
       <!-- Modal Header -->
       <div class="p-6 bg-slate-900 text-white flex items-start justify-between border-b border-slate-800 shrink-0">
         <div>
-          <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#f2920b]/20 text-[#f2920b] text-[11px] font-bold uppercase tracking-wider mb-2">
+          <div class="inline-flex items-center gap-1.5 text-[#f2920b] text-[11px] font-bold uppercase tracking-wider mb-2">
             <i data-lucide="badge-check" class="w-3.5 h-3.5"></i>
             <span>Homologación B2B Censo Oficial 2026</span>
           </div>

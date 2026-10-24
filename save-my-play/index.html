@@ -222,33 +222,6 @@
       background-position: center;
     }
   </style>
-  <!-- Google Analytics 4 -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-3FY3DTNN21"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-3FY3DTNN21');
-    // Eventos clave (leads): WhatsApp, email, teléfono, demo, dossier
-    document.addEventListener('click', function (e) {
-      try {
-        var a = e.target.closest && e.target.closest('a, button');
-        if (!a) return;
-        var href = (a.getAttribute('href') || '').toLowerCase();
-        var txt = (a.innerText || '').replace(/\s+/g, ' ').trim().slice(0, 60);
-        var p = { link_text: txt, link_url: href, page_path: location.pathname };
-        if (href.indexOf('wa.me') > -1 || href.indexOf('whatsapp.com') > -1) gtag('event', 'click_whatsapp', p);
-        else if (href.indexOf('mailto:') === 0) gtag('event', 'click_email', p);
-        else if (href.indexOf('tel:') === 0) gtag('event', 'click_telefono', p);
-        else if (/\.pdf($|\?)/.test(href) || /dossier/i.test(href + ' ' + txt)) gtag('event', 'descarga_dossier', p);
-        else if (/demo|reuni[oó]n|meeting|calendly|agenda|r[eé]serv|prueba gratis|free trial/i.test(href + ' ' + txt)) gtag('event', 'solicitar_demo', p);
-      } catch (err) {}
-    }, { passive: true });
-    document.addEventListener('submit', function (e) {
-      try { gtag('event', 'enviar_formulario', { form_id: (e.target && (e.target.id || e.target.name)) || '', page_path: location.pathname }); } catch (err) {}
-    }, true);
-  </script>
-  <!-- /GA4 -->
 </head>
 <body class="bg-[#f8fafc] text-slate-800 antialiased selection:bg-[#f2920b] selection:text-slate-950 min-h-screen flex flex-col">
 
@@ -308,7 +281,7 @@
         <div class="grid lg:grid-cols-12 gap-8 sm:gap-12 items-center">
           
           <div class="lg:col-span-7 space-y-6">
-            <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#f2920b]/15 text-[#f2920b] font-heading font-black text-xs uppercase tracking-wider">
+            <div class="inline-flex items-center gap-2 text-[#f2920b] font-heading font-black text-xs uppercase tracking-wider">
               <i data-lucide="award" class="w-4 h-4"></i>
               <span>CÁMARA OFICIAL USTA Y USA PADEL · +1.500 PISTAS</span>
             </div>
@@ -398,28 +371,28 @@
         <div class="grid md:grid-cols-3 gap-6 sm:gap-8">
           
         <div class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/90 shadow-sm hover:shadow-md transition">
-          <div class="w-12 h-12 rounded-2xl bg-[#f2920b]/15 text-[#f2920b] flex items-center justify-center mb-5 font-black text-xl">
+          <div class="text-[#f2920b] flex items-center justify-start mb-4 font-black text-2xl">
             ✓
           </div>
           <h3 class="font-heading font-black text-xl sm:text-2xl text-slate-950 mb-2">Cámara Oficial de las Federaciones Americanas (USTA y USA PADEL)</h3>
           <p class="text-slate-600 text-sm sm:text-base leading-relaxed">Tecnología homologada y contrastada en más de 1.500 cámaras en todo el mundo, equipando sedes como el USTA National Campus en Florida y retransmisiones oficiales del circuito FIP de Miami.</p>
         </div>
         <div class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/90 shadow-sm hover:shadow-md transition">
-          <div class="w-12 h-12 rounded-2xl bg-[#f2920b]/15 text-[#f2920b] flex items-center justify-center mb-5 font-black text-xl">
+          <div class="text-[#f2920b] flex items-center justify-start mb-4 font-black text-2xl">
             ✓
           </div>
           <h3 class="font-heading font-black text-xl sm:text-2xl text-slate-950 mb-2">Óptica Rectilínea Sin Efecto Pez (1 Cámara por Pista)</h3>
           <p class="text-slate-600 text-sm sm:text-base leading-relaxed">La imagen y las líneas de pista no se ven curvadas. Cubrimos los 20x10 metros a la perfección con una sola cámara a 4 metros, ahorrando costes de hardware y cableados.</p>
         </div>
         <div class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/90 shadow-sm hover:shadow-md transition">
-          <div class="w-12 h-12 rounded-2xl bg-[#f2920b]/15 text-[#f2920b] flex items-center justify-center mb-5 font-black text-xl">
+          <div class="text-[#f2920b] flex items-center justify-start mb-4 font-black text-2xl">
             ✓
           </div>
           <h3 class="font-heading font-black text-xl sm:text-2xl text-slate-950 mb-2">Sin Apps ni Registros Obligatorios (Cero Fricción)</h3>
           <p class="text-slate-600 text-sm sm:text-base leading-relaxed">Los jugadores no necesitan descargar apps pesadas ni crearse cuentas: pulsan el botón en red y escanean el código QR para tener sus jugadas en 25 segundos en su móvil.</p>
         </div>
         <div class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/90 shadow-sm hover:shadow-md transition">
-          <div class="w-12 h-12 rounded-2xl bg-[#f2920b]/15 text-[#f2920b] flex items-center justify-center mb-5 font-black text-xl">
+          <div class="text-[#f2920b] flex items-center justify-start mb-4 font-black text-2xl">
             ✓
           </div>
           <h3 class="font-heading font-black text-xl sm:text-2xl text-slate-950 mb-2">Tarifas Transparentes por Volumen sin Permanencia</h3>
@@ -434,7 +407,7 @@
     <section class="py-14 sm:py-20 bg-slate-50 border-b border-slate-200">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center max-w-2xl mx-auto mb-10 sm:mb-14 space-y-2">
-          <span class="inline-block px-3.5 py-1 rounded-full bg-[#f2920b]/15 text-[#f2920b] font-heading font-black text-xs uppercase tracking-wider">
+          <span class="inline-block text-[#f2920b] font-heading font-black text-xs uppercase tracking-wider">
             Demostración en Pista Real
           </span>
           <h2 class="font-heading font-black text-2xl sm:text-4xl text-slate-950 uppercase tracking-tight">
@@ -668,7 +641,7 @@
       <div class="max-w-4xl mx-auto px-4 sm:px-6 relative z-10 text-center">
         
         <div class="max-w-2xl mx-auto text-center mb-6">
-          <span class="inline-block px-3 py-1 rounded-full bg-[#f2920b]/15 text-slate-950 text-xs font-bold uppercase tracking-wider mb-2">
+          <span class="inline-block text-[#f2920b] text-xs font-bold uppercase tracking-wider mb-2">
             Contacto Directo
           </span>
           <h2 class="text-2xl sm:text-4xl font-black font-heading text-slate-950 uppercase tracking-tight leading-tight">
@@ -782,6 +755,6 @@
       lucide.createIcons();
     }
   </script>
-  <script src="/assets/js/cp-analytics.js?v=20261020b" defer></script>
+  <script src="/assets/js/cp-analytics.js" defer></script>
 </body>
 </html>

@@ -854,7 +854,7 @@ def render_landing(landing, lang="es"):
     for title, desc in l_benefits:
         benefits_html += f"""
         <div class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/90 shadow-sm hover:shadow-md transition">
-          <div class="w-12 h-12 rounded-2xl bg-[#f2920b]/15 text-[#f2920b] flex items-center justify-center mb-5 font-black text-xl">
+          <div class="text-[#f2920b] flex items-center justify-start mb-4 font-black text-2xl">
             ✓
           </div>
           <h3 class="font-heading font-black text-xl sm:text-2xl text-slate-950 mb-2">{title}</h3>
@@ -1012,7 +1012,7 @@ def render_landing(landing, lang="es"):
     <section class="py-14 sm:py-20 bg-slate-50 border-b border-slate-200">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center max-w-2xl mx-auto mb-10 sm:mb-14 space-y-2">
-          <span class="inline-block px-3.5 py-1 rounded-full bg-[#f2920b]/15 text-[#f2920b] font-heading font-black text-xs uppercase tracking-wider">
+          <span class="inline-block text-[#f2920b] font-heading font-black text-xs uppercase tracking-wider">
             {vid_headers[0]}
           </span>
           <h2 class="font-heading font-black text-2xl sm:text-4xl text-slate-950 uppercase tracking-tight">
@@ -1494,7 +1494,7 @@ def render_landing(landing, lang="es"):
         <div class="grid lg:grid-cols-12 gap-8 sm:gap-12 items-center">
           
           <div class="lg:col-span-7 space-y-6">
-            <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#f2920b]/15 text-[#f2920b] font-heading font-black text-xs uppercase tracking-wider">
+            <div class="inline-flex items-center gap-2 text-[#f2920b] font-heading font-black text-xs uppercase tracking-wider">
               <i data-lucide="award" class="w-4 h-4"></i>
               <span>{l_badge}</span>
             </div>
@@ -1651,7 +1651,7 @@ def render_landing(landing, lang="es"):
       <div class="max-w-4xl mx-auto px-4 sm:px-6 relative z-10 text-center">
         
         <div class="max-w-2xl mx-auto text-center mb-6">
-          <span class="inline-block px-3 py-1 rounded-full bg-[#f2920b]/15 text-slate-950 text-xs font-bold uppercase tracking-wider mb-2">
+          <span class="inline-block text-[#f2920b] text-xs font-bold uppercase tracking-wider mb-2">
             Contacto Directo
           </span>
           <h2 class="text-2xl sm:text-4xl font-black font-heading text-slate-950 uppercase tracking-tight leading-tight">
