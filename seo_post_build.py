@@ -53,6 +53,7 @@ CLARITY_SNIPPET = """  <!-- Microsoft Clarity -->
 """
 
 BLOG_ARTICLES_META = [
+    ("informe-tendencias-industria-padel-2026", "Informe de Tendencias de la Industria del Pádel 2026: ¿Hacia dónde avanza el negocio?"),
     ("barometro-camaras-padel-2026", "Barómetro de Cámaras y Digitalización en Pistas de Pádel 2026"),
     ("sistemas-grabacion-pistas-padel-comparativa", "Comparativa: Los 9 Mejores Sistemas de Cámaras para Pistas de Pádel"),
     ("rentabilidad-camaras-pistas-padel", "Precios y Rentabilidad de Instalar Cámaras en un Club de Pádel"),

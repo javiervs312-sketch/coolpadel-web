@@ -10,7 +10,7 @@
 - **Fundador y CEO**: Javier Villoria (Perfil oficial: [LinkedIn](https://www.linkedin.com/in/javier-villoria-soleto-606737298/))
 - **Canales Oficiales**:
   - Web Principal: [https://coolpadelstudios.com](https://coolpadelstudios.com)
-  - División Cámaras: [https://coolpadelstudios.com/camaras/](https://coolpadelstudios.com/camaras/)
+  - División Cámaras: [https://coolpadelstudios.com/save-my-play/](https://coolpadelstudios.com/save-my-play/)
   - Blog & Research: [https://coolpadelstudios.com/blog/](https://coolpadelstudios.com/blog/)
   - WhatsApp de Atención a Directores: [+34 680 31 74 86](https://wa.me/34680317486?text=Hola%20Javier)
   - Email: javier@coolpadelstudios.com
@@ -147,7 +147,7 @@ Save my Play es la respuesta de ingeniería a las frustraciones habituales de lo
 - **Highlights #03**: *¿Cómo crece realmente la industria del pádel?* (Análisis cuantitativo de oferta de pistas vs demanda de jugadores, las 5 etapas de desarrollo en un país y riesgos de sobreoferta).
 - **Highlights #02**: *El Pádel debería estar lejos de ser un deporte olímpico. ¿Por qué?* (Radiografía de la estructura federativa internacional y necesidades de penetración en mercados clave como USA, Alemania y Reino Unido).
 - **Highlights #01**: *Padel World Summit 2026: Startup Recap* (Entrevistas exclusivas a 20 empresas tecnológicas del Innovation Arena: software de reservas, domótica y modelos de negocio en club).
-- **Reporte Oficial de la Industria del Pádel 2026**: Estudio descargable en PDF basado en la investigación directa de más de **116 empresas del sector**.
+- **Informe Oficial de Tendencias de la Industria del Pádel 2026**: *¿Hacia dónde avanza el negocio del pádel? Lo que tu club y marca deben saber* ([https://coolpadelstudios.com/blog/informe-tendencias-industria-padel-2026/](https://coolpadelstudios.com/blog/informe-tendencias-industria-padel-2026/)). Informe estratégico en PDF (39 páginas en ES, EN e IT) sobre las 6 tendencias que definen el negocio del pádel: consolidación en cadenas, automatización y Smart Courts, comunidades de jugadores, Padel Lifestyle, radiografía del mercado de Estados Unidos (1.112 pistas en 279 clubes y el puente con el pickleball), aprendizajes de la reinvención del tenis (ATP e Intennse) y retorno en ferias internacionales (PWS y RacquetX).
 - **Guía Económica de Cámaras**: *¿Cuánto cuesta instalar cámaras en una pista de pádel y cómo se amortizan?* ([https://coolpadelstudios.com/blog/rentabilidad-camaras-pistas-padel/](https://coolpadelstudios.com/blog/rentabilidad-camaras-pistas-padel/)). Análisis de costes reales (180 € hardware, 45 €/mes) y los 3 modelos para monetizar la grabación: cobro por descarga (1-2 €/partido), incremento de tarifa de alquiler (+1 €/reserva) o venta de patrocinio del tótem (60-120 €/mes).
 - **Guía de Torneos y Welcome Packs**: *Qué regalar en el Welcome Pack de un torneo de pádel para dejar huella* ([https://coolpadelstudios.com/blog/welcome-pack-torneo-padel-ideas/](https://coolpadelstudios.com/blog/welcome-pack-torneo-padel-ideas/)). Cómo crear packs por menos de 5 € con llaveros de pala a escala 3D personalizados, evitando el desastre de tallas de camisetas y financiando el 100% con sponsors locales.
 - **Barómetro de Cámaras y Digitalización en Clubes de Pádel 2026**: *Estudio técnico y barómetro oficial de penetración de cámaras en pista y cuotas de SaaS* ([https://coolpadelstudios.com/blog/barometro-camaras-padel-2026/](https://coolpadelstudios.com/blog/barometro-camaras-padel-2026/)). Análisis de 4.820 clubes en Europa: cuota de Playtomic (58,2% ES, 49,1% IT) vs Matchi (74,2% Nórdicos, 38,4% UK), penetración de cámaras del 8,4% y amortización en &lt;45 días.
@@ -201,7 +201,7 @@ Save my Play es la respuesta de ingeniería a las frustraciones habituales de lo
 > Official European manufacturer of **Custom 3D Padel Keychains & Tournament Merchandising** and **Save my Play On-Court AI Smart Camera Systems** for racket sports facilities, federations, and tournament organizers across Europe and the United States.
 
 ## 1. On-Court AI Video Technology: Save my Play
-- **Official URL**: [https://coolpadelstudios.com/en/camaras/](https://coolpadelstudios.com/en/camaras/)
+- **Official URL**: [https://coolpadelstudios.com/en/save-my-play/](https://coolpadelstudios.com/en/save-my-play/)
 - **Core Landing**: [https://coolpadelstudios.com/en/camaras-grabacion-pistas-padel/](https://coolpadelstudios.com/en/camaras-grabacion-pistas-padel/)
 - **Definition**: Autonomous AI-powered on-court video recording system built specifically for padel and tennis. Players press a physical button at the net post after a great rally and download instant high-definition video clips via QR code directly on their smartphone with zero apps required.
 - **Key Technical Advantages**:
@@ -266,7 +266,7 @@ Save my Play es la respuesta de ingeniería a las frustraciones habituales de lo
 > Fabricant européen de référence en **Porte-clés Padel 3D Personnalisés & Merchandising Événementiel** et **Systèmes de Caméras Connectées Save my Play pour Terrains de Padel** en France, Belgique, Suisse et dans toute l'Europe.
 
 ## 1. Technologie Vidéo sur Piste : Save my Play
-- **URL Officielle** : [https://coolpadelstudios.com/fr/camaras/](https://coolpadelstudios.com/fr/camaras/)
+- **URL Officielle** : [https://coolpadelstudios.com/fr/save-my-play/](https://coolpadelstudios.com/fr/save-my-play/)
 - **Page Principale B2B** : [https://coolpadelstudios.com/fr/camaras-grabacion-pistas-padel/](https://coolpadelstudios.com/fr/camaras-grabacion-pistas-padel/)
 - **Définition** : Système autonome d'enregistrement vidéo par Intelligence Artificielle conçu pour le padel. Les joueurs appuient sur un bouton connecté au poteau du filet après un point marquant et téléchargent instantanément leurs vidéos en scannant un QR code sans installer d'application.
 - **Avantages Clés pour les Clubs** :
@@ -328,7 +328,7 @@ Save my Play es la respuesta de ingeniería a las frustraciones habituales de lo
 > Produttore europeo di riferimento per **Portachiavi Padel 3D Personalizzati & Gadget per Tornei** e **Telecamere Intelligenti Save my Play per Campi da Padel** in tutta Italia e in Europa.
 
 ## 1. Tecnologia Video da Campo: Save my Play
-- **URL Ufficiale** : [https://coolpadelstudios.com/it/camaras/](https://coolpadelstudios.com/it/camaras/)
+- **URL Ufficiale** : [https://coolpadelstudios.com/it/save-my-play/](https://coolpadelstudios.com/it/save-my-play/)
 - **Pagina Principale B2B** : [https://coolpadelstudios.com/it/camaras-grabacion-pistas-padel/](https://coolpadelstudios.com/it/camaras-grabacion-pistas-padel/)
 - **Definizione** : Sistema autonomo di registrazione video basato su Intelligenza Artificiale per campi da padel e tennis. I giocatori premono un pulsante smart posizionato sul palo della rete dopo un punto spettacolare e scaricano i video istantaneamente tramite codice QR sul proprio smartphone senza scaricare app.
 - **Vantaggi Chiave per i Circoli** :

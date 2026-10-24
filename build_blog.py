@@ -216,7 +216,6 @@ def get_silo_footer_html(root_prefix="../../"):
             <li><a href="/llaveros-tenis-personalizados/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Llaveros de Tenis y Pickleball</a></li>
             <li><a href="/welcome-packs-torneos-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Welcome Packs para Torneos</a></li>
             <li><a href="/llaveros-personalizados-clubs-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Merchandising para Clubs</a></li>
-            <li><a href="/camaras/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Cámaras Save my Play</a></li>
             <li><a href="/save-my-play/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition font-bold text-amber-300">Save my Play España (+1.500)</a></li>
             <li><a href="/camaras-grabacion-pistas-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Grabación en Pista de Pádel</a></li>
           </ul>
@@ -423,7 +422,7 @@ def generate_blog_index():
         "@type": "ItemList",
         "name": "Guías e Informes de la Industria del Pádel - CoolPadel Studios",
         "description": "Directorio completo de guías de rentabilidad, tecnología de grabación, smart courts, organización de americanas, coste de pistas, welcome packs y análisis de mercado para clubes de pádel.",
-        "numberOfItems": 22,
+        "numberOfItems": 27,
         "itemListElement": [
           {{
             "@type": "ListItem",
@@ -547,8 +546,8 @@ def generate_blog_index():
               <a href="../#llaveros" class="font-heading font-black text-xs lg:text-[13px] tracking-wider uppercase text-slate-950 hover:text-[#f2920b] transition select-none whitespace-nowrap">
                 Llaveros
               </a>
-              <a href="../camaras/" class="font-heading font-black text-xs lg:text-[13px] tracking-wider uppercase text-slate-950 hover:text-[#f2920b] transition select-none whitespace-nowrap">
-                Cámaras pistas
+              <a href="../herramientas/" class="font-heading font-black text-xs lg:text-[13px] tracking-wider uppercase text-slate-950 hover:text-[#f2920b] transition select-none whitespace-nowrap">
+                Herramientas
               </a>
               <a href="./" class="font-heading font-black text-xs lg:text-[13px] tracking-wider uppercase text-[#f2920b] transition select-none whitespace-nowrap border-b-2 border-[#f2920b] pb-0.5">
                 Blog
@@ -625,8 +624,8 @@ def generate_blog_index():
               <a href="../#llaveros" class="font-heading font-black text-[10px] tracking-wider uppercase text-slate-950 hover:text-[#f2920b] transition whitespace-nowrap">
                 Llaveros
               </a>
-              <a href="../camaras/" class="font-heading font-black text-[10px] tracking-wider uppercase text-slate-950 hover:text-[#f2920b] transition whitespace-nowrap">
-                Cámaras pistas
+              <a href="../herramientas/" class="font-heading font-black text-[10px] tracking-wider uppercase text-slate-950 hover:text-[#f2920b] transition whitespace-nowrap">
+                Herramientas
               </a>
               <a href="./" class="font-heading font-black text-[10px] tracking-wider uppercase text-[#f2920b] whitespace-nowrap border-b border-[#f2920b]">
                 Blog
@@ -795,10 +794,10 @@ def generate_blog_index():
             <div class="flex-1 min-w-0 space-y-2 text-center sm:text-left w-full">
               <div>
                 <h2 class="font-heading font-black text-base sm:text-xl text-slate-950 leading-tight">
-                  Reportaje de la Industria del Pádel 2026
+                  <a href="./informe-tendencias-industria-padel-2026/" class="hover:text-[#f2920b] transition">Informe de Tendencias de la Industria del Pádel 2026</a>
                 </h2>
                 <p class="text-xs sm:text-sm text-slate-600 font-medium leading-relaxed mt-1">
-                  Lo que tu club y marca deben saber
+                  ¿Hacia dónde avanza el negocio del pádel? Consolidación en cadenas, Smart Courts, comunidades de jugadores, Padel Lifestyle y expansión en EE.UU. <a href="./informe-tendencias-industria-padel-2026/" class="text-[#3478a6] font-bold underline">Leer informe online →</a>
                 </p>
               </div>
 
@@ -1541,6 +1540,192 @@ def generate_blog_index():
               </div>
             </div>
 
+
+            <!-- NUEVA GUÍA BATCH 2: CRISIS DEL TENIS VS PÁDEL -->
+            <div class="bg-white border border-slate-200/90 rounded-2xl p-4 sm:p-5 shadow-2xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between group hover:-translate-y-0.5">
+              <div class="space-y-3">
+                <div class="aspect-[16/10] rounded-xl overflow-hidden bg-slate-900 border border-slate-200/90 shadow-2xs relative">
+                  <img src="../assets/images/gallery-padel-1.jpg" alt="Crisis del tenis profesional vs el auge del pádel" width="600" height="375" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
+                  <span class="absolute bottom-2 left-2 text-[9px] font-black uppercase tracking-wider px-2 py-0.5 rounded-full bg-[#f2920b] text-slate-950 shadow-xs">
+                    Tenis vs Pádel &amp; Negocio
+                  </span>
+                </div>
+
+                <div class="space-y-1">
+                  <div class="flex items-center gap-1.5 text-[10px] font-bold text-slate-400">
+                    <span>Enero 2025</span>
+                    <span>•</span>
+                    <span>Lectura 7 min</span>
+                  </div>
+                  <h3 class="font-heading font-black text-sm sm:text-base text-slate-950 leading-snug group-hover:text-[#f2920b] transition">
+                    La Crisis del Tenis Profesional vs el Auge del Pádel: El Caso Intennse
+                  </h3>
+                  <p class="text-xs text-slate-600 font-medium leading-relaxed line-clamp-2">
+                    Por qué competir fuera del top 50 ATP es inviable, el auge de formatos dinámicos por equipos y la fortaleza del pádel amateur.
+                  </p>
+                </div>
+              </div>
+
+              <div class="pt-3.5 border-t border-slate-100 mt-4">
+                <a href="./crisis-tenis-profesional-formato-intennse-vs-padel/"
+                   class="group relative w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-full bg-slate-900 hover:bg-[#f2920b] text-white hover:text-slate-950 active:scale-95 font-heading font-black text-xs uppercase tracking-wider transition-all duration-300 shadow-2xs">
+                  <span>Leer Análisis</span>
+                  <div class="w-4 h-4 rounded-full bg-white/20 group-hover:bg-slate-950/20 flex items-center justify-center transition-all duration-300">
+                    <i data-lucide="arrow-right" class="w-3 h-3 stroke-[3] group-hover:translate-x-0.5 transition-transform duration-300"></i>
+                  </div>
+                </a>
+              </div>
+            </div>
+
+            <!-- NUEVA GUÍA BATCH 2: BURBUJA SUECA DEL PÁDEL -->
+            <div class="bg-white border border-slate-200/90 rounded-2xl p-4 sm:p-5 shadow-2xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between group hover:-translate-y-0.5">
+              <div class="space-y-3">
+                <div class="aspect-[16/10] rounded-xl overflow-hidden bg-slate-900 border border-slate-200/90 shadow-2xs relative">
+                  <img src="../assets/images/foto-reportaje.jpg" alt="Lecciones de la burbuja sueca del pádel" width="600" height="375" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
+                  <span class="absolute bottom-2 left-2 text-[9px] font-black uppercase tracking-wider px-2 py-0.5 rounded-full bg-[#f2920b] text-slate-950 shadow-xs">
+                    Mercado Nórdico &amp; Gestión
+                  </span>
+                </div>
+
+                <div class="space-y-1">
+                  <div class="flex items-center gap-1.5 text-[10px] font-bold text-slate-400">
+                    <span>Septiembre 2024</span>
+                    <span>•</span>
+                    <span>Lectura 8 min</span>
+                  </div>
+                  <h3 class="font-heading font-black text-sm sm:text-base text-slate-950 leading-snug group-hover:text-[#f2920b] transition">
+                    Lecciones de la 'Burbuja Sueca': Cómo Crecer de Forma Sostenible sin Quebrar tu Club
+                  </h3>
+                  <p class="text-xs text-slate-600 font-medium leading-relaxed line-clamp-2">
+                    De +3.500 pistas a cierres masivos: qué ocurrió realmente en Suecia y cómo evitar naves sin alma construyendo comunidad.
+                  </p>
+                </div>
+              </div>
+
+              <div class="pt-3.5 border-t border-slate-100 mt-4">
+                <a href="./lecciones-burbuja-suecia-padel-crecimiento-sostenible-clubes/"
+                   class="group relative w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-full bg-slate-900 hover:bg-[#f2920b] text-white hover:text-slate-950 active:scale-95 font-heading font-black text-xs uppercase tracking-wider transition-all duration-300 shadow-2xs">
+                  <span>Ver Lecciones Suecas</span>
+                  <div class="w-4 h-4 rounded-full bg-white/20 group-hover:bg-slate-950/20 flex items-center justify-center transition-all duration-300">
+                    <i data-lucide="arrow-right" class="w-3 h-3 stroke-[3] group-hover:translate-x-0.5 transition-transform duration-300"></i>
+                  </div>
+                </a>
+              </div>
+            </div>
+
+            <!-- NUEVA GUÍA BATCH 2: SOFTWARE DE RESERVAS -->
+            <div class="bg-white border-2 border-[#3478a6]/30 rounded-2xl p-4 sm:p-5 shadow-2xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between group hover:-translate-y-0.5">
+              <div class="space-y-3">
+                <div class="aspect-[16/10] rounded-xl overflow-hidden bg-slate-900 border border-slate-200/90 shadow-2xs relative">
+                  <img src="../assets/images/savemyplay-3.jpg" alt="Playtomic vs Playbypoint vs CourtReserve" width="600" height="375" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
+                  <span class="absolute bottom-2 left-2 text-[9px] font-black uppercase tracking-wider px-2 py-0.5 rounded-full bg-[#3478a6] text-white shadow-xs">
+                    Software &amp; Algoritmos
+                  </span>
+                </div>
+
+                <div class="space-y-1">
+                  <div class="flex items-center gap-1.5 text-[10px] font-bold text-slate-400">
+                    <span>Junio 2026</span>
+                    <span>•</span>
+                    <span>Lectura 8 min</span>
+                  </div>
+                  <h3 class="font-heading font-black text-sm sm:text-base text-slate-950 leading-snug group-hover:text-[#f2920b] transition">
+                    Playtomic vs Playbypoint vs CourtReserve: Comparativa de Software para Clubes
+                  </h3>
+                  <p class="text-xs text-slate-600 font-medium leading-relaxed line-clamp-2">
+                    Efecto red, comisiones, algoritmos WPR y DUPR, y cómo conectar las reservas a tus cámaras inteligentes y accesos.
+                  </p>
+                </div>
+              </div>
+
+              <div class="pt-3.5 border-t border-slate-100 mt-4">
+                <a href="./playtomic-vs-playbypoint-vs-courtreserve-software-reservas-padel/"
+                   class="group relative w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-full bg-slate-900 hover:bg-[#f2920b] text-white hover:text-slate-950 active:scale-95 font-heading font-black text-xs uppercase tracking-wider transition-all duration-300 shadow-2xs">
+                  <span>Leer Comparativa</span>
+                  <div class="w-4 h-4 rounded-full bg-white/20 group-hover:bg-slate-950/20 flex items-center justify-center transition-all duration-300">
+                    <i data-lucide="arrow-right" class="w-3 h-3 stroke-[3] group-hover:translate-x-0.5 transition-transform duration-300"></i>
+                  </div>
+                </a>
+              </div>
+            </div>
+
+            <!-- NUEVA GUÍA BATCH 2: MERCHANDISING PARA ESCUELAS -->
+            <div class="bg-white border-2 border-[#f2920b]/30 rounded-2xl p-4 sm:p-5 shadow-2xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between group hover:-translate-y-0.5">
+              <div class="space-y-3">
+                <div class="aspect-[16/10] rounded-xl overflow-hidden bg-slate-900 border border-slate-200/90 shadow-2xs relative">
+                  <img src="../assets/images/llaveros-2.jpg" alt="Welcome pack y merchandising para escuelas de pádel y tenis" width="600" height="375" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
+                  <span class="absolute bottom-2 left-2 text-[9px] font-black uppercase tracking-wider px-2 py-0.5 rounded-full bg-[#f2920b] text-slate-950 shadow-xs">
+                    Escuelas &amp; Fidelización
+                  </span>
+                </div>
+
+                <div class="space-y-1">
+                  <div class="flex items-center gap-1.5 text-[10px] font-bold text-slate-400">
+                    <span>Septiembre 2025</span>
+                    <span>•</span>
+                    <span>Lectura 6 min</span>
+                  </div>
+                  <h3 class="font-heading font-black text-sm sm:text-base text-slate-950 leading-snug group-hover:text-[#f2920b] transition">
+                    Welcome Pack para Escuelas de Pádel y Tenis: Cómo Subir la Tasa de Renovación
+                  </h3>
+                  <p class="text-xs text-slate-600 font-medium leading-relaxed line-clamp-2">
+                    Por qué evitar camisetas de talla única: cómo los llaveros 3D y detalles personalizados crean cantera y pertenencia.
+                  </p>
+                </div>
+              </div>
+
+              <div class="pt-3.5 border-t border-slate-100 mt-4">
+                <a href="./welcome-pack-escuelas-padel-tenis-fidelizacion-alumnos/"
+                   class="group relative w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-full bg-slate-900 hover:bg-[#f2920b] text-white hover:text-slate-950 active:scale-95 font-heading font-black text-xs uppercase tracking-wider transition-all duration-300 shadow-2xs">
+                  <span>Ver Ideas para Escuelas</span>
+                  <div class="w-4 h-4 rounded-full bg-white/20 group-hover:bg-slate-950/20 flex items-center justify-center transition-all duration-300">
+                    <i data-lucide="arrow-right" class="w-3 h-3 stroke-[3] group-hover:translate-x-0.5 transition-transform duration-300"></i>
+                  </div>
+                </a>
+              </div>
+            </div>
+
+            <!-- NUEVA GUÍA BATCH 2: MONETIZAR GRABACIONES IA EN TORNEOS -->
+            <div class="bg-white border-2 border-[#3478a6]/30 rounded-2xl p-4 sm:p-5 shadow-2xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between group hover:-translate-y-0.5">
+              <div class="space-y-3">
+                <div class="aspect-[16/10] rounded-xl overflow-hidden bg-slate-900 border border-slate-200/90 shadow-2xs relative">
+                  <img src="../assets/images/savemyplay-1.jpg" alt="Monetizar grabaciones de vídeo con IA en torneos de pádel" width="600" height="375" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
+                  <span class="absolute bottom-2 left-2 text-[9px] font-black uppercase tracking-wider px-2 py-0.5 rounded-full bg-[#3478a6] text-white shadow-xs">
+                    Monetización &amp; IA
+                  </span>
+                </div>
+
+                <div class="space-y-1">
+                  <div class="flex items-center gap-1.5 text-[10px] font-bold text-slate-400">
+                    <span>Marzo 2025</span>
+                    <span>•</span>
+                    <span>Lectura 7 min</span>
+                  </div>
+                  <h3 class="font-heading font-black text-sm sm:text-base text-slate-950 leading-snug group-hover:text-[#f2920b] transition">
+                    Cómo Monetizar las Grabaciones con IA en Torneos y Ligas Sociales del Club
+                  </h3>
+                  <p class="text-xs text-slate-600 font-medium leading-relaxed line-clamp-2">
+                    Vende paquetes de patrocinio digital a negocios locales: mosca en pantalla, vinilado de tótem y streaming en YouTube.
+                  </p>
+                </div>
+              </div>
+
+              <div class="pt-3.5 border-t border-slate-100 mt-4">
+                <a href="./como-monetizar-grabaciones-ia-torneos-ligas-club-padel/"
+                   class="group relative w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-full bg-slate-900 hover:bg-[#f2920b] text-white hover:text-slate-950 active:scale-95 font-heading font-black text-xs uppercase tracking-wider transition-all duration-300 shadow-2xs">
+                  <span>Descubrir Modelos de Ingresos</span>
+                  <div class="w-4 h-4 rounded-full bg-white/20 group-hover:bg-slate-950/20 flex items-center justify-center transition-all duration-300">
+                    <i data-lucide="arrow-right" class="w-3 h-3 stroke-[3] group-hover:translate-x-0.5 transition-transform duration-300"></i>
+                  </div>
+                </a>
+              </div>
+            </div>
+
 </div>
 
 
@@ -1591,6 +1776,42 @@ def generate_blog_index():
     print("  [OK] coolpadel-web/blog/index.html")
 
 ALL_ARTICLES_CATALOG = {
+    "crisis-tenis-profesional-formato-intennse-vs-padel": {
+        "title": "La Crisis del Tenis Profesional vs el Auge del Pádel: El Caso Intennse",
+        "badge": "Tenis vs Pádel & Negocio",
+        "url": "../crisis-tenis-profesional-formato-intennse-vs-padel/",
+        "img": "gallery-padel-1.jpg",
+        "desc": "Por qué competir fuera del top 50 ATP es inviable, el auge de formatos dinámicos como Intennse y la fortaleza del pádel amateur."
+    },
+    "lecciones-burbuja-suecia-padel-crecimiento-sostenible-clubes": {
+        "title": "Lecciones de la 'Burbuja Sueca': Cómo Crecer de Forma Sostenible sin Quebrar tu Club",
+        "badge": "Mercado Nórdico & Gestión",
+        "url": "../lecciones-burbuja-suecia-padel-crecimiento-sostenible-clubes/",
+        "img": "foto-reportaje.jpg",
+        "desc": "De +3.500 pistas a cierres masivos: por qué quebraron las naves sin alma y cómo crear clubes rentables a largo plazo."
+    },
+    "playtomic-vs-playbypoint-vs-courtreserve-software-reservas-padel": {
+        "title": "Playtomic vs Playbypoint vs CourtReserve: Comparativa de Software para Clubes",
+        "badge": "Software & Algoritmos",
+        "url": "../playtomic-vs-playbypoint-vs-courtreserve-software-reservas-padel/",
+        "img": "savemyplay-3.jpg",
+        "desc": "Análisis comparativo de plataformas de reservas, efecto red, algoritmos de nivel WPR y DUPR, y gestión operativa."
+    },
+    "welcome-pack-escuelas-padel-tenis-fidelizacion-alumnos": {
+        "title": "Welcome Pack para Escuelas de Pádel y Tenis: Cómo Subir la Tasa de Renovación",
+        "badge": "Escuelas & Fidelización",
+        "url": "../welcome-pack-escuelas-padel-tenis-fidelizacion-alumnos/",
+        "img": "llaveros-2.jpg",
+        "desc": "Por qué evitar camisetas de talla única: cómo los detalles en relieve 3D con el escudo oficial forjan la cantera del club."
+    },
+    "como-monetizar-grabaciones-ia-torneos-ligas-club-padel": {
+        "title": "Cómo Monetizar las Grabaciones con IA en Torneos y Ligas Sociales del Club",
+        "badge": "Monetización & IA",
+        "url": "../como-monetizar-grabaciones-ia-torneos-ligas-club-padel/",
+        "img": "savemyplay-1.jpg",
+        "desc": "Genera nuevos ingresos vendiendo patrocinio digital, tótem de pista y mosca publicitaria en vídeos con Save my Play."
+    },
+
     "expansion-padel-estados-unidos-oportunidad-clubes-marcas": {
         "title": "La Expansión del Pádel en Estados Unidos: Radiografía 2026, Retos y Oportunidades",
         "badge": "Mercado USA & Crecimiento",
@@ -1739,9 +1960,23 @@ ALL_ARTICLES_CATALOG = {
         "img": "savemyplay-1.jpg",
         "desc": "Cartelería obligatoria, consentimiento, menores y cómo evitar sanciones de la AEPD en tu club."
     },
+    "informe-tendencias-industria-padel-2026": {
+        "title": "¿Hacia Dónde Avanza el Negocio del Pádel? Informe de Tendencias de la Industria 2026",
+        "badge": "Informe Sectorial",
+        "url": "../informe-tendencias-industria-padel-2026/",
+        "img": "foto-reportaje.jpg",
+        "desc": "Las 6 tendencias clave de la industria del pádel: consolidación, Smart Courts, comunidades, Padel Lifestyle y radiografía de EE.UU."
+    },
 }
 
 RELATED_SLUGS_MAP = {
+    "crisis-tenis-profesional-formato-intennse-vs-padel": ["pickleball-vs-padel-oportunidad-o-amenaza-clubs", "expansion-padel-estados-unidos-oportunidad-clubes-marcas", "como-acertar-stand-feria-padel-pws-racquetx-roi"],
+    "lecciones-burbuja-suecia-padel-crecimiento-sostenible-clubes": ["cuanto-cuesta-montar-pista-padel-presupuesto-rentabilidad", "modelos-club-padel-americano-lifestyle-servicios-adicionales", "smart-courts-pistas-inteligentes-padel-horas-valle"],
+    "playtomic-vs-playbypoint-vs-courtreserve-software-reservas-padel": ["barometro-camaras-padel-2026", "smart-courts-pistas-inteligentes-padel-horas-valle", "rentabilidad-camaras-pistas-padel"],
+    "welcome-pack-escuelas-padel-tenis-fidelizacion-alumnos": ["proceso-artesanal-fabricacion-llaveros-3d-personalizados-clubs", "welcome-pack-torneo-padel-ideas", "regalos-eventos-padel-cenas-socios-llaveros"],
+    "como-monetizar-grabaciones-ia-torneos-ligas-club-padel": ["rentabilidad-camaras-pistas-padel", "retransmitir-torneos-padel-streaming-youtube-camaras", "sistemas-grabacion-pistas-padel-comparativa"],
+
+    "informe-tendencias-industria-padel-2026": ["expansion-padel-estados-unidos-oportunidad-clubes-marcas", "modelos-club-padel-americano-lifestyle-servicios-adicionales", "smart-courts-pistas-inteligentes-padel-horas-valle"],
     "expansion-padel-estados-unidos-oportunidad-clubes-marcas": ["pickleball-vs-padel-oportunidad-o-amenaza-clubs", "modelos-club-padel-americano-lifestyle-servicios-adicionales", "highlights-03"],
     "proceso-artesanal-fabricacion-llaveros-3d-personalizados-clubs": ["welcome-pack-torneo-padel-ideas", "vender-llaveros-tienda-club-padel-pro-shop", "regalos-eventos-padel-cenas-socios-llaveros"],
     "pickleball-vs-padel-oportunidad-o-amenaza-clubs": ["expansion-padel-estados-unidos-oportunidad-clubes-marcas", "smart-courts-pistas-inteligentes-padel-horas-valle", "cuanto-cuesta-montar-pista-padel-presupuesto-rentabilidad"],
@@ -1993,7 +2228,6 @@ def generate_article_page(slug, edition_num, title, date_str, read_time, cover_i
         </a>
 
         <nav class="hidden md:flex items-center gap-6 text-xs sm:text-sm font-bold uppercase tracking-wider text-slate-700">
-          <a href="../../camaras/" class="hover:text-[#f2920b] transition">Cámaras IA</a>
           <a href="../../#llaveros" class="hover:text-[#f2920b] transition">Llaveros 3D</a>
           <a href="../../herramientas/" class="hover:text-[#f2920b] transition">Herramientas</a>
           <a href="../../franquicias-padel/" class="hover:text-[#f2920b] transition">Franquicias</a>
@@ -2091,6 +2325,47 @@ def generate_article_page(slug, edition_num, title, date_str, read_time, cover_i
     print(f"  [OK] {dest_dir}/index.html")
 
 DOWNLOAD_BOXES = {
+    "crisis-tenis-profesional-formato-intennse-vs-padel": {
+        "badge": "Informe Comparativo PDF",
+        "title": "Dossier: Economía del Deporte de Raqueta y Nuevos Circuitos",
+        "desc": "Análisis de costes de competición profesional, audiencias televisivas y modelos de dinamización por equipos para instalaciones multirraqueta.",
+        "file_url": "../../assets/reports/padel-industry-report-es.pdf",
+        "btn_text": "Descargar Dossier (PDF)",
+        "wa_msg": "Hola Javier, me interesa el análisis sobre tenis y pádel para nuestro club multideporte"
+    },
+    "lecciones-burbuja-suecia-padel-crecimiento-sostenible-clubes": {
+        "badge": "Guía de Sostenibilidad PDF",
+        "title": "Manual de Viabilidad y Crecimiento Sostenible para Clubes de Pádel",
+        "desc": "Las 7 métricas financieras obligatorias para dimensionar tu club, fijar el punto de equilibrio y evitar riesgos de sobreoferta local.",
+        "file_url": "../../assets/downloads/calculadora-roi-camaras-padel.xlsx",
+        "btn_text": "Descargar Manual de Viabilidad",
+        "wa_msg": "Hola Javier, estamos proyectando un nuevo club de pádel y queremos analizar la viabilidad económica"
+    },
+    "playtomic-vs-playbypoint-vs-courtreserve-software-reservas-padel": {
+        "badge": "Matriz Comparativa PDF",
+        "title": "Matriz de Software de Reservas y Domótica para Clubes 2026",
+        "desc": "Comparativa de comisiones por reserva, gestión de socios, integración con cámaras y compatibilidad con DUPR y WPR.",
+        "file_url": "../../assets/downloads/protocolo-smart-court-horas-valle.pdf",
+        "btn_text": "Descargar Matriz de Software",
+        "wa_msg": "Hola Javier, tenemos dudas sobre qué software de reservas elegir para nuestras pistas"
+    },
+    "welcome-pack-escuelas-padel-tenis-fidelizacion-alumnos": {
+        "badge": "Muestra Digital y Dossier Escuelas",
+        "title": "Dossier de Merchandising y Welcome Packs para Escuelas Deportivas",
+        "desc": "Ideas de accesorios con logo del club, guía para financiar el 100% con patrocinadores locales y solicitud de muestra física.",
+        "file_url": "../../assets/downloads/checklist-organizacion-torneos-padel.pdf",
+        "btn_text": "Descargar Dossier Escuelas",
+        "wa_msg": "Hola Javier, dirijo una escuela deportiva y queremos preparar los llaveros de bienvenida para nuestros alumnos"
+    },
+    "como-monetizar-grabaciones-ia-torneos-ligas-club-padel": {
+        "badge": "Propuesta Comercial PDF",
+        "title": "Plantilla de Venta de Patrocinio Digital en Torneos y Ligas",
+        "desc": "Presentación editable para entregar a empresas locales: precios recomendados, formatos de mosca en vídeo y banners de streaming en YouTube.",
+        "file_url": "../../assets/downloads/calculadora-roi-camaras-padel.xlsx",
+        "btn_text": "Descargar Plantilla de Venta",
+        "wa_msg": "Hola Javier, organizamos torneos y queremos comercializar el patrocinio con las cámaras Save my Play"
+    },
+
     "expansion-padel-estados-unidos-oportunidad-clubes-marcas": {
         "badge": "Reporte de Mercado PDF",
         "title": "Informe Ejecutivo: El Mercado del Pádel en Estados Unidos 2026",
@@ -2207,6 +2482,13 @@ DOWNLOAD_BOXES = {
 }
 
 SHORT_SEO_TITLES = {
+    "crisis-tenis-profesional-formato-intennse-vs-padel": "Crisis del Tenis vs Auge del Pádel (Intennse) | CoolPadel",
+    "lecciones-burbuja-suecia-padel-crecimiento-sostenible-clubes": "Lecciones de la Burbuja Sueca del Pádel | CoolPadel",
+    "playtomic-vs-playbypoint-vs-courtreserve-software-reservas-padel": "Playtomic vs Playbypoint vs CourtReserve | CoolPadel",
+    "welcome-pack-escuelas-padel-tenis-fidelizacion-alumnos": "Welcome Pack para Escuelas de Pádel y Tenis | CoolPadel",
+    "como-monetizar-grabaciones-ia-torneos-ligas-club-padel": "Monetizar Grabaciones IA en Torneos de Pádel | CoolPadel",
+
+    "informe-tendencias-industria-padel-2026": "Informe de Tendencias de la Industria del Pádel 2026 | CoolPadel",
     "expansion-padel-estados-unidos-oportunidad-clubes-marcas": "Expansión del Pádel en Estados Unidos 2026 | CoolPadel",
     "proceso-artesanal-fabricacion-llaveros-3d-personalizados-clubs": "Fabricación Artesanal de Llaveros de Pádel 3D | CoolPadel",
     "pickleball-vs-padel-oportunidad-o-amenaza-clubs": "Pickleball vs Pádel en Clubes de Raqueta | CoolPadel",
@@ -2323,7 +2605,7 @@ def generate_guide_page(slug, category_badge, title, subtitle, meta_desc, date_s
               <i data-lucide="message-circle" class="w-4 h-4 stroke-[2.5]"></i>
               <span>Consultar por WhatsApp</span>
             </a>
-            <a href="../../camaras/" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-white/10 hover:bg-white/20 text-white font-heading font-bold text-xs uppercase tracking-wider transition border border-white/20">
+            <a href="../../save-my-play/" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-white/10 hover:bg-white/20 text-white font-heading font-bold text-xs uppercase tracking-wider transition border border-white/20">
               <span>Ver Especificaciones Técnicas</span>
               <i data-lucide="arrow-right" class="w-3.5 h-3.5 stroke-[2.5]"></i>
             </a>
@@ -2366,13 +2648,6 @@ def generate_guide_page(slug, category_badge, title, subtitle, meta_desc, date_s
   <title>{seo_doc_title}</title>
   <meta name="description" content="{meta_desc}">
   <link rel="canonical" href="https://coolpadelstudios.com/blog/{slug}/">
-
-  <!-- SEO Multilingüe Hreflang -->
-  <link rel="alternate" hreflang="es" href="https://coolpadelstudios.com/blog/{slug}/">
-  <link rel="alternate" hreflang="en" href="https://coolpadelstudios.com/en/blog/{slug}/">
-  <link rel="alternate" hreflang="fr" href="https://coolpadelstudios.com/fr/blog/{slug}/">
-  <link rel="alternate" hreflang="it" href="https://coolpadelstudios.com/it/blog/{slug}/">
-  <link rel="alternate" hreflang="x-default" href="https://coolpadelstudios.com/blog/{slug}/">
   <meta name="language" content="es">
   
   <!-- Open Graph / Redes Sociales -->
@@ -2478,7 +2753,6 @@ def generate_guide_page(slug, category_badge, title, subtitle, meta_desc, date_s
         </a>
 
         <nav class="hidden md:flex items-center gap-6 text-xs sm:text-sm font-bold uppercase tracking-wider text-slate-700">
-          <a href="../../camaras/" class="hover:text-[#f2920b] transition">Cámaras IA</a>
           <a href="../../#llaveros" class="hover:text-[#f2920b] transition">Llaveros 3D</a>
           <a href="../../herramientas/" class="hover:text-[#f2920b] transition">Herramientas</a>
           <a href="../../franquicias-padel/" class="hover:text-[#f2920b] transition">Franquicias</a>
@@ -4430,7 +4704,7 @@ def generate_all():
           <i data-lucide="message-circle" class="w-4 h-4"></i>
           <span>Consultar Dudas por WhatsApp</span>
         </a>
-        <a href="/camaras/" class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-slate-900 hover:bg-[#f2920b] text-white hover:text-slate-950 font-heading font-black text-xs uppercase tracking-wider transition">
+        <a href="/save-my-play/" class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-slate-900 hover:bg-[#f2920b] text-white hover:text-slate-950 font-heading font-black text-xs uppercase tracking-wider transition">
           <span>Ver Sistema Save my Play</span>
           <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
         </a>
@@ -4486,7 +4760,23 @@ def generate_all():
         CONTENT_ARTESANIA_LLAVEROS, FAQS_ARTESANIA_LLAVEROS,
         CONTENT_PICKLEBALL_VS_PADEL, FAQS_PICKLEBALL_VS_PADEL,
         CONTENT_CLUB_LIFESTYLE, FAQS_CLUB_LIFESTYLE,
-        CONTENT_STAND_FERIAS, FAQS_STAND_FERIAS
+        CONTENT_STAND_FERIAS, FAQS_STAND_FERIAS,
+        CONTENT_INFORME_TENDENCIAS_2026, FAQS_INFORME_TENDENCIAS_2026
+    )
+
+    generate_guide_page(
+        slug="informe-tendencias-industria-padel-2026",
+        category_badge="Informe Oficial · Tendencias 2026",
+        title="¿Hacia Dónde Avanza el Negocio del Pádel? Informe de Tendencias de la Industria 2026",
+        subtitle="Consolidación en cadenas, pistas inteligentes (Smart Courts), comunidades de jugadores, Padel Lifestyle, expansión en EE.UU. (1.112 pistas) y aprendizajes del nuevo tenis.",
+        meta_desc="Informe 2026 sobre tendencias de la industria del pádel: consolidación, Smart Courts, comunidades, Padel Lifestyle, mercado de EE.UU. y retorno en ferias.",
+        date_str="Octubre 2026",
+        date_iso="2026-10-20",
+        read_time="Lectura 10 min",
+        cover_img="foto-reportaje.jpg",
+        content_html=CONTENT_INFORME_TENDENCIAS_2026,
+        faqs=FAQS_INFORME_TENDENCIAS_2026,
+        cta_type="llaveros"
     )
 
     generate_guide_page(
@@ -4562,6 +4852,93 @@ def generate_all():
         content_html=CONTENT_STAND_FERIAS,
         faqs=FAQS_STAND_FERIAS,
         cta_type="llaveros"
+    )
+
+    
+    # -------------------------------------------------------------
+    # 5 NUEVOS ARTÍCULOS ADICIONALES (BATCH 2)
+    # -------------------------------------------------------------
+    from new_articles_data_batch2 import (
+        CONTENT_TENIS_CRISIS, FAQS_TENIS_CRISIS,
+        CONTENT_BURBUJA_SUECIA, FAQS_BURBUJA_SUECIA,
+        CONTENT_SOFTWARE_RESERVAS, FAQS_SOFTWARE_RESERVAS,
+        CONTENT_WELCOME_PACK_ESCUELAS, FAQS_WELCOME_PACK_ESCUELAS,
+        CONTENT_MONETIZAR_STREAMING_TORNEOS, FAQS_MONETIZAR_STREAMING_TORNEOS
+    )
+
+    generate_guide_page(
+        slug="crisis-tenis-profesional-formato-intennse-vs-padel",
+        category_badge="Tenis vs Pádel & Negocio",
+        title="La Crisis del Tenis Profesional vs el Auge del Pádel: El Caso Intennse",
+        subtitle="Por qué competir fuera del top 50 ATP resulta económicamente insostenible, la aparición de ligas dinámicas por equipos como Intennse y la fortaleza del pádel amateur.",
+        meta_desc="Crisis económica del tenis profesional fuera del top 50 ATP, la liga Intennse de formato corto y por qué el pádel amateur sostiene una industria más rentable.",
+        date_str="Enero 2025",
+        date_iso="2025-01-16",
+        read_time="Lectura 7 min",
+        cover_img="gallery-padel-1.jpg",
+        content_html=CONTENT_TENIS_CRISIS,
+        faqs=FAQS_TENIS_CRISIS,
+        cta_type="camaras"
+    )
+
+    generate_guide_page(
+        slug="lecciones-burbuja-suecia-padel-crecimiento-sostenible-clubes",
+        category_badge="Mercado Nórdico & Gestión",
+        title="Lecciones de la 'Burbuja Sueca': Cómo Crecer de Forma Sostenible sin Quebrar tu Club",
+        subtitle="De 3.500 pistas a decenas de naves cerradas en 18 meses: por qué falló el modelo industrial sin servicios sociales y cómo edificar un club rentable a largo plazo.",
+        meta_desc="Análisis de la burbuja del pádel en Suecia: causas de los cierres masivos, datos de Playtomic y cómo evitar errores con escuelas, comunidad y control de costes.",
+        date_str="Septiembre 2024",
+        date_iso="2024-09-18",
+        read_time="Lectura 8 min",
+        cover_img="foto-reportaje.jpg",
+        content_html=CONTENT_BURBUJA_SUECIA,
+        faqs=FAQS_BURBUJA_SUECIA,
+        cta_type="llaveros"
+    )
+
+    generate_guide_page(
+        slug="playtomic-vs-playbypoint-vs-courtreserve-software-reservas-padel",
+        category_badge="Software & Algoritmos",
+        title="Playtomic vs Playbypoint vs CourtReserve: Comparativa de Software para Clubes",
+        subtitle="Efecto red, cuotas en EE.UU. y Europa, algoritmos de nivel WPR y DUPR y gestión de partidas abiertas: qué sistema encaja mejor con el modelo de tu instalación.",
+        meta_desc="Comparativa de software para clubes de pádel: Playtomic vs Playbypoint vs CourtReserve. Comisiones, captación de usuarios y algoritmos WPR y DUPR.",
+        date_str="Junio 2026",
+        date_iso="2026-06-08",
+        read_time="Lectura 8 min",
+        cover_img="savemyplay-3.jpg",
+        content_html=CONTENT_SOFTWARE_RESERVAS,
+        faqs=FAQS_SOFTWARE_RESERVAS,
+        cta_type="camaras"
+    )
+
+    generate_guide_page(
+        slug="welcome-pack-escuelas-padel-tenis-fidelizacion-alumnos",
+        category_badge="Escuelas & Fidelización",
+        title="Welcome Pack para Escuelas de Pádel y Tenis: Cómo Subir la Tasa de Renovación",
+        subtitle="Por qué huir de camisetas promocionales genéricas: cómo los detalles en relieve 3D con el escudo oficial forjan la cantera del club y cómo financiarlo con patrocinadores.",
+        meta_desc="Welcome pack y merchandising para escuelas de pádel y tenis: ideas útiles, llaveros 3D personalizados y cómo financiar el 100% con sponsors locales.",
+        date_str="Septiembre 2025",
+        date_iso="2025-09-04",
+        read_time="Lectura 6 min",
+        cover_img="llaveros-2.jpg",
+        content_html=CONTENT_WELCOME_PACK_ESCUELAS,
+        faqs=FAQS_WELCOME_PACK_ESCUELAS,
+        cta_type="llaveros"
+    )
+
+    generate_guide_page(
+        slug="como-monetizar-grabaciones-ia-torneos-ligas-club-padel",
+        category_badge="Monetización & IA",
+        title="Cómo Monetizar las Grabaciones con IA en Torneos y Ligas Sociales del Club",
+        subtitle="Convierte cada repetición en un activo comercial: paquetes de patrocinio digital, tótem vinilado y mosca en clips para amortizar la tecnología Save my Play.",
+        meta_desc="Cómo monetizar cámaras de pádel con IA en torneos: venta de patrocinio digital a empresas locales, mosca en clips de redes y amortización de Save my Play.",
+        date_str="Marzo 2025",
+        date_iso="2025-03-11",
+        read_time="Lectura 7 min",
+        cover_img="savemyplay-1.jpg",
+        content_html=CONTENT_MONETIZAR_STREAMING_TORNEOS,
+        faqs=FAQS_MONETIZAR_STREAMING_TORNEOS,
+        cta_type="camaras"
     )
 
     generate_blog_html = generate_all

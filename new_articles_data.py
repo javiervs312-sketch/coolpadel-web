@@ -411,4 +411,134 @@ FAQS_STAND_FERIAS = [
     }
 ]
 
+CONTENT_INFORME_TENDENCIAS_2026 = """
+    <div class="bg-amber-50/70 border-l-4 border-[#f2920b] p-5 rounded-r-2xl mb-8">
+      <p class="text-xs font-black uppercase tracking-wider text-[#f2920b] mb-1">Resumen Ejecutivo (TL;DR)</p>
+      <p class="text-sm sm:text-base text-slate-800 font-medium leading-relaxed">
+        <strong>¿Hacia dónde avanza el negocio del pádel en 2026?</strong> El sector ha dejado atrás la fase de crecimiento improvisado para entrar en una etapa de <strong>profesionalización, consolidación en cadenas, pistas inteligentes (Smart Courts) y diferenciación por comunidad y estilo de vida (Padel Lifestyle)</strong>. En este informe analizamos las 6 grandes tendencias globales del sector, la radiografía real del mercado de Estados Unidos (1.112 pistas en 279 instalaciones), la sinergia con el pickleball y las lecciones del nuevo tenis para clubes y marcas.
+      </p>
+    </div>
+
+    <h2 class="text-xl sm:text-2xl font-black font-heading text-slate-950 mt-8 mb-4">
+      1. Las 4 Macrotendencias que Están Transformando los Clubes de Pádel
+    </h2>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      La primera ola del pádel consistió simplemente en levantar pistas donde había demanda desatendida. Hoy, en mercados maduros como España, Italia o Suecia y en mercados en expansión como Reino Unido, Francia o Estados Unidos, abrir las puertas y esperar a que se llenen las horas punta de 18:00 a 22:00 ya no basta para sostener la rentabilidad. Cuatro fuerzas están redefiniendo el modelo de negocio:
+    </p>
+
+    <div class="overflow-x-auto my-6 rounded-2xl border border-slate-200 shadow-2xs">
+      <table class="w-full text-left border-collapse text-xs sm:text-sm">
+        <thead class="bg-slate-900 text-white font-heading uppercase text-xs">
+          <tr>
+            <th class="p-3.5">Tendencia Clave</th>
+            <th class="p-3.5">Cambio en el Sector</th>
+            <th class="p-3.5">Impacto en el Club / Marca</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-slate-200 bg-white text-slate-700">
+          <tr>
+            <td class="p-3.5 font-bold text-slate-950">1. Consolidación</td>
+            <td class="p-3.5">Transición de clubes independientes aislados hacia grupos multi-sede y franquicias profesionalizadas.</td>
+            <td class="p-3.5">Economías de escala en compras, software unificado y estándares de calidad homogéneos.</td>
+          </tr>
+          <tr>
+            <td class="p-3.5 font-bold text-slate-950">2. Smart Courts &amp; IA</td>
+            <td class="p-3.5">Automatización de accesos, luces LED y cámaras en pista con repetición instantánea de puntos y marcadores.</td>
+            <td class="p-3.5">Reducción de costes fijos de personal y monetización de horas valle mediante vídeo-análisis y torneos.</td>
+          </tr>
+          <tr>
+            <td class="p-3.5 font-bold text-slate-950">3. Comunidades Activas</td>
+            <td class="p-3.5">El jugador busca pertenencia y no quedarse nunca sin cuarto jugador para su partido.</td>
+            <td class="p-3.5">Fidelización mediante americanas semanales, grupos por nivel e identidad física del club.</td>
+          </tr>
+          <tr>
+            <td class="p-3.5 font-bold text-slate-950">4. Padel Lifestyle</td>
+            <td class="p-3.5">El club pasa de ser un polideportivo de paso a un tercer espacio social (trabajo, salud y ocio).</td>
+            <td class="p-3.5">Aumento del ticket medio con restauración saludable, coworking, wellness y merchandising cuidado.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 class="text-lg sm:text-xl font-bold font-heading text-slate-900 mt-6 mb-2">
+      1.1. Consolidación: El aprendizaje del caso sueco
+    </h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      El mercado del pádel sigue siendo altamente fragmentado, pero la entrada de capital inversor y operadores multi-club está acelerando la concentración. El ejemplo más claro ocurrió en Suecia: tras el boom explosivo impulsado durante la pandemia, el exceso de oferta en naves industriales sin alma provocó cierres y absorciones, dejando un mercado más sano, estable y liderado por gestores que cuidan la ocupación real y la academia.
+    </p>
+
+    <h3 class="text-lg sm:text-xl font-bold font-heading text-slate-900 mt-6 mb-2">
+      1.2. Pistas Inteligentes (Smart Courts) y Grabación en Pista
+    </h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      La tecnología en pista ha evolucionado en dos direcciones complementarias: por un lado, la <strong>automatización operativa</strong> (cerraduras electrónicas vinculadas a la reserva y encendido domótico de focos LED) que permite operar pistas en franjas de baja demanda sin duplicar turnos de recepción; y por otro, la <strong>experiencia interactiva del jugador</strong> mediante cámaras fijas con pulsador en red como <a href="/save-my-play/" class="text-[#3478a6] font-bold underline">Save my Play</a>, que permiten descargar los mejores puntos de 25 segundos al móvil tras el partido o retransmitir finales en directo por YouTube.
+    </p>
+
+    <h3 class="text-lg sm:text-xl font-bold font-heading text-slate-900 mt-6 mb-2">
+      1.3. Comunidades y Padel Lifestyle: Del alquiler de hora al club social
+    </h3>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      El mayor freno de cualquier deporte de cuatro jugadores es organizar el partido. Los clubes y comunidades que resuelven esa fricción —organizando pozos y <a href="/herramientas/generador-americana-padel/" class="text-[#3478a6] font-bold underline">americanas por niveles</a>, dinamizando grupos de WhatsApp bien segmentados y entregando detalles físicos que refuerzan el orgullo de pertenencia— logran tasas de retención muy superiores a las instalaciones que solo alquilan cemento y cristal.
+    </p>
+
+    <h2 class="text-xl sm:text-2xl font-black font-heading text-slate-950 mt-10 mb-4">
+      2. Radiografía del Mercado en Estados Unidos y la Convivencia con el Pickleball
+    </h2>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Estados Unidos se ha convertido en el foco de todas las miradas internacionales, pero exige entender sus particularidades reales frente a Europa:
+    </p>
+    <ul class="list-disc pl-6 space-y-2 text-slate-700 mb-6 text-sm sm:text-base">
+      <li><strong>Volumen actual y concentración geográfica:</strong> El país supera las <strong>1.112 pistas distribuidas en 279 instalaciones a lo largo de 38 estados</strong>, pero más del 30% del mercado nacional se concentra en Florida (especialmente Miami), seguido por Texas, California y Nueva York.</li>
+      <li><strong>Posicionamiento de precio y barrera inmobiliaria:</strong> Con un ticket medio en torno a los <strong>$36 por jugador</strong> ($80 a $140 por pista), el pádel en EE.UU. ha nacido como un deporte social de perfil medio-alto y alto. El elevado coste del suelo urbano y el clima extremo (humedad y calor en verano en el sur, inviernos duros en el norte) impulsan con fuerza los proyectos <em>indoor</em> climatizados.</li>
+      <li><strong>Pickleball como aliado y embudo de captación:</strong> Lejos de ser un enemigo irreconciliable, el <strong>43,9% de los centros multideporte en EE.UU. ya combinan pistas de pádel y pickleball</strong>. Con más de 19 millones de practicantes de pickleball acostumbrados a jugar con pala y en pareja, los clubes inteligentes utilizan el pickleball como puerta de entrada hacia el pádel.</li>
+    </ul>
+
+    <h2 class="text-xl sm:text-2xl font-black font-heading text-slate-950 mt-10 mb-4">
+      3. ¿Qué Puede Aprender el Pádel de la Transformación del Tenis (ATP e Intennse)?
+    </h2>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      El informe dedica un capítulo especial a analizar cómo el tenis tradicional está reinventando su envoltorio audiovisual para no perder a las generaciones jóvenes: desde el <em>rebranding</em> minimalista de la ATP pensado para pantallas verticales (TikTok y Reels) hasta ligas disruptivas en Estados Unidos como <strong>Intennse</strong>, donde se eliminan los tiempos muertos, los partidos se juegan por bloques cronometrados con música en directo y se monitorizan constantes y estadísticas en tiempo real.
+    </p>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      Para un club de pádel, la conclusión es directa: el jugador amateur también quiere sentirse profesional. Integrar cámaras de repetición de puntos, marcadores digitales y formatos de torneo dinámicos de dos horas transforma un partido rutinario de martes en un evento que los socios comparten en sus redes sociales.
+    </p>
+
+    <h2 class="text-xl sm:text-2xl font-black font-heading text-slate-950 mt-10 mb-4">
+      4. Ferias Internacionales (PWS y RacquetX): Cómo Rentabilizar la Presencia B2B
+    </h2>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      El análisis de campo en ferias como el <em>Padel World Summit</em> (Barcelona) y <em>RacquetX</em> (Miami) demuestra que el éxito comercial de una marca no depende de gastar decenas de miles de euros en un stand cerrado tipo "fuerte romano", sino de tres factores: cerrar reuniones semanas antes del evento, diseñar un espacio abierto cuya propuesta de valor se entienda en menos de 3 segundos, y sustituir el merchandising desechable por <a href="/llaveros-padel-personalizados/" class="text-[#3478a6] font-bold underline">recuerdos tangibles en relieve 3D</a> entregados exclusivamente tras una conversación cualificada.
+    </p>
+
+    <div class="bg-slate-900 text-white rounded-3xl p-6 sm:p-8 my-8 space-y-4">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div class="space-y-1">
+          <span class="text-[11px] font-black uppercase tracking-wider text-[#f2920b]">Documento Original Completo (39 Páginas)</span>
+          <h3 class="text-lg sm:text-2xl font-heading font-black text-white">Descarga el Informe PDF en Español, Inglés o Italiano</h3>
+          <p class="text-xs sm:text-sm text-slate-300">Incluye todos los gráficos, entrevistas en ferias y análisis detallado por mercado elaborado por Javier Villoria.</p>
+        </div>
+        <div class="flex flex-wrap gap-2 shrink-0">
+          <a href="/assets/reports/padel-industry-report-es.pdf" target="_blank" rel="noopener" class="px-4 py-2.5 rounded-xl bg-[#f2920b] hover:bg-white text-slate-950 font-heading font-black text-xs uppercase tracking-wider transition">Descargar PDF (ES)</a>
+          <a href="/assets/reports/padel-industry-report-en.pdf" target="_blank" rel="noopener" class="px-4 py-2.5 rounded-xl bg-white/10 hover:bg-white/20 text-white font-heading font-bold text-xs uppercase tracking-wider transition border border-white/20">PDF (EN)</a>
+          <a href="/assets/reports/padel-industry-report-it.pdf" target="_blank" rel="noopener" class="px-4 py-2.5 rounded-xl bg-white/10 hover:bg-white/20 text-white font-heading font-bold text-xs uppercase tracking-wider transition border border-white/20">PDF (IT)</a>
+        </div>
+      </div>
+    </div>
+"""
+
+FAQS_INFORME_TENDENCIAS_2026 = [
+    {
+        "q": "¿Cuáles son las principales tendencias del negocio del pádel en 2026?",
+        "a": "Las cuatro grandes tendencias son la consolidación del sector en cadenas y grupos multi-club, la adopción de pistas inteligentes (Smart Courts) con cámaras de grabación y automatización, la creación de comunidades activas que aseguran partidos por nivel, y el modelo Padel Lifestyle que integra restauración, coworking y bienestar."
+    },
+    {
+        "q": "¿Cuántas pistas de pádel hay en Estados Unidos y dónde se concentran?",
+        "a": "Estados Unidos cuenta con más de 1.112 pistas repartidas en 279 instalaciones a lo largo de 38 estados. Más del 30% se concentran en Florida (con Miami como epicentro), seguidas por Texas, California y Nueva York, con un precio medio de unos $36 por jugador."
+    },
+    {
+        "q": "¿El pickleball es una amenaza o una oportunidad para los clubes de pádel?",
+        "a": "Es una oportunidad estratégica de captación: en Estados Unidos, el 43,9% de los clubes multideporte ya combinan pistas de pádel y pickleball, utilizando la enorme base de jugadores de pickleball como embudo natural hacia el pádel."
+    }
+]
+
 print("Module prepared with all contents and FAQs.")

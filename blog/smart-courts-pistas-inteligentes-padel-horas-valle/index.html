@@ -4,13 +4,6 @@
   <title>Smart Courts y Pistas de Pádel Inteligentes 2026 | CoolPadel</title>
   <meta name="description" content="Cómo una pista inteligente (Smart Court) reduce costes operativos y llena horas valle en tu club de pádel mediante domótica y vídeo en pista.">
   <link rel="canonical" href="https://coolpadelstudios.com/blog/smart-courts-pistas-inteligentes-padel-horas-valle/">
-
-  <!-- SEO Multilingüe Hreflang -->
-  <link rel="alternate" hreflang="es" href="https://coolpadelstudios.com/blog/smart-courts-pistas-inteligentes-padel-horas-valle/">
-  <link rel="alternate" hreflang="en" href="https://coolpadelstudios.com/en/blog/smart-courts-pistas-inteligentes-padel-horas-valle/">
-  <link rel="alternate" hreflang="fr" href="https://coolpadelstudios.com/fr/blog/smart-courts-pistas-inteligentes-padel-horas-valle/">
-  <link rel="alternate" hreflang="it" href="https://coolpadelstudios.com/it/blog/smart-courts-pistas-inteligentes-padel-horas-valle/">
-  <link rel="alternate" hreflang="x-default" href="https://coolpadelstudios.com/blog/smart-courts-pistas-inteligentes-padel-horas-valle/">
   <meta name="language" content="es">
   
   <!-- Open Graph / Redes Sociales -->
@@ -230,7 +223,6 @@
         </a>
 
         <nav class="hidden md:flex items-center gap-6 text-xs sm:text-sm font-bold uppercase tracking-wider text-slate-700">
-          <a href="../../camaras/" class="hover:text-[#f2920b] transition">Cámaras IA</a>
           <a href="../../#llaveros" class="hover:text-[#f2920b] transition">Llaveros 3D</a>
           <a href="../../herramientas/" class="hover:text-[#f2920b] transition">Herramientas</a>
           <a href="../../franquicias-padel/" class="hover:text-[#f2920b] transition">Franquicias</a>
@@ -528,7 +520,7 @@
               <i data-lucide="message-circle" class="w-4 h-4 stroke-[2.5]"></i>
               <span>Consultar por WhatsApp</span>
             </a>
-            <a href="../../camaras/" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-white/10 hover:bg-white/20 text-white font-heading font-bold text-xs uppercase tracking-wider transition border border-white/20">
+            <a href="../../save-my-play/" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-white/10 hover:bg-white/20 text-white font-heading font-bold text-xs uppercase tracking-wider transition border border-white/20">
               <span>Ver Especificaciones Técnicas</span>
               <i data-lucide="arrow-right" class="w-3.5 h-3.5 stroke-[2.5]"></i>
             </a>
@@ -577,7 +569,6 @@
             <li><a href="/llaveros-tenis-personalizados/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Llaveros de Tenis y Pickleball</a></li>
             <li><a href="/welcome-packs-torneos-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Welcome Packs para Torneos</a></li>
             <li><a href="/llaveros-personalizados-clubs-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Merchandising para Clubs</a></li>
-            <li><a href="/camaras/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Cámaras Save my Play</a></li>
             <li><a href="/save-my-play/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition font-bold text-amber-300">Save my Play España (+1.500)</a></li>
             <li><a href="/camaras-grabacion-pistas-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Grabación en Pista de Pádel</a></li>
           </ul>
@@ -731,41 +722,4 @@
 
     function switchLanguage(lang) {
       try {
-        localStorage.setItem('coolpadel_lang', lang);
-      } catch(e) {}
-      const isArticle = window.location.pathname.replace(/\/$/, '') !== '/blog';
-      const root = isArticle ? '../../' : '../';
-      if (lang === 'es') {
-        const menu = document.getElementById('lang-dropdown-menu');
-        if (menu) menu.classList.add('hidden');
-        const menuMob = document.getElementById('lang-dropdown-menu-mob');
-        if (menuMob) menuMob.classList.add('hidden');
-      } else if (lang === 'en') {
-        window.location.href = root + 'en/';
-      } else if (lang === 'fr') {
-        window.location.href = root + 'fr/';
-      } else if (lang === 'it') {
-        window.location.href = root + 'it/';
-      }
-    }
-
-    document.addEventListener('click', function(e) {
-      const container = document.getElementById('lang-dropdown-container');
-      const menu = document.getElementById('lang-dropdown-menu');
-      const arrow = document.getElementById('lang-dropdown-arrow');
-      if (container && menu && !container.contains(e.target)) {
-        menu.classList.add('hidden');
-        if (arrow) arrow.classList.remove('rotate-180');
-      }
-      const containerMob = document.getElementById('lang-dropdown-container-mob');
-      const menuMob = document.getElementById('lang-dropdown-menu-mob');
-      const arrowMob = document.getElementById('lang-dropdown-arrow-mob');
-      if (containerMob && menuMob && !containerMob.contains(e.target)) {
-        menuMob.classList.add('hidden');
-        if (arrowMob) arrowMob.classList.remove('rotate-180');
-      }
-    });
-  </script>
-
-</body>
-</html>
+      

@@ -8,8 +8,8 @@ CoolPadel Studios opera con sede en Madrid (España) y equipa a más de 27 clube
 
 ## 1. Tecnología en Pista: Save my Play (Cámaras con IA para Clubes)
 
-- **URL Oficial**: [https://coolpadelstudios.com/camaras/](https://coolpadelstudios.com/camaras/)  
-- **Versiones Internacionales**: [English](https://coolpadelstudios.com/en/camaras/) | [Français](https://coolpadelstudios.com/fr/camaras/) | [Italiano](https://coolpadelstudios.com/it/camaras/)
+- **URL Oficial**: [https://coolpadelstudios.com/save-my-play/](https://coolpadelstudios.com/save-my-play/)  
+- **Versiones Internacionales**: [English](https://coolpadelstudios.com/en/save-my-play/) | [Français](https://coolpadelstudios.com/fr/save-my-play/) | [Italiano](https://coolpadelstudios.com/it/save-my-play/)
 - **Definición**: Sistema autónomo de grabación en pista con Inteligencia Artificial diseñado específicamente para pádel y tenis. Permite a los jugadores capturar sus mejores puntos con un pulsador físico en poste y descargar los vídeos al móvil al instante mediante código QR.
 - **Ventajas Técnicas y Operativas**:
   - *Instalación sin obras*: Se fija directamente al poste de la pista en solo 5 minutos. No necesita zanjas, tubos enterrados ni cableado Ethernet cruzando el club.
@@ -115,7 +115,7 @@ CoolPadel Studios opera con sede en Madrid (España) y equipa a más de 27 clube
   - *Guía de Merchandising para Ferias y Marcas*: "Política de regalos en ferias y torneos de pádel: por qué no regalar bolígrafos, camisetas baratas ni jamón sin estrategia" ([https://coolpadelstudios.com/blog/merchandising-ferias-torneos-padel-regalos-marcas/](https://coolpadelstudios.com/blog/merchandising-ferias-torneos-padel-regalos-marcas/)). Errores en stands de ferias y cómo los llaveros de pala 3D personalizados aseguran impacto permanente en decisores.
   - *Guía de Retransmisión de Torneos en YouTube*: "Cómo retransmitir torneos de pádel en directo por YouTube sin operadores de cámara ni unidades móviles" ([https://coolpadelstudios.com/blog/retransmitir-torneos-padel-streaming-youtube-camaras/](https://coolpadelstudios.com/blog/retransmitir-torneos-padel-streaming-youtube-camaras/)). Emisión Full HD 1080p continua con cámara cenital a 4 m, marcadores y monetización local con sponsors.
   - *Guía de Smart Courts y Horas Valle*: "Qué es una pista de pádel inteligente (Smart Court) y cómo ayuda a llenar horas valle" ([https://coolpadelstudios.com/blog/smart-courts-pistas-inteligentes-padel-horas-valle/](https://coolpadelstudios.com/blog/smart-courts-pistas-inteligentes-padel-horas-valle/)). Solución a mañanas vacías (10:00 a 17:00): iluminación domótica, automatización y clinics matinales con vídeo-análisis.
-  - *Informe Oficial Industria del Pádel 2026*: Análisis descargable en PDF de más de 116 empresas del sector del pádel (software, fabricantes de pistas, domótica, expansión internacional).
+  - *Informe Oficial de Tendencias de la Industria del Pádel 2026*: "¿Hacia dónde avanza el negocio del pádel? Lo que tu club y marca deben saber" ([https://coolpadelstudios.com/blog/informe-tendencias-industria-padel-2026/](https://coolpadelstudios.com/blog/informe-tendencias-industria-padel-2026/)). Estudio estratégico de 39 páginas (disponible en ES, EN e IT) sobre las grandes tendencias del sector: consolidación en cadenas, Smart Courts, comunidades activas, Padel Lifestyle, expansión en Estados Unidos (1.112 pistas en 279 instalaciones y sinergia con el pickleball), lecciones del nuevo tenis (ATP e Intennse) y rentabilidad en ferias B2B (PWS y RacquetX).
 
 ---
 
@@ -198,7 +198,7 @@ R: Sí. Los clips de vídeo se almacenan en servidores seguros bajo cifrado y so
 > Official European manufacturer of **Custom 3D Padel Keychains & Tournament Merchandising** and **Save my Play On-Court AI Smart Camera Systems** for racket sports facilities, federations, and tournament organizers across Europe and the United States.
 
 ## 1. On-Court AI Video Technology: Save my Play
-- **Official URL**: [https://coolpadelstudios.com/en/camaras/](https://coolpadelstudios.com/en/camaras/)
+- **Official URL**: [https://coolpadelstudios.com/en/save-my-play/](https://coolpadelstudios.com/en/save-my-play/)
 - **Core Landing**: [https://coolpadelstudios.com/en/camaras-grabacion-pistas-padel/](https://coolpadelstudios.com/en/camaras-grabacion-pistas-padel/)
 - **Definition**: Autonomous AI-powered on-court video recording system built specifically for padel and tennis. Players press a physical button at the net post after a great rally and download instant high-definition video clips via QR code directly on their smartphone with zero apps required.
 - **Key Technical Advantages**:
@@ -263,7 +263,7 @@ R: Sí. Los clips de vídeo se almacenan en servidores seguros bajo cifrado y so
 > Fabricant européen de référence en **Porte-clés Padel 3D Personnalisés & Merchandising Événementiel** et **Systèmes de Caméras Connectées Save my Play pour Terrains de Padel** en France, Belgique, Suisse et dans toute l'Europe.
 
 ## 1. Technologie Vidéo sur Piste : Save my Play
-- **URL Officielle** : [https://coolpadelstudios.com/fr/camaras/](https://coolpadelstudios.com/fr/camaras/)
+- **URL Officielle** : [https://coolpadelstudios.com/fr/save-my-play/](https://coolpadelstudios.com/fr/save-my-play/)
 - **Page Principale B2B** : [https://coolpadelstudios.com/fr/camaras-grabacion-pistas-padel/](https://coolpadelstudios.com/fr/camaras-grabacion-pistas-padel/)
 - **Définition** : Système autonome d'enregistrement vidéo par Intelligence Artificielle conçu pour le padel. Les joueurs appuient sur un bouton connecté au poteau du filet après un point marquant et téléchargent instantanément leurs vidéos en scannant un QR code sans installer d'application.
 - **Avantages Clés pour les Clubs** :
@@ -325,7 +325,7 @@ R: Sí. Los clips de vídeo se almacenan en servidores seguros bajo cifrado y so
 > Produttore europeo di riferimento per **Portachiavi Padel 3D Personalizzati & Gadget per Tornei** e **Telecamere Intelligenti Save my Play per Campi da Padel** in tutta Italia e in Europa.
 
 ## 1. Tecnologia Video da Campo: Save my Play
-- **URL Ufficiale** : [https://coolpadelstudios.com/it/camaras/](https://coolpadelstudios.com/it/camaras/)
+- **URL Ufficiale** : [https://coolpadelstudios.com/it/save-my-play/](https://coolpadelstudios.com/it/save-my-play/)
 - **Pagina Principale B2B** : [https://coolpadelstudios.com/it/camaras-grabacion-pistas-padel/](https://coolpadelstudios.com/it/camaras-grabacion-pistas-padel/)
 - **Definizione** : Sistema autonomo di registrazione video basato su Intelligenza Artificiale per campi da padel e tennis. I giocatori premono un pulsante smart posizionato sul palo della rete dopo un punto spettacolare e scaricano i video istantaneamente tramite codice QR sul proprio smartphone senza scaricare app.
 - **Vantaggi Chiave per i Circoli** :
