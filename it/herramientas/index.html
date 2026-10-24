@@ -105,6 +105,22 @@
     })(window, document, "clarity", "script", "q7p8g52y9e");
   </script>
   <!-- Google Analytics 4 -->
+  <script>
+    (function() {
+      try {
+        var p = new URLSearchParams(window.location.search);
+        if (p.get('yo') === '1' || p.get('admin') === '1' || p.get('no_track') === '1') {
+          localStorage.setItem('cp_ignore_owner', '1');
+        } else if (p.get('borrar_yo') === '1' || p.get('track_me') === '1') {
+          localStorage.removeItem('cp_ignore_owner');
+        }
+        if (localStorage.getItem('cp_ignore_owner') === '1') {
+          window['ga-disable-G-3FY3DTNN21'] = true;
+          window.__CP_IS_OWNER__ = true;
+        }
+      } catch(e) {}
+    })();
+  </script>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-3FY3DTNN21"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -114,6 +130,7 @@
     // Eventos clave (leads): WhatsApp, email, teléfono, demo, dossier
     document.addEventListener('click', function (e) {
       try {
+        if (window.__CP_IS_OWNER__) return;
         var a = e.target.closest && e.target.closest('a, button');
         if (!a) return;
         var href = (a.getAttribute('href') || '').toLowerCase();
@@ -127,7 +144,9 @@
       } catch (err) {}
     }, { passive: true });
     document.addEventListener('submit', function (e) {
-      try { gtag('event', 'enviar_formulario', { form_id: (e.target && (e.target.id || e.target.name)) || '', page_path: location.pathname }); } catch (err) {}
+      try {
+        if (window.__CP_IS_OWNER__) return;
+        gtag('event', 'enviar_formulario', { form_id: (e.target && (e.target.id || e.target.name)) || '', page_path: location.pathname }); } catch (err) {}
     }, true);
   </script>
   <!-- /GA4 -->
@@ -212,38 +231,38 @@
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
 
         <!-- HERRAMIENTA 1: CALCULADORA DE ROI CÁMARAS -->
-        <article class="bg-white border border-slate-200/90 rounded-3xl p-6 sm:p-8 flex flex-col justify-between hover:border-[#f2920b] hover:shadow-xl transition duration-300 group shadow-sm text-slate-900">
+        <article class="bg-white border-2 border-slate-200/90 rounded-3xl p-6 sm:p-8 flex flex-col justify-between hover:border-[#f2920b] hover:ring-4 hover:ring-[#f2920b]/20 hover:-translate-y-1 hover:shadow-xl transition-all duration-300 group shadow-sm text-slate-900">
           <div class="space-y-4">
-            <div class="w-12 h-12 rounded-2xl bg-sky-500/10 border border-sky-400/20 text-[#76d3f6] flex items-center justify-center">
+            <div class="w-12 h-12 rounded-2xl bg-amber-500/10 border border-amber-400/20 text-[#f2920b] flex items-center justify-center">
               <i data-lucide="calculator" class="w-6 h-6 stroke-[2.5]"></i>
             </div>
             <div>
-              <span class="text-xs font-black uppercase tracking-wider text-[#76d3f6]">Finanza & Tecnologia di Campo</span>
+              <span class="text-xs font-black uppercase tracking-wider text-[#f2920b]">Finanza & Tecnologia di Campo</span>
               <h2 class="text-xl sm:text-2xl font-black font-heading text-slate-950 mt-1 group-hover:text-[#f2920b] transition">
                 Calcolatore ROI e Redditività Telecamere
               </h2>
             </div>
-            <p class="text-xs sm:text-sm text-slate-600 text-xs sm:text-sm leading-relaxed">
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed font-medium">
               Calcola all'istante l'ammortamento del sistema di registrazione con IA Save my Play (180 € hardware e 45 €/mese). Simula entrate da ore non di punta e sponsor video locali.
             </p>
-            <ul class="text-xs text-slate-500 space-y-1.5 pt-2">
-              <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-400"></i> Simulazione personalizzabile da 1 a 20 campi</li>
-              <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-400"></i> Confronto Piano B (45 €/mese) vs Piano A (136 €/mese)</li>
-              <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-400"></i> Ore fuori punta necessarie per ripagare il 100% dell'impianto</li>
+            <ul class="text-xs text-slate-600 space-y-1.5 pt-2">
+              <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-500"></i> Simulazione personalizzabile da 1 a 20 campi</li>
+              <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-500"></i> Confronto Piano B (45 €/mese) vs Piano A (136 €/mese)</li>
+              <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-500"></i> Ore fuori punta necessarie per ripagare il 100% dell'impianto</li>
             </ul>
           </div>
           <div class="pt-6 border-t border-slate-100 mt-6">
-            <a href="/it/herramientas/calculadora-roi-camaras-padel/" class="w-full inline-flex items-center justify-center gap-2 py-3 rounded-2xl bg-[#76d3f6] hover:bg-white text-slate-950 font-heading font-black text-xs sm:text-sm uppercase tracking-wider transition">
+            <a href="/it/herramientas/calculadora-roi-camaras-padel/" class="w-full inline-flex items-center justify-center gap-2 py-3.5 rounded-2xl bg-[#f2920b] hover:bg-[#76d3f6] active:bg-[#76d3f6] text-slate-950 font-heading font-black text-xs sm:text-sm uppercase tracking-wider transition-all duration-300 shadow-sm hover:scale-[1.01] active:scale-[0.98] cursor-pointer">
               <span>Apri Calcolatore Interattivo</span>
-              <i data-lucide="arrow-right" class="w-4 h-4 stroke-[3]"></i>
+              <i data-lucide="arrow-right" class="w-4 h-4 stroke-[3] group-hover:translate-x-1 transition-transform"></i>
             </a>
           </div>
         </article>
 
         <!-- HERRAMIENTA 2: GENERADOR DE AMERICANA -->
-        <article class="bg-white border border-slate-200/90 rounded-3xl p-6 sm:p-8 flex flex-col justify-between hover:border-[#f2920b] hover:shadow-xl transition duration-300 group shadow-sm text-slate-900">
+        <article class="bg-white border-2 border-slate-200/90 rounded-3xl p-6 sm:p-8 flex flex-col justify-between hover:border-[#f2920b] hover:ring-4 hover:ring-[#f2920b]/20 hover:-translate-y-1 hover:shadow-xl transition-all duration-300 group shadow-sm text-slate-900">
           <div class="space-y-4">
-            <div class="text-[#f2920b] flex items-center justify-start">
+            <div class="w-12 h-12 rounded-2xl bg-amber-500/10 border border-amber-400/20 text-[#f2920b] flex items-center justify-center">
               <i data-lucide="trophy" class="w-6 h-6 stroke-[2.5]"></i>
             </div>
             <div>
@@ -252,27 +271,27 @@
                 Generatore Gratuito Torneo all'Americana
               </h2>
             </div>
-            <p class="text-xs sm:text-sm text-slate-600 text-xs sm:text-sm leading-relaxed">
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed font-medium">
               Crea turni e rotazioni per il tuo torneo sociale all'americana in 5 secondi. Rotazione perfetta di compagni e avversari per 8, 12, 16 o 24 giocatori con esportazione diretta su WhatsApp.
             </p>
-            <ul class="text-xs text-slate-500 space-y-1.5 pt-2">
-              <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-400"></i> Generazione automatica dei round senza coppie ripetute</li>
-              <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-400"></i> Copia con 1 clic il tabellone pronto per i gruppi WhatsApp</li>
-              <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-400"></i> 100% gratuito e senza obbligo di registrazione</li>
+            <ul class="text-xs text-slate-600 space-y-1.5 pt-2">
+              <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-500"></i> Generazione automatica dei round senza coppie ripetute</li>
+              <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-500"></i> Copia con 1 clic il tabellone pronto per i gruppi WhatsApp</li>
+              <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-500"></i> 100% gratuito e senza obbligo di registrazione</li>
             </ul>
           </div>
           <div class="pt-6 border-t border-slate-100 mt-6">
-            <a href="/it/herramientas/generador-americana-padel/" class="w-full inline-flex items-center justify-center gap-2 py-3 rounded-2xl bg-[#f2920b] hover:bg-white text-slate-950 font-heading font-black text-xs sm:text-sm uppercase tracking-wider transition">
+            <a href="/it/herramientas/generador-americana-padel/" class="w-full inline-flex items-center justify-center gap-2 py-3.5 rounded-2xl bg-[#f2920b] hover:bg-[#76d3f6] active:bg-[#76d3f6] text-slate-950 font-heading font-black text-xs sm:text-sm uppercase tracking-wider transition-all duration-300 shadow-sm hover:scale-[1.01] active:scale-[0.98] cursor-pointer">
               <span>Crea Torneo Americana</span>
-              <i data-lucide="arrow-right" class="w-4 h-4 stroke-[3]"></i>
+              <i data-lucide="arrow-right" class="w-4 h-4 stroke-[3] group-hover:translate-x-1 transition-transform"></i>
             </a>
           </div>
         </article>
 
         <!-- HERRAMIENTA 3: GENERADOR DE CUADROS DE TORNEO -->
-        <article class="bg-white border border-slate-200/90 rounded-3xl p-6 sm:p-8 flex flex-col justify-between hover:border-[#f2920b] hover:shadow-xl transition duration-300 group shadow-sm text-slate-900">
+        <article class="bg-white border-2 border-slate-200/90 rounded-3xl p-6 sm:p-8 flex flex-col justify-between hover:border-[#f2920b] hover:ring-4 hover:ring-[#f2920b]/20 hover:-translate-y-1 hover:shadow-xl transition-all duration-300 group shadow-sm text-slate-900">
           <div class="space-y-4">
-            <div class="text-[#f2920b] flex items-center justify-start">
+            <div class="w-12 h-12 rounded-2xl bg-amber-500/10 border border-amber-400/20 text-[#f2920b] flex items-center justify-center">
               <i data-lucide="git-merge" class="w-6 h-6 stroke-[2.5]"></i>
             </div>
             <div>
@@ -281,48 +300,48 @@
                 Generatore di Tabelloni di Torneo (Brackets)
               </h2>
             </div>
-            <p class="text-xs sm:text-sm text-slate-600 text-xs sm:text-sm leading-relaxed">
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed font-medium">
               Genera tabelloni ad eliminazione diretta per 8, 16 o 32 coppie. Teste di serie, punteggi in tempo reale, avanzamento automatico vincitori, tabellone di consolazione e stampa in PDF.
             </p>
-            <ul class="text-xs text-slate-500 space-y-1.5 pt-2">
-              <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-400"></i> Tabellone per 8, 16 o 32 coppie con torneo di consolazione</li>
-              <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-400"></i> Avanzamento interattivo dei vincitori in base al punteggio</li>
-              <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-400"></i> Formato poster stampabile in PDF ed esportazione WhatsApp</li>
+            <ul class="text-xs text-slate-600 space-y-1.5 pt-2">
+              <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-500"></i> Tabellone per 8, 16 o 32 coppie con torneo di consolazione</li>
+              <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-500"></i> Avanzamento interattivo dei vincitori in base al punteggio</li>
+              <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-500"></i> Formato poster stampabile in PDF ed esportazione WhatsApp</li>
             </ul>
           </div>
           <div class="pt-6 border-t border-slate-100 mt-6">
-            <a href="/it/herramientas/generador-cuadros-torneo-padel/" class="w-full inline-flex items-center justify-center gap-2 py-3 rounded-2xl bg-[#f2920b] hover:bg-slate-900 hover:text-white text-slate-950 font-heading font-black text-xs sm:text-sm uppercase tracking-wider transition">
+            <a href="/it/herramientas/generador-cuadros-torneo-padel/" class="w-full inline-flex items-center justify-center gap-2 py-3.5 rounded-2xl bg-[#f2920b] hover:bg-[#76d3f6] active:bg-[#76d3f6] text-slate-950 font-heading font-black text-xs sm:text-sm uppercase tracking-wider transition-all duration-300 shadow-sm hover:scale-[1.01] active:scale-[0.98] cursor-pointer">
               <span>Crea Tabellone Eliminatorio</span>
-              <i data-lucide="arrow-right" class="w-4 h-4 stroke-[3]"></i>
+              <i data-lucide="arrow-right" class="w-4 h-4 stroke-[3] group-hover:translate-x-1 transition-transform"></i>
             </a>
           </div>
         </article>
 
         <!-- HERRAMIENTA 4: CALCULADORA DE COSTE Y MONTAJE DE PISTAS -->
-        <article class="bg-white border border-slate-200/90 rounded-3xl p-6 sm:p-8 flex flex-col justify-between hover:border-[#f2920b] hover:shadow-xl transition duration-300 group shadow-sm text-slate-900">
+        <article class="bg-white border-2 border-slate-200/90 rounded-3xl p-6 sm:p-8 flex flex-col justify-between hover:border-[#f2920b] hover:ring-4 hover:ring-[#f2920b]/20 hover:-translate-y-1 hover:shadow-xl transition-all duration-300 group shadow-sm text-slate-900">
           <div class="space-y-4">
-            <div class="text-emerald-600 flex items-center justify-start">
+            <div class="w-12 h-12 rounded-2xl bg-amber-500/10 border border-amber-400/20 text-[#f2920b] flex items-center justify-center">
               <i data-lucide="trending-up" class="w-6 h-6 stroke-[2.5]"></i>
             </div>
             <div>
-              <span class="text-xs font-black uppercase tracking-wider text-emerald-600">Investimento & Costruzione Campi</span>
+              <span class="text-xs font-black uppercase tracking-wider text-[#f2920b]">Investimento & Costruzione Campi</span>
               <h2 class="text-xl sm:text-2xl font-black font-heading text-slate-950 mt-1 group-hover:text-[#f2920b] transition">
                 Calcolatore Costo e Redditività Campi Padel
               </h2>
             </div>
-            <p class="text-xs sm:text-sm text-slate-600 text-xs sm:text-sm leading-relaxed">
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed font-medium">
               Simulatore finanziario per stimare i costi di installazione campi da padel (vetro panoramico, erba sintetica, LED, soletta, copertura indoor), ricavi mensili, utile netto e payback.
             </p>
-            <ul class="text-xs text-slate-500 space-y-1.5 pt-2">
-              <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-400"></i> Simulazione chiavi in mano da 1 a 16 campi</li>
-              <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-400"></i> Calcolo occupazione, tariffa oraria e costi fissi di struttura</li>
-              <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-400"></i> Proiezione ammortamento in mesi ed esportazione WhatsApp</li>
+            <ul class="text-xs text-slate-600 space-y-1.5 pt-2">
+              <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-500"></i> Simulazione chiavi in mano da 1 a 16 campi</li>
+              <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-500"></i> Calcolo occupazione, tariffa oraria e costi fissi di struttura</li>
+              <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-500"></i> Proiezione ammortamento in mesi ed esportazione WhatsApp</li>
             </ul>
           </div>
           <div class="pt-6 border-t border-slate-100 mt-6">
-            <a href="/it/herramientas/calculadora-coste-pistas-padel/" class="w-full inline-flex items-center justify-center gap-2 py-3 rounded-2xl bg-emerald-500 hover:bg-emerald-600 text-white font-heading font-black text-xs sm:text-sm uppercase tracking-wider transition">
+            <a href="/it/herramientas/calculadora-coste-pistas-padel/" class="w-full inline-flex items-center justify-center gap-2 py-3.5 rounded-2xl bg-[#f2920b] hover:bg-[#76d3f6] active:bg-[#76d3f6] text-slate-950 font-heading font-black text-xs sm:text-sm uppercase tracking-wider transition-all duration-300 shadow-sm hover:scale-[1.01] active:scale-[0.98] cursor-pointer">
               <span>Simula Costi e ROI Campi</span>
-              <i data-lucide="arrow-right" class="w-4 h-4 stroke-[3]"></i>
+              <i data-lucide="arrow-right" class="w-4 h-4 stroke-[3] group-hover:translate-x-1 transition-transform"></i>
             </a>
           </div>
         </article>
@@ -330,7 +349,7 @@
       </div>
 
       <!-- BANNER DE RECURSOS DESCARGABLES ADICIONALES (FORMATO CLARO / TEXTURA) -->
-      <div class="mt-12 bg-white border border-slate-200/90 rounded-3xl p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6 shadow-sm hover:border-[#f2920b] transition duration-300">
+      <div class="mt-12 bg-white border-2 border-slate-200/90 rounded-3xl p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6 shadow-sm hover:border-[#f2920b] hover:ring-4 hover:ring-[#f2920b]/20 hover:-translate-y-1 hover:shadow-xl transition-all duration-300">
         <div class="space-y-2 text-center md:text-left">
           <span class="text-xs font-black text-[#f2920b] uppercase tracking-wider">Ricerche di Mercato & Dati Europei</span>
           <h3 class="text-xl sm:text-2xl font-black font-heading text-slate-950">Barometro 2026 Telecamere e Digitalizzazione Padel</h3>

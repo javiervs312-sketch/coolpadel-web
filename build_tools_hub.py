@@ -296,38 +296,38 @@ def build_hub(lang):
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
 
         <!-- HERRAMIENTA 1: CALCULADORA DE ROI CÁMARAS -->
-        <article class="bg-white border border-slate-200/90 rounded-3xl p-6 sm:p-8 flex flex-col justify-between hover:border-[#f2920b] hover:shadow-xl transition duration-300 group shadow-sm text-slate-900">
+        <article class="bg-white border-2 border-slate-200/90 rounded-3xl p-6 sm:p-8 flex flex-col justify-between hover:border-[#f2920b] hover:ring-4 hover:ring-[#f2920b]/20 hover:-translate-y-1 hover:shadow-xl transition-all duration-300 group shadow-sm text-slate-900">
           <div class="space-y-4">
-            <div class="w-12 h-12 rounded-2xl bg-sky-500/10 border border-sky-400/20 text-[#76d3f6] flex items-center justify-center">
+            <div class="w-12 h-12 rounded-2xl bg-amber-500/10 border border-amber-400/20 text-[#f2920b] flex items-center justify-center">
               <i data-lucide="calculator" class="w-6 h-6 stroke-[2.5]"></i>
             </div>
             <div>
-              <span class="text-xs font-black uppercase tracking-wider text-[#76d3f6]">{d['t1_tag']}</span>
+              <span class="text-xs font-black uppercase tracking-wider text-[#f2920b]">{d['t1_tag']}</span>
               <h2 class="text-xl sm:text-2xl font-black font-heading text-slate-950 mt-1 group-hover:text-[#f2920b] transition">
                 {d['t1_title']}
               </h2>
             </div>
-            <p class="text-xs sm:text-sm text-slate-600 text-xs sm:text-sm leading-relaxed">
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed font-medium">
               {d['t1_desc']}
             </p>
-            <ul class="text-xs text-slate-500 space-y-1.5 pt-2">
-              <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-400"></i> {d['t1_b1']}</li>
-              <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-400"></i> {d['t1_b2']}</li>
-              <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-400"></i> {d['t1_b3']}</li>
+            <ul class="text-xs text-slate-600 space-y-1.5 pt-2">
+              <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-500"></i> {d['t1_b1']}</li>
+              <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-500"></i> {d['t1_b2']}</li>
+              <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-500"></i> {d['t1_b3']}</li>
             </ul>
           </div>
           <div class="pt-6 border-t border-slate-100 mt-6">
-            <a href="{tool_prefix}calculadora-roi-camaras-padel/" class="w-full inline-flex items-center justify-center gap-2 py-3 rounded-2xl bg-[#76d3f6] hover:bg-white text-slate-950 font-heading font-black text-xs sm:text-sm uppercase tracking-wider transition">
+            <a href="{tool_prefix}calculadora-roi-camaras-padel/" class="w-full inline-flex items-center justify-center gap-2 py-3.5 rounded-2xl bg-[#f2920b] hover:bg-[#76d3f6] active:bg-[#76d3f6] text-slate-950 font-heading font-black text-xs sm:text-sm uppercase tracking-wider transition-all duration-300 shadow-sm hover:scale-[1.01] active:scale-[0.98] cursor-pointer">
               <span>{d['t1_btn']}</span>
-              <i data-lucide="arrow-right" class="w-4 h-4 stroke-[3]"></i>
+              <i data-lucide="arrow-right" class="w-4 h-4 stroke-[3] group-hover:translate-x-1 transition-transform"></i>
             </a>
           </div>
         </article>
 
         <!-- HERRAMIENTA 2: GENERADOR DE AMERICANA -->
-        <article class="bg-white border border-slate-200/90 rounded-3xl p-6 sm:p-8 flex flex-col justify-between hover:border-[#f2920b] hover:shadow-xl transition duration-300 group shadow-sm text-slate-900">
+        <article class="bg-white border-2 border-slate-200/90 rounded-3xl p-6 sm:p-8 flex flex-col justify-between hover:border-[#f2920b] hover:ring-4 hover:ring-[#f2920b]/20 hover:-translate-y-1 hover:shadow-xl transition-all duration-300 group shadow-sm text-slate-900">
           <div class="space-y-4">
-            <div class="text-[#f2920b] flex items-center justify-start">
+            <div class="w-12 h-12 rounded-2xl bg-amber-500/10 border border-amber-400/20 text-[#f2920b] flex items-center justify-center">
               <i data-lucide="trophy" class="w-6 h-6 stroke-[2.5]"></i>
             </div>
             <div>
@@ -336,27 +336,27 @@ def build_hub(lang):
                 {d['t2_title']}
               </h2>
             </div>
-            <p class="text-xs sm:text-sm text-slate-600 text-xs sm:text-sm leading-relaxed">
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed font-medium">
               {d['t2_desc']}
             </p>
-            <ul class="text-xs text-slate-500 space-y-1.5 pt-2">
-              <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-400"></i> {d['t2_b1']}</li>
-              <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-400"></i> {d['t2_b2']}</li>
-              <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-400"></i> {d['t2_b3']}</li>
+            <ul class="text-xs text-slate-600 space-y-1.5 pt-2">
+              <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-500"></i> {d['t2_b1']}</li>
+              <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-500"></i> {d['t2_b2']}</li>
+              <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-500"></i> {d['t2_b3']}</li>
             </ul>
           </div>
           <div class="pt-6 border-t border-slate-100 mt-6">
-            <a href="{tool_prefix}generador-americana-padel/" class="w-full inline-flex items-center justify-center gap-2 py-3 rounded-2xl bg-[#f2920b] hover:bg-white text-slate-950 font-heading font-black text-xs sm:text-sm uppercase tracking-wider transition">
+            <a href="{tool_prefix}generador-americana-padel/" class="w-full inline-flex items-center justify-center gap-2 py-3.5 rounded-2xl bg-[#f2920b] hover:bg-[#76d3f6] active:bg-[#76d3f6] text-slate-950 font-heading font-black text-xs sm:text-sm uppercase tracking-wider transition-all duration-300 shadow-sm hover:scale-[1.01] active:scale-[0.98] cursor-pointer">
               <span>{d['t2_btn']}</span>
-              <i data-lucide="arrow-right" class="w-4 h-4 stroke-[3]"></i>
+              <i data-lucide="arrow-right" class="w-4 h-4 stroke-[3] group-hover:translate-x-1 transition-transform"></i>
             </a>
           </div>
         </article>
 
         <!-- HERRAMIENTA 3: GENERADOR DE CUADROS DE TORNEO -->
-        <article class="bg-white border border-slate-200/90 rounded-3xl p-6 sm:p-8 flex flex-col justify-between hover:border-[#f2920b] hover:shadow-xl transition duration-300 group shadow-sm text-slate-900">
+        <article class="bg-white border-2 border-slate-200/90 rounded-3xl p-6 sm:p-8 flex flex-col justify-between hover:border-[#f2920b] hover:ring-4 hover:ring-[#f2920b]/20 hover:-translate-y-1 hover:shadow-xl transition-all duration-300 group shadow-sm text-slate-900">
           <div class="space-y-4">
-            <div class="text-[#f2920b] flex items-center justify-start">
+            <div class="w-12 h-12 rounded-2xl bg-amber-500/10 border border-amber-400/20 text-[#f2920b] flex items-center justify-center">
               <i data-lucide="git-merge" class="w-6 h-6 stroke-[2.5]"></i>
             </div>
             <div>
@@ -365,48 +365,48 @@ def build_hub(lang):
                 {d['t3_title']}
               </h2>
             </div>
-            <p class="text-xs sm:text-sm text-slate-600 text-xs sm:text-sm leading-relaxed">
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed font-medium">
               {d['t3_desc']}
             </p>
-            <ul class="text-xs text-slate-500 space-y-1.5 pt-2">
-              <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-400"></i> {d['t3_b1']}</li>
-              <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-400"></i> {d['t3_b2']}</li>
-              <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-400"></i> {d['t3_b3']}</li>
+            <ul class="text-xs text-slate-600 space-y-1.5 pt-2">
+              <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-500"></i> {d['t3_b1']}</li>
+              <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-500"></i> {d['t3_b2']}</li>
+              <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-500"></i> {d['t3_b3']}</li>
             </ul>
           </div>
           <div class="pt-6 border-t border-slate-100 mt-6">
-            <a href="{tool_prefix}generador-cuadros-torneo-padel/" class="w-full inline-flex items-center justify-center gap-2 py-3 rounded-2xl bg-[#f2920b] hover:bg-slate-900 hover:text-white text-slate-950 font-heading font-black text-xs sm:text-sm uppercase tracking-wider transition">
+            <a href="{tool_prefix}generador-cuadros-torneo-padel/" class="w-full inline-flex items-center justify-center gap-2 py-3.5 rounded-2xl bg-[#f2920b] hover:bg-[#76d3f6] active:bg-[#76d3f6] text-slate-950 font-heading font-black text-xs sm:text-sm uppercase tracking-wider transition-all duration-300 shadow-sm hover:scale-[1.01] active:scale-[0.98] cursor-pointer">
               <span>{d['t3_btn']}</span>
-              <i data-lucide="arrow-right" class="w-4 h-4 stroke-[3]"></i>
+              <i data-lucide="arrow-right" class="w-4 h-4 stroke-[3] group-hover:translate-x-1 transition-transform"></i>
             </a>
           </div>
         </article>
 
         <!-- HERRAMIENTA 4: CALCULADORA DE COSTE Y MONTAJE DE PISTAS -->
-        <article class="bg-white border border-slate-200/90 rounded-3xl p-6 sm:p-8 flex flex-col justify-between hover:border-[#f2920b] hover:shadow-xl transition duration-300 group shadow-sm text-slate-900">
+        <article class="bg-white border-2 border-slate-200/90 rounded-3xl p-6 sm:p-8 flex flex-col justify-between hover:border-[#f2920b] hover:ring-4 hover:ring-[#f2920b]/20 hover:-translate-y-1 hover:shadow-xl transition-all duration-300 group shadow-sm text-slate-900">
           <div class="space-y-4">
-            <div class="text-emerald-600 flex items-center justify-start">
+            <div class="w-12 h-12 rounded-2xl bg-amber-500/10 border border-amber-400/20 text-[#f2920b] flex items-center justify-center">
               <i data-lucide="trending-up" class="w-6 h-6 stroke-[2.5]"></i>
             </div>
             <div>
-              <span class="text-xs font-black uppercase tracking-wider text-emerald-600">{d['t4_tag']}</span>
+              <span class="text-xs font-black uppercase tracking-wider text-[#f2920b]">{d['t4_tag']}</span>
               <h2 class="text-xl sm:text-2xl font-black font-heading text-slate-950 mt-1 group-hover:text-[#f2920b] transition">
                 {d['t4_title']}
               </h2>
             </div>
-            <p class="text-xs sm:text-sm text-slate-600 text-xs sm:text-sm leading-relaxed">
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed font-medium">
               {d['t4_desc']}
             </p>
-            <ul class="text-xs text-slate-500 space-y-1.5 pt-2">
-              <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-400"></i> {d['t4_b1']}</li>
-              <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-400"></i> {d['t4_b2']}</li>
-              <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-400"></i> {d['t4_b3']}</li>
+            <ul class="text-xs text-slate-600 space-y-1.5 pt-2">
+              <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-500"></i> {d['t4_b1']}</li>
+              <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-500"></i> {d['t4_b2']}</li>
+              <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-500"></i> {d['t4_b3']}</li>
             </ul>
           </div>
           <div class="pt-6 border-t border-slate-100 mt-6">
-            <a href="{tool_prefix}calculadora-coste-pistas-padel/" class="w-full inline-flex items-center justify-center gap-2 py-3 rounded-2xl bg-emerald-500 hover:bg-emerald-600 text-white font-heading font-black text-xs sm:text-sm uppercase tracking-wider transition">
+            <a href="{tool_prefix}calculadora-coste-pistas-padel/" class="w-full inline-flex items-center justify-center gap-2 py-3.5 rounded-2xl bg-[#f2920b] hover:bg-[#76d3f6] active:bg-[#76d3f6] text-slate-950 font-heading font-black text-xs sm:text-sm uppercase tracking-wider transition-all duration-300 shadow-sm hover:scale-[1.01] active:scale-[0.98] cursor-pointer">
               <span>{d['t4_btn']}</span>
-              <i data-lucide="arrow-right" class="w-4 h-4 stroke-[3]"></i>
+              <i data-lucide="arrow-right" class="w-4 h-4 stroke-[3] group-hover:translate-x-1 transition-transform"></i>
             </a>
           </div>
         </article>
@@ -414,7 +414,7 @@ def build_hub(lang):
       </div>
 
       <!-- BANNER DE RECURSOS DESCARGABLES ADICIONALES (FORMATO CLARO / TEXTURA) -->
-      <div class="mt-12 bg-white border border-slate-200/90 rounded-3xl p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6 shadow-sm hover:border-[#f2920b] transition duration-300">
+      <div class="mt-12 bg-white border-2 border-slate-200/90 rounded-3xl p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6 shadow-sm hover:border-[#f2920b] hover:ring-4 hover:ring-[#f2920b]/20 hover:-translate-y-1 hover:shadow-xl transition-all duration-300">
         <div class="space-y-2 text-center md:text-left">
           <span class="text-xs font-black text-[#f2920b] uppercase tracking-wider">{d['banner_tag']}</span>
           <h3 class="text-xl sm:text-2xl font-black font-heading text-slate-950">{d['banner_title']}</h3>

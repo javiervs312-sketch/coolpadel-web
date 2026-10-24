@@ -14,15 +14,18 @@
 
   const WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbxnF9JmVrikeAW7PdLc02r_1kkuSJVz1Ncl71ZeVGT37H0ji5DQ3DVw60122pcuYnxCgA/exec';
 
-  // 1. Limpieza de bloqueo antiguo cp_is_admin en localStorage
-  // Antes, abrir ?admin=1 o ?yo=1 una sola vez bloqueaba para siempre el navegador en localStorage.
-  // Ahora solo se ignora si la URL actual pide explícitamente ?no_track=1 o ?ignore_admin=1.
+  // 1. Gestión de Exclusión de Administrador / Dueño (ignorar tus propias visitas)
+  // Abrir https://coolpadelstudios.com/?yo=1 o ?admin=1 activa el bloqueo permanente en este navegador/dispositivo.
+  // Abrir ?borrar_yo=1 o ?track_me=1 vuelve a activar el seguimiento para pruebas.
   const urlParams = new URLSearchParams(window.location.search);
-  const noTrackExplicit = urlParams.get('no_track') === '1' || urlParams.get('ignore_admin') === '1';
-  try {
-    localStorage.removeItem('cp_is_admin');
-  } catch (e) {}
-  const isAdmin = noTrackExplicit;
+  if (urlParams.get('yo') === '1' || urlParams.get('admin') === '1' || urlParams.get('no_track') === '1') {
+    try { localStorage.setItem('cp_ignore_owner', '1'); } catch (e) {}
+  } else if (urlParams.get('borrar_yo') === '1' || urlParams.get('track_me') === '1') {
+    try { localStorage.removeItem('cp_ignore_owner'); } catch (e) {}
+  }
+  let isOwner = false;
+  try { isOwner = localStorage.getItem('cp_ignore_owner') === '1'; } catch (e) {}
+  const isAdmin = isOwner;
 
   // 2. Atribución de Leads y Parámetros UTM / Buscadores
   const pLead = urlParams.get('lead') || urlParams.get('club') || urlParams.get('nombre') || urlParams.get('director') || '';
