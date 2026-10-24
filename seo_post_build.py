@@ -130,6 +130,7 @@ def run_seo_post_build():
 
     # 2. Ensure Clarity and cache-busted cp-analytics.js on all HTML files
     for r, d, files in os.walk(web_dir):
+        d[:] = [x for x in d if x not in (".git", "assets", "__pycache__")]
         for f in files:
             if not f.endswith(".html") or f.startswith("google"):
                 continue
