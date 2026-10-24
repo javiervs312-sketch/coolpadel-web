@@ -6,10 +6,6 @@ Disallow: /google_apps_script_webhook.js
 Disallow: /propuesta-2.html
 Disallow: /propuesta-3.html
 Disallow: /manual-marca.html
-Disallow: /camaras/
-Disallow: /en/camaras/
-Disallow: /fr/camaras/
-Disallow: /it/camaras/
 Disallow: /camaras.html
 Disallow: /si-estas-pensando-en-poner-camaras-en-el-club.html
 
