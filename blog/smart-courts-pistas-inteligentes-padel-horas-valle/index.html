@@ -722,4 +722,41 @@
 
     function switchLanguage(lang) {
       try {
-      
+        localStorage.setItem('coolpadel_lang', lang);
+      } catch(e) {}
+      const isArticle = window.location.pathname.replace(/\/$/, '') !== '/blog';
+      const root = isArticle ? '../../' : '../';
+      if (lang === 'es') {
+        const menu = document.getElementById('lang-dropdown-menu');
+        if (menu) menu.classList.add('hidden');
+        const menuMob = document.getElementById('lang-dropdown-menu-mob');
+        if (menuMob) menuMob.classList.add('hidden');
+      } else if (lang === 'en') {
+        window.location.href = root + 'en/';
+      } else if (lang === 'fr') {
+        window.location.href = root + 'fr/';
+      } else if (lang === 'it') {
+        window.location.href = root + 'it/';
+      }
+    }
+
+    document.addEventListener('click', function(e) {
+      const container = document.getElementById('lang-dropdown-container');
+      const menu = document.getElementById('lang-dropdown-menu');
+      const arrow = document.getElementById('lang-dropdown-arrow');
+      if (container && menu && !container.contains(e.target)) {
+        menu.classList.add('hidden');
+        if (arrow) arrow.classList.remove('rotate-180');
+      }
+      const containerMob = document.getElementById('lang-dropdown-container-mob');
+      const menuMob = document.getElementById('lang-dropdown-menu-mob');
+      const arrowMob = document.getElementById('lang-dropdown-arrow-mob');
+      if (containerMob && menuMob && !containerMob.contains(e.target)) {
+        menuMob.classList.add('hidden');
+        if (arrowMob) arrowMob.classList.remove('rotate-180');
+      }
+    });
+  </script>
+
+</body>
+</html>

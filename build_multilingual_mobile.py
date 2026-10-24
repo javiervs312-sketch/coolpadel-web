@@ -6025,24 +6025,12 @@ def build_all():
     try:
         from build_blog import generate_all as build_es_blog
         build_es_blog()
+        from build_barometro import build_barometro
+        build_barometro()
         from build_multilingual_blog import run as build_blog_multilingual
         build_blog_multilingual()
     except Exception as e:
         print(f"  [ERROR] Al generar Blog Multilingüe: {e}")
-
-
-
-
-
-    try:
-
-        from build_barometro import build_barometro
-
-        build_barometro()
-
-    except Exception as e:
-
-        print(f"  [ERROR] Al generar Barómetro: {e}")
 
 
 

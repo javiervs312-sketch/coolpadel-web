@@ -134,7 +134,10 @@ def run_seo_post_build():
             if not f.endswith(".html") or f.startswith("google"):
                 continue
             full = os.path.join(r, f)
-            c = open(full, encoding="utf-8", errors="ignore").read()
+            try:
+                c = open(full, encoding="utf-8", errors="ignore").read()
+            except OSError:
+                continue
             changed = False
             if "</head>" in c and GA4_SNIPPET not in c:
                 c = GA4_OLD_RE.sub("", c)
