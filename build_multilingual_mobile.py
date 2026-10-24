@@ -1234,25 +1234,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
 
           "@type": "PostalAddress",
 
-          "streetAddress": "Chamartín",
-
-          "postalCode": "28036",
-
-          "addressLocality": "Madrid",
-
-          "addressRegion": "Comunidad de Madrid",
-
           "addressCountry": "ES"
-
-        }},
-
-        "geo": {{
-
-          "@type": "GeoCoordinates",
-
-          "latitude": 40.4589,
-
-          "longitude": -3.6761
 
         }},
 

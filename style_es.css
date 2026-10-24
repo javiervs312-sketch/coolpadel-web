@@ -1,0 +1,1207 @@
+
+
+
+
+        :root {
+
+
+
+            --bg-color: #ffffff;
+
+
+
+            --text-color: #111111;
+
+
+
+            --text-muted: #666666;
+
+
+
+            --border-color: #b0b0b0;
+
+
+
+            --card-bg: #ececee;
+
+
+
+            --font-main: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+
+
+        }
+
+
+
+
+
+
+
+        * {
+
+
+
+            box-sizing: border-box;
+
+
+
+            margin: 0;
+
+
+
+            padding: 0;
+
+
+
+        }
+
+
+
+
+
+
+
+        html {
+
+
+
+            scroll-behavior: smooth;
+
+
+
+            background-color: var(--bg-color);
+
+
+
+            color: var(--text-color);
+
+
+
+            font-family: var(--font-main);
+
+
+
+            -webkit-font-smoothing: antialiased;
+
+
+
+            -moz-osx-font-smoothing: grayscale;
+
+
+
+        }
+
+
+
+
+
+
+
+        body {
+
+
+
+            background-color: var(--bg-color);
+
+
+
+            color: var(--text-color);
+
+
+
+            line-height: 1.7;
+
+
+
+            font-size: 0.95rem;
+
+
+
+            padding: 0;
+
+
+
+            margin: 0;
+
+
+
+            overflow-x: hidden;
+
+
+
+        }
+
+
+
+
+
+
+
+        /* Contenedor principal de lectura (ampliado un 10% para optimizar saltos de línea) */
+
+
+
+        main {
+
+
+
+            max-width: 715px;
+
+
+
+            margin: 0 auto;
+
+
+
+            padding: clamp(5.4rem, 11.7vh, 9rem) 1.35rem 5.4rem;
+
+
+
+        }
+
+
+
+
+
+
+
+        /* Título Principal */
+
+
+
+        h1.main-title {
+
+
+
+            font-size: clamp(1.725rem, 4.14vw, 2.36rem);
+
+
+
+            font-weight: 800;
+
+
+
+            line-height: 1.22;
+
+
+
+            letter-spacing: -0.035em;
+
+
+
+            margin-bottom: 2.25rem;
+
+
+
+            color: var(--text-color);
+
+
+
+        }
+
+
+
+
+
+
+
+        /* Títulos de Secciones Grandes */
+
+
+
+        h2.section-title {
+
+
+
+            font-size: clamp(1.32rem, 3.1vw, 1.7rem);
+
+
+
+            font-weight: 800;
+
+
+
+            line-height: 1.28;
+
+
+
+            letter-spacing: -0.025em;
+
+
+
+            margin-top: 4.23rem;
+
+
+
+            margin-bottom: 1.935rem;
+
+
+
+            padding-top: 2.25rem;
+
+
+
+            border-top: 1.5px solid #b0b0b0;
+
+
+
+            color: var(--text-color);
+
+
+
+        }
+
+
+
+
+
+
+
+        /* Título sin salto brusco de sección con espacio x4.5 */
+
+
+
+        h2.section-title-inline {
+            font-size: 1.35rem;
+            font-weight: 800;
+            line-height: 1.3;
+            letter-spacing: -0.02em;
+            margin-top: 4rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-color);
+        }
+
+
+
+
+
+
+
+        /* Títulos de Decisiones / Apartados con Subrayado */
+
+
+
+        h3.decision-title {
+            font-size: 1.3rem;
+            font-weight: 800;
+            line-height: 1.35;
+            letter-spacing: -0.015em;
+            margin-top: 3.6rem;
+            margin-bottom: 1.2rem;
+            color: var(--text-color);
+            text-decoration: underline;
+            text-decoration-thickness: 2.5px;
+            text-underline-offset: 6px;
+        }
+
+
+
+
+
+
+
+        /* Separador de línea muy nítido entre apartados */
+
+
+
+        hr.sub-divider {
+
+
+
+            border: 0 !important;
+
+
+
+            height: 1px !important;
+
+
+
+            background-color: #b0b0b0 !important;
+
+
+
+            margin: 2.475rem 0 !important;
+
+
+
+            width: 100% !important;
+
+
+
+            display: block !important;
+
+
+
+            opacity: 1 !important;
+
+
+
+        }
+
+
+
+
+
+
+
+        /* Párrafos: Mucha separación en puntos y aparte */
+
+
+
+        p {
+
+
+
+            margin-bottom: 1.53rem;
+
+
+
+            color: #1a1a1a;
+
+
+
+            font-weight: 400;
+
+
+
+        }
+
+
+
+
+
+
+
+        strong {
+
+
+
+            font-weight: 700;
+
+
+
+            color: #000000;
+
+
+
+        }
+
+
+
+
+
+
+
+        /* Estilo destacado para las cajas (Formato ese) */
+
+
+
+        .lead-warning {
+
+
+
+            font-size: 0.95rem;
+
+
+
+            font-weight: 500;
+
+
+
+            line-height: 1.7;
+
+
+
+            padding: 1.17rem 1.305rem;
+
+
+
+            background-color: var(--card-bg);
+
+
+
+            border-left: 4px solid #111111;
+
+
+
+            border-radius: 5px;
+
+
+
+            margin-top: 1.665rem;
+
+
+
+            margin-bottom: 2.07rem;
+
+
+
+            color: #111111;
+
+
+
+        }
+
+
+
+
+
+
+
+        .lead-warning p {
+
+
+
+            margin-bottom: 0.855rem;
+
+
+
+            color: inherit;
+
+
+
+        }
+
+
+
+
+
+
+
+        .lead-warning p:last-child {
+
+
+
+            margin-bottom: 0;
+
+
+
+        }
+
+
+
+
+
+
+
+        /* Lista de puntos juntos */
+
+
+
+        
+        /* Lista de 3 puntos destacados Save My Play */
+        ul.puntos-list {
+            margin: 1.8rem 0;
+            padding-left: 1.4rem;
+            list-style-type: disc;
+        }
+
+        ul.puntos-list li {
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+            color: #1a1a1a;
+            font-size: 0.95rem;
+        }
+
+        ul.puntos-list li:last-child {
+            margin-bottom: 0;
+        }
+
+        ul.bullet-list {
+
+
+
+            margin-bottom: 1.53rem;
+
+
+
+            padding-left: 1.125rem;
+
+
+
+        }
+
+
+
+
+
+
+
+        ul.bullet-list li {
+
+
+
+            margin-bottom: 0.315rem;
+
+
+
+            line-height: 1.65;
+
+
+
+            color: #1a1a1a;
+
+
+
+        }
+
+
+
+
+
+
+
+        /* Tabla de Decisiones en Conclusión */
+
+
+
+        .table-container {
+
+
+
+            width: 100%;
+
+
+
+            overflow-x: auto;
+
+
+
+            margin: 2.25rem 0 2.7rem;
+
+
+
+            border-radius: 8px;
+
+
+
+            border: 2px solid #111111;
+
+
+
+            background: #ffffff;
+
+
+
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+
+
+
+        }
+
+
+
+
+
+
+
+        table.decisiones-table {
+
+
+
+            width: 100%;
+
+
+
+            border-collapse: collapse;
+
+
+
+            font-size: 1.05rem;
+
+
+
+            text-align: left;
+
+
+
+            min-width: 520px;
+
+
+
+        }
+
+
+
+
+
+
+
+        table.decisiones-table th {
+
+
+
+            background-color: #f0f0f2;
+
+
+
+            color: #000000;
+
+
+
+            font-weight: 800;
+
+
+
+            padding: 0.99rem 1.125rem;
+
+
+
+            border-bottom: 2px solid #111111;
+
+
+
+            border-right: 1px solid #e0e0e0;
+
+
+
+        }
+
+
+
+
+
+
+
+        table.decisiones-table th:last-child {
+
+
+
+            border-right: none;
+
+
+
+        }
+
+
+
+
+
+
+
+        table.decisiones-table td {
+
+
+
+            padding: 0.99rem 1.125rem;
+
+
+
+            border-bottom: 1px solid #e5e5ea;
+
+
+
+            border-right: 1px solid #f0f0f0;
+
+
+
+            vertical-align: top;
+
+
+
+            line-height: 1.55;
+
+
+
+            color: #111111;
+
+
+
+        }
+
+
+
+
+
+
+
+        table.decisiones-table td:last-child {
+
+
+
+            border-right: none;
+
+
+
+        }
+
+
+
+
+
+
+
+        table.decisiones-table tr:last-child td {
+
+
+
+            border-bottom: none;
+
+
+
+        }
+
+
+
+
+
+
+
+        table.decisiones-table tr:nth-child(even) td {
+
+
+
+            background-color: #fafafb;
+
+
+
+        }
+
+
+
+
+
+
+
+        /* Calendario Incrustado de Calendly */
+
+
+
+        .calendly-embed-container {
+
+
+
+            margin-top: 1.8rem;
+
+
+
+            margin-bottom: 1.08rem;
+
+
+
+            border-radius: 8px;
+
+
+
+            overflow: hidden;
+
+
+
+            border: 1px solid #e2e2e5;
+
+
+
+            background: #ffffff;
+
+
+
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+
+
+
+        }
+
+
+
+
+
+
+
+        .calendly-fallback-text {
+
+
+
+            text-align: center;
+
+
+
+            font-size: 0.95rem;
+
+
+
+            color: #666666;
+
+
+
+            margin-top: 0.675rem;
+
+
+
+            margin-bottom: 2.25rem;
+
+
+
+        }
+
+
+
+
+
+
+
+        .calendly-fallback-text a {
+
+
+
+            color: #111111;
+
+
+
+            font-weight: 700;
+
+
+
+            text-decoration: underline;
+
+
+
+            text-underline-offset: 3px;
+
+
+
+        }
+
+
+
+
+
+
+
+        .calendly-success-card {
+
+
+
+            display: none;
+
+
+
+            background: #f0fdf4;
+
+
+
+            border: 2px solid #16a34a;
+
+
+
+            border-radius: 8px;
+
+
+
+            padding: 1.8rem 1.62rem;
+
+
+
+            margin: 1.8rem 0;
+
+
+
+            text-align: left;
+
+
+
+            animation: fadeInSuccess 0.5s ease-out forwards;
+
+
+
+        }
+
+
+
+
+
+
+
+        @keyframes fadeInSuccess {
+
+
+
+            from { opacity: 0; transform: translateY(12px); }
+
+
+
+            to { opacity: 1; transform: translateY(0); }
+
+
+
+        }
+
+
+
+
+
+
+
+        .calendly-success-card h4 {
+
+
+
+            color: #15803d;
+
+
+
+            font-size: 1.35rem;
+
+
+
+            font-weight: 800;
+
+
+
+            margin-bottom: 0.72rem;
+
+
+
+        }
+
+
+
+
+
+
+
+        .calendly-success-card p {
+
+
+
+            color: #166534;
+
+
+
+            font-size: 1.05rem;
+
+
+
+            line-height: 1.6;
+
+
+
+            margin-bottom: 0.72rem;
+
+
+
+        }
+
+
+
+
+
+
+
+        .calendly-success-card p:last-child {
+
+
+
+            margin-bottom: 0;
+
+
+
+        }
+
+
+
+
+
+
+
+        /* ANIMACIONES AL HACER SCROLL (FADE IN Y SLIDE UP) */
+
+
+
+        .reveal-on-scroll {
+
+
+
+            opacity: 0;
+
+
+
+            transform: translateY(24px);
+
+
+
+            transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+
+
+
+            will-change: opacity, transform;
+
+
+
+        }
+
+
+
+
+
+
+
+        .reveal-on-scroll.is-visible {
+
+
+
+            opacity: 1;
+
+
+
+            transform: translateY(0);
+
+
+
+        }
+
+
+
+
+
+
+
+        @media (max-width: 640px) {
+
+
+
+            body {
+
+
+
+                font-size: 0.88rem;
+
+
+
+                line-height: 1.65;
+
+
+
+            }
+
+
+
+            main {
+
+
+
+                padding-top: clamp(4.14rem, 9.9vh, 6.48rem);
+
+
+
+                padding-bottom: 3.24rem;
+
+
+
+                padding-left: 1.035rem;
+
+
+
+                padding-right: 1.035rem;
+
+
+
+            }
+
+
+
+            p {
+
+
+
+                margin-bottom: 1.305rem;
+
+
+
+            }
+
+
+
+            h1.main-title {
+                font-size: 1.61rem;
+
+
+
+                margin-bottom: 1.575rem;
+
+
+
+            }
+
+
+
+            h2.section-title {
+
+
+
+                margin-top: 2.88rem;
+
+
+
+                margin-bottom: 1.44rem;
+
+
+
+                padding-top: 1.62rem;
+
+
+
+            }
+
+
+
+            h2.section-title-inline {
+            font-size: 1.35rem;
+            font-weight: 800;
+            line-height: 1.3;
+            letter-spacing: -0.02em;
+            margin-top: 4rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-color);
+        }
+
+
+
+            h3.decision-title {
+            font-size: 1.3rem;
+            font-weight: 800;
+            line-height: 1.35;
+            letter-spacing: -0.015em;
+            margin-top: 3.6rem;
+            margin-bottom: 1.2rem;
+            color: var(--text-color);
+            text-decoration: underline;
+            text-decoration-thickness: 2.5px;
+            text-underline-offset: 6px;
+        }
+
+
+
+            hr.sub-divider {
+
+
+
+                margin: 1.8rem 0 !important;
+
+
+
+            }
+
+
+
+            .lead-warning {
+
+
+
+                padding: 0.9rem 0.9rem;
+
+
+
+                margin-bottom: 1.62rem;
+
+
+
+            }
+
+
+
+        }
+
+
+
+    

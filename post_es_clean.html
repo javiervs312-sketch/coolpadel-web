@@ -1,0 +1,260 @@
+
+
+
+
+
+
+
+
+    <!-- SCRIPT DE REVELADO SUAVE A MEDIDA QUE SE DESLIZA (SCROLL) -->
+
+
+
+    <script>
+
+
+
+        document.addEventListener('DOMContentLoaded', () => {
+
+
+
+            const revealElements = document.querySelectorAll('.reveal-on-scroll');
+
+
+
+            const revealCallback = (entries, observer) => {
+
+
+
+                entries.forEach(entry => {
+
+
+
+                    if (entry.isIntersecting) {
+
+
+
+                        entry.target.classList.add('is-visible');
+
+
+
+                        observer.unobserve(entry.target);
+
+
+
+                    }
+
+
+
+                });
+
+
+
+            };
+
+
+
+            const revealObserver = new IntersectionObserver(revealCallback, {
+
+
+
+                root: null,
+
+
+
+                threshold: 0.05,
+
+
+
+                rootMargin: '0px 0px -20px 0px'
+
+
+
+            });
+
+
+
+            revealElements.forEach(el => revealObserver.observe(el));
+
+
+
+        });
+
+
+
+    </script>
+
+
+
+
+
+
+
+    <!-- MOTOR UNIFICADO DE ANALÍTICA COMERCIAL Y ORGÁNICA (SEO / GEO / AEO) -->
+
+
+
+    <script src="/assets/js/cp-analytics.js?v=20261020b"></script>
+
+
+
+    <script>
+
+
+
+        window.addEventListener('message', (e) => {
+
+
+
+            try {
+
+
+
+                if (!e.data || typeof e.data !== 'object') return;
+
+
+
+                const cEvent = e.data.event;
+
+
+
+                const urlParams = new URLSearchParams(window.location.search);
+
+
+
+                const leadName = urlParams.get('lead') || urlParams.get('club') || urlParams.get('nombre') || localStorage.getItem('cp_lead_name') || '';
+
+
+
+                const leadTel = urlParams.get('tel') || urlParams.get('phone') || urlParams.get('c') || localStorage.getItem('cp_lead_tel') || '';
+
+
+
+
+
+
+
+                if (cEvent === 'calendly.event_type_viewed' && window.cpTrackEvent) {
+
+
+
+                    window.cpTrackEvent('calendly_visto', { evento_desc: '👀 Vio Calendario Calendly' });
+
+
+
+                } else if (cEvent === 'calendly.date_and_time_selected' && window.cpTrackEvent) {
+
+
+
+                    window.cpTrackEvent('calendly_hora_seleccionada', { evento_desc: '🕒 Seleccionó Día/Hora en Calendly' });
+
+
+
+                } else if (cEvent === 'calendly.event_scheduled') {
+
+
+
+                    const payloadCalendly = e.data.payload || {};
+
+
+
+                    if (window.cpTrackEvent) {
+
+
+
+                        window.cpTrackEvent('demo_agendada', {
+
+
+
+                            tipo: 'reunion_calendly',
+
+
+
+                            evento_desc: `🎯 DEMO AGENDADA: ${leadName || 'Club'}${leadTel ? ' ' + leadTel : ''}`,
+
+
+
+                            lead_nombre: leadName,
+
+
+
+                            lead_tel: leadTel,
+
+
+
+                            calendly_uri: payloadCalendly.event ? payloadCalendly.event.uri : ''
+
+
+
+                        });
+
+
+
+                    }
+
+
+
+                    const successCard = document.getElementById('calendlySuccessCard');
+
+
+
+                    const successDetails = document.getElementById('calendlySuccessDetails');
+
+
+
+                    if (successCard && successDetails) {
+
+
+
+                        const clubStr = leadName ? ` (${leadName})` : '';
+
+
+
+                        successDetails.innerHTML = `Hecho. Demo agendada${clubStr}. Te llegará la confirmación con el enlace al correo.`;
+
+
+
+                        successCard.style.display = 'block';
+
+
+
+                        successCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+
+
+                    }
+
+
+
+                }
+
+
+
+            } catch (err) {}
+
+
+
+        });
+
+
+
+    </script>
+
+
+
+</body>
+
+
+
+</html>
+
+
+
+
+
+
+
+
+
+
+

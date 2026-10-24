@@ -1,0 +1,305 @@
+
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #111111;
+            --text-muted: #666666;
+            --border-color: #b0b0b0;
+            --card-bg: #ececee;
+            --font-main: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        .bg-textured-blue {
+            background-color: #3478a6;
+            background-image: linear-gradient(rgba(52, 120, 166, 0.40), rgba(52, 120, 166, 0.40)), url('/assets/images/branding/textura_editorial_coolpadel.webp');
+            background-blend-mode: normal, soft-light;
+            background-size: cover;
+            background-position: center;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: var(--font-main);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.85;
+            font-size: 1.2rem;
+            padding: 0;
+            margin: 0;
+            overflow-x: hidden;
+        }
+
+        /* Contenitore principale di lettura */
+        main {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: clamp(8.5rem, 18vh, 14rem) 1.5rem 8rem;
+        }
+
+        /* Titolo Principale */
+        h1.main-title {
+            font-size: clamp(2.1rem, 5vw, 2.85rem);
+            font-weight: 800;
+            line-height: 1.2;
+            letter-spacing: -0.035em;
+            margin-bottom: 3.5rem;
+            color: var(--text-color);
+        }
+
+        /* Titoli di Sezione Grandi */
+        h2.section-title {
+            font-size: clamp(1.6rem, 3.8vw, 2.05rem);
+            font-weight: 800;
+            line-height: 1.28;
+            letter-spacing: -0.025em;
+            margin-top: 6.5rem;
+            margin-bottom: 3rem;
+            padding-top: 3.5rem;
+            border-top: 2px solid #b0b0b0;
+            color: var(--text-color);
+        }
+
+        /* Titolo senza salto brusco */
+        h2.section-title-inline {
+            font-size: clamp(1.5rem, 3.5vw, 1.95rem);
+            font-weight: 800;
+            line-height: 1.3;
+            letter-spacing: -0.02em;
+            margin-top: clamp(18rem, 38vh, 26rem);
+            margin-bottom: 2.8rem;
+            color: var(--text-color);
+        }
+
+        /* Titoli Sezioni Decisioni */
+        h3.decision-title {
+            font-size: clamp(1.35rem, 3vw, 1.65rem);
+            font-weight: 800;
+            line-height: 1.35;
+            letter-spacing: -0.015em;
+            margin-top: 6.5rem;
+            margin-bottom: 2.5rem;
+            color: var(--text-color);
+        }
+
+        /* Separatore */
+        hr.sub-divider {
+            border: 0 !important;
+            height: 1.5px !important;
+            background-color: #b0b0b0 !important;
+            margin: 3.8rem 0 !important;
+            width: 100% !important;
+            display: block !important;
+            opacity: 1 !important;
+        }
+
+        p {
+            margin-bottom: 2.4rem;
+            color: #1a1a1a;
+            font-weight: 400;
+        }
+
+        strong {
+            font-weight: 700;
+            color: #000000;
+        }
+
+        .lead-warning {
+            font-size: 1.2rem;
+            font-weight: 500;
+            line-height: 1.8;
+            padding: 1.8rem 2rem;
+            background-color: var(--card-bg);
+            border-left: 5px solid #111111;
+            border-radius: 6px;
+            margin-top: 2.6rem;
+            margin-bottom: 3.2rem;
+            color: #111111;
+        }
+
+        .lead-warning p {
+            margin-bottom: 1.3rem;
+            color: inherit;
+        }
+
+        .lead-warning p:last-child {
+            margin-bottom: 0;
+        }
+
+        ul.bullet-list {
+            margin-bottom: 2.4rem;
+            padding-left: 1.5rem;
+        }
+
+        ul.bullet-list li {
+            margin-bottom: 0.35rem;
+            line-height: 1.65;
+            color: #1a1a1a;
+        }
+
+        .table-container {
+            width: 100%;
+            overflow-x: auto;
+            margin: 2.5rem 0 3rem;
+            border-radius: 8px;
+            border: 2px solid #111111;
+            background: #ffffff;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        table.decisiones-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 1.05rem;
+            text-align: left;
+            min-width: 520px;
+        }
+
+        table.decisiones-table th {
+            background-color: #f0f0f2;
+            color: #000000;
+            font-weight: 800;
+            padding: 1.1rem 1.25rem;
+            border-bottom: 2px solid #111111;
+            border-right: 1px solid #e0e0e0;
+        }
+
+        table.decisiones-table th:last-child {
+            border-right: none;
+        }
+
+        table.decisiones-table td {
+            padding: 1.1rem 1.25rem;
+            border-bottom: 1px solid #e0e0e0;
+            border-right: 1px solid #e0e0e0;
+            color: #222222;
+        }
+
+        table.decisiones-table td:last-child {
+            border-right: none;
+        }
+
+        table.decisiones-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        table.decisiones-table tr:nth-child(even) td {
+            background-color: #fafafb;
+        }
+
+        .calendly-embed-container {
+            margin-top: 2rem;
+            margin-bottom: 1.2rem;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid #e2e2e5;
+            background: #ffffff;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+        }
+
+        .calendly-fallback-text {
+            text-align: center;
+            font-size: 0.95rem;
+            color: #666666;
+            margin-top: 0.75rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .calendly-fallback-text a {
+            color: #111111;
+            font-weight: 700;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+        }
+
+        .calendly-success-card {
+            display: none;
+            background: #f0fdf4;
+            border: 2px solid #16a34a;
+            border-radius: 8px;
+            padding: 2rem 1.8rem;
+            margin: 2rem 0;
+            text-align: left;
+            animation: fadeInSuccess 0.5s ease-out forwards;
+        }
+
+        @keyframes fadeInSuccess {
+            from { opacity: 0; transform: translateY(12px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .calendly-success-card h4 {
+            color: #15803d;
+            font-size: 1.35rem;
+            font-weight: 800;
+            margin-bottom: 0.8rem;
+        }
+
+        .calendly-success-card p {
+            color: #166534;
+            font-size: 1.05rem;
+            line-height: 1.6;
+            margin-bottom: 0.8rem;
+        }
+
+        .calendly-success-card p:last-child {
+            margin-bottom: 0;
+        }
+
+        .reveal-on-scroll {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: opacity, transform;
+        }
+
+        .reveal-on-scroll.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 640px) {
+            body {
+                font-size: 1.1rem;
+                line-height: 1.8;
+            }
+            main {
+                padding-top: clamp(6.5rem, 15vh, 10rem);
+                padding-bottom: 5rem;
+            }
+            p {
+                margin-bottom: 2rem;
+            }
+            h2.section-title {
+                margin-top: 4.5rem;
+                margin-bottom: 2.2rem;
+                padding-top: 2.5rem;
+            }
+            h2.section-title-inline {
+                margin-top: clamp(13rem, 28vh, 18rem);
+                margin-bottom: 2rem;
+            }
+            h3.decision-title {
+                margin-top: 4.8rem;
+                margin-bottom: 2rem;
+            }
+            hr.sub-divider {
+                margin: 2.8rem 0 !important;
+            }
+            .lead-warning {
+                padding: 1.4rem 1.4rem;
+                margin-bottom: 2.5rem;
+            }
+        }
+    

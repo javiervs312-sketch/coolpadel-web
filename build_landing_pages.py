@@ -640,7 +640,7 @@ LANDINGS = [
 
             "label_4": "Instalación", "val_4": "Montaje en 5 min en pistas indoor o descubiertas",
 
-            "p": "Instalación de cámaras de grabación Save My Play para clubes de pádel en la Comunidad de Madrid (Pozuelo, Las Rozas, Alcobendas, Majadahonda, Chamartín). Visita técnica presencial, montaje en 5 minutos y repeticiones por QR."
+            "p": "Instalación de cámaras de grabación Save My Play para clubes de pádel en la Comunidad de Madrid (Pozuelo, Las Rozas, Alcobendas, Majadahonda). Visita técnica presencial, montaje en 5 minutos y repeticiones por QR."
 
         },
 
@@ -1754,7 +1754,7 @@ def render_landing(landing, lang="es"):
         </div>
         <div class="space-y-3">
           <div class="font-heading font-black text-sm uppercase tracking-wider text-white">Legal & Contacto</div>
-          <p class="text-white/80">Javier Villoria Soleto<br>Chamartín, Madrid<br>WhatsApp: +34 680 31 74 86</p>
+          <p class="text-white/80">Javier Villoria Soleto<br>España<br>WhatsApp: +34 680 31 74 86</p>
         </div>
       </nav>
       <div class="border-t border-white/20 pt-6 text-center text-white/60">
