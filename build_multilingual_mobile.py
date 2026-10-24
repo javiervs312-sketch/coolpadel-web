@@ -1896,7 +1896,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
       <!-- BLOQUE DE NAVEGACIÓN Y ACCIONES A LA DERECHA (ESTILO EXACTO LANDINGS) -->
       <div class="flex items-center gap-2 sm:gap-4 lg:gap-6">
         <a href="#llaveros" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition whitespace-nowrap">{t['nav_tenis_padel']}</a>
-        <a href="herramientas/" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition whitespace-nowrap">{t['nav_herramientas']}</a>
+        <a href="#camaras" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition whitespace-nowrap">{t.get('nav_camaras', 'CÁMARAS')}</a>
         <a href="blog/" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition whitespace-nowrap">Blog</a>
         <a href="franquicias-padel/" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition whitespace-nowrap">{"Franchises" if active_lang in ("en", "fr") else "Franchigie" if active_lang=="it" else "Cadenas de clubs"}</a>
 
@@ -2369,6 +2369,213 @@ def get_base_html(active_lang="es", is_subfolder=False):
 
 
 
+
+
+
+  <!-- SECCIÓN SAVE MY PLAY: CÁMARAS CON IA PARA PISTAS DE PÁDEL (FONDO VERDE OFICIAL #4bbb81) -->
+  <section id="camaras" class="py-12 sm:py-16 bg-[#4bbb81] relative border-b border-emerald-600/30 overflow-hidden text-slate-900 scroll-mt-20">
+    <div class="absolute inset-0 bg-gradient-to-b from-black/5 via-transparent to-black/10 pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      
+      <!-- CABECERA DE SECCIÓN -->
+      <div class="max-w-3xl mx-auto text-center space-y-2 sm:space-y-3 mb-8 sm:mb-12">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-950/10 text-slate-950 text-xs font-black tracking-wider uppercase mb-1">
+          <i data-lucide="video" class="w-3.5 h-3.5"></i>
+          <span>Partner Oficial Save my Play · +1.500 Pistas</span>
+        </div>
+        <h2 data-i18n="smp_title" class="text-2xl sm:text-4xl font-black font-heading text-slate-950 uppercase tracking-tight leading-tight">
+          {t['smp_title']}
+        </h2>
+        <p class="text-xs sm:text-sm text-slate-900 font-semibold max-w-2xl mx-auto">
+          Sistema de cámaras fijas con botón físico en pista y visión artificial. Sin obras, sin app obligatoria y con amortización desde el primer mes.
+        </p>
+      </div>
+
+      <!-- 3 FOTOS EN FILA CON BORDE NEGRO Y SOMBRA 3D -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6 lg:gap-8 max-w-6xl sm:max-w-7xl mx-auto mb-10 sm:mb-12">
+        
+        <!-- FOTO 1 -->
+        <div class="rounded-3xl overflow-hidden shadow-[0_15px_35px_-10px_rgba(0,0,0,0.5)] transition-all duration-300 group border-2 border-slate-900 bg-slate-800 hover:-translate-y-1">
+          <div class="relative aspect-[16/10] overflow-hidden">
+            <img src="{asset_prefix}assets/images/savemyplay-1.jpg" alt="Cámara Save my Play grabando partido en pista de pádel" width="600" height="375" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" decoding="async">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent"></div>
+          </div>
+        </div>
+
+        <!-- FOTO 2 -->
+        <div class="rounded-3xl overflow-hidden shadow-[0_15px_35px_-10px_rgba(0,0,0,0.5)] transition-all duration-300 group border-2 border-slate-900 bg-slate-800 hover:-translate-y-1">
+          <div class="relative aspect-[16/10] overflow-hidden">
+            <img src="{asset_prefix}assets/images/savemyplay-2.jpg" alt="Jugadores de pádel usando la app Save my Play para ver repeticiones" width="600" height="375" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" decoding="async">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent"></div>
+          </div>
+        </div>
+
+        <!-- FOTO 3 -->
+        <div class="rounded-3xl overflow-hidden shadow-[0_15px_35px_-10px_rgba(0,0,0,0.5)] transition-all duration-300 group border-2 border-slate-900 bg-slate-800 hover:-translate-y-1">
+          <div class="relative aspect-[16/10] overflow-hidden">
+            <img src="{asset_prefix}assets/images/savemyplay-3.jpg" alt="Pista panorámica con sistema de vídeo inteligente Save my Play" width="600" height="375" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" decoding="async">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent"></div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- 2 TARJETAS SAVE MY PLAY: TARJETA PLANES + TARJETA ¿POR QUÉ AÑADIR SMP A TU CLUB? -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 xl:gap-10 max-w-6xl sm:max-w-7xl mx-auto mb-8">
+        
+        <!-- TARJETA 1: PLANES SAVE MY PLAY -->
+        <div class="bg-white rounded-3xl p-5 sm:p-7 border border-emerald-300 shadow-xl text-slate-900 flex flex-col justify-between hover:-translate-y-1 transition duration-300">
+          <div class="space-y-4">
+            <div class="flex items-center justify-between border-b border-slate-200 pb-3 sm:pb-4">
+              <h3 data-i18n="smp_plans_title" class="font-heading font-black text-lg sm:text-2xl text-slate-950 uppercase tracking-tight">
+                {t['smp_plans_title']}
+              </h3>
+              <span class="w-8 h-8 rounded-full bg-[#4bbb81]/20 flex items-center justify-center text-slate-950">
+                <i data-lucide="layers" class="w-4 h-4 stroke-[2.5]"></i>
+              </span>
+            </div>
+
+            <!-- PLANES GRID -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+              
+              <!-- PLAN A: NARANJA 136€/mes -->
+              <div class="p-4 sm:p-5 rounded-2xl bg-orange-50/70 border-2 border-[#f2920b] flex flex-col space-y-2.5">
+                <div class="flex items-center justify-between">
+                  <span data-i18n="smp_plan_a_title" class="font-black text-xs uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-[#f2920b] text-slate-950">
+                    {t['smp_plan_a_title']}
+                  </span>
+                  <i data-lucide="sparkles" class="w-4 h-4 text-[#f2920b]"></i>
+                </div>
+                <strong data-i18n="smp_plan_a_price" class="text-2xl sm:text-3xl font-black font-heading text-slate-950 block">
+                  {t['smp_plan_a_price']}
+                </strong>
+                <p data-i18n="smp_plan_a_desc" class="text-xs text-slate-700 font-medium leading-relaxed">
+                  {t['smp_plan_a_desc']}
+                </p>
+              </div>
+
+              <!-- PLAN B: AZUL 45€/mes -->
+              <div class="p-4 sm:p-5 rounded-2xl bg-sky-50/70 border-2 border-[#76d3f6] flex flex-col space-y-2.5">
+                <div class="flex items-center justify-between">
+                  <span data-i18n="smp_plan_b_title" class="font-black text-xs uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-[#76d3f6] text-slate-950">
+                    {t['smp_plan_b_title']}
+                  </span>
+                  <i data-lucide="video" class="w-4 h-4 text-sky-600"></i>
+                </div>
+                <strong data-i18n="smp_plan_b_price" class="text-2xl sm:text-3xl font-black font-heading text-slate-950 block">
+                  {t['smp_plan_b_price']}
+                </strong>
+                <p data-i18n="smp_plan_b_desc" class="text-xs text-slate-700 font-medium leading-relaxed">
+                  {t['smp_plan_b_desc']}
+                </p>
+              </div>
+
+            </div>
+
+            <!-- INVERSIÓN INICIAL CÁMARAS: 180 € / PISTA -->
+            <div class="py-2.5 px-4 max-w-xs sm:max-w-sm mx-auto rounded-xl bg-slate-100 border border-slate-200 text-center">
+              <span data-i18n="smp_cam_invest" class="font-black text-xs sm:text-sm text-slate-950 block">
+                {t['smp_cam_invest']}
+              </span>
+            </div>
+          </div>
+
+          <!-- BOTÓN CONTACTAR PLANES -->
+          <div class="pt-4 border-t border-slate-200 mt-4">
+            <a id="smp-plan-btn" href="https://wa.me/34680317486?text={wa_prefilled_encoded}" 
+               target="_blank" rel="noopener noreferrer"
+               class="group relative w-full inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] active:bg-[#76d3f6] text-slate-950 active:scale-95 font-heading font-black text-xs sm:text-sm uppercase tracking-wider transition-all duration-300 shadow-md hover:scale-[1.01] overflow-hidden cursor-pointer">
+              <span data-i18n="smp_btn" class="font-black">{t['smp_btn']}</span>
+              <div class="w-6 h-6 rounded-full bg-slate-950/10 group-hover:bg-slate-950 group-hover:text-white flex items-center justify-center transition-all duration-300">
+                <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 stroke-[3] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300"></i>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <!-- TARJETA 2: ¿POR QUÉ AÑADIR SAVE MY PLAY A TU CLUB? -->
+        <div class="bg-white rounded-3xl p-5 sm:p-7 border border-emerald-300 shadow-xl text-slate-900 flex flex-col justify-between hover:-translate-y-1 transition duration-300">
+          <div class="space-y-4">
+            <div class="flex items-center gap-1.5 sm:gap-2 flex-wrap border-b border-slate-200 pb-3 sm:pb-4">
+              <span data-i18n="smp_why_title_prefix" class="font-heading font-black text-lg sm:text-2xl text-slate-950 uppercase tracking-tight">{t['smp_why_title_prefix']}</span>
+              <img src="{asset_prefix}assets/images/savemyplay-logo-clean.png" alt="Save my Play" width="160" height="32" class="h-6 sm:h-8 w-auto object-contain" loading="lazy">
+              <span data-i18n="smp_why_title_suffix" class="font-heading font-black text-lg sm:text-2xl text-slate-950 uppercase tracking-tight">{t['smp_why_title_suffix']}</span>
+            </div>
+
+            <!-- 4 RAZONES COMERCIALES -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+              <div class="flex items-start gap-2.5 sm:gap-3 p-1">
+                <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-xl bg-[#4bbb81]/20 flex items-center justify-center shrink-0 mt-0.5 text-slate-950">
+                  <i data-lucide="sparkles" class="w-3.5 h-3.5 sm:w-4 sm:h-4 stroke-[2.5]"></i>
+                </div>
+                <div>
+                  <h5 data-i18n="feat1_title" class="text-xs sm:text-sm font-bold text-slate-950 uppercase leading-tight">{t['feat1_title']}</h5>
+                  <p data-i18n="feat1_desc" class="text-[11px] sm:text-xs text-slate-600 font-medium leading-relaxed mt-0.5">{t['feat1_desc']}</p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-2.5 sm:gap-3 p-1">
+                <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-xl bg-[#4bbb81]/20 flex items-center justify-center shrink-0 mt-0.5 text-slate-950">
+                  <i data-lucide="share-2" class="w-3.5 h-3.5 sm:w-4 sm:h-4 stroke-[2.5]"></i>
+                </div>
+                <div>
+                  <h5 data-i18n="feat2_title" class="text-xs sm:text-sm font-bold text-slate-950 uppercase leading-tight">{t['feat2_title']}</h5>
+                  <p data-i18n="feat2_desc" class="text-[11px] sm:text-xs text-slate-600 font-medium leading-relaxed mt-0.5">{t['feat2_desc']}</p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-2.5 sm:gap-3 p-1">
+                <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-xl bg-[#4bbb81]/20 flex items-center justify-center shrink-0 mt-0.5 text-slate-950">
+                  <i data-lucide="shield-check" class="w-3.5 h-3.5 sm:w-4 sm:h-4 stroke-[2.5]"></i>
+                </div>
+                <div>
+                  <h5 data-i18n="feat3_title" class="text-xs sm:text-sm font-bold text-slate-950 uppercase leading-tight">{t['feat3_title']}</h5>
+                  <p data-i18n="feat3_desc" class="text-[11px] sm:text-xs text-slate-600 font-medium leading-relaxed mt-0.5">{t['feat3_desc']}</p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-2.5 sm:gap-3 p-1">
+                <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-xl bg-[#4bbb81]/20 flex items-center justify-center shrink-0 mt-0.5 text-slate-950">
+                  <i data-lucide="trending-up" class="w-3.5 h-3.5 sm:w-4 sm:h-4 stroke-[2.5]"></i>
+                </div>
+                <div>
+                  <h5 data-i18n="feat4_title" class="text-xs sm:text-sm font-bold text-slate-950 uppercase leading-tight">{t['feat4_title']}</h5>
+                  <p data-i18n="feat4_desc" class="text-[11px] sm:text-xs text-slate-600 font-medium leading-relaxed mt-0.5">{t['feat4_desc']}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- BOTÓN CONTACTAR POR QUÉ SMP -->
+          <div class="pt-4 border-t border-slate-200 mt-4">
+            <a id="smp-contact-btn" href="https://wa.me/34680317486?text={wa_prefilled_encoded}" 
+               target="_blank" rel="noopener noreferrer"
+               class="group relative w-full inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] active:bg-[#76d3f6] text-slate-950 active:scale-95 font-heading font-black text-xs sm:text-sm uppercase tracking-wider transition-all duration-300 shadow-md hover:scale-[1.01] overflow-hidden cursor-pointer">
+              <span data-i18n="smp_btn" class="font-black">{t['smp_btn']}</span>
+              <div class="w-6 h-6 rounded-full bg-slate-950/10 group-hover:bg-slate-950 group-hover:text-white flex items-center justify-center transition-all duration-300">
+                <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 stroke-[3] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300"></i>
+              </div>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- BOTONES DE ACCIÓN (SIN ENLACE A LA CARTA PRIVADA /camaras/) -->
+      <div class="text-center pt-2 pb-1 flex flex-col sm:flex-row items-center justify-center gap-3">
+        <a href="{asset_prefix}#contacto" class="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-slate-950 text-white hover:bg-white hover:text-slate-950 font-heading font-black text-xs sm:text-sm uppercase tracking-wider transition-all duration-200 shadow-md hover:scale-105 active:scale-95 cursor-pointer">
+          <i data-lucide="calendar" class="w-4 h-4 text-[#f2920b]"></i>
+          <span>Pedir Demo de 15 min para tu Club</span>
+        </a>
+        <a href="{asset_prefix}save-my-play/" class="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-white text-slate-950 hover:bg-slate-950 hover:text-white font-heading font-black text-xs sm:text-sm uppercase tracking-wider transition-all duration-200 shadow-md border border-slate-900/10 hover:scale-105 active:scale-95">
+          <span>Ver Ficha Técnica y Modelos de ROI</span>
+          <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </a>
+      </div>
+
+    </div>
+  </section>
 
 
   <!-- 6. OPINIONES DE CLUBES Y FEDERACIONES -->
@@ -5378,6 +5585,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
         {{ id: 'coverflow-0', name: 'Hero / Llaveros 3D' }},
 
         {{ id: 'llaveros', name: 'Calculadora de Pistas' }},
+        {{ id: 'camaras', name: 'Cámaras Save my Play' }},
 
         {{ id: 'faq', name: 'Preguntas Frecuentes' }},
 

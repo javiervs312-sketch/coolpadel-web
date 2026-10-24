@@ -1415,6 +1415,33 @@
     }
   </style>
 
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-3FY3DTNN21"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-3FY3DTNN21');
+    // Eventos clave (leads): WhatsApp, email, teléfono, demo, dossier
+    document.addEventListener('click', function (e) {
+      try {
+        var a = e.target.closest && e.target.closest('a, button');
+        if (!a) return;
+        var href = (a.getAttribute('href') || '').toLowerCase();
+        var txt = (a.innerText || '').replace(/\s+/g, ' ').trim().slice(0, 60);
+        var p = { link_text: txt, link_url: href, page_path: location.pathname };
+        if (href.indexOf('wa.me') > -1 || href.indexOf('whatsapp.com') > -1) gtag('event', 'click_whatsapp', p);
+        else if (href.indexOf('mailto:') === 0) gtag('event', 'click_email', p);
+        else if (href.indexOf('tel:') === 0) gtag('event', 'click_telefono', p);
+        else if (/\.pdf($|\?)/.test(href) || /dossier/i.test(href + ' ' + txt)) gtag('event', 'descarga_dossier', p);
+        else if (/demo|reuni[oó]n|meeting|calendly|agenda|r[eé]serv|prueba gratis|free trial/i.test(href + ' ' + txt)) gtag('event', 'solicitar_demo', p);
+      } catch (err) {}
+    }, { passive: true });
+    document.addEventListener('submit', function (e) {
+      try { gtag('event', 'enviar_formulario', { form_id: (e.target && (e.target.id || e.target.name)) || '', page_path: location.pathname }); } catch (err) {}
+    }, true);
+  </script>
+  <!-- /GA4 -->
 </head>
 
 <body class="bg-white text-slate-900 min-h-screen relative selection:bg-cool-orange selection:text-white overflow-x-hidden w-full">
@@ -1434,7 +1461,7 @@
       <!-- BLOQUE DE NAVEGACIÓN Y ACCIONES A LA DERECHA (ESTILO EXACTO LANDINGS) -->
       <div class="flex items-center gap-2 sm:gap-4 lg:gap-6">
         <a href="#llaveros" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition whitespace-nowrap">TENNIS & PADEL</a>
-        <a href="herramientas/" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition whitespace-nowrap">Strumenti</a>
+        <a href="#camaras" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition whitespace-nowrap">TELECAMERE</a>
         <a href="blog/" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition whitespace-nowrap">Blog</a>
         <a href="franquicias-padel/" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition whitespace-nowrap">Franchigie</a>
 
@@ -1907,6 +1934,213 @@
 
 
 
+
+
+
+  <!-- SECCIÓN SAVE MY PLAY: CÁMARAS CON IA PARA PISTAS DE PÁDEL (FONDO VERDE OFICIAL #4bbb81) -->
+  <section id="camaras" class="py-12 sm:py-16 bg-[#4bbb81] relative border-b border-emerald-600/30 overflow-hidden text-slate-900 scroll-mt-20">
+    <div class="absolute inset-0 bg-gradient-to-b from-black/5 via-transparent to-black/10 pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      
+      <!-- CABECERA DE SECCIÓN -->
+      <div class="max-w-3xl mx-auto text-center space-y-2 sm:space-y-3 mb-8 sm:mb-12">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-950/10 text-slate-950 text-xs font-black tracking-wider uppercase mb-1">
+          <i data-lucide="video" class="w-3.5 h-3.5"></i>
+          <span>Partner Oficial Save my Play · +1.500 Pistas</span>
+        </div>
+        <h2 data-i18n="smp_title" class="text-2xl sm:text-4xl font-black font-heading text-slate-950 uppercase tracking-tight leading-tight">
+          Registra tutto ciò che accade in campo
+        </h2>
+        <p class="text-xs sm:text-sm text-slate-900 font-semibold max-w-2xl mx-auto">
+          Sistema de cámaras fijas con botón físico en pista y visión artificial. Sin obras, sin app obligatoria y con amortización desde el primer mes.
+        </p>
+      </div>
+
+      <!-- 3 FOTOS EN FILA CON BORDE NEGRO Y SOMBRA 3D -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6 lg:gap-8 max-w-6xl sm:max-w-7xl mx-auto mb-10 sm:mb-12">
+        
+        <!-- FOTO 1 -->
+        <div class="rounded-3xl overflow-hidden shadow-[0_15px_35px_-10px_rgba(0,0,0,0.5)] transition-all duration-300 group border-2 border-slate-900 bg-slate-800 hover:-translate-y-1">
+          <div class="relative aspect-[16/10] overflow-hidden">
+            <img src="../assets/images/savemyplay-1.jpg" alt="Cámara Save my Play grabando partido en pista de pádel" width="600" height="375" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" decoding="async">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent"></div>
+          </div>
+        </div>
+
+        <!-- FOTO 2 -->
+        <div class="rounded-3xl overflow-hidden shadow-[0_15px_35px_-10px_rgba(0,0,0,0.5)] transition-all duration-300 group border-2 border-slate-900 bg-slate-800 hover:-translate-y-1">
+          <div class="relative aspect-[16/10] overflow-hidden">
+            <img src="../assets/images/savemyplay-2.jpg" alt="Jugadores de pádel usando la app Save my Play para ver repeticiones" width="600" height="375" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" decoding="async">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent"></div>
+          </div>
+        </div>
+
+        <!-- FOTO 3 -->
+        <div class="rounded-3xl overflow-hidden shadow-[0_15px_35px_-10px_rgba(0,0,0,0.5)] transition-all duration-300 group border-2 border-slate-900 bg-slate-800 hover:-translate-y-1">
+          <div class="relative aspect-[16/10] overflow-hidden">
+            <img src="../assets/images/savemyplay-3.jpg" alt="Pista panorámica con sistema de vídeo inteligente Save my Play" width="600" height="375" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" decoding="async">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent"></div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- 2 TARJETAS SAVE MY PLAY: TARJETA PLANES + TARJETA ¿POR QUÉ AÑADIR SMP A TU CLUB? -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 xl:gap-10 max-w-6xl sm:max-w-7xl mx-auto mb-8">
+        
+        <!-- TARJETA 1: PLANES SAVE MY PLAY -->
+        <div class="bg-white rounded-3xl p-5 sm:p-7 border border-emerald-300 shadow-xl text-slate-900 flex flex-col justify-between hover:-translate-y-1 transition duration-300">
+          <div class="space-y-4">
+            <div class="flex items-center justify-between border-b border-slate-200 pb-3 sm:pb-4">
+              <h3 data-i18n="smp_plans_title" class="font-heading font-black text-lg sm:text-2xl text-slate-950 uppercase tracking-tight">
+                Piani Save my Play
+              </h3>
+              <span class="w-8 h-8 rounded-full bg-[#4bbb81]/20 flex items-center justify-center text-slate-950">
+                <i data-lucide="layers" class="w-4 h-4 stroke-[2.5]"></i>
+              </span>
+            </div>
+
+            <!-- PLANES GRID -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+              
+              <!-- PLAN A: NARANJA 136€/mes -->
+              <div class="p-4 sm:p-5 rounded-2xl bg-orange-50/70 border-2 border-[#f2920b] flex flex-col space-y-2.5">
+                <div class="flex items-center justify-between">
+                  <span data-i18n="smp_plan_a_title" class="font-black text-xs uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-[#f2920b] text-slate-950">
+                    Plan A
+                  </span>
+                  <i data-lucide="sparkles" class="w-4 h-4 text-[#f2920b]"></i>
+                </div>
+                <strong data-i18n="smp_plan_a_price" class="text-2xl sm:text-3xl font-black font-heading text-slate-950 block">
+                  136 € / mese
+                </strong>
+                <p data-i18n="smp_plan_a_desc" class="text-xs text-slate-700 font-medium leading-relaxed">
+                  AI Analytics, statistiche avanzate e analisi tecnica delle prestazioni
+                </p>
+              </div>
+
+              <!-- PLAN B: AZUL 45€/mes -->
+              <div class="p-4 sm:p-5 rounded-2xl bg-sky-50/70 border-2 border-[#76d3f6] flex flex-col space-y-2.5">
+                <div class="flex items-center justify-between">
+                  <span data-i18n="smp_plan_b_title" class="font-black text-xs uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-[#76d3f6] text-slate-950">
+                    Plan B
+                  </span>
+                  <i data-lucide="video" class="w-4 h-4 text-sky-600"></i>
+                </div>
+                <strong data-i18n="smp_plan_b_price" class="text-2xl sm:text-3xl font-black font-heading text-slate-950 block">
+                  45 € / mese
+                </strong>
+                <p data-i18n="smp_plan_b_desc" class="text-xs text-slate-700 font-medium leading-relaxed">
+                  Registrazione delle partite, replay istantanei e cattura automatica di highlights
+                </p>
+              </div>
+
+            </div>
+
+            <!-- INVERSIÓN INICIAL CÁMARAS: 180 € / PISTA -->
+            <div class="py-2.5 px-4 max-w-xs sm:max-w-sm mx-auto rounded-xl bg-slate-100 border border-slate-200 text-center">
+              <span data-i18n="smp_cam_invest" class="font-black text-xs sm:text-sm text-slate-950 block">
+                Investimento iniziale telecamere: 180 € / campo
+              </span>
+            </div>
+          </div>
+
+          <!-- BOTÓN CONTACTAR PLANES -->
+          <div class="pt-4 border-t border-slate-200 mt-4">
+            <a id="smp-plan-btn" href="https://wa.me/34680317486?text=Ciao%20Javier" 
+               target="_blank" rel="noopener noreferrer"
+               class="group relative w-full inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] active:bg-[#76d3f6] text-slate-950 active:scale-95 font-heading font-black text-xs sm:text-sm uppercase tracking-wider transition-all duration-300 shadow-md hover:scale-[1.01] overflow-hidden cursor-pointer">
+              <span data-i18n="smp_btn" class="font-black">Contatta</span>
+              <div class="w-6 h-6 rounded-full bg-slate-950/10 group-hover:bg-slate-950 group-hover:text-white flex items-center justify-center transition-all duration-300">
+                <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 stroke-[3] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300"></i>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <!-- TARJETA 2: ¿POR QUÉ AÑADIR SAVE MY PLAY A TU CLUB? -->
+        <div class="bg-white rounded-3xl p-5 sm:p-7 border border-emerald-300 shadow-xl text-slate-900 flex flex-col justify-between hover:-translate-y-1 transition duration-300">
+          <div class="space-y-4">
+            <div class="flex items-center gap-1.5 sm:gap-2 flex-wrap border-b border-slate-200 pb-3 sm:pb-4">
+              <span data-i18n="smp_why_title_prefix" class="font-heading font-black text-lg sm:text-2xl text-slate-950 uppercase tracking-tight">Perché aggiungere</span>
+              <img src="../assets/images/savemyplay-logo-clean.png" alt="Save my Play" width="160" height="32" class="h-6 sm:h-8 w-auto object-contain" loading="lazy">
+              <span data-i18n="smp_why_title_suffix" class="font-heading font-black text-lg sm:text-2xl text-slate-950 uppercase tracking-tight">al tuo club?</span>
+            </div>
+
+            <!-- 4 RAZONES COMERCIALES -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+              <div class="flex items-start gap-2.5 sm:gap-3 p-1">
+                <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-xl bg-[#4bbb81]/20 flex items-center justify-center shrink-0 mt-0.5 text-slate-950">
+                  <i data-lucide="sparkles" class="w-3.5 h-3.5 sm:w-4 sm:h-4 stroke-[2.5]"></i>
+                </div>
+                <div>
+                  <h5 data-i18n="feat1_title" class="text-xs sm:text-sm font-bold text-slate-950 uppercase leading-tight">Differenziazione</h5>
+                  <p data-i18n="feat1_desc" class="text-[11px] sm:text-xs text-slate-600 font-medium leading-relaxed mt-0.5">Offri un'esperienza completa al giocatore</p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-2.5 sm:gap-3 p-1">
+                <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-xl bg-[#4bbb81]/20 flex items-center justify-center shrink-0 mt-0.5 text-slate-950">
+                  <i data-lucide="share-2" class="w-3.5 h-3.5 sm:w-4 sm:h-4 stroke-[2.5]"></i>
+                </div>
+                <div>
+                  <h5 data-i18n="feat2_title" class="text-xs sm:text-sm font-bold text-slate-950 uppercase leading-tight">Contenuto organico</h5>
+                  <p data-i18n="feat2_desc" class="text-[11px] sm:text-xs text-slate-600 font-medium leading-relaxed mt-0.5">Condividi sui social media in un clic</p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-2.5 sm:gap-3 p-1">
+                <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-xl bg-[#4bbb81]/20 flex items-center justify-center shrink-0 mt-0.5 text-slate-950">
+                  <i data-lucide="shield-check" class="w-3.5 h-3.5 sm:w-4 sm:h-4 stroke-[2.5]"></i>
+                </div>
+                <div>
+                  <h5 data-i18n="feat3_title" class="text-xs sm:text-sm font-bold text-slate-950 uppercase leading-tight">Nessun mal di testa</h5>
+                  <p data-i18n="feat3_desc" class="text-[11px] sm:text-xs text-slate-600 font-medium leading-relaxed mt-0.5">Senza problemi e con installazione in 5 min</p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-2.5 sm:gap-3 p-1">
+                <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-xl bg-[#4bbb81]/20 flex items-center justify-center shrink-0 mt-0.5 text-slate-950">
+                  <i data-lucide="trending-up" class="w-3.5 h-3.5 sm:w-4 sm:h-4 stroke-[2.5]"></i>
+                </div>
+                <div>
+                  <h5 data-i18n="feat4_title" class="text-xs sm:text-sm font-bold text-slate-950 uppercase leading-tight">Entrate da prenotazioni</h5>
+                  <p data-i18n="feat4_desc" class="text-[11px] sm:text-xs text-slate-600 font-medium leading-relaxed mt-0.5">Aumenta l'occupazione nelle ore non di punta</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- BOTÓN CONTACTAR POR QUÉ SMP -->
+          <div class="pt-4 border-t border-slate-200 mt-4">
+            <a id="smp-contact-btn" href="https://wa.me/34680317486?text=Ciao%20Javier" 
+               target="_blank" rel="noopener noreferrer"
+               class="group relative w-full inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] active:bg-[#76d3f6] text-slate-950 active:scale-95 font-heading font-black text-xs sm:text-sm uppercase tracking-wider transition-all duration-300 shadow-md hover:scale-[1.01] overflow-hidden cursor-pointer">
+              <span data-i18n="smp_btn" class="font-black">Contatta</span>
+              <div class="w-6 h-6 rounded-full bg-slate-950/10 group-hover:bg-slate-950 group-hover:text-white flex items-center justify-center transition-all duration-300">
+                <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 stroke-[3] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300"></i>
+              </div>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- BOTONES DE ACCIÓN (SIN ENLACE A LA CARTA PRIVADA /camaras/) -->
+      <div class="text-center pt-2 pb-1 flex flex-col sm:flex-row items-center justify-center gap-3">
+        <a href="../#contacto" class="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-slate-950 text-white hover:bg-white hover:text-slate-950 font-heading font-black text-xs sm:text-sm uppercase tracking-wider transition-all duration-200 shadow-md hover:scale-105 active:scale-95 cursor-pointer">
+          <i data-lucide="calendar" class="w-4 h-4 text-[#f2920b]"></i>
+          <span>Pedir Demo de 15 min para tu Club</span>
+        </a>
+        <a href="../save-my-play/" class="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-white text-slate-950 hover:bg-slate-950 hover:text-white font-heading font-black text-xs sm:text-sm uppercase tracking-wider transition-all duration-200 shadow-md border border-slate-900/10 hover:scale-105 active:scale-95">
+          <span>Ver Ficha Técnica y Modelos de ROI</span>
+          <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </a>
+      </div>
+
+    </div>
+  </section>
 
 
   <!-- 6. OPINIONES DE CLUBES Y FEDERACIONES -->
@@ -2773,7 +3007,7 @@
 
   <!-- SCRIPTS & SISTEMA DE INTERNACIONALIZACIÓN (I18N) -->
 
-  <script src="/assets/js/cp-analytics.js"></script>
+  <script src="/assets/js/cp-analytics.js?v=20261020b"></script>
 
   <script>
 
@@ -2783,7 +3017,7 @@
 
     // DICCIONARIO REACTIVO MULTI-IDIOMA
 
-    const I18N_DATA = {"it": {"meta_title": "CoolPadel Studios | Portachiavi Padel 3D & Telecamere IA Save my Play", "meta_desc": "Produttore di portachiavi da padel in rilievo 3D personalizzati con logo per club e tornei. Campione reale a 15€ e spedizione in tutta Italia ed Europa.", "top_ticker": "Scarica il report esclusivo sull'industria del padel", "top_ticker_newsletter": "Non perdere l'ultima edizione della Newsletter di CoolPadel", "nav_tenis_padel": "TENNIS & PADEL", "nav_herramientas": "Strumenti", "nav_contact": "Contatta", "slide1_title": "Portachiavi da Padel per il tuo <br class=\"hidden sm:inline\"><span class=\"relative inline-block px-1.5 text-neutral-300\">club<svg class=\"absolute inset-0 w-full h-full pointer-events-none\" viewBox=\"0 0 100 100\" preserveAspectRatio=\"none\"><line x1=\"8\" y1=\"92\" x2=\"92\" y2=\"8\" stroke=\"#f2920b\" stroke-width=\"16\" stroke-linecap=\"round\"/><line x1=\"8\" y1=\"8\" x2=\"92\" y2=\"92\" stroke=\"#f2920b\" stroke-width=\"16\" stroke-linecap=\"round\"/></svg></span> <span class=\"sr-only\">/ </span><span class=\"text-[#f2920b] ml-2\">community</span>", "slide1_btn": "Vedi Portachiavi 3D", "slide2_title": "Registrazione in campo: <br><span class=\"text-black\">highlights e partite</span>", "slide2_btn": "Scopri", "slide3_title": "Il Business del Padel: <br><span class=\"text-[#76d3f6]\">Report 2026</span>", "slide3_btn": "Scarica PDF", "trusted_text": "Lavoriamo con <span class=\"text-[#76d3f6]\">club</span>, <span class=\"text-[#f2920b]\">brand</span> e <span class=\"text-[#3478a6]\">federazioni</span> di tutto il mondo", "geo_badge_title": "Mercati Ufficiali & Spedizione Diretta", "geo_badge_subtitle": "Operazioni attive e distribuzione per club e tornei in:", "geo_spain": "Spagna", "geo_spain_desc": "Distribuzione nazionale e assistenza diretta", "geo_usa": "Stati Uniti (USA)", "geo_usa_desc": "Copertura ufficiale e logistica prioritaria", "llaveros_title": "Portachiavi personalizzati con logo", "llaveros_subtitle": "I tuoi giocatori, dentro e fuori dal campo", "card_tenis": "Portachiavi Tennis", "card_padel": "Portachiavi Padel", "calc_title": "Calcola l'ordine per il tuo Club", "step_1": "Design 3D", "step_2": "Campione", "step_3": "Ordine", "calc_label_qty": "N. di portachiavi:", "calc_unit_name": "unità", "calc_label_price": "Importo stimato:", "calc_unit_price": "unità", "badge_muestra": "Campione", "badge_envios": "Spedizione", "badge_envios_val": "Inclusa", "badge_pago": "Pagamento", "badge_pago_val": "Anticipato", "btn_calc_wa": "Contatta", "smp_title": "Registra tutto ciò che accade in campo", "smp_plans_title": "Piani Save my Play", "smp_plan_a_title": "Plan A", "smp_plan_a_price": "136 € / mese", "smp_plan_a_desc": "AI Analytics, statistiche avanzate e analisi tecnica delle prestazioni", "smp_plan_b_title": "Plan B", "smp_plan_b_price": "45 € / mese", "smp_plan_b_desc": "Registrazione delle partite, replay istantanei e cattura automatica di highlights", "smp_cam_invest": "Investimento iniziale telecamere: 180 € / campo", "smp_cam_invest_desc": "Installazione in 5 minuti senza problemi", "smp_why_title_prefix": "Perché aggiungere", "smp_why_title_suffix": "al tuo club?", "smp_partner_badge": "Partner Ufficiale CoolPadel", "feat1_title": "Differenziazione", "feat1_desc": "Offri un'esperienza completa al giocatore", "feat2_title": "Contenuto organico", "feat2_desc": "Condividi sui social media in un clic", "feat3_title": "Nessun mal di testa", "feat3_desc": "Senza problemi e con installazione in 5 min", "feat4_title": "Entrate da prenotazioni", "feat4_desc": "Aumenta l'occupazione nelle ore non di punta", "smp_btn": "Contatta", "report_section_title": "CONTENUTO ESCLUSIVO COOLPADEL", "report_section_subtitle": "Iscriviti per non perdere le ultime tendenze dell'industria del padel", "report_card1_tag": "PDF Ufficiale", "report_card1_title": "Report Industria Padel 2026", "report_card1_desc": "Verso dove va l'industria del padel?<br>Quali sono i principali trend?", "report_card1_placeholder": "Inserisci la tua email per ricevere il report...", "report_card1_btn": "Scarica PDF", "report_card1_btn_success": "Report Scaricato!", "report_card2_tag": "LinkedIn Pulse", "report_card2_title": "Newsletter CoolPadel", "report_card2_desc": "Articoli, analisi e riflessioni sull'industria del padel<br>Fatti senza IA e dritti al punto", "report_card2_btn": "Leggi su LinkedIn", "faq_section_title": "DOMANDE FREQUENTI (FAQ)", "faq_q1": "Qual è la procedura per ordinare portachiavi personalizzati con il logo del club?", "faq_a1": "La procedura è al 100% assistita in 3 fasi:<br>1) Progettazione 3D digitale dopo averci inviato il tuo logo<br>2) Spedizione di un campione fisico reale a 15 €<br>3) Conferma e produzione dell'ordine.", "faq_q2": "Qual è l'ordine minimo e quali sono i tempi di consegna?", "faq_a2": "Ordine minimo di 100 unità.<br>Campione fisico in ~15 giorni lavorativi<br>Consegna dell'ordine in circa un mese in base al volume.", "faq_q3": "I prezzi indicati includono l'IVA? Come funzionano pagamento e fatturazione?", "faq_a3": "I prezzi mostrati non includono l'IVA.<br>Emettiamo fattura ufficiale intestata al club o alla società e il pagamento si effettua anticipatamente tramite bonifico o carta dopo aver ricevuto il campione.", "faq_q4": "Il costo del campione fisico di 15 € viene scalato?", "faq_a4": "Sì. I 15 € versati per produrre il campione fisico reale vengono rimborsati e dedotti al 100% dall'importo totale dell'ordine finale.", "faq_q5": "Quali sono le dimensioni dei portachiavi da padel personalizzati?", "faq_a5": "Circa 70 mm di lunghezza: dimensione equilibrata, leggera e ideale per borse da padel, zaini o chiavi.", "faq_q6": "Posso rivendere i portachiavi nel negozio o alla reception del mio club?", "faq_a6": "Certamente sì.<br>I club li rivendono facilmente alla reception o nel proprio pro-shop a circa 5-6 € ciascuno.", "faq_q7": "Per quali occasioni o utilizzi sono indicati i portachiavi da padel?", "faq_a7": "Welcome pack di tornei, regali per le cene sociali di fine anno, attivazioni degli sponsor del club, iscrizioni a tornei e scuole, o regalo aziendale per inaugurazioni ed eventi corporate.", "faq_q8": "Quali club e tornei si affidano già a CoolPadel?", "faq_a8": "Oltre 30 club in Spagna, Italia, Francia, Belgio e Stati Uniti.<br>Consulta l'elenco completo sulla mappa interattiva.", "faq_q9": "In quali paesi effettuate le spedizioni?", "faq_a9": "Spedizioni dirette in tutta Italia, nei paesi dell'Unione Europea e negli Stati Uniti.<br>Contattaci per le condizioni di spedizione negli altri paesi.", "faq_q10": "Quali altri prodotti offre CoolPadel?", "faq_a10": "Telecamere per campi da padel per permettere ai giocatori di salvare i loro migliori punti.<br>Lavoriamo direttamente con Save My Play, azienda con oltre 1.600 telecamere in tutto il mondo.", "popup_title": "Quali sono i principali trend dell'industria del padel nel 2026?", "popup_desc": "Accedi in esclusiva al Report CoolPadel sul futuro dell'industria del padel<br>Scritto senza IA e dritto al punto", "popup_placeholder": "Inserisci qui la tua email...", "popup_btn": "Scarica il Report (PDF)", "popup_btn_success": "Download in corso!", "contact_title": "Contattaci", "contact_subtitle": "", "contact_wa_title": "WhatsApp Diretto", "contact_wa_desc": "", "contact_wa_btn": "Chatta su WhatsApp", "contact_wa_qr_hint": "", "contact_mail_title": "Email Ufficiale", "contact_mail_desc": "", "contact_mail_btn": "Invia un'Email a Javier", "contact_mail_qr_hint": "", "wa_floating_tooltip": "Parliamo?", "wa_prefilled_msg": "Ciao Javier", "reviews_badge_text": "Sondaggi Ufficiali dei Club", "reviews_heading": "Recensioni di Club & Federazioni", "reviews_subheading": "Valutazione media di 4.9/5 basata su sondaggi reali dei direttori di club in Europa", "reviews_verified": "Club Verificato", "reviews_btn_ver_mas": "Vedi tutti i club sulla mappa"}};
+    const I18N_DATA = {"it": {"meta_title": "CoolPadel Studios | Portachiavi Padel 3D & Telecamere IA Save my Play", "meta_desc": "Produttore di portachiavi da padel in rilievo 3D personalizzati con logo per club e tornei. Campione reale a 15€ e spedizione in tutta Italia ed Europa.", "top_ticker": "Scarica il report esclusivo sull'industria del padel", "top_ticker_newsletter": "Non perdere l'ultima edizione della Newsletter di CoolPadel", "nav_tenis_padel": "TENNIS & PADEL", "nav_camaras": "TELECAMERE", "nav_herramientas": "Strumenti", "nav_contact": "Contatta", "slide1_title": "Portachiavi da Padel per il tuo <br class=\"hidden sm:inline\"><span class=\"relative inline-block px-1.5 text-neutral-300\">club<svg class=\"absolute inset-0 w-full h-full pointer-events-none\" viewBox=\"0 0 100 100\" preserveAspectRatio=\"none\"><line x1=\"8\" y1=\"92\" x2=\"92\" y2=\"8\" stroke=\"#f2920b\" stroke-width=\"16\" stroke-linecap=\"round\"/><line x1=\"8\" y1=\"8\" x2=\"92\" y2=\"92\" stroke=\"#f2920b\" stroke-width=\"16\" stroke-linecap=\"round\"/></svg></span> <span class=\"sr-only\">/ </span><span class=\"text-[#f2920b] ml-2\">community</span>", "slide1_btn": "Vedi Portachiavi 3D", "slide2_title": "Registrazione in campo: <br><span class=\"text-black\">highlights e partite</span>", "slide2_btn": "Scopri", "slide3_title": "Il Business del Padel: <br><span class=\"text-[#76d3f6]\">Report 2026</span>", "slide3_btn": "Scarica PDF", "trusted_text": "Lavoriamo con <span class=\"text-[#76d3f6]\">club</span>, <span class=\"text-[#f2920b]\">brand</span> e <span class=\"text-[#3478a6]\">federazioni</span> di tutto il mondo", "geo_badge_title": "Mercati Ufficiali & Spedizione Diretta", "geo_badge_subtitle": "Operazioni attive e distribuzione per club e tornei in:", "geo_spain": "Spagna", "geo_spain_desc": "Distribuzione nazionale e assistenza diretta", "geo_usa": "Stati Uniti (USA)", "geo_usa_desc": "Copertura ufficiale e logistica prioritaria", "llaveros_title": "Portachiavi personalizzati con logo", "llaveros_subtitle": "I tuoi giocatori, dentro e fuori dal campo", "card_tenis": "Portachiavi Tennis", "card_padel": "Portachiavi Padel", "calc_title": "Calcola l'ordine per il tuo Club", "step_1": "Design 3D", "step_2": "Campione", "step_3": "Ordine", "calc_label_qty": "N. di portachiavi:", "calc_unit_name": "unità", "calc_label_price": "Importo stimato:", "calc_unit_price": "unità", "badge_muestra": "Campione", "badge_envios": "Spedizione", "badge_envios_val": "Inclusa", "badge_pago": "Pagamento", "badge_pago_val": "Anticipato", "btn_calc_wa": "Contatta", "smp_title": "Registra tutto ciò che accade in campo", "smp_plans_title": "Piani Save my Play", "smp_plan_a_title": "Plan A", "smp_plan_a_price": "136 € / mese", "smp_plan_a_desc": "AI Analytics, statistiche avanzate e analisi tecnica delle prestazioni", "smp_plan_b_title": "Plan B", "smp_plan_b_price": "45 € / mese", "smp_plan_b_desc": "Registrazione delle partite, replay istantanei e cattura automatica di highlights", "smp_cam_invest": "Investimento iniziale telecamere: 180 € / campo", "smp_cam_invest_desc": "Installazione in 5 minuti senza problemi", "smp_why_title_prefix": "Perché aggiungere", "smp_why_title_suffix": "al tuo club?", "smp_partner_badge": "Partner Ufficiale CoolPadel", "feat1_title": "Differenziazione", "feat1_desc": "Offri un'esperienza completa al giocatore", "feat2_title": "Contenuto organico", "feat2_desc": "Condividi sui social media in un clic", "feat3_title": "Nessun mal di testa", "feat3_desc": "Senza problemi e con installazione in 5 min", "feat4_title": "Entrate da prenotazioni", "feat4_desc": "Aumenta l'occupazione nelle ore non di punta", "smp_btn": "Contatta", "report_section_title": "CONTENUTO ESCLUSIVO COOLPADEL", "report_section_subtitle": "Iscriviti per non perdere le ultime tendenze dell'industria del padel", "report_card1_tag": "PDF Ufficiale", "report_card1_title": "Report Industria Padel 2026", "report_card1_desc": "Verso dove va l'industria del padel?<br>Quali sono i principali trend?", "report_card1_placeholder": "Inserisci la tua email per ricevere il report...", "report_card1_btn": "Scarica PDF", "report_card1_btn_success": "Report Scaricato!", "report_card2_tag": "LinkedIn Pulse", "report_card2_title": "Newsletter CoolPadel", "report_card2_desc": "Articoli, analisi e riflessioni sull'industria del padel<br>Fatti senza IA e dritti al punto", "report_card2_btn": "Leggi su LinkedIn", "faq_section_title": "DOMANDE FREQUENTI (FAQ)", "faq_q1": "Qual è la procedura per ordinare portachiavi personalizzati con il logo del club?", "faq_a1": "La procedura è al 100% assistita in 3 fasi:<br>1) Progettazione 3D digitale dopo averci inviato il tuo logo<br>2) Spedizione di un campione fisico reale a 15 €<br>3) Conferma e produzione dell'ordine.", "faq_q2": "Qual è l'ordine minimo e quali sono i tempi di consegna?", "faq_a2": "Ordine minimo di 100 unità.<br>Campione fisico in ~15 giorni lavorativi<br>Consegna dell'ordine in circa un mese in base al volume.", "faq_q3": "I prezzi indicati includono l'IVA? Come funzionano pagamento e fatturazione?", "faq_a3": "I prezzi mostrati non includono l'IVA.<br>Emettiamo fattura ufficiale intestata al club o alla società e il pagamento si effettua anticipatamente tramite bonifico o carta dopo aver ricevuto il campione.", "faq_q4": "Il costo del campione fisico di 15 € viene scalato?", "faq_a4": "Sì. I 15 € versati per produrre il campione fisico reale vengono rimborsati e dedotti al 100% dall'importo totale dell'ordine finale.", "faq_q5": "Quali sono le dimensioni dei portachiavi da padel personalizzati?", "faq_a5": "Circa 70 mm di lunghezza: dimensione equilibrata, leggera e ideale per borse da padel, zaini o chiavi.", "faq_q6": "Posso rivendere i portachiavi nel negozio o alla reception del mio club?", "faq_a6": "Certamente sì.<br>I club li rivendono facilmente alla reception o nel proprio pro-shop a circa 5-6 € ciascuno.", "faq_q7": "Per quali occasioni o utilizzi sono indicati i portachiavi da padel?", "faq_a7": "Welcome pack di tornei, regali per le cene sociali di fine anno, attivazioni degli sponsor del club, iscrizioni a tornei e scuole, o regalo aziendale per inaugurazioni ed eventi corporate.", "faq_q8": "Quali club e tornei si affidano già a CoolPadel?", "faq_a8": "Oltre 30 club in Spagna, Italia, Francia, Belgio e Stati Uniti.<br>Consulta l'elenco completo sulla mappa interattiva.", "faq_q9": "In quali paesi effettuate le spedizioni?", "faq_a9": "Spedizioni dirette in tutta Italia, nei paesi dell'Unione Europea e negli Stati Uniti.<br>Contattaci per le condizioni di spedizione negli altri paesi.", "faq_q10": "Quali altri prodotti offre CoolPadel?", "faq_a10": "Telecamere per campi da padel per permettere ai giocatori di salvare i loro migliori punti.<br>Lavoriamo direttamente con Save My Play, azienda con oltre 1.600 telecamere in tutto il mondo.", "popup_title": "Quali sono i principali trend dell'industria del padel nel 2026?", "popup_desc": "Accedi in esclusiva al Report CoolPadel sul futuro dell'industria del padel<br>Scritto senza IA e dritto al punto", "popup_placeholder": "Inserisci qui la tua email...", "popup_btn": "Scarica il Report (PDF)", "popup_btn_success": "Download in corso!", "contact_title": "Contattaci", "contact_subtitle": "", "contact_wa_title": "WhatsApp Diretto", "contact_wa_desc": "", "contact_wa_btn": "Chatta su WhatsApp", "contact_wa_qr_hint": "", "contact_mail_title": "Email Ufficiale", "contact_mail_desc": "", "contact_mail_btn": "Invia un'Email a Javier", "contact_mail_qr_hint": "", "wa_floating_tooltip": "Parliamo?", "wa_prefilled_msg": "Ciao Javier", "reviews_badge_text": "Sondaggi Ufficiali dei Club", "reviews_heading": "Recensioni di Club & Federazioni", "reviews_subheading": "Valutazione media di 4.9/5 basata su sondaggi reali dei direttori di club in Europa", "reviews_verified": "Club Verificato", "reviews_btn_ver_mas": "Vedi tutti i club sulla mappa"}};
 
     let currentLang = 'it';
 
@@ -4922,6 +5156,7 @@ Un saludo.`);
         { id: 'coverflow-0', name: 'Hero / Llaveros 3D' },
 
         { id: 'llaveros', name: 'Calculadora de Pistas' },
+        { id: 'camaras', name: 'Cámaras Save my Play' },
 
         { id: 'faq', name: 'Preguntas Frecuentes' },
 
