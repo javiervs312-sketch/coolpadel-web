@@ -2163,7 +2163,7 @@ def generate_article_page(slug, edition_num, title, date_str, read_time, cover_i
   <meta name="twitter:description" content="Análisis y reflexiones sobre la industria del pádel por Javier Villoria.">
   <meta name="twitter:image" content="https://coolpadelstudios.com/assets/images/{cover_img}">
 
-  <!-- Schema.org BlogPosting, BreadcrumbList & FAQPage -->
+  <!-- Schema.org BlogPosting & BreadcrumbList -->
   <script type="application/ld+json">
   {{
     "@context": "https://schema.org",
@@ -3046,7 +3046,7 @@ def generate_all():
         read_time="Lectura 3 min",
         cover_img="cover_highlights_02.jpg",
         paragraphs=p02,
-        faqs=faqs_p02
+        faqs=None
     )
 
     # 3. Highlights #01
@@ -3092,7 +3092,7 @@ def generate_all():
         read_time="Lectura 4 min",
         cover_img="cover_highlights_01.jpg",
         paragraphs=p01,
-        faqs=faqs_p01
+        faqs=None
     )
 
     # 4. Guía AEO 1: Rentabilidad Cámaras en Pistas de Pádel
