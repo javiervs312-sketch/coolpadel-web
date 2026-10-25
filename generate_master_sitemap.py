@@ -15,6 +15,9 @@ if cur_dir not in sys.path:
 from dataset_franquicias import FRANQUICIAS
 from translations_landings import LANDINGS_I18N
 from translations_blog import FLAGSHIP_GUIDES_DATA
+from extra_articles_i18n import EXTRA_ARTICLES_I18N
+
+ALL_BLOG_SLUGS = set(FLAGSHIP_GUIDES_DATA.keys()).union(EXTRA_ARTICLES_I18N.keys())
 
 LANDING_SLUGS = list(LANDINGS_I18N["en"].keys())
 DOMAIN = "https://coolpadelstudios.com"
@@ -138,16 +141,14 @@ def generate_sitemap():
         changefreq="weekly"
     ))
 
-    flagship_slugs = set(FLAGSHIP_GUIDES_DATA.keys())
-
-    # 8. Artículos del Blog: Flagship Guides (4 idiomas con clúster simétrico) y Artículos ES
+    # 8. Artículos del Blog: Catálogo Completo (29 artículos en 4 idiomas con clúster simétrico)
     blog_root = os.path.join(cur_dir, "blog")
-    all_blog_dirs = sorted([d for d in os.listdir(blog_root) if os.path.isdir(os.path.join(blog_root, d))])
+    all_blog_dirs = sorted([d for d in os.listdir(blog_root) if os.path.isdir(os.path.join(blog_root, d)) and not d.startswith(".")])
     for b_dir in all_blog_dirs:
         art_path = os.path.join(blog_root, b_dir, "index.html")
         if not os.path.isfile(art_path):
             continue
-        if b_dir in flagship_slugs:
+        if b_dir in ALL_BLOG_SLUGS:
             prio = "0.90" if "barometro" in b_dir or "comparativa" in b_dir or "rentabilidad" in b_dir else "0.85"
             all_blocks.extend(get_cluster_xml(
                 f"/blog/{b_dir}/",

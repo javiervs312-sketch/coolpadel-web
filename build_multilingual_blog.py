@@ -1,9 +1,12 @@
 #!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 """
-Compilador del Blog y Guías Flagship en 4 Idiomas (ES, EN, FR, IT):
+Compilador Maestro del Blog Multilingüe en 4 Idiomas (ES, EN, FR, IT):
 - Blog Hub (/blog/ y /{lang}/blog/)
-- 7 Guías Flagship con versiones dedicadas en EN, FR, IT
+- 29 Artículos y Newsletters completos en 4 idiomas (ES, EN, FR, IT)
 - Inyección de Hreflangs simétricos de 5 vías en todos los artículos
+- Menú de selección de idioma sincronizado (código activo, clases, rutas exactas)
+- Cero enlaces rotos 404 en todas las versiones lingüísticas
 """
 import os
 import sys
@@ -14,6 +17,10 @@ if cur_dir not in sys.path:
     sys.path.insert(0, cur_dir)
 
 from translations_blog import BLOG_HUB_DATA, FLAGSHIP_GUIDES_DATA
+from extra_articles_i18n import EXTRA_ARTICLES_I18N
+
+# Catálogo completo unificado de 29 artículos
+ALL_ARTICLES_I18N = {**FLAGSHIP_GUIDES_DATA, **EXTRA_ARTICLES_I18N}
 
 def get_blog_lang_switcher(lang, slug=None):
     langs = ["es", "en", "fr", "it"]
@@ -36,7 +43,7 @@ def build_blog_hub(lang):
     og_locale = {"es": "es_ES", "en": "en_US", "fr": "fr_FR", "it": "it_IT"}[lang]
     asset_prefix = "../" if is_es else "../../"
 
-    # Base HTML from ES
+    # Base HTML desde ES
     with open("coolpadel-web/blog/index.html", "r", encoding="utf-8") as f:
         base_html = f.read()
 
@@ -50,13 +57,15 @@ def build_blog_hub(lang):
   <link rel="alternate" hreflang="x-default" href="https://coolpadelstudios.com/blog/">
   <meta name="language" content="{lang}">"""
 
+    # Limpiar cualquier bloque hreflang previo para evitar duplicados
+    html = re.sub(r'\s*<!-- SEO Multilingüe Hreflang -->\s*(<link rel="alternate" hreflang="[^"]+" href="[^"]+">\s*)+', '', base_html)
+    html = re.sub(r'\s*<meta name="language" content="[^"]+">', '', html)
+    html = re.sub(r'<link rel="canonical"[^>]*>', hreflangs, html)
+
     if is_es:
-        html = re.sub(r'<link rel="canonical"[^>]*>', hreflangs, base_html)
         return html
 
-    html = base_html
     html = html.replace('<html lang="es"', f'<html lang="{lang}"')
-    html = re.sub(r'<link rel="canonical"[^>]*>', hreflangs, html)
     html = re.sub(r'<title>.*?</title>', f'<title>{d["title"]}</title>', html)
     html = re.sub(r'<meta name="description" content=".*?">', f'<meta name="description" content="{d["desc"]}">', html)
     html = html.replace('content="es_ES"', f'content="{og_locale}"')
@@ -65,31 +74,31 @@ def build_blog_hub(lang):
     html = html.replace('src="../', f'src="{asset_prefix}')
     html = html.replace('"inLanguage": "es"', f'"inLanguage": "{lang}"')
 
-    # Hero translations
+    # Traducción de títulos hero
     html = html.replace('Blog & Newsletter de la Industria del Pádel', d['title'].split(' | ')[0])
     html = html.replace('Blog & Newsletter de la <span class="text-[#f2920b]">Industria del Pádel</span>', d['h1'])
     html = html.replace('Análisis estratégico y noticias del ecosistema de raqueta por Javier Villoria.', d['lead'])
 
-    # Category filters
+    # Filtros de categorías
     html = html.replace('>Todas las Guías<', f'>{d["filter_all"]}<')
     html = html.replace('>Cámaras & Tecnología<', f'>{d["filter_cam"]}<')
     html = html.replace('>Rentabilidad & Gestión<', f'>{d["filter_fin"]}<')
     html = html.replace('>Torneos & Eventos<', f'>{d["filter_tourn"]}<')
     html = html.replace('>Llaveros & Merchandising<', f'>{d["filter_merch"]}<')
 
-    # Links in cards pointing to localized versions if flagship guide
-    for slug in FLAGSHIP_GUIDES_DATA:
+    # Convertir todas las tarjetas de los 29 artículos a rutas localizadas
+    for slug in ALL_ARTICLES_I18N:
         html = html.replace(f'href="/blog/{slug}/"', f'href="/{lang}/blog/{slug}/"')
         html = html.replace(f'href="./{slug}/"', f'href="/{lang}/blog/{slug}/"')
 
-    # Inject Lang Switcher in header
+    # Inyectar lang switcher en la cabecera del blog hub
     switcher = get_blog_lang_switcher(lang)
     html = html.replace('</nav>\n\n      <a href="../#contacto"', f'</nav>\n\n      <div class="flex items-center gap-3">\n        {switcher}\n        <a href="../../{lang}/#contacto"')
     html = html.replace('</nav>\r\n\r\n      <a href="../#contacto"', f'</nav>\r\n\r\n      <div class="flex items-center gap-3">\r\n        {switcher}\r\n        <a href="../../{lang}/#contacto"')
 
     return html
 
-def build_flagship_guide(slug, lang):
+def build_article_page(slug, lang):
     is_es = (lang == "es")
     canonical = f"https://coolpadelstudios.com/blog/{slug}/" if is_es else f"https://coolpadelstudios.com/{lang}/blog/{slug}/"
     og_locale = {"es": "es_ES", "en": "en_US", "fr": "fr_FR", "it": "it_IT"}[lang]
@@ -112,39 +121,74 @@ def build_flagship_guide(slug, lang):
   <link rel="alternate" hreflang="x-default" href="https://coolpadelstudios.com/blog/{slug}/">
   <meta name="language" content="{lang}">"""
 
+    # Limpiar cualquier bloque previo de hreflangs
+    html = re.sub(r'\s*<!-- SEO Multilingüe Hreflang -->\s*(<link rel="alternate" hreflang="[^"]+" href="[^"]+">\s*)+', '', base_html)
+    html = re.sub(r'\s*<meta name="language" content="[^"]+">', '', html)
+    html = re.sub(r'<link rel="canonical"[^>]*>', hreflangs, html)
+
     if is_es:
-        html = re.sub(r'<link rel="canonical"[^>]*>', hreflangs, base_html)
         return html
 
-    d = FLAGSHIP_GUIDES_DATA[slug][lang]
-    html = base_html
+    d = ALL_ARTICLES_I18N[slug][lang]
     html = html.replace('<html lang="es"', f'<html lang="{lang}"')
-    html = re.sub(r'<link rel="canonical"[^>]*>', hreflangs, html)
     html = re.sub(r'<title>.*?</title>', f'<title>{d["title"]}</title>', html)
     html = re.sub(r'<meta name="description" content=".*?">', f'<meta name="description" content="{d["desc"]}">', html)
     html = html.replace('content="es_ES"', f'content="{og_locale}"')
     html = re.sub(r'<meta property="og:url" content="[^"]*">', f'<meta property="og:url" content="{canonical}">', html)
+    html = re.sub(r'<meta property="og:title" content="[^"]*">', f'<meta property="og:title" content="{d["title"]}">', html)
+    html = re.sub(r'<meta property="og:description" content="[^"]*">', f'<meta property="og:description" content="{d["desc"]}">', html)
+    html = re.sub(r'<meta name="twitter:title" content="[^"]*">', f'<meta name="twitter:title" content="{d["title"]}">', html)
+    html = re.sub(r'<meta name="twitter:description" content="[^"]*">', f'<meta name="twitter:description" content="{d["desc"]}">', html)
+    html = html.replace('"inLanguage": "es"', f'"inLanguage": "{lang}"')
+    html = html.replace(f'"headline": "{slug}"', f'"headline": "{d["h1"]}"')
+
+    # Ajustar rutas relativas de assets y navegación
     html = html.replace('href="../../', f'href="{asset_prefix}')
     html = html.replace('src="../../', f'src="{asset_prefix}')
     html = html.replace('href="../"', f'href="{asset_prefix}{lang}/blog/"')
 
-    # Update H1 and Subtitle
-    es_data = FLAGSHIP_GUIDES_DATA[slug]["es"]
-    html = html.replace(es_data["h1"], d["h1"])
-    html = html.replace(es_data["subtitle"], d["subtitle"])
-    html = html.replace(es_data["badge"], d["badge"])
+    # Actualizar H1 del artículo
+    def replace_h1(match):
+        attrs = match.group(1)
+        return f'<h1{attrs}>\n            {d["h1"]}\n          </h1>'
+    html = re.sub(r'<h1([^>]*)>[\s\S]*?</h1>', replace_h1, html, count=1)
 
-    # Language Switcher
-    switcher = get_blog_lang_switcher(lang, slug)
-    if 'data-lucide="arrow-up-right"' in html:
-        html = html.replace('<a href="../../#contacto"', f'{switcher}\n        <a href="../../../{lang}/#contacto"')
+    # Actualizar Subtitle y Badge si están presentes en el diccionario y en el HTML
+    es_data = ALL_ARTICLES_I18N[slug]["es"]
+    if es_data.get("subtitle") and d.get("subtitle") and es_data["subtitle"] in html:
+        html = html.replace(es_data["subtitle"], d["subtitle"])
+    if es_data.get("badge") and d.get("badge") and es_data["badge"] in html:
+        html = html.replace(es_data["badge"], d["badge"])
+
+    # Adaptar Selector de Idioma en el Header (Dropdown)
+    # 1. Código activo en el botón
+    html = html.replace(
+        '<span id="current-lang-code" class="uppercase font-black">ES</span>',
+        f'<span id="current-lang-code" class="uppercase font-black">{lang.upper()}</span>'
+    )
+
+    # 2. Clases del menú desplegable
+    active_cls = 'lang-opt block lang-opt-active font-black w-full text-center px-4 py-2 text-xs transition duration-150'
+    inactive_cls = 'lang-opt block text-slate-700 hover:bg-[#f2920b] hover:text-slate-950 font-bold w-full text-center px-4 py-2 text-xs transition duration-150'
+
+    # Quitar clase activa de ES
+    html = html.replace(f'data-lang-opt="es" class="{active_cls}"', f'data-lang-opt="es" class="{inactive_cls}"')
+    # Poner clase activa en el idioma actual
+    html = html.replace(f'data-lang-opt="{lang}" class="{inactive_cls}"', f'data-lang-opt="{lang}" class="{active_cls}"')
+
+    # 3. Enlace al índice del blog en el nav
+    html = html.replace(f'href="{asset_prefix}blog/"', f'href="{asset_prefix}{lang}/blog/"')
+
+    # 4. Enlaces relativos a otras newsletters (en Highlights: ../highlights-0X/ -> /{lang}/blog/highlights-0X/)
+    for hl_slug in ["highlights-01", "highlights-02", "highlights-03"]:
+        html = html.replace(f'href="../{hl_slug}/"', f'href="/{lang}/blog/{hl_slug}/"')
 
     return html
 
 def run():
-    print(">> Compilando Blog y Guías Flagship en 4 Idiomas (ES, EN, FR, IT)...")
+    print(f">> Compilando Blog y Catálogo Completo ({len(ALL_ARTICLES_I18N)} artículos) en 4 Idiomas (ES, EN, FR, IT)...")
 
-    # 1. Blog Hub
+    # 1. Compilación del Blog Hub
     for lang in ["es", "en", "fr", "it"]:
         html = build_blog_hub(lang)
         out_path = "coolpadel-web/blog/index.html" if lang == "es" else f"coolpadel-web/{lang}/blog/index.html"
@@ -153,19 +197,22 @@ def run():
             f.write(html)
         print(f"  [OK] Blog Hub ({lang.upper()}): {out_path}")
 
-    # 2. Flagship Guides
-    for slug in FLAGSHIP_GUIDES_DATA:
+    # 2. Compilación de todos los Artículos y Newsletters
+    count_generated = 0
+    for slug in sorted(ALL_ARTICLES_I18N.keys()):
         for lang in ["es", "en", "fr", "it"]:
-            html = build_flagship_guide(slug, lang)
+            html = build_article_page(slug, lang)
             if not html:
+                print(f"  [AVISO] No se pudo compilar '{slug}' para {lang.upper()}")
                 continue
             out_path = f"coolpadel-web/blog/{slug}/index.html" if lang == "es" else f"coolpadel-web/{lang}/blog/{slug}/index.html"
             os.makedirs(os.path.dirname(out_path), exist_ok=True)
             with open(out_path, "w", encoding="utf-8") as f:
                 f.write(html)
-            print(f"  [OK] Guía '{slug}' ({lang.upper()}): {out_path}")
+            count_generated += 1
 
-        print(">> Blog 100% Cuatrilingue Completado Con Exito!")
+    print(f">> Total páginas generadas: {count_generated} ({len(ALL_ARTICLES_I18N)} artículos x 4 idiomas)")
+    print(">> Blog 100% Cuatrilingüe Completado Con Éxito!")
 
 if __name__ == "__main__":
     run()

@@ -5,15 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Barómetro de Cámaras y Software en Pádel 2026 | CoolPadel</title>
   <meta name="description" content="Barómetro oficial 2026: penetración de cámaras en pista (8,4%), cuota Playtomic vs Matchi y rentabilidad real con datos de +4.800 clubes de pádel.">
-    <link rel="canonical" href="https://coolpadelstudios.com/blog/barometro-camaras-padel-2026/">
-
-  <!-- SEO Multilingüe Hreflang -->
-  <link rel="alternate" hreflang="es" href="https://coolpadelstudios.com/blog/barometro-camaras-padel-2026/">
-  <link rel="alternate" hreflang="en" href="https://coolpadelstudios.com/en/blog/barometro-camaras-padel-2026/">
-  <link rel="alternate" hreflang="fr" href="https://coolpadelstudios.com/fr/blog/barometro-camaras-padel-2026/">
-  <link rel="alternate" hreflang="it" href="https://coolpadelstudios.com/it/blog/barometro-camaras-padel-2026/">
-  <link rel="alternate" hreflang="x-default" href="https://coolpadelstudios.com/blog/barometro-camaras-padel-2026/">
-  <meta name="language" content="es">
+      <link rel="canonical" href="https://coolpadelstudios.com/blog/barometro-camaras-padel-2026/">
 
   <!-- SEO Multilingüe Hreflang -->
   <link rel="alternate" hreflang="es" href="https://coolpadelstudios.com/blog/barometro-camaras-padel-2026/">
@@ -206,6 +198,11 @@
     .hero-gradient { background: radial-gradient(circle at 50% 20%, #152e4d 0%, #0b1626 80%); }
     .table-zebra tbody tr:nth-child(even) { background-color: #0f2038; }
     .table-zebra tbody tr:nth-child(odd) { background-color: #0b1626; }
+      .lang-opt-active {
+      background-color: #f2920b !important;
+      color: #0b1626 !important;
+      font-weight: 800 !important;
+    }
   </style>
   <!-- Google Analytics 4 -->
   <script>
@@ -272,6 +269,30 @@
         <a href="/herramientas/" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition whitespace-nowrap">Herramientas</a>
         <a href="/blog/" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition whitespace-nowrap">Blog</a>
         <a href="/franquicias-padel/" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition whitespace-nowrap">Cadenas de clubs</a>
+
+                  <!-- SELECTOR DE IDIOMA EN DESPLEGABLE COMPACTO -->
+          <div class="relative inline-block text-left" id="lang-dropdown-container">
+            <button type="button" onclick="toggleLangDropdown(event)" id="lang-dropdown-btn" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-100 hover:bg-slate-200 border border-slate-200 text-xs font-black text-slate-900 shadow-xs transition cursor-pointer" aria-expanded="false" aria-haspopup="true">
+              <span id="current-lang-code" class="uppercase font-black">ES</span>
+              <i data-lucide="chevron-down" class="w-3.5 h-3.5 stroke-[2.5] text-slate-600 transition-transform duration-200" id="lang-dropdown-arrow"></i>
+            </button>
+
+            <!-- MENÚ DESPLEGABLE FLOTANTE -->
+            <div id="lang-dropdown-menu" class="hidden absolute right-0 mt-2 w-24 bg-white rounded-2xl shadow-[0_12px_30px_rgba(0,0,0,0.15)] border border-slate-200 py-1.5 z-50 transition-all overflow-hidden">
+              <a href="/blog/barometro-camaras-padel-2026/" data-lang-opt="es" class="lang-opt block lang-opt-active font-black w-full text-center px-4 py-2 text-xs transition duration-150">
+                ES
+              </a>
+              <a href="/en/blog/barometro-camaras-padel-2026/" data-lang-opt="en" class="lang-opt block text-slate-700 hover:bg-[#f2920b] hover:text-slate-950 font-bold w-full text-center px-4 py-2 text-xs transition duration-150">
+                EN
+              </a>
+              <a href="/fr/blog/barometro-camaras-padel-2026/" data-lang-opt="fr" class="lang-opt block text-slate-700 hover:bg-[#f2920b] hover:text-slate-950 font-bold w-full text-center px-4 py-2 text-xs transition duration-150">
+                FR
+              </a>
+              <a href="/it/blog/barometro-camaras-padel-2026/" data-lang-opt="it" class="lang-opt block text-slate-700 hover:bg-[#f2920b] hover:text-slate-950 font-bold w-full text-center px-4 py-2 text-xs transition duration-150">
+                IT
+              </a>
+            </div>
+          </div>
 
         <!-- BOTÓN CONTACTAR (ESTILO EXACTO LANDINGS) -->
         <a href="/#contacto" class="inline-flex items-center gap-1.5 px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] text-slate-950 font-heading font-black text-xs uppercase tracking-wider transition shadow-sm hover:scale-105 active:scale-95 cursor-pointer">
@@ -808,6 +829,31 @@
 
 
   <script>
+        function toggleLangDropdown(e) {
+      if (e) e.stopPropagation();
+      const menu = document.getElementById('lang-dropdown-menu');
+      const arrow = document.getElementById('lang-dropdown-arrow');
+      if (!menu) return;
+      const isHidden = menu.classList.contains('hidden');
+      if (isHidden) {
+        menu.classList.remove('hidden');
+        if (arrow) arrow.classList.add('rotate-180');
+      } else {
+        menu.classList.add('hidden');
+        if (arrow) arrow.classList.remove('rotate-180');
+      }
+    }
+
+    document.addEventListener('click', function(e) {
+      const menu = document.getElementById('lang-dropdown-menu');
+      const btn = document.getElementById('lang-dropdown-btn');
+      if (menu && !menu.classList.contains('hidden') && btn && !btn.contains(e.target) && !menu.contains(e.target)) {
+        menu.classList.add('hidden');
+        const arrow = document.getElementById('lang-dropdown-arrow');
+        if (arrow) arrow.classList.remove('rotate-180');
+      }
+    });
+
     lucide.createIcons();
   </script>
   <script src="/assets/js/cp-analytics.js?v=20261020b" defer></script>
