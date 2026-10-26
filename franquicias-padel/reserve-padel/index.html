@@ -7,7 +7,7 @@
   <meta name="description" content="Reserve Padel (Estados Unidos): 4 centros de ultra-lujo, 22+ pistas, reservas en Reserve Padel App, modelo Boutique &amp; Ultra-Lujo e inversión para...">
   <link rel="canonical" href="https://coolpadelstudios.com/franquicias-padel/reserve-padel/">
 
-  <!-- SEO Multilingüe Hreflang -->
+  <!-- SEO Multilingüe Hreflang Simétrico -->
   <link rel="alternate" hreflang="es" href="https://coolpadelstudios.com/franquicias-padel/reserve-padel/">
   <link rel="alternate" hreflang="en" href="https://coolpadelstudios.com/en/franquicias-padel/reserve-padel/">
   <link rel="alternate" hreflang="fr" href="https://coolpadelstudios.com/fr/franquicias-padel/reserve-padel/">
@@ -142,56 +142,10 @@
       background-position: center;
     }
   </style>
-  <!-- Google Analytics 4 -->
-  <script>
-    (function() {
-      try {
-        var p = new URLSearchParams(window.location.search);
-        if (p.get('yo') === '1' || p.get('admin') === '1' || p.get('no_track') === '1') {
-          localStorage.setItem('cp_ignore_owner', '1');
-        } else if (p.get('borrar_yo') === '1' || p.get('track_me') === '1') {
-          localStorage.removeItem('cp_ignore_owner');
-        }
-        if (localStorage.getItem('cp_ignore_owner') === '1') {
-          window['ga-disable-G-3FY3DTNN21'] = true;
-          window.__CP_IS_OWNER__ = true;
-        }
-      } catch(e) {}
-    })();
-  </script>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-3FY3DTNN21"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-3FY3DTNN21');
-    // Eventos clave (leads): WhatsApp, email, teléfono, demo, dossier
-    document.addEventListener('click', function (e) {
-      try {
-        if (window.__CP_IS_OWNER__) return;
-        var a = e.target.closest && e.target.closest('a, button');
-        if (!a) return;
-        var href = (a.getAttribute('href') || '').toLowerCase();
-        var txt = (a.innerText || '').replace(/\s+/g, ' ').trim().slice(0, 60);
-        var p = { link_text: txt, link_url: href, page_path: location.pathname };
-        if (href.indexOf('wa.me') > -1 || href.indexOf('whatsapp.com') > -1) gtag('event', 'click_whatsapp', p);
-        else if (href.indexOf('mailto:') === 0) gtag('event', 'click_email', p);
-        else if (href.indexOf('tel:') === 0) gtag('event', 'click_telefono', p);
-        else if (/\.pdf($|\?)/.test(href) || /dossier/i.test(href + ' ' + txt)) gtag('event', 'descarga_dossier', p);
-        else if (/demo|reuni[oó]n|meeting|calendly|agenda|r[eé]serv|prueba gratis|free trial/i.test(href + ' ' + txt)) gtag('event', 'solicitar_demo', p);
-      } catch (err) {}
-    }, { passive: true });
-    document.addEventListener('submit', function (e) {
-      try {
-        if (window.__CP_IS_OWNER__) return;
-        gtag('event', 'enviar_formulario', { form_id: (e.target && (e.target.id || e.target.name)) || '', page_path: location.pathname }); } catch (err) {}
-    }, true);
-  </script>
-  <!-- /GA4 -->
 </head>
 <body class="bg-textured-blue text-slate-900 antialiased selection:bg-[#f2920b] selection:text-slate-950 min-h-screen flex flex-col">
 
-  <!-- Header Oficial CoolPadel (Exacto a Home) -->
+  <!-- Header Oficial CoolPadel con Selector de Idioma -->
   <header class="fixed top-0 left-0 w-full z-50 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-xs w-full">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between">
       <a href="/" class="flex items-center gap-2 group shrink-0" aria-label="CoolPadel Home">
@@ -204,6 +158,20 @@
         <a href="/camaras/" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition whitespace-nowrap">CÁMARAS</a>
         <a href="/blog/" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition whitespace-nowrap">Blog</a>
         <a href="/franquicias-padel/" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-[#f2920b] transition whitespace-nowrap">Cadenas de clubs</a>
+
+        <!-- SELECTOR DE IDIOMA DIRECTO -->
+        <div class="relative inline-block text-left" id="lang-dropdown-container">
+          <button type="button" onclick="toggleLangDropdown(event)" id="lang-dropdown-btn" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-100 hover:bg-slate-200 border border-slate-200 text-xs font-black text-slate-900 shadow-xs transition cursor-pointer" aria-expanded="false" aria-haspopup="true">
+            <span class="uppercase font-black">ES</span>
+            <i data-lucide="chevron-down" class="w-3.5 h-3.5 stroke-[2.5] text-slate-600 transition-transform duration-200" id="lang-dropdown-arrow"></i>
+          </button>
+          <div id="lang-dropdown-menu" class="hidden absolute right-0 mt-2 w-24 bg-white rounded-2xl shadow-[0_12px_30px_rgba(0,0,0,0.15)] border border-slate-200 py-1.5 z-50 transition-all overflow-hidden">
+            <a href="/franquicias-padel/reserve-padel/" class="lang-opt block font-black bg-amber-50 text-[#f2920b] w-full text-center px-4 py-2 text-xs transition duration-150">ES</a>
+            <a href="/en/franquicias-padel/reserve-padel/" class="lang-opt block text-slate-700 hover:bg-[#f2920b] hover:text-slate-950 font-bold w-full text-center px-4 py-2 text-xs transition duration-150">EN</a>
+            <a href="/fr/franquicias-padel/reserve-padel/" class="lang-opt block text-slate-700 hover:bg-[#f2920b] hover:text-slate-950 font-bold w-full text-center px-4 py-2 text-xs transition duration-150">FR</a>
+            <a href="/it/franquicias-padel/reserve-padel/" class="lang-opt block text-slate-700 hover:bg-[#f2920b] hover:text-slate-950 font-bold w-full text-center px-4 py-2 text-xs transition duration-150">IT</a>
+          </div>
+        </div>
 
         <a id="nav-contact-btn" href="/#contacto" class="inline-flex items-center gap-1.5 px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] text-slate-950 font-heading font-black text-xs uppercase tracking-wider transition shadow-sm hover:scale-105 active:scale-95 cursor-pointer">
           <span>Contactar</span>
@@ -218,7 +186,7 @@
   </header>
   <div class="h-16 sm:h-20 w-full shrink-0" aria-hidden="true"></div>
 
-    <!-- Breadcrumbs -->
+  <!-- Breadcrumbs -->
   <div class="max-w-5xl mx-auto px-4 sm:px-6 pt-6 pb-2">
     <nav class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/90 backdrop-blur-xs shadow-xs text-xs text-slate-600 flex-wrap" aria-label="Breadcrumb">
       <a href="/" class="hover:text-[#f2920b] transition">Inicio</a>
@@ -240,7 +208,7 @@
           <span class="inline-block px-3 py-1 rounded-full text-xs font-bold border bg-purple-100 text-purple-800 border-purple-200">
             Boutique &amp; Ultra-Lujo
           </span>
-          <span class="text-xs font-bold text-slate-400 bg-slate-100 px-2.5 py-1 rounded-md">
+          <span class="text-xs font-bold text-slate-500 bg-slate-100 px-2.5 py-1 rounded-md">
             Estados Unidos
           </span>
         </div>
@@ -358,7 +326,7 @@
         <div>
           <h2 class="text-xl font-heading font-black text-slate-950 mb-4 flex items-center gap-2">
             <i data-lucide="briefcase" class="w-5 h-5 text-[#f2920b]"></i>
-            <span>Modelo de Expansión & Inversores</span>
+            <span>Modelo de Expansión &amp; Inversores</span>
           </h2>
           <div class="space-y-3 text-sm text-slate-700">
             <div class="p-3 bg-slate-50 rounded-xl border border-slate-100">
@@ -370,7 +338,7 @@
               <span class="text-slate-800">Las localizaciones costeras o urbanas más deseadas de Estados Unidos</span>
             </div>
             <div class="p-3 bg-slate-50 rounded-xl border border-slate-100">
-              <span class="block text-[11px] font-bold uppercase text-slate-400 mb-0.5">Canon & Royalties</span>
+              <span class="block text-[11px] font-bold uppercase text-slate-400 mb-0.5">Canon &amp; Royalties</span>
               <span class="text-slate-800">Operación directa</span>
             </div>
             <div class="p-3 bg-amber-50/60 rounded-xl border border-amber-200/60"><span class="block text-[11px] font-bold uppercase text-amber-700 mb-0.5">Diferencial Competitivo</span><span class="text-slate-800">Clientes como Jimmy Butler, David Beckham, Dwyane Wade y eventos benéficos de primer nivel mundial.</span></div>
@@ -418,7 +386,7 @@
         <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200/70 col-span-1 sm:col-span-2">
           <span class="block font-bold text-slate-900 mb-1 flex items-center gap-1.5">
             <i data-lucide="coffee" class="w-4 h-4 text-slate-500"></i>
-            <span>Hospitality & Pro-Shop</span>
+            <span>Hospitality &amp; Pro-Shop</span>
           </span>
           <span class="text-slate-600 leading-relaxed block">Gastronomía con caviar, champán, baristas de autor y wellness lounge</span>
         </div>
@@ -503,7 +471,7 @@
     </div>
 
     <!-- Malla de Interlinking: Otras Franquicias y Cadenas en el mismo mercado -->
-    <div class="space-y-4 pt-2">
+    <div class="space-y-4 pt-6">
       <div class="flex items-center justify-between flex-wrap gap-2">
         <h2 class="text-lg sm:text-xl font-heading font-black text-slate-900">Otras Cadenas y Franquicias de Pádel Relacionadas (Estados Unidos)</h2>
         <a href="/franquicias-padel/" class="text-xs font-bold text-[#f2920b] hover:underline">Comparar las 167 franquicias →</a>
@@ -560,7 +528,7 @@
       </div>
     </div>
 
-        <!-- CONTACTO DIRECTO -->
+    <!-- CONTACTO DIRECTO -->
     <section id="contacto" class="mt-12 bg-white rounded-3xl p-6 sm:p-10 border border-slate-200/90 shadow-md text-center">
       <span class="inline-block text-[#f2920b] text-xs font-bold uppercase tracking-wider mb-3">
         Contacto B2B CoolPadel
@@ -615,7 +583,7 @@
 
   </main>
 
-  <!-- FOOTER INFERIOR (COLOR CELESTE LLAVEROS #3478a6 CON TEXTURA CANVA: BRANDING COOLPADEL, SILOS TEMÁTICOS SEO Y COPYRIGHT) -->
+  <!-- FOOTER INFERIOR LOCALIZADO -->
   <footer class="relative z-20 bg-[#3478a6] bg-textured-blue text-white pt-14 pb-10 border-t border-sky-700/40 text-xs">
     <div class="max-w-[1700px] mx-auto px-4 sm:px-8 space-y-10">
       
@@ -631,7 +599,7 @@
       </div>
 
       <!-- 4 COLUMNAS DE SILOS TEMÁTICOS SEO -->
-      <nav aria-label="Estructura y Silos SEO de CoolPadel" class="grid grid-cols-2 lg:grid-cols-4 gap-8 text-left">
+      <nav aria-label="SEO Silos" class="grid grid-cols-2 lg:grid-cols-4 gap-8 text-left">
         
         <!-- COLUMNA 1: SOLUCIONES B2B -->
         <div class="space-y-3">
@@ -639,12 +607,9 @@
             Soluciones B2B
           </div>
           <ul class="space-y-2 text-white/80 font-normal">
-            <li><a href="/llaveros-padel-personalizados/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Llaveros de Pádel 3D</a></li>
-            <li><a href="/llaveros-tenis-personalizados/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Llaveros de Tenis y Pickleball</a></li>
-            <li><a href="/welcome-packs-torneos-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Welcome Packs para Torneos</a></li>
-            <li><a href="/llaveros-personalizados-clubs-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Merchandising para Clubs</a></li>
-            <li><a href="/save-my-play/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Cámaras Save my Play</a></li>
-            <li><a href="/camaras-grabacion-pistas-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Grabación en Pista de Pádel</a></li>
+            <li><a href="/#llaveros" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">LLAVEROS 3D</a></li>
+            <li><a href="/save-my-play/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Save my Play</a></li>
+            <li><a href="/camaras/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">CÁMARAS</a></li>
           </ul>
         </div>
 
@@ -654,12 +619,11 @@
             Herramientas &amp; SaaS
           </div>
           <ul class="space-y-2 text-white/80 font-normal">
-            <li><a href="/herramientas/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition font-bold text-white">Herramientas Gratuitas Clubes</a></li>
-            <li><a href="/herramientas/generador-americana-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Generador Americana Pádel</a></li>
-            <li><a href="/herramientas/generador-cuadros-torneo-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Generador Cuadros Torneo</a></li>
-            <li><a href="/herramientas/calculadora-coste-pistas-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Calculadora Coste Pistas</a></li>
-            <li><a href="/herramientas/calculadora-roi-camaras-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Calculadora ROI Cámaras</a></li>
-            <li><a href="/camaras-padel-playtomic/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Integración con Playtomic</a></li>
+            <li><a href="/herramientas/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition font-bold text-white">Simuladores Gratuitos para Abrir o Equipar un Club como Club</a></li>
+            <li><a href="/herramientas/generador-americana-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">🎾 Generador de Americana</a></li>
+            <li><a href="/herramientas/generador-cuadros-torneo-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">🏆 Cuadros de Torneo</a></li>
+            <li><a href="/herramientas/calculadora-coste-pistas-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">🏗️ Coste de Montar Pistas</a></li>
+            <li><a href="/herramientas/calculadora-roi-camaras-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">📹 Calculadora ROI Cámaras</a></li>
           </ul>
         </div>
 
@@ -669,12 +633,8 @@
             Directorio &amp; Hubs
           </div>
           <ul class="space-y-2 text-white/80 font-normal">
-            <li><a href="/franquicias-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition font-bold text-white">Directorio 167 Franquicias</a></li>
+            <li><a href="/franquicias-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition font-bold text-white">Directorio de Franquicias de Pádel</a></li>
             <li><a href="/blog/barometro-camaras-padel-2026/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Barómetro Cámaras 2026</a></li>
-            <li><a href="/camaras-padel-madrid/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Clubes Pádel Madrid</a></li>
-            <li><a href="/camaras-padel-barcelona/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Clubes Pádel Barcelona</a></li>
-            <li><a href="/camaras-padel-matchi/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Compatibilidad Matchi</a></li>
-            <li><a href="/camaras-padel-resasports/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Conexión Resasports</a></li>
           </ul>
         </div>
 
@@ -684,12 +644,10 @@
             Guías &amp; Blog B2B
           </div>
           <ul class="space-y-2 text-white/80 font-normal">
-            <li><a href="/blog/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition font-bold text-white">Índice del Blog &amp; Newsletter</a></li>
-            <li><a href="/blog/como-organizar-torneo-padel-americana-reglas-cuadros/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Cómo Organizar una Americana</a></li>
-            <li><a href="/blog/cuanto-cuesta-montar-pista-padel-presupuesto-rentabilidad/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Cuánto Cuesta Montar Pistas</a></li>
+            <li><a href="/blog/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition font-bold text-white">Blog</a></li>
+            <li><a href="/blog/como-organizar-torneo-padel-americana-reglas-cuadros/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Americana Pádel Reglas</a></li>
             <li><a href="/blog/rentabilidad-camaras-pistas-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Precios y ROI de Cámaras</a></li>
-            <li><a href="/blog/sistemas-grabacion-pistas-padel-comparativa/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Comparativa 9 Cámaras IA</a></li>
-            <li><a href="/blog/welcome-pack-torneo-padel-ideas/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Ideas de Welcome Pack</a></li>
+            <li><a href="/blog/sistemas-grabacion-pistas-padel-comparativa/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Comparativa Cámaras</a></li>
           </ul>
         </div>
 
@@ -697,13 +655,13 @@
 
       <!-- BOTTOM: COPYRIGHT Y ENLACES LEGALES -->
       <div class="pt-8 border-t border-white/20 flex flex-col sm:flex-row items-center justify-between gap-3 text-white/75 text-center sm:text-left">
-        <span id="admin-toggle-trigger" class="hover:text-white/90 transition cursor-pointer" title="Modo Administrador">
+        <span>
           © 2026 CoolPadel Studios · All rights reserved
         </span>
         <div class="flex items-center gap-3">
-          <a href="/politica-de-devoluciones.html" class="hover:text-white/90 underline decoration-white/30 underline-offset-2 transition" title="Política de Devoluciones y Garantía">Política de Devoluciones</a>
+          <a href="/politica-de-devoluciones.html" class="hover:text-white/90 underline decoration-white/30 underline-offset-2 transition">Política de Devoluciones</a>
           <span class="opacity-40">·</span>
-          <a href="https://www.instagram.com/coolpadel_/" target="_blank" rel="noopener noreferrer" class="opacity-75 hover:opacity-100 transition text-white" title="Instagram CoolPadel">@coolpadel_</a>
+          <a href="https://www.instagram.com/coolpadel_/" target="_blank" rel="noopener noreferrer" class="opacity-75 hover:opacity-100 transition text-white">@coolpadel_</a>
         </div>
       </div>
 
@@ -712,7 +670,26 @@
 
   <script>
     lucide.createIcons();
+
+    function toggleLangDropdown(e) {
+      e.stopPropagation();
+      var menu = document.getElementById('lang-dropdown-menu');
+      var arrow = document.getElementById('lang-dropdown-arrow');
+      if (!menu) return;
+      var isHidden = menu.classList.contains('hidden');
+      menu.classList.toggle('hidden', !isHidden);
+      if (arrow) arrow.style.transform = isHidden ? 'rotate(180deg)' : 'rotate(0deg)';
+    }
+
+    document.addEventListener('click', function(e) {
+      var menu = document.getElementById('lang-dropdown-menu');
+      var arrow = document.getElementById('lang-dropdown-arrow');
+      if (menu && !menu.classList.contains('hidden')) {
+        menu.classList.add('hidden');
+        if (arrow) arrow.style.transform = 'rotate(0deg)';
+      }
+    });
   </script>
-  <script src="/assets/js/cp-analytics.js?v=20261020b" defer></script>
+  <script src="/assets/js/cp-analytics.js" defer></script>
 </body>
 </html>
