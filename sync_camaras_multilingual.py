@@ -698,7 +698,7 @@ def generate_page(target_lang):
     </script>
 
     <!-- MOTOR UNIFICADO DE ANALÍTICA COMERCIAL Y ORGÁNICA (SEO / GEO / AEO) -->
-    <script src="/assets/js/cp-analytics.js?v=20261020b"></script>
+    <script src="/assets/js/cp-analytics.js?v=20261028a"></script>
     <script>
         window.addEventListener('message', (e) => {
             try {

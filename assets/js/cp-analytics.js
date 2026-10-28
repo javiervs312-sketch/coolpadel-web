@@ -40,8 +40,11 @@
     if (pCampaign) localStorage.setItem('cp_utm_campaign', pCampaign);
   } catch (e) {}
 
-  const leadName = pLead || (function () { try { return localStorage.getItem('cp_lead_name') || ''; } catch (e) { return ''; } })();
-  const leadTel = pTel || (function () { try { return localStorage.getItem('cp_lead_tel') || ''; } catch (e) { return ''; } })();
+  let leadName = pLead || (function () { try { return localStorage.getItem('cp_lead_name') || ''; } catch (e) { return ''; } })();
+  let leadTel = pTel || (function () { try { return localStorage.getItem('cp_lead_tel') || ''; } catch (e) { return ''; } })();
+  // Email dejado en cualquier formulario de la web (ver cpIdentify más abajo). Se guarda
+  // aparte de cp_lead_name para no mezclarlo con el nombre del club que llega por enlace.
+  let leadEmail = (function () { try { return localStorage.getItem('cp_lead_email') || ''; } catch (e) { return ''; } })();
   const utmSource = pSource || (function () { try { return localStorage.getItem('cp_utm_source') || ''; } catch (e) { return ''; } })();
   const utmCampaign = pCampaign || (function () { try { return localStorage.getItem('cp_utm_campaign') || ''; } catch (e) { return ''; } })();
 
@@ -112,9 +115,17 @@
     };
   }
 
+  // Nombre + email juntos: el webhook solo pinta lead_name y lead_tel en 'Lead / Club',
+  // y vincular_analitica_crm.py extrae de ahí el email/teléfono para cruzar con el CRM.
+  function getLeadNameForSheet() {
+    if (leadName && leadEmail) return leadName + ' · ' + leadEmail;
+    return leadName || leadEmail || '';
+  }
+
   function getLeadIdentification() {
-    if (leadName && leadTel) return leadName + ' (' + leadTel + ')';
-    if (leadName) return leadName;
+    const nombre = getLeadNameForSheet();
+    if (nombre && leadTel) return nombre + ' (' + leadTel + ')';
+    if (nombre) return nombre;
     if (leadTel) return leadTel;
     return '';
   }
@@ -371,15 +382,17 @@
       delete extraData._unload;
       const origenActual = getChannelOrigin();
 
-      // Nota: enviamos visitor_id vacío al webhook para que cada visita nueva cree su propia fila
-      // e incluimos el origen real tras '||' en session_id para que el normalizador lo extraiga con precisión.
+      // visitor_id (persistente en localStorage) viaja a la nota de 'Visitas': permite unir
+      // las visitas anónimas previas con el lead cuando deja su email o teléfono.
+      // El webhook agrupa filas por session_id, así que cada visita sigue teniendo su fila.
+      // Incluimos el origen real tras '||' en session_id para que el normalizador lo extraiga con precisión.
       const payload = {
         tipo: 'analitica_evento',
         session_id: sessionId + '||' + origenActual,
-        visitor_id: '',
+        visitor_id: visitorId,
         visita_num: visitCount,
         lead_label: getLeadIdentification(),
-        lead_name: leadName,
+        lead_name: getLeadNameForSheet(),
         lead_tel: leadTel,
         geo_ubicacion: geoUbicacion || resolveFallbackTimezoneGeo(),
         es_admin: false,
@@ -441,6 +454,46 @@
   if (typeof window.trackEvent !== 'function') {
     window.trackEvent = sendToWebhook;
   }
+
+  // Identificación del visitante: cuando deja email, teléfono o nombre en un formulario,
+  // se guarda en este navegador y se manda un evento con la sesión actual. Desde ese momento
+  // todas sus visitas (pasadas vía visitor_id y futuras) quedan ligadas a su ficha del CRM.
+  // Uso manual: window.cpIdentify({ email: 'a@b.com', tel: '+34600...', nombre: 'Club X', origen: 'Formulario X' })
+  function cpIdentify(datos) {
+    datos = datos || {};
+    const email = String(datos.email || '').trim().toLowerCase();
+    const tel = String(datos.tel || '').trim();
+    const nombre = String(datos.nombre || '').trim();
+    const emailValido = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email);
+    const telValido = tel.replace(/\D/g, '').length >= 9;
+    if (!emailValido && !telValido) return;
+    const cambio = (emailValido && email !== leadEmail) || (telValido && tel !== leadTel) || (nombre && !leadName);
+    try {
+      if (emailValido) { leadEmail = email; localStorage.setItem('cp_lead_email', email); }
+      if (telValido) { leadTel = tel; localStorage.setItem('cp_lead_tel', tel); }
+      if (nombre && !leadName) { leadName = nombre.slice(0, 60); localStorage.setItem('cp_lead_name', leadName); }
+    } catch (e) {}
+    if (!cambio) return;
+    sendToWebhook('lead_identificado', {
+      evento_desc: '📩 Dejó sus datos' + (datos.origen ? ' (' + String(datos.origen).slice(0, 40) + ')' : '')
+    });
+  }
+  window.cpIdentify = cpIdentify;
+
+  // Captura automática en cualquier formulario de la web (no hace falta tocar cada página)
+  document.addEventListener('submit', (e) => {
+    try {
+      const form = e.target;
+      if (!form || !form.querySelector) return;
+      const valor = (sel) => { const el = form.querySelector(sel); return el ? (el.value || '') : ''; };
+      cpIdentify({
+        email: valor('input[type="email"], input[name*="email" i], input[name*="correo" i]'),
+        tel: valor('input[type="tel"], input[name*="tel" i], input[name*="phone" i], input[name*="movil" i]'),
+        nombre: valor('input[name*="club" i], input[name*="empresa" i], input[name*="nombre" i], input[name*="name" i]'),
+        origen: form.getAttribute('data-origen') || form.id || 'Formulario'
+      });
+    } catch (err) {}
+  }, true);
 
   // 9. Inicialización Automática en Carga, Latidos y Salida
   function initTracking() {

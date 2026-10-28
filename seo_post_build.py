@@ -166,7 +166,7 @@ def run_seo_post_build():
             if "clarity.ms" not in c and "</head>" in c:
                 c = c.replace("</head>", CLARITY_SNIPPET + "</head>", 1)
                 changed = True
-            new_c = re.sub(r'/assets/js/cp-analytics\.js(?:\?v=[^"\']*)?', '/assets/js/cp-analytics.js?v=20261020b', c)
+            new_c = re.sub(r'/assets/js/cp-analytics\.js(?:\?v=[^"\']*)?', '/assets/js/cp-analytics.js?v=20261028a', c)
             if new_c != c:
                 c = new_c
                 changed = True
