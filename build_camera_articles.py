@@ -213,8 +213,8 @@ HUB_CSS = """
 """
 
 
-def page(title: str, content: str, prefix: str = "../../") -> str:
-    return f'''<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>{html.escape(title)} | CoolPadel</title><meta name="description" content="{html.escape(title)}"><script src="https://cdn.tailwindcss.com"></script><link rel="preconnect" href="https://assets.calendly.com"><style>{CSS}</style></head><body>{header(prefix)}{content}<script src="https://assets.calendly.com/assets/external/widget.js" async></script></body></html>'''
+def page(title: str, content: str, prefix: str = "../../", extra_css: str = "") -> str:
+    return f'''<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>{html.escape(title)} | CoolPadel</title><meta name="description" content="{html.escape(title)}"><script src="https://cdn.tailwindcss.com"></script><link rel="preconnect" href="https://assets.calendly.com"><style>{CSS}{extra_css}</style></head><body>{header(prefix)}{content}<script src="https://assets.calendly.com/assets/external/widget.js" async></script></body></html>'''
 
 
 def build(articles: list[dict]) -> None:
@@ -222,21 +222,8 @@ def build(articles: list[dict]) -> None:
     cards = "\n".join(f'<a class="article-card" href="articulos/{a["slug"]}/"><img src="../assets/images/camaras/{ARTICLE_IMAGES[a["slug"]]}" alt="{html.escape(a["title"])}" loading="lazy"><h3>{html.escape(a["title"])}</h3><span>Leer artículo →</span></a>' for a in articles)
     intro = '''<p>Sabemos que queréis tomar la mejor decisión sobre las cámaras.<br>La experiencia nos dice que los clubs agradecen tener información útil a su disposición.<br>Y que si no tenéis interés en informaros, no merece la pena hacer la demo online.</p><p>Por eso, hemos tratado de ser lo más sinceros y transparentes posible.<br>Aquí está todo lo que tenéis que saber por nuestra parte, no solo los precios.</p><p>Por el camino os iréis dando cuenta de si es buena idea poner cámaras o no.<br>Y si queréis ponerlas de Save My Play o de otra empresa.<br>Sea cual sea la decisión, será mejor para vosotros y para nosotros.</p><p>En caso de hacer la demo, tendréis mejores preguntas y los dos aprovecharemos mejor el tiempo.</p>'''
     hub = f'''<main><img class="hub-logo" src="../assets/images/save-my-play-logo.jpg" alt="Save My Play"><h1>Cámaras para clubs de pádel</h1><div class="intro">{intro}</div><section><h2>Artículos sobre cámaras</h2><div class="article-grid">{cards}</div></section><section class="next-step"><h2>Siguiente paso</h2><p>Si todavía no lo ves claro, te dejo arriba más artículos sobre cámaras que te ayudarán.</p><p>Si tienes alguna pregunta y quieres que te enseñe bien cómo funciona todo, busca tu hueco para la demo.</p><div class="calendly-inline-widget" data-url="{CALENDLY}&hide_landing_page_details=1&hide_gdpr_banner=1"></div></section></main>'''
-    # Keep the existing page head, analytics, and Calendly assets, replacing only its main content.
-    source = (CAMERAS / "index.html").read_text(encoding="utf-8")
-    hub_style = f"<style>/* Camera article hub */{HUB_CSS}</style>"
-    if "/* Camera article hub */" in source:
-        source = re.sub(r"<style>/\* Camera article hub \*/.*?</style>", hub_style, source, count=1, flags=re.S)
-    else:
-        source = source.replace("</head>", hub_style + "\n</head>", 1)
-    source = re.sub(r"<main>.*?</main>", hub, source, count=1, flags=re.S)
-    source = re.sub(r"<header\b.*?</header>", "", source, count=1, flags=re.S)
-    source = re.sub(r'<div class="header-spacer"[^>]*></div>', "", source)
-    source = re.sub(r'<div class="h-16 sm:h-20 w-full shrink-0"[^>]*></div>', "", source)
-    source = source.replace("<body>", f"<body>{header('../')}", 1)
-    if "assets/external/widget.js" not in source:
-        source = source.replace("</body>", '<script src="https://assets.calendly.com/assets/external/widget.js" async></script></body>', 1)
-    (CAMERAS / "index.html").write_text(source, encoding="utf-8")
+    # Generate the hub from the same standalone template as every article.
+    (CAMERAS / "index.html").write_text(page("Cámaras para clubs de pádel", hub, prefix="../", extra_css=HUB_CSS), encoding="utf-8")
 
     for index, article in enumerate(articles):
         related = [articles[(index + offset) % len(articles)] for offset in (1, 2, 3)]
