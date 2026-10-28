@@ -3181,7 +3181,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
 
   <!-- BOTÓN FLOTANTE OFICIAL DE WHATSAPP -->
 
-  <a id="floating-wa-btn" href="https://wa.me/34680317486?text={wa_prefilled_encoded}" 
+  <a id="floating-wa-btn" href="{asset_prefix}#contacto"
 
      target="_blank" rel="noopener noreferrer" 
 
@@ -3376,12 +3376,6 @@ def get_base_html(active_lang="es", is_subfolder=False):
       const contactWaBtn = document.getElementById('contact-wa-btn');
 
       if (contactWaBtn) contactWaBtn.href = waUrl;
-
-
-
-      const floatWaBtn = document.getElementById('floating-wa-btn');
-
-      if (floatWaBtn) floatWaBtn.href = waUrl;
 
 
 
