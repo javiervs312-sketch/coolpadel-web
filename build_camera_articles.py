@@ -213,10 +213,14 @@ def build(articles: list[dict]) -> None:
     hub = f'''<main><img class="hub-logo" src="../assets/images/save-my-play-logo.jpg" alt="Save My Play"><h1>Cámaras para clubs de pádel</h1><div class="intro">{intro}</div><section><h2>Artículos sobre cámaras</h2><div class="article-grid">{cards}</div></section><section class="next-step"><h2>Siguiente paso</h2><p>Si todavía no lo ves claro, te dejo abajo más artículos sobre cámaras que te ayudarán.</p><p>Si tienes alguna pregunta y quieres que te enseñe bien cómo funciona todo, busca tu hueco para la demo.</p><div class="calendly-inline-widget" data-url="{CALENDLY}&hide_landing_page_details=1&hide_gdpr_banner=1"></div></section></main>'''
     # Keep the existing page head, analytics, and Calendly assets, replacing only its main content.
     source = (CAMERAS / "index.html").read_text(encoding="utf-8")
-    if "/* Camera article hub */" not in source:
-        source = source.replace("</head>", f"<style>/* Camera article hub */{HUB_CSS}</style>\n</head>", 1)
+    hub_style = f"<style>/* Camera article hub */{HUB_CSS}</style>"
+    if "/* Camera article hub */" in source:
+        source = re.sub(r"<style>/\* Camera article hub \*/.*?</style>", hub_style, source, count=1, flags=re.S)
+    else:
+        source = source.replace("</head>", hub_style + "\n</head>", 1)
     source = re.sub(r"<main>.*?</main>", hub, source, count=1, flags=re.S)
     source = re.sub(r"<header\b.*?</header>", "", source, count=1, flags=re.S)
+    source = re.sub(r'<div class="header-spacer"[^>]*></div>', "", source)
     source = source.replace("<body>", f"<body>{header('../')}", 1)
     if "assets/external/widget.js" not in source:
         source = source.replace("</body>", '<script src="https://assets.calendly.com/assets/external/widget.js" async></script></body>', 1)
