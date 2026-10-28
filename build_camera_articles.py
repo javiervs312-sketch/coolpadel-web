@@ -165,7 +165,7 @@ body { margin: 0; background: #fff; color: #0f172a; font-family: Arial, sans-ser
 main { max-width: 1320px; margin: 0 auto; padding: 54px 20px 90px; }
 h1, h2, h3 { line-height: 1.15; letter-spacing: -.03em; }
 h1 { max-width: 900px; font-size: clamp(34px, 5vw, 62px); margin: 0 0 34px; font-weight: 900; color: #0f172a; }
-.article h1 { padding: 0; font-size: clamp(38px, 5vw, 64px); font-weight: 900; line-height: 1.08; }
+.article h1 { padding: 0 0 34px; margin-bottom: 0; font-size: clamp(38px, 5vw, 64px); font-weight: 900; line-height: 1.08; }
 h2 { font-size: clamp(28px, 4vw, 42px); margin: 0 0 16px; }
 h3 { font-size: 24px; margin: 0 0 12px; }
 .intro { max-width: 720px; color: #475569; font-size: 19px; }
@@ -247,7 +247,7 @@ def build(articles: list[dict]) -> None:
         content = f'''<main><article class="article"><h1>{html.escape(article["title"])}</h1><img class="article-hero" src="../../../assets/images/camaras/{image_name}" alt="{html.escape(article["title"])}" loading="lazy">{article_body(article)}{video}<section class="related"><h2>Más artículos sobre cámaras</h2><div class="related-grid">{related_html}</div></section><section class="next-step"><h2>Siguiente paso</h2><p>Si todavía no lo ves claro, te dejo arriba más artículos sobre cámaras que te ayudarán.</p><p>Si tienes alguna pregunta y quieres que te enseñe bien cómo funciona todo, busca tu hueco para la demo.</p><div class="calendly-inline-widget" data-url="{CALENDLY}&hide_landing_page_details=1&hide_gdpr_banner=1"></div></section></article></main>'''
         out = ARTICLES / article["slug"]
         out.mkdir(parents=True, exist_ok=True)
-        (out / "index.html").write_text(page(article["title"], content), encoding="utf-8")
+        (out / "index.html").write_text(page(article["title"], content, prefix="../../../"), encoding="utf-8")
 
 
 if __name__ == "__main__":
