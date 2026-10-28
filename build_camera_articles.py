@@ -146,7 +146,7 @@ def header(prefix: str = "../../") -> str:
 
 CSS = """
 * { box-sizing: border-box; }
-body { margin: 0; background: #fff; color: #0f172a; font-family: Arial, sans-serif; line-height: 1.7; }
+body { margin: 0; background: #fff; color: #0f172a; font-family: 'Plus Jakarta Sans', Arial, sans-serif; line-height: 1.7; }
 .official-header a { text-decoration: none; }
 .header-inner { width: 100%; }
 .logo-link { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
@@ -162,8 +162,8 @@ body { margin: 0; background: #fff; color: #0f172a; font-family: Arial, sans-ser
 .nav-contact:hover { background: #76d3f6; color: #0f172a !important; }
 .eyes-thumb { height: 26px; width: auto; }
 .header-spacer { height: 80px; }
-main { max-width: 1320px; margin: 0 auto; padding: 54px 20px 90px; }
-h1, h2, h3 { line-height: 1.15; letter-spacing: -.03em; }
+main { max-width: 1700px; margin: 0 auto; padding: 54px 20px 90px; }
+h1, h2, h3, .font-heading { font-family: 'Outfit', Arial, sans-serif; line-height: 1.15; letter-spacing: -.03em; }
 h1 { max-width: 900px; font-size: clamp(34px, 5vw, 62px); margin: 0 0 34px; font-weight: 900; color: #0f172a; }
 .article h1 { padding: 0 0 34px; margin-bottom: 0; font-size: clamp(38px, 5vw, 64px); font-weight: 900; line-height: 1.08; }
 h2 { font-size: clamp(28px, 4vw, 42px); margin: 0 0 16px; }
@@ -198,32 +198,29 @@ h3 { font-size: 24px; margin: 0 0 12px; }
 HUB_CSS = """
 .hub-hero { max-width: 1200px; margin: 30px auto 54px; text-align: center; }
 .hub-eyebrow { margin: 0 0 14px; color: #f2920b; font-size: 13px; font-weight: 900; letter-spacing: .04em; text-transform: uppercase; }
-.hub-title { max-width: none !important; margin: 0 0 16px !important; font-size: clamp(42px, 3.5vw, 58px) !important; font-weight: 900 !important; line-height: 1.05 !important; color: #0f172a !important; white-space: nowrap; }
+.hub-title { max-width: none !important; margin: 0 0 16px !important; font-size: clamp(42px, 3.5vw, 58px) !important; font-weight: 900 !important; line-height: 1.05 !important; color: #0f172a !important; white-space: nowrap; text-transform: uppercase; letter-spacing: -.04em; }
 .intro { max-width: 760px; margin: 0 auto; color: #334155; font-size: 19px; line-height: 1.55; }
 .intro p { margin: 0 0 14px; }
 .article-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; margin: 34px 0 0; }
-.article-card { display: flex; flex-direction: column; padding: 20px; min-height: 390px; color: #0f172a; text-decoration: none; border: 2px solid #e2e8f0; border-radius: 18px; transition: .2s ease; box-shadow: 0 1px 2px rgba(15,23,42,.03); }
-.article-card img { display: block; width: 100%; height: 270px; object-fit: cover; border-radius: 12px; margin: 0 0 16px; }
-.article-card:hover { border-color: #f2920b; box-shadow: 0 10px 24px rgba(15,23,42,.10); transform: translateY(-2px); }
-.card-eyebrow { margin: 0 0 7px; color: #f2920b; font-size: 12px; font-weight: 900; letter-spacing: .04em; text-transform: uppercase; }
-.article-card h3 { margin: 0; font-size: 22px !important; font-weight: 900 !important; line-height: 1.18 !important; color: #0f172a !important; }
-.card-action { display: flex; align-items: center; justify-content: center; min-height: 38px; margin-top: auto; padding: 9px 14px; border-radius: 999px; background: #f2920b; color: #0f172a; font-size: 12px; font-weight: 900; letter-spacing: .03em; text-transform: uppercase; }
+.article-card { color: #0f172a; text-decoration: none; }
+.article-card img { display: block; }
+.card-action:active { background: #76d3f6; transform: scale(.98); }
 .next-step { margin: 54px 0 48px; padding: 28px 30px 30px; border: 2px solid #f2920b; border-radius: 18px; background: #fffaf2; box-shadow: 0 8px 24px rgba(15,23,42,.06); }
 .next-step h2 { color: #0f172a; font-weight: 900; margin-bottom: 16px; }
 .next-step p { margin: 8px 0; }
 .calendly-inline-widget { min-width: 320px; height: 680px; margin-top: 22px; border-radius: 16px; overflow: hidden; border: 1px solid #e2e8f0; }
 @media (max-width: 1050px) { .article-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-@media (max-width: 760px) { .hub-hero { margin: 18px auto 38px; text-align: left; } .hub-title { white-space: normal; } .intro { margin: 0; } .article-card img { height: 220px; } .article-grid { grid-template-columns: 1fr; } }
+@media (max-width: 760px) { .hub-hero { margin: 18px auto 38px; text-align: left; } .hub-title { white-space: normal; } .intro { margin: 0; } .article-grid { grid-template-columns: 1fr; } }
 """
 
 
 def page(title: str, content: str, prefix: str = "../../", extra_css: str = "") -> str:
-    return f'''<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>{html.escape(title)} | CoolPadel</title><meta name="description" content="{html.escape(title)}"><script src="https://cdn.tailwindcss.com"></script><link rel="preconnect" href="https://assets.calendly.com"><style>{CSS}{extra_css}</style></head><body>{header(prefix)}{content}<script src="https://assets.calendly.com/assets/external/widget.js" async></script></body></html>'''
+    return f'''<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>{html.escape(title)} | CoolPadel</title><meta name="description" content="{html.escape(title)}"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"><script src="https://cdn.tailwindcss.com"></script><link rel="preconnect" href="https://assets.calendly.com"><style>{CSS}{extra_css}</style></head><body>{header(prefix)}{content}<script src="https://assets.calendly.com/assets/external/widget.js" async></script></body></html>'''
 
 
 def build(articles: list[dict]) -> None:
     ARTICLES.mkdir(parents=True, exist_ok=True)
-    cards = "\n".join(f'<a class="article-card" href="articulos/{a["slug"]}/"><img src="../assets/images/camaras/{ARTICLE_IMAGES[a["slug"]]}" alt="{html.escape(a["title"])}" loading="lazy"><p class="card-eyebrow">Cámaras</p><h3>{html.escape(a["title"])}</h3><div class="card-action">Leer artículo&nbsp; →</div></a>' for a in articles)
+    cards = "\n".join(f'''<a href="articulos/{a["slug"]}/" class="article-card bg-white border-2 border-slate-200/90 hover:border-[#f2920b] rounded-2xl p-4 sm:p-5 shadow-2xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between group hover:-translate-y-0.5 cursor-pointer block"><div class="space-y-3"><div class="aspect-[16/9] rounded-xl overflow-hidden bg-slate-900 border border-slate-200/90 shadow-sm relative"><img src="../assets/images/camaras/{ARTICLE_IMAGES[a["slug"]]}" alt="{html.escape(a["title"])}" width="800" height="450" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" decoding="async"><div class="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-transparent"></div><span class="absolute bottom-2 left-2 text-[9px] font-black uppercase tracking-wider px-2 py-0.5 rounded-full bg-[#f2920b] text-slate-950 shadow-xs">Cámaras</span></div><div><h3 class="font-sans font-extrabold text-sm sm:text-base lg:text-lg text-slate-900 leading-snug tracking-tight group-hover:text-[#f2920b] transition-colors">{html.escape(a["title"])}</h3></div></div><div class="pt-3.5 border-t border-slate-100 mt-4"><div class="card-action group relative w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-full bg-[#f2920b] group-hover:bg-[#76d3f6] text-slate-950 font-heading font-black text-xs uppercase tracking-wider transition-all duration-300 shadow-xs group-hover:shadow-md group-hover:scale-[1.01] overflow-hidden active:scale-[.98]"><span class="font-black">Leer artículo</span><div class="w-4 h-4 rounded-full bg-slate-950/10 group-hover:bg-slate-950 group-hover:text-white flex items-center justify-center transition-all duration-300"><span class="font-black">→</span></div></div></div></a>''' for a in articles)
     intro = '''<p>Sabemos que queréis tomar la mejor decisión sobre las cámaras.<br>La experiencia nos dice que los clubs agradecen tener información útil a su disposición.<br>Y que si no tenéis interés en informaros, no merece la pena hacer la demo online.</p><p>Por eso, hemos tratado de ser lo más sinceros y transparentes posible.<br>Aquí está todo lo que tenéis que saber por nuestra parte, no solo los precios.</p><p>Por el camino os iréis dando cuenta de si es buena idea poner cámaras o no.<br>Y si queréis ponerlas de Save My Play o de otra empresa.<br>Sea cual sea la decisión, será mejor para vosotros y para nosotros.</p><p>En caso de hacer la demo, tendréis mejores preguntas y los dos aprovecharemos mejor el tiempo.</p>'''
     hub = f'''<main><section class="hub-hero"><p class="hub-eyebrow">Todo lo que necesitas saber antes de poner cámaras</p><h1 class="hub-title">Cámaras para clubs de pádel</h1><div class="intro">{intro}</div></section><section><div class="article-grid">{cards}</div></section><section class="next-step"><h2>Siguiente paso</h2><p>Si todavía no lo ves claro, te dejo arriba más artículos sobre cámaras que te ayudarán.</p><p>Si tienes alguna pregunta y quieres que te enseñe bien cómo funciona todo, busca tu hueco para la demo.</p><div class="calendly-inline-widget" data-url="{CALENDLY}&hide_landing_page_details=1&hide_gdpr_banner=1"></div></section></main>'''
     # Generate the hub from the same standalone template as every article.
