@@ -232,6 +232,7 @@ def build(articles: list[dict]) -> None:
     source = re.sub(r"<main>.*?</main>", hub, source, count=1, flags=re.S)
     source = re.sub(r"<header\b.*?</header>", "", source, count=1, flags=re.S)
     source = re.sub(r'<div class="header-spacer"[^>]*></div>', "", source)
+    source = re.sub(r'<div class="h-16 sm:h-20 w-full shrink-0"[^>]*></div>', "", source)
     source = source.replace("<body>", f"<body>{header('../')}", 1)
     if "assets/external/widget.js" not in source:
         source = source.replace("</body>", '<script src="https://assets.calendly.com/assets/external/widget.js" async></script></body>', 1)
