@@ -196,23 +196,24 @@ h3 { font-size: 24px; margin: 0 0 12px; }
 """
 
 HUB_CSS = """
-.hub-hero { max-width: 900px; margin: 30px auto 54px; text-align: center; }
+.hub-hero { max-width: 1200px; margin: 30px auto 54px; text-align: center; }
 .hub-eyebrow { margin: 0 0 14px; color: #f2920b; font-size: 13px; font-weight: 900; letter-spacing: .04em; text-transform: uppercase; }
-.hub-title { max-width: none !important; margin: 0 0 16px !important; font-size: clamp(42px, 4.2vw, 62px) !important; font-weight: 900 !important; line-height: 1.05 !important; color: #0f172a !important; }
+.hub-title { max-width: none !important; margin: 0 0 16px !important; font-size: clamp(42px, 3.5vw, 58px) !important; font-weight: 900 !important; line-height: 1.05 !important; color: #0f172a !important; white-space: nowrap; }
 .intro { max-width: 760px; margin: 0 auto; color: #334155; font-size: 19px; line-height: 1.55; }
 .intro p { margin: 0 0 14px; }
 .article-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; margin: 34px 0 0; }
-.article-card { display: block; padding: 20px; min-height: 150px; color: #0f172a; text-decoration: none; border: 2px solid #e2e8f0; border-radius: 18px; transition: .2s ease; }
-.article-card img { display: block; width: 100%; height: 120px; object-fit: cover; border-radius: 10px; margin: -2px 0 16px; }
-.article-card:hover { border-color: #f2920b; transform: translateY(-2px); }
+.article-card { display: flex; flex-direction: column; padding: 20px; min-height: 390px; color: #0f172a; text-decoration: none; border: 2px solid #e2e8f0; border-radius: 18px; transition: .2s ease; box-shadow: 0 1px 2px rgba(15,23,42,.03); }
+.article-card img { display: block; width: 100%; height: 270px; object-fit: cover; border-radius: 12px; margin: 0 0 16px; }
+.article-card:hover { border-color: #f2920b; box-shadow: 0 10px 24px rgba(15,23,42,.10); transform: translateY(-2px); }
+.card-eyebrow { margin: 0 0 7px; color: #f2920b; font-size: 12px; font-weight: 900; letter-spacing: .04em; text-transform: uppercase; }
 .article-card h3 { margin: 0; font-size: 22px !important; font-weight: 900 !important; line-height: 1.18 !important; color: #0f172a !important; }
-.article-card span { display: none; }
+.card-action { display: flex; align-items: center; justify-content: center; min-height: 38px; margin-top: auto; padding: 9px 14px; border-radius: 999px; background: #f2920b; color: #0f172a; font-size: 12px; font-weight: 900; letter-spacing: .03em; text-transform: uppercase; }
 .next-step { margin: 54px 0 48px; padding: 28px 30px 30px; border: 2px solid #f2920b; border-radius: 18px; background: #fffaf2; box-shadow: 0 8px 24px rgba(15,23,42,.06); }
 .next-step h2 { color: #0f172a; font-weight: 900; margin-bottom: 16px; }
 .next-step p { margin: 8px 0; }
 .calendly-inline-widget { min-width: 320px; height: 680px; margin-top: 22px; border-radius: 16px; overflow: hidden; border: 1px solid #e2e8f0; }
 @media (max-width: 1050px) { .article-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-@media (max-width: 760px) { .hub-hero { margin: 18px auto 38px; text-align: left; } .intro { margin: 0; } .article-grid { grid-template-columns: 1fr; } }
+@media (max-width: 760px) { .hub-hero { margin: 18px auto 38px; text-align: left; } .hub-title { white-space: normal; } .intro { margin: 0; } .article-card img { height: 220px; } .article-grid { grid-template-columns: 1fr; } }
 """
 
 
@@ -222,9 +223,9 @@ def page(title: str, content: str, prefix: str = "../../", extra_css: str = "") 
 
 def build(articles: list[dict]) -> None:
     ARTICLES.mkdir(parents=True, exist_ok=True)
-    cards = "\n".join(f'<a class="article-card" href="articulos/{a["slug"]}/"><img src="../assets/images/camaras/{ARTICLE_IMAGES[a["slug"]]}" alt="{html.escape(a["title"])}" loading="lazy"><h3>{html.escape(a["title"])}</h3><span>Leer artículo →</span></a>' for a in articles)
+    cards = "\n".join(f'<a class="article-card" href="articulos/{a["slug"]}/"><img src="../assets/images/camaras/{ARTICLE_IMAGES[a["slug"]]}" alt="{html.escape(a["title"])}" loading="lazy"><p class="card-eyebrow">Cámaras</p><h3>{html.escape(a["title"])}</h3><div class="card-action">Leer artículo&nbsp; →</div></a>' for a in articles)
     intro = '''<p>Sabemos que queréis tomar la mejor decisión sobre las cámaras.<br>La experiencia nos dice que los clubs agradecen tener información útil a su disposición.<br>Y que si no tenéis interés en informaros, no merece la pena hacer la demo online.</p><p>Por eso, hemos tratado de ser lo más sinceros y transparentes posible.<br>Aquí está todo lo que tenéis que saber por nuestra parte, no solo los precios.</p><p>Por el camino os iréis dando cuenta de si es buena idea poner cámaras o no.<br>Y si queréis ponerlas de Save My Play o de otra empresa.<br>Sea cual sea la decisión, será mejor para vosotros y para nosotros.</p><p>En caso de hacer la demo, tendréis mejores preguntas y los dos aprovecharemos mejor el tiempo.</p>'''
-    hub = f'''<main><section class="hub-hero"><p class="hub-eyebrow">Todo lo que necesitas saber antes de poner cámaras</p><h1 class="hub-title">Cámaras para clubs de pádel</h1><div class="intro">{intro}</div></section><section><h2>Artículos sobre cámaras</h2><div class="article-grid">{cards}</div></section><section class="next-step"><h2>Siguiente paso</h2><p>Si todavía no lo ves claro, te dejo arriba más artículos sobre cámaras que te ayudarán.</p><p>Si tienes alguna pregunta y quieres que te enseñe bien cómo funciona todo, busca tu hueco para la demo.</p><div class="calendly-inline-widget" data-url="{CALENDLY}&hide_landing_page_details=1&hide_gdpr_banner=1"></div></section></main>'''
+    hub = f'''<main><section class="hub-hero"><p class="hub-eyebrow">Todo lo que necesitas saber antes de poner cámaras</p><h1 class="hub-title">Cámaras para clubs de pádel</h1><div class="intro">{intro}</div></section><section><div class="article-grid">{cards}</div></section><section class="next-step"><h2>Siguiente paso</h2><p>Si todavía no lo ves claro, te dejo arriba más artículos sobre cámaras que te ayudarán.</p><p>Si tienes alguna pregunta y quieres que te enseñe bien cómo funciona todo, busca tu hueco para la demo.</p><div class="calendly-inline-widget" data-url="{CALENDLY}&hide_landing_page_details=1&hide_gdpr_banner=1"></div></section></main>'''
     # Generate the hub from the same standalone template as every article.
     (CAMERAS / "index.html").write_text(page("Cámaras para clubs de pádel", hub, prefix="../", extra_css=HUB_CSS), encoding="utf-8")
 
