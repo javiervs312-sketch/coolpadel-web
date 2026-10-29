@@ -1,16 +1,21 @@
 # -*- coding: utf-8 -*-
 """
 Script de sincronización de la carta de ventas de Save my Play (/camaras/)
-a Italiano (IT), Inglés (EN) y Francés (FR).
+a Italiano (IT), Inglés (EN), Francés (FR) y Alemán (DE).
 Mantiene el estilo personal, directo y cortante de Javier, adaptando referencias locales.
 """
 
+import json
 import os
 import re
 
-# 1. Leer la versión española de referencia
-with open('coolpadel-web/camaras/index.html', 'r', encoding='utf-8') as f:
+# 1. Plantilla base: la carta en inglés (misma estructura en todos los idiomas).
+#    OJO: /camaras/ (ES) ahora es un hub de artículos con otra estructura, no sirve de plantilla.
+TEMPLATE_PATH = 'coolpadel-web/en/camaras/index.html'
+with open(TEMPLATE_PATH, 'r', encoding='utf-8') as f:
     es_html = f.read()
+
+ALL_LANGS = ['es', 'en', 'fr', 'it', 'de']
 
 # Definición de traducciones y localizaciones
 LOCALES = {
@@ -316,60 +321,331 @@ LOCALES = {
     }
 }
 
+# --- Ajustes vigentes (alineados con lo publicado + "Algunos clubs" en el H1) ---
+LOCALES['en'].update({
+    'locale': 'en_GB',
+    'title': 'The 3 mistakes made by clubs that regret installing cameras',
+    'meta_desc': 'If you\'re thinking about installing cameras, this is for you',
+    'og_title': 'The 3 mistakes made by clubs that regret installing cameras',
+    'og_desc': 'If you\'re thinking about installing cameras, this is for you',
+    'keywords': 'padel court cameras, padel match recording, save my play cameras, padel replays, padel court streaming, padel club cameras',
+    'business_name': 'Save my Play - Cameras for Padel Clubs',
+    'h1': 'Some clubs in the UK and Europe regret installing cameras on their courts.',
+    'p_hay_mas_de': 'Padel is booming across the UK, with new clubs opening every month.',
+    'p_e1_5': 'It breaks my heart seeing small clubs in places like Leeds, Bristol or Glasgow paying crazy monthly fees for this.',
+    'p_e2_4': '1. During month one, members try it because it\'s fresh and new.',
+    'p_e2_5': '2. Assuming the hype will last forever, you sign a 2 or 3-year contract.',
+    'p_e2_6': '3. When the initial hype cools down, you\'re stuck paying every month.',
+    'h2_paso': 'Next step: If you\'re not interested, just tell me',
+    'p_paso_1': '',
+    'p_paso_2': '<strong>If you have any questions and want me to show you properly how everything works, find a slot for the demo.</strong>',
+    'faq': [
+        ('How much does it cost to install Save my Play cameras on a court?',
+         'Hardware is €180 per camera and the cloud software subscription starts from €45 per month per court, with zero lock-in contracts or hidden fees.'),
+        ('Does installation require building work or complex electrical work?',
+         'No. Save my Play cameras need no building work or trenching. They mount directly on the court structure and plug into a standard socket or PoE.'),
+        ('How do players download their match videos and replays?',
+         'Players press the button on court to save their best points, or scan the QR code at the exit to get the full match or highlights on their phone instantly.'),
+        ('Is there a minimum contract term?',
+         'No minimum term. The service runs month to month and you can cancel any time with no penalties.'),
+        ('Is the system GDPR compliant?',
+         'Yes. The system is fully GDPR compliant: the club displays official information signage and recording is handled with the user\'s consent when they activate the service.'),
+    ],
+})
+
+LOCALES['it'].update({
+    'title': 'I 3 errori dei club che si pentono di aver installato telecamere',
+    'meta_desc': 'Se state pensando di installare telecamere, questo vi interessa',
+    'og_title': 'I 3 errori dei club che si pentono di aver installato telecamere',
+    'og_desc': 'Se state pensando di installare telecamere, questo vi interessa',
+    'keywords': 'telecamere campi padel, registrazione partite padel, telecamere save my play, replay padel, streaming campi padel, telecamere circoli padel',
+    'business_name': 'Save my Play - Telecamere per Club di Padel',
+    'h1': 'Alcuni club in Italia si pentono di aver installato telecamere sui loro campi.',
+    'h2_paso': 'Prossimo passo: Se non vi interessa, ditemelo',
+    'p_paso_1': '',
+    'p_paso_2': '<strong>Se avete domande e volete che vi mostri nel dettaglio come funziona tutto, cercate uno spazio per la demo.</strong>',
+    'faq': [
+        ('Quanto costa installare le telecamere su un campo da padel con Save my Play?',
+         'L\'hardware costa 180 € a telecamera e l\'abbonamento software con archiviazione cloud parte da 45 € al mese per campo, senza vincoli né costi nascosti.'),
+        ('Servono lavori o un impianto elettrico complesso sui campi?',
+         'No. Le telecamere Save my Play non richiedono lavori né scavi. Si montano direttamente sulla struttura del campo e si collegano a una presa standard o PoE.'),
+        ('Come scaricano i giocatori i video e i replay delle partite?',
+         'I giocatori premono il pulsante in campo per salvare i punti migliori, oppure scansionano il QR all\'uscita per ricevere subito sul telefono la partita completa o gli highlights.'),
+        ('C\'è un vincolo di permanenza nel contratto?',
+         'Nessun vincolo. Il servizio è mese per mese e puoi disdirlo quando vuoi, senza penali.'),
+        ('Il sistema è conforme al GDPR?',
+         'Sì, il sistema è conforme al 100% al GDPR: il circolo espone la cartellonistica informativa ufficiale e la registrazione avviene con il consenso dell\'utente quando attiva il servizio.'),
+    ],
+})
+
+LOCALES['fr'].update({
+    'title': 'Les 3 erreurs des clubs qui regrettent d\'avoir installé des caméras',
+    'meta_desc': 'Si vous envisagez d\'installer des caméras, ceci vous intéresse',
+    'og_title': 'Les 3 erreurs des clubs qui regrettent d\'avoir installé des caméras',
+    'og_desc': 'Si vous envisagez d\'installer des caméras, ceci vous intéresse',
+    'keywords': 'caméras pistes de padel, enregistrement matchs padel, caméras save my play, replays padel, streaming pistes padel, caméras clubs padel',
+    'business_name': 'Save my Play - Caméras pour Clubs de Padel',
+    'h1': 'Certains clubs en France regrettent d\'avoir installé des caméras sur leurs terrains.',
+    'h2_paso': 'Étape suivante : Si ça ne vous intéresse pas, dites-le-moi',
+    'p_paso_1': '',
+    'p_paso_2': '<strong>Si vous avez des questions et souhaitez que je vous montre en détail comment tout fonctionne, réservez un créneau pour la démo.</strong>',
+    'faq': [
+        ('Combien coûte l\'installation des caméras Save my Play sur un court ?',
+         'Le matériel coûte 180 € par caméra et l\'abonnement cloud démarre à 45 € par mois et par piste, sans engagement ni frais cachés.'),
+        ('Faut-il des travaux ou une installation électrique complexe sur les pistes ?',
+         'Non. Les caméras Save my Play ne nécessitent ni travaux ni tranchées. Elles se fixent directement sur la structure de la piste et se branchent sur une prise standard ou en PoE.'),
+        ('Comment les joueurs récupèrent-ils les vidéos et replays de leurs matchs ?',
+         'Les joueurs appuient sur le bouton sur la piste pour garder leurs meilleurs points, ou scannent le QR code à la sortie pour recevoir le match complet ou les meilleurs moments sur leur téléphone, instantanément.'),
+        ('Y a-t-il un engagement de durée ?',
+         'Aucun engagement. Le service fonctionne au mois et vous pouvez résilier à tout moment, sans pénalité.'),
+        ('Le système est-il conforme au RGPD ?',
+         'Oui, le système est 100 % conforme au RGPD : le club affiche la signalétique d\'information officielle et l\'enregistrement se fait avec le consentement de l\'utilisateur lorsqu\'il active le service.'),
+    ],
+})
+
+LOCALES['de'] = {
+    'lang': 'de',
+    'locale': 'de_DE',
+    'canonical': 'https://coolpadelstudios.com/de/camaras/',
+    'geo_region': 'DE-BE',
+    'geo_placename': 'Berlin',
+    'geo_position': '52.5200;13.4050',
+    'icbm': '52.5200, 13.4050',
+    'title': 'Die 3 Fehler von Clubs, die den Einbau von Kameras bereuen',
+    'meta_desc': 'Sie überlegen, Kameras auf Ihren Padel-Plätzen zu installieren? Dann sollten Sie das hier lesen.',
+    'og_title': 'Die 3 Fehler von Clubs, die den Einbau von Kameras bereuen',
+    'og_desc': 'Sie überlegen, Kameras auf Ihren Padel-Plätzen zu installieren? Dann sollten Sie das hier lesen.',
+    'keywords': 'Padel Kameras, Padel Platz Kamera, Padel Match aufnehmen, Save my Play Kameras, Padel Highlights, Padel Livestream, Kameras für Padel-Clubs',
+    'business_name': 'Save my Play - Kameras für Padel-Clubs',
+    'schema_service_name': 'Save my Play - Intelligente Platzaufnahme & KI-Kameras',
+    'schema_service_desc': 'Videoaufnahme-System für Padel- und Tennisplätze ohne Bauarbeiten und ohne Mindestlaufzeit für Sportclubs.',
+    'schema_breadcrumb_name': 'Kameras für Padel-Plätze',
+    'faq': [
+        ('Was kostet die Installation der Save my Play Kameras auf einem Padel-Platz?',
+         'Die Hardware kostet 180 € pro Kamera, das Software-Abo mit Cloud-Speicher startet bei 45 € pro Monat und Platz. Ohne Mindestlaufzeit und ohne versteckte Kosten.'),
+        ('Sind Bauarbeiten oder eine aufwendige Elektroinstallation nötig?',
+         'Nein. Die Kameras von Save my Play brauchen weder Bauarbeiten noch Kabelgräben. Sie werden direkt an der Platzkonstruktion montiert und an eine normale Steckdose oder PoE angeschlossen.'),
+        ('Wie bekommen die Spieler ihre Videos und Wiederholungen?',
+         'Die Spieler drücken den Knopf am Platz, um ihre besten Ballwechsel zu speichern, oder scannen am Ausgang den QR-Code und bekommen das ganze Match oder die Highlights sofort aufs Handy.'),
+        ('Gibt es eine Mindestvertragslaufzeit?',
+         'Nein. Der Service läuft monatlich und ist jederzeit ohne Gebühren kündbar.'),
+        ('Ist das System DSGVO-konform?',
+         'Ja, das System erfüllt die DSGVO zu 100 %: Der Club hängt die offiziellen Hinweisschilder aus und die Aufnahme erfolgt mit Einwilligung des Nutzers, wenn er den Service aktiviert.'),
+    ],
+    'calendly_locale': 'de',
+    'calendly_url': 'https://calendly.com/javier-vs-312/demo-save-my-play?hide_landing_page_details=1&hide_gdpr_banner=1&locale=de',
+    'calendly_direct': 'https://calendly.com/javier-vs-312/demo-save-my-play?locale=de',
+    'fallback_link_text': 'Hier klicken, um ihn direkt zu öffnen',
+    'fallback_prefix': 'Falls der Kalender nicht lädt:',
+    'success_title': 'Erledigt. Demo gebucht.',
+    'success_details': 'Sie erhalten die Bestätigung und den Link per E-Mail.',
+    'track_tag': '[DE]',
+    'track_viewed': '👀 Calendly-Kalender angesehen [DE]',
+    'track_selected': '🕒 Datum/Uhrzeit in Calendly gewählt [DE]',
+    'track_booked': '🎯 DEMO GEBUCHT: ',
+    'success_js_template': 'Erledigt. Demo gebucht${clubStr}. Sie erhalten die Bestätigung und den Link per E-Mail.',
+    # Contenido <main>
+    'h1': 'Einige Clubs in Deutschland bereuen, Kameras auf ihren Plätzen installiert zu haben.',
+    'p_si_has_leido': 'Ja, Sie haben richtig gelesen.',
+    'p_no_son_uno': 'Und es sind nicht nur ein oder zwei.',
+    'p_si_piensas': '<strong>Wenn Sie über Kameras nachdenken, ist das hier für Sie.</strong>',
+    'p_si_ya_tienes': '<strong>Wenn Sie schon Kameras haben, erst recht.</strong>',
+    'box1_p1': '701 Wörter = 2,5 Minuten Lesezeit',
+    'box1_p2': 'Sie sparen damit viel Geld und einige Kopfschmerzen.',
+    'box1_p3': 'Sie müssen mir nicht glauben. Ist auch egal.',
+    'box1_p4': '<strong>Am Ende geben Sie mir sowieso recht.</strong>',
+    'h2_errores': 'Die 3 Fehler, die Clubs am Ende bereuen',
+    'p_hay_mas_de': 'In Deutschland eröffnen gerade überall neue Padel-Anlagen.',
+    'p_todas_pistas': 'Die Plätze sehen fast alle gleich aus, bis auf die Farbe des Kunstrasens.',
+    'p_camaras_diferencian': '<strong>Mit Kameras heben Sie sich sofort von den Clubs in der Umgebung ab.</strong>',
+    'p_servicio_premium': 'Ein Premium-Service, den Ihre Spieler lieben und in den sozialen Netzwerken teilen.',
+    'p_con_tu_logo': 'Und immer mit dem Logo Ihres Clubs im Bild.',
+    'p_no_la_lies': '<strong>Aber machen Sie dabei nicht diese Fehler:</strong>',
+    'h3_error1': 'Fehler 1: KI-Analysen und Statistiken',
+    'p_e1_1': 'Klingt erstmal gut, oder?',
+    'p_e1_2': 'Eine KI, die Ihr Spiel analysiert, Ihre Schläge zählt und Ihnen sogar sagt, was Sie verbessern müssen.',
+    'p_e1_3': '<strong>In der Realität merken die Spieler spätestens beim dritten Match, dass ihre Heatmap genauso aussieht wie bei den Matches davor.</strong>',
+    'p_e1_4': 'Und wie viele Topspin-Volleys sie geschlagen haben, bringt einem Hobbyspieler beim Sonntagsmatch rein gar nichts.',
+    'p_e1_5': 'Es tut mir weh zu sehen, wie viel Geld kleine Clubs in Bielefeld, Kassel oder Augsburg dafür jeden Monat zahlen.',
+    'p_e1_6': '<strong>Diese Preise rechnen sich nicht. Das ist Wahnsinn.</strong>',
+    'p_e1_7': '<strong>Das sagt einem schon der gesunde Menschenverstand.</strong>',
+    'h3_error2': 'Fehler 2: Testphasen und lange Vertragslaufzeiten',
+    'p_e2_1': 'Vorsicht bei kostenlosen Testphasen.',
+    'p_e2_2': '<strong>Wirklich, Vorsicht.</strong>',
+    'p_e2_3': 'Es läuft fast immer gleich ab:',
+    'p_e2_4': '1. Im ersten Monat nutzen es alle, weil es neu ist.',
+    'p_e2_5': '2. Sie denken, das bleibt so, und unterschreiben einen Vertrag über 2 oder 3 Jahre.',
+    'p_e2_6': '3. Wenn der erste Hype vorbei ist, zahlen Sie trotzdem jeden Monat weiter.',
+    'p_e2_7': '<strong>Binden Sie sich nicht mit einer langen Vertragslaufzeit.</strong>',
+    'h3_error3': 'Fehler 3: Die meisten Anbieter verbauen normale Überwachungskameras',
+    'p_e3_1': 'Das Video sieht aus wie die Aufnahme von einem Banküberfall.',
+    'p_e3_2': 'Die Bildqualität ist miserabel.',
+    'p_e3_3': 'Ein guter Hinweis, ob es Überwachungskameras sind: die Linien auf dem Platz.',
+    'p_e3_4': '<strong>Wenn sie wie bei einem Fischauge gebogen sind, ist das ein schlechtes Zeichen.</strong>',
+    'p_e3_5': 'Erinnern Sie mich in der Demo daran, dann zeige ich Ihnen den Unterschied.',
+    'h3_extra': 'EXTRA-FEHLER: Den erzähle ich Ihnen in der Online-Demo.',
+    'box_conc_p1': '<strong>Fazit:</strong>',
+    'box_conc_p2': 'Viele Clubs bereuen die Kameras und Verträge, die sie abgeschlossen haben.',
+    'box_conc_p3': 'Noch einmal: Glauben Sie Leuten wie mir nicht blind.',
+    'box_conc_p4': '<strong>Sprechen Sie mit anderen Clubbetreibern und hören Sie sich deren Erfahrungen an.</strong>',
+    'h2_savemyplay': 'Save My Play in 3 Punkten',
+    'img_alt1': 'Save my Play Kamera nimmt ein Padel-Match auf',
+    'img_alt2': 'Padel-Spieler schauen sich Wiederholungen und Highlights auf dem Handy an',
+    'img_alt3': 'Padel-Platz mit Save my Play Kamerasystem',
+    'bp1': 'Plan A: 136 € pro Monat. Mit KI-Statistiken. Ehrlich gesagt rate ich davon ab.<br>Plan B: 45 € pro Monat. Mit Aufnahmen, Highlights, Livestreams auf YouTube, Coaching-Tools... alles unbegrenzt.',
+    'bp2': 'Keine Mindestlaufzeit: Sie können jederzeit kündigen.<br>Wir wollen keine unzufriedenen Kunden, die bei uns festhängen. Das bringt niemandem etwas.<br>97 % der Clubs bleiben jeden Monat freiwillig bei uns.',
+    'bp3': 'Einmalig 180 € für die Kamera, eine pro Platz.<br>Keine Bauarbeiten: in 5 Minuten montiert, Sie brauchen nur WLAN und eine normale Steckdose.<br>Wegen der hohen Nachfrage dauert die Lieferung aktuell etwa 4 Wochen.',
+    'box_180_p1': '<strong>Moment, 180 € vorab für die Kameras?</strong>',
+    'box_180_p2': 'Das ist der faire Preis, damit Sie sich für die Videoqualität Ihres Clubs nicht schämen müssen.',
+    'box_180_p3': 'Wir bauen die Kameras selbst in Chicago, und allein die Herstellung kostet mehr als 180 €.',
+    'box_180_p4': 'Wenn Ihnen das trotzdem zu teuer ist, sagen Sie es mir. Ich gebe Ihnen gerne Kontakte zu anderen Anbietern.',
+    'box_180_p5': 'Außerdem funktionieren unsere Kameras nur mit unserer eigenen Software.',
+    'box_180_p6': '<strong>Wenn Sie das Abo kündigen, können sie nicht anderweitig genutzt werden.</strong>',
+    'h2_buenos': 'Jetzt kommt der Teil, in dem wir ein bisschen angeben.',
+    'p_buenos_1': 'Ich halte es so kurz wie möglich.',
+    'p_buenos_2': 'Wir sind auf mehr als 1.600 Plätzen weltweit installiert.',
+    'p_buenos_3': 'Der US-Padelverband hat uns ausgewählt, um seine offiziellen FIP-Turniere aufzunehmen und zu übertragen.',
+    'p_buenos_4': 'Und für den US-Tennisverband (USTA) streamen wir jedes Wochenende live auf über 100 Plätzen gleichzeitig.',
+    'p_buenos_5': 'Wenn Sie in Deutschland noch nichts von uns gehört haben, liegt das einfach daran, dass Europa bei uns später dran war. Im Ausland ist der Markt größer.',
+    'h2_paso': 'Nächster Schritt: Wenn Sie kein Interesse haben, sagen Sie es mir einfach',
+    'p_paso_1': '',
+    'p_paso_2': '<strong>Wenn Sie Fragen haben und sehen möchten, wie alles im Detail funktioniert, wählen Sie unten einen Termin für die Demo.</strong>',
+}
+
+
+def build_jsonld(info):
+    """Genera el bloque JSON-LD completo y localizado (Article, Service, Breadcrumb, FAQ, LocalBusiness)."""
+    url = info['canonical']
+    graph = {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "Article",
+                "@id": f"{url}#article",
+                "headline": info['h1'],
+                "description": info['meta_desc'],
+                "inLanguage": info['lang'],
+                "author": {"@type": "Person", "name": "Javier Villoria"},
+                "publisher": {"@type": "Organization", "name": "CoolPadel Studios", "url": "https://coolpadelstudios.com"},
+                "mainEntityOfPage": url,
+                "image": "https://coolpadelstudios.com/assets/images/savemyplay-1.jpg",
+            },
+            {
+                "@type": "Service",
+                "@id": f"{url}#service",
+                "name": info['schema_service_name'],
+                "description": info['schema_service_desc'],
+                "provider": {"@type": "Organization", "name": "Save my Play & CoolPadel Studios", "url": url},
+                "offers": {
+                    "@type": "Offer", "price": "45.00", "priceCurrency": "EUR",
+                    "priceSpecification": {"@type": "UnitPriceSpecification", "price": "45.00",
+                                           "priceCurrency": "EUR", "unitCode": "MON"},
+                },
+            },
+            {
+                "@type": "BreadcrumbList",
+                "@id": f"{url}#breadcrumb",
+                "itemListElement": [
+                    {"@type": "ListItem", "position": 1, "name": "CoolPadel Studios", "item": "https://coolpadelstudios.com/"},
+                    {"@type": "ListItem", "position": 2, "name": info['schema_breadcrumb_name'], "item": url},
+                ],
+            },
+            {
+                "@type": "FAQPage",
+                "@id": f"{url}#faq",
+                "mainEntity": [
+                    {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}}
+                    for q, a in info['faq']
+                ],
+            },
+            {
+                "@type": "LocalBusiness",
+                "@id": "https://coolpadelstudios.com/#localbusiness",
+                "name": info['business_name'],
+                "image": "https://coolpadelstudios.com/assets/images/savemyplay-1.jpg",
+                "telephone": "+34-680-31-74-86",
+                "address": {"@type": "PostalAddress", "addressLocality": "Madrid",
+                            "addressRegion": "Comunidad de Madrid", "addressCountry": "ES"},
+                "geo": {"@type": "GeoCoordinates", "latitude": 40.4589, "longitude": -3.6761},
+                "url": url,
+                "priceRange": "€",
+            },
+        ],
+    }
+    body = json.dumps(graph, ensure_ascii=False, indent=2)
+    body = '\n'.join('    ' + line for line in body.splitlines())
+    return f'<script type="application/ld+json">\n{body}\n    </script>'
+
+
+def hreflang_block():
+    lines = []
+    for lg in ALL_LANGS:
+        href = 'https://coolpadelstudios.com/camaras/' if lg == 'es' else f'https://coolpadelstudios.com/{lg}/camaras/'
+        lines.append(f'<link rel="alternate" hreflang="{lg}" href="{href}">')
+    lines.append('<link rel="alternate" hreflang="x-default" href="https://coolpadelstudios.com/camaras/">')
+    return '\n\n    '.join(lines)
+
+
+def _sub_attr(html, pattern, new_tag):
+    """Sustituye la primera etiqueta que encaje (usa lambda para no interpretar escapes)."""
+    return re.sub(pattern, lambda _m: new_tag, html, count=1)
+
+
 def generate_page(target_lang):
     info = LOCALES[target_lang]
     
-    # Clonamos la base de es_html
+    # Clonamos la base de es_html (plantilla de carta de ventas)
     html = es_html
     
     # Reemplazo de metadatos básicos de <html lang="...">
-    html = re.sub(r'<html lang="[^"]+"', f'<html lang="{info["lang"]}"', html, count=1)
+    html = _sub_attr(html, r'<html lang="[^"]+"', f'<html lang="{info["lang"]}"')
     
     # Meta título y descripción
-    html = re.sub(r'<title>.*?</title>', f'<title>{info["title"]}</title>', html, count=1)
-    html = re.sub(r'<meta name="description" content=".*?">', f'<meta name="description" content="{info["meta_desc"]}">', html, count=1)
+    html = _sub_attr(html, r'<title>.*?</title>', f'<title>{info["title"]}</title>')
+    html = _sub_attr(html, r'<meta name="description" content=".*?">', f'<meta name="description" content="{info["meta_desc"]}">')
     
-    # Canonical
-    html = re.sub(r'<link rel="canonical" href=".*?">', f'<link rel="canonical" href="{info["canonical"]}">', html, count=1)
+    # Canonical & hreflang (incluyendo es, en, fr, it, de + x-default)
+    html = _sub_attr(html, r'<link rel="canonical" href=".*?">', f'<link rel="canonical" href="{info["canonical"]}">')
+    html = re.sub(
+        r'<link rel="alternate" hreflang="es".*?<link rel="alternate" hreflang="x-default"[^>]*>',
+        lambda _m: hreflang_block(),
+        html,
+        count=1,
+        flags=re.DOTALL,
+    )
     
     # OpenGraph & Twitter
-    html = re.sub(r'<meta property="og:locale" content=".*?">', f'<meta property="og:locale" content="{info["locale"]}">', html, count=1)
-    html = re.sub(r'<meta property="og:title" content=".*?">', f'<meta property="og:title" content="{info["og_title"]}">', html, count=1)
-    html = re.sub(r'<meta property="og:description" content=".*?">', f'<meta property="og:description" content="{info["og_desc"]}">', html, count=1)
-    html = re.sub(r'<meta property="og:url" content=".*?">', f'<meta property="og:url" content="{info["canonical"]}">', html, count=1)
-    html = re.sub(r'<meta name="twitter:title" content=".*?">', f'<meta name="twitter:title" content="{info["og_title"]}">', html, count=1)
-    html = re.sub(r'<meta name="twitter:description" content=".*?">', f'<meta name="twitter:description" content="{info["og_desc"]}">', html, count=1)
+    html = _sub_attr(html, r'<meta property="og:locale" content=".*?">', f'<meta property="og:locale" content="{info["locale"]}">')
+    html = _sub_attr(html, r'<meta property="og:title" content=".*?">', f'<meta property="og:title" content="{info["og_title"]}">')
+    html = _sub_attr(html, r'<meta property="og:description" content=".*?">', f'<meta property="og:description" content="{info["og_desc"]}">')
+    html = _sub_attr(html, r'<meta property="og:url" content=".*?">', f'<meta property="og:url" content="{info["canonical"]}">')
+    html = _sub_attr(html, r'<meta name="twitter:title" content=".*?">', f'<meta name="twitter:title" content="{info["og_title"]}">')
+    html = _sub_attr(html, r'<meta name="twitter:description" content=".*?">', f'<meta name="twitter:description" content="{info["og_desc"]}">')
     
-    # Geo tags
-    html = re.sub(r'<meta name="geo\.region" content=".*?">', f'<meta name="geo.region" content="{info["geo_region"]}">', html, count=1)
-    html = re.sub(r'<meta name="geo\.placename" content=".*?">', f'<meta name="geo.placename" content="{info["geo_placename"]}">', html, count=1)
-    html = re.sub(r'<meta name="geo\.position" content=".*?">', f'<meta name="geo.position" content="{info["geo_position"]}">', html, count=1)
-    html = re.sub(r'<meta name="ICBM" content=".*?">', f'<meta name="ICBM" content="{info["icbm"]}">', html, count=1)
+    # Keywords & Geo tags
+    if 'keywords' in info:
+        html = _sub_attr(html, r'<meta name="keywords" content=".*?">', f'<meta name="keywords" content="{info["keywords"]}">')
+    html = _sub_attr(html, r'<meta name="geo\.region" content=".*?">', f'<meta name="geo.region" content="{info["geo_region"]}">')
+    html = _sub_attr(html, r'<meta name="geo\.placename" content=".*?">', f'<meta name="geo.placename" content="{info["geo_placename"]}">')
+    html = _sub_attr(html, r'<meta name="geo\.position" content=".*?">', f'<meta name="geo.position" content="{info["geo_position"]}">')
+    html = _sub_attr(html, r'<meta name="ICBM" content=".*?">', f'<meta name="ICBM" content="{info["icbm"]}">')
     
-    # Schema.org JSON-LD
-    html = re.sub(r'\"@id\": \"https://coolpadelstudios\.com/camaras/#article\"', f'\"@id\": \"{info["canonical"]}#article\"', html)
-    html = re.sub(r'\"headline\": \".*?\"', f'\"headline\": \"{info["h1"]}\"', html, count=1)
-    html = re.sub(r'\"description\": \".*?\"', f'\"description\": \"{info["meta_desc"]}\"', html, count=1)
-    html = re.sub(r'\"mainEntityOfPage\": \"https://coolpadelstudios\.com/camaras/\"', f'\"mainEntityOfPage\": \"{info["canonical"]}\"', html)
-    
-    html = re.sub(r'\"@id\": \"https://coolpadelstudios\.com/camaras/#service\"', f'\"@id\": \"{info["canonical"]}#service\"', html)
-    html = re.sub(r'\"name\": \"Save my Play - Grabación de pistas y cámaras inteligentes\"', f'\"name\": \"{info["schema_service_name"]}\"', html)
-    html = re.sub(r'\"description\": \"Sistema de grabación en pista de pádel y tenis sin obras y sin permanencia para clubes deportivos\."', f'\"description\": \"{info["schema_service_desc"]}\"', html)
-    html = re.sub(r'\"url\": \"https://coolpadelstudios\.com/camaras/\"', f'\"url\": \"{info["canonical"]}\"', html)
-    
-    html = re.sub(r'\"@id\": \"https://coolpadelstudios\.com/camaras/#breadcrumb\"', f'\"@id\": \"{info["canonical"]}#breadcrumb\"', html)
-    html = re.sub(r'\"name\": \"Cámaras para Pistas de Pádel\"', f'\"name\": \"{info["schema_breadcrumb_name"]}\"', html)
-    html = re.sub(r'\"item\": \"https://coolpadelstudios\.com/camaras/\"', f'\"item\": \"{info["canonical"]}\"', html)
-    
-    # FAQ Schema
-    html = re.sub(r'\"name\": \"¿Cuánto cuesta poner cámaras en una pista de pádel con Save my Play\?\"', f'\"name\": \"{info["schema_faq_q1"]}\"', html)
-    html = re.sub(r'\"text\": \"El hardware cuesta 180 € por cámara y la suscripción de software y almacenamiento en la nube es desde 45 € al mes por pista, sin permanencia ni costes ocultos\."', f'\"text\": \"{info["schema_faq_a1"]}\"', html)
-    html = re.sub(r'\"name\": \"¿Se necesita obra para la instalación\?\"', f'\"name\": \"{info["schema_faq_q2"]}\"', html)
-    html = re.sub(r'\"text\": \"No\. No requiere canalizaciones ni obras civiles complejas: solo un enchufe estándar de 220V y conexión Wi-Fi\."', f'\"text\": \"{info["schema_faq_a2"]}\"', html)
-    html = re.sub(r'\"name\": \"¿Existe permanencia obligatoria en la suscripción\?\"', f'\"name\": \"{info["schema_faq_q3"]}\"', html)
-    html = re.sub(r'\"text\": \"No hay ninguna permanencia obligatoria\. Puedes cancelar en cualquier momento sin penalizaciones ni ataduras contractuales\."', f'\"text\": \"{info["schema_faq_a3"]}\"', html)
+    # Schema.org JSON-LD completo y localizado
+    html = re.sub(
+        r'<script type="application/ld\+json">.*?</script>',
+        lambda _m: build_jsonld(info),
+        html,
+        count=1,
+        flags=re.DOTALL,
+    )
     
     # 2. Generar el contenido <main> traducido y adaptado
+    paso_p1_block = f"""
+        <p class="reveal-on-scroll">
+            {info['p_paso_1']}
+        </p>
+""" if info.get('p_paso_1') else ""
+
     main_content = f"""<main>
 
         <!-- TÍTULO PRINCIPAL -->
@@ -646,11 +922,7 @@ def generate_page(target_lang):
         <h2 class="section-title reveal-on-scroll" style="margin-top: 2.25rem; border-top: none; padding-top: 0;">
             {info['h2_paso']}
         </h2>
-
-        <p class="reveal-on-scroll">
-            {info['p_paso_1']}
-        </p>
-
+{paso_p1_block}
         <p class="reveal-on-scroll">
             {info['p_paso_2']}
         </p>
@@ -672,8 +944,8 @@ def generate_page(target_lang):
 
     </main>"""
 
-    # Sustituir <main>...</main> en html
-    html = re.sub(r'<main>.*?</main>', main_content, html, flags=re.DOTALL)
+    # Sustituir <main>...</main> en html (lambda para no interpretar escapes en el reemplazo)
+    html = re.sub(r'<main>.*?</main>', lambda _m: main_content, html, flags=re.DOTALL)
     
     # 3. Adaptar el script de Calendly y tracking post-main
     post_tracking_code = """    <!-- SCRIPT DE REVELADO SUAVE A MEDIDA QUE SE DESLIZA (SCROLL) -->
@@ -756,6 +1028,6 @@ def generate_page(target_lang):
     print(f"Generated {out_file} ({len(html)} bytes, {len(html.splitlines())} lines)")
 
 if __name__ == '__main__':
-    for lang in ['it', 'en', 'fr']:
+    for lang in ['it', 'en', 'fr', 'de']:
         generate_page(lang)
     print("All language versions generated successfully!")
