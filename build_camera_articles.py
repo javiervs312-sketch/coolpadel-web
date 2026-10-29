@@ -112,15 +112,17 @@ def load_articles() -> list[dict]:
 def inline_links(text: str, current_slug: str) -> str:
     text = text.replace(" xxxx", "").replace(" xxx", "")
     if "Plan A:" in text and "(Link)" in text:
-        text = text.replace("(Link)", "[[LINK:por-que-no-recomiendo-plan-analytics|más sobre el plan de 136 €]]")
+        text = text.replace("(Link)", "[[LINK:por-que-no-recomiendo-plan-analytics|¿Por qué no recomiendo el plan de 136 € al mes al 95 % de los clubs?]]")
     elif "Inversión Inicial" in text and "(Link)" in text:
-        text = text.replace("(Link)", "[[LINK:inversion-inicial-camaras-180-euros|más sobre la inversión inicial]]")
+        text = text.replace("(Link)", "[[LINK:inversion-inicial-camaras-180-euros|¿Por qué hay una inversión inicial de 180 € por las cámaras?]]")
     text = text.replace("Link a ", "")
     links = {
         "este artículo": ("camaras-de-padel-o-videovigilancia", "¿Cómo saber si mis cámaras son de pádel o de videovigilancia?"),
         "artículo de los 3 errores que cometen los clubs": ("errores-clubs-se-arrepienten-de-poner-camaras", "Los 3 errores de los clubs que se arrepienten de poner cámaras"),
         "clubs que se arrepienten de poner cámaras": ("errores-clubs-se-arrepienten-de-poner-camaras", "Los 3 errores de los clubs que se arrepienten de poner cámaras"),
         "por qué no conoces Save My Play": ("por-que-no-conocia-save-my-play", "¿Por qué no había oído hablar nunca de Save My Play?"),
+        "cámaras de pádel o de videovigilancia": ("camaras-de-padel-o-videovigilancia", "¿Cómo saber si mis cámaras son de pádel o de videovigilancia?"),
+        "los 3 errores que cometen los clubs": ("errores-clubs-se-arrepienten-de-poner-camaras", "Los 3 errores de los clubs que se arrepienten de poner cámaras"),
     }
     for needle, (slug, label) in links.items():
         if slug != current_slug and needle in text:
@@ -139,12 +141,12 @@ def article_body(article: dict) -> str:
 
 
 def header(prefix: str = "../../") -> str:
-    return f'''<header class="official-header fixed top-0 left-0 w-full z-50 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-sm"><div class="header-inner max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between"><a href="{prefix}" class="logo-link" aria-label="CoolPadel Home"><img src="{prefix}assets/images/coolpadel-mascot-hd.png" alt="Mascota CoolPadel" class="logo-mascot"><img src="{prefix}assets/images/coolpadel-typography-hd.png" alt="CoolPadel" class="logo-wordmark"></a><nav class="official-nav"><a href="{prefix}#llaveros">LLAVEROS</a><a href="{prefix}camaras/">CÁMARAS</a><a href="{prefix}blog/">Blog</a><a href="{prefix}franquicias-padel/">Cadenas de clubs</a><div class="lang-links"><a href="/camaras/">ES</a><a href="/en/camaras/">EN</a><a href="/fr/camaras/">FR</a><a href="/it/camaras/">IT</a></div><a class="nav-contact" href="{prefix}#contacto">Contactar <span>↓</span></a><a href="{prefix}" aria-label="CoolPadel Eyes"><img src="{prefix}assets/images/eyes-thumb.png?v=fixed_eyes" alt="" class="eyes-thumb"></a></nav></div></header><div class="header-spacer" aria-hidden="true"></div>'''
+    return f'''<header class="fixed top-0 left-0 w-full z-50 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-xs w-full"><div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between"><a href="{prefix}" class="flex items-center gap-2 group shrink-0" aria-label="CoolPadel Home"><img src="{prefix}assets/images/coolpadel-mascot-hd.png" alt="Mascota CoolPadel" width="44" height="44" class="h-8 sm:h-11 w-auto object-contain group-hover:scale-105 transition" fetchpriority="high"><img src="{prefix}assets/images/coolpadel-typography-hd.png" alt="CoolPadel" width="140" height="28" class="h-5 sm:h-7 w-auto object-contain" fetchpriority="high"></a><div class="flex items-center gap-2 sm:gap-4 lg:gap-6"><a href="{prefix}#llaveros" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition whitespace-nowrap">LLAVEROS</a><a href="{prefix}camaras/" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition whitespace-nowrap">CÁMARAS</a><a href="{prefix}blog/" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition whitespace-nowrap">Blog</a><a href="{prefix}franquicias-padel/" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition whitespace-nowrap">Cadenas de clubs</a><div class="relative inline-block text-left"><button type="button" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-100 hover:bg-slate-200 border border-slate-200 text-xs font-black text-slate-900 shadow-xs transition cursor-pointer">ES <span aria-hidden="true">⌄</span></button><div class="hidden absolute right-0 mt-2 w-24 bg-white rounded-2xl shadow-lg border border-slate-200 py-1.5 z-50"><a href="/camaras/" class="block text-center px-4 py-2 text-xs">ES</a><a href="/en/camaras/" class="block text-center px-4 py-2 text-xs">EN</a><a href="/fr/camaras/" class="block text-center px-4 py-2 text-xs">FR</a><a href="/it/camaras/" class="block text-center px-4 py-2 text-xs">IT</a></div></div><a href="{prefix}#contacto" class="inline-flex items-center gap-1.5 px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] text-slate-950 font-heading font-black text-xs uppercase tracking-wider transition shadow-sm hover:scale-105 active:scale-95 cursor-pointer">Contactar <span aria-hidden="true">↓</span></a><a href="{prefix}" class="group py-1 inline-flex items-center shrink-0 pl-1" aria-label="CoolPadel Eyes"><img src="{prefix}assets/images/eyes-thumb.png?v=fixed_eyes" alt="CoolPadel Eyes" width="28" height="28" style="height:26px;max-height:26px;width:auto" class="object-contain group-hover:scale-110 transition duration-300"></a></div></div></header><div class="h-16 sm:h-20 w-full shrink-0" aria-hidden="true"></div>'''
 
 
 CSS = """
 * { box-sizing: border-box; }
-body { margin: 0; background: #fff; color: #0f172a; font-family: Arial, sans-serif; line-height: 1.7; }
+body { margin: 0; background: #fff; color: #0f172a; font-family: 'Plus Jakarta Sans', Arial, sans-serif; line-height: 1.7; }
 .official-header a { text-decoration: none; }
 .header-inner { width: 100%; }
 .logo-link { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
@@ -160,76 +162,86 @@ body { margin: 0; background: #fff; color: #0f172a; font-family: Arial, sans-ser
 .nav-contact:hover { background: #76d3f6; color: #0f172a !important; }
 .eyes-thumb { height: 26px; width: auto; }
 .header-spacer { height: 80px; }
-main { max-width: 1050px; margin: 0 auto; padding: 54px 20px 90px; }
-h1, h2, h3 { line-height: 1.15; letter-spacing: -.03em; }
-h1 { max-width: 820px; font-size: clamp(34px, 5vw, 62px); margin: 0 0 22px; }
+main { max-width: 1700px; margin: 0 auto; padding: 54px 20px 90px; }
+h1, h2, h3, .font-heading { font-family: 'Outfit', Arial, sans-serif; line-height: 1.15; letter-spacing: -.03em; }
+h1 { max-width: 900px; font-size: clamp(34px, 5vw, 62px); margin: 0 0 34px; font-weight: 900; color: #0f172a; }
+.article h1 { padding: 0 0 34px; margin-bottom: 0; font-size: clamp(38px, 5vw, 64px); font-weight: 900; line-height: 1.08; }
 h2 { font-size: clamp(28px, 4vw, 42px); margin: 0 0 16px; }
 h3 { font-size: 24px; margin: 0 0 12px; }
 .intro { max-width: 720px; color: #475569; font-size: 19px; }
-.article-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-top: 34px; }
+.article-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; margin-top: 34px; }
 .article-card { display: block; padding: 22px; min-height: 150px; color: #0f172a; text-decoration: none; border: 1px solid #cbd5e1; border-radius: 14px; transition: .2s ease; }
-.article-card img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; border-radius: 10px; margin: -2px 0 16px; }
+.article-card img { display: block; width: 100%; height: 120px; object-fit: cover; border-radius: 10px; margin: -2px 0 16px; }
 .article-card:hover { border-color: #f2920b; transform: translateY(-2px); }
 .article-card span { display: block; margin-top: 12px; color: #f2920b; font-size: 13px; font-weight: 700; }
 .article { max-width: 760px; margin: 0 auto; }
 .article p { margin: 0 0 24px; font-size: 18px; line-height: 1.78; }
 .article a { color: #3478a6; font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
-.article-hero { width: 100%; max-height: 380px; object-fit: cover; border-radius: 18px; margin: 0 0 34px; border: 1px solid #e2e8f0; }
-.next-step { margin: 44px 0 42px; padding-top: 26px; border-top: 2px solid #f2920b; }
+.article-hero { display: block; width: 100%; max-height: 420px; height: auto; object-fit: contain; object-position: center; background: #f8fafc; border-radius: 14px; margin: 0 auto 32px; border: 1px solid #e2e8f0; }
+.next-step { margin: 54px 0 48px; padding: 28px 30px 30px; border: 2px solid #f2920b; border-radius: 18px; background: #fffaf2; box-shadow: 0 8px 24px rgba(15,23,42,.06); }
+.next-step h2 { color: #0f172a; font-weight: 900; margin-bottom: 16px; }
 .next-step p { margin: 8px 0; }
 .calendly-inline-widget { min-width: 320px; height: 680px; margin-top: 22px; border-radius: 16px; overflow: hidden; border: 1px solid #e2e8f0; }
-.related { margin-top: 42px; }
+.video-section { margin: 42px 0; padding: 24px; border-radius: 18px; background: #f8fafc; border: 1px solid #e2e8f0; }
+.video-section h2 { font-size: 30px; margin-bottom: 10px; }
+.video-embed { display: block; width: 100%; aspect-ratio: 16 / 9; border: 0; border-radius: 12px; margin-top: 18px; background: #0f172a; }
+.related { margin-top: 48px; }
+.related h2 { font-weight: 900; padding-bottom: 12px; border-bottom: 3px solid #f2920b; }
 .related-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
 .related a { display: block; padding: 16px; color: #0f172a; text-decoration: none; border: 1px solid #cbd5e1; border-radius: 12px; font-weight: 700; }
 .related a:hover { border-color: #f2920b; }
 @media (max-width: 900px) { .official-nav > a:not(.nav-contact), .lang-links { display: none; } }
-@media (max-width: 760px) { .logo-wordmark { height: 22px; } .logo-mascot { height: 34px; } .article-grid, .related-grid { grid-template-columns: 1fr; } main { padding-top: 36px; } .article p { font-size: 17px; } .calendly-inline-widget { height: 640px; } }
+@media (max-width: 1050px) { .article-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 760px) { .logo-wordmark { height: 22px; } .logo-mascot { height: 34px; } .article-grid, .related-grid { grid-template-columns: 1fr; } main { padding-top: 36px; } .article p { font-size: 17px; } .article-hero { max-height: none; } .calendly-inline-widget { height: 640px; } }
 """
 
 HUB_CSS = """
-.intro { max-width: 760px; color: #334155; font-size: 19px; line-height: 1.75; }
-.hub-logo { width: 220px; height: auto; margin: 0 0 26px; }
-.article-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin: 34px 0 0; }
-.article-card { display: block; padding: 22px; min-height: 150px; color: #0f172a; text-decoration: none; border: 1px solid #cbd5e1; border-radius: 14px; transition: .2s ease; }
-.article-card img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; border-radius: 10px; margin: -2px 0 16px; }
-.article-card:hover { border-color: #f2920b; transform: translateY(-2px); }
-.article-card h3 { margin: 0; }
-.article-card span { display: block; margin-top: 12px; color: #f2920b; font-size: 13px; font-weight: 700; }
-.next-step { margin: 44px 0 42px; padding-top: 26px; border-top: 2px solid #f2920b; }
+.hub-hero { max-width: 1200px; margin: 30px auto 54px; text-align: center; }
+.hub-eyebrow { margin: 0 0 14px; color: #f2920b; font-size: 13px; font-weight: 900; letter-spacing: .04em; text-transform: uppercase; }
+.hub-title { max-width: none !important; margin: 0 0 16px !important; font-size: clamp(42px, 3.5vw, 58px) !important; font-weight: 900 !important; line-height: 1.05 !important; color: #0f172a !important; white-space: nowrap; text-transform: uppercase; letter-spacing: -.04em; }
+.intro { max-width: 760px; margin: 0 auto; color: #334155; font-size: 19px; line-height: 1.55; }
+.intro p { margin: 0 0 14px; }
+.article-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; margin: 34px 0 0; }
+.article-card { display: flex !important; flex-direction: column !important; justify-content: space-between !important; padding: 20px !important; color: #0f172a; text-decoration: none; }
+.card-media { position: relative; width: 100%; aspect-ratio: 16 / 9; overflow: hidden; border: 1px solid rgba(226,232,240,.9); border-radius: 12px; background: #0f172a; }
+.card-media img { display: block; width: 100% !important; height: 100% !important; object-fit: cover !important; }
+.card-body { margin-top: 12px; }
+.card-title { margin: 0; font-family: 'Outfit', Arial, sans-serif; font-size: 18px; font-weight: 800; line-height: 1.25; letter-spacing: -.02em; color: #0f172a; }
+.card-action { display: inline-flex !important; align-items: center; justify-content: center; width: 100%; min-height: 42px; background: #f2920b; color: #0f172a; border-radius: 999px; font-family: 'Outfit', Arial, sans-serif; font-size: 12px; font-weight: 900; letter-spacing: .03em; text-transform: uppercase; }
+.article-card:hover .card-action, .article-card:focus .card-action { background: #76d3f6; }
+.card-action:active { background: #76d3f6; transform: scale(.98); }
+.next-step { margin: 54px 0 48px; padding: 28px 30px 30px; border: 2px solid #f2920b; border-radius: 18px; background: #fffaf2; box-shadow: 0 8px 24px rgba(15,23,42,.06); }
+.next-step h2 { color: #0f172a; font-weight: 900; margin-bottom: 16px; }
 .next-step p { margin: 8px 0; }
 .calendly-inline-widget { min-width: 320px; height: 680px; margin-top: 22px; border-radius: 16px; overflow: hidden; border: 1px solid #e2e8f0; }
-@media (max-width: 760px) { .article-grid { grid-template-columns: 1fr; } }
+@media (max-width: 1050px) { .article-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 760px) { .hub-hero { margin: 18px auto 38px; text-align: left; } .hub-title { white-space: normal; } .intro { margin: 0; } .article-grid { grid-template-columns: 1fr; } }
 """
 
 
-def page(title: str, content: str, prefix: str = "../../") -> str:
-    return f'''<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>{html.escape(title)} | CoolPadel</title><meta name="description" content="{html.escape(title)}"><script src="https://cdn.tailwindcss.com"></script><link rel="preconnect" href="https://assets.calendly.com"><style>{CSS}</style></head><body>{header(prefix)}{content}<script src="https://assets.calendly.com/assets/external/widget.js" async></script></body></html>'''
+def page(title: str, content: str, prefix: str = "../../", extra_css: str = "") -> str:
+    return f'''<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>{html.escape(title)} | CoolPadel</title><meta name="description" content="{html.escape(title)}"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"><script src="https://cdn.tailwindcss.com"></script><link rel="preconnect" href="https://assets.calendly.com"><style>{CSS}{extra_css}</style></head><body>{header(prefix)}{content}<script src="https://assets.calendly.com/assets/external/widget.js" async></script><script src="{prefix}assets/js/cp-analytics.js" defer></script></body></html>'''
 
 
 def build(articles: list[dict]) -> None:
     ARTICLES.mkdir(parents=True, exist_ok=True)
-    cards = "\n".join(f'<a class="article-card" href="articulos/{a["slug"]}/"><img src="../assets/images/camaras/{ARTICLE_IMAGES[a["slug"]]}" alt="{html.escape(a["title"])}" loading="lazy"><h3>{html.escape(a["title"])}</h3><span>Leer artículo →</span></a>' for a in articles)
-    intro = '''<p>Si estás pensando en poner cámaras, aquí tienes información directa para entender el sistema, comparar opciones y decidir con calma. He reunido las preguntas que más me hacen los clubs y lo que he aprendido hablando con ellos.</p><p>Sabemos que queréis tomar la mejor decisión sobre las cámaras.<br>La experiencia nos dice que los clubs agradecen tener información útil a su disposición.<br>Y que si no tenéis interés en informaros, no merece la pena hacer la demo online.</p><p>Por eso, hemos tratado de ser lo más sinceros y transparentes posible.<br>Aquí está todo lo que tenéis que saber por nuestra parte, no solo los precios.</p><p>Por el camino os iréis dando cuenta de si es buena idea poner cámaras o no.<br>Y si queréis ponerlas de Save My Play o de otra empresa.<br>Sea cual sea la decisión, será mejor para vosotros y para nosotros.</p><p>En caso de hacer la demo, tendréis mejores preguntas y los dos aprovecharemos mejor el tiempo.</p>'''
-    hub = f'''<main><img class="hub-logo" src="../assets/images/save-my-play-logo.jpg" alt="Save My Play"><h1>Cámaras para clubs de pádel</h1><div class="intro">{intro}</div><section><h2>Artículos sobre cámaras</h2><div class="article-grid">{cards}</div></section><section class="next-step"><h2>Siguiente paso</h2><p>Si todavía no lo ves claro, te dejo abajo más artículos sobre cámaras que te ayudarán.</p><p>Si tienes alguna pregunta y quieres que te enseñe bien cómo funciona todo, busca tu hueco para la demo.</p><div class="calendly-inline-widget" data-url="{CALENDLY}&hide_landing_page_details=1&hide_gdpr_banner=1"></div></section></main>'''
-    # Keep the existing page head, analytics, and Calendly assets, replacing only its main content.
-    source = (CAMERAS / "index.html").read_text(encoding="utf-8")
-    if "/* Camera article hub */" not in source:
-        source = source.replace("</head>", f"<style>/* Camera article hub */{HUB_CSS}</style>\n</head>", 1)
-    source = re.sub(r"<main>.*?</main>", hub, source, count=1, flags=re.S)
-    source = re.sub(r"<header\b.*?</header>", "", source, count=1, flags=re.S)
-    source = source.replace("<body>", f"<body>{header('../')}", 1)
-    if "assets/external/widget.js" not in source:
-        source = source.replace("</body>", '<script src="https://assets.calendly.com/assets/external/widget.js" async></script></body>', 1)
-    (CAMERAS / "index.html").write_text(source, encoding="utf-8")
+    cards = "\n".join(f'''<a href="articulos/{a["slug"]}/" class="article-card bg-white border-2 border-slate-200/90 hover:border-[#f2920b] rounded-2xl shadow-2xs hover:shadow-lg transition-all duration-300 group hover:-translate-y-0.5 cursor-pointer block"><div><div class="card-media"><img src="../assets/images/camaras/{ARTICLE_IMAGES[a["slug"]]}" alt="{html.escape(a["title"])}" width="800" height="450" loading="lazy" decoding="async"><div class="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-transparent"></div><span class="absolute bottom-2 left-2 text-[9px] font-black uppercase tracking-wider px-2 py-0.5 rounded-full bg-[#f2920b] text-slate-950 shadow-xs">Cámaras</span></div><div class="card-body"><h3 class="card-title group-hover:text-[#f2920b] transition-colors">{html.escape(a["title"])}</h3></div></div><div class="pt-3.5 border-t border-slate-100 mt-4"><div class="card-action"><span>Leer artículo&nbsp; →</span></div></div></a>''' for a in articles)
+    intro = '''<p>Sabemos que queréis tomar la mejor decisión sobre las cámaras.<br>La experiencia nos dice que los clubs agradecen tener información útil a su disposición.<br>Y que si no tenéis interés en informaros, no merece la pena hacer la demo online.</p><p>Por eso, hemos tratado de ser lo más sinceros y transparentes posible.<br>Aquí está todo lo que tenéis que saber por nuestra parte, no solo los precios.</p><p>Por el camino os iréis dando cuenta de si es buena idea poner cámaras o no.<br>Y si queréis ponerlas de Save My Play o de otra empresa.<br>Sea cual sea la decisión, será mejor para vosotros y para nosotros.</p><p>En caso de hacer la demo, tendréis mejores preguntas y los dos aprovecharemos mejor el tiempo.</p>'''
+    hub = f'''<main><section class="hub-hero"><p class="hub-eyebrow">Todo lo que necesitas saber antes de poner cámaras</p><h1 class="hub-title">Cámaras para clubs de pádel</h1><div class="intro">{intro}</div></section><section><div class="article-grid">{cards}</div></section><section class="next-step"><h2>Siguiente paso</h2><p>Si todavía no lo ves claro, te dejo arriba más artículos sobre cámaras que te ayudarán.</p><p>Si tienes alguna pregunta y quieres que te enseñe bien cómo funciona todo, busca tu hueco para la demo.</p><div class="calendly-inline-widget" data-url="{CALENDLY}&hide_landing_page_details=1&hide_gdpr_banner=1"></div></section></main>'''
+    # Generate the hub from the same standalone template as every article.
+    (CAMERAS / "index.html").write_text(page("Cámaras para clubs de pádel", hub, prefix="../", extra_css=HUB_CSS), encoding="utf-8")
 
     for index, article in enumerate(articles):
         related = [articles[(index + offset) % len(articles)] for offset in (1, 2, 3)]
         related_html = "\n".join(f'<a href="../{a["slug"]}/">{html.escape(a["title"])}</a>' for a in related)
         image_name = ARTICLE_IMAGES[article["slug"]]
-        content = f'''<main><article class="article"><h1>{html.escape(article["title"])}</h1><img class="article-hero" src="../../../assets/images/camaras/{image_name}" alt="{html.escape(article["title"])}" loading="lazy">{article_body(article)}<section class="next-step"><h2>Siguiente paso</h2><p>Si todavía no lo ves claro, te dejo abajo más artículos sobre cámaras que te ayudarán.</p><p>Si tienes alguna pregunta y quieres que te enseñe bien cómo funciona todo, busca tu hueco para la demo.</p><div class="calendly-inline-widget" data-url="{CALENDLY}&hide_landing_page_details=1&hide_gdpr_banner=1"></div></section><section class="related"><h2>Más artículos sobre cámaras</h2><div class="related-grid">{related_html}</div></section></article></main>'''
+        video = ''
+        if article["slug"] == "como-ver-highlights-sin-app":
+            video = '<section class="video-section"><h2>¿Qué son las coaching tools?</h2><p>Con las coaching tools puedes dibujar sobre la repetición, marcar movimientos y grabar una explicación para que el jugador la revise después.</p><iframe class="video-embed" src="https://savemyplay.com/advanced-coaching-tools" title="Save My Play Advanced Coaching Tools" loading="lazy" allowfullscreen></iframe></section>'
+        content = f'''<main><article class="article"><h1>{html.escape(article["title"])}</h1><img class="article-hero" src="../../../assets/images/camaras/{image_name}" alt="{html.escape(article["title"])}" loading="lazy">{article_body(article)}{video}<section class="related"><h2>Más artículos sobre cámaras</h2><div class="related-grid">{related_html}</div></section><section class="next-step"><h2>Siguiente paso</h2><p>Si todavía no lo ves claro, te dejo arriba más artículos sobre cámaras que te ayudarán.</p><p>Si tienes alguna pregunta y quieres que te enseñe bien cómo funciona todo, busca tu hueco para la demo.</p><div class="calendly-inline-widget" data-url="{CALENDLY}&hide_landing_page_details=1&hide_gdpr_banner=1"></div></section></article></main>'''
         out = ARTICLES / article["slug"]
         out.mkdir(parents=True, exist_ok=True)
-        (out / "index.html").write_text(page(article["title"], content), encoding="utf-8")
+        (out / "index.html").write_text(page(article["title"], content, prefix="../../../"), encoding="utf-8")
 
 
 if __name__ == "__main__":

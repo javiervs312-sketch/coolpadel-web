@@ -559,6 +559,13 @@
             ubicacion: txt || 'Botón WhatsApp',
             evento_desc: '🎯 Clic WhatsApp (' + (txt || 'Web') + ')'
           });
+        } else if (href.includes('camaras/articulos/') || (/^\.\.\/[a-z0-9-]+\/$/.test(href) && window.location.pathname.indexOf('/camaras/articulos/') >= 0)) {
+          // Clic en un artículo de /camaras/ (tarjeta del hub, enlace relacionado o enlace dentro del texto)
+          const h = a.querySelector ? a.querySelector('h3') : null;
+          const titulo = ((h && h.innerText) || a.innerText || href).replace(/\s+/g, ' ').trim().slice(0, 70);
+          sendToWebhook('click_articulo', {
+            evento_desc: '📖 Clic artículo: ' + titulo
+          });
         } else if (a.tagName === 'BUTTON' && (txt.includes('Generar') || txt.includes('Copiar') || txt.includes('Imprimir') || txt.includes('Calcular'))) {
           sendToWebhook('herramienta_uso', {
             evento_desc: '🛠️ Usó Herramienta: ' + txt
