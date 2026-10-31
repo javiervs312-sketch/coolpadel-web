@@ -227,34 +227,58 @@ def build_barometro():
 
   <!-- Header Superior -->
   <header class="fixed top-0 left-0 w-full z-50 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-xs w-full">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between">
-      
-      <!-- LOGO: MASCOTA + TIPOGRAFÍA -->
-      <a href="/" class="flex items-center gap-2 group shrink-0" aria-label="CoolPadel Home">
-        <img src="../../assets/images/coolpadel-mascot-hd.png" alt="Mascota CoolPadel" width="44" height="44" class="h-8 sm:h-11 w-auto object-contain group-hover:scale-105 transition" fetchpriority="high">
-        <img src="../../assets/images/coolpadel-typography-hd.png" alt="CoolPadel" width="140" height="28" class="h-5 sm:h-7 w-auto object-contain" fetchpriority="high">
-      </a>
-
-      <!-- BLOQUE DE NAVEGACIÓN Y ACCIONES A LA DERECHA (ESTILO EXACTO LANDINGS) -->
-      <div class="flex items-center gap-2 sm:gap-4 lg:gap-6">
-        <a href="/#llaveros" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition whitespace-nowrap">Llaveros</a>
-        <a href="/herramientas/" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition whitespace-nowrap">Herramientas</a>
-        <a href="/blog/" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition whitespace-nowrap">Blog</a>
-        <a href="/franquicias-padel/" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition whitespace-nowrap">Cadenas de clubs</a>
-
-        <!-- BOTÓN CONTACTAR (ESTILO EXACTO LANDINGS) -->
-        <a href="/#contacto" class="inline-flex items-center gap-1.5 px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] text-slate-950 font-heading font-black text-xs uppercase tracking-wider transition shadow-sm hover:scale-105 active:scale-95 cursor-pointer">
-          <span>Contactar</span>
-          <i data-lucide="arrow-down" class="w-3 h-3 stroke-[3]"></i>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between">
+        
+        <!-- LOGO: MASCOTA + TIPOGRAFÍA -->
+        <a href="../../" class="flex items-center gap-2 group shrink-0" aria-label="CoolPadel Home">
+          <img src="../../assets/images/coolpadel-mascot-hd.png" alt="Mascota CoolPadel" width="44" height="44" class="h-8 sm:h-11 w-auto object-contain group-hover:scale-105 transition" fetchpriority="high">
+          <img src="../../assets/images/coolpadel-typography-hd.png" alt="CoolPadel" width="140" height="28" class="h-5 sm:h-7 w-auto object-contain" fetchpriority="high">
         </a>
 
-        <!-- OJOS DEL LOGO A LA DERECHA DEL TODO -->
-        <a href="/" class="group py-1 inline-flex items-center shrink-0 pl-1" aria-label="CoolPadel Eyes">
-          <img src="../../assets/images/eyes-thumb.png?v=fixed_eyes" alt="CoolPadel Eyes" width="28" height="28" style="height: 26px; max-height: 26px; width: auto;" class="object-contain group-hover:scale-110 transition duration-300">
-        </a>
+        <!-- BLOQUE DE NAVEGACIÓN Y ACCIONES A LA DERECHA (ESTILO EXACTO LANDINGS Y HOME) -->
+        <div class="flex items-center gap-2 sm:gap-4 lg:gap-6">
+          <a href="../../#llaveros" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition whitespace-nowrap">LLAVEROS</a>
+          <a href="../../camaras/" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition whitespace-nowrap">CÁMARAS</a>
+          <a href="../" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-[#f2920b] transition whitespace-nowrap">Blog</a>
+          <a href="../../franquicias-padel/" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition whitespace-nowrap">Cadenas de clubs</a>
+
+          <!-- SELECTOR DE IDIOMA EN DESPLEGABLE COMPACTO -->
+          <div class="relative inline-block text-left" id="lang-dropdown-container">
+            <button type="button" onclick="toggleLangDropdown(event)" id="lang-dropdown-btn" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-100 hover:bg-slate-200 border border-slate-200 text-xs font-black text-slate-900 shadow-xs transition cursor-pointer" aria-expanded="false" aria-haspopup="true">
+              <span id="current-lang-code" class="uppercase font-black">ES</span>
+              <i data-lucide="chevron-down" class="w-3.5 h-3.5 stroke-[2.5] text-slate-600 transition-transform duration-200" id="lang-dropdown-arrow"></i>
+            </button>
+
+            <!-- MENÚ DESPLEGABLE FLOTANTE -->
+            <div id="lang-dropdown-menu" class="hidden absolute right-0 mt-2 w-24 bg-white rounded-2xl shadow-[0_12px_30px_rgba(0,0,0,0.15)] border border-slate-200 py-1.5 z-50 transition-all overflow-hidden">
+              <a href="/blog/barometro-camaras-padel-2026/" data-lang-opt="es" class="lang-opt block lang-opt-active font-black w-full text-center px-4 py-2 text-xs transition duration-150">
+                ES
+              </a>
+              <a href="/en/blog/barometro-camaras-padel-2026/" data-lang-opt="en" class="lang-opt block text-slate-700 hover:bg-[#f2920b] hover:text-slate-950 font-bold w-full text-center px-4 py-2 text-xs transition duration-150">
+                EN
+              </a>
+              <a href="/fr/blog/barometro-camaras-padel-2026/" data-lang-opt="fr" class="lang-opt block text-slate-700 hover:bg-[#f2920b] hover:text-slate-950 font-bold w-full text-center px-4 py-2 text-xs transition duration-150">
+                FR
+              </a>
+              <a href="/it/blog/barometro-camaras-padel-2026/" data-lang-opt="it" class="lang-opt block text-slate-700 hover:bg-[#f2920b] hover:text-slate-950 font-bold w-full text-center px-4 py-2 text-xs transition duration-150">
+                IT
+              </a>
+            </div>
+          </div>
+
+          <!-- BOTÓN CONTACTAR -->
+          <a id="nav-contact-btn" href="../../#contacto" class="inline-flex items-center gap-1.5 px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] text-slate-950 font-heading font-black text-xs uppercase tracking-wider transition shadow-sm hover:scale-105 active:scale-95 cursor-pointer">
+            <span data-i18n="nav_contact">Contactar</span>
+            <i data-lucide="arrow-down" class="w-3 h-3 stroke-[3]"></i>
+          </a>
+
+          <!-- OJOS DEL LOGO A LA DERECHA DEL TODO -->
+          <a href="../../" class="group py-1 inline-flex items-center shrink-0 pl-1" aria-label="CoolPadel Eyes">
+            <img src="../../assets/images/eyes-thumb.png?v=fixed_eyes" alt="CoolPadel Eyes" width="28" height="28" style="height: 26px; max-height: 26px; width: auto;" class="object-contain group-hover:scale-110 transition duration-300">
+          </a>
+        </div>
       </div>
-    </div>
-  </header>
+    </header>
   <div class="h-16 sm:h-20 w-full shrink-0" aria-hidden="true"></div>
 
 
@@ -684,6 +708,29 @@ def build_barometro():
     lucide.createIcons();
   </script>
   <script src="/assets/js/cp-analytics.js" defer></script>
+
+  <script>
+    function toggleLangDropdown(e) {
+      e.stopPropagation();
+      const menu = document.getElementById('lang-dropdown-menu');
+      const arrow = document.getElementById('lang-dropdown-arrow');
+      if (!menu) return;
+      const isHidden = menu.classList.contains('hidden');
+      if (isHidden) {
+        menu.classList.remove('hidden');
+        if (arrow) arrow.style.transform = 'rotate(180deg)';
+      } else {
+        menu.classList.add('hidden');
+        if (arrow) arrow.style.transform = 'rotate(0deg)';
+      }
+    }
+    document.addEventListener('click', () => {
+      const menu = document.getElementById('lang-dropdown-menu');
+      const arrow = document.getElementById('lang-dropdown-arrow');
+      if (menu) menu.classList.add('hidden');
+      if (arrow) arrow.style.transform = 'rotate(0deg)';
+    });
+  </script>
 </body>
 </html>
 """
