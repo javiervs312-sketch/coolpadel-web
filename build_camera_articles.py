@@ -28,8 +28,8 @@ ARTICLE_IMAGES = {
     "que-pasa-si-cancelo": "portada-mascota-savemyplay.png",
     "como-montar-camara-save-my-play": "camara-instalada-reja-4m-crop.jpg",
     "problemas-con-las-camaras": "camera-04.jpg",
-    "camaras-en-exterior-lluvia-nieve-viento": "pista-outdoor-world-sports.png",
     "que-son-las-coaching-tools": "portada-coaching-tools-tablet.png",
+    "camaras-en-exterior-lluvia-nieve-viento": "pista-outdoor-world-sports.png",
     "como-ver-highlights-sin-app": "portada-email-highlights.png",
     "mejores-empresas-camaras-padel-espana": "camera-03.jpg",
     "por-que-no-conocia-save-my-play": "save-email-clip-sportime.png",
@@ -61,6 +61,110 @@ ARTICLE_SPECS = [
     ("he-comprado-camaras-que-pasa-ahora", "He comprado unas cámaras de Save My Play. ¿Cuál es el proceso ahora?", 72, 75),
     ("por-que-no-me-interesa-venderte-una-camara", "¿Por qué no me interesa venderte una cámara si no estás convencido?", 88, 88),
 ]
+
+# Curated related articles with rich varied imagery and topic relevance
+RELATED_MAP = {
+    "por-donde-empezar-si-estoy-pensando-en-poner-camaras": [
+        "errores-clubs-se-arrepienten-de-poner-camaras",
+        "cuanto-cuesta-poner-camaras",
+        "es-rentable-poner-camaras",
+    ],
+    "errores-clubs-se-arrepienten-de-poner-camaras": [
+        "por-donde-empezar-si-estoy-pensando-en-poner-camaras",
+        "cuanto-cuesta-poner-camaras",
+        "es-rentable-poner-camaras",
+    ],
+    "camaras-de-padel-o-videovigilancia": [
+        "errores-clubs-se-arrepienten-de-poner-camaras",
+        "como-montar-camara-save-my-play",
+        "cuanto-cuesta-poner-camaras",
+    ],
+    "cuanto-cuesta-poner-camaras": [
+        "es-rentable-poner-camaras",
+        "por-que-no-recomiendo-plan-analytics",
+        "inversion-inicial-camaras-180-euros",
+    ],
+    "inversion-inicial-camaras-180-euros": [
+        "cuanto-cuesta-poner-camaras",
+        "que-pasa-si-cancelo",
+        "como-montar-camara-save-my-play",
+    ],
+    "es-caro-save-my-play": [
+        "cuanto-cuesta-poner-camaras",
+        "es-rentable-poner-camaras",
+        "save-my-play-en-pocas-palabras",
+    ],
+    "es-rentable-poner-camaras": [
+        "cuanto-cuesta-poner-camaras",
+        "errores-clubs-se-arrepienten-de-poner-camaras",
+        "por-donde-empezar-si-estoy-pensando-en-poner-camaras",
+    ],
+    "por-que-no-recomiendo-plan-analytics": [
+        "cuanto-cuesta-poner-camaras",
+        "errores-clubs-se-arrepienten-de-poner-camaras",
+        "que-son-las-coaching-tools",
+    ],
+    "que-pasa-si-cancelo": [
+        "inversion-inicial-camaras-180-euros",
+        "cuanto-cuesta-poner-camaras",
+        "save-my-play-en-pocas-palabras",
+    ],
+    "como-montar-camara-save-my-play": [
+        "camaras-en-exterior-lluvia-nieve-viento",
+        "como-ver-highlights-sin-app",
+        "problemas-con-las-camaras",
+    ],
+    "problemas-con-las-camaras": [
+        "como-montar-camara-save-my-play",
+        "camaras-en-exterior-lluvia-nieve-viento",
+        "save-my-play-en-pocas-palabras",
+    ],
+    "que-son-las-coaching-tools": [
+        "como-ver-highlights-sin-app",
+        "por-que-no-recomiendo-plan-analytics",
+        "save-my-play-en-pocas-palabras",
+    ],
+    "camaras-en-exterior-lluvia-nieve-viento": [
+        "como-montar-camara-save-my-play",
+        "problemas-con-las-camaras",
+        "save-my-play-en-pocas-palabras",
+    ],
+    "como-ver-highlights-sin-app": [
+        "como-montar-camara-save-my-play",
+        "que-son-las-coaching-tools",
+        "por-que-no-conocia-save-my-play",
+    ],
+    "mejores-empresas-camaras-padel-espana": [
+        "por-donde-empezar-si-estoy-pensando-en-poner-camaras",
+        "errores-clubs-se-arrepienten-de-poner-camaras",
+        "save-my-play-en-pocas-palabras",
+    ],
+    "por-que-no-conocia-save-my-play": [
+        "save-my-play-en-pocas-palabras",
+        "por-que-coolpadel-colabora-con-save-my-play",
+        "mejores-empresas-camaras-padel-espana",
+    ],
+    "save-my-play-en-pocas-palabras": [
+        "por-que-coolpadel-colabora-con-save-my-play",
+        "es-rentable-poner-camaras",
+        "como-montar-camara-save-my-play",
+    ],
+    "por-que-coolpadel-colabora-con-save-my-play": [
+        "save-my-play-en-pocas-palabras",
+        "por-que-no-conocia-save-my-play",
+        "por-donde-empezar-si-estoy-pensando-en-poner-camaras",
+    ],
+    "he-comprado-camaras-que-pasa-ahora": [
+        "como-montar-camara-save-my-play",
+        "que-pasa-si-cancelo",
+        "inversion-inicial-camaras-180-euros",
+    ],
+    "por-que-no-me-interesa-venderte-una-camara": [
+        "errores-clubs-se-arrepienten-de-poner-camaras",
+        "es-rentable-poner-camaras",
+        "que-pasa-si-cancelo",
+    ],
+}
 
 
 def clean_body(text: str) -> str:
@@ -283,14 +387,14 @@ h3 { font-size: 24px; margin: 0 0 12px; }
 .intro { max-width: 720px; color: #475569; font-size: 19px; }
 .article { max-width: 760px; margin: 0 auto; }
 
-/* Article body and paragraph block spacing */
-.article-block { margin: 0 0 28px; }
+/* Article body and generous paragraph block spacing (el triple de separación) */
+.article-block { margin: 0 0 54px; }
 .article p { margin: 0 0 6px; font-size: 18px; line-height: 1.75; }
 .article a { color: #3478a6; font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
 
 /* Subheadings (Error 1, Plan A, Conclusión, etc.) */
 .article-subheading {
-  margin: 36px 0 14px;
+  margin: 44px 0 16px;
   font-size: clamp(22px, 3vw, 28px);
   font-weight: 900;
   color: #0f172a;
@@ -311,13 +415,13 @@ h3 { font-size: 24px; margin: 0 0 12px; }
   color: #f2920b;
 }
 
-.article-hero { display: block; width: 100%; max-height: 420px; height: auto; object-fit: contain; object-position: center; background: #f8fafc; border-radius: 14px; margin: 0 auto 32px; border: 1px solid #e2e8f0; }
+.article-hero { display: block; width: 100%; max-height: 420px; height: auto; object-fit: contain; object-position: center; background: #f8fafc; border-radius: 14px; margin: 0 auto 36px; border: 1px solid #e2e8f0; }
 
-/* Next step section — clean white background with subtle border */
+/* Next step section — clean white background with signature orange border */
 .next-step {
   margin: 54px 0 48px;
   padding: 32px 34px 34px;
-  border: 1px solid #e2e8f0;
+  border: 2px solid #f2920b;
   border-radius: 20px;
   background: #ffffff;
   box-shadow: 0 10px 30px rgba(15,23,42,.04);
@@ -350,22 +454,26 @@ h3 { font-size: 24px; margin: 0 0 12px; }
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 18px;
 }
+.article a.related-card,
 .related-card {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 16px;
-  background: #ffffff;
-  border: 2px solid #e2e8f0;
-  border-radius: 16px;
-  text-decoration: none;
-  transition: all 0.25s ease;
-  box-shadow: 0 2px 8px rgba(15,23,42,.03);
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-start !important;
+  padding: 14px !important;
+  background: #ffffff !important;
+  border: 2px solid #e2e8f0 !important;
+  border-radius: 16px !important;
+  text-decoration: none !important;
+  color: inherit !important;
+  transition: all 0.25s ease !important;
+  box-shadow: 0 2px 8px rgba(15,23,42,.03) !important;
 }
+.article a.related-card:hover,
 .related-card:hover {
-  border-color: #f2920b;
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(15,23,42,.08);
+  border-color: #f2920b !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 20px rgba(15,23,42,.08) !important;
+  text-decoration: none !important;
 }
 .related-thumb {
   width: 100%;
@@ -374,6 +482,7 @@ h3 { font-size: 24px; margin: 0 0 12px; }
   overflow: hidden;
   background: #0f172a;
   margin-bottom: 12px;
+  flex-shrink: 0;
 }
 .related-thumb img {
   width: 100%;
@@ -382,15 +491,15 @@ h3 { font-size: 24px; margin: 0 0 12px; }
   display: block;
 }
 .related-title {
-  font-size: 15px;
-  font-weight: 800;
-  line-height: 1.35;
-  color: #0f172a;
-  margin: 0;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
+  font-size: 13.5px !important;
+  font-weight: 700 !important;
+  line-height: 1.4 !important;
+  color: #0f172a !important;
+  margin: 0 !important;
+  text-decoration: none !important;
+  display: block !important;
+  overflow: visible !important;
+  white-space: normal !important;
 }
 
 @media (max-width: 900px) { .official-nav > a:not(.nav-contact), .lang-links { display: none; } }
@@ -417,7 +526,7 @@ HUB_CSS = """
 .article-card { color: #0f172a; text-decoration: none; }
 .article-card img { display: block; }
 .card-action:active { background: #76d3f6; transform: scale(.98); }
-.next-step { margin: 54px 0 48px; padding: 32px 34px 34px; border: 1px solid #e2e8f0; border-radius: 20px; background: #ffffff; box-shadow: 0 10px 30px rgba(15,23,42,.04); }
+.next-step { margin: 54px 0 48px; padding: 32px 34px 34px; border: 2px solid #f2920b; border-radius: 20px; background: #ffffff; box-shadow: 0 10px 30px rgba(15,23,42,.04); }
 .next-step h2 { color: #0f172a; font-size: clamp(28px, 4vw, 36px); font-weight: 900; margin: 0 0 16px; letter-spacing: -0.02em; }
 .next-step p { margin: 8px 0; font-size: 17px; line-height: 1.7; color: #334155; }
 .calendly-inline-widget { min-width: 320px; height: 680px; margin-top: 24px; border-radius: 16px; overflow: hidden; border: 1px solid #e2e8f0; }
@@ -441,8 +550,11 @@ def build(articles: list[dict]) -> None:
     # Generate the hub
     (CAMERAS / "index.html").write_text(page("Cámaras para clubs de pádel", hub, prefix="../", extra_css=HUB_CSS), encoding="utf-8")
 
-    for index, article in enumerate(articles):
-        related = [articles[(index + offset) % len(articles)] for offset in (1, 2, 3)]
+    article_by_slug = {a["slug"]: a for a in articles}
+
+    for article in articles:
+        rel_slugs = RELATED_MAP.get(article["slug"], [])
+        related = [article_by_slug[s] for s in rel_slugs if s in article_by_slug]
         related_html = "\n".join(
             f'''<a href="../{a["slug"]}/" class="related-card"><div class="related-thumb"><img src="../../../assets/images/camaras/{ARTICLE_IMAGES[a["slug"]]}" alt="{html.escape(a["title"])}" loading="lazy"></div><p class="related-title">{html.escape(a["title"])}</p></a>'''
             for a in related
