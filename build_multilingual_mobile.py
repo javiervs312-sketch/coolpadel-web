@@ -2077,13 +2077,21 @@ def get_base_html(active_lang="es", is_subfolder=False):
 
       </div>
 
-      <!-- BOTÓN CONTACTAR LLAVEROS CENTRADO -->
-      <div class="text-center pt-1 pb-1">
+      <!-- BOTONES DE CONTACTAR Y ACCESO A MODELOS DE LLAVEROS -->
+      <div class="flex flex-wrap items-center justify-center gap-3 sm:gap-4 pt-1 pb-1">
         <a id="llaveros-contact-btn" href="{asset_prefix}#contacto"
-           class="group relative inline-flex items-center justify-center gap-2.5 px-7 py-3 sm:px-8 sm:py-3.5 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] active:bg-[#76d3f6] text-slate-950 active:scale-95 font-heading font-black text-sm uppercase tracking-wider transition-all duration-300 shadow-xl hover:scale-105 overflow-hidden cursor-pointer">
+           class="group relative inline-flex items-center justify-center gap-2.5 px-6 py-3 sm:px-7 sm:py-3.5 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] active:bg-[#76d3f6] text-slate-950 active:scale-95 font-heading font-black text-xs sm:text-sm uppercase tracking-wider transition-all duration-300 shadow-xl hover:scale-105 overflow-hidden cursor-pointer">
           <span data-i18n="btn_calc_wa" class="font-black">{t['btn_calc_wa']}</span>
           <div class="w-6 h-6 rounded-full bg-slate-950/10 group-hover:bg-slate-950 group-hover:text-white flex items-center justify-center transition-all duration-300">
             <i data-lucide="arrow-down" class="w-3.5 h-3.5 stroke-[3] group-hover:translate-y-0.5 transition-transform duration-300"></i>
+          </div>
+        </a>
+
+        <a id="llaveros-page-btn" href="{asset_prefix}llaveros-padel-personalizados/"
+           class="group relative inline-flex items-center justify-center gap-2.5 px-6 py-3 sm:px-7 sm:py-3.5 rounded-full bg-[#76d3f6] hover:bg-[#f2920b] active:bg-[#f2920b] text-slate-950 active:scale-95 font-heading font-black text-xs sm:text-sm uppercase tracking-wider transition-all duration-300 shadow-xl hover:scale-105 overflow-hidden cursor-pointer">
+          <span class="font-black">{"Ver llaveros CoolPadel" if active_lang=="es" else "View CoolPadel keychains" if active_lang=="en" else "Voir porte-clés CoolPadel" if active_lang=="fr" else "Vedi portachiavi CoolPadel"}</span>
+          <div class="w-6 h-6 rounded-full bg-slate-950/10 group-hover:bg-slate-950 group-hover:text-white flex items-center justify-center transition-all duration-300">
+            <i data-lucide="arrow-right" class="w-3.5 h-3.5 stroke-[3] group-hover:translate-x-0.5 transition-transform duration-300"></i>
           </div>
         </a>
       </div>
@@ -2152,9 +2160,9 @@ def get_base_html(active_lang="es", is_subfolder=False):
         </a>
 
         <a id="smp-page-btn" href="{camaras_url}"
-           class="group relative inline-flex items-center justify-center gap-2.5 px-6 py-3 sm:px-7 sm:py-3.5 rounded-full bg-slate-950 hover:bg-[#f2920b] text-white hover:text-slate-950 active:scale-95 font-heading font-black text-xs sm:text-sm uppercase tracking-wider transition-all duration-300 shadow-xl hover:scale-105 overflow-hidden cursor-pointer border border-slate-900">
+           class="group relative inline-flex items-center justify-center gap-2.5 px-6 py-3 sm:px-7 sm:py-3.5 rounded-full bg-[#76d3f6] hover:bg-[#f2920b] active:bg-[#f2920b] text-slate-950 active:scale-95 font-heading font-black text-xs sm:text-sm uppercase tracking-wider transition-all duration-300 shadow-xl hover:scale-105 overflow-hidden cursor-pointer">
           <span class="font-black">{"Ver cámaras Save my Play" if active_lang=="es" else "View Save my Play cameras" if active_lang=="en" else "Voir caméras Save my Play" if active_lang=="fr" else "Vedi telecamere Save my Play"}</span>
-          <div class="w-6 h-6 rounded-full bg-white/10 group-hover:bg-slate-950 group-hover:text-white flex items-center justify-center transition-all duration-300">
+          <div class="w-6 h-6 rounded-full bg-slate-950/10 group-hover:bg-slate-950 group-hover:text-white flex items-center justify-center transition-all duration-300">
             <i data-lucide="arrow-right" class="w-3.5 h-3.5 stroke-[3] group-hover:translate-x-0.5 transition-transform duration-300"></i>
           </div>
         </a>
