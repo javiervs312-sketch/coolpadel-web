@@ -5823,6 +5823,8 @@ def build_all():
         from build_landing_pages import build_all_landings
 
         build_all_landings()
+        from build_llaveros_articles import build_all as build_llaveros_hub_articles
+        build_llaveros_hub_articles()
 
     except Exception as e:
 
