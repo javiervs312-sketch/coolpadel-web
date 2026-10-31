@@ -832,6 +832,12 @@ def render_landing(landing, lang="es"):
     asset_prefix = "../" if lang == "es" else "../../"
     page_url = f"https://coolpadelstudios.com/{path_prefix}{landing['slug']}/"
     og_locale = {"es": "es_ES", "en": "en_US", "fr": "fr_FR", "it": "it_IT"}.get(lang, "es_ES")
+    home_url = "/" if lang == "es" else f"/{lang}/"
+    camaras_url = "/camaras/" if lang == "es" else f"/{lang}/camaras/"
+    blog_url = "/blog/" if lang == "es" else f"/{lang}/blog/"
+    franquicias_url = "/franquicias-padel/" if lang == "es" else f"/{lang}/franquicias-padel/"
+    llaveros_url = "/#llaveros" if lang == "es" else f"/{lang}/#llaveros"
+    contacto_url = "#contacto" if lang == "es" else f"/{lang}/#contacto" 
 
     # FAQ Schema
     faq_schema_items = []
@@ -1450,26 +1456,26 @@ def render_landing(landing, lang="es"):
   <!-- HEADER OFICIAL -->
   <header class="fixed top-0 left-0 w-full z-50 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-xs">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between">
-      <a href="{asset_prefix}" class="flex items-center gap-2 group">
+      <a href="{home_url}" class="flex items-center gap-2 group">
         <img src="{asset_prefix}assets/images/coolpadel-mascot-hd.png" alt="Mascota CoolPadel" width="44" height="44" class="h-8 sm:h-11 w-auto object-contain">
         <img src="{asset_prefix}assets/images/coolpadel-typography-hd.png" alt="CoolPadel" width="140" height="28" class="h-5 sm:h-7 w-auto object-contain">
       </a>
       
       <div class="flex items-center gap-2 sm:gap-4 lg:gap-6">
-        <a href="{asset_prefix}#llaveros" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition">{ui['nav_llaveros']}</a>
-        <a href="{asset_prefix}camaras/" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition whitespace-nowrap">{"CAMERAS" if lang=="en" else "CAMÉRAS" if lang=="fr" else "TELECAMERE" if lang=="it" else "CÁMARAS"}</a>
-        <a href="{asset_prefix}blog/" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition">{ui['nav_blog']}</a>
-        <a href="{asset_prefix}franquicias-padel/" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition">{"Franchises" if lang=="en" else "Franchises" if lang=="fr" else "Franchigie" if lang=="it" else "Cadenas de clubs"}</a>
+        <a href="{llaveros_url}" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition">{ui['nav_llaveros']}</a>
+        <a href="{camaras_url}" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition whitespace-nowrap">{"CAMERAS" if lang=="en" else "CAMÉRAS" if lang=="fr" else "TELECAMERE" if lang=="it" else "CÁMARAS"}</a>
+        <a href="{blog_url}" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition">{ui['nav_blog']}</a>
+        <a href="{franquicias_url}" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition">{"Franchises" if lang=="en" else "Franchises" if lang=="fr" else "Franchigie" if lang=="it" else "Cadenas de clubs"}</a>
         
         {lang_switcher_html}
 
-        <a href="#contacto" class="inline-flex items-center gap-1.5 px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] text-slate-950 font-heading font-black text-xs uppercase tracking-wider transition shadow-sm hover:scale-105 active:scale-95">
+        <a href="{contacto_url}" class="inline-flex items-center gap-1.5 px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] text-slate-950 font-heading font-black text-xs uppercase tracking-wider transition shadow-sm hover:scale-105 active:scale-95">
           <span>{ui['nav_contacto']}</span>
           <i data-lucide="arrow-down" class="w-3 h-3 stroke-[3]"></i>
         </a>
 
         <!-- OJOS DEL LOGO A LA DERECHA DEL TODO -->
-        <a href="{asset_prefix}" class="group py-1 inline-flex items-center shrink-0 pl-1" aria-label="CoolPadel Eyes">
+        <a href="{home_url}" class="group py-1 inline-flex items-center shrink-0 pl-1" aria-label="CoolPadel Eyes">
           <img src="{asset_prefix}assets/images/eyes-thumb.png?v=fixed_eyes" alt="CoolPadel Eyes" width="28" height="28" style="height: 26px; max-height: 26px; width: auto;" class="object-contain group-hover:scale-110 transition duration-300">
         </a>
       </div>

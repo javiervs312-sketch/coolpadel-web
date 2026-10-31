@@ -56,10 +56,10 @@ def get_tool_header(lang, slug, active_title):
 
       <!-- BLOQUE DE NAVEGACIÓN Y ACCIONES A LA DERECHA (ESTILO EXACTO LANDINGS Y HOME) -->
       <div class="flex items-center gap-2 sm:gap-4 lg:gap-6">
-        <a href="{llaveros_href}" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition whitespace-nowrap">{t_nav[\'llaveros\']}</a>
-        <a href="{camaras_href}" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition whitespace-nowrap">{t_nav[\'camaras\']}</a>
+        <a href="{llaveros_href}" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition whitespace-nowrap">{t_nav["llaveros"]}</a>
+        <a href="{camaras_href}" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition whitespace-nowrap">{t_nav["camaras"]}</a>
         <a href="{blog_href}" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition whitespace-nowrap">Blog</a>
-        <a href="{franquicias_href}" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition whitespace-nowrap">{t_nav[\'franquicias\']}</a>
+        <a href="{franquicias_href}" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition whitespace-nowrap">{t_nav["franquicias"]}</a>
 
         <!-- SELECTOR DE IDIOMA EN DESPLEGABLE COMPACTO -->
         <div class="relative inline-block text-left" id="lang-dropdown-container">
@@ -87,7 +87,7 @@ def get_tool_header(lang, slug, active_title):
 
         <!-- BOTÓN CONTACTAR -->
         <a id="nav-contact-btn" href="{contacto_href}" class="inline-flex items-center gap-1.5 px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] text-slate-950 font-heading font-black text-xs uppercase tracking-wider transition shadow-sm hover:scale-105 active:scale-95 cursor-pointer">
-          <span data-i18n="nav_contact">{t_nav[\'contacto\']}</span>
+          <span data-i18n="nav_contact">{t_nav["contacto"]}</span>
           <i data-lucide="arrow-down" class="w-3 h-3 stroke-[3]"></i>
         </a>
 
