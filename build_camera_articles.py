@@ -33,7 +33,7 @@ ARTICLE_IMAGES = {
     "que-son-las-coaching-tools": "portada-coaching-tools-tablet.png",
     "como-ver-highlights-sin-app": "portada-email-highlights.png",
     "mejores-empresas-camaras-padel-espana": "camera-03.jpg",
-    "por-que-no-conocia-save-my-play": "portada-bandido-highlight.jpg",
+    "por-que-no-conocia-save-my-play": "save-email-clip-sportime.png",
     "save-my-play-en-pocas-palabras": "retransmision-usta-national-campus.png",
     "por-que-coolpadel-colabora-con-save-my-play": "portada-coolpadel-savemyplay.jpg",
     "he-comprado-camaras-que-pasa-ahora": "camera-02.jpg",
