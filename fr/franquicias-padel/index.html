@@ -16991,6 +16991,35 @@
 
   </div>
 
+  <!-- BANNER FLOTANTE DATA GUARD (ESTILO PADEL GENIE - ACTIVIDAD INUSUAL) -->
+  <div id="dataGuardBanner" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 max-w-xl w-[calc(100vw-2rem)] bg-slate-950 text-white rounded-2xl shadow-2xl border border-amber-500/30 p-4 sm:p-5 flex flex-col sm:flex-row items-center justify-between gap-4 transition-all duration-300 opacity-0 pointer-events-none translate-y-8" role="alert">
+    <div class="flex items-start gap-3 text-left">
+      <div class="w-10 h-10 rounded-xl bg-amber-500/20 text-[#f2920b] flex items-center justify-center shrink-0 border border-amber-500/30 text-lg">
+        🛡️
+      </div>
+      <div>
+        <div class="flex items-center gap-2 mb-1">
+          <span class="text-xs font-black uppercase tracking-wider text-[#f2920b]" id="dataGuardTag">Acceso de Datos en Pausa</span>
+          <span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span>
+        </div>
+        <p class="text-xs sm:text-sm text-slate-300 leading-snug" id="dataGuardMsg">
+          Hemos detectado una tasa inusual de consultas en el visor de cadenas. Si necesitas la base de datos o análisis de mercado a escala, contáctanos directamente.
+        </p>
+      </div>
+    </div>
+    <div class="flex items-center gap-2 shrink-0 w-full sm:w-auto">
+      <a href="https://wa.me/34623976697?text=Hola%20Javier,%20me%20gustar%C3%ADa%20solicitar%20el%20censo%20completo%20de%20franquicias%20y%20cadenas%20de%20p%C3%A1del%20para%20un%20estudio%20de%20mercado."
+         target="_blank" rel="noopener noreferrer"
+         class="flex-1 sm:flex-initial inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-xl bg-[#f2920b] hover:bg-[#d97f08] text-slate-950 font-heading font-black text-xs uppercase tracking-wider transition shadow-md shadow-amber-500/20 whitespace-nowrap">
+        <span>Hablar por WhatsApp</span>
+        <i data-lucide="message-circle" class="w-3.5 h-3.5 stroke-[2.5]"></i>
+      </a>
+      <button onclick="dismissDataGuard()" class="w-8 h-8 rounded-xl bg-slate-800/80 hover:bg-slate-700 text-slate-400 hover:text-white flex items-center justify-center transition shrink-0" title="Cerrar">
+        <i data-lucide="x" class="w-4 h-4"></i>
+      </button>
+    </div>
+  </div>
+
   <!-- MODAL ONBOARDING / RECLAMAR FICHA (4 PASOS B2B) -->
   <div id="onboardingModalOverlay" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-50 transition-opacity opacity-0 pointer-events-none flex items-center justify-center p-3 sm:p-6" onclick="closeOnboardingModal()">
     <div id="onboardingModal" class="bg-white w-full max-w-2xl max-h-[94vh] rounded-3xl shadow-2xl border border-slate-200 overflow-hidden flex flex-col transform scale-95 transition-transform duration-300" onclick="event.stopPropagation()">
@@ -18374,6 +18403,7 @@
     }
 
     function applyFilters() {
+      registerUserInteraction();
       const query = document.getElementById('searchInput').value.toLowerCase().trim();
       const cards = document.querySelectorAll('.franchise-card');
       const tableRows = document.querySelectorAll('#tableView tbody tr');
@@ -18835,6 +18865,7 @@
     // SLIDE-OVER DRAWER LOGIC
     // =========================================================================
     function openDrawer(id) {
+      registerUserInteraction();
       const f = FRANQUICIAS.find(item => item.id === id);
       if (!f) return;
       currentDrawerId = id;
@@ -19013,6 +19044,108 @@
       if (containerMob && menuMob && !containerMob.contains(e.target)) {
         menuMob.classList.add('hidden');
         if (arrowMob) arrowMob.classList.remove('rotate-180');
+      }
+    });
+
+    // ── DATA GUARD (ANTI-SCRAPING INTELIGENTE CLIENT-SIDE) ──────────────────
+    let isDataGuardActive = false;
+    let queryTimestamps = [];
+    const MAX_QUERIES_PER_10S = 14;
+
+    const DATA_GUARD_TEXTS = {
+      es: {
+        tag: 'Acceso de Datos en Pausa',
+        msg: 'Hemos detectado una tasa inusual de consultas en el visor de cadenas. Si necesitas el censo completo o análisis de mercado a escala, contáctanos directamente.',
+        btn: 'Hablar por WhatsApp'
+      },
+      en: {
+        tag: 'Data Access Paused',
+        msg: "We have detected unusual query activity on the chain directory. If you require full census data or market analysis at scale, please contact us directly.",
+        btn: 'Chat on WhatsApp'
+      },
+      fr: {
+        tag: 'Accès aux Données Suspendu',
+        msg: "Une activité inhabituelle de requêtes a été détectée sur le répertoire. Si vous avez besoin de données à grande échelle, veuillez nous contacter directement.",
+        btn: 'Contacter sur WhatsApp'
+      },
+      it: {
+        tag: 'Accesso Dati in Pausa',
+        msg: "È stata rilevata un'attività insolita di consultazione nel catalogo. Se necessiti dell'intero database o di un'analisi di mercato su larga scala, contattaci.",
+        btn: 'Chatta su WhatsApp'
+      }
+    };
+
+    function triggerDataGuard(reason) {
+      if (isDataGuardActive) return;
+      isDataGuardActive = true;
+      const banner = document.getElementById('dataGuardBanner');
+      if (!banner) return;
+
+      const lang = 'fr' || 'es';
+      const t = DATA_GUARD_TEXTS[lang] || DATA_GUARD_TEXTS.es;
+
+      const tagEl = document.getElementById('dataGuardTag');
+      const msgEl = document.getElementById('dataGuardMsg');
+      if (tagEl) tagEl.textContent = t.tag;
+      if (msgEl) msgEl.textContent = t.msg;
+
+      banner.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-8');
+      banner.classList.add('opacity-100', 'translate-y-0');
+
+      try {
+        if (window.lucide) lucide.createIcons();
+      } catch (e) {}
+    }
+
+    function dismissDataGuard() {
+      const banner = document.getElementById('dataGuardBanner');
+      if (banner) {
+        banner.classList.add('opacity-0', 'pointer-events-none', 'translate-y-8');
+        banner.classList.remove('opacity-100', 'translate-y-0');
+      }
+    }
+
+    function registerUserInteraction() {
+      const now = Date.now();
+      queryTimestamps.push(now);
+      queryTimestamps = queryTimestamps.filter(t => now - t < 10000);
+      if (queryTimestamps.length > MAX_QUERIES_PER_10S) {
+        triggerDataGuard('rate_limit');
+      }
+    }
+
+    // Detección 1: Atajos de teclado de scraping / DevTools (F12, Ctrl+U, Ctrl+Shift+I, etc.)
+    document.addEventListener('keydown', function(e) {
+      const k = e.key;
+      const isDevTools = (
+        k === 'F12' ||
+        (e.ctrlKey && e.shiftKey && (k === 'I' || k === 'i' || k === 'J' || k === 'j' || k === 'C' || k === 'c')) ||
+        (e.ctrlKey && (k === 'U' || k === 'u' || k === 'S' || k === 's'))
+      );
+      if (isDevTools) {
+        triggerDataGuard('devtools_shortcut');
+      }
+    });
+
+    // Detección 2: Apertura de consola / DevTools mediante timing loop
+    (function detectDevTools() {
+      let devtoolsOpen = false;
+      const threshold = 160;
+      setInterval(function() {
+        const widthThreshold = window.outerWidth - window.innerWidth > threshold;
+        const heightThreshold = window.outerHeight - window.innerHeight > threshold;
+        if ((widthThreshold || heightThreshold) && !devtoolsOpen) {
+          devtoolsOpen = true;
+          triggerDataGuard('devtools_docked');
+        }
+      }, 1000);
+    })();
+
+    // Detección 3: Copia masiva de texto en el directorio
+    document.addEventListener('copy', function(e) {
+      const selection = window.getSelection().toString();
+      if (selection && selection.length > 350) {
+        triggerDataGuard('mass_copy');
       }
     });
 

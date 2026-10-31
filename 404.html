@@ -2,6 +2,22 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
+  <script>
+    // Enrutador transparente para subrutas VIP de clubs (/camaras/nombre-club/ o /idioma/camaras/nombre-club/)
+    (function() {
+      var path = window.location.pathname || '';
+      var m = path.match(/^(\/(?:(?:en|fr|it|de)\/)?camaras)\/([a-z0-9\-]+)\/?$/i);
+      if (m && !['articulos', 'assets', 'index.html'].includes(m[2].toLowerCase())) {
+        var baseCamaras = m[1].replace(/\/$/, '') + '/';
+        var slugClub = m[2].replace(/-/g, ' ').replace(/\b\w/g, function(l){ return l.toUpperCase(); });
+        try {
+          localStorage.setItem('cp_lead_name', slugClub);
+          sessionStorage.setItem('cp_lead_name', slugClub);
+        } catch(e) {}
+        window.location.replace(baseCamaras + window.location.search + window.location.hash);
+      }
+    })();
+  </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>404 - Página no encontrada | CoolPadel Studios</title>
   <meta name="description" content="La página que buscas no existe o ha sido movida. Descubre nuestros llaveros personalizados de pádel, cámaras Save My Play y artículos de blog.">

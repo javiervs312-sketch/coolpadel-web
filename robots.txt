@@ -7,6 +7,11 @@ Disallow: /propuesta-2.html
 Disallow: /propuesta-3.html
 Disallow: /manual-marca.html
 Disallow: /camaras.html
+Disallow: /camaras/*
+Disallow: /en/camaras/*
+Disallow: /fr/camaras/*
+Disallow: /it/camaras/*
+Disallow: /de/camaras/*
 Disallow: /si-estas-pensando-en-poner-camaras-en-el-club.html
 
 # AI Search Engines & Generative Crawlers (GEO / SearchGPT / Perplexity / Gemini / Claude)
