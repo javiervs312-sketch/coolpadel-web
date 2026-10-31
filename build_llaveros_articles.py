@@ -249,41 +249,41 @@ def get_header(prefix: str = "../") -> str:
 def get_calculator_html(prefix: str = "../") -> str:
     return f'''
     <!-- CALCULADORA DE PRECIOS INTERACTIVA -->
-    <section id="precios" class="my-10 max-w-4xl mx-auto w-full bg-white rounded-3xl p-5 sm:p-8 border-2 border-slate-200/90 shadow-xl text-slate-950">
+    <div id="precios" class="max-w-4xl mx-auto w-full text-white">
       <div class="text-center mb-6 space-y-1">
         <span class="text-xs font-black uppercase tracking-wider text-[#f2920b]">Tarifas directas de fábrica</span>
-        <h2 class="text-2xl sm:text-3xl font-black font-heading text-slate-950 uppercase tracking-tight">
+        <h2 class="text-2xl sm:text-3xl font-black font-heading text-white uppercase tracking-tight">
           Calcula tu pedido
         </h2>
-        <p class="text-xs sm:text-sm text-slate-500 font-medium">
+        <p class="text-xs sm:text-sm text-white/80 font-medium">
           Muestra física real por 15 € deducible al 100% · Envíos incluidos a toda España y Europa
         </p>
       </div>
 
       <div class="space-y-6">
-        <div class="flex justify-between items-end pb-3 border-b border-slate-100">
+        <div class="flex justify-between items-end pb-3 border-b border-white/20">
           <div>
-            <span class="text-[11px] font-bold text-slate-500 uppercase tracking-wider block">Nº de llaveros:</span>
-            <span id="calc-qty-badge" class="text-xl sm:text-3xl font-black font-heading text-slate-950">100 unidades</span>
+            <span class="text-[11px] font-bold text-white/70 uppercase tracking-wider block">Nº de llaveros:</span>
+            <span id="calc-qty-badge" class="text-xl sm:text-3xl font-black font-heading text-white">100 unidades</span>
           </div>
           <div class="text-right">
-            <span class="text-[11px] font-bold text-slate-500 uppercase tracking-wider block">Importe estimado:</span>
+            <span class="text-[11px] font-bold text-white/70 uppercase tracking-wider block">Importe estimado:</span>
             <div class="flex items-baseline justify-end gap-1.5">
               <span id="calc-price-badge" class="text-xl sm:text-3xl font-black font-heading text-[#f2920b]">300 €</span>
-              <span id="calc-unit-badge" class="text-xs font-bold text-slate-500">(3,00 €/ud)</span>
+              <span id="calc-unit-badge" class="text-xs font-bold text-white/70">(3,00 €/ud)</span>
             </div>
           </div>
         </div>
 
         <!-- Slider de selección -->
         <div class="py-2" id="calc-slider-box">
-          <div class="relative w-full h-3 bg-slate-200 rounded-full cursor-pointer select-none" id="slider-track">
+          <div class="relative w-full h-3 bg-white/20 rounded-full cursor-pointer select-none" id="slider-track">
             <div id="slider-progress" class="absolute top-0 left-0 h-full bg-[#f2920b] rounded-full pointer-events-none" style="width: 0%;"></div>
             <div id="slider-thumb" class="absolute top-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-4 flex items-center justify-center cursor-grab active:cursor-grabbing hover:scale-110 transition-transform" style="left: 0%;">
               <img src="{prefix}assets/images/eyes-thumb.png" alt="Selector" width="36" height="18" class="w-full h-full object-contain drop-shadow-sm select-none pointer-events-none">
             </div>
           </div>
-          <div class="relative w-full text-[11px] font-extrabold text-slate-500 h-6 mt-3 select-none">
+          <div class="relative w-full text-[11px] font-extrabold text-white/80 h-6 mt-3 select-none">
             <button type="button" onclick="setTier(0)" class="absolute left-0 hover:text-[#f2920b] transition cursor-pointer">100 uds</button>
             <button type="button" onclick="setTier(1)" class="absolute left-[33.3%] -translate-x-1/2 hover:text-[#f2920b] transition cursor-pointer">250 uds</button>
             <button type="button" onclick="setTier(2)" class="absolute left-[66.6%] -translate-x-1/2 hover:text-[#f2920b] transition cursor-pointer">500 uds</button>
@@ -292,14 +292,14 @@ def get_calculator_html(prefix: str = "../") -> str:
         </div>
 
         <div class="flex flex-wrap items-center justify-center gap-3 pt-2 text-xs font-bold">
-          <span class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-200/80">
-            <i data-lucide="check-circle" class="w-4 h-4 text-emerald-600"></i>
+          <span class="inline-flex items-center gap-1.5 text-white">
+            <i data-lucide="check-circle" class="w-4 h-4 text-[#f2920b]"></i>
             Muestra física 15 € (100% deducible)
           </span>
-          <span class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-slate-100 text-slate-700 border border-slate-200">
+          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 text-white/90 border border-white/20">
             IVA no incluido
           </span>
-          <span class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-sky-50 text-sky-800 border border-sky-200/80">
+          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 text-white/90 border border-white/20">
             Entrega ~1 mes
           </span>
         </div>
@@ -311,14 +311,14 @@ def get_calculator_html(prefix: str = "../") -> str:
           </a>
         </div>
       </div>
-    </section>
+    </div>
 '''
 
 
 def get_paso_a_paso_html() -> str:
     return '''
-    <!-- PASO A PASO CON TEXTURA EDITORIAL #3478a6 -->
-    <section class="my-10 max-w-4xl mx-auto w-full rounded-3xl p-6 sm:p-8 bg-[#3478a6] bg-textured-blue text-white border-2 border-sky-700/40 shadow-xl">
+    <!-- PASO A PASO -->
+    <div class="max-w-4xl mx-auto w-full text-white pt-10 mt-10 border-t border-white/20">
       <div class="text-center max-w-2xl mx-auto mb-6 sm:mb-8 space-y-1">
         <span class="inline-block px-3.5 py-1 rounded-full bg-white/20 text-white font-heading font-black text-xs uppercase tracking-wider">
           Paso a Paso
@@ -347,7 +347,7 @@ def get_paso_a_paso_html() -> str:
           <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">Pedido mínimo de 100 unidades y entrega en torno a un mes con envíos incluidos a España, Europa y USA.</p>
         </div>
       </div>
-    </section>
+    </div>
 '''
 
 
@@ -489,7 +489,8 @@ def build_hub(hub_dir: Path, is_padel: bool, articles: list[dict]):
         for a in articles
     )
 
-    hub_content = f'''<main>
+    hub_content = f'''
+    <main class="!pb-0">
       <section class="hub-hero">
         <p class="hub-eyebrow">{eyebrow}</p>
         <h1 class="hub-title">{h1_text}</h1>
@@ -497,18 +498,18 @@ def build_hub(hub_dir: Path, is_padel: bool, articles: list[dict]):
           <p>{intro_p1}</p>
         </div>
       </section>
+    </main>
 
-      {get_calculator_html(prefix="../")}
+    <!-- SECCIÓN CALCULADORA Y PASO A PASO CON FONDO COMPLETO DE TEXTURA #3478a6 -->
+    <section class="w-full bg-[#3478a6] bg-textured-blue text-white py-10 sm:py-14 border-y border-sky-700/40">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6">
+        {get_calculator_html(prefix="../")}
+        {get_paso_a_paso_html()}
+      </div>
+    </section>
 
-      {get_paso_a_paso_html()}
-
-      <section class="mt-12">
-        <div class="max-w-4xl mx-auto mb-6 text-center sm:text-left">
-          <h2 class="text-2xl sm:text-3xl font-black font-heading text-slate-950 uppercase tracking-tight">Artículos y Guías sobre Llaveros</h2>
-          <p class="text-xs sm:text-sm text-slate-500 font-medium">Todo lo que necesitas saber sobre materiales, muestras, plazos de entrega, precios y opciones de reverso.</p>
-        </div>
-        <div class="article-grid">{cards}</div>
-      </section>
+    <main class="!pt-8 sm:!pt-12">
+      <section class="article-grid">{cards}</section>
 
       <section class="next-step max-w-4xl mx-auto">
         <h2>Siguiente paso</h2>
