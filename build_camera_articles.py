@@ -25,16 +25,16 @@ ARTICLE_IMAGES = {
     "inversion-inicial-camaras-180-euros": "camera-02.jpg",
     "es-caro-save-my-play": "camera-06.jpg",
     "es-rentable-poner-camaras": "camera-02.jpg",
-    "por-que-no-recomiendo-plan-analytics": "camera-06.jpg",
+    "por-que-no-recomiendo-plan-analytics": "portada-mapa-calor-analytics.png",
     "que-pasa-si-cancelo": "camera-02.jpg",
     "como-montar-camara-save-my-play": "camera-04.jpg",
     "problemas-con-las-camaras": "camera-04.jpg",
     "camaras-en-exterior-lluvia-nieve-viento": "camera-06.jpg",
-    "como-ver-highlights-sin-app": "camera-08.jpg",
+    "como-ver-highlights-sin-app": "portada-email-highlights.png",
     "mejores-empresas-camaras-padel-espana": "camera-03.jpg",
-    "por-que-no-conocia-save-my-play": "camera-01.jpg",
-    "save-my-play-en-pocas-palabras": "camera-07.jpg",
-    "por-que-coolpadel-colabora-con-save-my-play": "camera-03.jpg",
+    "por-que-no-conocia-save-my-play": "portada-bandido-highlight.jpg",
+    "save-my-play-en-pocas-palabras": "portada-mascota-savemyplay.png",
+    "por-que-coolpadel-colabora-con-save-my-play": "portada-coolpadel-savemyplay.jpg",
     "he-comprado-camaras-que-pasa-ahora": "camera-02.jpg",
     "por-que-no-me-interesa-venderte-una-camara": "camera-02.jpg",
 }
@@ -143,7 +143,7 @@ def article_body(article: dict) -> str:
 
 
 def header(prefix: str = "../../") -> str:
-    return f'''<header class="fixed top-0 left-0 w-full z-50 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-xs w-full"><div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between"><a href="{prefix}" class="flex items-center gap-2 group shrink-0" aria-label="CoolPadel Home"><img src="{prefix}assets/images/coolpadel-mascot-hd.png" alt="Mascota CoolPadel" width="44" height="44" class="h-8 sm:h-11 w-auto object-contain group-hover:scale-105 transition" fetchpriority="high"><img src="{prefix}assets/images/coolpadel-typography-hd.png" alt="CoolPadel" width="140" height="28" class="h-5 sm:h-7 w-auto object-contain" fetchpriority="high"></a><div class="flex items-center gap-2 sm:gap-4 lg:gap-6"><a href="{prefix}#llaveros" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition whitespace-nowrap">LLAVEROS</a><a href="{prefix}camaras/" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition whitespace-nowrap">CÁMARAS</a><a href="{prefix}blog/" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition whitespace-nowrap">Blog</a><a href="{prefix}franquicias-padel/" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition whitespace-nowrap">Cadenas de clubs</a><div class="relative inline-block text-left"><button type="button" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-100 hover:bg-slate-200 border border-slate-200 text-xs font-black text-slate-900 shadow-xs transition cursor-pointer"><span>ES</span><i data-lucide="chevron-down" class="w-3.5 h-3.5 stroke-[2.5] text-slate-600"></i></button><div class="hidden absolute right-0 mt-2 w-24 bg-white rounded-2xl shadow-lg border border-slate-200 py-1.5 z-50"><a href="/camaras/" class="block text-center px-4 py-2 text-xs">ES</a><a href="/en/camaras/" class="block text-center px-4 py-2 text-xs">EN</a><a href="/fr/camaras/" class="block text-center px-4 py-2 text-xs">FR</a><a href="/it/camaras/" class="block text-center px-4 py-2 text-xs">IT</a><a href="/de/camaras/" class="block text-center px-4 py-2 text-xs">DE</a></div></div><a href="{prefix}#contacto" class="inline-flex items-center gap-1.5 px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] text-slate-950 font-heading font-black text-xs uppercase tracking-wider transition shadow-sm hover:scale-105 active:scale-95 cursor-pointer"><span>Contactar</span><i data-lucide="arrow-down" class="w-3 h-3 stroke-[3]"></i></a><a href="{prefix}" class="group py-1 inline-flex items-center shrink-0 pl-1" aria-label="CoolPadel Eyes"><img src="{prefix}assets/images/eyes-thumb.png?v=fixed_eyes" alt="CoolPadel Eyes" width="28" height="28" style="height:26px;max-height:26px;width:auto" class="object-contain group-hover:scale-110 transition duration-300"></a></div></div></header><div class="h-16 sm:h-20 w-full shrink-0" aria-hidden="true"></div>'''
+    return f'''<header class="fixed top-0 left-0 w-full z-50 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-xs w-full"><div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between"><a href="{prefix}" class="flex items-center gap-2 group shrink-0" aria-label="CoolPadel Home"><img src="{prefix}assets/images/coolpadel-mascot-hd.png" alt="Mascota CoolPadel" width="44" height="44" class="h-8 sm:h-11 w-auto object-contain group-hover:scale-105 transition" fetchpriority="high"><img src="{prefix}assets/images/coolpadel-typography-hd.png" alt="CoolPadel" width="140" height="28" class="h-5 sm:h-7 w-auto object-contain" fetchpriority="high"></a><div class="flex items-center gap-2 sm:gap-4 lg:gap-6"><a href="{prefix}llaveros-padel-personalizados/" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition whitespace-nowrap">LLAVEROS</a><a href="{prefix}camaras/" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition whitespace-nowrap">CÁMARAS</a><a href="{prefix}blog/" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition whitespace-nowrap">Blog</a><a href="{prefix}franquicias-padel/" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition whitespace-nowrap">Cadenas de clubs</a><div class="relative inline-block text-left" id="lang-dropdown-container"><button type="button" onclick="toggleLangDropdown(event)" id="lang-dropdown-btn" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-100 hover:bg-slate-200 border border-slate-200 text-xs font-black text-slate-900 shadow-xs transition cursor-pointer" aria-expanded="false" aria-haspopup="true"><span id="current-lang-code" class="uppercase font-black">ES</span><i data-lucide="chevron-down" class="w-3.5 h-3.5 stroke-[2.5] text-slate-600 transition-transform duration-200" id="lang-dropdown-arrow"></i></button><div id="lang-dropdown-menu" class="hidden absolute right-0 mt-2 w-24 bg-white rounded-2xl shadow-[0_12px_30px_rgba(0,0,0,0.15)] border border-slate-200 py-1.5 z-50 transition-all overflow-hidden"><a href="/camaras/" class="block text-center px-4 py-2 text-xs">ES</a><a href="/en/camaras/" class="block text-center px-4 py-2 text-xs">EN</a><a href="/fr/camaras/" class="block text-center px-4 py-2 text-xs">FR</a><a href="/it/camaras/" class="block text-center px-4 py-2 text-xs">IT</a><a href="/de/camaras/" class="block text-center px-4 py-2 text-xs">DE</a></div></div><a href="{prefix}#contacto" class="inline-flex items-center gap-1.5 px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] text-slate-950 font-heading font-black text-xs uppercase tracking-wider transition shadow-sm hover:scale-105 active:scale-95 cursor-pointer"><span>Contactar</span><i data-lucide="arrow-down" class="w-3 h-3 stroke-[3]"></i></a><a href="{prefix}" class="group py-1 inline-flex items-center shrink-0 pl-1" aria-label="CoolPadel Eyes"><img src="{prefix}assets/images/eyes-thumb.png?v=fixed_eyes" alt="CoolPadel Eyes" width="28" height="28" style="height:26px;max-height:26px;width:auto" class="object-contain group-hover:scale-110 transition duration-300"></a></div></div></header><div class="h-16 sm:h-20 w-full shrink-0" aria-hidden="true"></div>'''
 
 
 CSS = """
@@ -227,9 +227,27 @@ def build(articles: list[dict]) -> None:
         related = [articles[(index + offset) % len(articles)] for offset in (1, 2, 3)]
         related_html = "\n".join(f'<a href="../{a["slug"]}/">{html.escape(a["title"])}</a>' for a in related)
         image_name = ARTICLE_IMAGES[article["slug"]]
-        video = ''
-        if article["slug"] == "como-ver-highlights-sin-app":
-            video = '<section class="video-section"><h2>¿Qué son las coaching tools?</h2><p>Con las coaching tools puedes dibujar sobre la repetición, marcar movimientos y grabar una explicación para que el jugador la revise después.</p><iframe class="video-embed" src="https://savemyplay.com/advanced-coaching-tools" title="Save My Play Advanced Coaching Tools" loading="lazy" allowfullscreen></iframe></section>'
+        article_videos = {
+            "como-ver-highlights-sin-app": (
+                "Cómo guardar los highlights en pista",
+                "Levanta los brazos mirando a la cámara o pulsa el botón verde para guardar tu mejor punto al instante.",
+                "https://www.youtube-nocookie.com/embed/Z0vnvyrUbPQ"
+            ),
+            "como-montar-camara-save-my-play": (
+                "Lo fácil que es de usar",
+                "En apenas 10 minutos y con solo dos botones tienes la cámara grabando partidos, highlights y directos sin complicaciones.",
+                "https://www.youtube-nocookie.com/embed/LuzDvB5Umfs"
+            ),
+            "save-my-play-en-pocas-palabras": (
+                "Retransmisión en directo del torneo FIP de Miami",
+                "Así se ve una retransmisión en directo oficial con las cámaras de Save My Play en torneos internacionales FIP.",
+                "https://www.youtube-nocookie.com/embed/4xwrrveDZxg?start=5623"
+            ),
+        }
+        video = ""
+        if article["slug"] in article_videos:
+            v_title, v_desc, v_src = article_videos[article["slug"]]
+            video = f'<section class="video-section"><h2>{html.escape(v_title)}</h2><p>{html.escape(v_desc)}</p><iframe class="video-embed" src="{v_src}" title="{html.escape(v_title)}" loading="lazy" allowfullscreen></iframe></section>'
         content = f'''<main><article class="article"><h1>{html.escape(article["title"])}</h1><img class="article-hero" src="../../../assets/images/camaras/{image_name}" alt="{html.escape(article["title"])}" loading="lazy">{article_body(article)}{video}<section class="related"><h2>Más artículos sobre cámaras</h2><div class="related-grid">{related_html}</div></section><section class="next-step"><h2>Siguiente paso</h2><p>Si todavía no lo ves claro, te dejo arriba más artículos sobre cámaras que te ayudarán.</p><p>Si tienes alguna pregunta y quieres que te enseñe bien cómo funciona todo, busca tu hueco para la demo.</p><div class="calendly-inline-widget" data-url="{CALENDLY}&hide_landing_page_details=1&hide_gdpr_banner=1"></div></section></article></main>'''
         out = ARTICLES / article["slug"]
         out.mkdir(parents=True, exist_ok=True)
