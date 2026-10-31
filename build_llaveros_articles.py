@@ -250,40 +250,39 @@ def get_calculator_html(prefix: str = "../") -> str:
     return f'''
     <!-- CALCULADORA DE PRECIOS INTERACTIVA -->
     <div id="precios" class="max-w-4xl mx-auto w-full text-white">
-      <div class="text-center mb-6 space-y-1">
-        <span class="text-xs font-black uppercase tracking-wider text-[#f2920b]">Tarifas directas de fábrica</span>
-        <h2 class="text-2xl sm:text-3xl font-black font-heading text-white uppercase tracking-tight">
+      <div class="text-center mb-8 space-y-1">
+        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-black font-heading text-white uppercase tracking-tight">
           Calcula tu pedido
         </h2>
-        <p class="text-xs sm:text-sm text-white/80 font-medium">
-          Muestra física real por 15 € deducible al 100% · Envíos incluidos a toda España y Europa
+        <p class="text-sm sm:text-base text-white/90 font-medium">
+          Envíos incluidos a toda España y Europa
         </p>
       </div>
 
       <div class="space-y-6">
-        <div class="flex justify-between items-end pb-3 border-b border-white/20">
+        <div class="flex justify-between items-end pb-4 border-b border-white/20">
           <div>
-            <span class="text-[11px] font-bold text-white/70 uppercase tracking-wider block">Nº de llaveros:</span>
-            <span id="calc-qty-badge" class="text-xl sm:text-3xl font-black font-heading text-white">100 unidades</span>
+            <span class="text-sm sm:text-base font-bold text-white/80 uppercase tracking-wider block mb-1">Nº de llaveros:</span>
+            <span id="calc-qty-badge" class="text-2xl sm:text-4xl lg:text-5xl font-black font-heading text-white">100 unidades</span>
           </div>
           <div class="text-right">
-            <span class="text-[11px] font-bold text-white/70 uppercase tracking-wider block">Importe estimado:</span>
-            <div class="flex items-baseline justify-end gap-1.5">
-              <span id="calc-price-badge" class="text-xl sm:text-3xl font-black font-heading text-[#f2920b]">300 €</span>
-              <span id="calc-unit-badge" class="text-xs font-bold text-white/70">(3,00 €/ud)</span>
+            <span class="text-sm sm:text-base font-bold text-white/80 uppercase tracking-wider block mb-1">Importe estimado:</span>
+            <div class="flex items-baseline justify-end gap-2">
+              <span id="calc-price-badge" class="text-2xl sm:text-4xl lg:text-5xl font-black font-heading text-[#f2920b]">300 €</span>
+              <span id="calc-unit-badge" class="text-sm sm:text-lg font-bold text-white/85">(3,00 €/ud)</span>
             </div>
           </div>
         </div>
 
         <!-- Slider de selección -->
-        <div class="py-2" id="calc-slider-box">
-          <div class="relative w-full h-3 bg-white/20 rounded-full cursor-pointer select-none" id="slider-track">
+        <div class="py-3" id="calc-slider-box">
+          <div class="relative w-full h-3.5 bg-white/20 rounded-full cursor-pointer select-none" id="slider-track">
             <div id="slider-progress" class="absolute top-0 left-0 h-full bg-[#f2920b] rounded-full pointer-events-none" style="width: 0%;"></div>
-            <div id="slider-thumb" class="absolute top-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-4 flex items-center justify-center cursor-grab active:cursor-grabbing hover:scale-110 transition-transform" style="left: 0%;">
-              <img src="{prefix}assets/images/eyes-thumb.png" alt="Selector" width="36" height="18" class="w-full h-full object-contain drop-shadow-sm select-none pointer-events-none">
+            <div id="slider-thumb" class="absolute top-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-5 flex items-center justify-center cursor-grab active:cursor-grabbing hover:scale-110 transition-transform" style="left: 0%;">
+              <img src="{prefix}assets/images/eyes-thumb.png" alt="Selector" width="40" height="20" class="w-full h-full object-contain drop-shadow select-none pointer-events-none">
             </div>
           </div>
-          <div class="relative w-full text-[11px] font-extrabold text-white/80 h-6 mt-3 select-none">
+          <div class="relative w-full text-xs sm:text-sm font-extrabold text-white/90 h-6 mt-3.5 select-none">
             <button type="button" onclick="setTier(0)" class="absolute left-0 hover:text-[#f2920b] transition cursor-pointer">100 uds</button>
             <button type="button" onclick="setTier(1)" class="absolute left-[33.3%] -translate-x-1/2 hover:text-[#f2920b] transition cursor-pointer">250 uds</button>
             <button type="button" onclick="setTier(2)" class="absolute left-[66.6%] -translate-x-1/2 hover:text-[#f2920b] transition cursor-pointer">500 uds</button>
@@ -291,23 +290,25 @@ def get_calculator_html(prefix: str = "../") -> str:
           </div>
         </div>
 
-        <div class="flex flex-wrap items-center justify-center gap-3 pt-2 text-xs font-bold">
-          <span class="inline-flex items-center gap-1.5 text-white">
-            <i data-lucide="check-circle" class="w-4 h-4 text-[#f2920b]"></i>
-            Muestra física 15 € (100% deducible)
+        <div class="flex flex-wrap items-center justify-center gap-4 sm:gap-6 pt-3 text-sm sm:text-base font-bold text-white">
+          <span class="inline-flex items-center gap-1.5">
+            <i data-lucide="check-circle" class="w-4 h-4 text-[#f2920b] shrink-0"></i>
+            Muestra física 15 €
           </span>
-          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 text-white/90 border border-white/20">
+          <span class="inline-flex items-center gap-1.5">
+            <i data-lucide="check-circle" class="w-4 h-4 text-[#f2920b] shrink-0"></i>
             IVA no incluido
           </span>
-          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 text-white/90 border border-white/20">
+          <span class="inline-flex items-center gap-1.5">
+            <i data-lucide="check-circle" class="w-4 h-4 text-[#f2920b] shrink-0"></i>
             Entrega ~1 mes
           </span>
         </div>
 
-        <div class="pt-2">
+        <div class="pt-3">
           <a id="calc-wa-btn" href="https://api.whatsapp.com/send?phone=34680317486&text=Hola%20Javier%2C%20me%20interesa%20solicitar%20presupuesto%20de%20100%20llaveros%20para%20mi%20club" target="_blank" rel="noopener noreferrer" class="w-full py-3.5 rounded-2xl font-heading font-black text-sm uppercase tracking-wider bg-[#f2920b] hover:bg-[#76d3f6] text-slate-950 shadow-md hover:shadow-lg hover:scale-[1.01] active:scale-[0.98] flex items-center justify-center gap-2 transition-all cursor-pointer">
             <i data-lucide="message-circle" class="w-4 h-4 stroke-[2.5]"></i>
-            <span>Pedir presupuesto por WhatsApp</span>
+            <span>Contactar</span>
           </a>
         </div>
       </div>
@@ -517,7 +518,7 @@ def build_hub(hub_dir: Path, is_padel: bool, articles: list[dict]):
         <div class="pt-3">
           <a href="https://api.whatsapp.com/send?phone=34680317486&text=Hola%20Javier%2C%20quiero%20ver%20el%20dise%C3%B1o%203D%20y%20pedir%20presupuesto%20de%20llaveros" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] text-slate-950 font-heading font-black text-xs uppercase tracking-wider transition shadow-md hover:scale-105 active:scale-95 cursor-pointer">
             <i data-lucide="message-circle" class="w-4 h-4 stroke-[2.5]"></i>
-            <span>Hablar directamente con Javier por WhatsApp</span>
+            <span>Hablar con Javier por WhatsApp</span>
           </a>
         </div>
       </section>
@@ -564,7 +565,7 @@ def build_hub(hub_dir: Path, is_padel: bool, articles: list[dict]):
               <div class="pt-3">
                 <a href="https://api.whatsapp.com/send?phone=34680317486&text=Hola%20Javier%2C%20estoy%20leyendo%20sobre%20los%20llaveros%20y%20quiero%20informaci%C3%B3n%20para%20mi%20club" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] text-slate-950 font-heading font-black text-xs uppercase tracking-wider transition shadow-md hover:scale-105 active:scale-95 cursor-pointer">
                   <i data-lucide="message-circle" class="w-4 h-4 stroke-[2.5]"></i>
-                  <span>Contactar con Javier por WhatsApp</span>
+                  <span>Hablar con Javier por WhatsApp</span>
                 </a>
               </div>
             </section>

@@ -24,28 +24,136 @@ h2 { font-size: clamp(28px, 4vw, 42px); margin: 0 0 16px; }
 h3 { font-size: 24px; margin: 0 0 12px; }
 .intro { max-width: 720px; color: #475569; font-size: 19px; }
 .article { max-width: 760px; margin: 0 auto; }
-.article p { margin: 0 0 24px; font-size: 18px; line-height: 1.78; }
+
+/* Article body and paragraph block spacing */
+.article-block { margin: 0 0 28px; }
+.article p { margin: 0 0 6px; font-size: 18px; line-height: 1.75; }
 .article a { color: #3478a6; font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
+
+/* Subheadings (Error 1, Plan A, Conclusión, etc.) */
+.article-subheading {
+  margin: 36px 0 14px;
+  font-size: clamp(22px, 3vw, 28px);
+  font-weight: 900;
+  color: #0f172a;
+  letter-spacing: -0.02em;
+}
+.article-subheading .subheading-title {
+  display: inline-block;
+  border-bottom: 3px solid #f2920b;
+  padding-bottom: 4px;
+}
+
+/* Numbered list items */
+.list-item-line { margin: 8px 0; font-size: 18px; }
+.list-badge {
+  display: inline-block;
+  min-width: 28px;
+  font-weight: 900;
+  color: #f2920b;
+}
+
 .article-hero { display: block; width: 100%; max-height: 420px; height: auto; object-fit: contain; object-position: center; background: #f8fafc; border-radius: 14px; margin: 0 auto 32px; border: 1px solid #e2e8f0; }
-.next-step { margin: 54px 0 48px; padding: 28px 30px 30px; border: 2px solid #f2920b; border-radius: 18px; background: #fffaf2; box-shadow: 0 8px 24px rgba(15,23,42,.06); }
-.next-step h2 { color: #0f172a; font-weight: 900; margin-bottom: 16px; }
-.next-step p { margin: 8px 0; }
-.calendly-inline-widget { min-width: 320px; height: 680px; margin-top: 22px; border-radius: 16px; overflow: hidden; border: 1px solid #e2e8f0; }
+
+/* Next step section — clean white background with subtle border */
+.next-step {
+  margin: 54px 0 48px;
+  padding: 32px 34px 34px;
+  border: 1px solid #e2e8f0;
+  border-radius: 20px;
+  background: #ffffff;
+  box-shadow: 0 10px 30px rgba(15,23,42,.04);
+}
+.next-step h2 {
+  color: #0f172a;
+  font-size: clamp(28px, 4vw, 36px);
+  font-weight: 900;
+  margin: 0 0 16px;
+  letter-spacing: -0.02em;
+}
+.next-step p { margin: 8px 0; font-size: 17px; line-height: 1.7; color: #334155; }
+.calendly-inline-widget { min-width: 320px; height: 680px; margin-top: 24px; border-radius: 16px; overflow: hidden; border: 1px solid #e2e8f0; }
+
 .video-section { margin: 42px 0; padding: 24px; border-radius: 18px; background: #f8fafc; border: 1px solid #e2e8f0; }
 .video-section h2 { font-size: 30px; margin-bottom: 10px; }
 .video-embed { display: block; width: 100%; aspect-ratio: 16 / 9; border: 0; border-radius: 12px; margin-top: 18px; background: #0f172a; }
-.related { margin-top: 48px; }
-.related h2 { font-weight: 900; padding-bottom: 12px; border-bottom: 3px solid #f2920b; }
-.related-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
-.related a { display: block; padding: 16px; color: #0f172a; text-decoration: none; border: 1px solid #cbd5e1; border-radius: 12px; font-weight: 700; }
-.related a:hover { border-color: #f2920b; }
+
+/* Related articles section */
+.related { margin-top: 56px; padding-top: 24px; }
+.related h2 {
+  font-size: clamp(28px, 4vw, 36px);
+  font-weight: 900;
+  color: #0f172a;
+  margin: 0 0 24px;
+  letter-spacing: -0.02em;
+}
+.related-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+.related-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 16px;
+  background: #ffffff;
+  border: 2px solid #e2e8f0;
+  border-radius: 16px;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  box-shadow: 0 2px 8px rgba(15,23,42,.03);
+}
+.related-card:hover {
+  border-color: #f2920b;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(15,23,42,.08);
+}
+.related-thumb {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #0f172a;
+  margin-bottom: 12px;
+}
+.related-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.related-title {
+  font-size: 15px;
+  font-weight: 800;
+  line-height: 1.35;
+  color: #0f172a;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
 @media (max-width: 900px) { .official-nav > a:not(.nav-contact), .lang-links { display: none; } }
 @media (max-width: 1050px) { .article-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-@media (max-width: 760px) { .logo-wordmark { height: 22px; } .logo-mascot { height: 34px; } .article-grid, .related-grid { grid-template-columns: 1fr; } main { padding-top: 36px; } .article p { font-size: 17px; } .article-hero { max-height: none; } .calendly-inline-widget { height: 640px; } }
-</style></head><body><header class="fixed top-0 left-0 w-full z-50 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-xs w-full"><div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between"><a href="../../../" class="flex items-center gap-2 group shrink-0" aria-label="CoolPadel Home"><img src="../../../assets/images/coolpadel-mascot-hd.png" alt="Mascota CoolPadel" width="44" height="44" class="h-8 sm:h-11 w-auto object-contain group-hover:scale-105 transition" fetchpriority="high"><img src="../../../assets/images/coolpadel-typography-hd.png" alt="CoolPadel" width="140" height="28" class="h-5 sm:h-7 w-auto object-contain" fetchpriority="high"></a><div class="flex items-center gap-2 sm:gap-4 lg:gap-6"><a href="../../../llaveros-padel-personalizados/" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition whitespace-nowrap">LLAVEROS</a><a href="../../../camaras/" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition whitespace-nowrap">CÁMARAS</a><a href="../../../blog/" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition whitespace-nowrap">Blog</a><a href="../../../franquicias-padel/" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition whitespace-nowrap">Cadenas de clubs</a><div class="relative inline-block text-left" id="lang-dropdown-container"><button type="button" onclick="toggleLangDropdown(event)" id="lang-dropdown-btn" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-100 hover:bg-slate-200 border border-slate-200 text-xs font-black text-slate-900 shadow-xs transition cursor-pointer" aria-expanded="false" aria-haspopup="true"><span id="current-lang-code" class="uppercase font-black">ES</span><i data-lucide="chevron-down" class="w-3.5 h-3.5 stroke-[2.5] text-slate-600 transition-transform duration-200" id="lang-dropdown-arrow"></i></button><div id="lang-dropdown-menu" class="hidden absolute right-0 mt-2 w-24 bg-white rounded-2xl shadow-[0_12px_30px_rgba(0,0,0,0.15)] border border-slate-200 py-1.5 z-50 transition-all overflow-hidden"><a href="/camaras/" class="block text-center px-4 py-2 text-xs">ES</a><a href="/en/camaras/" class="block text-center px-4 py-2 text-xs">EN</a><a href="/fr/camaras/" class="block text-center px-4 py-2 text-xs">FR</a><a href="/it/camaras/" class="block text-center px-4 py-2 text-xs">IT</a><a href="/de/camaras/" class="block text-center px-4 py-2 text-xs">DE</a></div></div><a href="../../../#contacto" class="inline-flex items-center gap-1.5 px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] text-slate-950 font-heading font-black text-xs uppercase tracking-wider transition shadow-sm hover:scale-105 active:scale-95 cursor-pointer"><span>Contactar</span><i data-lucide="arrow-down" class="w-3 h-3 stroke-[3]"></i></a><a href="../../../" class="group py-1 inline-flex items-center shrink-0 pl-1" aria-label="CoolPadel Eyes"><img src="../../../assets/images/eyes-thumb.png?v=fixed_eyes" alt="CoolPadel Eyes" width="28" height="28" style="height:26px;max-height:26px;width:auto" class="object-contain group-hover:scale-110 transition duration-300"></a></div></div></header><div class="h-16 sm:h-20 w-full shrink-0" aria-hidden="true"></div><main><article class="article"><h1>¿Por qué hay una inversión inicial de 180 € por las cámaras?</h1><img class="article-hero" src="../../../assets/images/camaras/camera-02.jpg" alt="¿Por qué hay una inversión inicial de 180 € por las cámaras?" loading="lazy"><p>Sé que estos 180€ es una de las quejas más habituales que recibo por parte de los clubs.</p>
+@media (max-width: 760px) {
+  .logo-wordmark { height: 22px; }
+  .logo-mascot { height: 34px; }
+  .article-grid, .related-grid { grid-template-columns: 1fr; }
+  main { padding-top: 36px; }
+  .article p { font-size: 17px; }
+  .article-hero { max-height: none; }
+  .calendly-inline-widget { height: 640px; }
+  .next-step { padding: 22px 20px; }
+}
+</style></head><body><header class="fixed top-0 left-0 w-full z-50 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-xs w-full"><div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between"><a href="../../../" class="flex items-center gap-2 group shrink-0" aria-label="CoolPadel Home"><img src="../../../assets/images/coolpadel-mascot-hd.png" alt="Mascota CoolPadel" width="44" height="44" class="h-8 sm:h-11 w-auto object-contain group-hover:scale-105 transition" fetchpriority="high"><img src="../../../assets/images/coolpadel-typography-hd.png" alt="CoolPadel" width="140" height="28" class="h-5 sm:h-7 w-auto object-contain" fetchpriority="high"></a><div class="flex items-center gap-2 sm:gap-4 lg:gap-6"><a href="../../../llaveros-padel-personalizados/" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition whitespace-nowrap">LLAVEROS</a><a href="../../../camaras/" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition whitespace-nowrap">CÁMARAS</a><a href="../../../blog/" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition whitespace-nowrap">Blog</a><a href="../../../franquicias-padel/" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition whitespace-nowrap">Cadenas de clubs</a><div class="relative inline-block text-left" id="lang-dropdown-container"><button type="button" onclick="toggleLangDropdown(event)" id="lang-dropdown-btn" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-100 hover:bg-slate-200 border border-slate-200 text-xs font-black text-slate-900 shadow-xs transition cursor-pointer" aria-expanded="false" aria-haspopup="true"><span id="current-lang-code" class="uppercase font-black">ES</span><i data-lucide="chevron-down" class="w-3.5 h-3.5 stroke-[2.5] text-slate-600 transition-transform duration-200" id="lang-dropdown-arrow"></i></button><div id="lang-dropdown-menu" class="hidden absolute right-0 mt-2 w-24 bg-white rounded-2xl shadow-[0_12px_30px_rgba(0,0,0,0.15)] border border-slate-200 py-1.5 z-50 transition-all overflow-hidden"><a href="/camaras/" class="block text-center px-4 py-2 text-xs">ES</a><a href="/en/camaras/" class="block text-center px-4 py-2 text-xs">EN</a><a href="/fr/camaras/" class="block text-center px-4 py-2 text-xs">FR</a><a href="/it/camaras/" class="block text-center px-4 py-2 text-xs">IT</a><a href="/de/camaras/" class="block text-center px-4 py-2 text-xs">DE</a></div></div><a href="../../../#contacto" class="inline-flex items-center gap-1.5 px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] text-slate-950 font-heading font-black text-xs uppercase tracking-wider transition shadow-sm hover:scale-105 active:scale-95 cursor-pointer"><span>Contactar</span><i data-lucide="arrow-down" class="w-3 h-3 stroke-[3]"></i></a><a href="../../../" class="group py-1 inline-flex items-center shrink-0 pl-1" aria-label="CoolPadel Eyes"><img src="../../../assets/images/eyes-thumb.png?v=fixed_eyes" alt="CoolPadel Eyes" width="28" height="28" style="height:26px;max-height:26px;width:auto" class="object-contain group-hover:scale-110 transition duration-300"></a></div></div></header><div class="h-16 sm:h-20 w-full shrink-0" aria-hidden="true"></div><main><article class="article"><h1>¿Por qué hay una inversión inicial de 180 € por las cámaras?</h1><img class="article-hero" src="../../../assets/images/camaras/camera-02.jpg" alt="¿Por qué hay una inversión inicial de 180 € por las cámaras?" loading="lazy"><div class="article-block">
+<p>Sé que estos 180€ es una de las quejas más habituales que recibo por parte de los clubs.</p>
 <p>Sé que es una cantidad significativa y que otras empresas no cobran.</p>
 <p>Para que toméis la mejor decisión os cuento a qué se debe.</p>
 <p>Puede que no seamos lo que estáis buscando y espero que esto os ayude a entender todo un poco mejor.</p>
+</div>
+<div class="article-block">
 <p>La principal razón es que fabricamos las cámaras nosotros mismos.</p>
 <p>Esto no es lo habitual.</p>
 <p>Lo normal es utilizar cámaras de videovigilancia, normalmente fabricadas en China, que salen más baratas.</p>
@@ -54,13 +162,18 @@ h3 { font-size: 24px; margin: 0 0 12px; }
 <p>A mi modo de ver, la calidad no tiene nada que ver.</p>
 <p>Los jugadores quieren sus mejores puntos para compartirlos en redes.</p>
 <p>Por tanto no puedes tener una calidad que parezca la grabación de un asalto a un banco.</p>
+</div>
+<div class="article-block">
 <p>Producirlas nos cuesta bastante más de 180€.</p>
 <p>Las vendemos a pérdidas y vamos recuperando la inversión a lo largo del tiempo.</p>
 <p>Este es nuestro modelo de negocio.180€ es el precio a pagar porque las cámaras tengan la mejor calidad posible.</p>
+</div>
+<div class="article-block">
 <p>Si no cobrásemos la inversión inicial, tardaríamos demasiado en recuperar el dinero.</p>
 <p>Nos quedaríamos sin liquidez para seguir fabricando más cámaras.</p>
 <p>La única alternativa viable sería subir las cuotas para recuperarlo lo antes posible.</p>
 <p>Y eso a la larga no os compensa porque la mayor parte del gasto se va en los pagos mensuales y no en el inicial.</p>
-<p>Por eso nuestros pagos mensuales son lo más competitivos posible.</p><section class="related"><h2>Más artículos sobre cámaras</h2><div class="related-grid"><a href="../es-caro-save-my-play/">¿Es caro Save My Play?</a>
-<a href="../es-rentable-poner-camaras/">¿Es rentable poner cámaras en mis pistas?</a>
-<a href="../por-que-no-recomiendo-plan-analytics/">¿Por qué no recomiendo el plan de 136 € al mes al 95 % de los clubs?</a></div></section><section class="next-step"><h2>Siguiente paso</h2><p>Si todavía no lo ves claro, te dejo arriba más artículos sobre cámaras que te ayudarán.</p><p>Si tienes alguna pregunta y quieres que te enseñe bien cómo funciona todo, busca tu hueco para la demo.</p><div class="calendly-inline-widget" data-url="https://calendly.com/javier-vs-312/demo-save-my-play?locale=es&hide_landing_page_details=1&hide_gdpr_banner=1"></div></section></article></main><script>if (window.lucide) lucide.createIcons();</script><script src="https://assets.calendly.com/assets/external/widget.js" async></script><script src="../../../assets/js/cp-analytics.js" defer></script></body></html>
+<p>Por eso nuestros pagos mensuales son lo más competitivos posible.</p>
+</div><section class="related"><h2>Más artículos sobre cámaras</h2><div class="related-grid"><a href="../es-caro-save-my-play/" class="related-card"><div class="related-thumb"><img src="../../../assets/images/camaras/camera-06.jpg" alt="¿Es caro Save My Play?" loading="lazy"></div><p class="related-title">¿Es caro Save My Play?</p></a>
+<a href="../es-rentable-poner-camaras/" class="related-card"><div class="related-thumb"><img src="../../../assets/images/camaras/partido-directo-patrocinador-harbor.png" alt="¿Es rentable poner cámaras en mis pistas?" loading="lazy"></div><p class="related-title">¿Es rentable poner cámaras en mis pistas?</p></a>
+<a href="../por-que-no-recomiendo-plan-analytics/" class="related-card"><div class="related-thumb"><img src="../../../assets/images/camaras/portada-mapa-calor-analytics.png" alt="¿Por qué no recomiendo el plan de 136 € al mes al 95 % de los clubs?" loading="lazy"></div><p class="related-title">¿Por qué no recomiendo el plan de 136 € al mes al 95 % de los clubs?</p></a></div></section><section class="next-step"><h2>Siguiente paso</h2><p>Si todavía no lo ves claro, te dejo arriba más artículos sobre cámaras que te ayudarán.</p><p>Si tienes alguna pregunta y quieres que te enseñe bien cómo funciona todo, busca tu hueco para la demo.</p><div class="calendly-inline-widget" data-url="https://calendly.com/javier-vs-312/demo-save-my-play?locale=es&hide_landing_page_details=1&hide_gdpr_banner=1"></div></section></article></main><script>if (window.lucide) lucide.createIcons();</script><script src="https://assets.calendly.com/assets/external/widget.js" async></script><script src="../../../assets/js/cp-analytics.js" defer></script></body></html>
