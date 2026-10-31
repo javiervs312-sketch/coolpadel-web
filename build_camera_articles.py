@@ -18,25 +18,25 @@ CALENDLY = "https://calendly.com/javier-vs-312/demo-save-my-play?locale=es"
 ASSET_DIR = ROOT / "assets" / "images" / "camaras"
 
 ARTICLE_IMAGES = {
-    "por-donde-empezar-si-estoy-pensando-en-poner-camaras": "camera-01.jpg",
-    "errores-clubs-se-arrepienten-de-poner-camaras": "camera-05.jpg",
+    "por-donde-empezar-si-estoy-pensando-en-poner-camaras": "pista-indoor-passion-padel.png",
+    "errores-clubs-se-arrepienten-de-poner-camaras": "portada-bandido-highlight.jpg",
     "camaras-de-padel-o-videovigilancia": "camera-05.jpg",
-    "cuanto-cuesta-poner-camaras": "camera-02.jpg",
+    "cuanto-cuesta-poner-camaras": "pista-moqueta-negra-indoor.png",
     "inversion-inicial-camaras-180-euros": "camera-02.jpg",
     "es-caro-save-my-play": "camera-06.jpg",
     "es-rentable-poner-camaras": "partido-directo-patrocinador-harbor.png",
     "por-que-no-recomiendo-plan-analytics": "portada-mapa-calor-analytics.png",
-    "que-pasa-si-cancelo": "camera-02.jpg",
+    "que-pasa-si-cancelo": "portada-mascota-savemyplay.png",
     "como-montar-camara-save-my-play": "camara-instalada-reja-4m-crop.jpg",
     "problemas-con-las-camaras": "camera-04.jpg",
-    "camaras-en-exterior-lluvia-nieve-viento": "camera-06.jpg",
+    "camaras-en-exterior-lluvia-nieve-viento": "pista-outdoor-world-sports.png",
     "que-son-las-coaching-tools": "portada-coaching-tools-tablet.png",
     "como-ver-highlights-sin-app": "portada-email-highlights.png",
     "mejores-empresas-camaras-padel-espana": "camera-03.jpg",
     "por-que-no-conocia-save-my-play": "save-email-clip-sportime.png",
     "save-my-play-en-pocas-palabras": "retransmision-usta-national-campus.png",
     "por-que-coolpadel-colabora-con-save-my-play": "portada-coolpadel-savemyplay.jpg",
-    "he-comprado-camaras-que-pasa-ahora": "camera-02.jpg",
+    "he-comprado-camaras-que-pasa-ahora": "pista-indoor-blue-zone-clean.png",
     "por-que-no-me-interesa-venderte-una-camara": "retransmision-directo-marcador-youtube.png",
 }
 
