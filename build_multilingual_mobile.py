@@ -5825,6 +5825,12 @@ def build_all():
         build_all_landings()
         from build_llaveros_articles import build_all as build_llaveros_hub_articles
         build_llaveros_hub_articles()
+        try:
+            from build_camera_articles import build as build_cam_articles, load_articles as load_cam_articles
+            build_cam_articles(load_cam_articles())
+            print("  [OK] Artículos y Hub de Cámaras compilados con éxito")
+        except Exception as cam_err:
+            print(f"  [ERROR] Al generar Artículos de Cámaras: {cam_err}")
 
     except Exception as e:
 

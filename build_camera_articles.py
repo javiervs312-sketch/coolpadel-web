@@ -17,8 +17,8 @@ CALENDLY = "https://calendly.com/javier-vs-312/demo-save-my-play?locale=es"
 ASSET_DIR = ROOT / "assets" / "images" / "camaras"
 
 ARTICLE_IMAGES = {
-    "por-donde-empezar-si-estoy-pensando-en-poner-camaras": "pista-indoor-passion-padel.png",
-    "errores-clubs-se-arrepienten-de-poner-camaras": "portada-bandido-highlight.jpg",
+    "por-donde-empezar-si-estoy-pensando-en-poner-camaras": "camera-01.jpg",
+    "errores-clubs-se-arrepienten-de-poner-camaras": "retransmision-directo-marcador-youtube.png",
     "camaras-de-padel-o-videovigilancia": "camera-05.jpg",
     "cuanto-cuesta-poner-camaras": "pista-moqueta-negra-indoor.png",
     "inversion-inicial-camaras-180-euros": "camera-02.jpg",
@@ -36,7 +36,7 @@ ARTICLE_IMAGES = {
     "save-my-play-en-pocas-palabras": "retransmision-usta-national-campus.png",
     "por-que-coolpadel-colabora-con-save-my-play": "portada-coolpadel-savemyplay.jpg",
     "he-comprado-camaras-que-pasa-ahora": "pista-indoor-blue-zone-clean.png",
-    "por-que-no-me-interesa-venderte-una-camara": "retransmision-directo-marcador-youtube.png",
+    "por-que-no-me-interesa-venderte-una-camara": "portada-bandido-highlight.jpg",
 }
 
 ARTICLE_SPECS = [
