@@ -18,8 +18,8 @@ CALENDLY = "https://calendly.com/javier-vs-312/demo-save-my-play?locale=es"
 ASSET_DIR = ROOT / "assets" / "images" / "camaras"
 
 ARTICLE_IMAGES = {
-    "por-donde-empezar-si-estoy-pensando-en-poner-camaras": "camera-01.jpg",
-    "errores-clubs-se-arrepienten-de-poner-camaras": "portada-bandido-highlight.jpg",
+    "por-donde-empezar-si-estoy-pensando-en-poner-camaras": "pista-indoor-passion-padel.png",
+    "errores-clubs-se-arrepienten-de-poner-camaras": "retransmision-directo-marcador-youtube.png",
     "camaras-de-padel-o-videovigilancia": "camera-05.jpg",
     "cuanto-cuesta-poner-camaras": "pista-moqueta-negra-indoor.png",
     "inversion-inicial-camaras-180-euros": "camera-02.jpg",
@@ -37,9 +37,8 @@ ARTICLE_IMAGES = {
     "save-my-play-en-pocas-palabras": "retransmision-usta-national-campus.png",
     "por-que-coolpadel-colabora-con-save-my-play": "portada-coolpadel-savemyplay.jpg",
     "he-comprado-camaras-que-pasa-ahora": "pista-indoor-blue-zone-clean.png",
-    "por-que-no-me-interesa-venderte-una-camara": "retransmision-directo-marcador-youtube.png",
+    "por-que-no-me-interesa-venderte-una-camara": "portada-bandido-highlight.jpg",
 }
-
 
 ARTICLE_SPECS = [
     ("por-donde-empezar-si-estoy-pensando-en-poner-camaras", "Estoy pensando poner cámaras en mi club, ¿por dónde empiezo?", 83, 87),
@@ -65,10 +64,6 @@ ARTICLE_SPECS = [
 ]
 
 
-def clean_title(title: str) -> str:
-    return title.replace("pistas?", "pistas?").replace("padel", "pádel")
-
-
 def clean_body(text: str) -> str:
     replacements = {
         "padel": "pádel",
@@ -79,48 +74,96 @@ def clean_body(text: str) -> str:
         "Esta más que probado": "Está más que probado",
         "que servicios": "qué servicios",
         "las demás clubs": "los demás clubs",
-        "2 horas": "2 horas",
         "Youtube": "YouTube",
         "5 mins": "5 minutos",
         "4 semanas aprox.": "4 semanas aproximadamente",
-        "a pérdidas. Este": "a pérdidas. Este",
         "precios.Es": "precios. Es",
-        "una cámara buena": "una cámara buena",
-        "en su pistas": "Algunos clubs en España se arrepienten de haber puesto cámaras en sus pistas.",
+        "en su pistas": "en sus pistas",
         "Muchos clubs se arrepienten": "Algunos clubs se arrepienten",
+        # Correcciones gramaticales
+        "tienes que pensas": "tienes que pensar",
+        "tiene que pensas": "tienes que pensar",
+        "Si no no merece": "Si no, no merece",
+        "Aún así no llegamos": "Aún así, no llegamos",
+        "Sí has leído": "Si has leído",
+        "Aquí esta la respuesta": "Aquí está la respuesta",
+        "habitual. retransmisión": "habitual. Retransmisión",
+        "En X pistas en España": "En varios clubs de España",
+        "En X pistas": "En varios clubs",
+        "artículo xxx. las cámaras de padel las fabricamos": "artículo sobre esto. Las cámaras de pádel las fabricamos",
     }
     for old, new in replacements.items():
         text = text.replace(old, new)
     text = re.sub(r"\bA que suena chula", "¿A que suena chula", text)
-    text = text.replace("?", "?")
     return text.strip()
 
 
 def load_articles() -> list[dict]:
-    paragraphs = [p.text.strip() for p in Document(DOCX).paragraphs]
+    """Load articles from DOCX, stripping the title/question from the body."""
+    raw_paragraphs = [p.text for p in Document(DOCX).paragraphs]
     articles = []
     for slug, title, start, end in ARTICLE_SPECS:
-        chunks = [clean_body(p) for p in paragraphs[start : end + 1] if p.strip()]
-        if chunks:
-            title_prefix = title.lstrip("¿¡").rstrip("?").strip()
-            if chunks[0].startswith(title_prefix):
-                chunks[0] = chunks[0][len(title_prefix):].lstrip(" ?\n")
-                if not chunks[0]:
-                    chunks.pop(0)
-            elif chunks[0].startswith("Preguntas:"):
-                chunks[0] = chunks[0].split("\n", 1)[-1].lstrip()
-        if slug == "que-son-las-coaching-tools" and not chunks:
-            chunks = ["Próximamente explicaremos al detalle cómo funcionan las coaching tools en pista."]
-        articles.append({"slug": slug, "title": clean_title(title), "paragraphs": chunks})
+        # Flatten all DOCX paragraphs in range into individual non-empty lines.
+        all_lines: list[str] = []
+        for i in range(start, end + 1):
+            for line in raw_paragraphs[i].split("\n"):
+                line = line.strip()
+                if line:
+                    all_lines.append(line)
+
+        # Strip leading title/question lines:
+        # - Skip "Preguntas:" headers and lines ending with "?"
+        # - If none found, skip exactly 1 line (for non-question titles)
+        skip_count = 0
+        for line in all_lines:
+            if line == "Preguntas:" or line.endswith("?"):
+                skip_count += 1
+            else:
+                break
+        if skip_count == 0 and all_lines:
+            skip_count = 1
+
+        body_lines = all_lines[skip_count:]
+
+        # Coaching tools has no body text in the DOCX yet — placeholder.
+        if slug == "que-son-las-coaching-tools" and not body_lines:
+            body_lines = [
+                "Próximamente explicaremos al detalle cómo funcionan las coaching tools en pista."
+            ]
+
+        chunks = [clean_body(line) for line in body_lines if line.strip()]
+        articles.append({"slug": slug, "title": title, "paragraphs": chunks})
     return articles
+
+
+def split_into_sentences(text: str) -> list[str]:
+    """Split a paragraph into individual sentences — one <p> per sentence, Highlights style."""
+    text = text.strip()
+    if not text:
+        return []
+    # Keep numbered list items whole (1º, 2º, 1., 2., etc.)
+    if re.match(r"^\d[ºoa°\.]", text):
+        return [text]
+    # Keep section headers whole (Error 1:, ERROR EXTRA:, Conclusión:, Plan A:, Plan B:)
+    if re.match(r"^(Error [0-9]+:|ERROR EXTRA:|Conclusi[oó]n:|Plan [A-Z]:)", text):
+        return [text]
+    # Split on sentence-ending punctuation + space + uppercase or inverted punct
+    parts = re.split(r"(?<=[.?!])\s+(?=[A-ZÁÉÍÓÚÜÑ¿¡\"])", text)
+    return [p.strip() for p in parts if p.strip()]
 
 
 def inline_links(text: str, current_slug: str) -> str:
     text = text.replace(" xxxx", "").replace(" xxx", "")
     if "Plan A:" in text and "(Link)" in text:
-        text = text.replace("(Link)", "[[LINK:por-que-no-recomiendo-plan-analytics|¿Por qué no recomiendo el plan de 136 € al mes al 95 % de los clubs?]]")
+        text = text.replace(
+            "(Link)",
+            "[[LINK:por-que-no-recomiendo-plan-analytics|¿Por qué no recomiendo el plan de 136 € al mes al 95 % de los clubs?]]",
+        )
     elif "Inversión Inicial" in text and "(Link)" in text:
-        text = text.replace("(Link)", "[[LINK:inversion-inicial-camaras-180-euros|¿Por qué hay una inversión inicial de 180 € por las cámaras?]]")
+        text = text.replace(
+            "(Link)",
+            "[[LINK:inversion-inicial-camaras-180-euros|¿Por qué hay una inversión inicial de 180 € por las cámaras?]]",
+        )
     text = text.replace("Link a ", "")
     links = {
         "este artículo": ("camaras-de-padel-o-videovigilancia", "¿Cómo saber si mis cámaras son de pádel o de videovigilancia?"),
@@ -132,17 +175,18 @@ def inline_links(text: str, current_slug: str) -> str:
     }
     for needle, (slug, label) in links.items():
         if slug != current_slug and needle in text:
-            text = text.replace(needle, f'[[LINK:{slug}|{label}]]', 1)
+            text = text.replace(needle, f"[[LINK:{slug}|{label}]]", 1)
     text = html.escape(text, quote=False)
     text = re.sub(r"\[\[LINK:([^|]+)\|([^]]+)\]\]", r'<a href="../\1/">\2</a>', text)
-    return text.replace("\n", "<br>\n")
+    return text
 
 
 def article_body(article: dict) -> str:
+    """Render article paragraphs as one <p> per sentence — Highlights style."""
     parts = []
     for paragraph in article["paragraphs"]:
-        # Preserve numbered lists and paragraph breaks without adding blog-style cards.
-        parts.append(f'<p>{inline_links(paragraph, article["slug"])}</p>')
+        for sentence in split_into_sentences(paragraph):
+            parts.append(f'<p>{inline_links(sentence, article["slug"])}</p>')
     return "\n".join(parts)
 
 
@@ -267,4 +311,3 @@ def build(articles: list[dict]) -> None:
 
 if __name__ == "__main__":
     build(load_articles())
-
