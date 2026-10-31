@@ -591,6 +591,80 @@ def _sub_attr(html, pattern, new_tag):
     return re.sub(pattern, lambda _m: new_tag, html, count=1)
 
 
+
+def get_official_camaras_header(lang):
+    t_nav = {
+        'es': {'llaveros': 'LLAVEROS', 'camaras': 'CÁMARAS', 'blog': 'Blog', 'franquicias': 'Cadenas de clubs', 'contacto': 'Contactar'},
+        'en': {'llaveros': 'KEYCHAINS', 'camaras': 'CAMERAS', 'blog': 'Blog', 'franquicias': 'Franchises', 'contacto': 'Contact'},
+        'fr': {'llaveros': 'PORTE-CLÉS', 'camaras': 'CAMÉRAS', 'blog': 'Blog', 'franquicias': 'Franchises', 'contacto': 'Contacter'},
+        'it': {'llaveros': 'PORTACHIAVI', 'camaras': 'TELECAMERE', 'blog': 'Blog', 'franquicias': 'Franchigie', 'contacto': 'Contattaci'},
+        'de': {'llaveros': 'SCHLÜSSELANHÄNGER', 'camaras': 'KAMERAS', 'blog': 'Blog', 'franquicias': 'Franchises', 'contacto': 'Kontakt'},
+    }.get(lang, {'llaveros': 'KEYCHAINS', 'camaras': 'CAMERAS', 'blog': 'Blog', 'franquicias': 'Franchises', 'contacto': 'Contact'})
+
+    asset_prefix = "../../" if lang != "es" else "../"
+    home_url = f"/{lang}/" if lang != "es" else "/"
+    llaveros_url = f"/{lang}/#llaveros" if lang != "es" else "/#llaveros"
+    camaras_url = f"/{lang}/camaras/" if lang != "es" else "/camaras/"
+    blog_url = f"/{lang}/blog/" if lang != "es" else "/blog/"
+    franquicias_url = f"/{lang}/franquicias-padel/" if lang != "es" else "/franquicias-padel/"
+    contacto_url = f"/{lang}/#contacto" if lang != "es" else "/#contacto"
+
+    langs = ['es', 'en', 'fr', 'it', 'de']
+    dropdown_opts = []
+    for l in langs:
+        l_url = f"/{l}/camaras/" if l != "es" else "/camaras/"
+        if l == lang:
+            dropdown_opts.append(f'<a href="{l_url}" data-lang-opt="{l}" class="lang-opt block lang-opt-active font-black w-full text-center px-4 py-2 text-xs transition duration-150">{l.upper()}</a>')
+        else:
+            dropdown_opts.append(f'<a href="{l_url}" data-lang-opt="{l}" class="lang-opt block text-slate-700 hover:bg-[#f2920b] hover:text-slate-950 font-bold w-full text-center px-4 py-2 text-xs transition duration-150">{l.upper()}</a>')
+    
+    dropdown_html = "\n            ".join(dropdown_opts)
+
+    header_html = f'''<header class="fixed top-0 left-0 w-full z-50 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-xs w-full">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between">
+      
+      <!-- LOGO: MASCOTA + TIPOGRAFÍA -->
+      <a href="{home_url}" class="flex items-center gap-2 group shrink-0" aria-label="CoolPadel Home">
+        <img src="{asset_prefix}assets/images/coolpadel-mascot-hd.png" alt="Mascota CoolPadel" width="44" height="44" class="h-8 sm:h-11 w-auto object-contain group-hover:scale-105 transition" fetchpriority="high">
+        <img src="{asset_prefix}assets/images/coolpadel-typography-hd.png" alt="CoolPadel" width="140" height="28" class="h-5 sm:h-7 w-auto object-contain" fetchpriority="high">
+      </a>
+
+      <!-- BLOQUE DE NAVEGACIÓN Y ACCIONES A LA DERECHA -->
+      <div class="flex items-center gap-2 sm:gap-4 lg:gap-6">
+        <a href="{llaveros_url}" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition whitespace-nowrap">{t_nav['llaveros']}</a>
+        <a href="{camaras_url}" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition whitespace-nowrap">{t_nav['camaras']}</a>
+        <a href="{blog_url}" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition whitespace-nowrap">{t_nav['blog']}</a>
+        <a href="{franquicias_url}" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition whitespace-nowrap">{t_nav['franquicias']}</a>
+
+        <!-- SELECTOR DE IDIOMA EN DESPLEGABLE COMPACTO -->
+        <div class="relative inline-block text-left" id="lang-dropdown-container">
+          <button type="button" onclick="toggleLangDropdown(event)" id="lang-dropdown-btn" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-100 hover:bg-slate-200 border border-slate-200 text-xs font-black text-slate-900 shadow-xs transition cursor-pointer" aria-expanded="false" aria-haspopup="true">
+            <span id="current-lang-code" class="uppercase font-black">{lang.upper()}</span>
+            <i data-lucide="chevron-down" class="w-3.5 h-3.5 stroke-[2.5] text-slate-600 transition-transform duration-200" id="lang-dropdown-arrow"></i>
+          </button>
+
+          <!-- MENÚ DESPLEGABLE FLOTANTE -->
+          <div id="lang-dropdown-menu" class="hidden absolute right-0 mt-2 w-24 bg-white rounded-2xl shadow-[0_12px_30px_rgba(0,0,0,0.15)] border border-slate-200 py-1.5 z-50 transition-all overflow-hidden">
+            {dropdown_html}
+          </div>
+        </div>
+
+        <!-- BOTÓN CONTACTAR -->
+        <a id="nav-contact-btn" href="{contacto_url}" class="inline-flex items-center gap-1.5 px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] text-slate-950 font-heading font-black text-xs uppercase tracking-wider transition shadow-sm hover:scale-105 active:scale-95 cursor-pointer">
+          <span data-i18n="nav_contact">{t_nav['contacto']}</span>
+          <i data-lucide="arrow-down" class="w-3 h-3 stroke-[3]"></i>
+        </a>
+
+        <!-- OJOS DEL LOGO A LA DERECHA DEL TODO -->
+        <a href="{home_url}" class="group py-1 inline-flex items-center shrink-0 pl-1" aria-label="CoolPadel Eyes">
+          <img src="{asset_prefix}assets/images/eyes-thumb.png?v=fixed_eyes" alt="CoolPadel Eyes" width="28" height="28" style="height: 26px; max-height: 26px; width: auto;" class="object-contain group-hover:scale-110 transition duration-300">
+        </a>
+      </div>
+    </div>
+  </header>
+  <div class="h-16 sm:h-20 w-full shrink-0" aria-hidden="true"></div>'''
+    return header_html
+
 def generate_page(target_lang):
     info = LOCALES[target_lang]
     
@@ -1007,6 +1081,30 @@ def generate_page(target_lang):
             } catch (err) {}
         });
     </script>
+    <script>
+        function toggleLangDropdown(e) {
+            e.stopPropagation();
+            const menu = document.getElementById('lang-dropdown-menu');
+            const arrow = document.getElementById('lang-dropdown-arrow');
+            if (!menu) return;
+            const isHidden = menu.classList.contains('hidden');
+            if (isHidden) {
+                menu.classList.remove('hidden');
+                if (arrow) arrow.style.transform = 'rotate(180deg)';
+            } else {
+                menu.classList.add('hidden');
+                if (arrow) arrow.style.transform = 'rotate(0deg)';
+            }
+        }
+        document.addEventListener('click', () => {
+            const menu = document.getElementById('lang-dropdown-menu');
+            const arrow = document.getElementById('lang-dropdown-arrow');
+            if (menu) menu.classList.add('hidden');
+            if (arrow) arrow.style.transform = 'rotate(0deg)';
+        });
+        if (window.lucide) { lucide.createIcons(); }
+    </script>
+
 </body>
 </html>"""
 
@@ -1014,6 +1112,15 @@ def generate_page(target_lang):
     post_tracking_code = post_tracking_code.replace('__TRACK_SELECTED__', info['track_selected'])
     post_tracking_code = post_tracking_code.replace('__TRACK_BOOKED__', info['track_booked'])
     post_tracking_code = post_tracking_code.replace('__SUCCESS_JS_TEMPLATE__', info['success_js_template'])
+
+        # Asegurar estilos e iconos de la cabecera oficial
+    if 'cdn.tailwindcss.com' not in html:
+        tailwind_tag = '<script src="https://cdn.tailwindcss.com"></script>\n    <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"></script>\n    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800;900&display=swap" rel="stylesheet">\n'
+        html = html.replace('</head>', tailwind_tag + '</head>')
+
+    # Inyectar cabecera oficial CoolPadel en <body>
+    header_markup = get_official_camaras_header(target_lang)
+    html = re.sub(r'<body[^>]*>', lambda m: f"{m.group(0)}\n\n{header_markup}\n", html, count=1)
 
     # Sustituir todo tras </main>
     main_end_idx = html.find('</main>') + 7

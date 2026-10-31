@@ -75,6 +75,10 @@ def get_base_html(active_lang="es", is_subfolder=False):
     t_clean = {k: v.replace('<br>', ' ') if isinstance(v, str) else v for k, v in t.items()}
 
     asset_prefix = "../" if is_subfolder else ""
+    home_url = "/" if active_lang == "es" else f"/{active_lang}/"
+    camaras_url = "/camaras/" if active_lang == "es" else f"/{active_lang}/camaras/"
+    blog_url = "/blog/" if active_lang == "es" else f"/{active_lang}/blog/"
+    franquicias_url = "/franquicias-padel/" if active_lang == "es" else f"/{active_lang}/franquicias-padel/" 
 
     
 
@@ -1870,7 +1874,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between">
       
       <!-- LOGO: MASCOTA + TIPOGRAFÍA -->
-      <a href="{asset_prefix}#" class="flex items-center gap-2 group shrink-0" aria-label="CoolPadel Home">
+      <a href="{home_url}" class="flex items-center gap-2 group shrink-0" aria-label="CoolPadel Home">
         <img src="{asset_prefix}assets/images/coolpadel-mascot-hd.png" alt="Mascota CoolPadel" width="44" height="44" class="h-8 sm:h-11 w-auto object-contain group-hover:scale-105 transition" fetchpriority="high">
         <img src="{asset_prefix}assets/images/coolpadel-typography-hd.png" alt="CoolPadel" width="140" height="28" class="h-5 sm:h-7 w-auto object-contain" fetchpriority="high">
       </a>
@@ -1878,9 +1882,9 @@ def get_base_html(active_lang="es", is_subfolder=False):
       <!-- BLOQUE DE NAVEGACIÓN Y ACCIONES A LA DERECHA (ESTILO EXACTO LANDINGS) -->
       <div class="flex items-center gap-2 sm:gap-4 lg:gap-6">
         <a href="#llaveros" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition whitespace-nowrap">{t['nav_tenis_padel']}</a>
-        <a href="#camaras" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition whitespace-nowrap">{t.get('nav_camaras', 'CÁMARAS')}</a>
-        <a href="blog/" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition whitespace-nowrap">Blog</a>
-        <a href="franquicias-padel/" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition whitespace-nowrap">{"Franchises" if active_lang in ("en", "fr") else "Franchigie" if active_lang=="it" else "Cadenas de clubs"}</a>
+        <a href="{camaras_url}" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition whitespace-nowrap">{t.get('nav_camaras', 'CÁMARAS')}</a>
+        <a href="{blog_url}" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition whitespace-nowrap">Blog</a>
+        <a href="{franquicias_url}" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition whitespace-nowrap">{"Franchises" if active_lang in ("en", "fr") else "Franchigie" if active_lang=="it" else "Cadenas de clubs"}</a>
 
         <!-- SELECTOR DE IDIOMA EN DESPLEGABLE COMPACTO -->
         <div class="relative inline-block text-left" id="lang-dropdown-container">
@@ -1913,7 +1917,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
         </a>
 
         <!-- OJOS DEL LOGO A LA DERECHA DEL TODO -->
-        <a href="{asset_prefix}#" class="group py-1 inline-flex items-center shrink-0 pl-1" aria-label="CoolPadel Eyes">
+        <a href="{home_url}" class="group py-1 inline-flex items-center shrink-0 pl-1" aria-label="CoolPadel Eyes">
           <img src="{asset_prefix}assets/images/eyes-thumb.png?v=fixed_eyes" alt="CoolPadel Eyes" width="28" height="28" style="height: 26px; max-height: 26px; width: auto;" class="object-contain group-hover:scale-110 transition duration-300">
         </a>
       </div>
@@ -6022,11 +6026,15 @@ def build_all():
         build_franquicias_main()
 
     except Exception as e:
-
         print(f"  [ERROR] Al generar Directorio de Franquicias: {e}")
 
-
-
+    # 2.8. Sincronización de Cartas de Venta de Cámaras Multilingüe (IT, EN, FR, DE)
+    try:
+        from sync_camaras_multilingual import generate_page
+        for l in ['it', 'en', 'fr', 'de']:
+            generate_page(l)
+    except Exception as e:
+        print(f"  [ERROR] Al sincronizar Cámaras Multilingüe: {e}")
 
     try:
         from seo_post_build import run_seo_post_build

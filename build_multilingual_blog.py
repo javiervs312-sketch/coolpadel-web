@@ -22,19 +22,91 @@ from extra_articles_i18n import EXTRA_ARTICLES_I18N
 # Catálogo completo unificado de 29 artículos
 ALL_ARTICLES_I18N = {**FLAGSHIP_GUIDES_DATA, **EXTRA_ARTICLES_I18N}
 
-def get_blog_lang_switcher(lang, slug=None):
-    langs = ["es", "en", "fr", "it"]
-    links = []
-    for l in langs:
-        if slug:
-            url = f"/blog/{slug}/" if l == "es" else f"/{l}/blog/{slug}/"
-        else:
-            url = "/blog/" if l == "es" else f"/{l}/blog/"
-        if l == lang:
-            links.append(f'<a href="{url}" class="px-2 py-1 rounded text-xs transition bg-[#f2920b] text-slate-950 font-black">{l.upper()}</a>')
-        else:
-            links.append(f'<a href="{url}" class="px-2 py-1 rounded text-xs transition text-slate-300 hover:text-white">{l.upper()}</a>')
-    return f'<div class="flex items-center gap-1 border border-slate-700 rounded-lg p-0.5 bg-slate-800/80">{"".join(links)}</div>'
+def adapt_header_and_nav(html, lang, asset_prefix):
+    """
+    Adapta la cabecera oficial en páginas de blog (Hub y Artículos) para el idioma `lang`:
+    - Logo a /{lang}/
+    - Llaveros a /{lang}/#llaveros
+    - Cámaras a /{lang}/camaras/
+    - Blog a /{lang}/blog/
+    - Franquicias a /{lang}/franquicias-padel/
+    - Contacto a /{lang}/#contacto
+    - Ojos a /{lang}/
+    - Dropdown: código activo {LANG} y clases activas
+    - Textos de navegación según el idioma
+    """
+    if lang == "es":
+        return html
+
+    t_nav = {
+        'en': {'llaveros': 'KEYCHAINS', 'camaras': 'CAMERAS', 'blog': 'Blog', 'franquicias': 'Franchises', 'contacto': 'Contact'},
+        'fr': {'llaveros': 'PORTE-CLÉS', 'camaras': 'CAMÉRAS', 'blog': 'Blog', 'franquicias': 'Franchises', 'contacto': 'Contacter'},
+        'it': {'llaveros': 'PORTACHIAVI', 'camaras': 'TELECAMERE', 'blog': 'Blog', 'franquicias': 'Franchigie', 'contacto': 'Contattaci'},
+    }[lang]
+
+    # 1. Logo principal
+    html = re.sub(
+        r'<a href="[^"]*" class="flex items-center gap-2 group shrink-0" aria-label="CoolPadel Home">',
+        f'<a href="/{lang}/" class="flex items-center gap-2 group shrink-0" aria-label="CoolPadel Home">',
+        html
+    )
+
+    # 2. Llaveros
+    html = re.sub(
+        r'<a href="[^"]*#llaveros" class="([^"]*)">[^<]*</a>',
+        f'<a href="/{lang}/#llaveros" class="\\1">{t_nav["llaveros"]}</a>',
+        html
+    )
+
+    # 3. Cámaras
+    html = re.sub(
+        r'<a href="[^"]*camaras/" class="([^"]*)">[^<]*</a>',
+        f'<a href="/{lang}/camaras/" class="\\1">{t_nav["camaras"]}</a>',
+        html
+    )
+
+    # 4. Blog link en nav
+    html = re.sub(
+        r'<a href="(?:\./|\.\./|[^"]*blog/)" class="([^"]*whitespace-nowrap)">Blog</a>',
+        f'<a href="/{lang}/blog/" class="\\1">{t_nav["blog"]}</a>',
+        html
+    )
+
+    # 5. Franquicias / Cadenas de clubs
+    html = re.sub(
+        r'<a href="[^"]*franquicias-padel/" class="([^"]*)">[^<]*</a>',
+        f'<a href="/{lang}/franquicias-padel/" class="\\1">{t_nav["franquicias"]}</a>',
+        html
+    )
+
+    # 6. Selector de idioma en header: Código activo
+    html = html.replace(
+        '<span id="current-lang-code" class="uppercase font-black">ES</span>',
+        f'<span id="current-lang-code" class="uppercase font-black">{lang.upper()}</span>'
+    )
+
+    # 7. Clases del menú desplegable
+    active_cls = 'lang-opt block lang-opt-active font-black w-full text-center px-4 py-2 text-xs transition duration-150'
+    inactive_cls = 'lang-opt block text-slate-700 hover:bg-[#f2920b] hover:text-slate-950 font-bold w-full text-center px-4 py-2 text-xs transition duration-150'
+    html = html.replace(f'data-lang-opt="es" class="{active_cls}"', f'data-lang-opt="es" class="{inactive_cls}"')
+    html = html.replace(f'data-lang-opt="{lang}" class="{inactive_cls}"', f'data-lang-opt="{lang}" class="{active_cls}"')
+
+    # 8. Botón Contactar
+    contact_text = t_nav["contacto"]
+    html = re.sub(
+        r'<a id="nav-contact-btn" href="[^"]*#contacto"([^>]*)>[\s\S]*?</a>',
+        rf'<a id="nav-contact-btn" href="/{lang}/#contacto"\1><span data-i18n="nav_contact">{contact_text}</span><i data-lucide="arrow-down" class="w-3 h-3 stroke-[3]"></i></a>',
+        html
+    )
+
+    # 9. Ojos del logo
+    html = re.sub(
+        r'<a href="[^"]*" class="group py-1 inline-flex items-center shrink-0 pl-1" aria-label="CoolPadel Eyes">',
+        f'<a href="/{lang}/" class="group py-1 inline-flex items-center shrink-0 pl-1" aria-label="CoolPadel Eyes">',
+        html
+    )
+
+    return html
 
 def build_blog_hub(lang):
     d = BLOG_HUB_DATA[lang]
@@ -91,10 +163,8 @@ def build_blog_hub(lang):
         html = html.replace(f'href="/blog/{slug}/"', f'href="/{lang}/blog/{slug}/"')
         html = html.replace(f'href="./{slug}/"', f'href="/{lang}/blog/{slug}/"')
 
-    # Inyectar lang switcher en la cabecera del blog hub
-    switcher = get_blog_lang_switcher(lang)
-    html = html.replace('</nav>\n\n      <a href="../#contacto"', f'</nav>\n\n      <div class="flex items-center gap-3">\n        {switcher}\n        <a href="../../{lang}/#contacto"')
-    html = html.replace('</nav>\r\n\r\n      <a href="../#contacto"', f'</nav>\r\n\r\n      <div class="flex items-center gap-3">\r\n        {switcher}\r\n        <a href="../../{lang}/#contacto"')
+    # Adaptar cabecera oficial
+    html = adapt_header_and_nav(html, lang, asset_prefix)
 
     return html
 
@@ -160,24 +230,8 @@ def build_article_page(slug, lang):
     if es_data.get("badge") and d.get("badge") and es_data["badge"] in html:
         html = html.replace(es_data["badge"], d["badge"])
 
-    # Adaptar Selector de Idioma en el Header (Dropdown)
-    # 1. Código activo en el botón
-    html = html.replace(
-        '<span id="current-lang-code" class="uppercase font-black">ES</span>',
-        f'<span id="current-lang-code" class="uppercase font-black">{lang.upper()}</span>'
-    )
-
-    # 2. Clases del menú desplegable
-    active_cls = 'lang-opt block lang-opt-active font-black w-full text-center px-4 py-2 text-xs transition duration-150'
-    inactive_cls = 'lang-opt block text-slate-700 hover:bg-[#f2920b] hover:text-slate-950 font-bold w-full text-center px-4 py-2 text-xs transition duration-150'
-
-    # Quitar clase activa de ES
-    html = html.replace(f'data-lang-opt="es" class="{active_cls}"', f'data-lang-opt="es" class="{inactive_cls}"')
-    # Poner clase activa en el idioma actual
-    html = html.replace(f'data-lang-opt="{lang}" class="{inactive_cls}"', f'data-lang-opt="{lang}" class="{active_cls}"')
-
-    # 3. Enlace al índice del blog en el nav
-    html = html.replace(f'href="{asset_prefix}blog/"', f'href="{asset_prefix}{lang}/blog/"')
+    # Adaptar cabecera oficial completa
+    html = adapt_header_and_nav(html, lang, asset_prefix)
 
     # 4. Enlaces relativos a otras newsletters (en Highlights: ../highlights-0X/ -> /{lang}/blog/highlights-0X/)
     for hl_slug in ["highlights-01", "highlights-02", "highlights-03"]:

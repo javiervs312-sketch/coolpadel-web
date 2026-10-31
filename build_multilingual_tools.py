@@ -37,6 +37,12 @@ def get_tool_header(lang, slug, active_title):
 
     bc_home = {"es": "Inicio", "en": "Home", "fr": "Accueil", "it": "Home"}[lang]
     bc_tools = {"es": "Herramientas", "en": "Tools", "fr": "Outils", "it": "Strumenti"}[lang]
+    t_nav = {
+        'es': {'llaveros': 'LLAVEROS', 'camaras': 'CÁMARAS', 'franquicias': 'Cadenas de clubs', 'contacto': 'Contactar'},
+        'en': {'llaveros': 'KEYCHAINS', 'camaras': 'CAMERAS', 'franquicias': 'Franchises', 'contacto': 'Contact'},
+        'fr': {'llaveros': 'PORTE-CLÉS', 'camaras': 'CAMÉRAS', 'franquicias': 'Franchises', 'contacto': 'Contacter'},
+        'it': {'llaveros': 'PORTACHIAVI', 'camaras': 'TELECAMERE', 'franquicias': 'Franchigie', 'contacto': 'Contattaci'},
+    }[lang]
 
     return f"""  <!-- HEADER OFICIAL COOLPADEL (EXACTO A HOME) -->
   <header class="fixed top-0 left-0 w-full z-50 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-xs w-full">
@@ -50,10 +56,10 @@ def get_tool_header(lang, slug, active_title):
 
       <!-- BLOQUE DE NAVEGACIÓN Y ACCIONES A LA DERECHA (ESTILO EXACTO LANDINGS Y HOME) -->
       <div class="flex items-center gap-2 sm:gap-4 lg:gap-6">
-        <a href="{llaveros_href}" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition whitespace-nowrap">LLAVEROS</a>
-        <a href="{camaras_href}" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition whitespace-nowrap">CÁMARAS</a>
+        <a href="{llaveros_href}" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition whitespace-nowrap">{t_nav[\'llaveros\']}</a>
+        <a href="{camaras_href}" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition whitespace-nowrap">{t_nav[\'camaras\']}</a>
         <a href="{blog_href}" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition whitespace-nowrap">Blog</a>
-        <a href="{franquicias_href}" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition whitespace-nowrap">Cadenas de clubs</a>
+        <a href="{franquicias_href}" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition whitespace-nowrap">{t_nav[\'franquicias\']}</a>
 
         <!-- SELECTOR DE IDIOMA EN DESPLEGABLE COMPACTO -->
         <div class="relative inline-block text-left" id="lang-dropdown-container">
@@ -81,7 +87,7 @@ def get_tool_header(lang, slug, active_title):
 
         <!-- BOTÓN CONTACTAR -->
         <a id="nav-contact-btn" href="{contacto_href}" class="inline-flex items-center gap-1.5 px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] text-slate-950 font-heading font-black text-xs uppercase tracking-wider transition shadow-sm hover:scale-105 active:scale-95 cursor-pointer">
-          <span data-i18n="nav_contact">Contactar</span>
+          <span data-i18n="nav_contact">{t_nav[\'contacto\']}</span>
           <i data-lucide="arrow-down" class="w-3 h-3 stroke-[3]"></i>
         </a>
 
@@ -1064,7 +1070,7 @@ def build_americana_page(lang):
 
     # Header & Breadcrumbs
     header_block = get_tool_header(lang, slug, bc_current)
-    html = re.sub(r'<!-- HEADER.*?<!-- BREADCRUMBS -->.*?</div>', header_block, html, flags=re.DOTALL)
+    html = re.sub(r"(?s)(?:<!-- CABECERA.*?-->\s*)?<header.*?</header>(?:\s*<div[^>]*aria-hidden=\"true\"></div>)?(?:\s*<!-- BREADCRUMBS -->.*?</div>)?", header_block, html)
 
     if not is_es:
         # Hero Badge, H1, Lead
@@ -1152,7 +1158,7 @@ def build_cuadros_page(lang):
 
     # Header & Breadcrumbs
     header_block = get_tool_header(lang, slug, bc_current)
-    html = re.sub(r'<!-- HEADER.*?<!-- BREADCRUMBS -->.*?</div>', header_block, html, flags=re.DOTALL)
+    html = re.sub(r"(?s)(?:<!-- CABECERA.*?-->\s*)?<header.*?</header>(?:\s*<div[^>]*aria-hidden=\"true\"></div>)?(?:\s*<!-- BREADCRUMBS -->.*?</div>)?", header_block, html)
 
     if not is_es:
         # Hero Badge, H1, Lead
