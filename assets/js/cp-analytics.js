@@ -562,3 +562,82 @@
     initTracking();
   }
 })();
+
+// SISTEMA GLOBAL DE DESPLEGABLE DE IDIOMA COOLPADEL
+(function () {
+  window.toggleLangDropdown = function (e) {
+    if (e) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+    var menu = document.getElementById('lang-dropdown-menu');
+    var arrow = document.getElementById('lang-dropdown-arrow');
+    if (!menu) return;
+    var isHidden = menu.classList.contains('hidden');
+    document.querySelectorAll('#lang-dropdown-menu, #lang-dropdown-menu-mob').forEach(function (m) {
+      m.classList.add('hidden');
+    });
+    if (isHidden) {
+      menu.classList.remove('hidden');
+      if (arrow) {
+        arrow.style.transform = 'rotate(180deg)';
+        arrow.classList.add('rotate-180');
+      }
+    } else {
+      if (arrow) {
+        arrow.style.transform = 'rotate(0deg)';
+        arrow.classList.remove('rotate-180');
+      }
+    }
+  };
+
+  window.toggleLangDropdownMob = function (e) {
+    if (e) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+    var menu = document.getElementById('lang-dropdown-menu-mob');
+    var arrow = document.getElementById('lang-dropdown-arrow-mob');
+    if (!menu) return;
+    var isHidden = menu.classList.contains('hidden');
+    document.querySelectorAll('#lang-dropdown-menu, #lang-dropdown-menu-mob').forEach(function (m) {
+      m.classList.add('hidden');
+    });
+    if (isHidden) {
+      menu.classList.remove('hidden');
+      if (arrow) {
+        arrow.style.transform = 'rotate(180deg)';
+        arrow.classList.add('rotate-180');
+      }
+    } else {
+      if (arrow) {
+        arrow.style.transform = 'rotate(0deg)';
+        arrow.classList.remove('rotate-180');
+      }
+    }
+  };
+
+  document.addEventListener('click', function (e) {
+    var container = document.getElementById('lang-dropdown-container');
+    var menu = document.getElementById('lang-dropdown-menu');
+    var arrow = document.getElementById('lang-dropdown-arrow');
+    if (menu && (!container || !container.contains(e.target))) {
+      menu.classList.add('hidden');
+      if (arrow) {
+        arrow.style.transform = 'rotate(0deg)';
+        arrow.classList.remove('rotate-180');
+      }
+    }
+    var containerMob = document.getElementById('lang-dropdown-container-mob');
+    var menuMob = document.getElementById('lang-dropdown-menu-mob');
+    var arrowMob = document.getElementById('lang-dropdown-arrow-mob');
+    if (menuMob && (!containerMob || !containerMob.contains(e.target))) {
+      menuMob.classList.add('hidden');
+      if (arrowMob) {
+        arrowMob.style.transform = 'rotate(0deg)';
+        arrowMob.classList.remove('rotate-180');
+      }
+    }
+  });
+})();
+

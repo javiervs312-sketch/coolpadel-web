@@ -76,6 +76,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
 
     asset_prefix = "../" if is_subfolder else ""
     home_url = "/" if active_lang == "es" else f"/{active_lang}/"
+    llaveros_url = "/llaveros-padel-personalizados/" if active_lang == "es" else f"/{active_lang}/llaveros-padel-personalizados/"
     camaras_url = "/camaras/" if active_lang == "es" else f"/{active_lang}/camaras/"
     blog_url = "/blog/" if active_lang == "es" else f"/{active_lang}/blog/"
     franquicias_url = "/franquicias-padel/" if active_lang == "es" else f"/{active_lang}/franquicias-padel/" 
@@ -1881,7 +1882,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
 
       <!-- BLOQUE DE NAVEGACIÓN Y ACCIONES A LA DERECHA (ESTILO EXACTO LANDINGS) -->
       <div class="flex items-center gap-2 sm:gap-4 lg:gap-6">
-        <a href="#llaveros" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition whitespace-nowrap">{t['nav_tenis_padel']}</a>
+        <a href="{llaveros_url}" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition whitespace-nowrap">{t['nav_tenis_padel']}</a>
         <a href="{camaras_url}" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition whitespace-nowrap">{t.get('nav_camaras', 'CÁMARAS')}</a>
         <a href="{blog_url}" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition whitespace-nowrap">Blog</a>
         <a href="{franquicias_url}" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition whitespace-nowrap">{"Franchises" if active_lang in ("en", "fr") else "Franchigie" if active_lang=="it" else "Cadenas de clubs"}</a>

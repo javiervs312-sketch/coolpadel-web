@@ -542,7 +542,7 @@ def generate_blog_index():
 
         <!-- BLOQUE DE NAVEGACIÓN Y ACCIONES A LA DERECHA (ESTILO EXACTO LANDINGS Y HOME) -->
         <div class="flex items-center gap-2 sm:gap-4 lg:gap-6">
-          <a href="../#llaveros" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition whitespace-nowrap">LLAVEROS</a>
+          <a href="../llaveros-padel-personalizados/" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition whitespace-nowrap">LLAVEROS</a>
           <a href="../camaras/" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition whitespace-nowrap">CÁMARAS</a>
           <a href="./" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-[#f2920b] transition whitespace-nowrap">Blog</a>
           <a href="../franquicias-padel/" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition whitespace-nowrap">Cadenas de clubs</a>
@@ -2247,7 +2247,7 @@ def generate_article_page(slug, edition_num, title, date_str, read_time, cover_i
 
         <!-- BLOQUE DE NAVEGACIÓN Y ACCIONES A LA DERECHA (ESTILO EXACTO LANDINGS Y HOME) -->
         <div class="flex items-center gap-2 sm:gap-4 lg:gap-6">
-          <a href="../../#llaveros" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition whitespace-nowrap">LLAVEROS</a>
+          <a href="../../llaveros-padel-personalizados/" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition whitespace-nowrap">LLAVEROS</a>
           <a href="../../camaras/" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition whitespace-nowrap">CÁMARAS</a>
           <a href="../" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-[#f2920b] transition whitespace-nowrap">Blog</a>
           <a href="../../franquicias-padel/" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition whitespace-nowrap">Cadenas de clubs</a>
@@ -2818,7 +2818,7 @@ def generate_guide_page(slug, category_badge, title, subtitle, meta_desc, date_s
 
         <!-- BLOQUE DE NAVEGACIÓN Y ACCIONES A LA DERECHA (ESTILO EXACTO LANDINGS Y HOME) -->
         <div class="flex items-center gap-2 sm:gap-4 lg:gap-6">
-          <a href="../../#llaveros" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition whitespace-nowrap">LLAVEROS</a>
+          <a href="../../llaveros-padel-personalizados/" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition whitespace-nowrap">LLAVEROS</a>
           <a href="../../camaras/" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition whitespace-nowrap">CÁMARAS</a>
           <a href="../" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-[#f2920b] transition whitespace-nowrap">Blog</a>
           <a href="../../franquicias-padel/" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition whitespace-nowrap">Cadenas de clubs</a>

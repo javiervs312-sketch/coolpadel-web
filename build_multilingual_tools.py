@@ -29,7 +29,7 @@ def get_tool_header(lang, slug, active_title):
     prefix = "../../" if is_es else "../../../"
     home_href = "../../" if is_es else f"../../../{lang}/"
     camaras_href = "../../camaras/" if is_es else f"../../../{lang}/camaras/"
-    llaveros_href = f"{home_href}#llaveros"
+    llaveros_href = f"{home_href}llaveros-padel-personalizados/"
     franquicias_href = f"{home_href}franquicias-padel/"
     herramientas_href = "../" if is_es else f"../../../{lang}/herramientas/"
     blog_href = "../../blog/" if is_es else f"../../../{lang}/blog/"

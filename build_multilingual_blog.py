@@ -53,8 +53,8 @@ def adapt_header_and_nav(html, lang, asset_prefix):
 
     # 2. Llaveros
     html = re.sub(
-        r'<a href="[^"]*#llaveros" class="([^"]*)">[^<]*</a>',
-        f'<a href="/{lang}/#llaveros" class="\\1">{t_nav["llaveros"]}</a>',
+        r'<a href="[^"]*(?:#llaveros|llaveros-padel-personalizados/?)" class="([^"]*)">[^<]*</a>',
+        f'<a href="/{lang}/llaveros-padel-personalizados/" class="\\1">{t_nav["llaveros"]}</a>',
         html
     )
 

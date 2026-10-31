@@ -495,7 +495,7 @@ def render_html(lang="es"):
 
       <!-- BLOQUE DE NAVEGACIÓN Y ACCIONES A LA DERECHA (ESTILO EXACTO LANDINGS) -->
       <div class="flex items-center gap-2 sm:gap-4 lg:gap-6">
-        <a href="{home_url}#llaveros" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition whitespace-nowrap">{t_nav['llaveros']}</a>
+        <a href="{home_url}llaveros-padel-personalizados/" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition whitespace-nowrap">{t_nav['llaveros']}</a>
         <a href="{home_url}camaras/" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition whitespace-nowrap">{"CAMERAS" if lang=="en" else "CAMÉRAS" if lang=="fr" else "TELECAMERE" if lang=="it" else "CÁMARAS"}</a>
         <a href="{home_url}blog/" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition whitespace-nowrap">{t_nav['blog']}</a>
         <a href="{franquicias_hub_url}" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-[#f2920b] transition whitespace-nowrap">{t_nav['franquicias']}</a>

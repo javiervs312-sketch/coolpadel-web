@@ -783,7 +783,7 @@ def generate_single_page(f, lang="es"):
       </a>
       
       <div class="flex items-center gap-2 sm:gap-4 lg:gap-6">
-        <a href="{home_url}#llaveros" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition whitespace-nowrap">{t['nav_llaveros']}</a>
+        <a href="{home_url}llaveros-padel-personalizados/" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition whitespace-nowrap">{t['nav_llaveros']}</a>
         <a href="{camaras_url}" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition whitespace-nowrap">{t['nav_camaras']}</a>
         <a href="{blog_url}" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition whitespace-nowrap">{t['nav_blog']}</a>
         <a href="{hub_url}" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-[#f2920b] transition whitespace-nowrap">{t['nav_cadenas']}</a>

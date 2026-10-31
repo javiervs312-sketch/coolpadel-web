@@ -7,7 +7,7 @@ from translations_tools import TOOLS_HUB_DATA
 def get_hub_nav(lang):
     prefix = "../" if lang == "es" else "../../"
     home_href = "../" if lang == "es" else f"../../{lang}/"
-    llaveros_href = f"{home_href}#llaveros"
+    llaveros_href = f"{home_href}llaveros-padel-personalizados/"
     camaras_href = f"{home_href}camaras/"
     franquicias_href = f"{home_href}franquicias-padel/"
     blog_href = f"{home_href}blog/"

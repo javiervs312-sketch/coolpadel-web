@@ -836,7 +836,7 @@ def render_landing(landing, lang="es"):
     camaras_url = "/camaras/" if lang == "es" else f"/{lang}/camaras/"
     blog_url = "/blog/" if lang == "es" else f"/{lang}/blog/"
     franquicias_url = "/franquicias-padel/" if lang == "es" else f"/{lang}/franquicias-padel/"
-    llaveros_url = "/#llaveros" if lang == "es" else f"/{lang}/#llaveros"
+    llaveros_url = "/llaveros-padel-personalizados/" if lang == "es" else f"/{lang}/llaveros-padel-personalizados/"
     contacto_url = "#contacto" if lang == "es" else f"/{lang}/#contacto" 
 
     # FAQ Schema

@@ -603,7 +603,7 @@ def get_official_camaras_header(lang):
 
     asset_prefix = "../../" if lang != "es" else "../"
     home_url = f"/{lang}/" if lang != "es" else "/"
-    llaveros_url = f"/{lang}/#llaveros" if lang != "es" else "/#llaveros"
+    llaveros_url = f"/{lang}/llaveros-padel-personalizados/" if lang != "es" else "/llaveros-padel-personalizados/"
     camaras_url = f"/{lang}/camaras/" if lang != "es" else "/camaras/"
     blog_url = f"/{lang}/blog/" if lang != "es" else "/blog/"
     franquicias_url = f"/{lang}/franquicias-padel/" if lang != "es" else "/franquicias-padel/"
