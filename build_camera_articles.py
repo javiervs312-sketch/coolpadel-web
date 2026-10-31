@@ -30,6 +30,7 @@ ARTICLE_IMAGES = {
     "como-montar-camara-save-my-play": "camera-04.jpg",
     "problemas-con-las-camaras": "camera-04.jpg",
     "camaras-en-exterior-lluvia-nieve-viento": "camera-06.jpg",
+    "que-son-las-coaching-tools": "portada-coaching-tools-tablet.png",
     "como-ver-highlights-sin-app": "portada-email-highlights.png",
     "mejores-empresas-camaras-padel-espana": "camera-03.jpg",
     "por-que-no-conocia-save-my-play": "portada-bandido-highlight.jpg",
@@ -52,6 +53,7 @@ ARTICLE_SPECS = [
     ("que-pasa-si-cancelo", "¿Qué pasa si cancelo mi suscripción? ¿Me quedo con las cámaras?", 69, 71),
     ("como-montar-camara-save-my-play", "¿Cuánto se tarda en montar una cámara de Save My Play?", 108, 109),
     ("problemas-con-las-camaras", "¿Qué pasa si hay problemas con las cámaras?", 111, 113),
+    ("que-son-las-coaching-tools", "¿Qué son las coaching tools?", 103, 103),
     ("camaras-en-exterior-lluvia-nieve-viento", "¿Aguantan las cámaras en pistas al exterior?", 114, 115),
     ("como-ver-highlights-sin-app", "¿Por qué no hay app de Save My Play? ¿Cómo veo mis highlights?", 116, 121),
     ("mejores-empresas-camaras-padel-espana", "¿Cuáles son las mejores empresas de cámaras de pádel de España?", 123, 132),
@@ -107,6 +109,8 @@ def load_articles() -> list[dict]:
                     chunks.pop(0)
             elif chunks[0].startswith("Preguntas:"):
                 chunks[0] = chunks[0].split("\n", 1)[-1].lstrip()
+        if slug == "que-son-las-coaching-tools" and not chunks:
+            chunks = ["Próximamente explicaremos al detalle cómo funcionan las coaching tools en pista."]
         articles.append({"slug": slug, "title": clean_title(title), "paragraphs": chunks})
     return articles
 
@@ -243,11 +247,18 @@ def build(articles: list[dict]) -> None:
                 "Así se ve una retransmisión en directo oficial con las cámaras de Save My Play en torneos internacionales FIP.",
                 "https://www.youtube-nocookie.com/embed/4xwrrveDZxg?start=5623"
             ),
+            "que-son-las-coaching-tools": (
+                "Herramientas avanzadas de entrenamiento",
+                "Con las coaching tools puedes dibujar sobre la repetición usando una tablet, marcar movimientos y grabar la explicación con voz para tus alumnos.",
+                "https://www.youtube-nocookie.com/embed/FcnCWaYahP8"
+            ),
         }
         video = ""
         if article["slug"] in article_videos:
             v_title, v_desc, v_src = article_videos[article["slug"]]
             video = f'<section class="video-section"><h2>{html.escape(v_title)}</h2><p>{html.escape(v_desc)}</p><iframe class="video-embed" src="{v_src}" title="{html.escape(v_title)}" loading="lazy" allowfullscreen></iframe></section>'
+        elif article["slug"] == "por-que-no-recomiendo-plan-analytics":
+            video = '<section class="video-section"><h2>Ejemplo en directo de analíticas y estadísticas con IA</h2><p>Puedes ver un informe interactivo real con mapa de calor y análisis de golpeo generado por la IA en este enlace:</p><div style="margin-top:16px"><a href="https://savemyplay.com/replays/634779-ni9DexZC-the-club-at-monroe/analytics" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:999px;background:#f2920b;color:#0f172a;font-weight:900;text-decoration:none;font-size:14px;box-shadow:0 2px 8px rgba(0,0,0,0.08);">Ver ejemplo en directo en Save My Play &rarr;</a></div></section>'
         content = f'''<main><article class="article"><h1>{html.escape(article["title"])}</h1><img class="article-hero" src="../../../assets/images/camaras/{image_name}" alt="{html.escape(article["title"])}" loading="lazy">{article_body(article)}{video}<section class="related"><h2>Más artículos sobre cámaras</h2><div class="related-grid">{related_html}</div></section><section class="next-step"><h2>Siguiente paso</h2><p>Si todavía no lo ves claro, te dejo arriba más artículos sobre cámaras que te ayudarán.</p><p>Si tienes alguna pregunta y quieres que te enseñe bien cómo funciona todo, busca tu hueco para la demo.</p><div class="calendly-inline-widget" data-url="{CALENDLY}&hide_landing_page_details=1&hide_gdpr_banner=1"></div></section></article></main>'''
         out = ARTICLES / article["slug"]
         out.mkdir(parents=True, exist_ok=True)
