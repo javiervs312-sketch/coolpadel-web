@@ -17,8 +17,8 @@ CALENDLY = "https://calendly.com/javier-vs-312/demo-save-my-play?locale=es"
 ASSET_DIR = ROOT / "assets" / "images" / "camaras"
 
 ARTICLE_IMAGES = {
-    "por-donde-empezar-si-estoy-pensando-en-poner-camaras": "pista-indoor-passion-padel.png",
-    "errores-clubs-se-arrepienten-de-poner-camaras": "portada-bandido-highlight.jpg",
+    "por-donde-empezar-si-estoy-pensando-en-poner-camaras": "camera-01.jpg",
+    "errores-clubs-se-arrepienten-de-poner-camaras": "retransmision-directo-marcador-youtube.png",
     "camaras-de-padel-o-videovigilancia": "camera-05.jpg",
     "cuanto-cuesta-poner-camaras": "pista-moqueta-negra-indoor.png",
     "inversion-inicial-camaras-180-euros": "camera-02.jpg",
@@ -36,7 +36,7 @@ ARTICLE_IMAGES = {
     "save-my-play-en-pocas-palabras": "retransmision-usta-national-campus.png",
     "por-que-coolpadel-colabora-con-save-my-play": "portada-coolpadel-savemyplay.jpg",
     "he-comprado-camaras-que-pasa-ahora": "pista-indoor-blue-zone-clean.png",
-    "por-que-no-me-interesa-venderte-una-camara": "retransmision-directo-marcador-youtube.png",
+    "por-que-no-me-interesa-venderte-una-camara": "portada-bandido-highlight.jpg",
 }
 
 ARTICLE_SPECS = [
@@ -358,11 +358,13 @@ def inline_links(text: str, current_slug: str) -> str:
             "[[LINK:inversion-inicial-camaras-180-euros|¿Por qué hay una inversión inicial de 180 € por las cámaras?]]",
         )
     text = text.replace("Link a ", "")
-    # Enlace específico para la recomendación de primera lectura en 'por-donde-empezar'
-    if "este artículo: Clubs que se arrepienten de poner cámaras" in text:
-        text = text.replace(
-            "este artículo: Clubs que se arrepienten de poner cámaras",
-            "este artículo: [[LINK:errores-clubs-se-arrepienten-de-poner-camaras|Los 3 errores de los clubs que se arrepienten de poner cámaras]]"
+    # Enlace limpio para la recomendación de primera lectura en 'por-donde-empezar'
+    if "este artículo: Clubs que se arrepienten de poner cámaras" in text or "este artículo: clubs que se arrepienten" in text.lower():
+        text = re.sub(
+            r"este artículo:\s*clubs que se arrepienten de poner cámaras\.?",
+            "[[LINK:errores-clubs-se-arrepienten-de-poner-camaras|Los 3 errores de los clubs que se arrepienten de poner cámaras]].",
+            text,
+            flags=re.IGNORECASE
         )
     links = {
         "artículo de los 3 errores que cometen los clubs": ("errores-clubs-se-arrepienten-de-poner-camaras", "Los 3 errores de los clubs que se arrepienten de poner cámaras"),
@@ -373,7 +375,7 @@ def inline_links(text: str, current_slug: str) -> str:
         "este artículo": ("camaras-de-padel-o-videovigilancia", "¿Cómo saber si mis cámaras son de pádel o de videovigilancia?"),
     }
     for needle, (slug, label) in links.items():
-        if slug != current_slug and needle in text:
+        if slug != current_slug and needle in text and f"[[LINK:{slug}" not in text:
             text = text.replace(needle, f"[[LINK:{slug}|{label}]]", 1)
     text = html.escape(text, quote=False)
     text = re.sub(r"\[\[LINK:([^|]+)\|([^]]+)\]\]", r'<a href="../\1/">\2</a>', text)
