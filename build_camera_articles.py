@@ -17,8 +17,8 @@ CALENDLY = "https://calendly.com/javier-vs-312/demo-save-my-play?locale=es"
 ASSET_DIR = ROOT / "assets" / "images" / "camaras"
 
 ARTICLE_IMAGES = {
-    "por-donde-empezar-si-estoy-pensando-en-poner-camaras": "camera-01.jpg",
-    "errores-clubs-se-arrepienten-de-poner-camaras": "retransmision-directo-marcador-youtube.png",
+    "por-donde-empezar-si-estoy-pensando-en-poner-camaras": "pista-indoor-passion-padel.png",
+    "errores-clubs-se-arrepienten-de-poner-camaras": "portada-bandido-highlight.jpg",
     "camaras-de-padel-o-videovigilancia": "camera-05.jpg",
     "cuanto-cuesta-poner-camaras": "pista-moqueta-negra-indoor.png",
     "inversion-inicial-camaras-180-euros": "camera-02.jpg",
@@ -36,7 +36,7 @@ ARTICLE_IMAGES = {
     "save-my-play-en-pocas-palabras": "retransmision-usta-national-campus.png",
     "por-que-coolpadel-colabora-con-save-my-play": "portada-coolpadel-savemyplay.jpg",
     "he-comprado-camaras-que-pasa-ahora": "pista-indoor-blue-zone-clean.png",
-    "por-que-no-me-interesa-venderte-una-camara": "portada-bandido-highlight.jpg",
+    "por-que-no-me-interesa-venderte-una-camara": "retransmision-directo-marcador-youtube.png",
 }
 
 ARTICLE_SPECS = [
@@ -62,7 +62,6 @@ ARTICLE_SPECS = [
     ("por-que-no-me-interesa-venderte-una-camara", "¿Por qué no me interesa venderte una cámara si no estás convencido?", 88, 88),
 ]
 
-# Curated related articles with rich varied imagery and topic relevance
 RELATED_MAP = {
     "por-donde-empezar-si-estoy-pensando-en-poner-camaras": [
         "errores-clubs-se-arrepienten-de-poner-camaras",
@@ -166,6 +165,12 @@ RELATED_MAP = {
     ],
 }
 
+HEADER_RE = re.compile(
+    r"^(?:Error \d+:|ERROR EXTRA:|Conclusi[oó]n:|Plan [A-Z]:|Padmi:|Aiball:|Rackety:|Inversi[oó]n Inicial)",
+    re.IGNORECASE,
+)
+LIST_RE = re.compile(r"^\d+[ºoa\.]\s*")
+
 
 def clean_body(text: str) -> str:
     replacements = {
@@ -202,19 +207,36 @@ def clean_body(text: str) -> str:
 
 
 def load_articles() -> list[dict]:
-    """Load articles from DOCX preserving natural paragraphs (blocks)."""
+    """Load articles from DOCX grouping text by true semantic paragraphs."""
     raw_paragraphs = [p.text for p in Document(DOCX).paragraphs]
     articles = []
 
     for slug, title, start, end in ARTICLE_SPECS:
-        # Reconstruct the section's text with paragraph breaks
-        full_text = "\n\n".join(raw_paragraphs[i] for i in range(start, end + 1))
-        # Split into real paragraph blocks (separated by empty lines or multiple newlines)
-        raw_blocks = [b.strip() for b in re.split(r"\n\s*\n+", full_text) if b.strip()]
+        # Build stream of raw paragraphs, preserving blank paragraphs as block boundaries (None)
+        raw_stream: list[str | None] = []
+        for i in range(start, end + 1):
+            txt = raw_paragraphs[i].strip()
+            if not txt:
+                raw_stream.append(None)
+            else:
+                sub = re.split(r"\n\s*\n+", txt)
+                for s_idx, s in enumerate(sub):
+                    s = s.strip()
+                    if s:
+                        raw_stream.append(s)
+                    if s_idx < len(sub) - 1:
+                        raw_stream.append(None)
 
-        # Strip leading question / title lines from the first block(s)
-        while raw_blocks:
-            first = raw_blocks[0]
+        # Drop leading blank entries
+        while raw_stream and raw_stream[0] is None:
+            raw_stream.pop(0)
+
+        # Strip title/question from first non-empty text entry
+        while raw_stream:
+            first = raw_stream[0]
+            if first is None:
+                raw_stream.pop(0)
+                continue
             lines = [l.strip() for l in first.split("\n") if l.strip()]
             new_lines = []
             dropping = True
@@ -231,20 +253,70 @@ def load_articles() -> list[dict]:
                     dropping = False
                     new_lines.append(l)
             if new_lines:
-                raw_blocks[0] = "\n".join(new_lines)
+                raw_stream[0] = "\n".join(new_lines)
                 break
             else:
-                raw_blocks.pop(0)
+                raw_stream.pop(0)
 
-        # Coaching tools placeholder if empty in DOCX
-        if slug == "que-son-las-coaching-tools" and not raw_blocks:
-            raw_blocks = [
+        # Group raw stream into coherent semantic paragraph blocks
+        blocks: list[str] = []
+        curr: list[str] = []
+
+        for item in raw_stream:
+            if item is None:
+                if curr:
+                    blocks.append("\n".join(curr))
+                    curr = []
+                continue
+
+            is_header = bool(HEADER_RE.match(item))
+            is_list = bool(LIST_RE.match(item))
+
+            if is_header or is_list:
+                if curr:
+                    blocks.append("\n".join(curr))
+                    curr = []
+                curr.append(item)
+            elif slug == "errores-clubs-se-arrepienten-de-poner-camaras" and (
+                item.startswith("Me da pena")
+                or item.startswith("No te hipoteques")
+                or item.startswith("Cuando hagas la demo")
+                or item.startswith("Insisto,")
+            ):
+                if curr:
+                    blocks.append("\n".join(curr))
+                    curr = []
+                curr.append(item)
+            elif slug == "save-my-play-en-pocas-palabras" and (
+                item.startswith("Aún así") or item.startswith("Por otro lado")
+            ):
+                if curr:
+                    blocks.append("\n".join(curr))
+                    curr = []
+                curr.append(item)
+            elif slug == "que-pasa-si-cancelo" and (
+                item.startswith("Y qué pasa")
+                or item.startswith("Comprar una cámara")
+                or item.startswith("Así es como")
+            ):
+                if curr:
+                    blocks.append("\n".join(curr))
+                    curr = []
+                curr.append(item)
+            else:
+                curr.append(item)
+
+        if curr:
+            blocks.append("\n".join(curr))
+
+        # Placeholder for coaching tools if empty
+        if slug == "que-son-las-coaching-tools" and not blocks:
+            blocks = [
                 "Próximamente explicaremos al detalle cómo funcionan las coaching tools en pista."
             ]
 
-        # Clean each block
-        blocks = [clean_body(b) for b in raw_blocks if b.strip()]
-        articles.append({"slug": slug, "title": title, "blocks": blocks})
+        clean_blocks = [clean_body(b) for b in blocks if b.strip()]
+        articles.append({"slug": slug, "title": title, "blocks": clean_blocks})
 
     return articles
 
@@ -286,13 +358,19 @@ def inline_links(text: str, current_slug: str) -> str:
             "[[LINK:inversion-inicial-camaras-180-euros|¿Por qué hay una inversión inicial de 180 € por las cámaras?]]",
         )
     text = text.replace("Link a ", "")
+    # Enlace específico para la recomendación de primera lectura en 'por-donde-empezar'
+    if "este artículo: Clubs que se arrepienten de poner cámaras" in text:
+        text = text.replace(
+            "este artículo: Clubs que se arrepienten de poner cámaras",
+            "este artículo: [[LINK:errores-clubs-se-arrepienten-de-poner-camaras|Los 3 errores de los clubs que se arrepienten de poner cámaras]]"
+        )
     links = {
-        "este artículo": ("camaras-de-padel-o-videovigilancia", "¿Cómo saber si mis cámaras son de pádel o de videovigilancia?"),
         "artículo de los 3 errores que cometen los clubs": ("errores-clubs-se-arrepienten-de-poner-camaras", "Los 3 errores de los clubs que se arrepienten de poner cámaras"),
         "clubs que se arrepienten de poner cámaras": ("errores-clubs-se-arrepienten-de-poner-camaras", "Los 3 errores de los clubs que se arrepienten de poner cámaras"),
+        "los 3 errores que cometen los clubs": ("errores-clubs-se-arrepienten-de-poner-camaras", "Los 3 errores de los clubs que se arrepienten de poner cámaras"),
         "por qué no conoces Save My Play": ("por-que-no-conocia-save-my-play", "¿Por qué no había oído hablar nunca de Save My Play?"),
         "cámaras de pádel o de videovigilancia": ("camaras-de-padel-o-videovigilancia", "¿Cómo saber si mis cámaras son de pádel o de videovigilancia?"),
-        "los 3 errores que cometen los clubs": ("errores-clubs-se-arrepienten-de-poner-camaras", "Los 3 errores de los clubs que se arrepienten de poner cámaras"),
+        "este artículo": ("camaras-de-padel-o-videovigilancia", "¿Cómo saber si mis cámaras son de pádel o de videovigilancia?"),
     }
     for needle, (slug, label) in links.items():
         if slug != current_slug and needle in text:
@@ -318,16 +396,22 @@ LIST_PATTERN = re.compile(r"^(\d+[ºoa\.]\s*)(.*)$")
 
 def format_sentence_item(raw: str, slug: str) -> str:
     """Format a single item: header (h3 styled), numbered list item, or standard sentence p."""
-    # Check if it's a section header (e.g. Error 1:, Conclusión:, etc.)
+    # Check if it's a section header (e.g. Error 1:, Conclusión:, Plan A:, etc.)
     for pat in HEADER_PATTERNS:
         m = pat.match(raw)
         if m:
             label = m.group(1).strip()
             rest = m.group(2).strip()
-            out = f'<h3 class="article-subheading"><span class="subheading-title">{html.escape(label)}</span></h3>'
-            if rest:
-                out += f'\n<p>{inline_links(rest, slug)}</p>'
-            return out
+            # For Error 1 / Error 2 / Error 3 / ERROR EXTRA, the full phrase is the heading title
+            if label.lower().startswith("error"):
+                heading_text = raw
+                out = f'<h3 class="article-subheading"><span class="subheading-title">{html.escape(heading_text)}</span></h3>'
+                return out
+            else:
+                out = f'<h3 class="article-subheading"><span class="subheading-title">{html.escape(label)}</span></h3>'
+                if rest:
+                    out += f'\n<p>{inline_links(rest, slug)}</p>'
+                return out
 
     # Check if it's a numbered list item (1º, 2º, 1., etc.)
     m_list = LIST_PATTERN.match(raw)
@@ -387,14 +471,14 @@ h3 { font-size: 24px; margin: 0 0 12px; }
 .intro { max-width: 720px; color: #475569; font-size: 19px; }
 .article { max-width: 760px; margin: 0 auto; }
 
-/* Article body and generous paragraph block spacing (el triple de separación) */
-.article-block { margin: 0 0 54px; }
+/* Article body and semantic paragraph block spacing */
+.article-block { margin: 0 0 28px; }
 .article p { margin: 0 0 6px; font-size: 18px; line-height: 1.75; }
 .article a { color: #3478a6; font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
 
 /* Subheadings (Error 1, Plan A, Conclusión, etc.) */
 .article-subheading {
-  margin: 44px 0 16px;
+  margin: 36px 0 14px;
   font-size: clamp(22px, 3vw, 28px);
   font-weight: 900;
   color: #0f172a;
@@ -547,7 +631,6 @@ def build(articles: list[dict]) -> None:
     )
     intro = """<p>Sabemos que queréis tomar la mejor decisión sobre las cámaras.<br>La experiencia nos dice que los clubs agradecen tener información útil a su disposición.<br>Y que si no tenéis interés en informaros, no merece la pena hacer la demo online.</p><p>Por eso, hemos tratado de ser lo más sinceros y transparentes posible.</p><p>Por el camino os iréis dando cuenta de si es buena idea poner cámaras o no.<br>Y si queréis ponerlas de Save My Play o de otra empresa.<br>Sea cual sea la decisión, será mejor para vosotros y para nosotros.</p><p>Así si hacemos la demo, tenéis mejores preguntas y aprovechamos mejor el tiempo.</p>"""
     hub = f"""<main><section class="hub-hero"><p class="hub-eyebrow">Todo lo que necesitas saber antes de poner cámaras</p><h1 class="hub-title">Cámaras para clubs de pádel</h1><div class="intro">{intro}</div></section><section><div class="article-grid">{cards}</div></section><section class="next-step"><h2>Siguiente paso</h2><p>Si todavía no lo ves claro, te dejo arriba más artículos sobre cámaras que te ayudarán.</p><p>Si tienes alguna pregunta y quieres que te enseñe bien cómo funciona todo, busca tu hueco para la demo.</p><div class="calendly-inline-widget" data-url="{CALENDLY}&hide_landing_page_details=1&hide_gdpr_banner=1"></div></section></main>"""
-    # Generate the hub
     (CAMERAS / "index.html").write_text(page("Cámaras para clubs de pádel", hub, prefix="../", extra_css=HUB_CSS), encoding="utf-8")
 
     article_by_slug = {a["slug"]: a for a in articles}
