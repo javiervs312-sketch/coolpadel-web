@@ -18,7 +18,7 @@ CALENDLY = "https://calendly.com/javier-vs-312/demo-save-my-play?locale=es"
 ASSET_DIR = ROOT / "assets" / "images" / "camaras"
 
 ARTICLE_IMAGES = {
-    "por-donde-empezar-si-estoy-pensando-en-poner-camaras": "pista-indoor-passion-padel.png",
+    "por-donde-empezar-si-estoy-pensando-en-poner-camaras": "camera-01.jpg",
     "errores-clubs-se-arrepienten-de-poner-camaras": "retransmision-directo-marcador-youtube.png",
     "camaras-de-padel-o-videovigilancia": "camera-05.jpg",
     "cuanto-cuesta-poner-camaras": "pista-moqueta-negra-indoor.png",
