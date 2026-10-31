@@ -547,47 +547,4 @@
       const sponsor = parseInt(inSponsor.value, 10);
 
       document.getElementById('label-pistas').textContent = pistas + ' ' + (pistas > 1 ? pistasWord : pistaSing);
-      document.getElementById('label-precio').textContent = precio + ' € / h';
-      document.getElementById('label-horas-valle').textContent = '+' + horasValle + ' h / ' + mesWord;
-      document.getElementById('label-sponsor').textContent = sponsor + ' € / ' + mesWord + ' / ' + pistaSing;
-
-      const costeHardware = pistas * 180;
-      const cuotaSoftware = pistas * cuotaPorPista[planSeleccionado];
-      const ingresosHorasValle = pistas * horasValle * precio;
-      const ingresosSponsor = pistas * sponsor;
-      const ingresosTotales = ingresosHorasValle + ingresosSponsor;
-      const beneficioNeto = ingresosTotales - cuotaSoftware;
-
-      const horasParaAmortizar = (cuotaPorPista[planSeleccionado] / precio).toFixed(1);
-
-      document.getElementById('out-hardware').textContent = costeHardware.toLocaleString('es-ES') + ' €';
-      document.getElementById('out-cuota-mensual').textContent = cuotaSoftware.toLocaleString('es-ES') + ' € / ' + mesWord;
-      document.getElementById('out-ingresos-extra').textContent = '+' + ingresosTotales.toLocaleString('es-ES') + ' € / ' + mesWord;
-      
-      const elBeneficio = document.getElementById('out-beneficio-neto');
-      if (beneficioNeto >= 0) {
-        elBeneficio.textContent = '+' + beneficioNeto.toLocaleString('es-ES') + ' € / ' + mesWord;
-        elBeneficio.className = "text-3xl sm:text-4xl font-black font-heading text-emerald-400";
-      } else {
-        elBeneficio.textContent = beneficioNeto.toLocaleString('es-ES') + ' € / ' + mesWord;
-        elBeneficio.className = "text-3xl sm:text-4xl font-black font-heading text-amber-400";
-      }
-
-      document.getElementById('out-horas-amortizar').textContent = horasParaAmortizar.replace('.', ',') + ' ' + amortizeSuffix;
-
-      const waMsg = encodeURIComponent(
-        "Hola! ROI Save my Play: " + pistas + " " + pistasWord + ", " +
-        (planSeleccionado === 'B' ? 'Plan B (45€)' : 'Plan A (136€)') + ", +" + beneficioNeto + " €/" + mesWord
-      );
-      document.getElementById('btn-cta-wa').href = "https://wa.me/34641695437?text=" + waMsg;
-    }
-
-    [inPistas, inPrecio, inHorasValle, inSponsor].forEach(input => {
-      input.addEventListener('input', recalcular);
-    });
-
-    recalcular();
-  </script>
-  <script src="/assets/js/cp-analytics.js?v=20261028a" defer></script>
-</body>
-</html>
+      document.getElementById('label-
