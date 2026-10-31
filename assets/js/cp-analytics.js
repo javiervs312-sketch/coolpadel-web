@@ -27,8 +27,14 @@
   try { isOwner = localStorage.getItem('cp_ignore_owner') === '1'; } catch (e) {}
   const isAdmin = isOwner;
 
-  // 2. Atribución de Leads y Parámetros UTM / Buscadores
-  const pLead = urlParams.get('lead') || urlParams.get('club') || urlParams.get('nombre') || urlParams.get('director') || '';
+  // 2. Atribución de Leads y Parámetros UTM / Buscadores / Subruta de Club (/camaras/nombre-club/)
+  let slugClub = '';
+  const camarasMatch = window.location.pathname.match(/\/(?:(?:en|fr|it|de)\/)?camaras\/([a-z0-9\-]+)\/?$/i);
+  if (camarasMatch && !['articulos', 'assets', 'index.html'].includes(camarasMatch[1].toLowerCase())) {
+    slugClub = camarasMatch[1].replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+  }
+
+  const pLead = urlParams.get('lead') || urlParams.get('club') || urlParams.get('nombre') || urlParams.get('director') || slugClub || '';
   const pTel = urlParams.get('tel') || urlParams.get('phone') || urlParams.get('c') || '';
   const pSource = urlParams.get('utm_source') || urlParams.get('src') || '';
   const pCampaign = urlParams.get('utm_campaign') || urlParams.get('camp') || urlParams.get('ruta') || '';
