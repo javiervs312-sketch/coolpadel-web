@@ -11,7 +11,7 @@ import re
 
 # 1. Plantilla base: la carta en inglés (misma estructura en todos los idiomas).
 #    OJO: /camaras/ (ES) ahora es un hub de artículos con otra estructura, no sirve de plantilla.
-TEMPLATE_PATH = 'coolpadel-web/en/camaras/index.html'
+TEMPLATE_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'en', 'camaras', 'template_clean.html')
 with open(TEMPLATE_PATH, 'r', encoding='utf-8') as f:
     es_html = f.read()
 
