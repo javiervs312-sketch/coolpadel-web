@@ -303,6 +303,125 @@ def split_into_sentences(text: str) -> list[str]:
     return [p.strip() for p in parts if p.strip()]
 
 
+# Key bolds dictionary mapped to exact text substrings in the articles
+KEY_BOLDS = {
+    "por-donde-empezar-si-estoy-pensando-en-poner-camaras": [
+        ("te recomiendo que seas prudente", "<strong>te recomiendo que seas prudente</strong>"),
+        ("1º Habla con clubs que tengan ya cámaras puestas.", "1º <strong>Habla con clubs que tengan ya cámaras puestas.</strong>"),
+        ("2º Habla con distintas empresas de cámaras y que te cuenten.", "2º <strong>Habla con distintas empresas de cámaras</strong> y que te cuenten."),
+        ("3º Tienes la info de los clubs y de las empresas, compara, háblalo en el club y decide.", "3º <strong>Compara, háblalo en el club y decide.</strong>"),
+        ("Primero tienes que pensar si las quieres poner o no.", "Primero tienes que pensar <strong>si las quieres poner o no</strong>."),
+    ],
+    "errores-clubs-se-arrepienten-de-poner-camaras": [
+        ("estos 3 errores se repiten una y otra vez", "estos <strong>3 errores se repiten una y otra vez</strong>"),
+        ("tu mapa de calor se parece bastante al de los anteriores partidos", "<strong>tu mapa de calor se parece bastante al de los anteriores partidos</strong>"),
+        ("No es rentable pagar esos precios.", "<strong>No es rentable</strong> pagar esos precios."),
+        ("1º Durante el primer mes ves que la gente lo usa.", "1º <strong>Durante el primer mes</strong> ves que la gente lo usa."),
+        ("2º Pensando que va a ser así todo el tiempo, firmas una permanencia larga.", "2º <strong>Firmas una permanencia larga</strong> pensando que va a ser así todo el tiempo."),
+        ("3º Cuando el boom inicial decae, tú sigues pagando.", "3º <strong>Cuando el boom inicial decae</strong>, tú sigues pagando."),
+        ("No te hipoteques con una permanencia.", "<strong>No te hipoteques</strong> con una permanencia."),
+        ("Si están curvadas, mala señal.", "Si están curvadas, <strong>mala señal</strong>."),
+        ("Hablad con los clubs y que os cuenten ellos.", "<strong>Hablad con los clubs</strong> y que os cuenten ellos."),
+    ],
+    "camaras-de-padel-o-videovigilancia": [
+        ("Mirando las líneas de la pista.", "<strong>Mirando las líneas de la pista</strong>."),
+        ("las líneas de la pista no están rectas, están curvadas", "las líneas de la pista no están rectas, <strong>están curvadas</strong>"),
+        ("Las líneas de la pista deberían verse rectas.", "Las líneas de la pista <strong>deberían verse rectas</strong>."),
+    ],
+    "cuanto-cuesta-poner-camaras": [
+        ("precio por pista", "<strong>precio por pista</strong>"),
+        ("Plan A: 136€ al mes.", "<strong>Plan A: 136 € al mes.</strong>"),
+        ("Plan B: 45€ al mes.", "<strong>Plan B: 45 € al mes.</strong>"),
+        ("Sin ninguna permanencia.", "<strong>Sin ninguna permanencia.</strong>"),
+        ("el 97% de los clubes siguen voluntariamente con nosotros", "el <strong>97 % de los clubes siguen voluntariamente</strong> con nosotros"),
+        ("Inversión Inicial por la cámara de 180€", "<strong>Inversión Inicial por la cámara de 180 €</strong>"),
+    ],
+    "inversion-inicial-camaras-180-euros": [
+        ("estos 180€ es una de las quejas más habituales", "estos <strong>180 € es una de las quejas más habituales</strong>"),
+        ("fabricamos las cámaras nosotros mismos", "<strong>fabricamos las cámaras nosotros mismos</strong>"),
+        ("no puedes tener una calidad que parezca la grabación de un asalto a un banco", "no puedes tener una calidad que parezca <strong>la grabación de un asalto a un banco</strong>"),
+        ("Producirlas nos cuesta bastante más de 180€", "Producirlas nos cuesta <strong>bastante más de 180 €</strong>"),
+        ("nuestros pagos mensuales son lo más competitivos posible", "nuestros <strong>pagos mensuales son lo más competitivos posible</strong>"),
+    ],
+    "es-caro-save-my-play": [
+        ("no es un producto para todos los clubs", "<strong>no es un producto para todos los clubs</strong>"),
+        ("El plan de 45€ al mes es de los mejores precios que vas a encontrar", "El plan de <strong>45 € al mes</strong> es de los mejores precios que vas a encontrar"),
+        ("No todo es el precio", "<strong>No todo es el precio</strong>"),
+    ],
+    "es-rentable-poner-camaras": [
+        ("no lo recomendamos para el 90% de los clubs", "<strong>no lo recomendamos para el 90 % de los clubs</strong>"),
+        ("1º Valor diferencial respecto a los clubs de la zona:", "1º <strong>Valor diferencial:</strong>"),
+        ("2º Contenido Online.", "2º <strong>Contenido online:</strong>"),
+        ("3º Grabación de torneos o de clases.", "3º <strong>Grabación de torneos o de clases:</strong>"),
+        ("4º Monetización directa:", "4º <strong>Monetización directa:</strong>"),
+        ("Con cobrar 0,5€ más por pista te salen las cuentas", "Con cobrar <strong>0,5 € más por pista</strong> te salen las cuentas"),
+    ],
+    "por-que-no-recomiendo-plan-analytics": [
+        ("debería quedar bastante claro", "<strong>debería quedar bastante claro</strong>"),
+    ],
+    "que-pasa-si-cancelo": [
+        ("No tenemos permanencia", "<strong>No tenemos permanencia</strong>"),
+        ("las cámaras son tuyas y te las quedas", "las cámaras <strong>son tuyas y te las quedas</strong>"),
+        ("Comprar una cámara y cancelar la suscripción es un fracaso", "Comprar una cámara y cancelar la suscripción <strong>es un fracaso para vosotros y también para nosotros</strong>"),
+        ("el 97% de los clubes sigan voluntariamente", "el <strong>97 % de los clubes sigan voluntariamente</strong>"),
+    ],
+    "como-montar-camara-save-my-play": [
+        ("10 minutos.", "<strong>10 minutos.</strong>"),
+        ("Una escalera, wifi y un enchufe.", "Una escalera, <strong>wifi y un enchufe</strong>."),
+        ("la mayoría de clubs utilizan wifi", "la <strong>mayoría de clubs utilizan wifi</strong>"),
+    ],
+    "problemas-con-las-camaras": [
+        ("nos hacemos responsables de los problemas", "<strong>nos hacemos responsables</strong> de los problemas"),
+        ("evidentemente no os cobraremos durante ese tiempo", "evidentemente <strong>no os cobraremos durante ese tiempo</strong>"),
+    ],
+    "que-son-las-coaching-tools": [
+        ("Próximamente explicaremos al detalle cómo funcionan las coaching tools en pista.", "Próximamente explicaremos al detalle cómo funcionan las <strong>coaching tools en pista</strong>."),
+    ],
+    "camaras-en-exterior-lluvia-nieve-viento": [
+        ("resiste lo que se le echa", "<strong>resiste lo que se le echa</strong>"),
+        ("Viento, nieve, lluvia y pelotazos.", "<strong>Viento, nieve, lluvia y pelotazos.</strong>"),
+    ],
+    "como-ver-highlights-sin-app": [
+        ("1ºEscanear el QR", "1º <strong>Escanear el QR</strong>"),
+        ("2º Pulsar al botón rojo", "2º <strong>Pulsar al botón rojo</strong>"),
+        ("3º Rellenar la información necesaria", "3º <strong>Rellenar la información necesaria:</strong>"),
+        ("4º Después de cada highlight levanta los brazos mirando la cámara", "4º <strong>Levantar los brazos mirando la cámara</strong> (o pulsar el botón verde)"),
+        ("5º Una hora después de acabar, te llegará un correo", "5º <strong>Te llegará un correo</strong> con tu partido y los puntos guardados"),
+    ],
+    "mejores-empresas-camaras-padel-espana": [
+        ("Cada empresa tiene su visión particular", "Cada empresa tiene su <strong>visión particular</strong>"),
+        ("Padmi: es la empresa con más pistas en España", "<strong>Padmi:</strong> es la empresa con más pistas en España"),
+        ("Aiball: En varios clubs de España", "<strong>Aiball:</strong> en varios clubs de España"),
+        ("Rackety: Están en unos 50 clubs", "<strong>Rackety:</strong> están en unos 50 clubs"),
+    ],
+    "por-que-no-conocia-save-my-play": [
+        ("Somos una empresa americana", "Somos una <strong>empresa americana</strong>"),
+        ("priorizamos a esos clientes", "<strong>priorizamos a esos clientes</strong>"),
+        ("más de 1500 pistas de clubs de todo el mundo", "más de <strong>1.500 pistas de clubs</strong> de todo el mundo"),
+    ],
+    "save-my-play-en-pocas-palabras": [
+        ("más de 1.600 pistas en todo el mundo", "más de <strong>1.600 pistas</strong> en todo el mundo"),
+        ("no llegamos a 10 personas en la empresa", "<strong>no llegamos a 10 personas</strong> en la empresa"),
+        ("La cercanía.", "<strong>La cercanía.</strong>"),
+        ("Si con dos botones tienes las cámaras funcionando, no ponemos tres.", "Si con <strong>dos botones</strong> tienes las cámaras funcionando, no ponemos tres."),
+    ],
+    "por-que-coolpadel-colabora-con-save-my-play": [
+        ("es la empresa con mayor potencial", "es la empresa con <strong>mayor potencial</strong>"),
+        ("son buena gente, que es igual de importante", "<strong>son buena gente</strong>, que es igual de importante"),
+        ("gestionamos los clubs de Europa", "<strong>gestionamos los clubs de Europa</strong>"),
+    ],
+    "he-comprado-camaras-que-pasa-ahora": [
+        ("1º Te paso el link con el que hacer el pago por Stripe.", "1º <strong>Pago por Stripe:</strong> te paso el link."),
+        ("2º Te paso también el link para registrar tu cuenta de usuario", "2º <strong>Registro de cuenta:</strong> te paso el link para tu usuario."),
+        ("3º En 4 semanas te llegarán tus cámaras.", "3º <strong>Envío:</strong> en 4 semanas te llegarán tus cámaras."),
+        ("4º Recibes tus cámaras.", "4º <strong>Recepción:</strong> recibes tus cámaras y las pones en marcha."),
+    ],
+    "por-que-no-me-interesa-venderte-una-camara": [
+        ("hemos salido perdiendo todos", "<strong>hemos salido perdiendo todos</strong>"),
+    ],
+}
+
+
 def inline_links(text: str, current_slug: str) -> str:
     text = text.replace(" xxxx", "").replace(" xxx", "")
     if "Plan A:" in text and "(Link)" in text:
@@ -337,6 +456,13 @@ def inline_links(text: str, current_slug: str) -> str:
             text = text.replace(needle, f"[[LINK:{slug}|{label}]]", 1)
     text = html.escape(text, quote=False)
     text = re.sub(r"\[\[LINK:([^|]+)\|([^]]+)\]\]", r'<a href="../\1/">\2</a>', text)
+
+    # Apply curated key bolds
+    for target, repl in KEY_BOLDS.get(current_slug, []):
+        t_esc = html.escape(target, quote=False)
+        if t_esc in text:
+            text = text.replace(t_esc, repl, 1)
+
     return text
 
 
