@@ -561,11 +561,29 @@ h3 { font-size: 24px; margin: 0 0 12px; }
 """
 
 HUB_CSS = """
-.hub-hero { max-width: 1200px; margin: 30px auto 54px; text-align: center; }
+.hub-hero { max-width: 1200px; margin: 30px auto 36px; text-align: center; }
 .hub-eyebrow { margin: 0 0 14px; color: #f2920b; font-size: 13px; font-weight: 900; letter-spacing: .04em; text-transform: uppercase; }
 .hub-title { max-width: none !important; margin: 0 0 16px !important; font-size: clamp(42px, 3.5vw, 58px) !important; font-weight: 900 !important; line-height: 1.05 !important; color: #0f172a !important; white-space: nowrap; text-transform: uppercase; letter-spacing: -.04em; }
-.intro { max-width: 880px; margin: 0 auto; color: #334155; font-size: 19px; line-height: 1.55; }
-.intro p { margin: 0 0 28px; }
+.intro-full-band {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  background-color: #3478a6;
+  background-image: linear-gradient(rgba(52, 120, 166, 0.40), rgba(52, 120, 166, 0.40)), url('../assets/images/branding/textura_editorial_coolpadel.webp');
+  background-blend-mode: normal, soft-light;
+  background-size: cover;
+  background-position: center;
+  padding: 44px 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+.intro { max-width: 880px; margin: 0 auto; color: #ffffff; font-size: 19px; line-height: 1.6; text-align: center; }
+.intro p { margin: 0 0 28px; color: #ffffff !important; font-size: 19px !important; font-weight: 500; }
+.intro p:last-child { margin-bottom: 0; }
 .article-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; margin: 34px 0 0; }
 .article-card { color: #0f172a; text-decoration: none; }
 .article-card img { display: block; }
@@ -590,7 +608,7 @@ def build(articles: list[dict]) -> None:
         for a in articles
     )
     intro = """<p>Sabemos que queréis tomar la mejor decisión sobre las cámaras<br>La experiencia nos dice que los clubs agradecen tener información útil a su disposición<br>Y que si no tenéis interés en informaros, no merece la pena hacer la demo online</p><p>Por eso, hemos tratado de ser lo más sinceros y transparentes posible</p><p>Por el camino os iréis dando cuenta de si es buena idea poner cámaras o no<br>Y si queréis ponerlas de Save My Play o de otra empresa<br>Sea cual sea la decisión, será mejor para vosotros y para nosotros</p><p>Así si hacemos la demo, tenéis mejores preguntas y aprovechamos mejor el tiempo</p>"""
-    hub = f"""<main><section class="hub-hero"><p class="hub-eyebrow">Todo lo que necesitas saber antes de poner cámaras</p><h1 class="hub-title">Cámaras para clubs de pádel</h1><div class="intro">{intro}</div></section><section><div class="article-grid">{cards}</div></section><section class="next-step"><h2>Siguiente paso</h2><p>Si todavía no lo ves claro, te dejo arriba más artículos sobre cámaras que te ayudarán.</p><p>Si tienes alguna pregunta y quieres que te enseñe bien cómo funciona todo, busca tu hueco para la demo.</p><div class="calendly-inline-widget" data-url="{CALENDLY}&hide_landing_page_details=1&hide_gdpr_banner=1"></div></section></main>"""
+    hub = f"""<main><section class="hub-hero"><p class="hub-eyebrow">Todo lo que necesitas saber antes de poner cámaras</p><h1 class="hub-title">Cámaras para clubs de pádel</h1></section><div class="intro-full-band"><div class="intro">{intro}</div></div><section><div class="article-grid">{cards}</div></section><section class="next-step"><h2>Siguiente paso</h2><p>Si todavía no lo ves claro, te dejo arriba más artículos sobre cámaras que te ayudarán.</p><p>Si tienes alguna pregunta y quieres que te enseñe bien cómo funciona todo, busca tu hueco para la demo.</p><div class="calendly-inline-widget" data-url="{CALENDLY}&hide_landing_page_details=1&hide_gdpr_banner=1"></div></section></main>"""
     (CAMERAS / "index.html").write_text(page("Cámaras para clubs de pádel", hub, prefix="../", extra_css=HUB_CSS), encoding="utf-8")
 
     article_by_slug = {a["slug"]: a for a in articles}
