@@ -1,816 +1,114 @@
-<!DOCTYPE html>
-
+<!doctype html>
 <html lang="en">
-
 <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cameras for padel clubs | CoolPadel</title>
+  <meta name="description" content="Cameras for padel clubs">
+  <link rel="canonical" href="https://coolpadelstudios.com/en/camaras/">
+  <link rel="alternate" hreflang="es" href="https://coolpadelstudios.com/camaras/">
+  <link rel="alternate" hreflang="en" href="https://coolpadelstudios.com/en/camaras/">
+  <link rel="alternate" hreflang="fr" href="https://coolpadelstudios.com/fr/camaras/">
+  <link rel="alternate" hreflang="it" href="https://coolpadelstudios.com/it/camaras/">
+  <link rel="alternate" hreflang="de" href="https://coolpadelstudios.com/de/camaras/">
+  <link rel="alternate" hreflang="x-default" href="https://coolpadelstudios.com/camaras/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"></script>
+  <link rel="preconnect" href="https://assets.calendly.com">
+  <style>
+  
+:root { --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif; --font-heading: 'Outfit', sans-serif; }
+body { margin: 0; font-family: var(--font-sans); color: #0f172a; background: #ffffff; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+.article-container { max-width: 820px; margin: 0 auto; padding: 48px 20px 80px; }
+.article-header { margin-bottom: 32px; }
+.back-link { display: inline-flex; items-center: center; gap: 8px; color: #64748b; font-size: 14px; font-weight: 600; text-decoration: none; margin-bottom: 24px; transition: color .2s; }
+.back-link:hover { color: #f2920b; }
+.article-title { font-family: var(--font-heading); font-size: clamp(30px, 4vw, 44px); font-weight: 900; line-height: 1.15; color: #0f172a; margin: 0 0 24px; letter-spacing: -0.02em; }
+.article-hero-img { width: 100%; aspect-ratio: 16/9; object-fit: cover; border-radius: 16px; margin: 0 0 36px; border: 1px solid #e2e8f0; }
+.article-body { font-size: 18px; color: #334155; line-height: 1.75; }
+.article-body p { margin: 0 0 12px; }
+.article-block { margin: 0 0 56px; }
+.article-block:last-child { margin-bottom: 0; }
+.article-body strong { color: #0f172a; font-weight: 700; }
+.article-body a { color: #0284c7; text-decoration: underline; text-underline-offset: 3px; font-weight: 600; }
+.article-body a:hover { color: #0369a1; }
+.video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 16px; margin: 32px 0; border: 1px solid #e2e8f0; }
+.video-wrapper iframe { position: absolute; top:0; left: 0; width: 100%; height: 100%; border: 0; }
+.related-section { margin-top: 64px; padding-top: 40px; border-top: 1px solid #e2e8f0; }
+.related-title { font-family: var(--font-heading); font-size: 22px; font-weight: 800; color: #0f172a; margin: 0 0 20px; }
+.related-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.related-card { display: block; text-decoration: none; border-radius: 12px; padding: 12px; border: 1px solid #e2e8f0; background: #fff; transition: all .2s; }
+.related-card:hover { border-color: #f2920b; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+.related-card img { width: 100%; aspect-ratio: 16/9; object-fit: cover; border-radius: 8px; margin-bottom: 10px; }
+.related-card-title { font-size: 14px; font-weight: 700; color: #0f172a; line-height: 1.35; margin: 0; }
+.cta-box { margin-top: 56px; padding: 32px; border-radius: 16px; background: #f8fafc; border: 2px solid #f2920b; text-align: center; }
+.cta-box h3 { font-family: var(--font-heading); font-size: 24px; font-weight: 800; color: #0f172a; margin: 0 0 12px; }
+.cta-box p { font-size: 16px; color: #475569; margin: 0 0 24px; }
+@media (max-width: 768px) {
+  .related-grid { grid-template-columns: 1fr; }
+  .article-block { margin: 0 0 40px; }
+}
 
-    <meta charset="UTF-8">
+  
+.hub-hero { max-width: 1200px; margin: 30px auto 36px; text-align: center; }
+.hub-eyebrow { margin: 0 0 14px; color: #f2920b; font-size: 13px; font-weight: 900; letter-spacing: .04em; text-transform: uppercase; }
+.hub-title { max-width: none !important; margin: 0 0 16px !important; font-size: clamp(42px, 3.5vw, 58px) !important; font-weight: 900 !important; line-height: 1.05 !important; color: #0f172a !important; white-space: nowrap; text-transform: uppercase; letter-spacing: -.04em; }
+.article-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; margin: 34px 0 0; }
+.article-card { color: #0f172a; text-decoration: none; }
+.article-card img { display: block; }
+.card-action:active { background: #76d3f6; transform: scale(.98); }
+.next-step { margin: 54px 0 48px; padding: 32px 34px 34px; border: 2px solid #f2920b; border-radius: 20px; background: #ffffff; box-shadow: 0 10px 30px rgba(15,23,42,.04); }
+.next-step h2 { color: #0f172a; font-size: clamp(28px, 4vw, 36px); font-weight: 900; margin: 0 0 16px; letter-spacing: -0.02em; }
+.next-step p { margin: 8px 0; font-size: 17px; line-height: 1.7; color: #334155; }
+.calendly-inline-widget { min-width: 320px; height: 680px; margin-top: 24px; border-radius: 16px; overflow: hidden; border: 1px solid #e2e8f0; }
+@media (max-width: 1050px) { .article-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 760px) { .hub-hero { margin: 18px auto 38px; text-align: left; } .hub-title { white-space: normal; } .intro { margin: 0; } .article-grid { grid-template-columns: 1fr; } }
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+.intro-full-band {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  background-color: #3478a6;
+  background-image: linear-gradient(rgba(52, 120, 166, 0.40), rgba(52, 120, 166, 0.40)), url('/assets/images/branding/textura_editorial_coolpadel.webp');
+  background-blend-mode: normal, soft-light;
+  background-size: cover;
+  background-position: center;
+  padding: 44px 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+.intro { max-width: 880px; margin: 0 auto; color: #ffffff; font-size: 19px; line-height: 1.6; text-align: center; }
+.intro p { margin: 0 0 28px; color: #ffffff !important; font-size: 19px !important; font-weight: 500; }
+.intro p:last-child { margin-bottom: 0; }
 
-    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
-
-    <title>The 3 mistakes made by clubs that regret installing cameras</title>
-
-    <meta name="description" content="If you're thinking about installing cameras, this is for you">
-
-    <link rel="canonical" href="https://coolpadelstudios.com/en/camaras/">
-
-    <link rel="alternate" hreflang="es" href="https://coolpadelstudios.com/camaras/">
-
-    <link rel="alternate" hreflang="en" href="https://coolpadelstudios.com/en/camaras/">
-
-    <link rel="alternate" hreflang="fr" href="https://coolpadelstudios.com/fr/camaras/">
-
-    <link rel="alternate" hreflang="it" href="https://coolpadelstudios.com/it/camaras/">
-
-    <link rel="alternate" hreflang="de" href="https://coolpadelstudios.com/de/camaras/">
-
-    <link rel="alternate" hreflang="x-default" href="https://coolpadelstudios.com/camaras/">
-
-    <link rel="icon" type="image/png" href="/assets/images/favicon_transparente.png?v=transp2">
-
-    <link rel="apple-touch-icon" href="/assets/images/favicon_transparente.png?v=transp2">
-
-    <!-- LLM & AI Search Engine Discovery (llmstxt.org) -->
-
-    <link rel="alternate" type="text/markdown" href="https://coolpadelstudios.com/llms.txt" title="LLMs.txt">
-
-    <link rel="alternate" type="text/markdown" href="https://coolpadelstudios.com/llms-full.txt" title="LLMs-Full.txt">
-
-    <!-- OpenGraph & Social Media Cards -->
-
-    <meta property="og:locale" content="en_GB">
-
-    <meta property="og:title" content="The 3 mistakes made by clubs that regret installing cameras">
-
-    <meta property="og:description" content="If you're thinking about installing cameras, this is for you">
-
-    <meta property="og:type" content="article">
-
-    <meta property="og:url" content="https://coolpadelstudios.com/en/camaras/">
-
-    <meta property="og:image" content="https://coolpadelstudios.com/assets/images/savemyplay-1.jpg">
-
-    <meta property="og:image:width" content="1200">
-
-    <meta property="og:image:height" content="630">
-
-    <meta property="og:image:type" content="image/jpeg">
-
-    <meta name="twitter:card" content="summary_large_image">
-
-    <meta name="twitter:title" content="The 3 mistakes made by clubs that regret installing cameras">
-
-    <meta name="twitter:description" content="If you're thinking about installing cameras, this is for you">
-
-    <meta name="twitter:image" content="https://coolpadelstudios.com/assets/images/savemyplay-1.jpg">
-
-    <!-- Preconnect & DNS-Prefetch (Core Web Vitals WPO) -->
-
-    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
-
-    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
-
-    <link rel="dns-prefetch" href="https://www.clarity.ms">
-
-    <link rel="dns-prefetch" href="https://assets.calendly.com">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
-    <meta name="keywords" content="padel court cameras, padel match recording, save my play cameras, padel replays, padel court streaming, padel club cameras">
-
-    <meta name="geo.region" content="GB">
-
-    <meta name="geo.placename" content="London">
-
-    <meta name="geo.position" content="51.5074;-0.1278">
-
-    <meta name="ICBM" content="51.5074, -0.1278">
-
-    <!-- Schema.org JSON-LD: Articulo, Servicio, FAQPage, BreadcrumbList y LocalBusiness -->
-
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@graph": [
-        {
-          "@type": "Article",
-          "@id": "https://coolpadelstudios.com/en/camaras/#article",
-          "headline": "Some clubs in the UK and Europe regret installing cameras on their courts.",
-          "description": "If you're thinking about installing cameras, this is for you",
-          "inLanguage": "en",
-          "author": {
-            "@type": "Person",
-            "name": "Javier Villoria"
-          },
-          "publisher": {
-            "@type": "Organization",
-            "name": "CoolPadel Studios",
-            "url": "https://coolpadelstudios.com"
-          },
-          "mainEntityOfPage": "https://coolpadelstudios.com/en/camaras/",
-          "image": "https://coolpadelstudios.com/assets/images/savemyplay-1.jpg"
-        },
-        {
-          "@type": "Service",
-          "@id": "https://coolpadelstudios.com/en/camaras/#service",
-          "name": "Save my Play - Smart Court Recording & AI Cameras",
-          "description": "Smart video recording system for padel and tennis courts with no building works and no lock-in contracts for sports clubs.",
-          "provider": {
-            "@type": "Organization",
-            "name": "Save my Play & CoolPadel Studios",
-            "url": "https://coolpadelstudios.com/en/camaras/"
-          },
-          "offers": {
-            "@type": "Offer",
-            "price": "45.00",
-            "priceCurrency": "EUR",
-            "priceSpecification": {
-              "@type": "UnitPriceSpecification",
-              "price": "45.00",
-              "priceCurrency": "EUR",
-              "unitCode": "MON"
-            }
-          }
-        },
-        {
-          "@type": "BreadcrumbList",
-          "@id": "https://coolpadelstudios.com/en/camaras/#breadcrumb",
-          "itemListElement": [
-            {
-              "@type": "ListItem",
-              "position": 1,
-              "name": "CoolPadel Studios",
-              "item": "https://coolpadelstudios.com/"
-            },
-            {
-              "@type": "ListItem",
-              "position": 2,
-              "name": "Padel Court Cameras",
-              "item": "https://coolpadelstudios.com/en/camaras/"
-            }
-          ]
-        },
-        {
-          "@type": "FAQPage",
-          "@id": "https://coolpadelstudios.com/en/camaras/#faq",
-          "mainEntity": [
-            {
-              "@type": "Question",
-              "name": "How much does it cost to install Save my Play cameras on a court?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Hardware is €180 per camera and the cloud software subscription starts from €45 per month per court, with zero lock-in contracts or hidden fees."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "Does installation require building work or complex electrical work?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "No. Save my Play cameras need no building work or trenching. They mount directly on the court structure and plug into a standard socket or PoE."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "How do players download their match videos and replays?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Players press the button on court to save their best points, or scan the QR code at the exit to get the full match or highlights on their phone instantly."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "Is there a minimum contract term?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "No minimum term. The service runs month to month and you can cancel any time with no penalties."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "Is the system GDPR compliant?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Yes. The system is fully GDPR compliant: the club displays official information signage and recording is handled with the user's consent when they activate the service."
-              }
-            }
-          ]
-        },
-        {
-          "@type": "LocalBusiness",
-          "@id": "https://coolpadelstudios.com/#localbusiness",
-          "name": "Save my Play - Cameras for Padel Clubs",
-          "image": "https://coolpadelstudios.com/assets/images/savemyplay-1.jpg",
-          "telephone": "+34-680-31-74-86",
-          "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "Madrid",
-            "addressRegion": "Comunidad de Madrid",
-            "addressCountry": "ES"
-          },
-          "geo": {
-            "@type": "GeoCoordinates",
-            "latitude": 40.4589,
-            "longitude": -3.6761
-          },
-          "url": "https://coolpadelstudios.com/en/camaras/",
-          "priceRange": "€"
-        }
-      ]
+  </style>
+  <script>
+    function toggleLangDropdown(event) {
+      event.stopPropagation();
+      const menu = document.getElementById('lang-dropdown-menu');
+      const arrow = document.getElementById('lang-dropdown-arrow');
+      if (menu) {
+        menu.classList.toggle('hidden');
+        if (arrow) arrow.classList.toggle('rotate-180');
+      }
     }
-    </script>
-
-    <!-- Microsoft Clarity (Heatmaps y Grabaciones de Sesión) -->
-
-    <script type="text/javascript">
-
-        (function(c,l,a,r,i,t,y){
-
-            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-
-            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-
-            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-
-        })(window, document, "clarity", "script", "q7p8g52y9e");
-
-    </script>
-
-    <!-- Calendly Widget Assets -->
-
-    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
-
-    <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
-
-    <style>
-
-        :root {
-
-            --bg-color: #ffffff;
-
-            --text-color: #111111;
-
-            --text-muted: #666666;
-
-            --border-color: #b0b0b0;
-
-            --card-bg: #ececee;
-
-            --font-main: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-
-        }
-
-        * {
-
-            box-sizing: border-box;
-
-            margin: 0;
-
-            padding: 0;
-
-        }
-
-        html {
-
-            scroll-behavior: smooth;
-
-            background-color: var(--bg-color);
-
-            color: var(--text-color);
-
-            font-family: var(--font-main);
-
-            -webkit-font-smoothing: antialiased;
-
-            -moz-osx-font-smoothing: grayscale;
-
-        }
-
-        body {
-
-            background-color: var(--bg-color);
-
-            color: var(--text-color);
-
-            line-height: 1.7;
-
-            font-size: 0.95rem;
-
-            padding: 0;
-
-            margin: 0;
-
-            overflow-x: hidden;
-
-        }
-
-        /* Contenedor principal de lectura (ampliado un 10% para optimizar saltos de línea) */
-
-        main {
-
-            max-width: 715px;
-
-            margin: 0 auto;
-
-            padding: clamp(5.4rem, 11.7vh, 9rem) 1.35rem 5.4rem;
-
-        }
-
-        /* Título Principal */
-
-        h1.main-title {
-
-            font-size: clamp(1.725rem, 4.14vw, 2.36rem);
-
-            font-weight: 800;
-
-            line-height: 1.22;
-
-            letter-spacing: -0.035em;
-
-            margin-bottom: 2.25rem;
-
-            color: var(--text-color);
-
-        }
-
-        /* Títulos de Secciones Grandes */
-
-        h2.section-title {
-
-            font-size: clamp(1.32rem, 3.1vw, 1.7rem);
-
-            font-weight: 800;
-
-            line-height: 1.28;
-
-            letter-spacing: -0.025em;
-
-            margin-top: 4.23rem;
-
-            margin-bottom: 1.935rem;
-
-            padding-top: 2.25rem;
-
-            border-top: 1.5px solid #b0b0b0;
-
-            color: var(--text-color);
-
-        }
-
-        /* Título sin salto brusco de sección con espacio x4.5 */
-
-        h2.section-title-inline {
-            font-size: 1.35rem;
-            font-weight: 800;
-            line-height: 1.3;
-            letter-spacing: -0.02em;
-            margin-top: 4rem;
-            margin-bottom: 1.5rem;
-            color: var(--text-color);
-        }
-
-        /* Títulos de Decisiones / Apartados con Subrayado */
-
-        h3.decision-title {
-            font-size: 1.3rem;
-            font-weight: 800;
-            line-height: 1.35;
-            letter-spacing: -0.015em;
-            margin-top: 3.6rem;
-            margin-bottom: 1.2rem;
-            color: var(--text-color);
-            text-decoration: underline;
-            text-decoration-thickness: 2.5px;
-            text-underline-offset: 6px;
-        }
-
-        /* Separador de línea muy nítido entre apartados */
-
-        hr.sub-divider {
-
-            border: 0 !important;
-
-            height: 1px !important;
-
-            background-color: #b0b0b0 !important;
-
-            margin: 2.475rem 0 !important;
-
-            width: 100% !important;
-
-            display: block !important;
-
-            opacity: 1 !important;
-
-        }
-
-        /* Párrafos: Mucha separación en puntos y aparte */
-
-        p {
-
-            margin-bottom: 3.06rem;
-
-            color: #1a1a1a;
-
-            font-weight: 400;
-
-        }
-
-        strong {
-
-            font-weight: 700;
-
-            color: #000000;
-
-        }
-
-        /* Estilo destacado para las cajas (Formato ese) */
-
-        .lead-warning {
-
-            font-size: 0.95rem;
-
-            font-weight: 500;
-
-            line-height: 1.7;
-
-            padding: 1.17rem 1.305rem;
-
-            background-color: var(--card-bg);
-
-            border-left: 4px solid #111111;
-
-            border-radius: 5px;
-
-            margin-top: 1.665rem;
-
-            margin-bottom: 2.07rem;
-
-            color: #111111;
-
-        }
-
-        .lead-warning p {
-
-            margin-bottom: 1.71rem;
-
-            color: inherit;
-
-        }
-
-        .lead-warning p:last-child {
-
-            margin-bottom: 0;
-
-        }
-
-        /* Lista de puntos juntos */
-
-        /* Lista de 3 puntos destacados Save My Play */
-        ul.puntos-list {
-            margin: 1.8rem 0;
-            padding-left: 1.4rem;
-            list-style-type: disc;
-        }
-
-        ul.puntos-list li {
-            margin-bottom: 1.5rem;
-            line-height: 1.6;
-            color: #1a1a1a;
-            font-size: 0.95rem;
-        }
-
-        ul.puntos-list li:last-child {
-            margin-bottom: 0;
-        }
-
-        ul.bullet-list {
-
-            margin-bottom: 3.06rem;
-
-            padding-left: 1.125rem;
-
-        }
-
-        ul.bullet-list li {
-
-            margin-bottom: 0.315rem;
-
-            line-height: 1.65;
-
-            color: #1a1a1a;
-
-        }
-
-        /* Tabla de Decisiones en Conclusión */
-
-        .table-container {
-
-            width: 100%;
-
-            overflow-x: auto;
-
-            margin: 2.25rem 0 2.7rem;
-
-            border-radius: 8px;
-
-            border: 2px solid #111111;
-
-            background: #ffffff;
-
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-
-        }
-
-        table.decisiones-table {
-
-            width: 100%;
-
-            border-collapse: collapse;
-
-            font-size: 1.05rem;
-
-            text-align: left;
-
-            min-width: 520px;
-
-        }
-
-        table.decisiones-table th {
-
-            background-color: #f0f0f2;
-
-            color: #000000;
-
-            font-weight: 800;
-
-            padding: 0.99rem 1.125rem;
-
-            border-bottom: 2px solid #111111;
-
-            border-right: 1px solid #e0e0e0;
-
-        }
-
-        table.decisiones-table th:last-child {
-
-            border-right: none;
-
-        }
-
-        table.decisiones-table td {
-
-            padding: 0.99rem 1.125rem;
-
-            border-bottom: 1px solid #e5e5ea;
-
-            border-right: 1px solid #f0f0f0;
-
-            vertical-align: top;
-
-            line-height: 1.55;
-
-            color: #111111;
-
-        }
-
-        table.decisiones-table td:last-child {
-
-            border-right: none;
-
-        }
-
-        table.decisiones-table tr:last-child td {
-
-            border-bottom: none;
-
-        }
-
-        table.decisiones-table tr:nth-child(even) td {
-
-            background-color: #fafafb;
-
-        }
-
-        /* Calendario Incrustado de Calendly */
-
-        .calendly-embed-container {
-
-            margin-top: 1.8rem;
-
-            margin-bottom: 1.08rem;
-
-            border-radius: 8px;
-
-            overflow: hidden;
-
-            border: 1px solid #e2e2e5;
-
-            background: #ffffff;
-
-            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
-
-        }
-
-        .calendly-fallback-text {
-
-            text-align: center;
-
-            font-size: 0.95rem;
-
-            color: #666666;
-
-            margin-top: 0.675rem;
-
-            margin-bottom: 2.25rem;
-
-        }
-
-        .calendly-fallback-text a {
-
-            color: #111111;
-
-            font-weight: 700;
-
-            text-decoration: underline;
-
-            text-underline-offset: 3px;
-
-        }
-
-        .calendly-success-card {
-
-            display: none;
-
-            background: #f0fdf4;
-
-            border: 2px solid #16a34a;
-
-            border-radius: 8px;
-
-            padding: 1.8rem 1.62rem;
-
-            margin: 1.8rem 0;
-
-            text-align: left;
-
-            animation: fadeInSuccess 0.5s ease-out forwards;
-
-        }
-
-        @keyframes fadeInSuccess {
-
-            from { opacity: 0; transform: translateY(12px); }
-
-            to { opacity: 1; transform: translateY(0); }
-
-        }
-
-        .calendly-success-card h4 {
-
-            color: #15803d;
-
-            font-size: 1.35rem;
-
-            font-weight: 800;
-
-            margin-bottom: 0.72rem;
-
-        }
-
-        .calendly-success-card p {
-
-            color: #166534;
-
-            font-size: 1.05rem;
-
-            line-height: 1.6;
-
-            margin-bottom: 0.72rem;
-
-        }
-
-        .calendly-success-card p:last-child {
-
-            margin-bottom: 0;
-
-        }
-
-        /* ANIMACIONES AL HACER SCROLL (FADE IN Y SLIDE UP) */
-
-        .reveal-on-scroll {
-
-            opacity: 0;
-
-            transform: translateY(24px);
-
-            transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
-
-            will-change: opacity, transform;
-
-        }
-
-        .reveal-on-scroll.is-visible {
-
-            opacity: 1;
-
-            transform: translateY(0);
-
-        }
-
-        @media (max-width: 640px) {
-
-            body {
-
-                font-size: 0.88rem;
-
-                line-height: 1.65;
-
-            }
-
-            main {
-
-                padding-top: clamp(4.14rem, 9.9vh, 6.48rem);
-
-                padding-bottom: 3.24rem;
-
-                padding-left: 1.035rem;
-
-                padding-right: 1.035rem;
-
-            }
-
-            p {
-
-                margin-bottom: 2.61rem;
-
-            }
-
-            h1.main-title {
-                font-size: 1.61rem;
-
-                margin-bottom: 1.575rem;
-
-            }
-
-            h2.section-title {
-
-                margin-top: 2.88rem;
-
-                margin-bottom: 1.44rem;
-
-                padding-top: 1.62rem;
-
-            }
-
-            h2.section-title-inline {
-            font-size: 1.35rem;
-            font-weight: 800;
-            line-height: 1.3;
-            letter-spacing: -0.02em;
-            margin-top: 4rem;
-            margin-bottom: 1.5rem;
-            color: var(--text-color);
-        }
-
-            h3.decision-title {
-            font-size: 1.3rem;
-            font-weight: 800;
-            line-height: 1.35;
-            letter-spacing: -0.015em;
-            margin-top: 3.6rem;
-            margin-bottom: 1.2rem;
-            color: var(--text-color);
-            text-decoration: underline;
-            text-decoration-thickness: 2.5px;
-            text-underline-offset: 6px;
-        }
-
-            hr.sub-divider {
-
-                margin: 1.8rem 0 !important;
-
-            }
-
-            .lead-warning {
-
-                padding: 0.9rem 0.9rem;
-
-                margin-bottom: 1.62rem;
-
-            }
-
-        }
-
-    </style>
-
+    document.addEventListener('click', function(e) {
+      const container = document.getElementById('lang-dropdown-container');
+      const menu = document.getElementById('lang-dropdown-menu');
+      const arrow = document.getElementById('lang-dropdown-arrow');
+      if (container && !container.contains(e.target) && menu && !menu.classList.contains('hidden')) {
+        menu.classList.add('hidden');
+        if (arrow) arrow.classList.remove('rotate-180');
+      }
+    });
+  </script>
   <!-- Google Analytics 4 -->
   <script>
     (function() {
@@ -857,442 +155,441 @@
     }, true);
   </script>
   <!-- /GA4 -->
-<script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800;900&display=swap" rel="stylesheet">
+  <!-- Microsoft Clarity -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "q7p8g52y9e");
+  </script>
 </head>
-
 <body>
-
-<header class="fixed top-0 left-0 w-full z-50 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-xs w-full">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between">
-      
-      <!-- LOGO: MASCOTA + TIPOGRAFÍA -->
-      <a href="/en/" class="flex items-center gap-2 group shrink-0" aria-label="CoolPadel Home">
-        <img src="../../assets/images/coolpadel-mascot-hd.png" alt="Mascota CoolPadel" width="44" height="44" class="h-8 sm:h-11 w-auto object-contain group-hover:scale-105 transition" fetchpriority="high">
-        <img src="../../assets/images/coolpadel-typography-hd.png" alt="CoolPadel" width="140" height="28" class="h-5 sm:h-7 w-auto object-contain" fetchpriority="high">
-      </a>
-
-      <!-- BLOQUE DE NAVEGACIÓN Y ACCIONES A LA DERECHA -->
-      <div class="flex items-center gap-2 sm:gap-4 lg:gap-6">
-        <a href="/en/llaveros-padel-personalizados/" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition whitespace-nowrap">KEYCHAINS</a>
-        <a href="/en/camaras/" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition whitespace-nowrap">CAMERAS</a>
-        <a href="/en/blog/" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition whitespace-nowrap">Blog</a>
-        <a href="/en/franquicias-padel/" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition whitespace-nowrap">Franchises</a>
-
-        <!-- SELECTOR DE IDIOMA EN DESPLEGABLE COMPACTO -->
-        <div class="relative inline-block text-left" id="lang-dropdown-container">
-          <button type="button" onclick="toggleLangDropdown(event)" id="lang-dropdown-btn" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-100 hover:bg-slate-200 border border-slate-200 text-xs font-black text-slate-900 shadow-xs transition cursor-pointer" aria-expanded="false" aria-haspopup="true">
-            <span id="current-lang-code" class="uppercase font-black">EN</span>
-            <i data-lucide="chevron-down" class="w-3.5 h-3.5 stroke-[2.5] text-slate-600 transition-transform duration-200" id="lang-dropdown-arrow"></i>
-          </button>
-
-          <!-- MENÚ DESPLEGABLE FLOTANTE -->
-          <div id="lang-dropdown-menu" class="hidden absolute right-0 mt-2 w-24 bg-white rounded-2xl shadow-[0_12px_30px_rgba(0,0,0,0.15)] border border-slate-200 py-1.5 z-50 transition-all overflow-hidden">
-            <a href="/camaras/" data-lang-opt="es" class="lang-opt block text-slate-700 hover:bg-[#f2920b] hover:text-slate-950 font-bold w-full text-center px-4 py-2 text-xs transition duration-150">ES</a>
-            <a href="/en/camaras/" data-lang-opt="en" class="lang-opt block lang-opt-active font-black w-full text-center px-4 py-2 text-xs transition duration-150">EN</a>
-            <a href="/fr/camaras/" data-lang-opt="fr" class="lang-opt block text-slate-700 hover:bg-[#f2920b] hover:text-slate-950 font-bold w-full text-center px-4 py-2 text-xs transition duration-150">FR</a>
-            <a href="/it/camaras/" data-lang-opt="it" class="lang-opt block text-slate-700 hover:bg-[#f2920b] hover:text-slate-950 font-bold w-full text-center px-4 py-2 text-xs transition duration-150">IT</a>
-            <a href="/de/camaras/" data-lang-opt="de" class="lang-opt block text-slate-700 hover:bg-[#f2920b] hover:text-slate-950 font-bold w-full text-center px-4 py-2 text-xs transition duration-150">DE</a>
-          </div>
+  <header class="fixed top-0 left-0 w-full z-50 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-xs w-full">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between">
+    <a href="/en/" class="flex items-center gap-2 group shrink-0" aria-label="CoolPadel Home">
+      <img src="/assets/images/coolpadel-mascot-hd.png" alt="Mascota CoolPadel" width="44" height="44" class="h-8 sm:h-11 w-auto object-contain group-hover:scale-105 transition" fetchpriority="high">
+      <img src="/assets/images/coolpadel-typography-hd.png" alt="CoolPadel" width="140" height="28" class="h-5 sm:h-7 w-auto object-contain" fetchpriority="high">
+    </a>
+    <div class="flex items-center gap-2 sm:gap-4 lg:gap-6">
+      <a href="/en/llaveros-padel-personalizados/" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition whitespace-nowrap">KEYRINGS</a>
+      <a href="/en/camaras/" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition whitespace-nowrap">CAMERAS</a>
+      <a href="/en/blog/" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition whitespace-nowrap">Blog</a>
+      <a href="/en/franquicias-padel/" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition whitespace-nowrap">Franchises</a>
+      <div class="relative inline-block text-left" id="lang-dropdown-container">
+        <button type="button" onclick="toggleLangDropdown(event)" id="lang-dropdown-btn" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-100 hover:bg-slate-200 border border-slate-200 text-xs font-black text-slate-900 shadow-xs transition cursor-pointer" aria-expanded="false" aria-haspopup="true">
+          <span id="current-lang-code" class="uppercase font-black">EN</span>
+          <i data-lucide="chevron-down" class="w-3.5 h-3.5 stroke-[2.5] text-slate-600 transition-transform duration-200" id="lang-dropdown-arrow"></i>
+        </button>
+        <div id="lang-dropdown-menu" class="hidden absolute right-0 mt-2 w-24 bg-white rounded-2xl shadow-[0_12px_30px_rgba(0,0,0,0.15)] border border-slate-200 py-1.5 z-50 transition-all overflow-hidden">
+          <a href="/camaras/" class="block text-center px-4 py-2 text-xs ">ES</a>
+<a href="/en/camaras/" class="block text-center px-4 py-2 text-xs font-bold text-[#f2920b]">EN</a>
+<a href="/fr/camaras/" class="block text-center px-4 py-2 text-xs ">FR</a>
+<a href="/it/camaras/" class="block text-center px-4 py-2 text-xs ">IT</a>
+<a href="/de/camaras/" class="block text-center px-4 py-2 text-xs ">DE</a>
         </div>
+      </div>
+      <a href="/en/#contacto" class="inline-flex items-center gap-1.5 px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] text-slate-950 font-heading font-black text-xs uppercase tracking-wider transition shadow-sm hover:scale-105 active:scale-95 cursor-pointer">
+        <span>Contact</span>
+        <i data-lucide="arrow-down" class="w-3 h-3 stroke-[3]"></i>
+      </a>
+      <a href="/en/" class="group py-1 inline-flex items-center shrink-0 pl-1" aria-label="CoolPadel Eyes">
+        <img src="/assets/images/eyes-thumb.png?v=fixed_eyes" alt="CoolPadel Eyes" width="28" height="28" style="height:26px;max-height:26px;width:auto" class="object-contain group-hover:scale-110 transition duration-300">
+      </a>
+    </div>
+  </div>
+</header>
+<div class="h-16 sm:h-20 w-full shrink-0" aria-hidden="true"></div>
 
-        <!-- BOTÓN CONTACTAR -->
-        <a id="nav-contact-btn" href="/en/#contacto" class="inline-flex items-center gap-1.5 px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] text-slate-950 font-heading font-black text-xs uppercase tracking-wider transition shadow-sm hover:scale-105 active:scale-95 cursor-pointer">
-          <span data-i18n="nav_contact">Contact</span>
-          <i data-lucide="arrow-down" class="w-3 h-3 stroke-[3]"></i>
-        </a>
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+  <section class="hub-hero">
+    <p class="hub-eyebrow">Everything you need to know before installing cameras</p>
+    <h1 class="hub-title">Cameras for padel clubs</h1>
+  </section>
 
-        <!-- OJOS DEL LOGO A LA DERECHA DEL TODO -->
-        <a href="/en/" class="group py-1 inline-flex items-center shrink-0 pl-1" aria-label="CoolPadel Eyes">
-          <img src="../../assets/images/eyes-thumb.png?v=fixed_eyes" alt="CoolPadel Eyes" width="28" height="28" style="height: 26px; max-height: 26px; width: auto;" class="object-contain group-hover:scale-110 transition duration-300">
-        </a>
+  <div class="intro-full-band">
+    <div class="intro">
+      <p>We know that you want to make the best decision about the cameras<br>Experience tells us that clubs appreciate having useful information at their disposal<br>And that if you are not interested in informing yourself, it is not worth doing the online demo</p>
+<p>Therefore, we have tried to be as honest and transparent as possible.</p>
+<p>Along the way you will realize if it is a good idea to install cameras or not<br>And if you want to install them from Save My Play or from another company<br>Whatever the decision, it will be better for you and for us</p>
+<p></p>
+    </div>
+  </div>
+
+  <section>
+    <div class="article-grid">
+      <a href="articulos/por-donde-empezar-si-estoy-pensando-en-poner-camaras/" class="article-card bg-white border-2 border-slate-200/90 hover:border-[#f2920b] rounded-2xl p-4 sm:p-5 shadow-2xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between group hover:-translate-y-0.5 cursor-pointer block">
+  <div class="space-y-3">
+    <div class="aspect-[16/9] rounded-xl overflow-hidden bg-slate-900 border border-slate-200/90 shadow-sm relative">
+      <img src="/assets/images/camaras/camera-01.jpg" alt="I&#x27;m thinking about putting cameras in my club, where do I start?" width="800" height="450" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
+    </div>
+    <div>
+      <h3 class="font-sans font-extrabold text-sm sm:text-base lg:text-lg text-slate-900 leading-snug tracking-tight transition-colors">I&#x27;m thinking about putting cameras in my club, where do I start?</h3>
+    </div>
+  </div>
+  <div class="pt-3.5 border-t border-slate-100 mt-4">
+    <div class="card-action group relative w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-full bg-[#f2920b] group-hover:bg-[#76d3f6] text-slate-950 font-heading font-black text-xs uppercase tracking-wider transition-all duration-300 shadow-xs group-hover:shadow-md group-hover:scale-[1.01] overflow-hidden active:scale-[.98]">
+      <span class="font-black">Read article</span>
+      <div class="w-4 h-4 rounded-full bg-slate-950/10 group-hover:bg-slate-950 group-hover:text-white flex items-center justify-center transition-all duration-300">
+        <i data-lucide="arrow-right" class="w-3 h-3 stroke-[3] group-hover:translate-x-0.5 transition-transform duration-300"></i>
       </div>
     </div>
-  </header>
-  <div class="h-16 sm:h-20 w-full shrink-0" aria-hidden="true"></div>
+  </div>
+</a>
+<a href="articulos/errores-clubs-se-arrepienten-de-poner-camaras/" class="article-card bg-white border-2 border-slate-200/90 hover:border-[#f2920b] rounded-2xl p-4 sm:p-5 shadow-2xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between group hover:-translate-y-0.5 cursor-pointer block">
+  <div class="space-y-3">
+    <div class="aspect-[16/9] rounded-xl overflow-hidden bg-slate-900 border border-slate-200/90 shadow-sm relative">
+      <img src="/assets/images/camaras/retransmision-directo-marcador-youtube.png" alt="The 3 mistakes of clubs that regret installing cameras" width="800" height="450" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
+    </div>
+    <div>
+      <h3 class="font-sans font-extrabold text-sm sm:text-base lg:text-lg text-slate-900 leading-snug tracking-tight transition-colors">The 3 mistakes of clubs that regret installing cameras</h3>
+    </div>
+  </div>
+  <div class="pt-3.5 border-t border-slate-100 mt-4">
+    <div class="card-action group relative w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-full bg-[#f2920b] group-hover:bg-[#76d3f6] text-slate-950 font-heading font-black text-xs uppercase tracking-wider transition-all duration-300 shadow-xs group-hover:shadow-md group-hover:scale-[1.01] overflow-hidden active:scale-[.98]">
+      <span class="font-black">Read article</span>
+      <div class="w-4 h-4 rounded-full bg-slate-950/10 group-hover:bg-slate-950 group-hover:text-white flex items-center justify-center transition-all duration-300">
+        <i data-lucide="arrow-right" class="w-3 h-3 stroke-[3] group-hover:translate-x-0.5 transition-transform duration-300"></i>
+      </div>
+    </div>
+  </div>
+</a>
+<a href="articulos/camaras-de-padel-o-videovigilancia/" class="article-card bg-white border-2 border-slate-200/90 hover:border-[#f2920b] rounded-2xl p-4 sm:p-5 shadow-2xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between group hover:-translate-y-0.5 cursor-pointer block">
+  <div class="space-y-3">
+    <div class="aspect-[16/9] rounded-xl overflow-hidden bg-slate-900 border border-slate-200/90 shadow-sm relative">
+      <img src="/assets/images/camaras/camera-05.jpg" alt="How do I know if my cameras are paddle tennis or video surveillance?" width="800" height="450" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
+    </div>
+    <div>
+      <h3 class="font-sans font-extrabold text-sm sm:text-base lg:text-lg text-slate-900 leading-snug tracking-tight transition-colors">How do I know if my cameras are paddle tennis or video surveillance?</h3>
+    </div>
+  </div>
+  <div class="pt-3.5 border-t border-slate-100 mt-4">
+    <div class="card-action group relative w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-full bg-[#f2920b] group-hover:bg-[#76d3f6] text-slate-950 font-heading font-black text-xs uppercase tracking-wider transition-all duration-300 shadow-xs group-hover:shadow-md group-hover:scale-[1.01] overflow-hidden active:scale-[.98]">
+      <span class="font-black">Read article</span>
+      <div class="w-4 h-4 rounded-full bg-slate-950/10 group-hover:bg-slate-950 group-hover:text-white flex items-center justify-center transition-all duration-300">
+        <i data-lucide="arrow-right" class="w-3 h-3 stroke-[3] group-hover:translate-x-0.5 transition-transform duration-300"></i>
+      </div>
+    </div>
+  </div>
+</a>
+<a href="articulos/cuanto-cuesta-poner-camaras/" class="article-card bg-white border-2 border-slate-200/90 hover:border-[#f2920b] rounded-2xl p-4 sm:p-5 shadow-2xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between group hover:-translate-y-0.5 cursor-pointer block">
+  <div class="space-y-3">
+    <div class="aspect-[16/9] rounded-xl overflow-hidden bg-slate-900 border border-slate-200/90 shadow-sm relative">
+      <img src="/assets/images/camaras/pista-moqueta-negra-indoor.png" alt="How much does it cost to put cameras in my club?" width="800" height="450" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
+    </div>
+    <div>
+      <h3 class="font-sans font-extrabold text-sm sm:text-base lg:text-lg text-slate-900 leading-snug tracking-tight transition-colors">How much does it cost to put cameras in my club?</h3>
+    </div>
+  </div>
+  <div class="pt-3.5 border-t border-slate-100 mt-4">
+    <div class="card-action group relative w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-full bg-[#f2920b] group-hover:bg-[#76d3f6] text-slate-950 font-heading font-black text-xs uppercase tracking-wider transition-all duration-300 shadow-xs group-hover:shadow-md group-hover:scale-[1.01] overflow-hidden active:scale-[.98]">
+      <span class="font-black">Read article</span>
+      <div class="w-4 h-4 rounded-full bg-slate-950/10 group-hover:bg-slate-950 group-hover:text-white flex items-center justify-center transition-all duration-300">
+        <i data-lucide="arrow-right" class="w-3 h-3 stroke-[3] group-hover:translate-x-0.5 transition-transform duration-300"></i>
+      </div>
+    </div>
+  </div>
+</a>
+<a href="articulos/inversion-inicial-camaras-180-euros/" class="article-card bg-white border-2 border-slate-200/90 hover:border-[#f2920b] rounded-2xl p-4 sm:p-5 shadow-2xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between group hover:-translate-y-0.5 cursor-pointer block">
+  <div class="space-y-3">
+    <div class="aspect-[16/9] rounded-xl overflow-hidden bg-slate-900 border border-slate-200/90 shadow-sm relative">
+      <img src="/assets/images/camaras/camera-02.jpg" alt="Why is there an initial investment of €180 for the cameras?" width="800" height="450" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
+    </div>
+    <div>
+      <h3 class="font-sans font-extrabold text-sm sm:text-base lg:text-lg text-slate-900 leading-snug tracking-tight transition-colors">Why is there an initial investment of €180 for the cameras?</h3>
+    </div>
+  </div>
+  <div class="pt-3.5 border-t border-slate-100 mt-4">
+    <div class="card-action group relative w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-full bg-[#f2920b] group-hover:bg-[#76d3f6] text-slate-950 font-heading font-black text-xs uppercase tracking-wider transition-all duration-300 shadow-xs group-hover:shadow-md group-hover:scale-[1.01] overflow-hidden active:scale-[.98]">
+      <span class="font-black">Read article</span>
+      <div class="w-4 h-4 rounded-full bg-slate-950/10 group-hover:bg-slate-950 group-hover:text-white flex items-center justify-center transition-all duration-300">
+        <i data-lucide="arrow-right" class="w-3 h-3 stroke-[3] group-hover:translate-x-0.5 transition-transform duration-300"></i>
+      </div>
+    </div>
+  </div>
+</a>
+<a href="articulos/es-caro-save-my-play/" class="article-card bg-white border-2 border-slate-200/90 hover:border-[#f2920b] rounded-2xl p-4 sm:p-5 shadow-2xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between group hover:-translate-y-0.5 cursor-pointer block">
+  <div class="space-y-3">
+    <div class="aspect-[16/9] rounded-xl overflow-hidden bg-slate-900 border border-slate-200/90 shadow-sm relative">
+      <img src="/assets/images/camaras/camera-06.jpg" alt="Is Save My Play expensive?" width="800" height="450" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
+    </div>
+    <div>
+      <h3 class="font-sans font-extrabold text-sm sm:text-base lg:text-lg text-slate-900 leading-snug tracking-tight transition-colors">Is Save My Play expensive?</h3>
+    </div>
+  </div>
+  <div class="pt-3.5 border-t border-slate-100 mt-4">
+    <div class="card-action group relative w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-full bg-[#f2920b] group-hover:bg-[#76d3f6] text-slate-950 font-heading font-black text-xs uppercase tracking-wider transition-all duration-300 shadow-xs group-hover:shadow-md group-hover:scale-[1.01] overflow-hidden active:scale-[.98]">
+      <span class="font-black">Read article</span>
+      <div class="w-4 h-4 rounded-full bg-slate-950/10 group-hover:bg-slate-950 group-hover:text-white flex items-center justify-center transition-all duration-300">
+        <i data-lucide="arrow-right" class="w-3 h-3 stroke-[3] group-hover:translate-x-0.5 transition-transform duration-300"></i>
+      </div>
+    </div>
+  </div>
+</a>
+<a href="articulos/es-rentable-poner-camaras/" class="article-card bg-white border-2 border-slate-200/90 hover:border-[#f2920b] rounded-2xl p-4 sm:p-5 shadow-2xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between group hover:-translate-y-0.5 cursor-pointer block">
+  <div class="space-y-3">
+    <div class="aspect-[16/9] rounded-xl overflow-hidden bg-slate-900 border border-slate-200/90 shadow-sm relative">
+      <img src="/assets/images/camaras/partido-directo-patrocinador-harbor.png" alt="Is it profitable to put cameras on my tracks?" width="800" height="450" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
+    </div>
+    <div>
+      <h3 class="font-sans font-extrabold text-sm sm:text-base lg:text-lg text-slate-900 leading-snug tracking-tight transition-colors">Is it profitable to put cameras on my tracks?</h3>
+    </div>
+  </div>
+  <div class="pt-3.5 border-t border-slate-100 mt-4">
+    <div class="card-action group relative w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-full bg-[#f2920b] group-hover:bg-[#76d3f6] text-slate-950 font-heading font-black text-xs uppercase tracking-wider transition-all duration-300 shadow-xs group-hover:shadow-md group-hover:scale-[1.01] overflow-hidden active:scale-[.98]">
+      <span class="font-black">Read article</span>
+      <div class="w-4 h-4 rounded-full bg-slate-950/10 group-hover:bg-slate-950 group-hover:text-white flex items-center justify-center transition-all duration-300">
+        <i data-lucide="arrow-right" class="w-3 h-3 stroke-[3] group-hover:translate-x-0.5 transition-transform duration-300"></i>
+      </div>
+    </div>
+  </div>
+</a>
+<a href="articulos/por-que-no-recomiendo-plan-analytics/" class="article-card bg-white border-2 border-slate-200/90 hover:border-[#f2920b] rounded-2xl p-4 sm:p-5 shadow-2xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between group hover:-translate-y-0.5 cursor-pointer block">
+  <div class="space-y-3">
+    <div class="aspect-[16/9] rounded-xl overflow-hidden bg-slate-900 border border-slate-200/90 shadow-sm relative">
+      <img src="/assets/images/camaras/portada-mapa-calor-analytics.png" alt="Why don&#x27;t I recommend the €136 per month plan to 95% of clubs?" width="800" height="450" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
+    </div>
+    <div>
+      <h3 class="font-sans font-extrabold text-sm sm:text-base lg:text-lg text-slate-900 leading-snug tracking-tight transition-colors">Why don&#x27;t I recommend the €136 per month plan to 95% of clubs?</h3>
+    </div>
+  </div>
+  <div class="pt-3.5 border-t border-slate-100 mt-4">
+    <div class="card-action group relative w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-full bg-[#f2920b] group-hover:bg-[#76d3f6] text-slate-950 font-heading font-black text-xs uppercase tracking-wider transition-all duration-300 shadow-xs group-hover:shadow-md group-hover:scale-[1.01] overflow-hidden active:scale-[.98]">
+      <span class="font-black">Read article</span>
+      <div class="w-4 h-4 rounded-full bg-slate-950/10 group-hover:bg-slate-950 group-hover:text-white flex items-center justify-center transition-all duration-300">
+        <i data-lucide="arrow-right" class="w-3 h-3 stroke-[3] group-hover:translate-x-0.5 transition-transform duration-300"></i>
+      </div>
+    </div>
+  </div>
+</a>
+<a href="articulos/que-pasa-si-cancelo/" class="article-card bg-white border-2 border-slate-200/90 hover:border-[#f2920b] rounded-2xl p-4 sm:p-5 shadow-2xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between group hover:-translate-y-0.5 cursor-pointer block">
+  <div class="space-y-3">
+    <div class="aspect-[16/9] rounded-xl overflow-hidden bg-slate-900 border border-slate-200/90 shadow-sm relative">
+      <img src="/assets/images/camaras/portada-mascota-savemyplay.png" alt="What happens if I cancel my subscription? Should I keep the cameras?" width="800" height="450" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
+    </div>
+    <div>
+      <h3 class="font-sans font-extrabold text-sm sm:text-base lg:text-lg text-slate-900 leading-snug tracking-tight transition-colors">What happens if I cancel my subscription? Should I keep the cameras?</h3>
+    </div>
+  </div>
+  <div class="pt-3.5 border-t border-slate-100 mt-4">
+    <div class="card-action group relative w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-full bg-[#f2920b] group-hover:bg-[#76d3f6] text-slate-950 font-heading font-black text-xs uppercase tracking-wider transition-all duration-300 shadow-xs group-hover:shadow-md group-hover:scale-[1.01] overflow-hidden active:scale-[.98]">
+      <span class="font-black">Read article</span>
+      <div class="w-4 h-4 rounded-full bg-slate-950/10 group-hover:bg-slate-950 group-hover:text-white flex items-center justify-center transition-all duration-300">
+        <i data-lucide="arrow-right" class="w-3 h-3 stroke-[3] group-hover:translate-x-0.5 transition-transform duration-300"></i>
+      </div>
+    </div>
+  </div>
+</a>
+<a href="articulos/como-montar-camara-save-my-play/" class="article-card bg-white border-2 border-slate-200/90 hover:border-[#f2920b] rounded-2xl p-4 sm:p-5 shadow-2xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between group hover:-translate-y-0.5 cursor-pointer block">
+  <div class="space-y-3">
+    <div class="aspect-[16/9] rounded-xl overflow-hidden bg-slate-900 border border-slate-200/90 shadow-sm relative">
+      <img src="/assets/images/camaras/camara-instalada-reja-4m-crop.jpg" alt="How long does it take to set up a Save My Play camera?" width="800" height="450" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
+    </div>
+    <div>
+      <h3 class="font-sans font-extrabold text-sm sm:text-base lg:text-lg text-slate-900 leading-snug tracking-tight transition-colors">How long does it take to set up a Save My Play camera?</h3>
+    </div>
+  </div>
+  <div class="pt-3.5 border-t border-slate-100 mt-4">
+    <div class="card-action group relative w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-full bg-[#f2920b] group-hover:bg-[#76d3f6] text-slate-950 font-heading font-black text-xs uppercase tracking-wider transition-all duration-300 shadow-xs group-hover:shadow-md group-hover:scale-[1.01] overflow-hidden active:scale-[.98]">
+      <span class="font-black">Read article</span>
+      <div class="w-4 h-4 rounded-full bg-slate-950/10 group-hover:bg-slate-950 group-hover:text-white flex items-center justify-center transition-all duration-300">
+        <i data-lucide="arrow-right" class="w-3 h-3 stroke-[3] group-hover:translate-x-0.5 transition-transform duration-300"></i>
+      </div>
+    </div>
+  </div>
+</a>
+<a href="articulos/problemas-con-las-camaras/" class="article-card bg-white border-2 border-slate-200/90 hover:border-[#f2920b] rounded-2xl p-4 sm:p-5 shadow-2xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between group hover:-translate-y-0.5 cursor-pointer block">
+  <div class="space-y-3">
+    <div class="aspect-[16/9] rounded-xl overflow-hidden bg-slate-900 border border-slate-200/90 shadow-sm relative">
+      <img src="/assets/images/camaras/camera-04.jpg" alt="What happens if there are problems with the cameras?" width="800" height="450" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
+    </div>
+    <div>
+      <h3 class="font-sans font-extrabold text-sm sm:text-base lg:text-lg text-slate-900 leading-snug tracking-tight transition-colors">What happens if there are problems with the cameras?</h3>
+    </div>
+  </div>
+  <div class="pt-3.5 border-t border-slate-100 mt-4">
+    <div class="card-action group relative w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-full bg-[#f2920b] group-hover:bg-[#76d3f6] text-slate-950 font-heading font-black text-xs uppercase tracking-wider transition-all duration-300 shadow-xs group-hover:shadow-md group-hover:scale-[1.01] overflow-hidden active:scale-[.98]">
+      <span class="font-black">Read article</span>
+      <div class="w-4 h-4 rounded-full bg-slate-950/10 group-hover:bg-slate-950 group-hover:text-white flex items-center justify-center transition-all duration-300">
+        <i data-lucide="arrow-right" class="w-3 h-3 stroke-[3] group-hover:translate-x-0.5 transition-transform duration-300"></i>
+      </div>
+    </div>
+  </div>
+</a>
+<a href="articulos/que-son-las-coaching-tools/" class="article-card bg-white border-2 border-slate-200/90 hover:border-[#f2920b] rounded-2xl p-4 sm:p-5 shadow-2xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between group hover:-translate-y-0.5 cursor-pointer block">
+  <div class="space-y-3">
+    <div class="aspect-[16/9] rounded-xl overflow-hidden bg-slate-900 border border-slate-200/90 shadow-sm relative">
+      <img src="/assets/images/camaras/portada-coaching-tools-tablet.png" alt="What are coaching tools?" width="800" height="450" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
+    </div>
+    <div>
+      <h3 class="font-sans font-extrabold text-sm sm:text-base lg:text-lg text-slate-900 leading-snug tracking-tight transition-colors">What are coaching tools?</h3>
+    </div>
+  </div>
+  <div class="pt-3.5 border-t border-slate-100 mt-4">
+    <div class="card-action group relative w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-full bg-[#f2920b] group-hover:bg-[#76d3f6] text-slate-950 font-heading font-black text-xs uppercase tracking-wider transition-all duration-300 shadow-xs group-hover:shadow-md group-hover:scale-[1.01] overflow-hidden active:scale-[.98]">
+      <span class="font-black">Read article</span>
+      <div class="w-4 h-4 rounded-full bg-slate-950/10 group-hover:bg-slate-950 group-hover:text-white flex items-center justify-center transition-all duration-300">
+        <i data-lucide="arrow-right" class="w-3 h-3 stroke-[3] group-hover:translate-x-0.5 transition-transform duration-300"></i>
+      </div>
+    </div>
+  </div>
+</a>
+<a href="articulos/camaras-en-exterior-lluvia-nieve-viento/" class="article-card bg-white border-2 border-slate-200/90 hover:border-[#f2920b] rounded-2xl p-4 sm:p-5 shadow-2xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between group hover:-translate-y-0.5 cursor-pointer block">
+  <div class="space-y-3">
+    <div class="aspect-[16/9] rounded-xl overflow-hidden bg-slate-900 border border-slate-200/90 shadow-sm relative">
+      <img src="/assets/images/camaras/pista-outdoor-world-sports.png" alt="Do the cameras hold up on outdoor slopes?" width="800" height="450" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
+    </div>
+    <div>
+      <h3 class="font-sans font-extrabold text-sm sm:text-base lg:text-lg text-slate-900 leading-snug tracking-tight transition-colors">Do the cameras hold up on outdoor slopes?</h3>
+    </div>
+  </div>
+  <div class="pt-3.5 border-t border-slate-100 mt-4">
+    <div class="card-action group relative w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-full bg-[#f2920b] group-hover:bg-[#76d3f6] text-slate-950 font-heading font-black text-xs uppercase tracking-wider transition-all duration-300 shadow-xs group-hover:shadow-md group-hover:scale-[1.01] overflow-hidden active:scale-[.98]">
+      <span class="font-black">Read article</span>
+      <div class="w-4 h-4 rounded-full bg-slate-950/10 group-hover:bg-slate-950 group-hover:text-white flex items-center justify-center transition-all duration-300">
+        <i data-lucide="arrow-right" class="w-3 h-3 stroke-[3] group-hover:translate-x-0.5 transition-transform duration-300"></i>
+      </div>
+    </div>
+  </div>
+</a>
+<a href="articulos/como-ver-highlights-sin-app/" class="article-card bg-white border-2 border-slate-200/90 hover:border-[#f2920b] rounded-2xl p-4 sm:p-5 shadow-2xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between group hover:-translate-y-0.5 cursor-pointer block">
+  <div class="space-y-3">
+    <div class="aspect-[16/9] rounded-xl overflow-hidden bg-slate-900 border border-slate-200/90 shadow-sm relative">
+      <img src="/assets/images/camaras/portada-email-highlights.png" alt="Why is there no Save My Play app? How do I see my highlights?" width="800" height="450" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
+    </div>
+    <div>
+      <h3 class="font-sans font-extrabold text-sm sm:text-base lg:text-lg text-slate-900 leading-snug tracking-tight transition-colors">Why is there no Save My Play app? How do I see my highlights?</h3>
+    </div>
+  </div>
+  <div class="pt-3.5 border-t border-slate-100 mt-4">
+    <div class="card-action group relative w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-full bg-[#f2920b] group-hover:bg-[#76d3f6] text-slate-950 font-heading font-black text-xs uppercase tracking-wider transition-all duration-300 shadow-xs group-hover:shadow-md group-hover:scale-[1.01] overflow-hidden active:scale-[.98]">
+      <span class="font-black">Read article</span>
+      <div class="w-4 h-4 rounded-full bg-slate-950/10 group-hover:bg-slate-950 group-hover:text-white flex items-center justify-center transition-all duration-300">
+        <i data-lucide="arrow-right" class="w-3 h-3 stroke-[3] group-hover:translate-x-0.5 transition-transform duration-300"></i>
+      </div>
+    </div>
+  </div>
+</a>
+<a href="articulos/mejores-empresas-camaras-padel-espana/" class="article-card bg-white border-2 border-slate-200/90 hover:border-[#f2920b] rounded-2xl p-4 sm:p-5 shadow-2xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between group hover:-translate-y-0.5 cursor-pointer block">
+  <div class="space-y-3">
+    <div class="aspect-[16/9] rounded-xl overflow-hidden bg-slate-900 border border-slate-200/90 shadow-sm relative">
+      <img src="/assets/images/camaras/camera-03.jpg" alt="What are the best padel camera companies in Spain?" width="800" height="450" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
+    </div>
+    <div>
+      <h3 class="font-sans font-extrabold text-sm sm:text-base lg:text-lg text-slate-900 leading-snug tracking-tight transition-colors">What are the best padel camera companies in Spain?</h3>
+    </div>
+  </div>
+  <div class="pt-3.5 border-t border-slate-100 mt-4">
+    <div class="card-action group relative w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-full bg-[#f2920b] group-hover:bg-[#76d3f6] text-slate-950 font-heading font-black text-xs uppercase tracking-wider transition-all duration-300 shadow-xs group-hover:shadow-md group-hover:scale-[1.01] overflow-hidden active:scale-[.98]">
+      <span class="font-black">Read article</span>
+      <div class="w-4 h-4 rounded-full bg-slate-950/10 group-hover:bg-slate-950 group-hover:text-white flex items-center justify-center transition-all duration-300">
+        <i data-lucide="arrow-right" class="w-3 h-3 stroke-[3] group-hover:translate-x-0.5 transition-transform duration-300"></i>
+      </div>
+    </div>
+  </div>
+</a>
+<a href="articulos/por-que-no-conocia-save-my-play/" class="article-card bg-white border-2 border-slate-200/90 hover:border-[#f2920b] rounded-2xl p-4 sm:p-5 shadow-2xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between group hover:-translate-y-0.5 cursor-pointer block">
+  <div class="space-y-3">
+    <div class="aspect-[16/9] rounded-xl overflow-hidden bg-slate-900 border border-slate-200/90 shadow-sm relative">
+      <img src="/assets/images/camaras/save-email-clip-sportime.png" alt="Why had I never heard of Save My Play?" width="800" height="450" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
+    </div>
+    <div>
+      <h3 class="font-sans font-extrabold text-sm sm:text-base lg:text-lg text-slate-900 leading-snug tracking-tight transition-colors">Why had I never heard of Save My Play?</h3>
+    </div>
+  </div>
+  <div class="pt-3.5 border-t border-slate-100 mt-4">
+    <div class="card-action group relative w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-full bg-[#f2920b] group-hover:bg-[#76d3f6] text-slate-950 font-heading font-black text-xs uppercase tracking-wider transition-all duration-300 shadow-xs group-hover:shadow-md group-hover:scale-[1.01] overflow-hidden active:scale-[.98]">
+      <span class="font-black">Read article</span>
+      <div class="w-4 h-4 rounded-full bg-slate-950/10 group-hover:bg-slate-950 group-hover:text-white flex items-center justify-center transition-all duration-300">
+        <i data-lucide="arrow-right" class="w-3 h-3 stroke-[3] group-hover:translate-x-0.5 transition-transform duration-300"></i>
+      </div>
+    </div>
+  </div>
+</a>
+<a href="articulos/save-my-play-en-pocas-palabras/" class="article-card bg-white border-2 border-slate-200/90 hover:border-[#f2920b] rounded-2xl p-4 sm:p-5 shadow-2xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between group hover:-translate-y-0.5 cursor-pointer block">
+  <div class="space-y-3">
+    <div class="aspect-[16/9] rounded-xl overflow-hidden bg-slate-900 border border-slate-200/90 shadow-sm relative">
+      <img src="/assets/images/camaras/retransmision-usta-national-campus.png" alt="Now it&#x27;s time to talk about how good we are at Save My Play" width="800" height="450" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
+    </div>
+    <div>
+      <h3 class="font-sans font-extrabold text-sm sm:text-base lg:text-lg text-slate-900 leading-snug tracking-tight transition-colors">Now it&#x27;s time to talk about how good we are at Save My Play</h3>
+    </div>
+  </div>
+  <div class="pt-3.5 border-t border-slate-100 mt-4">
+    <div class="card-action group relative w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-full bg-[#f2920b] group-hover:bg-[#76d3f6] text-slate-950 font-heading font-black text-xs uppercase tracking-wider transition-all duration-300 shadow-xs group-hover:shadow-md group-hover:scale-[1.01] overflow-hidden active:scale-[.98]">
+      <span class="font-black">Read article</span>
+      <div class="w-4 h-4 rounded-full bg-slate-950/10 group-hover:bg-slate-950 group-hover:text-white flex items-center justify-center transition-all duration-300">
+        <i data-lucide="arrow-right" class="w-3 h-3 stroke-[3] group-hover:translate-x-0.5 transition-transform duration-300"></i>
+      </div>
+    </div>
+  </div>
+</a>
+<a href="articulos/por-que-coolpadel-colabora-con-save-my-play/" class="article-card bg-white border-2 border-slate-200/90 hover:border-[#f2920b] rounded-2xl p-4 sm:p-5 shadow-2xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between group hover:-translate-y-0.5 cursor-pointer block">
+  <div class="space-y-3">
+    <div class="aspect-[16/9] rounded-xl overflow-hidden bg-slate-900 border border-slate-200/90 shadow-sm relative">
+      <img src="/assets/images/camaras/portada-coolpadel-savemyplay.jpg" alt="Why does CoolPadel collaborate with Save My Play?" width="800" height="450" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
+    </div>
+    <div>
+      <h3 class="font-sans font-extrabold text-sm sm:text-base lg:text-lg text-slate-900 leading-snug tracking-tight transition-colors">Why does CoolPadel collaborate with Save My Play?</h3>
+    </div>
+  </div>
+  <div class="pt-3.5 border-t border-slate-100 mt-4">
+    <div class="card-action group relative w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-full bg-[#f2920b] group-hover:bg-[#76d3f6] text-slate-950 font-heading font-black text-xs uppercase tracking-wider transition-all duration-300 shadow-xs group-hover:shadow-md group-hover:scale-[1.01] overflow-hidden active:scale-[.98]">
+      <span class="font-black">Read article</span>
+      <div class="w-4 h-4 rounded-full bg-slate-950/10 group-hover:bg-slate-950 group-hover:text-white flex items-center justify-center transition-all duration-300">
+        <i data-lucide="arrow-right" class="w-3 h-3 stroke-[3] group-hover:translate-x-0.5 transition-transform duration-300"></i>
+      </div>
+    </div>
+  </div>
+</a>
+<a href="articulos/he-comprado-camaras-que-pasa-ahora/" class="article-card bg-white border-2 border-slate-200/90 hover:border-[#f2920b] rounded-2xl p-4 sm:p-5 shadow-2xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between group hover:-translate-y-0.5 cursor-pointer block">
+  <div class="space-y-3">
+    <div class="aspect-[16/9] rounded-xl overflow-hidden bg-slate-900 border border-slate-200/90 shadow-sm relative">
+      <img src="/assets/images/camaras/pista-indoor-blue-zone-clean.png" alt="I bought some cameras from Save My Play. What is the process now?" width="800" height="450" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
+    </div>
+    <div>
+      <h3 class="font-sans font-extrabold text-sm sm:text-base lg:text-lg text-slate-900 leading-snug tracking-tight transition-colors">I bought some cameras from Save My Play. What is the process now?</h3>
+    </div>
+  </div>
+  <div class="pt-3.5 border-t border-slate-100 mt-4">
+    <div class="card-action group relative w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-full bg-[#f2920b] group-hover:bg-[#76d3f6] text-slate-950 font-heading font-black text-xs uppercase tracking-wider transition-all duration-300 shadow-xs group-hover:shadow-md group-hover:scale-[1.01] overflow-hidden active:scale-[.98]">
+      <span class="font-black">Read article</span>
+      <div class="w-4 h-4 rounded-full bg-slate-950/10 group-hover:bg-slate-950 group-hover:text-white flex items-center justify-center transition-all duration-300">
+        <i data-lucide="arrow-right" class="w-3 h-3 stroke-[3] group-hover:translate-x-0.5 transition-transform duration-300"></i>
+      </div>
+    </div>
+  </div>
+</a>
+<a href="articulos/por-que-no-me-interesa-venderte-una-camara/" class="article-card bg-white border-2 border-slate-200/90 hover:border-[#f2920b] rounded-2xl p-4 sm:p-5 shadow-2xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between group hover:-translate-y-0.5 cursor-pointer block">
+  <div class="space-y-3">
+    <div class="aspect-[16/9] rounded-xl overflow-hidden bg-slate-900 border border-slate-200/90 shadow-sm relative">
+      <img src="/assets/images/camaras/portada-bandido-highlight.jpg" alt="Why am I not interested in selling you a camera if you are not convinced?" width="800" height="450" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
+    </div>
+    <div>
+      <h3 class="font-sans font-extrabold text-sm sm:text-base lg:text-lg text-slate-900 leading-snug tracking-tight transition-colors">Why am I not interested in selling you a camera if you are not convinced?</h3>
+    </div>
+  </div>
+  <div class="pt-3.5 border-t border-slate-100 mt-4">
+    <div class="card-action group relative w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-full bg-[#f2920b] group-hover:bg-[#76d3f6] text-slate-950 font-heading font-black text-xs uppercase tracking-wider transition-all duration-300 shadow-xs group-hover:shadow-md group-hover:scale-[1.01] overflow-hidden active:scale-[.98]">
+      <span class="font-black">Read article</span>
+      <div class="w-4 h-4 rounded-full bg-slate-950/10 group-hover:bg-slate-950 group-hover:text-white flex items-center justify-center transition-all duration-300">
+        <i data-lucide="arrow-right" class="w-3 h-3 stroke-[3] group-hover:translate-x-0.5 transition-transform duration-300"></i>
+      </div>
+    </div>
+  </div>
+</a>
+    </div>
+  </section>
 
-
-<main>
-
-        <!-- TÍTULO PRINCIPAL -->
-        <h1 class="main-title reveal-on-scroll">
-            Some clubs in the UK and Europe regret installing cameras on their courts.
-        </h1>
-
-        <p class="reveal-on-scroll">
-            Yes, you read that right.
-        </p>
-
-        <p class="reveal-on-scroll">
-            And it's definitely not just one or two.
-        </p>
-
-        <p class="reveal-on-scroll">
-            <strong>If you are thinking about installing cameras, this is for you.</strong>
-        </p>
-
-        <p class="reveal-on-scroll">
-            <strong>If you already have cameras installed, even more so.</strong>
-        </p>
-
-        <!-- SEPARACIÓN 1 -->
-        <hr class="sub-divider reveal-on-scroll">
-
-        <!-- CAJA DESTACADA 1 -->
-        <div class="lead-warning reveal-on-scroll">
-            <p>
-                701 words = 2.5 minutes read
-            </p>
-            <p>
-                They will save you serious money and plenty of headaches.
-            </p>
-            <p>
-                Don't take my word for it, honestly.
-            </p>
-            <p>
-                <strong>You'll see I was right soon enough.</strong>
-            </p>
-        </div>
-
-        <!-- TÍTULO SECCIÓN ERRORES -->
-        <h2 class="section-title-inline reveal-on-scroll">
-            The 3 mistakes club managers end up regretting
-        </h2>
-
-        <p class="reveal-on-scroll">
-            Padel is booming across the UK, with new clubs opening every month.
-        </p>
-
-        <p class="reveal-on-scroll">
-            Most courts look virtually identical, except for the turf colour.
-        </p>
-
-        <p class="reveal-on-scroll">
-            <strong>Cameras instantly set you apart from neighbouring clubs.</strong>
-        </p>
-
-        <p class="reveal-on-scroll">
-            With a premium feature players love, re-watch and share all over social media.
-        </p>
-
-        <p class="reveal-on-scroll">
-            And always with your club's logo on screen.
-        </p>
-
-        <p class="reveal-on-scroll">
-            <strong>Just make sure you don't make these mistakes:</strong>
-        </p>
-
-        <!-- ERROR 1 -->
-        <h3 class="decision-title reveal-on-scroll">
-            Mistake 1: AI Analytics and Complex Stats
-        </h3>
-
-        <p class="reveal-on-scroll">
-            Sounds impressive on paper, doesn't it?
-        </p>
-
-        <p class="reveal-on-scroll">
-            Having an AI break down your technique, count your shots and claim to fix your backhand.
-        </p>
-
-        <p class="reveal-on-scroll">
-            <strong>The reality is that by their third match, amateur players realize their heatmap looks just like the previous one.</strong>
-        </p>
-
-        <p class="reveal-on-scroll">
-            And counting how many topspin volleys they hit provides zero real value to their weekly Sunday game.
-        </p>
-
-        <p class="reveal-on-scroll">
-            It breaks my heart seeing small clubs in places like Leeds, Bristol or Glasgow paying crazy monthly fees for this.
-        </p>
-
-        <p class="reveal-on-scroll">
-            <strong>Paying those rates makes zero financial sense. It's nonsense.</strong>
-        </p>
-
-        <p class="reveal-on-scroll">
-            <strong>It's just common sense.</strong>
-        </p>
-
-        <!-- ERROR 2 -->
-        <h3 class="decision-title reveal-on-scroll">
-            Mistake 2: Free trials and 3-year lock-in contracts
-        </h3>
-
-        <p class="reveal-on-scroll">
-            Watch out for free trial offers.
-        </p>
-
-        <p class="reveal-on-scroll">
-            <strong>Seriously, watch out.</strong>
-        </p>
-
-        <p class="reveal-on-scroll">
-            Here is how it usually goes down:
-        </p>
-
-        <p class="reveal-on-scroll">
-            1. During month one, members try it because it's fresh and new.
-        </p>
-
-        <p class="reveal-on-scroll">
-            2. Assuming the hype will last forever, you sign a 2 or 3-year contract.
-        </p>
-
-        <p class="reveal-on-scroll">
-            3. When the initial hype cools down, you're stuck paying every month.
-        </p>
-
-        <p class="reveal-on-scroll">
-            <strong>Never mortgage your club's future with a multi-year lock-in contract.</strong>
-        </p>
-
-        <!-- ERROR 3 -->
-        <h3 class="decision-title reveal-on-scroll">
-            Mistake 3: Most vendors just install generic CCTV security cameras
-        </h3>
-
-        <p class="reveal-on-scroll">
-            The match video looks like bank robbery CCTV footage.
-        </p>
-
-        <p class="reveal-on-scroll">
-            Image quality and frame rate are terrible for fast racquet sports.
-        </p>
-
-        <p class="reveal-on-scroll">
-            A quick giveaway of cheap CCTV lenses is court lines.
-        </p>
-
-        <p class="reveal-on-scroll">
-            <strong>If court lines look curved like a fishbowl, run away.</strong>
-        </p>
-
-        <p class="reveal-on-scroll">
-            During our quick demo, remind me and I'll show you the visual comparison.
-        </p>
-
-        <!-- ERROR EXTRA -->
-        <h3 class="decision-title reveal-on-scroll">
-            EXTRA MISTAKE: I will tell you this one live on our online demo.
-        </h3>
-
-        <!-- CONCLUSIÓN EN CAJA DESTACADA -->
-        <div class="lead-warning reveal-on-scroll" style="margin-top: 3.5rem;">
-            <p>
-                <strong>Bottom line:</strong>
-            </p>
-            <p>
-                A lot of clubs genuinely regret the camera contracts they rushed into.
-            </p>
-            <p>
-                Again, don't take sales pitches like mine at face value.
-            </p>
-            <p>
-                <strong>Talk to fellow club owners and ask them directly.</strong>
-            </p>
-        </div>
-
-        <!-- SEPARACIÓN 1 SOLO SALTO -->
-        <hr class="sub-divider reveal-on-scroll">
-
-        <!-- SAVE MY PLAY EN 3 PUNTOS -->
-        <h2 class="section-title reveal-on-scroll" style="margin-top: 2rem; border-top: none; padding-top: 0;">
-            Save My Play in 3 points
-        </h2>
-
-        <!-- 3 FOTOS EN PISTA -->
-        <div class="reveal-on-scroll" style="margin: 1.8rem 0 1.5rem;">
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.765rem;">
-                <div style="border-radius: 10px; overflow: hidden; border: 2px solid #111; box-shadow: 0 8px 20px rgba(0,0,0,0.12);">
-                    <img src="/assets/images/savemyplay-1.jpg" alt="Save my Play camera recording padel match on court" width="320" height="135" decoding="async" style="width: 100%; height: 135px; object-fit: cover; display: block;" loading="lazy">
-                </div>
-                <div style="border-radius: 10px; overflow: hidden; border: 2px solid #111; box-shadow: 0 8px 20px rgba(0,0,0,0.12);">
-                    <img src="/assets/images/savemyplay-2.jpg" alt="Padel players reviewing replays and video highlights on their mobile" width="320" height="135" decoding="async" style="width: 100%; height: 135px; object-fit: cover; display: block;" loading="lazy">
-                </div>
-                <div style="border-radius: 10px; overflow: hidden; border: 2px solid #111; box-shadow: 0 8px 20px rgba(0,0,0,0.12);">
-                    <img src="/assets/images/savemyplay-3.jpg" alt="Panoramic padel court with Save my Play camera system" width="320" height="135" decoding="async" style="width: 100%; height: 135px; object-fit: cover; display: block;" loading="lazy">
-                </div>
-            </div>
-        </div>
-
-        <!-- BULLET POINTS SAVE MY PLAY -->
-        <ul class="puntos-list reveal-on-scroll">
-            <li>
-                Plan A: €136/month. Includes AI stats. Honestly, I don't recommend it.<br>Plan B: €45/month. Includes court recordings, instant highlights, live YouTube streaming, coaching tools... unlimited.
-            </li>
-            <li>
-                Zero lock-in contracts: cancel anytime and walk away with no questions asked.<br>We don't want unhappy trapped clients, it's bad business.<br>97% of clubs voluntarily stay with us month after month.
-            </li>
-            <li>
-                Upfront hardware cost of €180 per camera, one per court.<br>No construction works: mounts in 5 minutes with just Wi-Fi and a standard power plug.<br>Due to high demand, delivery currently takes around 4 weeks.
-            </li>
-        </ul>
-
-        <!-- CAJA DESTACADA 180€ -->
-        <div class="lead-warning reveal-on-scroll">
-            <p>
-                <strong>Wait, €180 upfront for the cameras?</strong>
-            </p>
-            <p>
-                It's the fair price to avoid being embarrassed by your club's video quality.
-            </p>
-            <p>
-                We manufacture our own cameras in Chicago and production costs exceed €180.
-            </p>
-            <p>
-                If it still feels steep, tell me straight and I'll gladly share contact details of other vendors.
-            </p>
-            <p>
-                Keep in mind our cameras work exclusively with our proprietary software.
-            </p>
-            <p>
-                <strong>If you cancel your subscription, they cannot be repurposed.</strong>
-            </p>
-        </div>
-
-        <!-- SEPARACIÓN -->
-        <hr class="sub-divider reveal-on-scroll">
-
-        <!-- AHORA TOCA HABLAR DE LO BUENOS QUE SOMOS -->
-        <h2 class="section-title reveal-on-scroll" style="margin-top: 2rem; border-top: none; padding-top: 0;">
-            Now the part where we brag about our track record.
-        </h2>
-
-        <p class="reveal-on-scroll">
-            I'll keep it as short as possible.
-        </p>
-
-        <p class="reveal-on-scroll">
-            Installed across more than 1,600 courts worldwide.
-        </p>
-
-        <p class="reveal-on-scroll">
-            Selected by the US Padel Association to broadcast and record their official FIP tournaments.
-        </p>
-
-        <p class="reveal-on-scroll">
-            And for the United States Tennis Association (USTA), we livestream every weekend across 100+ courts simultaneously.
-        </p>
-
-        <p class="reveal-on-scroll">
-            If you hadn't heard of us yet, it's simply because the UK/EU padel market was later in our rollout. There's bigger volume abroad.
-        </p>
-
-        <!-- SEPARACIÓN -->
-        <hr class="sub-divider reveal-on-scroll">
-
-        <!-- SIGUIENTE PASO -->
-        <h2 class="section-title reveal-on-scroll" style="margin-top: 2.25rem; border-top: none; padding-top: 0;">
-            Next step: If you're not interested, just tell me
-        </h2>
-
-        <p class="reveal-on-scroll">
-            <strong>If you have any questions and want me to show you properly how everything works, find a slot for the demo.</strong>
-        </p>
-
-        <!-- TARJETA DE CONFIRMACIÓN AL AGENDAR EN CALENDLY -->
-        <div id="calendlySuccessCard" class="calendly-success-card">
-            <h4>Done. Demo booked.</h4>
-            <p id="calendlySuccessDetails">You will receive confirmation and the meeting link via email.</p>
-        </div>
-
-        <!-- CALENDARIO CALENDLY INCRUSTADO DIRECTAMENTE -->
-        <div id="calendlyContainer" class="reveal-on-scroll calendly-embed-container">
-            <div id="calendlyWidget" class="calendly-inline-widget" data-url="https://calendly.com/javier-vs-312/demo-save-my-play?hide_landing_page_details=1&hide_gdpr_banner=1&locale=en" style="min-width:320px;height:700px;"></div>
-        </div>
-
-        <p class="reveal-on-scroll calendly-fallback-text">
-            If the calendar does not load: <a href="https://calendly.com/javier-vs-312/demo-save-my-play?locale=en" target="_blank" rel="noopener noreferrer">Click here to open it directly</a>
-        </p>
-
-    </main>
-
-    <!-- SCRIPT DE REVELADO SUAVE A MEDIDA QUE SE DESLIZA (SCROLL) -->
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const revealElements = document.querySelectorAll('.reveal-on-scroll');
-            const revealCallback = (entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('is-visible');
-                        observer.unobserve(entry.target);
-                    }
-                });
-            };
-            const revealObserver = new IntersectionObserver(revealCallback, {
-                root: null,
-                threshold: 0.05,
-                rootMargin: '0px 0px -20px 0px'
-            });
-            revealElements.forEach(el => revealObserver.observe(el));
-        });
-    </script>
-
-    <!-- MOTOR UNIFICADO DE ANALÍTICA COMERCIAL Y ORGÁNICA (SEO / GEO / AEO) -->
-    <script src="/assets/js/cp-analytics.js?v=20261028a"></script>
-    <script>
-        window.addEventListener('message', (e) => {
-            try {
-                if (!e.data || typeof e.data !== 'object') return;
-                const cEvent = e.data.event;
-                const urlParams = new URLSearchParams(window.location.search);
-                const leadName = urlParams.get('lead') || urlParams.get('club') || urlParams.get('nombre') || localStorage.getItem('cp_lead_name') || '';
-                const leadTel = urlParams.get('tel') || urlParams.get('phone') || urlParams.get('c') || localStorage.getItem('cp_lead_tel') || '';
-
-                if (cEvent === 'calendly.event_type_viewed' && window.cpTrackEvent) {
-                    window.cpTrackEvent('calendly_visto', { evento_desc: '👀 Viewed Calendly Calendar [EN]' });
-                } else if (cEvent === 'calendly.date_and_time_selected' && window.cpTrackEvent) {
-                    window.cpTrackEvent('calendly_hora_seleccionada', { evento_desc: '🕒 Selected Date/Time in Calendly [EN]' });
-                } else if (cEvent === 'calendly.event_scheduled') {
-                    const payloadCalendly = e.data.payload || {};
-                    if (window.cpTrackEvent) {
-                        window.cpTrackEvent('demo_agendada', {
-                            tipo: 'reunion_calendly',
-                            evento_desc: `🎯 DEMO BOOKED: ${leadName || 'Club'}${leadTel ? ' ' + leadTel : ''}`,
-                            lead_nombre: leadName,
-                            lead_tel: leadTel,
-                            calendly_uri: payloadCalendly.event ? payloadCalendly.event.uri : ''
-                        });
-                    }
-                    const successCard = document.getElementById('calendlySuccessCard');
-                    const successDetails = document.getElementById('calendlySuccessDetails');
-                    if (successCard && successDetails) {
-                        const clubStr = leadName ? ` (${leadName})` : '';
-                        successDetails.innerHTML = `Done. Demo booked${clubStr}. You will receive confirmation and the meeting link via email.`;
-                        successCard.style.display = 'block';
-                        successCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                    }
-                }
-            } catch (err) {}
-        });
-    </script>
-    <script>
-        function toggleLangDropdown(e) {
-            e.stopPropagation();
-            const menu = document.getElementById('lang-dropdown-menu');
-            const arrow = document.getElementById('lang-dropdown-arrow');
-            if (!menu) return;
-            const isHidden = menu.classList.contains('hidden');
-            if (isHidden) {
-                menu.classList.remove('hidden');
-                if (arrow) arrow.style.transform = 'rotate(180deg)';
-            } else {
-                menu.classList.add('hidden');
-                if (arrow) arrow.style.transform = 'rotate(0deg)';
-            }
-        }
-        document.addEventListener('click', () => {
-            const menu = document.getElementById('lang-dropdown-menu');
-            const arrow = document.getElementById('lang-dropdown-arrow');
-            if (menu) menu.classList.add('hidden');
-            if (arrow) arrow.style.transform = 'rotate(0deg)';
-        });
-        if (window.lucide) { lucide.createIcons(); }
-    </script>
-
+  <section class="next-step">
+    <h2>Next step</h2>
+    <p>If you&#x27;re still not sure, check out our guides above on padel court cameras.</p>
+    <p>If you have questions and want to see how it all works live, book a demo call.</p>
+    <div class="calendly-inline-widget" data-url="https://calendly.com/javier-vs-312/demo-save-my-play?locale=en&hide_landing_page_details=1&hide_gdpr_banner=1"></div>
+  </section>
+</main>
+  <script>if (window.lucide) lucide.createIcons();</script>
+  <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+  <script src="/assets/js/cp-analytics.js?v=20261028a" defer></script>
 </body>
 </html>

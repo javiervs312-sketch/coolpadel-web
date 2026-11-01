@@ -5849,21 +5849,13 @@ def build_all():
     except Exception as e:
         print(f"  [ERROR] Al generar Directorio de Franquicias: {e}")
 
-    # 2.8. Sincronización de Cartas de Venta de Cámaras Multilingüe (IT, EN, DE)
-    # NOTA: FR ahora usa el nuevo Hub de artículos en francés (build_camera_articles_fr)
+    # 2.8. Hub y 20 Artículos de Cámaras Multilingüe para TODOS los idiomas (ES, FR, EN, IT, DE)
     try:
-        from sync_camaras_multilingual import generate_page
-        for l in ['it', 'en', 'de']:
-            generate_page(l)
+        from build_camera_articles_multilingual import build_all as build_all_cameras
+        build_all_cameras()
     except Exception as e:
-        print(f"  [ERROR] Al sincronizar Cámaras Multilingüe: {e}")
+        print(f"  [ERROR] Al generar Hub y Artículos de Cámaras Multilingüe: {e}")
 
-    # 2.8.1. Hub y Artículos de Cámaras en Francés (FR)
-    try:
-        from build_camera_articles_fr import build_fr
-        build_fr()
-    except Exception as e:
-        print(f"  [ERROR] Al generar Hub y Artículos de Cámaras FR: {e}")
 
     try:
         from seo_post_build import run_seo_post_build
