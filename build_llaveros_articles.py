@@ -9,6 +9,7 @@ Generador de las secciones de Llaveros (Pádel y Tenis) con formato idéntico a 
 from __future__ import annotations
 
 import html
+import json
 import os
 import re
 from pathlib import Path
@@ -466,9 +467,144 @@ def get_calculator_script() -> str:
 '''
 
 
-def render_page(title: str, content: str, prefix: str = "../") -> str:
-    return f'''<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>{html.escape(title)} | CoolPadel</title><meta name="description" content="{html.escape(title)}"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"><script src="https://cdn.tailwindcss.com"></script><script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"></script><style>{CSS}</style></head><body>{get_header(prefix)}{content}<script>if (window.lucide) lucide.createIcons();</script><script src="{prefix}assets/js/cp-analytics.js" defer></script></body></html>'''
+def render_page(title: str, content: str, prefix: str = "../", slug: str = None, meta_desc: str = None, is_padel: bool = True) -> str:
+    category_slug = "llaveros-padel-personalizados" if is_padel else "llaveros-tenis-personalizados"
+    if slug:
+        canonical_url = f"https://coolpadelstudios.com/{category_slug}/articulos/{slug}/"
+        hreflangs = f"""  <link rel="canonical" href="{canonical_url}">"""
+    else:
+        canonical_url = f"https://coolpadelstudios.com/{category_slug}/"
+        hreflangs = f"""  <link rel="canonical" href="{canonical_url}">
+  <link rel="alternate" hreflang="es" href="https://coolpadelstudios.com/{category_slug}/">
+  <link rel="alternate" hreflang="en" href="https://coolpadelstudios.com/en/{category_slug}/">
+  <link rel="alternate" hreflang="fr" href="https://coolpadelstudios.com/fr/{category_slug}/">
+  <link rel="alternate" hreflang="it" href="https://coolpadelstudios.com/it/{category_slug}/">
+  <link rel="alternate" hreflang="x-default" href="https://coolpadelstudios.com/{category_slug}/">"""
 
+    if not meta_desc:
+        if is_padel:
+            meta_desc = "Fabricante de llaveros de pádel personalizados en goma 3D con forma de pala y logo oficial. Pedidos desde 100 uds y muestra física real por 15€."
+        else:
+            meta_desc = "Llaveros de tenis personalizados en relieve 3D con el escudo oficial del club. Diseñados para escuelas, torneos y tiendas oficiales. Pedidos desde 100 uds."
+
+    clean_desc = re.sub(r'\s+', ' ', meta_desc).strip()
+    safe_desc = html.escape(clean_desc)[:160]
+
+    og_image = "https://coolpadelstudios.com/assets/images/llaveros-padel-personalizados-clubs.jpg" if is_padel else "https://coolpadelstudios.com/assets/images/llaveros-tenis-personalizados-clubs.jpg"
+
+    schema_parts = []
+    if slug:
+        schema_parts.append(f"""    {{
+      "@type": "Article",
+      "headline": {json.dumps(title)},
+      "description": {json.dumps(safe_desc)},
+      "mainEntityOfPage": "{canonical_url}",
+      "inLanguage": "es",
+      "author": {{
+        "@type": "Person",
+        "name": "Javier Villoria",
+        "url": "https://www.linkedin.com/in/javier-villoria-soleto-606737298/"
+      }},
+      "publisher": {{
+        "@type": "Organization",
+        "name": "CoolPadel Studios",
+        "url": "https://coolpadelstudios.com",
+        "logo": "https://coolpadelstudios.com/assets/images/coolpadel-mascot-hd.png"
+      }}
+    }}""")
+        schema_parts.append(f"""    {{
+      "@type": "FAQPage",
+      "mainEntity": [{{
+        "@type": "Question",
+        "name": {json.dumps(title)},
+        "acceptedAnswer": {{
+          "@type": "Answer",
+          "text": {json.dumps(safe_desc)}
+        }}
+      }}]
+    }}""")
+    else:
+        schema_parts.append(f"""    {{
+      "@type": "Product",
+      "name": {json.dumps(title)},
+      "description": {json.dumps(safe_desc)},
+      "image": "{og_image}",
+      "brand": {{
+        "@type": "Brand",
+        "name": "CoolPadel"
+      }},
+      "offers": {{
+        "@type": "AggregateOffer",
+        "priceCurrency": "EUR",
+        "lowPrice": "1.50",
+        "highPrice": "3.00",
+        "offerCount": "4",
+        "availability": "https://schema.org/InStock"
+      }}
+    }}""")
+        schema_parts.append(f"""    {{
+      "@type": "HowTo",
+      "name": "Cómo encargar llaveros personalizados para tu club",
+      "step": [
+        {{
+          "@type": "HowToStep",
+          "name": "Envío de logotipo y boceto 3D gratuito",
+          "text": "Envíanos el escudo o logo de tu club para preparar un diseño digital 3D gratuito."
+        }},
+        {{
+          "@type": "HowToStep",
+          "name": "Muestra física real por 15€",
+          "text": "Fabricamos y enviamos una muestra física real por 15€ descontables al 100% del pedido."
+        }},
+        {{
+          "@type": "HowToStep",
+          "name": "Producción en serie",
+          "text": "Fabricación en serie desde 100 unidades y entrega en ~1 mes con envíos incluidos."
+        }}
+      ]
+    }}""")
+
+    schema_json = '<script type="application/ld+json">\n{\n  "@context": "https://schema.org",\n  "@graph": [\n' + ',\n'.join(schema_parts) + '\n  ]\n}\n</script>'
+
+    header_html = get_header(prefix)
+
+    html_out = f"""<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{html.escape(title)} | CoolPadel</title>
+  <meta name="description" content="{safe_desc}">
+{hreflangs}
+  <meta property="og:type" content="{"article" if slug else "website"}">
+  <meta property="og:title" content="{html.escape(title)} | CoolPadel">
+  <meta property="og:description" content="{safe_desc}">
+  <meta property="og:url" content="{canonical_url}">
+  <meta property="og:image" content="{og_image}">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{html.escape(title)} | CoolPadel">
+  <meta name="twitter:description" content="{safe_desc}">
+  <meta name="twitter:image" content="{og_image}">
+  <link rel="alternate" type="text/markdown" href="https://coolpadelstudios.com/llms.txt" title="LLMs.txt">
+  <link rel="alternate" type="text/markdown" href="https://coolpadelstudios.com/llms-full.txt" title="LLMs-Full.txt">
+  {schema_json}
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"></script>
+  <style>
+{CSS}
+  </style>
+</head>
+<body>
+  {header_html}
+  {content}
+  <script>if (window.lucide) lucide.createIcons();</script>
+  <script src="{prefix}assets/js/cp-analytics.js" defer></script>
+</body>
+</html>"""
+    return html_out
 
 def build_hub(hub_dir: Path, is_padel: bool, articles: list[dict]):
     hub_dir.mkdir(parents=True, exist_ok=True)
@@ -526,7 +662,7 @@ def build_hub(hub_dir: Path, is_padel: bool, articles: list[dict]):
     {get_calculator_script()}
 '''
 
-    (hub_dir / "index.html").write_text(render_page(h1_text, hub_content, prefix="../"), encoding="utf-8")
+    (hub_dir / "index.html").write_text(render_page(h1_text, hub_content, prefix="../", slug=None, meta_desc=intro_p1.replace("<br>", " "), is_padel=is_padel), encoding="utf-8")
     print(f"  [OK] Hub generado: {hub_dir / 'index.html'}")
 
     # Generar cada artículo individual
@@ -572,7 +708,8 @@ def build_hub(hub_dir: Path, is_padel: bool, articles: list[dict]):
           </article>
         </main>
 '''
-        (art_dir / "index.html").write_text(render_page(a["title"], article_content, prefix="../../../"), encoding="utf-8")
+        first_p = a["paragraphs"][0] if a.get("paragraphs") else a["title"]
+        (art_dir / "index.html").write_text(render_page(a["title"], article_content, prefix="../../../", slug=a["slug"], meta_desc=first_p, is_padel=is_padel), encoding="utf-8")
     print(f"  [OK] {len(articles)} artículos generados en: {articulos_dir}")
 
 
