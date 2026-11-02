@@ -1281,7 +1281,28 @@ def render_landing(landing, lang="es"):
             "priceCurrency": "EUR",
             "price": "180.00",
             "priceValidUntil": "2027-12-31",
-            "availability": "https://schema.org/InStock"
+            "availability": "https://schema.org/InStock",
+            "hasMerchantReturnPolicy": {{
+              "@type": "MerchantReturnPolicy",
+              "applicableCountry": "ES",
+              "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+              "merchantReturnDays": 14,
+              "returnMethod": "https://schema.org/ReturnByMail",
+              "returnFees": "https://schema.org/FreeReturn",
+              "merchantReturnLink": "https://coolpadelstudios.com/politica-de-devoluciones.html"
+            }},
+            "shippingDetails": {{
+              "@type": "OfferShippingDetails",
+              "shippingRate": {{
+                "@type": "MonetaryAmount",
+                "value": "0.00",
+                "currency": "EUR"
+              }},
+              "shippingDestination": {{
+                "@type": "DefinedRegion",
+                "addressCountry": ["ES", "FR", "IT", "PT", "DE", "BE", "GB", "US"]
+              }}
+            }}
           }},
           {{
             "@type": "Offer",
@@ -1311,7 +1332,25 @@ def render_landing(landing, lang="es"):
             "priceCurrency": "EUR",
             "price": "3.00",
             "priceValidUntil": "2027-12-31",
-            "availability": "https://schema.org/MadeToOrder"
+            "availability": "https://schema.org/InStock",
+            "hasMerchantReturnPolicy": {{
+              "@type": "MerchantReturnPolicy",
+              "applicableCountry": "ES",
+              "returnPolicyCategory": "https://schema.org/MerchantReturnNotPermitted",
+              "merchantReturnLink": "https://coolpadelstudios.com/politica-de-devoluciones.html"
+            }},
+            "shippingDetails": {{
+              "@type": "OfferShippingDetails",
+              "shippingRate": {{
+                "@type": "MonetaryAmount",
+                "value": "0.00",
+                "currency": "EUR"
+              }},
+              "shippingDestination": {{
+                "@type": "DefinedRegion",
+                "addressCountry": ["ES", "FR", "IT", "PT", "DE", "BE", "GB", "US"]
+              }}
+            }}
           }},
           {{
             "@type": "Offer",
@@ -1319,7 +1358,7 @@ def render_landing(landing, lang="es"):
             "priceCurrency": "EUR",
             "price": "2.00",
             "priceValidUntil": "2027-12-31",
-            "availability": "https://schema.org/MadeToOrder"
+            "availability": "https://schema.org/InStock"
           }}
         ]
       }}"""
@@ -1821,7 +1860,7 @@ def render_landing(landing, lang="es"):
           <ul class="space-y-2 text-white/80 font-normal">
             <li><a href="/franquicias-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Cadenas de Clubs</a></li>
             <li><a href="/blog/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Blog & Newsletter</a></li>
-            <li><a href="/blog/highlights-03/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Highlights #03</a></li>
+            {'<li><a href="/camaras-padel-madrid/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Clubes Pádel Madrid</a></li><li><a href="/camaras-padel-barcelona/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Clubes Pádel Barcelona</a></li><li><a href="/camaras-padel-valencia/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Clubes Pádel Valencia</a></li><li><a href="/camaras-padel-malaga/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Clubes Pádel Málaga</a></li>' if lang == 'es' else '<li><a href="/en/padel-court-cameras-london/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Padel Cameras London</a></li><li><a href="/en/padel-court-cameras-miami/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Padel Cameras Miami</a></li>' if lang == 'en' else '<li><a href="/fr/cameras-padel-paris/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Caméras Padel Paris</a></li><li><a href="/fr/cameras-padel-lyon/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Caméras Padel Lyon</a></li>' if lang == 'fr' else '<li><a href="/it/telecamere-padel-roma/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Telecamere Padel Roma</a></li><li><a href="/it/telecamere-padel-milano/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Telecamere Padel Milano</a></li>'}
           </ul>
         </div>
         <div class="space-y-3">

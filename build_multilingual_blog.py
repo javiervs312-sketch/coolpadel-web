@@ -106,6 +106,30 @@ def adapt_header_and_nav(html, lang, asset_prefix):
         html
     )
 
+    # 10. Enlaces Geo-Locales en el Footer según idioma (EN -> London/Miami, FR -> Paris/Lyon, IT -> Roma/Milano)
+    geo_footer_es = (
+        '<li><a href="/camaras-padel-madrid/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Clubes Pádel Madrid</a></li>\n'
+        '            <li><a href="/camaras-padel-barcelona/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Clubes Pádel Barcelona</a></li>\n'
+        '            <li><a href="/camaras-padel-valencia/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Clubes Pádel Valencia</a></li>\n'
+        '            <li><a href="/camaras-padel-malaga/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Clubes Pádel Málaga</a></li>'
+    )
+    geo_footer_map = {
+        'en': (
+            '<li><a href="/en/padel-court-cameras-london/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Padel Cameras London</a></li>\n'
+            '            <li><a href="/en/padel-court-cameras-miami/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Padel Cameras Miami</a></li>'
+        ),
+        'fr': (
+            '<li><a href="/fr/cameras-padel-paris/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Caméras Padel Paris</a></li>\n'
+            '            <li><a href="/fr/cameras-padel-lyon/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Caméras Padel Lyon</a></li>'
+        ),
+        'it': (
+            '<li><a href="/it/telecamere-padel-roma/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Telecamere Padel Roma</a></li>\n'
+            '            <li><a href="/it/telecamere-padel-milano/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Telecamere Padel Milano</a></li>'
+        ),
+    }
+    if lang in geo_footer_map:
+        html = html.replace(geo_footer_es, geo_footer_map[lang])
+
     return html
 
 def build_blog_hub(lang):

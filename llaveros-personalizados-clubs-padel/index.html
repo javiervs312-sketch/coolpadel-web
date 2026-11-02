@@ -137,7 +137,25 @@
             "priceCurrency": "EUR",
             "price": "3.00",
             "priceValidUntil": "2027-12-31",
-            "availability": "https://schema.org/MadeToOrder"
+            "availability": "https://schema.org/InStock",
+            "hasMerchantReturnPolicy": {
+              "@type": "MerchantReturnPolicy",
+              "applicableCountry": "ES",
+              "returnPolicyCategory": "https://schema.org/MerchantReturnNotPermitted",
+              "merchantReturnLink": "https://coolpadelstudios.com/politica-de-devoluciones.html"
+            },
+            "shippingDetails": {
+              "@type": "OfferShippingDetails",
+              "shippingRate": {
+                "@type": "MonetaryAmount",
+                "value": "0.00",
+                "currency": "EUR"
+              },
+              "shippingDestination": {
+                "@type": "DefinedRegion",
+                "addressCountry": ["ES", "FR", "IT", "PT", "DE", "BE", "GB", "US"]
+              }
+            }
           },
           {
             "@type": "Offer",
@@ -145,7 +163,7 @@
             "priceCurrency": "EUR",
             "price": "2.00",
             "priceValidUntil": "2027-12-31",
-            "availability": "https://schema.org/MadeToOrder"
+            "availability": "https://schema.org/InStock"
           }
         ]
       },
@@ -677,7 +695,7 @@
           <ul class="space-y-2 text-white/80 font-normal">
             <li><a href="/franquicias-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Cadenas de Clubs</a></li>
             <li><a href="/blog/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Blog & Newsletter</a></li>
-            <li><a href="/blog/highlights-03/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Highlights #03</a></li>
+            <li><a href="/camaras-padel-madrid/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Clubes Pádel Madrid</a></li><li><a href="/camaras-padel-barcelona/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Clubes Pádel Barcelona</a></li><li><a href="/camaras-padel-valencia/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Clubes Pádel Valencia</a></li><li><a href="/camaras-padel-malaga/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Clubes Pádel Málaga</a></li>
           </ul>
         </div>
         <div class="space-y-3">

@@ -145,7 +145,28 @@
             "priceCurrency": "EUR",
             "price": "180.00",
             "priceValidUntil": "2027-12-31",
-            "availability": "https://schema.org/InStock"
+            "availability": "https://schema.org/InStock",
+            "hasMerchantReturnPolicy": {
+              "@type": "MerchantReturnPolicy",
+              "applicableCountry": "ES",
+              "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+              "merchantReturnDays": 14,
+              "returnMethod": "https://schema.org/ReturnByMail",
+              "returnFees": "https://schema.org/FreeReturn",
+              "merchantReturnLink": "https://coolpadelstudios.com/politica-de-devoluciones.html"
+            },
+            "shippingDetails": {
+              "@type": "OfferShippingDetails",
+              "shippingRate": {
+                "@type": "MonetaryAmount",
+                "value": "0.00",
+                "currency": "EUR"
+              },
+              "shippingDestination": {
+                "@type": "DefinedRegion",
+                "addressCountry": ["ES", "FR", "IT", "PT", "DE", "BE", "GB", "US"]
+              }
+            }
           },
           {
             "@type": "Offer",

@@ -633,7 +633,25 @@ def render_page(title: str, content: str, prefix: str = "../", slug: str = None,
         "lowPrice": "1.50",
         "highPrice": "3.00",
         "offerCount": "4",
-        "availability": "https://schema.org/InStock"
+        "availability": "https://schema.org/InStock",
+        "hasMerchantReturnPolicy": {{
+          "@type": "MerchantReturnPolicy",
+          "applicableCountry": "ES",
+          "returnPolicyCategory": "https://schema.org/MerchantReturnNotPermitted",
+          "merchantReturnLink": "https://coolpadelstudios.com/politica-de-devoluciones.html"
+        }},
+        "shippingDetails": {{
+          "@type": "OfferShippingDetails",
+          "shippingRate": {{
+            "@type": "MonetaryAmount",
+            "value": "0.00",
+            "currency": "EUR"
+          }},
+          "shippingDestination": {{
+            "@type": "DefinedRegion",
+            "addressCountry": ["ES", "FR", "IT", "PT", "DE", "BE", "GB", "US"]
+          }}
+        }}
       }}
     }}""")
         schema_parts.append(f"""    {{

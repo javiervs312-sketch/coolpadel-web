@@ -2924,6 +2924,8 @@ def get_base_html(active_lang="es", is_subfolder=False):
 
             <li><a href="/franquicias-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Directorio Franquicias (+167)</a></li>
 
+            {'<li><a href="/camaras-padel-madrid/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Clubes Pádel Madrid</a></li><li><a href="/camaras-padel-barcelona/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Clubes Pádel Barcelona</a></li><li><a href="/camaras-padel-valencia/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Clubes Pádel Valencia</a></li><li><a href="/camaras-padel-malaga/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Clubes Pádel Málaga</a></li>' if active_lang == 'es' else '<li><a href="/en/padel-court-cameras-london/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Padel Cameras London</a></li><li><a href="/en/padel-court-cameras-miami/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Padel Cameras Miami</a></li>' if active_lang == 'en' else '<li><a href="/fr/cameras-padel-paris/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Caméras Padel Paris</a></li><li><a href="/fr/cameras-padel-lyon/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Caméras Padel Lyon</a></li>' if active_lang == 'fr' else '<li><a href="/it/telecamere-padel-roma/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Telecamere Padel Roma</a></li><li><a href="/it/telecamere-padel-milano/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Telecamere Padel Milano</a></li>'}
+
           </ul>
 
         </div>
@@ -5857,6 +5859,13 @@ def build_all():
         build_all_cameras()
     except Exception as e:
         print(f"  [ERROR] Al generar Hub y Artículos de Cámaras Multilingüe: {e}")
+
+    # 2.9. Landings Geo-Locales Nativas por Idioma (Madrid, Barcelona, Valencia, Málaga, London, Miami, Paris, Lyon, Roma, Milano)
+    try:
+        from build_geo_local_landings import build_all_local_landings
+        build_all_local_landings()
+    except Exception as e:
+        print(f"  [ERROR] Al generar Landings Geo-Locales: {e}")
 
 
     try:
