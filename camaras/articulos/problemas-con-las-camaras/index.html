@@ -249,11 +249,16 @@ body { margin: 0; font-family: var(--font-sans); color: #0f172a; background: #ff
 <div class="h-16 sm:h-20 w-full shrink-0" aria-hidden="true"></div>
 
   <main class="article-container">
+  <!-- BREADCRUMB VISUAL -->
+  <nav class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100 border border-slate-200/80 text-xs font-semibold text-slate-600 mb-6 flex-wrap" aria-label="Breadcrumb">
+    <a href="/" class="hover:text-[#f2920b] transition">Home</a>
+    <i data-lucide="chevron-right" class="w-3.5 h-3.5 text-slate-400"></i>
+    <a href="../" class="hover:text-[#f2920b] transition">Volver a Cámaras</a>
+    <i data-lucide="chevron-right" class="w-3.5 h-3.5 text-slate-400"></i>
+    <span class="text-slate-900 font-bold truncate max-w-[240px] sm:max-w-none">¿Qué pasa si hay problemas con las cámaras?</span>
+  </nav>
+
   <div class="article-header">
-    <a href="../" class="back-link">
-      <i data-lucide="arrow-left" class="w-4 h-4"></i>
-      <span>Volver a Cámaras</span>
-    </a>
     <h1 class="article-title">¿Qué pasa si hay problemas con las cámaras?</h1>
     <img src="/assets/images/camaras/camera-04.jpg" alt="¿Qué pasa si hay problemas con las cámaras?" class="article-hero-img" width="800" height="450">
   </div>

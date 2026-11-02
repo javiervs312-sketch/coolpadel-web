@@ -21,6 +21,9 @@ from extra_articles_i18n import EXTRA_ARTICLES_I18N
 ALL_BLOG_SLUGS = set(FLAGSHIP_GUIDES_DATA.keys()).union(EXTRA_ARTICLES_I18N.keys())
 
 LANDING_SLUGS = list(LANDINGS_I18N["en"].keys())
+for extra_s in ["camaras-padel-valencia", "camaras-padel-malaga"]:
+    if extra_s not in LANDING_SLUGS:
+        LANDING_SLUGS.append(extra_s)
 DOMAIN = "https://coolpadelstudios.com"
 TODAY = datetime.utcnow().strftime("%Y-%m-%d")
 

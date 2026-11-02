@@ -729,7 +729,68 @@ LANDINGS = [
     },
 
     {
-
+        "slug": "camaras-padel-valencia",
+        "title": "Cámaras Pistas Pádel Valencia [0 Obras · 45€/mes] | Save My Play",
+        "meta_desc": "Cámaras Save my Play en Valencia y Comunidad Valenciana (Paterna, Torrent, Alzira, Gandia). Grabación en 5 min sin obras, pulsador en red y 0 permanencia.",
+        "badge": "COMUNIDAD VALENCIANA · SAVE MY PLAY",
+        "breadcrumb_leaf": "Pistas Valencia",
+        "h1": "Cámaras Inteligentes para Pistas de Pádel en Valencia",
+        "subtitle": "La tecnología de pista para clubes de pádel en Valencia y Alicante: grabación de partidos con pulsador en red, repeticiones por QR y retransmisión de torneos sin obras.",
+        "hero_img": "assets/images/savemyplay-1.jpg",
+        "hero_img_alt": "Cámaras Save my Play para pistas de pádel en clubes de Valencia",
+        "wa_msg": "Hola Javier, tenemos pistas de pádel en Valencia y queremos presupuesto para cámaras Save My Play",
+        "price_anchor": "Hardware 180 € / pista · Software 45 €/mes · Sin obras ni permanencia",
+        "target_audience": "Directores de clubes de pádel, complejos indoor y clubes de tenis en Valencia, Castellón y Alicante.",
+        "quick_summary": {
+            "label_1": "Hardware Pista", "val_1": "180 € en propiedad por pista",
+            "label_2": "Cuota Software", "val_2": "45 € / mes por pista · Sin permanencia",
+            "label_3": "Resistencia", "val_3": "Tratamiento sellado IP para clima costero e indoor",
+            "label_4": "Instalación", "val_4": "Montaje en 5 min sin rozas ni cortes de reservas",
+            "p": "Instalación de cámaras inteligentes Save My Play en clubes de pádel de Valencia, Paterna, Torrent, Sagunto y Gandia. Grabación de highlights con pulsador en poste, descarga directa por QR y streaming en YouTube."
+        },
+        "benefits": [
+            ("Cobertura Completa en la Comunidad Valenciana", "Envíos configurados en 48 horas para clubes de Valencia, Alicante y Castellón con soporte directo de Javier Villoria."),
+            ("Resistencia al Clima Mediterráneo", "Carcasa sellada IP preparada para humedad costera y calor en pistas outdoor y naves industriales."),
+            ("Monetización y Llenado de Horas Valle", "Atrae a jugadores de ligas locales y escuelas que buscan grabarse y compartir jugadas en redes.")
+        ],
+        "faqs": [
+            ("¿En qué localidades de Valencia dais servicio?", "Damos servicio a Valencia capital, Paterna, Torrent, Alzira, Gandia, Sagunto, Alzira, Manises, Xàtiva y municipios limítrofes."),
+            ("¿Cuánto tiempo cuesta poner las cámaras en un club de Valencia?", "El montaje se realiza en 5 minutos por pista. Un club de 8 pistas queda listo en una sola mañana sin parar partidos."),
+            ("¿Los jugadores tienen que instalar alguna app?", "No. El jugador pulsa el botón en el poste tras un gran punto y al salir de pista escanea el QR con la cámara de su móvil para ver y descargar sus clips.")
+        ]
+    },
+    {
+        "slug": "camaras-padel-malaga",
+        "title": "Cámaras Pistas Pádel Málaga & Costa del Sol [45€/mes] | Save My Play",
+        "meta_desc": "Cámaras Save my Play en Málaga y Costa del Sol (Marbella, Fuengirola, Mijas, Estepona). Grabación de pádel en 5 min sin obras, sin cables y sin permanencia.",
+        "badge": "MÁLAGA & COSTA DEL SOL · SAVE MY PLAY",
+        "breadcrumb_leaf": "Pistas Málaga & Costa del Sol",
+        "h1": "Cámaras de Pádel en Málaga y Costa del Sol",
+        "subtitle": "La solución de grabación favorita para el epicentro del pádel europeo: Marbella, Fuengirola, Mijas y Málaga capital. Descarga de jugadas por QR y retransmisión de torneos.",
+        "hero_img": "assets/images/savemyplay-3.jpg",
+        "hero_img_alt": "Cámaras Save my Play para clubes de pádel en Málaga y Costa del Sol",
+        "wa_msg": "Hola Javier, gestionamos un club de pádel en la Costa del Sol y queremos información de cámaras Save My Play",
+        "price_anchor": "Hardware 180 € / pista · Cuota 45 €/mes · Calidad óptica deportiva",
+        "target_audience": "Clubes turísticos, resorts, academias internacionales y complejos de pádel en Málaga y la Costa del Sol.",
+        "quick_summary": {
+            "label_1": "Hardware Pista", "val_1": "180 € en propiedad por pista",
+            "label_2": "Cuota Software", "val_2": "45 € / mes por pista · Sin permanencia",
+            "label_3": "Público Internacional", "val_3": "Visor QR multilingüe (ES, EN, FR, DE, SE)",
+            "label_4": "Instalación", "val_4": "5 min fijada al poste sin zanjas ni obras",
+            "p": "Cámaras de grabación deportiva Save My Play para clubes de pádel en Málaga, Marbella, Benalmádena, Fuengirola y Estepona. Visor web multilingüe ideal para jugadores locales y turistas internacionales sin descargar aplicaciones."
+        },
+        "benefits": [
+            ("Ideal para Jugadores Internacionales en la Costa del Sol", "Sin registros obligatorios ni apps en tiendas regionales: el código QR abre el vídeo en el navegador móvil en segundos."),
+            ("Streaming Profesional para Torneos y Circuitos", "Emite en directo a YouTube torneos internacionales FIP o circuitos sociales con marcadores y patrocinadores."),
+            ("Cero Obras Civiles en Pistas Panorámicas", "Fijación universal que no daña el cristal ni la estructura metálica de pistas premium de última generación.")
+        ],
+        "faqs": [
+            ("¿Funciona bien con jugadores extranjeros que vienen de vacaciones?", "Perfectamente. Es la solución idónea para la Costa del Sol porque no requiere descargar apps de Google Play o Apple Store: se escanea el código QR y el vídeo se descarga en el navegador del teléfono."),
+            ("¿Resiste las altas temperaturas y el sol del verano en Málaga?", "Sí, el hardware cuenta con protección térmica y óptica deportiva antirreflejo para luz solar directa y focos LED de noche."),
+            ("¿Cómo se realiza el soporte y los envíos?", "Enviamos las cámaras configuradas listas para conectar a corriente en 48 horas con soporte directo.")
+        ]
+    },
+    {
         "slug": "save-my-play",
 
         "title": "Save my Play España: Cámaras con IA Oficiales para Pistas de Pádel",
@@ -1794,7 +1855,7 @@ def build_all_landings():
             html_content = render_landing(l, lang=lang)
             with open(f"{out_dir}/index.html", "w", encoding="utf-8") as f:
                 f.write(html_content)
-        print(f"  [OK] Generadas 11 landings para {lang.upper()}")
+        print(f"  [OK] Generadas {len(LANDINGS)} landings para {lang.upper()}")
 
 
 if __name__ == "__main__":
