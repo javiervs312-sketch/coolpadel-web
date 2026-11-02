@@ -20,10 +20,36 @@ from extra_articles_i18n import EXTRA_ARTICLES_I18N
 
 ALL_BLOG_SLUGS = set(FLAGSHIP_GUIDES_DATA.keys()).union(EXTRA_ARTICLES_I18N.keys())
 
-LANDING_SLUGS = list(LANDINGS_I18N["en"].keys())
-for extra_s in ["camaras-padel-valencia", "camaras-padel-malaga"]:
-    if extra_s not in LANDING_SLUGS:
-        LANDING_SLUGS.append(extra_s)
+# Las landings simétricas multilenguaje (llaveros, save-my-play, software genérico)
+COMMON_LANDINGS = [
+    "llaveros-padel-personalizados",
+    "llaveros-tenis-personalizados",
+    "welcome-packs-torneos-padel",
+    "llaveros-personalizados-clubs-padel",
+    "camaras-grabacion-pistas-padel",
+    "camaras-padel-playtomic",
+    "camaras-padel-matchi",
+    "camaras-padel-resasports",
+    "save-my-play"
+]
+
+# Landings locales nativas por mercado e idioma
+GEO_LOCAL_LANDINGS = [
+    # ES
+    ("/camaras-padel-madrid/", "0.90"),
+    ("/camaras-padel-barcelona/", "0.90"),
+    ("/camaras-padel-valencia/", "0.90"),
+    ("/camaras-padel-malaga/", "0.90"),
+    # EN (UK & US)
+    ("/en/padel-court-cameras-london/", "0.90"),
+    ("/en/padel-court-cameras-miami/", "0.90"),
+    # FR (France)
+    ("/fr/cameras-padel-paris/", "0.90"),
+    ("/fr/cameras-padel-lyon/", "0.90"),
+    # IT (Italia)
+    ("/it/telecamere-padel-roma/", "0.90"),
+    ("/it/telecamere-padel-milano/", "0.90"),
+]
 DOMAIN = "https://coolpadelstudios.com"
 TODAY = datetime.utcnow().strftime("%Y-%m-%d")
 
@@ -186,8 +212,8 @@ def generate_sitemap():
     for c_slug in CAMARAS_SLUGS:
         all_blocks.extend(get_camaras_cluster_xml(slug=c_slug, priority="0.88", changefreq="weekly"))
 
-    # 4. 11 B2B Landings Transaccionales (44 páginas 100% traducidas)
-    for slug in LANDING_SLUGS:
+    # 4. B2B Landings Transaccionales Multilingües Simétricas (36 URLs: 9 x 4 idiomas)
+    for slug in COMMON_LANDINGS:
         priority = "0.95" if ("camaras" in slug or "save-my-play" in slug or "llaveros-padel" in slug) else "0.90"
         all_blocks.extend(get_cluster_xml(
             f"/{slug}/",
@@ -197,6 +223,10 @@ def generate_sitemap():
             priority=priority,
             changefreq="weekly"
         ))
+
+    # 4b. Landings Geo-Locales Nativas por Idioma y Ciudad (10 URLs)
+    for path, prio in GEO_LOCAL_LANDINGS:
+        all_blocks.append(get_single_xml(path, priority=prio, changefreq="weekly"))
 
     # 5. Artículos de Llaveros Pádel y Tenis en Español
     for lp in LLAVEROS_PADEL_SLUGS:

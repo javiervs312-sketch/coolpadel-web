@@ -1849,9 +1849,13 @@ def render_landing(landing, lang="es"):
 
 def build_all_landings():
     print(">> Generando Landings B2B Transaccionales en 4 Idiomas (ES, EN, FR, IT)...")
+    spain_only_slugs = {"camaras-padel-madrid", "camaras-padel-barcelona", "camaras-padel-valencia", "camaras-padel-malaga"}
     for lang in ["es", "en", "fr", "it"]:
+        count = 0
         for l in LANDINGS:
             slug = l["slug"]
+            if lang != "es" and slug in spain_only_slugs:
+                continue
             if lang == "es":
                 out_dir = f"coolpadel-web/{slug}"
             else:
@@ -1860,7 +1864,8 @@ def build_all_landings():
             html_content = render_landing(l, lang=lang)
             with open(f"{out_dir}/index.html", "w", encoding="utf-8") as f:
                 f.write(html_content)
-        print(f"  [OK] Generadas {len(LANDINGS)} landings para {lang.upper()}")
+            count += 1
+        print(f"  [OK] Generadas {count} landings para {lang.upper()}")
 
 
 if __name__ == "__main__":
