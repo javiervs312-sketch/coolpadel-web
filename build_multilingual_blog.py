@@ -135,10 +135,6 @@ def build_blog_hub(lang):
     html = re.sub(r'<link rel="canonical"[^>]*>', hreflangs, html)
 
     if is_es:
-        es_d = ALL_ARTICLES_I18N[slug]["es"]
-        if len(es_d.get("title", "")) > 65 and " | " in es_d.get("title", ""):
-            short_es_title = es_d["title"].split(" | ")[0]
-            html = re.sub(r'<title>.*?</title>', f'<title>{short_es_title}</title>', html)
         return html
 
     html = html.replace('<html lang="es"', f'<html lang="{lang}"')
