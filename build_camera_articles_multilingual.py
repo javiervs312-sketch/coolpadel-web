@@ -132,7 +132,7 @@ HUB_BASE_CSS = """
 @media (max-width: 760px) { .hub-hero { margin: 18px auto 38px; text-align: left; } .hub-title { white-space: normal; } .intro { margin: 0; } .article-grid { grid-template-columns: 1fr; } }
 """ + TEXTURE_CSS
 
-def get_header(lang: str, prefix: str) -> str:
+def get_header(lang: str, prefix: str, slug: str = None) -> str:
     """Genera cabecera con selector multilingüe y URLs canónicas de idiomas."""
     home_url = "/" if lang == "es" else f"/{lang}/"
     llaveros_url = f"/{lang}/llaveros-padel-personalizados/" if lang != "es" else "/llaveros-padel-personalizados/"
@@ -157,10 +157,11 @@ def get_header(lang: str, prefix: str) -> str:
         "es": "Contactar", "en": "Contact", "fr": "Contacter", "it": "Contatti", "de": "Kontakt"
     }.get(lang, "Contactar")
 
+    subpath = f"camaras/articulos/{slug}/" if slug else "camaras/"
     dropdown_links = "\n".join([
-        f'<a href="/{l}/camaras/" class="block text-center px-4 py-2 text-xs {"font-bold text-[#f2920b]" if l==lang else ""}">{l.upper()}</a>'
+        f'<a href="/{l}/{subpath}" class="block text-center px-4 py-2 text-xs hover:bg-[#f2920b] hover:text-slate-950 transition {"font-black text-[#f2920b]" if l==lang else "font-bold text-slate-700"}">{l.upper()}</a>'
         if l != "es" else
-        f'<a href="/camaras/" class="block text-center px-4 py-2 text-xs {"font-bold text-[#f2920b]" if l==lang else ""}">ES</a>'
+        f'<a href="/{subpath}" class="block text-center px-4 py-2 text-xs hover:bg-[#f2920b] hover:text-slate-950 transition {"font-black text-[#f2920b]" if l==lang else "font-bold text-slate-700"}">ES</a>'
         for l in ["es", "en", "fr", "it", "de"]
     ])
 
@@ -308,19 +309,107 @@ def render_page(title: str, content: str, lang: str, prefix: str = "/", slug: st
       "uploadDate": "2026-10-20T08:00:00+02:00"
     }}""")
     else:
+        home_label = "Inicio" if lang == "es" else ("Accueil" if lang == "fr" else "Home")
+        camaras_label = "Cámaras" if lang == "es" else ("Caméras" if lang == "fr" else ("Kameras" if lang == "de" else ("Telecamere" if lang == "it" else "Cameras")))
+        canonical_base = "https://coolpadelstudios.com/"
+        item_list_elements = []
+        for idx_art, s_art in enumerate(ARTICLE_ORDER, start=1):
+            item_url = f"{canonical_url}articulos/{s_art}/"
+            item_list_elements.append(f"""        {{
+          "@type": "ListItem",
+          "position": {idx_art},
+          "url": "{item_url}"
+        }}""")
+        item_list_json = ",\n".join(item_list_elements)
+
         schema_parts.append(f"""    {{
       "@type": "CollectionPage",
       "name": {json.dumps(title)},
       "description": {json.dumps(safe_desc)},
       "url": "{canonical_url}",
-      "inLanguage": "{lang}"
+      "inLanguage": "{lang}",
+      "mainEntity": {{
+        "@type": "ItemList",
+        "numberOfItems": {len(ARTICLE_ORDER)},
+        "itemListElement": [
+{item_list_json}
+        ]
+      }}
+    }}""")
+        schema_parts.append(f"""    {{
+      "@type": "BreadcrumbList",
+      "@id": "{canonical_url}#breadcrumb",
+      "itemListElement": [
+        {{
+          "@type": "ListItem",
+          "position": 1,
+          "name": "{home_label}",
+          "item": "{canonical_base}{lang + '/' if lang != 'es' else ''}"
+        }},
+        {{
+          "@type": "ListItem",
+          "position": 2,
+          "name": "{camaras_label}",
+          "item": "{canonical_url}"
+        }}
+      ]
+    }}""")
+        schema_parts.append(f"""    {{
+      "@type": "Product",
+      "name": {json.dumps(title + " - Save my Play")},
+      "description": {json.dumps(safe_desc)},
+      "image": "https://coolpadelstudios.com/assets/images/savemyplay-1.jpg",
+      "sku": "SMP-CAM-180",
+      "brand": {{
+        "@type": "Brand",
+        "name": "Save my Play"
+      }},
+      "offers": [
+        {{
+          "@type": "Offer",
+          "name": "Save my Play Court Camera Hardware",
+          "priceCurrency": "EUR",
+          "price": "180.00",
+          "priceValidUntil": "2027-12-31",
+          "availability": "https://schema.org/InStock",
+          "hasMerchantReturnPolicy": {{
+            "@type": "MerchantReturnPolicy",
+            "applicableCountry": "ES",
+            "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+            "merchantReturnDays": 14,
+            "returnMethod": "https://schema.org/ReturnByMail",
+            "returnFees": "https://schema.org/FreeReturn",
+            "merchantReturnLink": "https://coolpadelstudios.com/politica-de-devoluciones.html"
+          }},
+          "shippingDetails": {{
+            "@type": "OfferShippingDetails",
+            "shippingRate": {{
+              "@type": "MonetaryAmount",
+              "value": "0.00",
+              "currency": "EUR"
+            }},
+            "shippingDestination": {{
+              "@type": "DefinedRegion",
+              "addressCountry": ["ES", "FR", "IT", "PT", "DE", "BE", "GB", "US"]
+            }}
+          }}
+        }},
+        {{
+          "@type": "Offer",
+          "name": "Monthly Software Subscription (from 27 EUR/month)",
+          "priceCurrency": "EUR",
+          "price": "45.00",
+          "priceValidUntil": "2027-12-31",
+          "availability": "https://schema.org/InStock"
+        }}
+      ]
     }}""")
 
     schema_json = '<script type="application/ld+json">\n{\n  "@context": "https://schema.org",\n  "@graph": [\n' + ',\n'.join(schema_parts) + '\n  ]\n}\n</script>'
     og_image = f"https://coolpadelstudios.com/assets/images/camaras/{ARTICLE_IMAGES.get(slug, 'camera-01.jpg')}" if slug else "https://coolpadelstudios.com/assets/images/savemyplay-1.jpg"
     og_type = "article" if slug else "website"
 
-    header_html = get_header(lang, prefix)
+    header_html = get_header(lang, prefix, slug=slug)
     seo_title = f"{title} | CoolPadel" if len(title) <= 55 else title
 
     html_out = f"""<!doctype html>
