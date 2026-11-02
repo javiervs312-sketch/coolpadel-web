@@ -321,23 +321,24 @@ def render_page(title: str, content: str, lang: str, prefix: str = "/", slug: st
     og_type = "article" if slug else "website"
 
     header_html = get_header(lang, prefix)
+    seo_title = f"{title} | CoolPadel" if len(title) <= 55 else title
 
     html_out = f"""<!doctype html>
 <html lang="{lang}">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{html.escape(title)} | CoolPadel</title>
+  <title>{html.escape(seo_title)}</title>
   <meta name="description" content="{safe_desc}">
   <link rel="canonical" href="{canonical_url}">
 {hreflangs}
   <meta property="og:type" content="{og_type}">
-  <meta property="og:title" content="{html.escape(title)} | CoolPadel">
+  <meta property="og:title" content="{html.escape(seo_title)}">
   <meta property="og:description" content="{safe_desc}">
   <meta property="og:url" content="{canonical_url}">
   <meta property="og:image" content="{og_image}">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="{html.escape(title)} | CoolPadel">
+  <meta name="twitter:title" content="{html.escape(seo_title)}">
   <meta name="twitter:description" content="{safe_desc}">
   <meta name="twitter:image" content="{og_image}">
   <link rel="alternate" type="text/markdown" href="https://coolpadelstudios.com/llms.txt" title="LLMs.txt">

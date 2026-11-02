@@ -1060,9 +1060,10 @@ def build_americana_page(lang):
 """
 
     import re
-    html = re.sub(r'<link rel="canonical"[^>]*>', hreflangs, html)
-    if "<!-- SEO Multilingüe Hreflang -->" in html:
-        html = re.sub(r'<!-- SEO Multilingüe Hreflang -->.*?<meta name="language"[^>]*>', '', html, flags=re.DOTALL)
+    # Limpiar primero cualquier bloque previo de Hreflang o LLM Discovery para evitar duplicados al re-compilar
+    html = re.sub(r'\s*<!-- SEO Multilingüe Hreflang -->.*?<meta name="language"[^>]*>', '', html, flags=re.DOTALL)
+    html = re.sub(r'\s*<!-- (?:LLM & AI )?Discovery -->\s*<link rel="alternate" type="text/markdown" href="https://coolpadelstudios\.com/llms\.txt"[^>]*>\s*<link rel="alternate" type="text/markdown" href="https://coolpadelstudios\.com/llms-full\.txt"[^>]*>', '', html, flags=re.DOTALL)
+    html = re.sub(r'[ \t]*<link rel="canonical"[^>]*>', hreflangs.rstrip(), html)
     
     html = re.sub(r'<title>.*?</title>', f'<title>{d["title"]}</title>', html)
     html = re.sub(r'<meta name="description" content=".*?">', f'<meta name="description" content="{d["desc"]}">', html)
@@ -1148,9 +1149,10 @@ def build_cuadros_page(lang):
 """
 
     import re
-    html = re.sub(r'<link rel="canonical"[^>]*>', hreflangs, html)
-    if "<!-- SEO Multilingüe Hreflang -->" in html:
-        html = re.sub(r'<!-- SEO Multilingüe Hreflang -->.*?<meta name="language"[^>]*>', '', html, flags=re.DOTALL)
+    # Limpiar primero cualquier bloque previo de Hreflang o LLM Discovery para evitar duplicados al re-compilar
+    html = re.sub(r'\s*<!-- SEO Multilingüe Hreflang -->.*?<meta name="language"[^>]*>', '', html, flags=re.DOTALL)
+    html = re.sub(r'\s*<!-- (?:LLM & AI )?Discovery -->\s*<link rel="alternate" type="text/markdown" href="https://coolpadelstudios\.com/llms\.txt"[^>]*>\s*<link rel="alternate" type="text/markdown" href="https://coolpadelstudios\.com/llms-full\.txt"[^>]*>', '', html, flags=re.DOTALL)
+    html = re.sub(r'[ \t]*<link rel="canonical"[^>]*>', hreflangs.rstrip(), html)
     
     html = re.sub(r'<title>.*?</title>', f'<title>{d["title"]}</title>', html)
     html = re.sub(r'<meta name="description" content=".*?">', f'<meta name="description" content="{d["desc"]}">', html)

@@ -199,51 +199,41 @@
     </item>
 
     <item>
-      <title>Hub Oficial: Cámaras para Clubs de Pádel Save my Play</title>
-      <link>https://coolpadelstudios.com/camaras/</link>
-      <guid>https://coolpadelstudios.com/camaras/</guid>
-      <description>Todo lo que necesitas saber antes de poner cámaras: instalación en poste en 5 min sin obras, botón en red, descargas por QR y rentabilidad real.</description>
-      <pubDate>Mon, 02 Nov 2026 10:00:00 +0100</pubDate>
-    </item>
 
-    <item>
-      <title>¿Cuánto cuesta poner cámaras en mi club de pádel? Precios y hardware</title>
-      <link>https://coolpadelstudios.com/camaras/articulos/cuanto-cuesta-poner-camaras/</link>
-      <guid>https://coolpadelstudios.com/camaras/articulos/cuanto-cuesta-poner-camaras/</guid>
-      <description>Coste de hardware de 180 € por cámara en propiedad y cuotas mensuales escalonadas desde 27 € a 45 €/mes por pista sin permanencia.</description>
-      <pubDate>Mon, 02 Nov 2026 10:00:00 +0100</pubDate>
-    </item>
+      <g:id>SMP-CAM-180</g:id>
 
-    <item>
-      <title>¿Es rentable poner cámaras en mis pistas de pádel? Modelos de explotación</title>
-      <link>https://coolpadelstudios.com/camaras/articulos/es-rentable-poner-camaras/</link>
-      <guid>https://coolpadelstudios.com/camaras/articulos/es-rentable-poner-camaras/</guid>
-      <description>3 modelos reales de amortización: monetización directa por descarga, patrocinadores locales y atracción de jugadores en horas valle.</description>
-      <pubDate>Mon, 02 Nov 2026 10:00:00 +0100</pubDate>
-    </item>
+      <g:title>Cámara Pista de Pádel Save my Play (Grabación Partidos, Highlights QR y Directos)</g:title>
 
-    <item>
-      <title>¿Cómo saber si mis cámaras son de pádel o de videovigilancia CCTV?</title>
-      <link>https://coolpadelstudios.com/camaras/articulos/camaras-de-padel-o-videovigilancia/</link>
-      <guid>https://coolpadelstudios.com/camaras/articulos/camaras-de-padel-o-videovigilancia/</guid>
-      <description>Diferencias clave entre una cámara deportiva con óptica panorámica rectilínea y cámaras de seguridad adaptadas con efecto ojo de pez.</description>
-      <pubDate>Mon, 02 Nov 2026 10:00:00 +0100</pubDate>
-    </item>
+      <g:description>Cámara deportiva panorámica Save my Play para pistas de pádel y tenis (180 € en propiedad). Instalación en poste en 10 minutos sin obras, dos botones inalámbricos en la red, highlights instantáneos por QR sin app y retransmisión en directo.</g:description>
 
-    <item>
-      <title>Pedido mínimo y plazos de entrega de llaveros de pádel personalizados 3D</title>
-      <link>https://coolpadelstudios.com/llaveros-padel-personalizados/articulos/pedido-minimo-plazos-entrega-llaveros-padel/</link>
-      <guid>https://coolpadelstudios.com/llaveros-padel-personalizados/articulos/pedido-minimo-plazos-entrega-llaveros-padel/</guid>
-      <description>Tiradas desde 100 unidades, muestra física real por 15 € deducible en 15 días laborables y entrega en ~1 mes con envíos incluidos.</description>
-      <pubDate>Mon, 02 Nov 2026 10:00:00 +0100</pubDate>
-    </item>
+      <g:link>https://coolpadelstudios.com/camaras/</g:link>
 
-    <item>
-      <title>Cómo pedir la muestra física de llavero de club por 15 € reembolsable</title>
-      <link>https://coolpadelstudios.com/llaveros-padel-personalizados/articulos/como-pedir-muestra-fisica-15-euros/</link>
-      <guid>https://coolpadelstudios.com/llaveros-padel-personalizados/articulos/como-pedir-muestra-fisica-15-euros/</guid>
-      <description>Protocolo sin riesgo para directores: recibe una muestra real de tu pala con tu escudo para validar relieve y rigidez antes de fabricar la tirada.</description>
-      <pubDate>Mon, 02 Nov 2026 10:00:00 +0100</pubDate>
+      <g:image_link>https://coolpadelstudios.com/assets/images/savemyplay-1.jpg</g:image_link>
+
+      <g:additional_image_link>https://coolpadelstudios.com/assets/images/camaras/camera-01.jpg</g:additional_image_link>
+
+      <g:availability>in_stock</g:availability>
+
+      <g:price>180.00 EUR</g:price>
+
+      <g:brand>Save my Play</g:brand>
+
+      <g:condition>new</g:condition>
+
+      <g:identifier_exists>no</g:identifier_exists>
+
+      <g:google_product_category>Sporting Goods &gt; Racquet Sports &gt; Padel</g:google_product_category>
+
+      <g:shipping>
+
+        <g:country>ES</g:country>
+
+        <g:service>Envío Estándar</g:service>
+
+        <g:price>0.00 EUR</g:price>
+
+      </g:shipping>
+
     </item>
 
   </channel>
