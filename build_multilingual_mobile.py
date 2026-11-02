@@ -679,7 +679,9 @@ def get_base_html(active_lang="es", is_subfolder=False):
 
           "https://www.instagram.com/coolpadel_/",
 
-          "https://www.linkedin.com/in/javier-villoria-soleto-606737298/"
+          "https://www.linkedin.com/in/javier-villoria-soleto-606737298/",
+
+          "https://maps.google.com/?cid=5000443597205028051"
 
         ],
 

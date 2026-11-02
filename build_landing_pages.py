@@ -1444,7 +1444,12 @@ def render_landing(landing, lang="es"):
         "name": "CoolPadel",
         "alternateName": "CoolPadel",
         "url": "https://coolpadelstudios.com",
-        "logo": "https://coolpadelstudios.com/assets/images/coolpadel-mascot-hd.png"
+        "logo": "https://coolpadelstudios.com/assets/images/coolpadel-mascot-hd.png",
+        "sameAs": [
+          "https://www.instagram.com/coolpadel_/",
+          "https://www.linkedin.com/in/javier-villoria-soleto-606737298/",
+          "https://maps.google.com/?cid=5000443597205028051"
+        ]
       }},
       {{
         "@type": "BreadcrumbList",
