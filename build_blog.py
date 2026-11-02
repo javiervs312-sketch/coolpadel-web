@@ -607,6 +607,77 @@ def generate_blog_index():
 
         <!-- 3 NEWSLETTERS EN FILA DE IZQ A DCHA (COMPACTAS Y 100% CLICKABLES) -->
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5 max-w-[1700px] w-full mx-auto">
+            <!-- TARJETA DESTACADA HUB: CÁMARAS PARA CLUBS DE PÁDEL -->
+            <a href="../camaras/" class="bg-white border-2 border-slate-200/90 hover:border-[#f2920b] rounded-2xl p-4 sm:p-5 shadow-2xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between group hover:-translate-y-0.5 cursor-pointer block">
+              <div class="space-y-3">
+                <div class="aspect-[16/10] rounded-xl overflow-hidden bg-slate-900 border border-slate-200/90 shadow-2xs relative">
+                  <img src="../assets/images/camaras/camera-01.jpg" alt="Cámaras Save my Play para Clubs de Pádel" width="600" height="375" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
+                  <span class="absolute bottom-2 left-2 text-[9px] font-black uppercase tracking-wider px-2 py-0.5 rounded-full bg-[#f2920b] text-slate-950 shadow-xs">
+                    Hub Cámaras & IA
+                  </span>
+                </div>
+
+                <div class="space-y-1">
+                  <div class="flex items-center gap-1.5 text-[10px] font-bold text-slate-400">
+                    <span>Octubre 2026</span>
+                    <span>•</span>
+                    <span>20 Guías y FAQs</span>
+                  </div>
+                  <h3 class="font-heading font-black text-sm sm:text-base text-slate-950 leading-snug group-hover:text-[#f2920b] transition">
+                    Cámaras para Clubs de Pádel: Guías, Costes y Dudas Frecuentes
+                  </h3>
+                  <p class="text-xs text-slate-600 font-medium leading-relaxed line-clamp-2">
+                    Todo lo que necesitas saber antes de poner cámaras: instalación en poste en 5 min sin obras, botón en red, descargas por QR y rentabilidad real.
+                  </p>
+                </div>
+              </div>
+
+              <div class="pt-3.5 border-t border-slate-100 mt-4">
+                <div class="group relative w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-full bg-slate-900 group-hover:bg-[#f2920b] text-white group-hover:text-slate-950 font-heading font-black text-xs uppercase tracking-wider transition-all duration-300 shadow-2xs">
+                  <span>Explorar Hub de Cámaras</span>
+                  <div class="w-4 h-4 rounded-full bg-white/20 group-hover:bg-slate-950/20 flex items-center justify-center transition-all duration-300">
+                    <i data-lucide="arrow-right" class="w-3 h-3 stroke-[3] group-hover:translate-x-0.5 transition-transform duration-300"></i>
+                  </div>
+                </div>
+              </div>
+            </a>
+
+            <!-- TARJETA DESTACADA HUB: LLAVEROS DE PÁDEL PERSONALIZADOS 3D -->
+            <a href="../llaveros-padel-personalizados/" class="bg-white border-2 border-slate-200/90 hover:border-[#f2920b] rounded-2xl p-4 sm:p-5 shadow-2xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between group hover:-translate-y-0.5 cursor-pointer block">
+              <div class="space-y-3">
+                <div class="aspect-[16/10] rounded-xl overflow-hidden bg-slate-900 border border-slate-200/90 shadow-2xs relative">
+                  <img src="../assets/images/llaveros-padel-personalizados-clubs.jpg" alt="Llaveros de Pádel Personalizados 3D para Clubs" width="600" height="375" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
+                  <span class="absolute bottom-2 left-2 text-[9px] font-black uppercase tracking-wider px-2 py-0.5 rounded-full bg-[#f2920b] text-slate-950 shadow-xs">
+                    Merchandising Oficial
+                  </span>
+                </div>
+
+                <div class="space-y-1">
+                  <div class="flex items-center gap-1.5 text-[10px] font-bold text-slate-400">
+                    <span>Octubre 2026</span>
+                    <span>•</span>
+                    <span>Tarifas Fábrica B2B</span>
+                  </div>
+                  <h3 class="font-heading font-black text-sm sm:text-base text-slate-950 leading-snug group-hover:text-[#f2920b] transition">
+                    Llaveros de Pádel Personalizados 3D: Precios y Muestra Real
+                  </h3>
+                  <p class="text-xs text-slate-600 font-medium leading-relaxed line-clamp-2">
+                    Fabricante directo en goma 3D microinyectada con el logo oficial del club. Pedidos desde 100 uds, muestra física por 15€ deducible y calculadora interactiva.
+                  </p>
+                </div>
+              </div>
+
+              <div class="pt-3.5 border-t border-slate-100 mt-4">
+                <div class="group relative w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-full bg-slate-900 group-hover:bg-[#f2920b] text-white group-hover:text-slate-950 font-heading font-black text-xs uppercase tracking-wider transition-all duration-300 shadow-2xs">
+                  <span>Ver Precios y Muestra</span>
+                  <div class="w-4 h-4 rounded-full bg-white/20 group-hover:bg-slate-950/20 flex items-center justify-center transition-all duration-300">
+                    <i data-lucide="arrow-right" class="w-3 h-3 stroke-[3] group-hover:translate-x-0.5 transition-transform duration-300"></i>
+                  </div>
+                </div>
+              </div>
+            </a>
           
           <!-- 1. HIGHLIGHTS #03 (IZQUIERDA - MÁS RECIENTE) -->
           <a href="./highlights-03/" class="bg-white border-2 border-slate-200/90 hover:border-[#f2920b] rounded-2xl p-4 sm:p-5 shadow-2xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between group hover:-translate-y-0.5 cursor-pointer block">

@@ -6149,6 +6149,54 @@ def build_all():
 
     </item>
 
+    <item>
+      <title>Hub Oficial: Cámaras para Clubs de Pádel Save my Play</title>
+      <link>https://coolpadelstudios.com/camaras/</link>
+      <guid>https://coolpadelstudios.com/camaras/</guid>
+      <description>Todo lo que necesitas saber antes de poner cámaras: instalación en poste en 5 min sin obras, botón en red, descargas por QR y rentabilidad real.</description>
+      <pubDate>Mon, 02 Nov 2026 10:00:00 +0100</pubDate>
+    </item>
+
+    <item>
+      <title>¿Cuánto cuesta poner cámaras en mi club de pádel? Precios y hardware</title>
+      <link>https://coolpadelstudios.com/camaras/articulos/cuanto-cuesta-poner-camaras/</link>
+      <guid>https://coolpadelstudios.com/camaras/articulos/cuanto-cuesta-poner-camaras/</guid>
+      <description>Coste de hardware de 180 € por cámara en propiedad y cuotas mensuales escalonadas desde 27 € a 45 €/mes por pista sin permanencia.</description>
+      <pubDate>Mon, 02 Nov 2026 10:00:00 +0100</pubDate>
+    </item>
+
+    <item>
+      <title>¿Es rentable poner cámaras en mis pistas de pádel? Modelos de explotación</title>
+      <link>https://coolpadelstudios.com/camaras/articulos/es-rentable-poner-camaras/</link>
+      <guid>https://coolpadelstudios.com/camaras/articulos/es-rentable-poner-camaras/</guid>
+      <description>3 modelos reales de amortización: monetización directa por descarga, patrocinadores locales y atracción de jugadores en horas valle.</description>
+      <pubDate>Mon, 02 Nov 2026 10:00:00 +0100</pubDate>
+    </item>
+
+    <item>
+      <title>¿Cómo saber si mis cámaras son de pádel o de videovigilancia CCTV?</title>
+      <link>https://coolpadelstudios.com/camaras/articulos/camaras-de-padel-o-videovigilancia/</link>
+      <guid>https://coolpadelstudios.com/camaras/articulos/camaras-de-padel-o-videovigilancia/</guid>
+      <description>Diferencias clave entre una cámara deportiva con óptica panorámica rectilínea y cámaras de seguridad adaptadas con efecto ojo de pez.</description>
+      <pubDate>Mon, 02 Nov 2026 10:00:00 +0100</pubDate>
+    </item>
+
+    <item>
+      <title>Pedido mínimo y plazos de entrega de llaveros de pádel personalizados 3D</title>
+      <link>https://coolpadelstudios.com/llaveros-padel-personalizados/articulos/pedido-minimo-plazos-entrega-llaveros-padel/</link>
+      <guid>https://coolpadelstudios.com/llaveros-padel-personalizados/articulos/pedido-minimo-plazos-entrega-llaveros-padel/</guid>
+      <description>Tiradas desde 100 unidades, muestra física real por 15 € deducible en 15 días laborables y entrega en ~1 mes con envíos incluidos.</description>
+      <pubDate>Mon, 02 Nov 2026 10:00:00 +0100</pubDate>
+    </item>
+
+    <item>
+      <title>Cómo pedir la muestra física de llavero de club por 15 € reembolsable</title>
+      <link>https://coolpadelstudios.com/llaveros-padel-personalizados/articulos/como-pedir-muestra-fisica-15-euros/</link>
+      <guid>https://coolpadelstudios.com/llaveros-padel-personalizados/articulos/como-pedir-muestra-fisica-15-euros/</guid>
+      <description>Protocolo sin riesgo para directores: recibe una muestra real de tu pala con tu escudo para validar relieve y rigidez antes de fabricar la tirada.</description>
+      <pubDate>Mon, 02 Nov 2026 10:00:00 +0100</pubDate>
+    </item>
+
   </channel>
 
 </rss>
@@ -6363,6 +6411,54 @@ def build_all():
 
       </g:shipping>
 
+    </item>
+
+    <item>
+      <title>Hub Oficial: Cámaras para Clubs de Pádel Save my Play</title>
+      <link>https://coolpadelstudios.com/camaras/</link>
+      <guid>https://coolpadelstudios.com/camaras/</guid>
+      <description>Todo lo que necesitas saber antes de poner cámaras: instalación en poste en 5 min sin obras, botón en red, descargas por QR y rentabilidad real.</description>
+      <pubDate>Mon, 02 Nov 2026 10:00:00 +0100</pubDate>
+    </item>
+
+    <item>
+      <title>¿Cuánto cuesta poner cámaras en mi club de pádel? Precios y hardware</title>
+      <link>https://coolpadelstudios.com/camaras/articulos/cuanto-cuesta-poner-camaras/</link>
+      <guid>https://coolpadelstudios.com/camaras/articulos/cuanto-cuesta-poner-camaras/</guid>
+      <description>Coste de hardware de 180 € por cámara en propiedad y cuotas mensuales escalonadas desde 27 € a 45 €/mes por pista sin permanencia.</description>
+      <pubDate>Mon, 02 Nov 2026 10:00:00 +0100</pubDate>
+    </item>
+
+    <item>
+      <title>¿Es rentable poner cámaras en mis pistas de pádel? Modelos de explotación</title>
+      <link>https://coolpadelstudios.com/camaras/articulos/es-rentable-poner-camaras/</link>
+      <guid>https://coolpadelstudios.com/camaras/articulos/es-rentable-poner-camaras/</guid>
+      <description>3 modelos reales de amortización: monetización directa por descarga, patrocinadores locales y atracción de jugadores en horas valle.</description>
+      <pubDate>Mon, 02 Nov 2026 10:00:00 +0100</pubDate>
+    </item>
+
+    <item>
+      <title>¿Cómo saber si mis cámaras son de pádel o de videovigilancia CCTV?</title>
+      <link>https://coolpadelstudios.com/camaras/articulos/camaras-de-padel-o-videovigilancia/</link>
+      <guid>https://coolpadelstudios.com/camaras/articulos/camaras-de-padel-o-videovigilancia/</guid>
+      <description>Diferencias clave entre una cámara deportiva con óptica panorámica rectilínea y cámaras de seguridad adaptadas con efecto ojo de pez.</description>
+      <pubDate>Mon, 02 Nov 2026 10:00:00 +0100</pubDate>
+    </item>
+
+    <item>
+      <title>Pedido mínimo y plazos de entrega de llaveros de pádel personalizados 3D</title>
+      <link>https://coolpadelstudios.com/llaveros-padel-personalizados/articulos/pedido-minimo-plazos-entrega-llaveros-padel/</link>
+      <guid>https://coolpadelstudios.com/llaveros-padel-personalizados/articulos/pedido-minimo-plazos-entrega-llaveros-padel/</guid>
+      <description>Tiradas desde 100 unidades, muestra física real por 15 € deducible en 15 días laborables y entrega en ~1 mes con envíos incluidos.</description>
+      <pubDate>Mon, 02 Nov 2026 10:00:00 +0100</pubDate>
+    </item>
+
+    <item>
+      <title>Cómo pedir la muestra física de llavero de club por 15 € reembolsable</title>
+      <link>https://coolpadelstudios.com/llaveros-padel-personalizados/articulos/como-pedir-muestra-fisica-15-euros/</link>
+      <guid>https://coolpadelstudios.com/llaveros-padel-personalizados/articulos/como-pedir-muestra-fisica-15-euros/</guid>
+      <description>Protocolo sin riesgo para directores: recibe una muestra real de tu pala con tu escudo para validar relieve y rigidez antes de fabricar la tirada.</description>
+      <pubDate>Mon, 02 Nov 2026 10:00:00 +0100</pubDate>
     </item>
 
   </channel>
