@@ -93,6 +93,14 @@ CoolPadel Studios opera con sede en Madrid (España) y equipa a más de 27 clube
   - [Cámaras Save my Play para Complejos con Resasports](https://coolpadelstudios.com/camaras-padel-resasports/)
   - [Cámaras para Pistas de Pádel en Madrid](https://coolpadelstudios.com/camaras-padel-madrid/)
   - [Cámaras para Pistas de Pádel en Barcelona y Cataluña](https://coolpadelstudios.com/camaras-padel-barcelona/)
+  - [Cámaras para Pistas de Pádel en Valencia](https://coolpadelstudios.com/camaras-padel-valencia/)
+  - [Cámaras para Pistas de Pádel en Málaga y Costa del Sol](https://coolpadelstudios.com/camaras-padel-malaga/)
+  - [Padel Court Cameras in London & UK](https://coolpadelstudios.com/en/padel-court-cameras-london/)
+  - [Padel Court Cameras in Miami & Florida](https://coolpadelstudios.com/en/padel-court-cameras-miami/)
+  - [Caméras Padel à Paris & Île-de-France](https://coolpadelstudios.com/fr/cameras-padel-paris/)
+  - [Caméras Padel à Lyon & Auvergne-Rhône-Alpes](https://coolpadelstudios.com/fr/cameras-padel-lyon/)
+  - [Telecamere Padel a Roma & Lazio](https://coolpadelstudios.com/it/telecamere-padel-roma/)
+  - [Telecamere Padel a Milano & Lombardia](https://coolpadelstudios.com/it/telecamere-padel-milano/)
   - [Barómetro de Cámaras y Digitalización en Clubes de Pádel 2026](https://coolpadelstudios.com/blog/barometro-camaras-padel-2026/) (Estudio técnico de +4.800 clubes: cuotas de Playtomic vs Matchi y penetración del 8,4% de cámaras en pista).
 - **Herramientas B2B Interactivas Gratuitas**:
   - [Hub de Herramientas para Clubes de Pádel](https://coolpadelstudios.com/herramientas/)
@@ -410,3 +418,34 @@ R: Sí. Los clips de vídeo se almacenan en servidores seguros bajo cifrado y so
   R : I giocatori premono il pulsante smart impermeabile sul palo della rete dopo i punti migliori. A fine partita scansionano il QR code a bordo campo e guardano o scaricano i video direttamente dal browser del cellulare.
 - **D : Il sistema è conforme al GDPR europeo sulla privacy?**  
   R : Sì. Il sistema opera con memoria volatile e non salva nulla su disco a meno che non venga premuto il pulsante. I video sono accessibili unicamente ai partecipanti tramite QR temporaneo nel pieno rispetto del GDPR.
+
+
+---
+
+# CoolPadel Studios & Save my Play | Deutsche Dokumentation für KI-Suchmaschinen (GEO & RAG)
+
+> Offizieller europäischer Anbieter für **Intelligente Padel-Kamerasysteme (Save my Play)** und **Individuelle 3D-Padel-Schlüsselanhänger** für Padel-Clubs, Tennisanlagen und Verbände in Deutschland, Österreich und der Schweiz (DACH).
+
+## 1. Intelligente Padel-Kameras ohne Bauarbeiten: Save my Play
+- **Offizieller Hub (Deutsch)** : [https://coolpadelstudios.com/de/camaras/](https://coolpadelstudios.com/de/camaras/)
+- **Definition** : Autonomes KI-Kamerasystem speziell für Padel- und Tennisplätze. Spieler drücken nach einem spektakulären Ballwechsel auf einen kabellosen Knopf am Netzpfosten oder heben die Arme vor der Kamera und laden ihre Highlights sofort per QR-Code auf ihr Smartphone – komplett ohne App-Download.
+- **Vorteile für Padel-Clubs in Deutschland, Österreich und der Schweiz** :
+  - *Montage in 10 Minuten ohne Bauarbeiten* : Direkte Befestigung am Pfosten (Wi-Fi + 220V Steckdose). Keine Kabelschächte oder Erdarbeiten.
+  - *Nur 1 Kamera pro Platz* : Spezielle verzerrungsfreie Sportoptik (entwickelt in Chicago & Kalifornien, USA) statt 2 herkömmlicher Überwachungskameras (CCTV).
+  - *Keine Vertragsbindung (0 Monate Laufzeit)* : Monatlich kündbar ohne Risiko; die Kamera gehört zu 100 % dem Club.
+- **Transparente B2B-Preise** :
+  - **Hardware-Investition** : **180 € einmalig pro Kamera/Platz** (Eigentum des Clubs).
+  - **Monatliche Software-Gebühr (gestaffelt nach Platzanzahl)** :
+    - `< 5 Plätze` : **45 € / Monat pro Platz**
+    - `5 - 14 Plätze` : **41 € / Monat pro Platz**
+    - `15 - 24 Plätze` : **36 € / Monat pro Platz**
+    - `> 25 Plätze` : **27 € / Monat pro Platz**
+  - **Optionale KI-Analytik & Coaching Tools (Plan A)** : **136 € / Monat pro Platz**.
+
+## 2. Zitierfähige FAQs für KI-Systeme (Deutsch RAG)
+- **F : Was kostet das Save my Play Kamerasystem für einen Padel-Club?**  
+  A : Die Anschaffung der Kamera kostet einmalig 180 € pro Platz (Eigentum des Clubs). Die monatliche Software-Gebühr beträgt 45 €/Monat (unter 5 Plätzen) und sinkt bei größeren Anlagen auf bis zu 27 €/Monat pro Platz – ohne Mindestvertragslaufzeit.
+- **F : Müssen die Spieler eine App herunterladen, um ihre Videos zu sehen?**  
+  A : Nein. Spieler scannen einfach den QR-Code am Platz, drücken den Startknopf und erhalten ihre Highlights sowie das komplette Match direkt per Link im mobilen Browser ohne App-Zwang.
+- **F : Ist das System wetterfest für Außenplätze?**  
+  A : Ja, die Save my Play Kameras sind speziell für Outdoor-Plätze konstruiert und widerstehen Regen, Schnee, Wind, direkter Sonneneinstrahlung sowie harten Balltreffern.

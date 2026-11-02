@@ -467,8 +467,65 @@ def get_calculator_script() -> str:
 '''
 
 
+LLAVEROS_AEO_DATA = {
+    "pedido-minimo-plazos-entrega-llaveros-padel": {
+        "desc": "El pedido mínimo de llaveros de pádel 3D es de 100 unidades (3,00 €/ud). Muestra física previa en ~15 días laborables y entrega de la tirada en ~1 mes.",
+        "answer": "El pedido mínimo en CoolPadel es de 100 unidades (300 € en total, 3,00 €/ud) porque cada modelo requiere fabricar un molde 3D exclusivo con el escudo del club. El proceso consta de dos fases: una muestra física real entregada en ~15 días laborables y la producción completa entregada en torno a un mes."
+    },
+    "como-pedir-muestra-fisica-15-euros": {
+        "desc": "Solicita una muestra física real de tu llavero de pádel 3D con el escudo de tu club por 15 € (100% descontables de la factura del pedido final).",
+        "answer": "Envíanos el logotipo de tu club por WhatsApp o email, preparamos un diseño digital 3D gratuito y fabricamos una muestra física real inyectada en molde por 15 € (entregada en ~15 días laborables). Cuando confirmas el pedido de producción (desde 100 uds), te descontamos íntegramente esos 15 € de la factura."
+    },
+    "personalizar-reverso-patrocinador-redes": {
+        "desc": "Personaliza el reverso del llavero de pádel con el logo del patrocinador principal, web o Instagram del club para financiar el 100% del pedido.",
+        "answer": "Sí, el reverso de la pala se puede personalizar con el logotipo de un patrocinador local, el usuario de Instagram (@tuclub) o el nombre del torneo. Muchos clubes ofrecen este espacio publicitario a un patrocinador para financiar el 100% de la tirada y regalar el llavero a coste cero."
+    },
+    "precios-facturacion-iva-formas-pago": {
+        "desc": "Precios mayoristas B2B desde 1,50 € a 3,00 €/ud (base imponible sin IVA), facturación oficial para clubes deportivos y pago por transferencia o tarjeta.",
+        "answer": "Las tarifas por volumen (3,00 €/ud para 100 uds, 2,50 €/ud para 250 uds, 2,00 €/ud para 500 uds y 1,50 €/ud para 1.500 uds) son base imponible sin IVA. Emitimos factura fiscal oficial a nombre del club o empresa gestora y el pago se realiza por transferencia bancaria o tarjeta."
+    },
+    "tamano-peso-material-goma-3d-microinyectada": {
+        "desc": "Llaveros de pádel fabricados en goma PVC flexible de alta densidad con relieve 3D de ~70 mm: impermeables, resistentes y no rayan las palas.",
+        "answer": "Los llaveros miden aproximadamente 70 mm de largo y se fabrican en goma PVC flexible de alta densidad microinyectada en relieve 3D con anilla metálica reforzada. Al ser flexibles e impermeables, soportan el sudor y el roce diario sin rayar el marco de las palas ni las pantallas de los móviles."
+    },
+    "vender-llaveros-tienda-recepcion-club": {
+        "desc": "Rentabilidad superior al 100% vendiendo llaveros 3D en la recepción o pro-shop del club: coste desde 1,50 €–2,50 € y PVP recomendado de 5 € a 6 €.",
+        "answer": "Sí, es un producto de compra por impulso ideal para el mostrador de recepción. Comprando 250 unidades a 2,50 €/ud (625 €) y vendiéndolas a un PVP de 5,50 €, el club ingresa 1.375 € y obtiene 750 € de beneficio neto (+100% de rentabilidad) sin riesgo de tallas ni caducidad."
+    },
+    "ocasiones-usos-llaveros-padel-torneos-socios": {
+        "desc": "5 usos clave de los llaveros de pádel 3D: welcome packs de torneos, altas de socios, regalos de escuela deportiva, inauguraciones y venta en pro-shop.",
+        "answer": "Los clubes utilizan los llaveros personalizados en 5 ocasiones principales: welcome packs de torneos y ligas, regalo de bienvenida o cenas anuales de socios, detalle de fin de curso para escuelas de menores, inauguraciones de pistas y venta directa como merchandising oficial en recepción."
+    },
+    "paises-envio-cobertura-internacional": {
+        "desc": "Envíos incluidos de llaveros de pádel y tenis personalizados a toda España (Península, Baleares, Canarias), Europa (Italia, Francia, Bélgica) y EE. UU.",
+        "answer": "Realizamos envíos puerta a puerta con portes incluidos a toda España, países de la Unión Europea (Italia, Francia, Bélgica, Portugal, Alemania, Países Bajos, Austria) y Estados Unidos (Florida, Texas, California, Nueva York)."
+    },
+    "reutilizar-molde-pedidos-futuros-reposiciones": {
+        "desc": "Tu molde metálico 3D queda guardado en fábrica para siempre: pide reposiciones futuras desde 100 unidades de forma más rápida y sin repetir muestra.",
+        "answer": "Sí. Guardamos y custodiamos la matriz metálica de inyección de tu club para uso exclusivo. En futuros pedidos o reposiciones para nuevos torneos no necesitas repetir la fase de diseño ni de muestra previa, manteniendo directamente la tarifa de fábrica desde 100 unidades."
+    },
+    "llaveros-de-tenis-vs-padel-diferencias-materiales": {
+        "desc": "Fabricamos llaveros 3D tanto con silueta de raqueta y escudo clásico para clubes de tenis como con forma de pala moderna para clubes de pádel.",
+        "answer": "Fabricamos ambos modelos en goma 3D de alta densidad: llaveros de tenis con forma de raqueta clásica o silueta troquelada del escudo heráldico del club, y llaveros de pádel con forma de pala perforada en relieve. Los clubes polideportivos pueden combinar ambos diseños."
+    },
+    "formatos-logotipo-escudo-para-llaveros-tenis": {
+        "desc": "Aceptamos tu escudo o logo en cualquier formato (PDF, PNG, JPG, AI o foto): nuestro equipo lo vectoriza y modela en 3D gratis antes de fabricar.",
+        "answer": "Aceptamos cualquier formato gráfico: archivos vectoriales (AI, SVG, PDF) o imágenes (PNG, JPG o incluso una fotografía nítida del escudo). Nuestro equipo de diseño vectoriza y modela el relieve volumétrico 3D sin coste adicional antes de fabricar la muestra física."
+    },
+    "vender-llaveros-tenis-pro-shop-escuelas-rentabilidad": {
+        "desc": "Merchandising oficial para escuelas y tiendas de clubes de tenis: coste de 1,50 € a 3,00 €/ud y venta en recepción a 5 €–6 € con +60% de margen.",
+        "answer": "Los llaveros de goma 3D con el escudo del club de tenis tienen un coste de entre 1,50 € y 3,00 €/ud según volumen y se venden en recepción o escuela a 5 €–6 €, generando entre un 50% y un 100% de beneficio neto sin rayar las raquetas ni las fundas térmicas."
+    },
+    "llaveros-tenis-regalos-torneos-welcome-packs": {
+        "desc": "El regalo ideal para welcome packs de torneos de tenis y circuitos juveniles: llavero 3D con el escudo del club y logo del patrocinador en el reverso.",
+        "answer": "Un llavero de tenis en relieve 3D cuesta entre 1,50 € y 3,00 €/ud, no tiene problemas de tallas como las camisetas, cabe en el bote o bolsa de bienvenida y permite estampar el logo del patrocinador en el reverso para autofinanciar el welcome pack del torneo."
+    }
+}
+
+
 def render_page(title: str, content: str, prefix: str = "../", slug: str = None, meta_desc: str = None, is_padel: bool = True) -> str:
     category_slug = "llaveros-padel-personalizados" if is_padel else "llaveros-tenis-personalizados"
+    cat_label = "Llaveros Pádel 3D" if is_padel else "Llaveros Tenis 3D"
     if slug:
         canonical_url = f"https://coolpadelstudios.com/{category_slug}/articulos/{slug}/"
         hreflangs = f"""  <link rel="canonical" href="{canonical_url}">"""
@@ -481,7 +538,10 @@ def render_page(title: str, content: str, prefix: str = "../", slug: str = None,
   <link rel="alternate" hreflang="it" href="https://coolpadelstudios.com/it/{category_slug}/">
   <link rel="alternate" hreflang="x-default" href="https://coolpadelstudios.com/{category_slug}/">"""
 
-    if not meta_desc:
+    aeo_entry = LLAVEROS_AEO_DATA.get(slug, {}) if slug else {}
+    if aeo_entry.get("desc"):
+        meta_desc = aeo_entry["desc"]
+    elif not meta_desc:
         if is_padel:
             meta_desc = "Fabricante de llaveros de pádel personalizados en goma 3D con forma de pala y logo oficial. Pedidos desde 100 uds y muestra física real por 15€."
         else:
@@ -489,6 +549,7 @@ def render_page(title: str, content: str, prefix: str = "../", slug: str = None,
 
     clean_desc = re.sub(r'\s+', ' ', meta_desc).strip()
     safe_desc = html.escape(clean_desc)[:160]
+    faq_answer = aeo_entry.get("answer", clean_desc)
 
     og_image = "https://coolpadelstudios.com/assets/images/llaveros-padel-personalizados-clubs.jpg" if is_padel else "https://coolpadelstudios.com/assets/images/llaveros-tenis-personalizados-clubs.jpg"
 
@@ -500,6 +561,10 @@ def render_page(title: str, content: str, prefix: str = "../", slug: str = None,
       "description": {json.dumps(safe_desc)},
       "mainEntityOfPage": "{canonical_url}",
       "inLanguage": "es",
+      "speakable": {{
+        "@type": "SpeakableSpecification",
+        "cssSelector": ["article h1", "article p:first-of-type"]
+      }},
       "author": {{
         "@type": "Person",
         "name": "Javier Villoria",
@@ -509,8 +574,37 @@ def render_page(title: str, content: str, prefix: str = "../", slug: str = None,
         "@type": "Organization",
         "name": "CoolPadel Studios",
         "url": "https://coolpadelstudios.com",
-        "logo": "https://coolpadelstudios.com/assets/images/coolpadel-mascot-hd.png"
+        "logo": "https://coolpadelstudios.com/assets/images/coolpadel-mascot-hd.png",
+        "sameAs": [
+          "https://www.instagram.com/coolpadel_/",
+          "https://www.linkedin.com/in/javier-villoria-soleto-606737298/",
+          "https://maps.google.com/?cid=5000443597205028051"
+        ]
       }}
+    }}""")
+        schema_parts.append(f"""    {{
+      "@type": "BreadcrumbList",
+      "@id": "{canonical_url}#breadcrumb",
+      "itemListElement": [
+        {{
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Inicio",
+          "item": "https://coolpadelstudios.com/"
+        }},
+        {{
+          "@type": "ListItem",
+          "position": 2,
+          "name": "{cat_label}",
+          "item": "https://coolpadelstudios.com/{category_slug}/"
+        }},
+        {{
+          "@type": "ListItem",
+          "position": 3,
+          "name": {json.dumps(title)},
+          "item": "{canonical_url}"
+        }}
+      ]
     }}""")
         schema_parts.append(f"""    {{
       "@type": "FAQPage",
@@ -519,7 +613,7 @@ def render_page(title: str, content: str, prefix: str = "../", slug: str = None,
         "name": {json.dumps(title)},
         "acceptedAnswer": {{
           "@type": "Answer",
-          "text": {json.dumps(safe_desc)}
+          "text": {json.dumps(faq_answer)}
         }}
       }}]
     }}""")
@@ -541,6 +635,24 @@ def render_page(title: str, content: str, prefix: str = "../", slug: str = None,
         "offerCount": "4",
         "availability": "https://schema.org/InStock"
       }}
+    }}""")
+        schema_parts.append(f"""    {{
+      "@type": "BreadcrumbList",
+      "@id": "{canonical_url}#breadcrumb",
+      "itemListElement": [
+        {{
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Inicio",
+          "item": "https://coolpadelstudios.com/"
+        }},
+        {{
+          "@type": "ListItem",
+          "position": 2,
+          "name": "{cat_label}",
+          "item": "{canonical_url}"
+        }}
+      ]
     }}""")
         schema_parts.append(f"""    {{
       "@type": "HowTo",
@@ -567,22 +679,23 @@ def render_page(title: str, content: str, prefix: str = "../", slug: str = None,
     schema_json = '<script type="application/ld+json">\n{\n  "@context": "https://schema.org",\n  "@graph": [\n' + ',\n'.join(schema_parts) + '\n  ]\n}\n</script>'
 
     header_html = get_header(prefix)
+    seo_title = f"{title} | CoolPadel" if len(title) <= 55 else title
 
     html_out = f"""<!doctype html>
 <html lang="es">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{html.escape(title)} | CoolPadel</title>
+  <title>{html.escape(seo_title)}</title>
   <meta name="description" content="{safe_desc}">
 {hreflangs}
   <meta property="og:type" content="{"article" if slug else "website"}">
-  <meta property="og:title" content="{html.escape(title)} | CoolPadel">
+  <meta property="og:title" content="{html.escape(seo_title)}">
   <meta property="og:description" content="{safe_desc}">
   <meta property="og:url" content="{canonical_url}">
   <meta property="og:image" content="{og_image}">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="{html.escape(title)} | CoolPadel">
+  <meta name="twitter:title" content="{html.escape(seo_title)}">
   <meta name="twitter:description" content="{safe_desc}">
   <meta name="twitter:image" content="{og_image}">
   <link rel="alternate" type="text/markdown" href="https://coolpadelstudios.com/llms.txt" title="LLMs.txt">

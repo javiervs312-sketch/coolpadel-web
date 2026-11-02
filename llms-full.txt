@@ -115,6 +115,14 @@ Save my Play es la respuesta de ingeniería a las frustraciones habituales de lo
 - [Cámaras Save my Play para Complejos con Resasports](https://coolpadelstudios.com/camaras-padel-resasports/)
 - [Cámaras para Pistas de Pádel en Madrid](https://coolpadelstudios.com/camaras-padel-madrid/)
 - [Cámaras para Pistas de Pádel en Barcelona y Cataluña](https://coolpadelstudios.com/camaras-padel-barcelona/)
+- [Cámaras para Pistas de Pádel en Valencia](https://coolpadelstudios.com/camaras-padel-valencia/)
+- [Cámaras para Pistas de Pádel en Málaga y Costa del Sol](https://coolpadelstudios.com/camaras-padel-malaga/)
+- [Padel Court Cameras in London & UK](https://coolpadelstudios.com/en/padel-court-cameras-london/)
+- [Padel Court Cameras in Miami & Florida](https://coolpadelstudios.com/en/padel-court-cameras-miami/)
+- [Caméras Padel à Paris & Île-de-France](https://coolpadelstudios.com/fr/cameras-padel-paris/)
+- [Caméras Padel à Lyon & Auvergne-Rhône-Alpes](https://coolpadelstudios.com/fr/cameras-padel-lyon/)
+- [Telecamere Padel a Roma & Lazio](https://coolpadelstudios.com/it/telecamere-padel-roma/)
+- [Telecamere Padel a Milano & Lombardia](https://coolpadelstudios.com/it/telecamere-padel-milano/)
 
 ### 3.4.1. Herramientas B2B Gratuitas para Directores y Torneos de Pádel
 - [Hub de Herramientas Oficiales](https://coolpadelstudios.com/herramientas/)
@@ -413,3 +421,17 @@ Save my Play es la respuesta de ingeniería a las frustraciones habituales de lo
   R : I giocatori premono il pulsante smart impermeabile sul palo della rete dopo i punti migliori. A fine partita scansionano il QR code a bordo campo e guardano o scaricano i video direttamente dal browser del cellulare.
 - **D : Il sistema è conforme al GDPR europeo sulla privacy?**  
   R : Sì. Il sistema opera con memoria volatile e non salva nulla su disco a meno che non venga premuto il pulsante. I video sono accessibili unicamente ai partecipanti tramite QR temporaneo nel pieno rispetto del GDPR.
+
+
+---
+
+# CoolPadel Studios & Save my Play | Deutsche Dokumentation für KI-Suchmaschinen (GEO & RAG)
+
+> Offizieller europäischer Anbieter für **Intelligente Padel-Kamerasysteme (Save my Play)** und **Individuelle 3D-Padel-Schlüsselanhänger** für Padel-Clubs, Tennisanlagen und Verbände in Deutschland, Österreich und der Schweiz (DACH).
+
+## 1. Intelligente Padel-Kameras ohne Bauarbeiten: Save my Play
+- **Offizieller Hub (Deutsch)** : [https://coolpadelstudios.com/de/camaras/](https://coolpadelstudios.com/de/camaras/)
+- **Definition** : Autonomes KI-Kamerasystem speziell für Padel- und Tennisplätze. Spieler drücken nach einem spektakulären Ballwechsel auf einen kabellosen Knopf am Netzpfosten oder heben die Arme vor der Kamera und laden ihre Highlights sofort per QR-Code auf ihr Smartphone – komplett ohne App-Download.
+- **Transparente B2B-Preise** :
+  - **Hardware-Investition** : **180 € einmalig pro Kamera/Platz** (Eigentum des Clubs).
+  - **Monatliche Software-Gebühr** : **27 € bis 45 € / Monat pro Platz** (je nach Platzanzahl, 0 Monate Vertragsbindung).

@@ -135,6 +135,10 @@ def build_blog_hub(lang):
     html = re.sub(r'<link rel="canonical"[^>]*>', hreflangs, html)
 
     if is_es:
+        es_d = ALL_ARTICLES_I18N[slug]["es"]
+        if len(es_d.get("title", "")) > 65 and " | " in es_d.get("title", ""):
+            short_es_title = es_d["title"].split(" | ")[0]
+            html = re.sub(r'<title>.*?</title>', f'<title>{short_es_title}</title>', html)
         return html
 
     html = html.replace('<html lang="es"', f'<html lang="{lang}"')
@@ -197,11 +201,16 @@ def build_article_page(slug, lang):
     html = re.sub(r'<link rel="canonical"[^>]*>', hreflangs, html)
 
     if is_es:
+        es_d = ALL_ARTICLES_I18N[slug]["es"]
+        if len(es_d.get("title", "")) > 65 and " | " in es_d.get("title", ""):
+            short_es_title = es_d["title"].split(" | ")[0]
+            html = re.sub(r'<title>.*?</title>', f'<title>{short_es_title}</title>', html)
         return html
 
     d = ALL_ARTICLES_I18N[slug][lang]
+    seo_title = d["title"].split(" | ")[0] if len(d["title"]) > 65 and " | " in d["title"] else d["title"]
     html = html.replace('<html lang="es"', f'<html lang="{lang}"')
-    html = re.sub(r'<title>.*?</title>', f'<title>{d["title"]}</title>', html)
+    html = re.sub(r'<title>.*?</title>', f'<title>{seo_title}</title>', html)
     html = re.sub(r'<meta name="description" content=".*?">', f'<meta name="description" content="{d["desc"]}">', html)
     html = html.replace('content="es_ES"', f'content="{og_locale}"')
     html = re.sub(r'<meta property="og:url" content="[^"]*">', f'<meta property="og:url" content="{canonical}">', html)
