@@ -234,7 +234,7 @@ h3 { font-size: 22px; margin: 0 0 12px; }
 .card-action:active { background: #76d3f6; transform: scale(.98); }
 .bg-textured-blue {
   background-color: #3478a6;
-  background-image: linear-gradient(rgba(52, 120, 166, 0.40), rgba(52, 120, 166, 0.40)), url('../assets/images/branding/textura_editorial_coolpadel.webp');
+  background-image: linear-gradient(rgba(52, 120, 166, 0.40), rgba(52, 120, 166, 0.40)), url('/assets/images/branding/textura_editorial_coolpadel.webp');
   background-blend-mode: normal, soft-light;
   background-size: cover;
   background-position: center;

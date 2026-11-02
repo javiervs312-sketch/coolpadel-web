@@ -698,7 +698,7 @@ HUB_CSS = """
   margin-left: -50vw;
   margin-right: -50vw;
   background-color: #3478a6;
-  background-image: linear-gradient(rgba(52, 120, 166, 0.40), rgba(52, 120, 166, 0.40)), url('../assets/images/branding/textura_editorial_coolpadel.webp');
+  background-image: linear-gradient(rgba(52, 120, 166, 0.40), rgba(52, 120, 166, 0.40)), url('/assets/images/branding/textura_editorial_coolpadel.webp');
   background-blend-mode: normal, soft-light;
   background-size: cover;
   background-position: center;
