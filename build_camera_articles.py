@@ -267,12 +267,21 @@ def load_articles() -> list[dict]:
         if curr:
             blocks.append("\n".join(curr))
 
-        # Placeholder for coaching tools if empty
-        if slug == "que-son-las-coaching-tools" and not blocks:
+        # Coaching tools real content
+        if slug == "que-son-las-coaching-tools":
             blocks = [
-                "Próximamente explicaremos al detalle cómo funcionan las coaching tools en pista."
+                "Las coaching tools son la herramienta pensada para que los monitores de pádel le saquen un rendimiento real a las cámaras durante las clases de la escuela.",
+                "En lugar de esperar a que termine el partido, el entrenador tiene una tablet conectada a la pista. Puede pausar el punto que acaba de jugar el alumno, tirar de moviola hacia atrás y mostrarle en el acto qué ha hecho bien o en qué se ha equivocado de posición.",
+                "Sobre la propia pantalla de la tablet, el monitor puede dibujar líneas de trayectoria, ángulos de pala y zonas donde debería haber botado la bola. Todo queda grabado con su voz explicativa.",
+                "Al finalizar la sesión, el alumno recibe un enlace directo en su WhatsApp con los 3 o 4 clips comentados por su profesor. Es una forma brutal de diferenciar tu escuela de la del club vecino y fidelizar a los alumnos que buscan tecnificación."
             ]
 
+        if slug == "mejores-empresas-camaras-padel-espana":
+            new_blocks = []
+            for b in blocks:
+                b_fixed = b.replace("Link a por qué no conoces Save My Play", '<a href="../por-que-no-conocia-save-my-play/">aquí te cuento por qué apenas se conocía en España</a>')
+                new_blocks.append(b_fixed)
+            blocks = new_blocks
         clean_blocks = [clean_body(b) for b in blocks if b.strip()]
         articles.append({"slug": slug, "title": title, "blocks": clean_blocks})
 

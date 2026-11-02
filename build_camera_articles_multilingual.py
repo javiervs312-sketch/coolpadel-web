@@ -24,6 +24,10 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent
 from build_camera_articles import ARTICLE_IMAGES, RELATED_MAP, load_articles
 from camaras_fr_data import FR_ARTICLES_DATA, FR_VIDEOS
+try:
+    from camaras_aeo_data import AEO_FAQS_AND_DESCS
+except ImportError:
+    AEO_FAQS_AND_DESCS = {}
 
 # Cargar diccionarios i18n si existen
 try:
@@ -220,12 +224,27 @@ def render_page(title: str, content: str, lang: str, prefix: str = "/", slug: st
 
     schema_parts = []
     if slug:
+        # AEO direct answer
+        aeo_entry = AEO_FAQS_AND_DESCS.get(lang, {}).get(slug, {})
+        if not aeo_entry and lang != "es":
+            aeo_entry = AEO_FAQS_AND_DESCS.get("es", {}).get(slug, {})
+        faq_answer = aeo_entry.get("answer", safe_desc) if aeo_entry else safe_desc
+
+        home_label = "Inicio" if lang == "es" else ("Accueil" if lang == "fr" else "Home")
+        camaras_label = "Cámaras" if lang == "es" else ("Caméras" if lang == "fr" else ("Kameras" if lang == "de" else ("Telecamere" if lang == "it" else "Cameras")))
+        canonical_base = "https://coolpadelstudios.com/"
+        camaras_cat_url = f"{canonical_base}camaras/" if lang == "es" else f"{canonical_base}{lang}/camaras/"
+
         schema_parts.append(f"""    {{
       "@type": "Article",
       "headline": {json.dumps(title)},
       "description": {json.dumps(safe_desc)},
       "mainEntityOfPage": "{canonical_url}",
       "inLanguage": "{lang}",
+      "speakable": {{
+        "@type": "SpeakableSpecification",
+        "cssSelector": [".article-title", ".article-body p:first-of-type"]
+      }},
       "author": {{
         "@type": "Person",
         "name": "Javier Villoria",
@@ -235,8 +254,37 @@ def render_page(title: str, content: str, lang: str, prefix: str = "/", slug: st
         "@type": "Organization",
         "name": "CoolPadel Studios",
         "url": "https://coolpadelstudios.com",
-        "logo": "https://coolpadelstudios.com/assets/images/coolpadel-mascot-hd.png"
+        "logo": "https://coolpadelstudios.com/assets/images/coolpadel-mascot-hd.png",
+        "sameAs": [
+          "https://www.instagram.com/coolpadel_/",
+          "https://www.linkedin.com/in/javier-villoria-soleto-606737298/",
+          "https://maps.google.com/?cid=5000443597205028051"
+        ]
       }}
+    }}""")
+        schema_parts.append(f"""    {{
+      "@type": "BreadcrumbList",
+      "@id": "{canonical_url}#breadcrumb",
+      "itemListElement": [
+        {{
+          "@type": "ListItem",
+          "position": 1,
+          "name": "{home_label}",
+          "item": "{canonical_base}{lang + '/' if lang != 'es' else ''}"
+        }},
+        {{
+          "@type": "ListItem",
+          "position": 2,
+          "name": "{camaras_label}",
+          "item": "{camaras_cat_url}"
+        }},
+        {{
+          "@type": "ListItem",
+          "position": 3,
+          "name": {json.dumps(title)},
+          "item": "{canonical_url}"
+        }}
+      ]
     }}""")
         schema_parts.append(f"""    {{
       "@type": "FAQPage",
@@ -245,7 +293,7 @@ def render_page(title: str, content: str, lang: str, prefix: str = "/", slug: st
         "name": {json.dumps(title)},
         "acceptedAnswer": {{
           "@type": "Answer",
-          "text": {json.dumps(safe_desc)}
+          "text": {json.dumps(faq_answer)}
         }}
       }}]
     }}""")
@@ -502,6 +550,32 @@ def build_all():
                     block_paragraphs = f"<p>{block}</p>"
                 body_html_parts.append(f'<div class="article-block">\n{block_paragraphs}\n</div>')
 
+            # Inyección de tabla comparativa o herramienta de ROI
+            if slug == "cuanto-cuesta-poner-camaras" or slug == "es-rentable-poner-camaras":
+                roi_card_title = "Calcula el retorno de inversión exacto para tu club" if lang == "es" else ("Calculate exact court camera ROI" if lang == "en" else "Calculez le retour sur investissement")
+                roi_card_desc = "Prueba nuestra calculadora interactiva con el desglose de amortización mensual según tu número de pistas y reservas." if lang == "es" else "Use our free interactive tool to simulate monthly break-even and margins."
+                roi_btn_label = "Abrir Calculadora ROI" if lang == "es" else ("Open ROI Calculator" if lang == "en" else "Ouvrir le calculateur")
+                tool_url = "/herramientas/calculadora-roi-camaras-padel/" if lang == "es" else f"/{lang}/herramientas/calculadora-roi-camaras-padel/"
+                body_html_parts.append(f'''<div class="article-block">
+  <div class="bg-gradient-to-br from-amber-500/10 via-slate-100 to-slate-50 border-2 border-[#f2920b]/40 rounded-2xl p-6 sm:p-7 shadow-xs">
+    <div class="flex items-start gap-3 sm:gap-4">
+      <div class="w-10 h-10 rounded-xl bg-[#f2920b] text-slate-950 flex items-center justify-center shrink-0 shadow-sm mt-0.5">
+        <i data-lucide="calculator" class="w-5 h-5 stroke-[2.5]"></i>
+      </div>
+      <div class="space-y-2 flex-grow">
+        <h3 class="font-heading font-black text-base sm:text-lg text-slate-950 m-0">{roi_card_title}</h3>
+        <p class="text-sm text-slate-600 m-0 leading-relaxed">{roi_card_desc}</p>
+        <div class="pt-2">
+          <a href="{tool_url}" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-[#f2920b] hover:bg-[#d98006] text-slate-950 font-heading font-black text-xs uppercase tracking-wider transition shadow-sm hover:scale-105 active:scale-95">
+            <span>{roi_btn_label}</span>
+            <i data-lucide="arrow-right" class="w-3.5 h-3.5 stroke-[3]"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>''')
+
             # Video embed si corresponde
             if slug in videos_data:
                 v_title, v_desc, v_url = videos_data[slug]
@@ -578,16 +652,22 @@ def build_all():
                 elif isinstance(b, str) and b.strip():
                     all_paras.append(re.sub(r'<[^>]+>', '', b).strip())
             
-            # Find the best paragraph of at least 50 chars, or combine first paragraphs
-            chosen_desc = ""
-            for p in all_paras:
-                if len(p) >= 50:
-                    chosen_desc = p
-                    break
-            if not chosen_desc and all_paras:
-                chosen_desc = " ".join(all_paras[:2])
-            if not chosen_desc or len(chosen_desc) < 40:
-                chosen_desc = f"{title}. Guia de instalacion, costes y funcionamiento de Save my Play para clubs de padel."
+            # Prioritize dedicated AEO meta description
+            aeo_info = AEO_FAQS_AND_DESCS.get(lang, {}).get(slug, {})
+            if not aeo_info and lang != "es":
+                aeo_info = AEO_FAQS_AND_DESCS.get("es", {}).get(slug, {})
+            if aeo_info and "desc" in aeo_info:
+                chosen_desc = aeo_info["desc"]
+            else:
+                chosen_desc = ""
+                for p in all_paras:
+                    if len(p) >= 50:
+                        chosen_desc = p
+                        break
+                if not chosen_desc and all_paras:
+                    chosen_desc = " ".join(all_paras[:2])
+                if not chosen_desc or len(chosen_desc) < 40:
+                    chosen_desc = f"{title}. Guia de instalacion, costes y funcionamiento de Save my Play para clubs de padel."
 
             v_meta = videos_data.get(slug)
             art_file.write_text(render_page(title, article_page_content, lang, prefix="../../../../" if lang != "es" else "../../../", slug=slug, meta_desc=chosen_desc, video_meta=v_meta), encoding="utf-8")
