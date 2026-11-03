@@ -640,6 +640,27 @@ def build_all():
                     block_paragraphs = f"<p>{block}</p>"
                 body_html_parts.append(f'<div class="article-block">\n{block_paragraphs}\n</div>')
 
+            # Inyección de imagen de ejemplo en artículo de cámaras de pádel vs videovigilancia
+            if slug == "camaras-de-padel-o-videovigilancia":
+                caption_text = {
+                    "es": "Ejemplo real de cámara de videovigilancia adaptada a pista de pádel: distorsión ojo de pez y líneas claramente curvadas.",
+                    "en": "Real example of a surveillance camera on a padel court: fisheye distortion and visibly curved court lines.",
+                    "fr": "Exemple réel d'une caméra de surveillance adaptée au padel : distorsion œil-de-bœuf et lignes de terrain incurvées.",
+                    "it": "Esempio reale di telecamera di videosorveglianza adattata al campo da padel: distorsione a occhio di pesce e linee curve.",
+                    "de": "Reales Beispiel einer Überwachungskamera auf dem Padel-Platz: Fisheye-Verzerrung und sichtbar gekrümmte Linien.",
+                }.get(lang, "Ejemplo de cámara de videovigilancia adaptada a pista de pádel.")
+
+                example_img_block = f'''<div class="article-block">
+  <div class="rounded-2xl overflow-hidden border border-slate-200/90 shadow-sm bg-slate-950">
+    <img src="/assets/images/camaras/ejemplo-camara-vigilancia-padel.jpg" alt="{html.escape(caption_text)}" width="1280" height="720" class="w-full h-auto object-cover" loading="lazy">
+  </div>
+  <p class="text-xs sm:text-sm text-slate-500 text-center italic mt-2.5">{caption_text}</p>
+</div>'''
+                if len(body_html_parts) >= 1:
+                    body_html_parts.insert(1, example_img_block)
+                else:
+                    body_html_parts.append(example_img_block)
+
             # Inyección de tabla comparativa o herramienta de ROI
             if slug == "cuanto-cuesta-poner-camaras" or slug == "es-rentable-poner-camaras":
                 roi_card_title = "Calcula el retorno de inversión exacto para tu club" if lang == "es" else ("Calculate exact court camera ROI" if lang == "en" else "Calculez le retour sur investissement")
