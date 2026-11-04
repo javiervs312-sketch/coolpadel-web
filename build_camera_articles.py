@@ -433,7 +433,7 @@ KEY_BOLDS = {
 
 def inline_links(text: str, current_slug: str) -> str:
     text = text.replace(" xxxx", "").replace(" xxx", "")
-    if "Plan A:" in text and "(Link)" in text:
+    if ("Plan A:" in text or "No se lo recomiendo al 95" in text) and "(Link)" in text:
         text = text.replace(
             "(Link)",
             "[[LINK:por-que-no-recomiendo-plan-analytics|¿Por qué no recomiendo el plan de 136 € al mes al 95 % de los clubs?]]",

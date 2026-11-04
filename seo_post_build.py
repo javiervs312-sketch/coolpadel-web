@@ -117,6 +117,11 @@ def build_blog_silo_mesh(current_slug):
         <div>
           <h3 class="font-heading font-black text-xs uppercase tracking-wider text-[#76d3f6] mb-3">Soluciones B2B &amp; Save my Play</h3>
           <ul class="space-y-2 text-xs">
+            <li><a href="/camaras/" class="text-white font-bold hover:text-[#f2920b] transition">→ Hub Cámaras para Clubs de Pádel (20 Guías)</a></li>
+            <li><a href="/camaras/articulos/cuanto-cuesta-poner-camaras/" class="text-slate-300 hover:text-[#76d3f6] transition">→ ¿Cuánto Cuesta Poner Cámaras en mi Club?</a></li>
+            <li><a href="/camaras/articulos/errores-clubs-se-arrepienten-de-poner-camaras/" class="text-slate-300 hover:text-[#76d3f6] transition">→ Los 3 Errores al Instalar Cámaras de Pádel</a></li>
+            <li><a href="/camaras/articulos/mejores-empresas-camaras-padel-espana/" class="text-slate-300 hover:text-[#76d3f6] transition">→ Mejores Empresas de Cámaras de Pádel</a></li>
+            <li><a href="/camaras/articulos/camaras-de-padel-o-videovigilancia/" class="text-slate-300 hover:text-[#76d3f6] transition">→ Cámaras de Pádel vs Videovigilancia CCTV</a></li>
             <li><a href="/save-my-play/" class="text-white font-bold hover:text-[#76d3f6] transition">→ Hub Oficial Save my Play España</a></li>
             <li><a href="/camaras-grabacion-pistas-padel/" class="text-slate-300 hover:text-[#76d3f6] transition">→ Grabación de Partidos sin Obras</a></li>
             <li><a href="/camaras-padel-playtomic/" class="text-slate-300 hover:text-[#76d3f6] transition">→ Cámaras para Clubes con Playtomic</a></li>

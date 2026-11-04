@@ -8,10 +8,11 @@ Aplica estrictamente las directrices aprobadas:
    con ruta absoluta `/assets/images/branding/textura_editorial_coolpadel.webp`.
 2. Texto del banner intro en blanco puro (#ffffff), tamaño uniforme 19px, interlineado amplio y espaciado de 28px.
 3. Artículos con espaciado de 56px entre bloques (.article-block) y 12px entre párrafos.
-4. Negritas clave preservadas sin saturar.
+4. Negritas clave preservadas sin saturar y subtítulos semánticos <h2> para SEO/GEO.
 5. Recomendaciones rotativas (el siguiente de la lista en primer lugar + 2 variados).
 6. Calendly embebido con el parámetro `locale=<lang>` correspondiente.
-7. Cero consumo de tokens en compilaciones recurrentes.
+7. Footer oficial de silos SEO (CoolPadel) integrado para enlazado interno.
+8. Cero consumo de tokens en compilaciones recurrentes.
 """
 
 from __future__ import annotations
@@ -22,12 +23,21 @@ import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
-from build_camera_articles import ARTICLE_IMAGES, RELATED_MAP, load_articles
+from build_camera_articles import (
+    ARTICLE_IMAGES,
+    RELATED_MAP,
+    format_sentence_item,
+    inline_links,
+    load_articles,
+    split_into_sentences,
+)
+from build_blog import get_silo_footer_html
 from camaras_fr_data import FR_ARTICLES_DATA, FR_VIDEOS
 try:
-    from camaras_aeo_data import AEO_FAQS_AND_DESCS
+    from camaras_aeo_data import AEO_FAQS_AND_DESCS, HUB_SEO_META
 except ImportError:
     AEO_FAQS_AND_DESCS = {}
+    HUB_SEO_META = {}
 
 # Cargar diccionarios i18n si existen
 try:
@@ -58,7 +68,7 @@ ARTICLE_ORDER = [
     "por-que-no-me-interesa-venderte-una-camara",
 ]
 
-# Textura azul táctil idéntica al blog oficial
+# Textura azul táctil idéntica al blog oficial y al footer
 TEXTURE_CSS = """
 .intro-full-band {
   width: 100vw;
@@ -77,6 +87,13 @@ TEXTURE_CSS = """
   border-bottom: 1px solid rgba(255, 255, 255, 0.15);
   box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.08);
 }
+.bg-textured-blue {
+  background-color: #3478a6;
+  background-image: linear-gradient(rgba(52, 120, 166, 0.40), rgba(52, 120, 166, 0.40)), url('/assets/images/branding/textura_editorial_coolpadel.webp');
+  background-blend-mode: normal, soft-light;
+  background-size: cover;
+  background-position: center;
+}
 .intro { max-width: 880px; margin: 0 auto; color: #ffffff; font-size: 19px; line-height: 1.6; text-align: center; }
 .intro p { margin: 0 0 28px; color: #ffffff !important; font-size: 19px !important; font-weight: 500; }
 .intro p:last-child { margin-bottom: 0; }
@@ -87,7 +104,7 @@ ARTICLE_CSS = """
 body { margin: 0; font-family: var(--font-sans); color: #0f172a; background: #ffffff; line-height: 1.7; -webkit-font-smoothing: antialiased; }
 .article-container { max-width: 820px; margin: 0 auto; padding: 48px 20px 80px; }
 .article-header { margin-bottom: 32px; }
-.back-link { display: inline-flex; items-center: center; gap: 8px; color: #64748b; font-size: 14px; font-weight: 600; text-decoration: none; margin-bottom: 24px; transition: color .2s; }
+.back-link { display: inline-flex; align-items: center; gap: 8px; color: #64748b; font-size: 14px; font-weight: 600; text-decoration: none; margin-bottom: 24px; transition: color .2s; }
 .back-link:hover { color: #f2920b; }
 .article-title { font-family: var(--font-heading); font-size: clamp(30px, 4vw, 44px); font-weight: 900; line-height: 1.15; color: #0f172a; margin: 0 0 24px; letter-spacing: -0.02em; }
 .article-hero-img { width: 100%; aspect-ratio: 16/9; object-fit: cover; border-radius: 16px; margin: 0 0 36px; border: 1px solid #e2e8f0; }
@@ -98,6 +115,28 @@ body { margin: 0; font-family: var(--font-sans); color: #0f172a; background: #ff
 .article-body strong { color: #0f172a; font-weight: 700; }
 .article-body a { color: #0284c7; text-decoration: underline; text-underline-offset: 3px; font-weight: 600; }
 .article-body a:hover { color: #0369a1; }
+.article-subheading {
+  font-family: var(--font-heading);
+  margin: 32px 0 14px;
+  font-size: clamp(21px, 2.8vw, 26px);
+  font-weight: 900;
+  color: #0f172a;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+}
+.article-subheading:first-child { margin-top: 0; }
+.article-subheading .subheading-title {
+  display: inline-block;
+  border-bottom: 3px solid #f2920b;
+  padding-bottom: 4px;
+}
+.list-item-line { margin: 8px 0; font-size: 18px; }
+.list-badge {
+  display: inline-block;
+  min-width: 28px;
+  font-weight: 900;
+  color: #f2920b;
+}
 .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 16px; margin: 32px 0; border: 1px solid #e2e8f0; }
 .video-wrapper iframe { position: absolute; top:0; left: 0; width: 100%; height: 100%; border: 0; }
 .related-section { margin-top: 64px; padding-top: 40px; border-top: 1px solid #e2e8f0; }
@@ -108,7 +147,7 @@ body { margin: 0; font-family: var(--font-sans); color: #0f172a; background: #ff
 .related-card img { width: 100%; aspect-ratio: 16/9; object-fit: cover; border-radius: 8px; margin-bottom: 10px; }
 .related-card-title { font-size: 14px; font-weight: 700; color: #0f172a; line-height: 1.35; margin: 0; }
 .cta-box { margin-top: 56px; padding: 32px; border-radius: 16px; background: #f8fafc; border: 2px solid #f2920b; text-align: center; }
-.cta-box h3 { font-family: var(--font-heading); font-size: 24px; font-weight: 800; color: #0f172a; margin: 0 0 12px; }
+.cta-box h2, .cta-box h3 { font-family: var(--font-heading); font-size: 24px; font-weight: 800; color: #0f172a; margin: 0 0 12px; }
 .cta-box p { font-size: 16px; color: #475569; margin: 0 0 24px; }
 @media (max-width: 768px) {
   .related-grid { grid-template-columns: 1fr; }
@@ -132,14 +171,70 @@ HUB_BASE_CSS = """
 @media (max-width: 760px) { .hub-hero { margin: 18px auto 38px; text-align: left; } .hub-title { white-space: normal; } .intro { margin: 0; } .article-grid { grid-template-columns: 1fr; } }
 """ + TEXTURE_CSS
 
+
+I18N_SUBHEADING_RE = re.compile(
+    r"^(Error \d+:|ERROR EXTRA:|Mistake \d+:|EXTRA BUG:|Erreur \d+\s*:|Errore \d+:|ERRORE EXTRA:|Fehler \d+:|EXTRA-FEHLER:|Conclusion\s*:|Conclusione:|Fazit:)\s*(.*)$",
+    re.IGNORECASE,
+)
+I18N_INLINE_HEADING_RE = re.compile(
+    r"^<strong>(Plan [A-Z]\s*:[^<]*|Piano [A-Z]\s*:[^<]*|Padmi\s*:|Aiball\s*:|Rackety\s*:|Investissement initial[^<]*|Initial hardware investment[^<]*|Investimento iniziale[^<]*|Einmalige Anfangsinvestition[^<]*)</strong>\s*(.*)$",
+    re.IGNORECASE,
+)
+I18N_LIST_RE = re.compile(r"^(\d+[º°oa\.]\s*)(.*)$")
+
+
+def format_i18n_paragraph(p: str) -> str:
+    """Format an already-translated paragraph (FR, EN, IT, DE) with semantic <h2> subheadings and list badges."""
+    p = p.strip()
+    if not p:
+        return ""
+    m_sub = I18N_SUBHEADING_RE.match(p)
+    if m_sub:
+        label = m_sub.group(1).strip()
+        rest = m_sub.group(2).strip()
+        if any(label.lower().startswith(k) for k in ("error", "mistake", "erreur", "errore", "fehler", "extra")):
+            return f'<h2 class="article-subheading"><span class="subheading-title">{html.escape(p)}</span></h2>'
+        else:
+            out = f'<h2 class="article-subheading"><span class="subheading-title">{html.escape(label)}</span></h2>'
+            if rest:
+                out += f"\n<p>{rest}</p>"
+            return out
+
+    m_inline = I18N_INLINE_HEADING_RE.match(p)
+    if m_inline:
+        heading_label = m_inline.group(1).strip()
+        rest = m_inline.group(2).strip()
+        out = f'<h2 class="article-subheading"><span class="subheading-title">{html.escape(heading_label)}</span></h2>'
+        if rest:
+            out += f"\n<p>{rest}</p>"
+        return out
+
+    m_list = I18N_LIST_RE.match(p)
+    if m_list:
+        num = m_list.group(1).strip()
+        rest = m_list.group(2).strip()
+        return f'<p class="list-item-line"><strong class="list-badge">{html.escape(num)}</strong> {rest}</p>'
+
+    return f"<p>{p}</p>"
+
+
+def format_es_sentence(raw: str, slug: str) -> str:
+    """Use build_camera_articles's formatter and upgrade <h3 class="article-subheading"> to semantic <h2>."""
+    rendered = format_sentence_item(raw, slug)
+    rendered = rendered.replace('<h3 class="article-subheading">', '<h2 class="article-subheading">').replace("</h3>", "</h2>")
+    return rendered
+
+
 def get_header(lang: str, prefix: str, slug: str = None) -> str:
     """Genera cabecera con selector multilingüe y URLs canónicas de idiomas."""
     home_url = "/" if lang == "es" else f"/{lang}/"
-    llaveros_url = f"/{lang}/llaveros-padel-personalizados/" if lang != "es" else "/llaveros-padel-personalizados/"
+    # En alemán (/de/) solo existe el hub de cámaras; las demás secciones enlazan a /en/ o /
+    base_nav_lang = "en" if lang == "de" else lang
+    llaveros_url = f"/{base_nav_lang}/llaveros-padel-personalizados/" if base_nav_lang != "es" else "/llaveros-padel-personalizados/"
     camaras_url = f"/{lang}/camaras/" if lang != "es" else "/camaras/"
-    blog_url = f"/{lang}/blog/" if lang != "es" else "/blog/"
-    franquicias_url = f"/{lang}/franquicias-padel/" if lang != "es" else "/franquicias-padel/"
-    contact_url = f"/{lang}/#contacto" if lang != "es" else "/#contacto"
+    blog_url = f"/{base_nav_lang}/blog/" if base_nav_lang != "es" else "/blog/"
+    franquicias_url = f"/{base_nav_lang}/franquicias-padel/" if base_nav_lang != "es" else "/franquicias-padel/"
+    contact_url = f"/{base_nav_lang}/#contacto" if base_nav_lang != "es" else "/#contacto"
 
     nav_llaveros = {
         "es": "LLAVEROS", "en": "KEYRINGS", "fr": "PORTE-CLÉS", "it": "PORTACHIAVI", "de": "SCHLÜSSELANHÄNGER"
@@ -173,7 +268,7 @@ def get_header(lang: str, prefix: str, slug: str = None) -> str:
     </a>
     <div class="flex items-center gap-2 sm:gap-4 lg:gap-6">
       <a href="{llaveros_url}" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition whitespace-nowrap">{nav_llaveros}</a>
-      <a href="{camaras_url}" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition whitespace-nowrap">{nav_camaras}</a>
+      <a href="{camaras_url}" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-[#f2920b] transition whitespace-nowrap">{nav_camaras}</a>
       <a href="{blog_url}" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition whitespace-nowrap">Blog</a>
       <a href="{franquicias_url}" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition whitespace-nowrap">{nav_chains}</a>
       <div class="relative inline-block text-left" id="lang-dropdown-container">
@@ -198,8 +293,8 @@ def get_header(lang: str, prefix: str, slug: str = None) -> str:
 <div class="h-16 sm:h-20 w-full shrink-0" aria-hidden="true"></div>
 '''
 
+
 def render_page(title: str, content: str, lang: str, prefix: str = "/", slug: str = None, meta_desc: str = None, video_meta: tuple = None) -> str:
-    calendly_locale = lang if lang in ["es", "fr", "en", "it", "de"] else "en"
     lang_seg = f"{lang}/" if lang != "es" else ""
     if slug:
         canonical_url = f"https://coolpadelstudios.com/{lang_seg}camaras/articulos/{slug}/"
@@ -218,28 +313,44 @@ def render_page(title: str, content: str, lang: str, prefix: str = "/", slug: st
   <link rel="alternate" hreflang="de" href="https://coolpadelstudios.com/de/camaras/">
   <link rel="alternate" hreflang="x-default" href="https://coolpadelstudios.com/camaras/">"""
 
+    og_image = f"https://coolpadelstudios.com/assets/images/camaras/{ARTICLE_IMAGES.get(slug, 'camera-01.jpg')}" if slug else "https://coolpadelstudios.com/assets/images/savemyplay-1.jpg"
+    og_type = "article" if slug else "website"
+
+    # Resolver seo_title y meta_desc desde camaras_aeo_data
+    aeo_entry = {}
+    if slug:
+        aeo_entry = AEO_FAQS_AND_DESCS.get(lang, {}).get(slug, {}) or AEO_FAQS_AND_DESCS.get("es", {}).get(slug, {})
+        if not meta_desc and aeo_entry.get("desc"):
+            meta_desc = aeo_entry["desc"]
+        seo_title = aeo_entry.get("seo_title") or (f"{title} | CoolPadel" if len(title) <= 55 else title)
+    else:
+        hub_meta = HUB_SEO_META.get(lang, {}) or HUB_SEO_META.get("es", {})
+        if hub_meta.get("desc"):
+            meta_desc = hub_meta["desc"]
+        seo_title = hub_meta.get("seo_title") or f"{title} | Save my Play & CoolPadel"
+
     if not meta_desc:
-        meta_desc = f"{title} - CoolPadel Studios y Save my Play. Descubre costes, rentabilidad y grabacion inteligente en pista."
+        meta_desc = f"{title} - CoolPadel Studios y Save my Play. Descubre costes, rentabilidad y grabación inteligente en pista."
     clean_desc = re.sub(r'\s+', ' ', meta_desc).strip()
     safe_desc = html.escape(clean_desc)[:160]
 
     schema_parts = []
     if slug:
-        # AEO direct answer
-        aeo_entry = AEO_FAQS_AND_DESCS.get(lang, {}).get(slug, {})
-        if not aeo_entry and lang != "es":
-            aeo_entry = AEO_FAQS_AND_DESCS.get("es", {}).get(slug, {})
-        faq_answer = aeo_entry.get("answer", safe_desc) if aeo_entry else safe_desc
+        faq_answer = aeo_entry.get("answer", clean_desc) if aeo_entry else clean_desc
 
-        home_label = "Inicio" if lang == "es" else ("Accueil" if lang == "fr" else "Home")
+        home_label = "Inicio" if lang == "es" else ("Accueil" if lang == "fr" else ("Startseite" if lang == "de" else "Home"))
         camaras_label = "Cámaras" if lang == "es" else ("Caméras" if lang == "fr" else ("Kameras" if lang == "de" else ("Telecamere" if lang == "it" else "Cameras")))
         canonical_base = "https://coolpadelstudios.com/"
         camaras_cat_url = f"{canonical_base}camaras/" if lang == "es" else f"{canonical_base}{lang}/camaras/"
 
         schema_parts.append(f"""    {{
       "@type": "Article",
-      "headline": {json.dumps(title)},
-      "description": {json.dumps(safe_desc)},
+      "headline": {json.dumps(seo_title)},
+      "alternativeHeadline": {json.dumps(title)},
+      "description": {json.dumps(clean_desc)},
+      "image": ["{og_image}"],
+      "datePublished": "2026-10-15T09:00:00+02:00",
+      "dateModified": "2026-11-04T09:00:00+01:00",
       "mainEntityOfPage": "{canonical_url}",
       "inLanguage": "{lang}",
       "speakable": {{
@@ -249,13 +360,17 @@ def render_page(title: str, content: str, lang: str, prefix: str = "/", slug: st
       "author": {{
         "@type": "Person",
         "name": "Javier Villoria",
+        "jobTitle": "Founder & B2B Director",
         "url": "https://www.linkedin.com/in/javier-villoria-soleto-606737298/"
       }},
       "publisher": {{
         "@type": "Organization",
         "name": "CoolPadel Studios",
         "url": "https://coolpadelstudios.com",
-        "logo": "https://coolpadelstudios.com/assets/images/coolpadel-mascot-hd.png",
+        "logo": {{
+          "@type": "ImageObject",
+          "url": "https://coolpadelstudios.com/assets/images/coolpadel-mascot-hd.png"
+        }},
         "sameAs": [
           "https://www.instagram.com/coolpadel_/",
           "https://www.linkedin.com/in/javier-villoria-soleto-606737298/",
@@ -271,7 +386,7 @@ def render_page(title: str, content: str, lang: str, prefix: str = "/", slug: st
           "@type": "ListItem",
           "position": 1,
           "name": "{home_label}",
-          "item": "{canonical_base}{lang + '/' if lang != 'es' else ''}"
+          "item": "{canonical_base}{lang + '/' if lang not in ('es', 'de') else ''}"
         }},
         {{
           "@type": "ListItem",
@@ -304,12 +419,12 @@ def render_page(title: str, content: str, lang: str, prefix: str = "/", slug: st
       "@type": "VideoObject",
       "name": {json.dumps(vt)},
       "description": {json.dumps(vd)},
-      "thumbnailUrl": ["https://coolpadelstudios.com/assets/images/camaras/{ARTICLE_IMAGES.get(slug, 'camera-01.jpg')}"],
+      "thumbnailUrl": ["{og_image}"],
       "embedUrl": "{vu}",
       "uploadDate": "2026-10-20T08:00:00+02:00"
     }}""")
     else:
-        home_label = "Inicio" if lang == "es" else ("Accueil" if lang == "fr" else "Home")
+        home_label = "Inicio" if lang == "es" else ("Accueil" if lang == "fr" else ("Startseite" if lang == "de" else "Home"))
         camaras_label = "Cámaras" if lang == "es" else ("Caméras" if lang == "fr" else ("Kameras" if lang == "de" else ("Telecamere" if lang == "it" else "Cameras")))
         canonical_base = "https://coolpadelstudios.com/"
         item_list_elements = []
@@ -324,8 +439,8 @@ def render_page(title: str, content: str, lang: str, prefix: str = "/", slug: st
 
         schema_parts.append(f"""    {{
       "@type": "CollectionPage",
-      "name": {json.dumps(title)},
-      "description": {json.dumps(safe_desc)},
+      "name": {json.dumps(seo_title)},
+      "description": {json.dumps(clean_desc)},
       "url": "{canonical_url}",
       "inLanguage": "{lang}",
       "mainEntity": {{
@@ -344,7 +459,7 @@ def render_page(title: str, content: str, lang: str, prefix: str = "/", slug: st
           "@type": "ListItem",
           "position": 1,
           "name": "{home_label}",
-          "item": "{canonical_base}{lang + '/' if lang != 'es' else ''}"
+          "item": "{canonical_base}{lang + '/' if lang not in ('es', 'de') else ''}"
         }},
         {{
           "@type": "ListItem",
@@ -357,7 +472,7 @@ def render_page(title: str, content: str, lang: str, prefix: str = "/", slug: st
         schema_parts.append(f"""    {{
       "@type": "Product",
       "name": {json.dumps(title + " - Save my Play")},
-      "description": {json.dumps(safe_desc)},
+      "description": {json.dumps(clean_desc)},
       "image": "https://coolpadelstudios.com/assets/images/savemyplay-1.jpg",
       "sku": "SMP-CAM-180",
       "brand": {{
@@ -406,11 +521,9 @@ def render_page(title: str, content: str, lang: str, prefix: str = "/", slug: st
     }}""")
 
     schema_json = '<script type="application/ld+json">\n{\n  "@context": "https://schema.org",\n  "@graph": [\n' + ',\n'.join(schema_parts) + '\n  ]\n}\n</script>'
-    og_image = f"https://coolpadelstudios.com/assets/images/camaras/{ARTICLE_IMAGES.get(slug, 'camera-01.jpg')}" if slug else "https://coolpadelstudios.com/assets/images/savemyplay-1.jpg"
-    og_type = "article" if slug else "website"
 
     header_html = get_header(lang, prefix, slug=slug)
-    seo_title = f"{title} | CoolPadel" if len(title) <= 55 else title
+    footer_html = get_silo_footer_html(root_prefix="/")
 
     html_out = f"""<!doctype html>
 <html lang="{lang}">
@@ -467,12 +580,14 @@ def render_page(title: str, content: str, lang: str, prefix: str = "/", slug: st
 <body>
   {header_html}
   {content}
+  {footer_html}
   <script>if (window.lucide) lucide.createIcons();</script>
   <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
   <script src="/assets/js/cp-analytics.js" defer></script>
 </body>
 </html>"""
     return html_out
+
 
 def build_all():
     print("Iniciando compilacion unificada multilingue de Camaras...")
@@ -481,18 +596,19 @@ def build_all():
 
     # Recargar CAMARAS_I18N por si acaba de generarse
     try:
+        import importlib
         import camaras_i18n_data
+        importlib.reload(camaras_i18n_data)
         i18n_dict = camaras_i18n_data.CAMARAS_I18N
     except Exception:
         i18n_dict = {}
 
-    # Soporte fallback para ES y FR
     for lang in ["es", "fr", "en", "it", "de"]:
         print(f"\n================ Compilando idioma: {lang.upper()} ================")
         if lang == "es":
             base_dir = ROOT / "camaras"
             articles_data = {
-                a["slug"]: {"title": a["title"], "blocks": [[p for p in b.split("\n") if p.strip()] for b in a["blocks"]]}
+                a["slug"]: {"title": a["title"], "blocks": a["blocks"]}
                 for a in articles_es
             }
             hub_title = "Cámaras para clubs de pádel"
@@ -532,7 +648,8 @@ def build_all():
             }
         elif lang == "fr":
             base_dir = ROOT / "fr" / "camaras"
-            articles_data = FR_ARTICLES_DATA
+            lang_entry = i18n_dict.get("fr", {})
+            articles_data = lang_entry.get("articles", FR_ARTICLES_DATA)
             hub_title = "Caméras pour clubs de padel"
             hub_eyebrow = "Tout ce que vous devez savoir avant d'installer des caméras"
             hub_intro_paras = [
@@ -576,7 +693,7 @@ def build_all():
       <img src="/assets/images/camaras/{img_name}" alt="{html.escape(art_title)}" width="800" height="450" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
     </div>
     <div>
-      <h3 class="font-sans font-extrabold text-sm sm:text-base lg:text-lg text-slate-900 leading-snug tracking-tight transition-colors">{html.escape(art_title)}</h3>
+      <h2 class="font-sans font-extrabold text-sm sm:text-base lg:text-lg text-slate-900 leading-snug tracking-tight transition-colors m-0">{html.escape(art_title)}</h2>
     </div>
   </div>
   <div class="pt-3.5 border-t border-slate-100 mt-4">
@@ -590,7 +707,7 @@ def build_all():
 </a>'''
             cards_html.append(card)
 
-        intro_p_html = "\n".join([f"<p>{p}</p>" for p in hub_intro_paras])
+        intro_p_html = "\n".join([f"<p>{p}</p>" for p in hub_intro_paras if p.strip()])
         calendly_locale = lang if lang in ["es", "fr", "en", "it", "de"] else "en"
 
         hub_content = f'''<main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
@@ -620,7 +737,8 @@ def build_all():
 </main>'''
 
         hub_file = base_dir / "index.html"
-        hub_file.write_text(render_page(hub_title, hub_content, lang, prefix="../../" if lang != "es" else "../", slug=None, meta_desc=hub_eyebrow + ". " + hub_title), encoding="utf-8")
+        hub_meta_desc = HUB_SEO_META.get(lang, {}).get("desc") or (hub_eyebrow + ". " + hub_title)
+        hub_file.write_text(render_page(hub_title, hub_content, lang, prefix="../../" if lang != "es" else "../", slug=None, meta_desc=hub_meta_desc), encoding="utf-8")
         print(f"  [OK] Hub generado: {hub_file}")
 
         # 2. Construir 20 Artículos
@@ -630,15 +748,26 @@ def build_all():
             blocks = art.get("blocks", [])
             img_name = ARTICLE_IMAGES.get(slug, "camera-01.jpg")
 
-            # Formatear cuerpo con espaciado doble (.article-block)
+            # Formatear cuerpo con espaciado doble (.article-block), enlaces internos, negritas y <h2>
             body_html_parts = []
-            for block in blocks:
-                # Cada bloque contiene uno o varios párrafos
-                if isinstance(block, list):
-                    block_paragraphs = "\n".join([f"<p>{p}</p>" for p in block if p.strip()])
-                else:
-                    block_paragraphs = f"<p>{block}</p>"
-                body_html_parts.append(f'<div class="article-block">\n{block_paragraphs}\n</div>')
+            if lang == "es":
+                for block in blocks:
+                    raw_block = "\n".join(block) if isinstance(block, list) else str(block)
+                    sentences = split_into_sentences(raw_block)
+                    if not sentences:
+                        continue
+                    items_html = [format_es_sentence(s, slug) for s in sentences]
+                    block_paragraphs = "\n".join(items_html)
+                    body_html_parts.append(f'<div class="article-block">\n{block_paragraphs}\n</div>')
+            else:
+                for block in blocks:
+                    if isinstance(block, list):
+                        rendered_items = [format_i18n_paragraph(p) for p in block if p.strip()]
+                        block_paragraphs = "\n".join(rendered_items)
+                    else:
+                        block_paragraphs = format_i18n_paragraph(str(block))
+                    if block_paragraphs.strip():
+                        body_html_parts.append(f'<div class="article-block">\n{block_paragraphs}\n</div>')
 
             # Inyección de imagen de ejemplo en artículo de cámaras de pádel vs videovigilancia
             if slug == "camaras-de-padel-o-videovigilancia":
@@ -661,12 +790,38 @@ def build_all():
                 else:
                     body_html_parts.append(example_img_block)
 
-            # Inyección de tabla comparativa o herramienta de ROI
+            # Inyección de herramienta interactiva de ROI
             if slug == "cuanto-cuesta-poner-camaras" or slug == "es-rentable-poner-camaras":
-                roi_card_title = "Calcula el retorno de inversión exacto para tu club" if lang == "es" else ("Calculate exact court camera ROI" if lang == "en" else "Calculez le retour sur investissement")
-                roi_card_desc = "Prueba nuestra calculadora interactiva con el desglose de amortización mensual según tu número de pistas y reservas." if lang == "es" else "Use our free interactive tool to simulate monthly break-even and margins."
-                roi_btn_label = "Abrir Calculadora ROI" if lang == "es" else ("Open ROI Calculator" if lang == "en" else "Ouvrir le calculateur")
-                tool_url = "/herramientas/calculadora-roi-camaras-padel/" if lang == "es" else f"/{lang}/herramientas/calculadora-roi-camaras-padel/"
+                roi_card_title = {
+                    "es": "Calcula el retorno de inversión exacto para tu club",
+                    "en": "Calculate the exact court camera ROI for your club",
+                    "fr": "Calculez le retour sur investissement exact pour votre club",
+                    "it": "Calcola il ritorno sull'investimento esatto per il tuo circolo",
+                    "de": "Berechnen Sie den genauen Kamera-ROI für Ihren Club",
+                }.get(lang, "Calculate exact court camera ROI")
+                roi_card_desc = {
+                    "es": "Prueba nuestra calculadora interactiva con el desglose de amortización mensual según tu número de pistas y reservas.",
+                    "en": "Use our free interactive calculator to simulate monthly break-even and revenue based on your courts and bookings.",
+                    "fr": "Testez notre calculateur interactif gratuit avec le détail d'amortissement mensuel selon votre nombre de pistes.",
+                    "it": "Prova il nostro calcolatore interattivo gratuito con il dettaglio di ammortamento mensile in base al numero di campi.",
+                    "de": "Nutzen Sie unseren kostenlosen interaktiven Rechner, um Amortisation und monatliche Einnahmen für Ihre Plätze zu simulieren.",
+                }.get(lang, "Use our free interactive tool to simulate monthly break-even and margins.")
+                roi_btn_label = {
+                    "es": "Abrir Calculadora ROI",
+                    "en": "Open ROI Calculator",
+                    "fr": "Ouvrir le calculateur ROI",
+                    "it": "Apri Calcolatore ROI",
+                    "de": "ROI-Rechner öffnen",
+                }.get(lang, "Open ROI Calculator")
+                tool_url = (
+                    "/herramientas/calculadora-roi-camaras-padel/"
+                    if lang == "es"
+                    else (
+                        "/en/herramientas/calculadora-roi-camaras-padel/"
+                        if lang == "de"
+                        else f"/{lang}/herramientas/calculadora-roi-camaras-padel/"
+                    )
+                )
                 body_html_parts.append(f'''<div class="article-block">
   <div class="bg-gradient-to-br from-amber-500/10 via-slate-100 to-slate-50 border-2 border-[#f2920b]/40 rounded-2xl p-6 sm:p-7 shadow-xs">
     <div class="flex items-start gap-3 sm:gap-4">
@@ -715,7 +870,7 @@ def build_all():
 </a>'''
                 related_cards_html.append(r_card)
 
-            home_url = "/" if lang == "es" else f"/{lang}/"
+            home_url = "/" if lang in ("es", "de") else f"/{lang}/"
             back_text = {
                 "es": "Volver a Cámaras", "fr": "Retour aux caméras", "en": "Back to Cameras", "it": "Torna alle telecamere", "de": "Zurück zu Kameras"
             }.get(lang, "Volver")
@@ -740,13 +895,13 @@ def build_all():
   </div>
 
   <div class="cta-box">
-    <h3>{html.escape(next_step_title)}</h3>
+    <h2>{html.escape(next_step_title)}</h2>
     <p>{html.escape(next_step_p2)}</p>
     <div class="calendly-inline-widget" data-url="https://calendly.com/javier-vs-312/demo-save-my-play?locale={calendly_locale}&hide_landing_page_details=1&hide_gdpr_banner=1"></div>
   </div>
 
   <div class="related-section">
-    <h3 class="related-title">{html.escape(related_heading)}</h3>
+    <h2 class="related-title">{html.escape(related_heading)}</h2>
     <div class="related-grid">
       {"\n".join(related_cards_html)}
     </div>
@@ -762,23 +917,12 @@ def build_all():
                     all_paras.extend([re.sub(r'<[^>]+>', '', p).strip() for p in b if p.strip()])
                 elif isinstance(b, str) and b.strip():
                     all_paras.append(re.sub(r'<[^>]+>', '', b).strip())
-            
-            # Prioritize dedicated AEO meta description
-            aeo_info = AEO_FAQS_AND_DESCS.get(lang, {}).get(slug, {})
-            if not aeo_info and lang != "es":
-                aeo_info = AEO_FAQS_AND_DESCS.get("es", {}).get(slug, {})
+
+            aeo_info = AEO_FAQS_AND_DESCS.get(lang, {}).get(slug, {}) or AEO_FAQS_AND_DESCS.get("es", {}).get(slug, {})
             if aeo_info and "desc" in aeo_info:
                 chosen_desc = aeo_info["desc"]
             else:
-                chosen_desc = ""
-                for p in all_paras:
-                    if len(p) >= 50:
-                        chosen_desc = p
-                        break
-                if not chosen_desc and all_paras:
-                    chosen_desc = " ".join(all_paras[:2])
-                if not chosen_desc or len(chosen_desc) < 40:
-                    chosen_desc = f"{title}. Guia de instalacion, costes y funcionamiento de Save my Play para clubs de padel."
+                chosen_desc = " ".join(all_paras[:2]) if all_paras else f"{title}. Save my Play & CoolPadel."
 
             v_meta = videos_data.get(slug)
             art_file.write_text(render_page(title, article_page_content, lang, prefix="../../../../" if lang != "es" else "../../../", slug=slug, meta_desc=chosen_desc, video_meta=v_meta), encoding="utf-8")
@@ -786,6 +930,7 @@ def build_all():
         print(f"  [OK] 20 articulos generados para {lang.upper()} en {art_dir}")
 
     print("\n[COMPLETADO] Todos los idiomas (ES, FR, EN, IT, DE) generados y sincronizados con éxito.")
+
 
 if __name__ == "__main__":
     build_all()

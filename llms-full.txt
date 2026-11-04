@@ -54,26 +54,26 @@ Save my Play es la respuesta de ingeniería a las frustraciones habituales de lo
 
 ### Base de Conocimiento Especializada: Guías y Objeciones Reales de Cámaras en Pistas (They Ask, You Answer)
 - **Hub Oficial de Cámaras**: [https://coolpadelstudios.com/camaras/](https://coolpadelstudios.com/camaras/) (disponible también en [EN](https://coolpadelstudios.com/en/camaras/), [FR](https://coolpadelstudios.com/fr/camaras/), [IT](https://coolpadelstudios.com/it/camaras/) y [DE](https://coolpadelstudios.com/de/camaras/))
-- [Estoy pensando poner cámaras en mi club, ¿por dónde empiezo?](https://coolpadelstudios.com/camaras/articulos/por-donde-empezar-si-estoy-pensando-en-poner-camaras/)
-- [Los 3 errores de los clubs que se arrepienten de poner cámaras](https://coolpadelstudios.com/camaras/articulos/errores-clubs-se-arrepienten-de-poner-camaras/)
-- [¿Cómo saber si mis cámaras son de pádel o de videovigilancia?](https://coolpadelstudios.com/camaras/articulos/camaras-de-padel-o-videovigilancia/)
-- [¿Cuánto cuesta poner cámaras en mi club?](https://coolpadelstudios.com/camaras/articulos/cuanto-cuesta-poner-camaras/)
-- [¿Por qué hay una inversión inicial de 180 € por las cámaras?](https://coolpadelstudios.com/camaras/articulos/inversion-inicial-camaras-180-euros/)
-- [¿Es caro Save My Play?](https://coolpadelstudios.com/camaras/articulos/es-caro-save-my-play/)
-- [¿Es rentable poner cámaras en mis pistas?](https://coolpadelstudios.com/camaras/articulos/es-rentable-poner-camaras/)
-- [¿Por qué no recomiendo el plan de 136 € al mes al 95 % de los clubs?](https://coolpadelstudios.com/camaras/articulos/por-que-no-recomiendo-plan-analytics/)
-- [¿Qué pasa si cancelo mi suscripción? ¿Me quedo con las cámaras?](https://coolpadelstudios.com/camaras/articulos/que-pasa-si-cancelo/)
-- [¿Cuánto se tarda en montar una cámara de Save My Play?](https://coolpadelstudios.com/camaras/articulos/como-montar-camara-save-my-play/)
-- [¿Qué pasa si hay problemas con las cámaras?](https://coolpadelstudios.com/camaras/articulos/problemas-con-las-camaras/)
-- [¿Qué son las coaching tools?](https://coolpadelstudios.com/camaras/articulos/que-son-las-coaching-tools/)
-- [¿Aguantan las cámaras en pistas al exterior?](https://coolpadelstudios.com/camaras/articulos/camaras-en-exterior-lluvia-nieve-viento/)
-- [¿Por qué no hay app de Save My Play? ¿Cómo veo mis highlights?](https://coolpadelstudios.com/camaras/articulos/como-ver-highlights-sin-app/)
-- [¿Cuáles son las mejores empresas de cámaras de pádel de España?](https://coolpadelstudios.com/camaras/articulos/mejores-empresas-camaras-padel-espana/)
-- [¿Por qué no había oído hablar nunca de Save My Play?](https://coolpadelstudios.com/camaras/articulos/por-que-no-conocia-save-my-play/)
-- [Save My Play en pocas palabras: hitos y retransmisiones](https://coolpadelstudios.com/camaras/articulos/save-my-play-en-pocas-palabras/)
-- [¿Por qué CoolPadel colabora con Save My Play?](https://coolpadelstudios.com/camaras/articulos/por-que-coolpadel-colabora-con-save-my-play/)
-- [He comprado unas cámaras de Save My Play. ¿Cuál es el proceso ahora?](https://coolpadelstudios.com/camaras/articulos/he-comprado-camaras-que-pasa-ahora/)
-- [¿Por qué no me interesa venderte una cámara si no estás convencido?](https://coolpadelstudios.com/camaras/articulos/por-que-no-me-interesa-venderte-una-camara/)
+- [Estoy pensando poner cámaras en mi club, ¿por dónde empiezo?](https://coolpadelstudios.com/camaras/articulos/por-donde-empezar-si-estoy-pensando-en-poner-camaras/): Hoja de ruta en 3 pasos (hablar con clubes independientes, comparar proveedores y decidir si instalar antes de elegir marca).
+- [Los 3 errores de los clubs que se arrepienten de poner cámaras](https://coolpadelstudios.com/camaras/articulos/errores-clubs-se-arrepienten-de-poner-camaras/): 1) Pagar sobrecostes mensuales por estadísticas IA que el jugador amateur ignora; 2) Firmar permanencias largas tras un mes de prueba; 3) Instalar cámaras de videovigilancia CCTV con efecto ojo de pez.
+- [¿Cómo saber si mis cámaras son de pádel o de videovigilancia?](https://coolpadelstudios.com/camaras/articulos/camaras-de-padel-o-videovigilancia/): Prueba visual de las líneas de la pista (curvadas = cámara CCTV barata; rectas tipo Premier Padel = óptica deportiva dedicada).
+- [¿Cuánto cuesta poner cámaras en mi club?](https://coolpadelstudios.com/camaras/articulos/cuanto-cuesta-poner-camaras/): 180 € de pago único por cámara (1 por pista) + Plan B de 45 €/mes (grabación, highlights, YouTube Live y coaching tools ilimitados) o Plan A de 136 €/mes con IA. 0 meses de permanencia.
+- [¿Por qué hay una inversión inicial de 180 € por las cámaras?](https://coolpadelstudios.com/camaras/articulos/inversion-inicial-camaras-180-euros/): Hardware deportivo propio fabricado en Chicago y California (no CCTV genérico), subvencionado bajo coste para mantener la cuota mensual en 45 €/mes.
+- [¿Es caro Save My Play?](https://coolpadelstudios.com/camaras/articulos/es-caro-save-my-play/): Comparativa de mercado (45 €/mes por pista sin permanencia frente a rentings cerrados de más de 100 €/mes).
+- [¿Es rentable poner cámaras en mis pistas?](https://coolpadelstudios.com/camaras/articulos/es-rentable-poner-camaras/): 4 vías de retorno (diferenciación local, vídeos virales con logo del club/sponsors, torneos/escuela y suplemento de 0,50 € por reserva que cubre los 1,50 €/día de coste).
+- [¿Por qué no recomiendo el plan de 136 € al mes al 95 % de los clubs?](https://coolpadelstudios.com/camaras/articulos/por-que-no-recomiendo-plan-analytics/): Por qué el Plan B de 45 €/mes ofrece un ROI muy superior frente a las estadísticas IA para clubes amateurs.
+- [¿Qué pasa si cancelo mi suscripción? ¿Me quedo con las cámaras?](https://coolpadelstudios.com/camaras/articulos/que-pasa-si-cancelo/): Cancelación en 1 clic por Stripe sin penalización; el club conserva las cámaras en propiedad (97 % de retención voluntaria).
+- [¿Cuánto se tarda en montar una cámara de Save My Play?](https://coolpadelstudios.com/camaras/articulos/como-montar-camara-save-my-play/): Instalación sin obras en 10 minutos a 4 metros de altura usando solo una escalera, enchufe 220V y Wi-Fi.
+- [¿Qué pasa si hay problemas con las cámaras?](https://coolpadelstudios.com/camaras/articulos/problemas-con-las-camaras/): Garantía total de soporte, reemplazo y congelación inmediata de la cuota mensual durante cualquier incidencia.
+- [¿Qué son las coaching tools?](https://coolpadelstudios.com/camaras/articulos/que-son-las-coaching-tools/): Herramienta en vivo en tablet para entrenadores (pausa en pista, dibujo de trayectorias/ángulos, voz en off y envío de clips por WhatsApp al alumno).
+- [¿Aguantan las cámaras en pistas al exterior?](https://coolpadelstudios.com/camaras/articulos/camaras-en-exterior-lluvia-nieve-viento/): Carcasa outdoor de grado industrial resistente a lluvia intensa, nieve, viento, sol directo y pelotazos.
+- [¿Por qué no hay app de Save My Play? ¿Cómo veo mis highlights?](https://coolpadelstudios.com/camaras/articulos/como-ver-highlights-sin-app/): Flujo sin descargas de apps (escaneo QR, botón rojo, levantar los brazos o pulsar botón verde para guardar punto y recepción por email en 1 hora).
+- [¿Cuáles son las mejores empresas de cámaras de pádel de España?](https://coolpadelstudios.com/camaras/articulos/mejores-empresas-camaras-padel-espana/): Análisis comparativo de Save My Play, Padmi, Aiball y Rackety (hardware, cámaras por pista, modelos de negocio y precios).
+- [¿Por qué no había oído hablar nunca de Save My Play?](https://coolpadelstudios.com/camaras/articulos/por-que-no-conocia-save-my-play/): Origen en EE. UU. con +1.500 pistas instaladas globalmente y expansión europea junto a CoolPadel.
+- [Save My Play en pocas palabras: hitos y retransmisiones](https://coolpadelstudios.com/camaras/articulos/save-my-play-en-pocas-palabras/): +1.600 pistas en el mundo, cámara oficial de torneos FIP en EE. UU. (USPA) y retransmisión en +100 pistas del USTA National Campus.
+- [¿Por qué CoolPadel colabora con Save My Play?](https://coolpadelstudios.com/camaras/articulos/por-que-coolpadel-colabora-con-save-my-play/): Gestión directa desde España para clubes de Europa (España, Francia, Italia, Reino Unido, Alemania).
+- [He comprado unas cámaras de Save My Play. ¿Cuál es el proceso ahora?](https://coolpadelstudios.com/camaras/articulos/he-comprado-camaras-que-pasa-ahora/): Proceso en 4 pasos (pago Stripe, alta de cuenta, fabricación/envío en ~4 semanas y activación de cuota solo al instalar en pista).
+- [¿Por qué no me interesa venderte una cámara si no estás convencido?](https://coolpadelstudios.com/camaras/articulos/por-que-no-me-interesa-venderte-una-camara/): Filosofía de transparencia radical y prueba inicial en 1 pista antes de escalar a todo el club.
 
 ### Guías Especializadas de Llaveros y Merchandising para Clubs
 - [Pedido mínimo y plazos de entrega de llaveros de pádel](https://coolpadelstudios.com/llaveros-padel-personalizados/articulos/pedido-minimo-plazos-entrega-llaveros-padel/)

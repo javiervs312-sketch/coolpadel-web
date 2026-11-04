@@ -1,7 +1,1318 @@
 # -*- coding: utf-8 -*-
 """
 Diccionario completo y determinista de Camaras para FR, EN, IT, DE.
-Generado automaticamente sin coste de tokens de LLM.
+Estilo Javier: directo, natural, terminología real de pádel (courts, campi, Plätze, circoli),
+enlaces internos resueltos y negritas clave preservadas. Cero coste de tokens de IA.
 """
 
-CAMARAS_I18N = {'fr': {'articles': {'por-donde-empezar-si-estoy-pensando-en-poner-camaras': {'title': "J'envisage d'installer des caméras dans mon club, par où commencer ?", 'blocks': [['Je comprends tout à fait que vous soyez un peu perdu.', 'Vous avez sûrement vu certains clubs installer des caméras sur leurs pistes et vous vous demandez si vous devez en faire autant.', "Tout d'abord, <strong>je vous conseille d'être prudent</strong>.", "Ce n'est pas parce que tout le monde le fait que c'est forcément la meilleure option."], ['Voici ce que je ferais à votre place :'], ["1º <strong>Parlez avec des clubs qui ont déjà des caméras installées.</strong> De préférence situés à l'autre bout du pays pour que votre situation leur soit complètement égale et qu'ils vous disent la vérité brute. Sur les sites des prestataires, il y a généralement la liste de leurs clubs partenaires."], ["2º <strong>Contactez différentes entreprises de caméras</strong> et écoutez ce qu'elles ont à raconter. En Espagne comme en Europe, en plus de Save My Play avec qui je travaille, il y a Rackety, Padmi, AIball, Courtmaster et quelques autres acteurs plus modestes. En bas de page se trouve mon calendrier si vous souhaitez réserver un créneau pour échanger."], ["3º <strong>Rassemblez les retours des clubs et des entreprises</strong>, comparez, discutez-en au sein du club et tranchez. La vraie décision n'est pas quelles caméras choisir. Vous devez d'abord décider <strong>si vous voulez vraiment en installer ou non</strong>."], ['Comme première lecture, je vous recommande <a href="../errores-clubs-se-arrepienten-de-poner-camaras/">Les 3 erreurs des clubs qui regrettent d\'avoir installé des caméras</a>.']]}, 'errores-clubs-se-arrepienten-de-poner-camaras': {'title': "Les 3 erreurs des clubs qui regrettent d'avoir installé des caméras", 'blocks': [['Oui, vous avez bien lu.', "Et ce n'est pas un cas isolé.", 'Je passe mes journées à discuter avec des gestionnaires de clubs, et ces <strong>3 erreurs se répètent encore et toujours</strong>.', "Je sais pertinemment que l'investissement dans des caméras est une dépense où l'on n'a pas envie de se tromper.", 'Prenez le temps de lire ceci et comprenez notre point de vue.', 'Quelle que soit votre décision finale, elle sera au moins prise en toute connaissance de cause.'], ['Error 1: Analytics et statistiques avec IA', "L'idée paraît séduisante sur le papier, non ?", 'Une intelligence artificielle qui analyse votre jeu, compte chacun de vos coups et vous dicte vos axes de progression.', "La dure réalité, c'est qu'au bout du troisième match, <strong>votre carte de chaleur ressemble trait pour trait à celle des parties précédentes</strong>.", "Et connaître votre pourcentage de revers slicés avec double rotation inversée est une donnée qui n'apporte strictement rien à 99 % des joueurs amateurs."], ['Ça me fait mal au cœur de voir les sommes astronomiques que versent chaque mois de petits clubs en province pour ce genre de gadgets.', "<strong>Ce n'est absolument pas rentable</strong> à ces tarifs.", "C'est de la folie pure.", "C'est une question de bon sens."], ["Error 2: Périodes d'essai et Engagements obligatoires", "Méfiez-vous comme de la peste des prétendues périodes d'essai gratuit.", 'Attention.', 'Le piège classique se déroule toujours ainsi :'], ["1º <strong>Pendant le premier mois</strong>, l'effet de nouveauté fonctionne et les joueurs testent la nouveauté."], ["2º <strong>Vous signez un engagement long</strong> en pensant naïvement que l'engouement restera au même niveau toute l'année."], ['3º <strong>Quand le soufflé retombe</strong>, vous continuez à payer plein pot chaque mois pendant des années.'], ['<strong>Ne vous enfermez jamais</strong> dans un engagement contractuel contraignant.'], ['Error 3: La plupart des prestataires recyclent de simples caméras de surveillance', "Le rendu vidéo ressemble à s'y méprendre à l'enregistrement d'un braquage de banque.", "La netteté est médiocre et l'image saccadée.", 'Un excellent indicateur pour démasquer une caméra de vidéosurveillance : observez les lignes du terrain.', 'Si elles sont incurvées ou déformées en œil-de-bœuf, <strong>mauvais signe</strong>.'], ["Lors de notre démo en ligne, rappelez-le-moi et je vous montrerai la différence flagrante à l'écran."], ['ERROR EXTRA: Je vous le révélerai de vive voix lors de la démo en ligne.'], ['Conclusion :', "Beaucoup de clubs regrettent amèrement les contrats et le matériel qu'ils ont signés."], ["J'insiste : ne croyez pas sur parole les commerciaux ni les gens comme moi.", '<strong>Discutez directement avec les clubs</strong> qui utilisent le matériel et laissez-les vous raconter leur expérience réelle.']]}, 'camaras-de-padel-o-videovigilancia': {'title': 'Comment savoir si mes caméras sont dédiées au padel ou de simples caméras de surveillance ?', 'blocks': [["Au-delà de la qualité d'image qui saute aux yeux, il existe une astuce infaillible pour le repérer immédiatement.", '<strong>En observant les lignes du terrain</strong>.', 'Une fois que vous aurez remarqué ce détail, vous ne verrez plus que ça.', 'Laissez-moi vous montrer un exemple concret.'], ['Dans ce cas précis, on constate immédiatement que les lignes du court ne sont pas droites : <strong>elles sont incurvées</strong>.', "L'ensemble de l'image est déformé par une lentille grand-angle générique.", "C'est la signature typique des caméras de surveillance industrielles à bas coût."], ['Les lignes du terrain <strong>doivent impérativement apparaître parfaitement droites</strong>.', 'Le plus proche possible de ce que vous voyez lors des retransmissions officielles du circuit Premier Padel.']]}, 'cuanto-cuesta-poner-camaras': {'title': "Combien coûte l'installation de caméras dans mon club ?", 'blocks': [["L'une des premières questions qui vous traverse l'esprit est forcément : combien coûte l'installation des caméras Save My Play sur mes pistes ?", 'Voici la réponse claire et nette, avec le <strong>prix par piste</strong>.', "Chaque court est équipé d'une caméra dédiée.", "Nous savons qu'il s'agit d'une décision mûrement réfléchie, c'est pourquoi nous vous donnons les chiffres réels sans détour :"], ['Nous proposons deux formules mensuelles sans engagement :', '<strong>Plan A : 136 € par mois.</strong> Il intègre les statistiques et analyses poussées par IA. Je ne le recommande pas à 95 % des clubs (<a href="../por-que-no-recomiendo-plan-analytics/">explications ici</a>).', "<strong>Plan B : 45 € par mois.</strong> Pour le tarif d'une ou deux heures de location par mois, vous disposez d'une caméra enregistrant matchs intégraux, highlights automatiques, directs YouTube et outils d'entraînement en illimité.", '<strong>Sans aucun engagement de durée.</strong>', "Si vous ne souhaitez plus continuer, vous résiliez l'abonnement Stripe en un clic et c'est terminé. Aucun contrat contraignant.", 'Nous ne voulons pas de clients mécontents, cela ne nous intéresse absolument pas sur le long terme.', 'Pourtant, <strong>97 % des clubs restent volontairement</strong> avec nous mois après mois.', '<strong>Investissement initial pour la caméra : 180 €</strong>, une seule fois par piste (<a href="../inversion-inicial-camaras-180-euros/">pourquoi ce tarif ?</a>).', 'Sans travaux lourds : installation en 5 minutes avec simplement une prise 220V et le Wi-Fi.', "Compte tenu de la forte demande, le délai de fabrication et d'envoi est d'environ 4 semaines. Les frais de douane sont d'environ 20 €. Si vous remplissez certaines conditions, le premier mois d'abonnement peut même vous revenir gratuit."]]}, 'inversion-inicial-camaras-180-euros': {'title': 'Pourquoi y a-t-il un investissement initial de 180 € par caméra ?', 'blocks': [["Ces <strong>180 € de frais initiaux sont l'une des remarques les plus fréquentes</strong> que je reçois de la part des clubs.", "C'est une somme concrète, alors que d'autres entreprises promettent parfois du matériel gratuit de façade. Pour que vous puissiez décider en toute transparence, je vous explique exactement d'où vient ce chiffre.", "Il se peut que notre modèle ne corresponde pas à vos attentes, et c'est très bien ainsi : voici l'explication honnête."], ["La raison principale, c'est que <strong>nous fabriquons nous-mêmes nos caméras</strong>.", 'Ce n\'est absolument pas la norme sur le marché. L\'usage courant consiste à acheter des caméras de surveillance standard fabriquées en série en Asie pour quelques dizaines d\'euros. <a href="../camaras-de-padel-o-videovigilancia/">Dans cet article, je vous montre comment les distinguer</a>. Nos caméras sont conçues et assemblées à Chicago et en Californie.', "À mes yeux, la qualité d'image n'a strictement rien à voir. Les joueurs veulent sauvegarder leurs meilleurs points pour les partager fièrement sur Instagram ou WhatsApp. Vous ne pouvez pas leur offrir une qualité qui ressemble à <strong>la capture vidéo d'un braquage de banque</strong>."], ["La fabrication d'une unité nous coûte <strong>nettement plus cher que ces 180 €</strong>.", "Nous vendons donc le boîtier à perte au départ et amortissons ce coût sur la durée grâce à l'abonnement mensuel. C'est notre modèle économique : 180 € est le juste prix pour accéder à une optique de très haute qualité.", "Si nous offrions les caméras à 0 €, nous serions contraints d'augmenter fortement le prix de l'abonnement mensuel pour survivre financièrement. Et sur la durée, vous seriez largement perdants car la majorité des coûts d'un club s'accumule sur les mensualités récurrentes, pas sur le matériel initial. C'est précisément pour cela que <strong>nos tarifs mensuels sont les plus compétitifs du marché</strong>."]]}, 'es-caro-save-my-play': {'title': 'Save My Play est-il cher ?', 'blocks': [["C'est une interrogation tout à fait légitime que beaucoup de clubs se posent. Voici comment j'analyse la question.", "D'abord, ce <strong>n'est pas un produit destiné à 100 % des clubs</strong>. C'est un service premium qui crée une réelle valeur ajoutée pour vos membres. Nous ne cherchons pas à équiper aveuglément chaque club du pays, et cette sélectivité fait partie intégrante de notre positionnement."], ['Comparons maintenant aux offres concurrentes du secteur. Notre forfait à 136 €/mois avec statistiques et analytics IA se situe dans la moyenne du marché. Cependant, nous ne le recommandons pas à la plupart des structures.', "En revanche, notre formule à <strong>45 € par mois</strong> par piste constitue l'un des tarifs les plus avantageux d'Europe. Certaines jeunes pousses en phase de test proposent parfois des offres bradées pour trouver leurs premiers bêta-testeurs. Mais parmi les solutions matures et éprouvées, rien n'égale ce rapport qualité-prix.", "Quoi qu'il en soit, comparez objectivement. <strong>Le prix n'est pas le seul critère</strong> : examinez la netteté du rendu, la simplicité pour vos joueurs et les services réellement inclus."]]}, 'es-rentable-poner-camaras': {'title': "Est-il rentable d'installer des caméras sur mes pistes de padel ?", 'blocks': [["Nous savons parfaitement que vous surveillez chaque dépense à l'euro près. Et vous voulez savoir si installer des caméras dans votre club est un investissement financièrement rentable. Voici notre avis sincère sur le sujet."], ["Soyons directs : le retour sur investissement ne se calcule pas toujours d'un simple trait de plume. Par exemple, notre offre à 139 €/mois incluant l'analyse IA n'est <strong>pas recommandée pour 90 % des clubs</strong> car nous estimons qu'elle n'est pas amortissable pour eux."], ["Concernant notre formule à 45 €/mois et l'achat initial de la caméra à 180 €, voici les leviers concrets de rentabilité que vous pouvez activer :"], ["1º <strong>Valeur différentielle :</strong> vous offrez un service moderne qu'aucun club voisin ne propose. De nouveaux joueurs viennent réserver chez vous pour tester le système, ce qui remplit vos heures creuses et renforce l'image haut de gamme de votre établissement."], ['2º <strong>Contenu en ligne et visibilité :</strong> vous pouvez intégrer le logo de vos sponsors locaux ou celui de votre club sur chaque vidéo générée. Les joueurs publient massivement leurs highlights sur les réseaux sociaux, créant une publicité gratuite et organique pour votre structure.'], ["3º <strong>Enregistrement de tournois et cours :</strong> c'est un atout majeur pour vos événements, vos coachs et vos académies, qui peuvent revoir les points sur tablette avec leurs élèves."], ['4º <strong>Monétisation directe :</strong> certains clubs appliquent une légère majoration sur la réservation des pistes équipées. En facturant seulement <strong>0,50 € de plus par joueur</strong> sur une partie, le coût mensuel est amorti dès la première semaine (45 € par mois équivaut à 1,50 € par jour).']]}, 'por-que-no-recomiendo-plan-analytics': {'title': 'Pourquoi je ne recommande pas le forfait à 136 € par mois à 95 % des clubs ?', 'blocks': [['Si vous avez lu notre guide sur <a href="../errores-clubs-se-arrepienten-de-poner-camaras/">les 3 erreurs commises par les clubs</a>, la raison <strong>devrait être limpide</strong>.', "Pour 95 % des structures, payer 136 € chaque mois pour des graphiques et des statistiques IA que les joueurs consultent deux fois par curiosité avant de s'en lasser n'est tout simplement pas un investissement rentable."]]}, 'que-pasa-si-cancelo': {'title': 'Que se passe-t-il si je résilie mon abonnement ? Est-ce que je garde les caméras ?', 'blocks': [["C'est une question tout à fait légitime que les gestionnaires me posent régulièrement."], ['Pour vous remettre dans le contexte : comme expliqué dans notre article sur <a href="../inversion-inicial-camaras-180-euros/">l\'investissement initial de 180 €</a>, nous fabriquons nous-mêmes nos caméras. Il n\'y a <strong>aucun engagement de durée</strong> ni contrat contraignant : c\'est un simple abonnement mensuel résiliable à tout moment.'], ["Et que se passe-t-il si vous décidez d'annuler ?", 'Les caméras <strong>vous appartiennent et vous les conservez</strong>. En revanche, elles sont conçues pour fonctionner en synergie avec notre infrastructure logicielle cloud et nos boutons de piste.'], ["Acheter une caméra pour résilier un mois plus tard <strong>est un échec pour vous comme pour nous</strong>. Vous perdez votre mise initiale, et nous perdons de l'argent car fabriquer ce matériel nous coûte bien plus que 180 €. C'est pourquoi nous ne cherchons pas à équiper massivement un club d'un coup : nous vous conseillons toujours de tester d'abord sur une piste témoin."], ["C'est grâce à cette transparence totale que <strong>97 % des clubs restent fidèles</strong> à notre solution chaque mois par choix délibéré."]]}, 'como-montar-camara-save-my-play': {'title': 'Combien de temps faut-il pour installer une caméra Save My Play ?', 'blocks': [['<strong>10 minutes chrono.</strong>', "Un escabeau, <strong>du Wi-Fi et une prise de courant standard</strong>. C'est littéralement tout ce dont vous avez besoin.", "La caméra se fixe solidement sur la structure grillagée à 4 mètres de hauteur grâce à son système de serrage rapide. Vous branchez le câble d'alimentation sur une prise standard et l'appairage au réseau Wi-Fi s'effectue en quelques clics."], ["Il est également possible de la relier directement par câble Ethernet RJ45 à votre routeur. Si vous disposez déjà d'un câblage sur vos courts, c'est parfait. Sinon, cela ne vaut pas la peine d'engager des frais de travaux : la <strong>grande majorité des clubs fonctionne parfaitement en Wi-Fi</strong>."]]}, 'problemas-con-las-camaras': {'title': 'Que se passe-t-il en cas de problème technique avec les caméras ?', 'blocks': [["Dès lors qu'il s'agit d'une utilisation normale sur vos terrains, <strong>nous assumons l'entière responsabilité</strong> des dysfonctionnements éventuels.", "Notre matériel équipe plus de 1 500 clubs répartis dans le monde entier, soumis à des climats extrêmement variés. Les caméras ont fait leurs preuves dans les conditions les plus rudes. Mais si un problème survient, <strong>nous suspendons évidemment la facturation</strong> pendant la durée de la panne et notre support technique intervient immédiatement pour résoudre l'incident ou remplacer l'unité."]]}, 'que-son-las-coaching-tools': {'title': 'Que sont les outils de coaching (coaching tools) ?', 'blocks': [['Nous détaillerons très prochainement le fonctionnement complet des <strong>outils de coaching sur le terrain</strong>.', "En résumé : ils permettent aux entraîneurs de projeter instantanément la vidéo sur tablette, de tracer des trajectoires au ralenti et d'enregistrer des débriefings personnalisés avec voix off pour leurs élèves."]]}, 'camaras-en-exterior-lluvia-nieve-viento': {'title': 'Les caméras résistent-elles aux pistes en extérieur (pluie, neige, vent) ?', 'blocks': [['Nous fabriquons un modèle unique conçu pour <strong>encaisser les pires conditions extérieures</strong>.', "<strong>Vent violent, gel, pluie battante et impacts de balles</strong> : le boîtier étanche et renforcé est conçu pour le plein air, ce qui garantit une robustesse totale aussi bien en extérieur (outdoor) qu'en intérieur (indoor)."]]}, 'como-ver-highlights-sin-app': {'title': "Pourquoi n'y a-t-il pas d'application Save My Play ? Comment récupérer mes highlights ?", 'blocks': [['Le parcours joueur a été pensé pour éliminer tout frottement :'], ["1º <strong>Scanner le QR code</strong> affiché à l'entrée de la piste."], ["2º <strong>Appuyer sur le bouton rouge</strong> pour lancer l'enregistrement continu de la partie."], ['3º <strong>Renseigner les informations de base :</strong> adresse e-mail du joueur et durée de la session.'], ["4º <strong>Lever les bras face à la caméra</strong> après chaque point marquant (ou presser le bouton vert physique sur le poteau) pour marquer l'instant clé."], ['5º <strong>Recevoir un e-mail automatique</strong> environ une heure après le match avec le lien direct vers le match complet et les meilleurs points découpés, visionnables instantanément sur smartphone <strong>sans avoir à télécharger la moindre application</strong>.']]}, 'mejores-empresas-camaras-padel-espana': {'title': 'Quelles sont les principales entreprises de caméras de padel en Europe ?', 'blocks': [['Chaque entreprise du secteur défend une <strong>vision bien spécifique</strong> du marché.', "Les choix technologiques et les modèles tarifaires diffèrent selon la manière dont chaque marque envisage l'utilisation des caméras par le joueur et par le club.", "C'est pourquoi je vous encourage vivement à solliciter plusieurs acteurs, à comparer leurs offres et surtout à interroger des clubs équipés pour recueillir leur retour d'expérience terrain."], ["<strong>Padmi :</strong> c'est l'un des acteurs les plus implantés en Espagne avec plusieurs dizaines de clubs équipés de deux caméras par court. Ils mettent l'accent sur les statistiques et proposent une identité visuelle très soignée, notamment partenaires du circuit Adidas Padel Tour."], ["<strong>Aiball :</strong> solution axée sur les analytics et l'intelligence artificielle pour disséquer les coups des joueurs, avec la participation de figures du padel pro comme Ari Sánchez."], ['<strong>Rackety :</strong> présents dans une cinquantaine de clubs, ils proposent une suite logicielle intégrant la réservation de pistes, les chatbots WhatsApp et la retransmission de matchs.']]}, 'por-que-no-conocia-save-my-play': {'title': "Pourquoi n'avais-je jamais entendu parler de Save My Play ?", 'blocks': [['Save My Play est une <strong>entreprise américaine</strong> fondée aux États-Unis.', "Sur notre marché d'origine et à l'international, les clubs équipent très souvent l'intégralité de leurs terrains dès le premier jour, et <strong>nous donnons naturellement la priorité</strong> à ces déploiements globaux.", 'Le marché européen est traditionnellement plus prudent et chaque dépense y est scrutée à la loupe. Nous équipons pourtant plus de <strong>1 500 pistes de clubs</strong> à travers le monde, que ce soit en padel, en tennis ou en pickleball.']]}, 'save-my-play-en-pocas-palabras': {'title': 'Save My Play en quelques mots : notre vision', 'blocks': [['Je vais aller droit au but.', 'Notre technologie tourne sur plus de <strong>1 600 pistes dans le monde</strong>.', 'La Fédération Américaine de Padel nous a choisis pour retransmettre ses tournois officiels FIP, et la Fédération Américaine de Tennis diffuse chaque week-end les rencontres de son centre national sur plus de 100 courts simultanés.'], ['Malgré cette envergure, <strong>notre équipe compte moins de 10 personnes</strong>.', "Et c'est précisément ce que les gérants de clubs apprécient : <strong>la proximité humaine</strong>. Si un incident survient, nous intervenons directement sans que votre demande se perde dans des méandres administratifs."], ["D'autre part, nous refusons d'ajouter de la complexité inutile. Si <strong>deux boutons suffisent</strong> pour faire fonctionner parfaitement le système, nous n'en mettrons jamais un troisième."]]}, 'por-que-coolpadel-colabora-con-save-my-play': {'title': 'Pourquoi CoolPadel collabore avec Save My Play ?', 'blocks': [["Ce que je préfère dans le milieu du padel, c'est parcourir les salons professionnels et rencontrer les fondateurs des différentes entreprises de l'industrie.", "Ces échanges m'ont permis de bien comprendre les forces et faiblesses de chaque acteur. D'un côté, je considère que les caméras de Save My Play représentent la solution avec le <strong>plus fort potentiel de croissance</strong> du secteur.", "De l'autre, leurs équipes sont <strong>des gens droits et fiables</strong>, ce qui est tout aussi primordial à mes yeux.", "Save My Play faisant face à une demande mondiale colossale, nous avons convenu d'un partenariat : chez CoolPadel, <strong>nous gérons l'accompagnement des clubs européens</strong> (France, Espagne, Royaume-Uni, Italie, Allemagne...)."]]}, 'he-comprado-camaras-que-pasa-ahora': {'title': "J'ai commandé des caméras Save My Play : comment se déroule la suite ?", 'blocks': [["1º <strong>Paiement sécurisé par Stripe :</strong> je vous transmets le lien de règlement. La transaction s'effectue en dollars (entreprise américaine), nous vous conseillons de régler directement dans cette devise pour éviter des frais de change superflus."], ["2º <strong>Création de votre compte club :</strong> vous recevez le lien d'enregistrement pour configurer l'espace de votre établissement et vos caméras y sont automatiquement associées."], ["3º <strong>Fabrication et expédition :</strong> vos unités sont expédiées sous un délai d'environ 4 semaines en fonction du planning d'assemblage."], ["4º <strong>Réception et mise en route :</strong> vous réglez les frais de douane à la livraison (environ 20 €). L'abonnement mensuel ne commence à courir qu'à partir de l'installation effective sur vos pistes."]]}, 'por-que-no-me-interesa-venderte-una-camara': {'title': "Pourquoi je refuse de vous vendre une caméra si vous n'êtes pas convaincu ?", 'blocks': [['Si je vous vends une caméra à 180 €, que vous faites un essai à contrecœur et que vous résiliez le mois suivant, <strong>nous sommes tous les deux perdants</strong>.', "Vous perdez votre temps et votre trésorerie, et nous perdons de l'argent car fabriquer ce matériel nous coûte bien davantage que ce prix d'appel. Nous ne travaillons qu'avec des clubs qui ont compris l'intérêt du dispositif et qui s'engagent dans une démarche pérenne."]]}}, 'videos': {'como-ver-highlights-sin-app': ('Comment enregistrer ses highlights sur la piste', 'Levez les bras face à la caméra ou appuyez sur le bouton vert pour sauvegarder votre meilleur coup instantanément.', 'https://www.youtube-nocookie.com/embed/Z0vnvyrUbPQ'), 'como-montar-camara-save-my-play': ("Une simplicité d'utilisation enfantine", 'En à peine 10 minutes et avec seulement deux boutons, votre caméra enregistre matchs, highlights et directs sans aucune prise de tête.', 'https://www.youtube-nocookie.com/embed/LuzDvB5Umfs'), 'save-my-play-en-pocas-palabras': ('Retransmission en direct du tournoi FIP de Miami', "Voici le rendu d'une retransmission officielle en direct avec les caméras Save My Play lors de compétitions internationales FIP.", 'https://www.youtube-nocookie.com/embed/4xwrrveDZxg?start=5623'), 'que-son-las-coaching-tools': ("Outils d'entraînement avancés", 'Grâce aux coaching tools, annotez les ralentis directement sur tablette, analysez les mouvements et enregistrez votre débriefing vocal pour vos élèves.', 'https://www.youtube-nocookie.com/embed/FcnCWaYahP8')}, 'hub_eyebrow': "Tout ce que vous devez savoir avant d'installer des caméras", 'hub_title': 'Caméras pour clubs de padel', 'hub_intro': ["Nous savons que vous voulez prendre la meilleure décision concernant les caméras<br>L'expérience nous montre que les clubs apprécient d'avoir des informations utiles et transparentes à disposition<br>Et que si vous n'avez aucun intérêt à vous informer, cela ne vaut pas la peine de faire une démo en ligne", "C'est pourquoi nous avons voulu être les plus sincères et transparents possible", "Au fil de vos lectures, vous vous rendrez compte par vous-même si c'est une bonne idée d'installer des caméras ou non<br>Et si vous souhaitez les prendre chez Save My Play ou chez un confrère<br>Quelle que soit votre décision, ce sera la meilleure pour vous comme pour nous", "Ainsi, si nous faisons la démo, vous aurez de bien meilleures questions et nous rentabiliserons au mieux notre temps d'échange"], 'next_step_title': 'Étape suivante', 'next_step_p1': 'Si vous hésitez encore, découvrez ci-dessus nos guides détaillés sur les caméras de padel.', 'next_step_p2': 'Si vous avez des questions précises et souhaitez voir concrètement le système en direct, réservez votre créneau pour la démo.', 'read_article': "Lire l'article", 'related_title': 'Articles recommandés', 'nav_camaras': 'CAMÉRAS'}, 'en': {'articles': {'por-donde-empezar-si-estoy-pensando-en-poner-camaras': {'title': "I'm thinking about putting cameras in my club, where do I start?", 'blocks': [["I understand that you are a little lost. You may have seen some clubs that are putting cameras on their courts and you have doubts about whether to put them too. First of all, I recommend that you be cautious. Just because everyone does it doesn't mean it's the best option."], ['This is what I would do in your situation:'], ["1st Talk to clubs that already have cameras installed. Let them be on the other side of Spain so that they don't care about your situation and tell you the truth. On the company pages there is usually a list of the clubs they work with."], ['2nd Talk to different camera companies and let them tell you. In Spain, apart from Save My Play, with whom I work, there are Rackety, Padmi, AIball, Courtmaster and there will be some more but small ones. Below is my calendar in case you want to find time to talk.'], ['3º You have the information about the clubs and companies, compare, talk about it in the club and decide. The decision is not which cameras to put. First you have to think if you want to put them or not.'], ['As a first reading, I recommend this article: Clubs that regret installing cameras.']]}, 'errores-clubs-se-arrepienten-de-poner-camaras': {'title': 'The 3 mistakes of clubs that regret installing cameras', 'blocks': [['Yes, you read that right.', 'And they are neither one nor two.', 'I spend the day talking to clubs and these 3 mistakes are repeated over and over again.', "I know that investing in cameras is something you don't want to make a mistake with. I recommend that you read it and understand our point of view. So whatever you decide, you will make a more informed decision."], ['Mistake 1: Analytics and statistics with AI', 'Does the idea sound cool?', 'Let an AI analyze your game, tell you how many shots you make and even what you need to improve.', 'The reality is that by the third match using it you realize that your heat map is quite similar to that of the previous matches.', 'And that your number of forehands cut with double inverted corkscrews is a piece of information that does not give you much.'], ['It makes me sad to see the money that small clubs in Burgos, Córdoba or Tarragona, for example, pay for this.', "It is not profitable to pay those prices. It's crazy.", "It's a drawer."], ['Mistake 2: Trial Periods and Permanences', 'Be careful with trial periods.', 'Careful.', 'This is the usual process:'], ['1º During the first month you see that people use it.'], ['2º Thinking that it will be like this all the time, you sign a long stay.'], ['3º When the initial boom declines, you continue paying.'], ["Don't mortgage yourself with a permanence."], ['Mistake 3: Most companies use surveillance cameras', 'The video looks like footage of a bank robbery.', 'The image quality is terrible.', 'A good indicator to know if they are surveillance are the lines on the track.', 'If they are curved, bad sign.'], ["When you do the demo, remind me and I'll show you the difference."], ["EXTRA BUG: I'll tell you when we do the online demo."], ['Conclusion:', 'Some clubs regret the services and cameras they hire.'], ['I insist, do not trust what people like me tell you.', 'Talk to the clubs and let them tell you.']]}, 'camaras-de-padel-o-videovigilancia': {'title': 'How do I know if my cameras are paddle tennis or video surveillance?', 'blocks': [["Apart from the image quality, which is obvious, there is another fairly easy way to recognize it. Looking at the lines of the track. Once you see this, you won't be able to unsee it. I show you an example."], ["In this case you can see that the lines of the track are not straight, they are curved. The entire image looks curved. That's typical of surveillance cameras."], ['The track lines should look straight. As similar as possible to Premier Padel broadcasts.']]}, 'cuanto-cuesta-poner-camaras': {'title': 'How much does it cost to put cameras in my club?', 'blocks': [['One of the first questions that will be going through your head is: And how much does it cost to put Save My Play cameras on the courts of my club? Here is the answer, price per track. A camera is placed in each one.', 'We know that it is a decision that you have to consider and that is why we try to provide you with the necessary information to make the best possible decision. Here it is:'], ['We have two monthly plans:', "Plan A: €136 per month. Includes statistics with AI. I don't recommend it to 95% of clubs (Link).", 'Plan B: €45 per month. For the price of reserving a couple of hours a month, you have a camera recording matches, highlights, live shows on YouTube, coaching tools... unlimited.', "Without any permanence. If you don't want to continue, cancel the subscription and leave. In fact, you don't even sign a contract or anything. It is a Stripe subscription that you can cancel at any time", "We don't want angry customers, it doesn't pay us off in the long term.", 'Still, 97% of clubs voluntarily continue with us every month.'], ['Initial investment for the camera of €180, one per track. (Link)', 'Without work, it can be assembled in 5 minutes with just Wi-Fi and a plug.', 'Due to high demand, it is taking us a little longer than usual to send them, approximately 4 weeks. Customs fees are about €20. If you meet a series of requirements, the first monthly payment can be free.']]}, 'inversion-inicial-camaras-180-euros': {'title': 'Why is there an initial investment of €180 for the cameras?', 'blocks': [['I know that this €180 is one of the most common complaints I receive from clubs. I know it is a significant amount and that other companies do not charge. So that you can make the best decision, I will tell you why it is. We may not be what you are looking for and I hope this helps you understand everything a little better.'], ['The main reason is that we manufacture the cameras ourselves. This is not usual. The normal thing is to use video surveillance cameras, normally made in China, which are cheaper. In this article I tell you how to differentiate them xxxx. Specifically, we manufacture them in Chicago and California. In my opinion, quality has nothing to do with it. Players want their best points to share on networks. Therefore you cannot have a quality that looks like the recording of a bank robbery.'], ['Producing them costs us much more than €180. We sell them at a loss and recover the investment over time. This is our business model. €180 is the price to pay for the cameras to have the best possible quality.', "If we did not charge the initial investment, it would take too long to recover the money. We would run out of liquidity to continue manufacturing more cameras. The only viable alternative would be to raise the fees to recover it as soon as possible. And that in the long run does not compensate you because most of the expense goes into the monthly payments and not the initial one. That's why our monthly payments are as competitive as possible."]]}, 'es-caro-save-my-play': {'title': 'Is Save My Play expensive?', 'blocks': [["This is a frequently asked question that I understand you ask. That's how I see it.", 'First of all and obviously it is not a product for all clubs. It is a differential service and therefore represents an additional investment. So we are not looking to be in all the clubs. And that is part of the attraction it has.'], ['Now compared to other companies. The €136 per month statistics and analytics plan is average of what you can find. There are cheaper companies, but with different characteristics. However, we do not recommend this plan for most. The €45 per month plan is one of the best prices you will find. There are many new companies that are starting out and need their first clients, who may offer you better conditions in exchange for what they assume is in the development phase. Among consolidated companies, it is difficult to find something similar. Anyway, compare and see. Not everything is the price and you have to see what cameras, what services they offer you.']]}, 'es-rentable-poner-camaras': {'title': 'Is it profitable to put cameras on my tracks?', 'blocks': [['We know that clubs look at all expenses with a magnifying glass. And without a doubt you want to know if it is worth putting cameras in your club. This is our opinion on the matter.'], ['First of all, I can tell you with complete sincerity that it is something difficult to measure. The accounts are not direct. Without going any further, our €139 per month plan, which includes analysis and statistics with AI, is not recommended for 90% of clubs because we do not see it as profitable. And we tell you that clearly.'], ['About the €45 per month plan, plus the €180 camera investment, which includes everything else. These are the benefits that we see you can have. Put the value you believe in each thing and you will know if it is worth it:'], ['1st Differential value compared to the clubs in the area: you offer a different premium service. Players who come to try it, more reservations. Give an image of a modern club and have one more point in your favor.'], ['2nd Online Content. You can add logos to the broadcast, both from sponsors and from your club. Players are eager to upload their points to networks and share it with their friends, and you can be part of those videos organically.'], ['3rd Recording of tournaments or classes. An extra that you offer in any type of event that occurs on the track. For classes, with a Tablet and cameras there are trainers that work wonders.'], ["4º Direct monetization: some clubs charge a small supplement and with that you make the system profitable. By charging €0.5 more per track you'll pay the bills. €45 per month per track is equivalent to €1.5 per day"]]}, 'por-que-no-recomiendo-plan-analytics': {'title': "Why don't I recommend the €136 per month plan to 95% of clubs?", 'blocks': [['If you have read this article on the 3 mistakes clubs make, it should be pretty clear.']]}, 'que-pasa-si-cancelo': {'title': 'What happens if I cancel my subscription? Should I keep the cameras?', 'blocks': [['This is a fairly common question that clubs ask me.'], ["I'll give you a little context in case it's necessary. As this article says xxx. We manufacture the padel cameras. And that is why there is an initial investment of €180 for each camera. One camera per track. We have no permanence. There is no contract, it is a subscription that you can cancel at any time."], ['And what happens if I cancel the subscription?', "Yes, the cameras are yours to keep. The problem is that they only work with our software. So you can't use them for anything else. That's how it is."], ['Buying a camera and canceling the subscription is a failure for you and also for us. You lose €180. It costs us more than €180 to produce the cameras. Therefore, we are not interested in selling many cameras at once. We also have enough demand to not have to force sales. We recommend trying it on one track and seeing how it goes before trying more tracks. In the long run we both win.'], ['This is how we get 97% of clubs to voluntarily stay with us every month.']]}, 'como-montar-camara-save-my-play': {'title': 'How long does it take to set up a Save My Play camera?', 'blocks': [["10 minutes. A ladder, wifi and a plug. That's all you need to set up a camera. The camera attaches itself with a nut that tightens. It is placed on the 4 meter fence. With a cable it connects to the socket and the connection to Wi-Fi is very simple."], ['There is also the alternative of connecting it by cable to the router. If you already have the perfect cable. If not, it is not worth what it costs you to buy it. The live ones on YouTube will be seen with somewhat better quality. But most clubs use Wi-Fi.']]}, 'problemas-con-las-camaras': {'title': 'What happens if there are problems with the cameras?', 'blocks': [['As long as we use them responsibly, we are responsible for any problems that may arise.', 'We work with more than 1500 clubs from countries with completely different conditions. Cameras adapt to anything like a chameleon. It is more than proven. Nothing should fail. If it fails, obviously we will not charge you during that time and we will help you resolve it as soon as possible']]}, 'que-son-las-coaching-tools': {'title': 'What are coaching tools?', 'blocks': [['Soon we will explain in detail how the coaching tools work on the court.']]}, 'camaras-en-exterior-lluvia-nieve-viento': {'title': 'Do the cameras hold up on outdoor slopes?', 'blocks': [['We manufacture a camera model that resists what is thrown at it. Wind, snow, rain and balls. Whatever. It is used for outdoors, and therefore for indoors']]}, 'como-ver-highlights-sin-app': {'title': 'Why is there no Save My Play app? How do I see my highlights?', 'blocks': [["The last thing a player wants 1 minute before entering the court is to have to download an app. What if it doesn't have enough coverage or data and it doesn't download completely. For everyone to use it, it has to be the simplest thing in the world. This is the process:"], ['1stScan the QR'], ['2nd Press the red button to start recording the entire match'], ['3º Fill in the necessary information: email, game time, start broadcasts on YouTube, choose to have the AI \u200b\u200bcut the parts where you are not playing...'], ['4º After each highlight raise your arms looking at the camera (or press the green button) and the last point is saved'], ['5º One hour after finishing, you will receive an email with your match and the points you have saved. If you have not chosen them, the AI \u200b\u200bwill take care of it']]}, 'mejores-empresas-camaras-padel-espana': {'title': 'What are the best padel camera companies in Spain?', 'blocks': [["In Spain, today there are mainly 3 large camera companies. Link to why you don't know Save My Play"], ['Each company has its particular vision on the subject of cameras. We are committed to different technologies and different business models. It all starts from the vision we have of the use that the player and the club make of the cameras. Therefore, I recommend that you talk to each company, listen and compare. The more information, the better the decision you make. I also recommend talking to clubs that have the cameras, because they have been through it.'], ['Padmi: it is the company with the most tracks in Spain, 82 tracks in 56 clubs. Two cameras per track. They focus above all on the topic of statistics and analytics with AI, apart from the highlights. The AI \u200b\u200banalyzes the game and gives you your statistics about your shots.', 'Lately they have launched an AI that corrects you and gives you suggestions for improvement and also an additional function focused on padel academies.', 'It is something new and that undoubtedly differentiates you from other clubs. In addition, they have a very powerful brand image and marketing, with a very careful aesthetic, as the app demonstrates. They are the camera company used by the Adidas Padel Tour.'], ['Aiball: In several clubs in Spain. Statistics and analytics with AI to analyze your game, as well as highlights. It focuses on the reliability of statistics and provides a more objective leveling system than that of the coaches themselves. They are the official statistics provider of the International Padel Federation and the Premier Padel Academy.'], ['Ari Sánchez is a partner in the company, as are coaches like Ángel González.'], ['Best startup of the Padel World Summit 2025', 'The leveling system helps create balanced level matches and Aiball has tools to improve player retention for the club. This is possible using all the player data they have'], ["Rackety: They're in about 50 clubs. Several of them have them on all their tracks, beyond just one or two as is usually the case. Match broadcasting, AI statistics and court reservation. It has added the functions of court reservations and WhatsApp chatbots to offer the club a system that integrates everything it needs. In this way, the club generates content, differentiates itself from other clubs and creates a more loyal community."]]}, 'por-que-no-conocia-save-my-play': {'title': 'Why had I never heard of Save My Play?', 'blocks': [['We are an American company. As much as Spain is the country with the most slopes in the world, it is an unattractive market for us. Especially compared to other countries. We have clubs from all over the world that, almost without asking, put cameras on each and every one of their courts. And of course, we prioritize those clients. Spain is a more complicated market, there is less money and all clubs look at every expense with a magnifying glass. We are in more than 1500 club tracks around the world. In the United States, pickleball, tennis and paddle tennis courts.']]}, 'save-my-play-en-pocas-palabras': {'title': "Now it's time to talk about how good we are at Save My Play", 'blocks': [["I'll be as brief as I can.", 'We are in more than 1,600 tracks around the world.', 'The American Padel Federation chooses us to record their FIP tournaments.', 'And we broadcast the American Tennis Federation live every weekend on its more than 100 courts at its headquarters.'], ['Even so, we did not reach 10 people in the company.', 'And that is what the clubs value.', 'The closeness. If something goes wrong, we will do our best to fix it.', 'It is not lost in the chain of command.'], ["On the other hand, we don't need to make things difficult to impress the boss.", "If you have the cameras working with two buttons, we don't put three."]]}, 'por-que-coolpadel-colabora-con-save-my-play': {'title': 'Why does CoolPadel collaborate with Save My Play?', 'blocks': [['My favorite part of having a business in the padel industry is going to trade fairs and events in the sector. At these fairs, I like to talk to all the stands that the different companies in the world of padel have. From going to these events, I know quite well how this industry works. On the one hand, I consider that Save My Play cameras within its sector are the company with the greatest potential. And on the other hand, they are good people, which is just as important. For this reason, we were looking at the option of working together and it worked out. Save My Play is a very large company and they cannot cope with all the demand for clubs. At CoolPadel we manage the clubs in Europe: Spain, France, UK, Italy, Germany,...']]}, 'he-comprado-camaras-que-pasa-ahora': {'title': 'I bought some cameras from Save My Play. What is the process now?', 'blocks': [["1º I'll give you the link with which to make the payment through Stripe. Payment is in dollars since we are an American company. I recommend paying in dollars and not euros because Stripe usually charges more currency exchange fees than your usual bank. If you meet these requirements, you can get the first monthly payment for free."], ['2º I will also give you the link to register your Save My Play user account. Cameras will be assigned to you automatically'], ['3º In 4 weeks your cameras will arrive. We have quite a few cameras to make and it may be 5 weeks. The last ones we sent to Spain took that long.'], ['4º You receive your cameras. You will have to pay customs fees of around €20. From the moment you put the cameras into operation, time begins to count. We ask that it does not take more than a week to get it up and running because there are other clubs that want them now. If this is going to be the case, let us know and we will send them to you later without any problem.']]}, 'por-que-no-me-interesa-venderte-una-camara': {'title': 'Why am I not interested in selling you a camera if you are not convinced?', 'blocks': [['If I sell you a camera for €180, you try it and cancel after a month, we have all lost']]}}, 'videos': {'como-ver-highlights-sin-app': ('How to save highlights on track', 'Raise your arms facing the camera or press the green button to save your best point instantly.', 'https://www.youtube-nocookie.com/embed/Z0vnvyrUbPQ'), 'como-montar-camara-save-my-play': ('How easy it is to use', 'In just 10 minutes and with just two buttons you have the camera recording matches, highlights and live shows without complications.', 'https://www.youtube-nocookie.com/embed/LuzDvB5Umfs'), 'save-my-play-en-pocas-palabras': ('Live broadcast of the Miami FIP tournament', 'This is what an official live broadcast looks like with Save My Play cameras at international FIP tournaments.', 'https://www.youtube-nocookie.com/embed/4xwrrveDZxg?start=5623'), 'que-son-las-coaching-tools': ('Track training tools', 'With the coaching tools you can pause the play on the tablet, draw trajectories and record voice notes for your students.', 'https://www.youtube-nocookie.com/embed/FcnCWaYahP8')}, 'hub_eyebrow': 'Everything you need to know before installing cameras', 'hub_title': 'Cameras for padel clubs', 'hub_intro': ['We know that you want to make the best decision about the cameras<br>Experience tells us that clubs appreciate having useful information at their disposal<br>And that if you are not interested in informing yourself, it is not worth doing the online demo', 'Therefore, we have tried to be as honest and transparent as possible.', 'Along the way you will realize if it is a good idea to install cameras or not<br>And if you want to install them from Save My Play or from another company<br>Whatever the decision, it will be better for you and for us', ''], 'next_step_title': 'Next step', 'next_step_p1': "If you're still not sure, check out our guides above on padel court cameras.", 'next_step_p2': 'If you have questions and want to see how it all works live, book a demo call.', 'read_article': 'Read article', 'related_title': 'Recommended articles', 'nav_camaras': 'CAMERAS'}, 'it': {'articles': {'por-donde-empezar-si-estoy-pensando-en-poner-camaras': {'title': 'Sto pensando di mettere delle telecamere nel mio locale, da dove comincio?', 'blocks': [["Capisco che sei un po' perso. Potresti aver visto alcuni club che stanno installando telecamere sui loro campi e hai dubbi se metterle anche tu. Prima di tutto ti consiglio di essere cauto. Solo perché lo fanno tutti non significa che sia l'opzione migliore."], ['Questo è quello che farei nella tua situazione:'], ["1° Parla con i club che hanno già installato le telecamere. Lascia che siano dall'altra parte della Spagna in modo che non si preoccupino della tua situazione e ti dicano la verità. Nelle pagine aziendali solitamente c'è l'elenco dei club con cui collaborano."], ['2° Parla con diverse società di fotocamere e lascia che te lo dicano. In Spagna, oltre a Save My Play, con cui lavoro, ci sono Rackety, Padmi, AIball, Courtmaster e ce ne saranno altri ma piccoli. Di seguito è riportato il mio calendario nel caso tu voglia trovare il tempo per parlare.'], ['3º Hai le informazioni sui club e sulle società, confronta, parlane nel club e decidi. La decisione non è quali telecamere mettere. Per prima cosa devi pensare se vuoi metterli oppure no.'], ['Come prima lettura consiglio questo articolo: Club che si pentono di installare telecamere.']]}, 'errores-clubs-se-arrepienten-de-poner-camaras': {'title': 'I 3 errori dei club che si pentono di aver installato le telecamere', 'blocks': [['Sì, hai letto bene.', 'E non sono né uno né due.', 'Passo la giornata a parlare con i club e questi 3 errori si ripetono ancora e ancora.', 'So che investire in fotocamere è qualcosa con cui non vuoi commettere errori. Vi consiglio di leggerlo e di comprendere il nostro punto di vista. Quindi qualunque cosa tu decida, prenderai una decisione più informata.'], ["Errore 1: analisi e statistiche con l'intelligenza artificiale", "L'idea sembra interessante?", "Lascia che un'intelligenza artificiale analizzi il tuo gioco, ti dica quanti tiri fai e anche cosa devi migliorare.", 'La realtà è che alla terza partita che lo usi ti rendi conto che la tua mappa di calore è abbastanza simile a quella delle partite precedenti.', "E che il tuo numero di dritti tagliati con il cavatappi doppio rovesciato è un'informazione che non ti dice molto."], ['Mi rattrista vedere i soldi che i piccoli club di Burgos, Córdoba o Tarragona, ad esempio, pagano per questo.', 'Non è redditizio pagare quei prezzi. È pazzesco.', 'È un cassetto.'], ['Errore 2: Periodi di prova e permanenze', 'Fai attenzione ai periodi di prova.', 'Attento.', 'Questo è il solito processo:'], ['1º Durante il primo mese vedi che le persone lo usano.'], ['2º Pensando che sarà sempre così, firmi un lungo soggiorno.'], ['3º Quando il boom iniziale diminuisce, continui a pagare.'], ['Non ipotecarti con una permanenza.'], ['Errore 3: la maggior parte delle aziende utilizza telecamere di sorveglianza', 'Il video sembra il filmato di una rapina in banca.', "La qualità dell'immagine è terribile.", 'Un buon indicatore per sapere se sono sorvegliati sono le linee sulla pista.', 'Se sono curvi, brutto segno.'], ['Quando fai la demo, ricordamelo e ti mostrerò la differenza.'], ['BUG EXTRA: te lo dirò quando faremo la demo online.'], ['Conclusione:', 'Alcuni club si rammaricano dei servizi e delle telecamere che assumono.'], ['Insisto, non fidarti di quello che ti dicono le persone come me.', 'Parlate con i club e lasciatevi dire da loro.']]}, 'camaras-de-padel-o-videovigilancia': {'title': 'Come faccio a sapere se le mie telecamere sono paddle tennis o videosorveglianza?', 'blocks': [["A parte la qualità dell'immagine, che è ovvia, esiste un altro modo abbastanza semplice per riconoscerla. Osservando le linee della pista. Una volta che lo vedi, non potrai più vederlo. Ti mostro un esempio."], ["In questo caso puoi vedere che le linee del binario non sono dritte, sono curve. L'intera immagine appare curva. Questo è tipico delle telecamere di sorveglianza."], ['Le linee del tracciato dovrebbero apparire dritte. Il più simile possibile alle trasmissioni Premier Padel.']]}, 'cuanto-cuesta-poner-camaras': {'title': 'Quanto costa mettere le telecamere nel mio locale?', 'blocks': [['Una delle prime domande che ti passerà per la testa è: E quanto costa mettere le telecamere Save My Play sui campi del mio club? Ecco la risposta, prezzo per traccia. In ognuno di essi è posizionata una telecamera.', 'Sappiamo che è una decisione che devi considerare ed è per questo che cerchiamo di fornirti le informazioni necessarie per prendere la migliore decisione possibile. Ecco qui:'], ['Abbiamo due piani mensili:', 'Piano A: 136€ al mese. Include statistiche con AI. Non lo consiglio al 95% dei locali (Link).', "Piano B: 45€ al mese. Per il prezzo di riservare un paio d'ore al mese, hai una telecamera che registra partite, highlights, spettacoli dal vivo su YouTube, strumenti di coaching... illimitato.", "Senza alcuna permanenza. Se non vuoi continuare, annulla l'abbonamento e parti. In effetti, non firmi nemmeno un contratto o altro. È un abbonamento Stripe che puoi annullare in qualsiasi momento", 'Non vogliamo clienti arrabbiati, questo non ci ripaga a lungo termine.', 'Tuttavia, il 97% dei club continua volontariamente con noi ogni mese.'], ['Investimento iniziale per la macchina fotografica di 180€, una per traccia. (Collegamento)', 'Senza lavoro, si monta in 5 minuti con solo Wi-Fi e una presa.', "A causa dell'elevata domanda, stiamo impiegando un po' più tempo del solito per inviarli, circa 4 settimane. Le tasse doganali sono circa 20€. Se soddisfi una serie di requisiti, la prima rata mensile può essere gratuita."]]}, 'inversion-inicial-camaras-180-euros': {'title': 'Perché è previsto un investimento iniziale di 180€ per le telecamere?', 'blocks': [["So che questi 180 euro sono una delle lamentele più frequenti che ricevo dai club. So che è un importo significativo e che altre società non fanno pagare. Affinché tu possa prendere la decisione migliore, ti dirò perché è così. Potremmo non essere quello che stai cercando e spero che questo ti aiuti a capire tutto un po' meglio."], ["Il motivo principale è che produciamo noi stessi le fotocamere. Questo non è normale. La cosa normale è usare telecamere di videosorveglianza, normalmente prodotte in Cina, che sono più economiche. In questo articolo ti dico come differenziarli xxxx. Nello specifico, li produciamo a Chicago e in California. Secondo me la qualità non c'entra niente. I giocatori vogliono che i loro punti migliori vengano condivisi sulle reti. Pertanto non è possibile avere una qualità che assomigli alla registrazione di una rapina in banca."], ["Produrli ci costa molto più di 180 euro. Li vendiamo in perdita e recuperiamo l'investimento nel tempo. Questo è il nostro modello di business. 180€ è il prezzo da pagare affinché le fotocamere abbiano la migliore qualità possibile.", 'Se non addebitassimo l’investimento iniziale, ci vorrebbe troppo tempo per recuperare il denaro. Rimarremmo senza liquidità per continuare a produrre più fotocamere. L’unica alternativa praticabile sarebbe aumentare le tasse per recuperarlo il prima possibile. E questo alla lunga non ti compensa perché la maggior parte della spesa va nei pagamenti mensili e non in quelli iniziali. Ecco perché i nostri pagamenti mensili sono quanto più competitivi possibile.']]}, 'es-caro-save-my-play': {'title': 'Save My Play è costoso?', 'blocks': [["Questa è una domanda frequente che mi risulta che tu chieda. E' così che la vedo.", "Innanzitutto e ovviamente non è un prodotto per tutti i club. È un servizio differenziale e rappresenta quindi un investimento aggiuntivo. Quindi non cerchiamo di essere in tutti i club. E questo fa parte dell'attrazione che ha."], ['Ora rispetto ad altre società. Il piano statistico e di analisi da € 136 al mese è nella media di ciò che puoi trovare. Esistono aziende più economiche, ma con caratteristiche diverse. Tuttavia, non consigliamo questo piano alla maggior parte delle persone. Il piano da € 45 al mese è uno dei migliori prezzi che troverai. Ci sono molte nuove aziende che stanno nascendo e hanno bisogno dei loro primi clienti, che potrebbero offrirti condizioni migliori in cambio di ciò che pensano sia in fase di sviluppo. Tra le aziende consolidate è difficile trovare qualcosa di simile. Comunque confronta e vedi. Non tutto ha il prezzo e devi vedere quali fotocamere, quali servizi ti offrono.']]}, 'es-rentable-poner-camaras': {'title': 'È redditizio mettere le telecamere sulle mie tracce?', 'blocks': [['Sappiamo che i club guardano tutte le spese con una lente di ingrandimento. E senza dubbio vuoi sapere se vale la pena mettere delle telecamere nel tuo locale. Questa è la nostra opinione in merito.'], ["Innanzitutto posso dirvi in \u200b\u200btutta sincerità che è una cosa difficile da misurare. I conti non sono diretti. Senza andare oltre, il nostro piano da 139€ al mese, che include analisi e statistiche con l'intelligenza artificiale, non è consigliato al 90% dei club perché non lo riteniamo redditizio. E ve lo diciamo chiaramente."], ["Circa il piano da 45€ al mese, più l'investimento di 180€ per la fotocamera, che include tutto il resto. Questi sono i vantaggi che vediamo puoi avere. Metti il \u200b\u200bvalore in cui credi in ogni cosa e saprai se ne vale la pena:"], ["1° Valore differenziale rispetto ai locali della zona: offri un servizio premium diverso. Giocatori che vengono a provarlo, più prenotazioni. Regala l'immagine di un club moderno e avrai un punto in più a tuo favore."], ['2° contenuto in linea. Puoi aggiungere loghi alla trasmissione, sia degli sponsor che del tuo club. I giocatori sono ansiosi di caricare i loro punti sulle reti e condividerli con i loro amici, e tu puoi far parte di quei video in modo organico.'], ['3° Registrazione di tornei o lezioni. Un extra che offri in qualunque tipo di evento si verifichi in pista. Per le lezioni, con tablet e fotocamere ci sono trainer che fanno miracoli.'], ['4º Monetizzazione diretta: alcuni club addebitano un piccolo supplemento e con questo rendi il sistema redditizio. Facendo pagare 0,5€ in più a traccia pagherai le bollette. 45€ al mese per traccia equivalgono a 1,5€ al giorno']]}, 'por-que-no-recomiendo-plan-analytics': {'title': 'Perché non consiglio il piano da 136€ al mese al 95% dei club?', 'blocks': [['Se hai letto questo articolo sui 3 errori commessi dai club, dovrebbe essere abbastanza chiaro.']]}, 'que-pasa-si-cancelo': {'title': 'Cosa succede se annullo il mio abbonamento? Dovrei tenere le telecamere?', 'blocks': [['Questa è una domanda abbastanza frequente che mi fanno i club.'], ["Ti darò un po' di contesto nel caso sia necessario. Come dice questo articolo xxx. Produciamo le fotocamere paddle. Ed è per questo che per ogni telecamera è previsto un investimento iniziale di 180€. Una telecamera per traccia. Non abbiamo permanenza. Non esiste un contratto, è un abbonamento che puoi disdire in qualsiasi momento."], ["E cosa succede se annullo l'abbonamento?", "Sì, le telecamere sono tue. Il problema è che funzionano solo con il nostro software. Quindi non puoi usarli per nient'altro. E' così."], ["Acquistare una macchina fotografica e disdire l'abbonamento è un fallimento per te e anche per noi. Perdi 180€. Produrre le telecamere ci costa più di 180 euro. Pertanto non siamo interessati a vendere molte fotocamere contemporaneamente. Abbiamo anche una domanda sufficiente per non dover forzare le vendite. Ti consigliamo di provarlo su una traccia e vedere come va prima di provare più tracce. Alla lunga vinciamo entrambi."], ['In questo modo riusciamo a convincere il 97% dei club a restare volontariamente con noi ogni mese.']]}, 'como-montar-camara-save-my-play': {'title': 'Quanto tempo occorre per configurare una videocamera Save My Play?', 'blocks': [['10 minuti. Una scala, wifi e una presa. Questo è tutto ciò che serve per configurare una fotocamera. La fotocamera si fissa con un dado che si stringe. È posizionato sulla recinzione di 4 metri. Con un cavo si collega alla presa e la connessione al Wi-Fi è semplicissima.'], ["Esiste anche l'alternativa di collegarlo via cavo al router. Se hai già il cavo perfetto. In caso contrario, non vale quanto ti costa acquistarlo. Quelli dal vivo su YouTube verranno visti con una qualità leggermente migliore. Ma la maggior parte dei club utilizza il Wi-Fi."]]}, 'problemas-con-las-camaras': {'title': 'Cosa succede se ci sono problemi con le telecamere?', 'blocks': [['Finché li utilizziamo in modo responsabile, siamo responsabili di eventuali problemi che potrebbero sorgere.', "Lavoriamo con più di 1500 club provenienti da paesi con condizioni completamente diverse. Le fotocamere si adattano a qualsiasi cosa, come un camaleonte. E' più che provato. Niente dovrebbe fallire. Se fallisce, ovviamente non ti addebiteremo alcun costo durante quel periodo e ti aiuteremo a risolverlo il prima possibile"]]}, 'que-son-las-coaching-tools': {'title': 'Quali sono gli strumenti del coaching?', 'blocks': [['Presto spiegheremo nel dettaglio come funzionano gli strumenti del coaching in campo.']]}, 'camaras-en-exterior-lluvia-nieve-viento': {'title': "Le telecamere reggono sulle piste all'aperto?", 'blocks': [["Produciamo un modello di fotocamera che resiste a ciò che gli viene lanciato contro. Vento, neve, pioggia e palloni. Qualunque cosa. Viene utilizzato per l'esterno, e quindi per l'interno"]]}, 'como-ver-highlights-sin-app': {'title': "Perché non esiste l'app Save My Play? Come vedo i miei momenti salienti?", 'blocks': [['L’ultima cosa che un giocatore vuole un minuto prima di entrare in campo è scaricare un’app. Cosa succede se non ha copertura o dati sufficienti e non si scarica completamente. Perché tutti possano usarlo, deve essere la cosa più semplice del mondo. Questo è il processo:'], ['1°Scansiona il QR'], ["2° Premi il pulsante rosso per avviare la registrazione dell'intera partita"], ["3º Compila le informazioni necessarie: e-mail, tempo di gioco, avvio delle trasmissioni su YouTube, scegli di far tagliare all'IA le parti in cui non stai giocando..."], ["4º Dopo ogni momento saliente alza le braccia guardando la telecamera (o premi il pulsante verde) e l'ultimo punto verrà salvato"], ["5º Un'ora dopo aver terminato, riceverai un'e-mail con la tua partita e i punti che hai salvato. Se non li hai scelti, ci penserà l'IA"]]}, 'mejores-empresas-camaras-padel-espana': {'title': 'Quali sono le migliori aziende produttrici di fotocamere paddle in Spagna?', 'blocks': [['In Spagna, oggi ci sono principalmente 3 grandi aziende fotografiche. Link al motivo per cui non conosci Save My Play'], ["Ogni azienda ha la sua visione particolare in materia di fotocamere. Siamo impegnati in diverse tecnologie e diversi modelli di business. Tutto parte dalla visione che abbiamo dell'uso che il giocatore e la società fanno delle telecamere. Pertanto, ti consiglio di parlare con ciascuna azienda, ascoltare e confrontare. Più informazioni avrai, migliore sarà la decisione che prenderai. Consiglio anche di parlare con i club che hanno le telecamere, perché ci sono passati."], ["Padmi: è la compagnia con più piste in Spagna, 82 piste in 56 club. Due telecamere per traccia. Si concentrano soprattutto sul tema della statistica e dell'analisi con l'intelligenza artificiale, a parte gli highlights. L'intelligenza artificiale analizza il gioco e ti fornisce le statistiche sui tuoi colpi.", "Ultimamente hanno lanciato un'intelligenza artificiale che ti corregge e ti dà suggerimenti per migliorare e anche una funzione aggiuntiva focalizzata sulle accademie di padel.", "È qualcosa di nuovo e che senza dubbio ti differenzia dagli altri club. Inoltre, hanno un'immagine di marca e un marketing molto potenti, con un'estetica molto curata, come dimostra l'app. Sono la società di telecamere utilizzata dall'Adidas Padel Tour."], ["Aiball: In diversi club in Spagna. Statistiche e analisi con intelligenza artificiale per analizzare il tuo gioco, nonché i momenti salienti. Si concentra sull'affidabilità delle statistiche e fornisce un sistema di livellamento più obiettivo rispetto a quello degli allenatori stessi. Sono il fornitore ufficiale di statistiche della International Padel Federation e della Premier Padel Academy."], ['Ari Sánchez è socio della società, così come allenatori come Ángel González.'], ['Miglior avvio del Padel World Summit 2025', 'Il sistema di livellamento aiuta a creare partite di livello equilibrato e Aiball dispone di strumenti per migliorare la fidelizzazione dei giocatori per il club. Questo è possibile utilizzando tutti i dati dei giocatori in loro possesso'], ['Rackity: Sono presenti in circa 50 club. Molti di loro li hanno su tutte le loro tracce, oltre a uno o due come di solito accade. Trasmissione delle partite, statistiche AI \u200b\u200be prenotazione dei campi. Ha aggiunto le funzioni di prenotazione dei tribunali e chatbot WhatsApp per offrire al club un sistema che integri tutto ciò di cui ha bisogno. In questo modo il club genera contenuti, si differenzia dagli altri club e crea una community più fedele.']]}, 'por-que-no-conocia-save-my-play': {'title': 'Perché non avevo mai sentito parlare di Save My Play?', 'blocks': [["Siamo un'azienda americana. Per quanto la Spagna sia il paese con il maggior numero di piste al mondo, per noi è un mercato poco attraente. Soprattutto rispetto ad altri paesi. Abbiamo club di tutto il mondo che, quasi senza chiedere, mettono telecamere su ognuno dei loro campi. E, naturalmente, diamo la priorità a questi clienti. La Spagna è un mercato più complicato, ci sono meno soldi e tutti i club guardano ogni spesa con una lente di ingrandimento. Siamo presenti in più di 1500 piste di club in tutto il mondo. Negli Stati Uniti, campi da pickleball, tennis e paddle tennis."]]}, 'save-my-play-en-pocas-palabras': {'title': 'Adesso è il momento di parlare di quanto siamo bravi con Save My Play', 'blocks': [['Sarò il più breve possibile.', 'Siamo presenti in più di 1.600 piste in tutto il mondo.', "L'American Padel Federation ci sceglie per registrare i suoi tornei FIP.", 'E trasmettiamo in diretta la Federazione Americana di Tennis ogni fine settimana sugli oltre 100 campi della sua sede centrale.'], ['Anche così, non abbiamo raggiunto le 10 persone in azienda.', 'Ed è questo ciò che apprezzano i club.', 'La vicinanza. Se qualcosa va storto, faremo del nostro meglio per risolverlo.', 'Non si perde nella catena di comando.'], ["D'altra parte, non abbiamo bisogno di rendere le cose difficili per impressionare il capo.", 'Se le fotocamere funzionano con due pulsanti, non ne mettiamo tre.']]}, 'por-que-coolpadel-colabora-con-save-my-play': {'title': 'Perché CoolPadel collabora con Save My Play?', 'blocks': [["La cosa che preferisco di avere un'attività nel settore del padel è partecipare a fiere ed eventi del settore. In queste fiere mi piace parlare con tutti gli stand che hanno le diverse aziende del mondo del padel. Frequentando questi eventi, so abbastanza bene come funziona questo settore. Da un lato ritengo che le fotocamere Save My Play nel suo settore siano l'azienda con il maggior potenziale. E d’altro canto sono brave persone, il che è altrettanto importante. Per questo motivo abbiamo valutato la possibilità di lavorare insieme e ha funzionato. Save My Play è un'azienda molto grande e non riesce a far fronte a tutta la domanda di club. A CoolPadel gestiamo i club in Europa: Spagna, Francia, Regno Unito, Italia, Germania,..."]]}, 'he-comprado-camaras-que-pasa-ahora': {'title': 'Ho acquistato alcune fotocamere da Save My Play. Qual è il processo adesso?', 'blocks': [["1º Ti darò il link con cui effettuare il pagamento tramite Stripe. Il pagamento è in dollari poiché siamo un'azienda americana. Ti consiglio di pagare in dollari e non in euro perché Stripe di solito addebita commissioni di cambio valuta più elevate rispetto alla tua solita banca. Se soddisfi questi requisiti, puoi ottenere il primo pagamento mensile gratuitamente."], ['2º Ti darò anche il link per registrare il tuo account utente Save My Play. Le telecamere ti verranno assegnate automaticamente'], ['3º Tra 4 settimane arriveranno le tue fotocamere. Abbiamo parecchie fotocamere da realizzare e potrebbero volerci 5 settimane. Gli ultimi che abbiamo inviato in Spagna hanno impiegato così tanto tempo.'], ['4º Ricevi le tue macchine fotografiche. Dovrai pagare tasse doganali di circa 20€. Dal momento in cui metti in funzione le telecamere, il tempo inizia a contare. Chiediamo che non ci voglia più di una settimana per metterlo in funzione perché ci sono altri club che lo vogliono adesso. Se questo sarà il caso, faccelo sapere e te li invieremo più tardi senza alcun problema.']]}, 'por-que-no-me-interesa-venderte-una-camara': {'title': 'Perché non sono interessato a venderti una macchina fotografica se non sei convinto?', 'blocks': [['Se ti vendo una macchina fotografica a 180€, tu la provi e dopo un mese disdici, abbiamo perso tutti']]}}, 'videos': {'como-ver-highlights-sin-app': ('Come salvare i momenti salienti in pista', 'Alza le braccia di fronte alla fotocamera o premi il pulsante verde per salvare immediatamente il tuo punto migliore.', 'https://www.youtube-nocookie.com/embed/Z0vnvyrUbPQ'), 'como-montar-camara-save-my-play': ('Quanto è facile da usare', 'In soli 10 minuti e con soli due pulsanti hai la telecamera che registra partite, highlights e spettacoli dal vivo senza complicazioni.', 'https://www.youtube-nocookie.com/embed/LuzDvB5Umfs'), 'save-my-play-en-pocas-palabras': ('Trasmissione in diretta del torneo FIP di Miami', 'Ecco come appare una trasmissione live ufficiale con le telecamere Save My Play dei tornei internazionali FIP.', 'https://www.youtube-nocookie.com/embed/4xwrrveDZxg?start=5623'), 'que-son-las-coaching-tools': ('Tieni traccia degli strumenti di formazione', 'Con gli strumenti di coaching puoi mettere in pausa il gioco sul tablet, disegnare traiettorie e registrare note vocali per i tuoi studenti.', 'https://www.youtube-nocookie.com/embed/FcnCWaYahP8')}, 'hub_eyebrow': 'Tutto quello che devi sapere prima di installare le telecamere', 'hub_title': 'Telecamere per club di padel', 'hub_intro': ["Sappiamo che vuoi prendere la decisione migliore riguardo alle telecamere<br>L'esperienza ci dice che i club apprezzano avere informazioni utili a loro disposizione<br>E che se non sei interessato ad informarti, non vale la pena fare la demo online", 'Pertanto, abbiamo cercato di essere il più onesti e trasparenti possibile.', "Strada facendo ti renderai conto se è una buona idea installare o meno le telecamere<br>E se vuoi installarle da Save My Play o da un'altra azienda<br>Qualunque sia la decisione, sarà meglio per te e per noi", 'Quindi, se facciamo la demo, avrai domande migliori e noi utilizzeremo meglio il nostro tempo'], 'next_step_title': 'Passo successivo', 'next_step_p1': 'Se hai ancora dubbi, consulta gli articoli qui sopra che ti aiuteranno a decidere.', 'next_step_p2': 'Se hai domande e vuoi vedere come funziona tutto dal vivo, prenota il tuo spazio per la demo.', 'read_article': "Leggi l'articolo", 'related_title': 'Articoli correlati', 'nav_camaras': 'TELECAMERE'}, 'de': {'articles': {'por-donde-empezar-si-estoy-pensando-en-poner-camaras': {'title': 'Ich denke darüber nach, in meinem Club Kameras aufzustellen. Wo fange ich an?', 'blocks': [['Ich verstehe, dass du ein wenig verloren bist. Möglicherweise haben Sie einige Vereine gesehen, die auf ihren Spielfeldern Kameras anbringen, und sind sich nicht sicher, ob Sie diese auch aufstellen sollen. Zunächst einmal empfehle ich Ihnen, vorsichtig zu sein. Nur weil es jeder tut, heißt das nicht, dass es die beste Option ist.'], ['Folgendes würde ich in Ihrer Situation tun:'], ['1. Sprechen Sie mit Clubs, die bereits Kameras installiert haben. Lassen Sie sie auf der anderen Seite Spaniens sein, damit sie sich nicht um Ihre Situation kümmern und Ihnen die Wahrheit sagen. Auf den Unternehmensseiten findet sich meist eine Auflistung der Vereine, mit denen sie zusammenarbeiten.'], ['2. Sprechen Sie mit verschiedenen Kamerafirmen und lassen Sie sich von ihnen informieren. In Spanien gibt es neben Save My Play, mit dem ich zusammenarbeite, Rackety, Padmi, AIball, Courtmaster und es werden noch einige weitere, aber kleine, hinzukommen. Unten finden Sie meinen Kalender, falls Sie Zeit zum Reden finden möchten.'], ['3º Sie haben die Informationen über die Vereine und Unternehmen, vergleichen, sprechen im Verein darüber und entscheiden. Die Entscheidung liegt nicht darin, welche Kameras eingesetzt werden sollen. Zuerst müssen Sie überlegen, ob Sie sie platzieren möchten oder nicht.'], ['Als erste Lektüre empfehle ich diesen Artikel: Vereine, die den Einbau von Kameras bereuen.']]}, 'errores-clubs-se-arrepienten-de-poner-camaras': {'title': 'Die 3 Fehler von Vereinen, die den Einbau von Kameras bereuen', 'blocks': [['Ja, das hast du richtig gelesen.', 'Und sie sind weder eins noch zwei.', 'Ich verbringe den Tag damit, mit Vereinen zu reden, und diese drei Fehler wiederholen sich immer wieder.', 'Ich weiß, dass man bei der Investition in Kameras keinen Fehler machen sollte. Ich empfehle Ihnen, es zu lesen und unseren Standpunkt zu verstehen. Wie auch immer Sie sich entscheiden, Sie werden eine fundiertere Entscheidung treffen.'], ['Fehler 1: Analysen und Statistiken mit KI', 'Klingt die Idee cool?', 'Lassen Sie eine KI Ihr Spiel analysieren, Ihnen sagen, wie viele Schüsse Sie machen und sogar, was Sie verbessern müssen.', 'Die Realität ist, dass Sie beim dritten Spiel feststellen, dass Ihre Heatmap der der vorherigen Spiele ziemlich ähnlich ist.', 'Und dass die Anzahl der mit doppelten umgekehrten Korkenziehern geschnittenen Vorhände eine Information ist, die Ihnen nicht viel verrät.'], ['Es macht mich traurig zu sehen, wie viel Geld kleine Clubs beispielsweise in Burgos, Córdoba oder Tarragona dafür bezahlen.', 'Es lohnt sich nicht, diese Preise zu zahlen. Es ist verrückt.', 'Es ist eine Schublade.'], ['Fehler 2: Probezeit und Festanstellungen', 'Seien Sie vorsichtig mit Probezeiten.', 'Vorsichtig.', 'Dies ist der übliche Vorgang:'], ['1º Im ersten Monat sieht man, dass die Leute es nutzen.'], ['2º Da Sie davon ausgehen, dass es immer so bleiben wird, unterschreiben Sie einen längeren Aufenthalt.'], ['3. Wenn der anfängliche Boom nachlässt, zahlen Sie weiter.'], ['Belasten Sie sich nicht mit einer dauerhaften Hypothek.'], ['Fehler 3: Die meisten Unternehmen nutzen Überwachungskameras', 'Das Video sieht aus wie Aufnahmen eines Banküberfalls.', 'Die Bildqualität ist schrecklich.', 'Ein guter Indikator dafür, ob es sich um eine Überwachung handelt, sind die Linien auf der Strecke.', 'Wenn sie gebogen sind, ist das ein schlechtes Zeichen.'], ['Wenn Sie die Demo machen, erinnern Sie mich daran und ich zeige Ihnen den Unterschied.'], ['EXTRA-FEHLER: Ich werde es Ihnen sagen, wenn wir die Online-Demo machen.'], ['Fazit:', 'Einige Clubs bereuen die Dienste und Kameras, die sie mieten.'], ['Ich bestehe darauf, vertraue nicht dem, was Leute wie ich dir sagen.', 'Sprechen Sie mit den Vereinen und lassen Sie sich von ihnen erzählen.']]}, 'camaras-de-padel-o-videovigilancia': {'title': 'Woher weiß ich, ob es sich bei meinen Kameras um Paddle-Tennis- oder Videoüberwachungskameras handelt?', 'blocks': [['Abgesehen von der offensichtlichen Bildqualität gibt es noch eine andere recht einfache Möglichkeit, dies zu erkennen. Blick auf die Linien der Strecke. Sobald Sie dies sehen, können Sie es nicht mehr entfernen. Ich zeige Ihnen ein Beispiel.'], ['In diesem Fall können Sie erkennen, dass die Linien der Strecke nicht gerade, sondern gekrümmt sind. Das gesamte Bild sieht gekrümmt aus. Das ist typisch für Überwachungskameras.'], ['Die Gleislinien sollten gerade aussehen. So ähnlich wie möglich zu Premier Padel-Übertragungen.']]}, 'cuanto-cuesta-poner-camaras': {'title': 'Wie viel kostet es, in meinem Club Kameras aufzustellen?', 'blocks': [['Eine der ersten Fragen, die Ihnen durch den Kopf gehen wird, ist: Und wie viel kostet es, Save My Play-Kameras auf den Spielfeldern meines Clubs anzubringen? Hier ist die Antwort: Preis pro Titel. In jedem ist eine Kamera untergebracht.', 'Wir wissen, dass es sich um eine Entscheidung handelt, die Sie abwägen müssen, und deshalb versuchen wir, Ihnen die notwendigen Informationen zur Verfügung zu stellen, damit Sie die bestmögliche Entscheidung treffen können. Hier ist es:'], ['Wir haben zwei Monatspläne:', 'Plan A: 136 € pro Monat. Beinhaltet Statistiken mit KI. Ich empfehle es 95 % der Vereine nicht (Link).', 'Plan B: 45 € pro Monat. Für den Preis, den Sie zahlen müssen, wenn Sie ein paar Stunden pro Monat reservieren, können Sie Spiele, Highlights, Live-Shows auf YouTube mit einer Kamera aufzeichnen, Coaching-Tools nutzen ... unbegrenzt.', 'Ohne jegliche Beständigkeit. Wenn Sie nicht fortfahren möchten, kündigen Sie das Abonnement und gehen Sie. Tatsächlich unterschreiben Sie nicht einmal einen Vertrag oder ähnliches. Es handelt sich um ein Stripe-Abonnement, das Sie jederzeit kündigen können', 'Wir wollen keine verärgerten Kunden, das zahlt sich auf lange Sicht nicht aus.', 'Dennoch bleiben 97 % der Vereine jeden Monat freiwillig bei uns.'], ['Die Anfangsinvestition für die Kamera beträgt 180 €, eine pro Spur. (Link)', 'Ohne Arbeit kann es mit nur WLAN und einem Stecker in 5 Minuten zusammengebaut werden.', 'Aufgrund der hohen Nachfrage dauert der Versand etwas länger als üblich, etwa 4 Wochen. Die Zollgebühren betragen ca. 20 €. Wenn Sie eine Reihe von Voraussetzungen erfüllen, kann die erste monatliche Zahlung kostenlos sein.']]}, 'inversion-inicial-camaras-180-euros': {'title': 'Warum gibt es eine Anfangsinvestition von 180 € für die Kameras?', 'blocks': [['Ich weiß, dass diese 180 € eine der häufigsten Beschwerden sind, die ich von Vereinen erhalte. Ich weiß, dass es sich um einen erheblichen Betrag handelt und dass andere Unternehmen keine Gebühren erheben. Damit Sie die beste Entscheidung treffen können, erkläre ich Ihnen, warum das so ist. Möglicherweise sind wir nicht das, was Sie suchen, und ich hoffe, dass dies Ihnen hilft, alles ein wenig besser zu verstehen.'], ['Der Hauptgrund liegt darin, dass wir die Kameras selbst herstellen. Das ist nicht üblich. Normalerweise werden Videoüberwachungskameras verwendet, die normalerweise in China hergestellt werden und billiger sind. In diesem Artikel erkläre ich Ihnen, wie Sie sie unterscheiden können xxxx. Konkret produzieren wir sie in Chicago und Kalifornien. Qualität hat meiner Meinung nach nichts damit zu tun. Spieler möchten, dass ihre besten Punkte in Netzwerken geteilt werden. Daher kann es keine Qualität geben, die wie die Aufzeichnung eines Banküberfalls aussieht.'], ['Ihre Herstellung kostet uns deutlich mehr als 180 €. Wir verkaufen sie mit Verlust und amortisieren die Investition im Laufe der Zeit. Das ist unser Geschäftsmodell. 180 € ist der Preis, den man zahlen muss, damit die Kameras die bestmögliche Qualität haben.', 'Wenn wir die Anfangsinvestition nicht in Rechnung stellen würden, würde es zu lange dauern, bis wir das Geld zurückerhalten. Uns würde die Liquidität ausgehen, um weiterhin mehr Kameras herzustellen. Die einzig gangbare Alternative bestünde darin, die Gebühren zu erhöhen, um den Betrag so schnell wie möglich zurückzufordern. Und das entschädigt Sie auf lange Sicht nicht, denn der Großteil der Kosten fließt in die monatlichen Zahlungen und nicht in die anfängliche Zahlung. Deshalb sind unsere monatlichen Zahlungen so wettbewerbsfähig wie möglich.']]}, 'es-caro-save-my-play': {'title': 'Ist Save My Play teuer?', 'blocks': [['Dies ist eine häufig gestellte Frage, die Sie, soweit ich weiß, stellen. So sehe ich das.', 'Zunächst einmal ist es offensichtlich, dass es sich nicht um ein Produkt für alle Vereine handelt. Es handelt sich um eine Differenzdienstleistung und stellt daher eine zusätzliche Investition dar. Wir wollen also nicht in allen Clubs vertreten sein. Und das ist ein Teil der Anziehungskraft, die es hat.'], ['Jetzt im Vergleich zu anderen Unternehmen. Der Statistik- und Analyseplan von 136 € pro Monat ist der Durchschnitt dessen, was Sie finden können. Es gibt günstigere Unternehmen, aber mit anderen Eigenschaften. Allerdings empfehlen wir diesen Plan für die meisten nicht. Der Plan für 45 € pro Monat ist einer der besten Preise, die Sie finden werden. Es gibt viele neue Unternehmen, die gerade am Anfang stehen und ihre ersten Kunden brauchen, die Ihnen möglicherweise bessere Konditionen im Austausch für das anbieten, was sie in der Entwicklungsphase vermuten. Unter konsolidierten Unternehmen ist es schwierig, etwas Ähnliches zu finden. Wie auch immer, vergleichen und sehen. Nicht alles hängt vom Preis ab und Sie müssen sehen, welche Kameras und welche Dienste sie Ihnen anbieten.']]}, 'es-rentable-poner-camaras': {'title': 'Lohnt es sich, Kameras auf meinen Gleisen anzubringen?', 'blocks': [['Wir wissen, dass Vereine alle Ausgaben mit der Lupe betrachten. Und zweifellos möchten Sie wissen, ob es sich lohnt, in Ihrem Club Kameras aufzustellen. Dies ist unsere Meinung zu diesem Thema.'], ['Zunächst einmal kann ich Ihnen mit vollem Ernst sagen, dass es etwas schwer zu messen ist. Die Konten sind nicht direkt. Ohne weiter zu gehen: Unser 139-Euro-Monatsplan, der Analysen und Statistiken mit KI beinhaltet, wird für 90 % der Vereine nicht empfohlen, da wir ihn nicht als profitabel ansehen. Und das sagen wir Ihnen deutlich.'], ['Über den 45-Euro-Monatsplan plus die 180-Euro-Kamerainvestition, in der alles andere enthalten ist. Dies sind die Vorteile, die Sie unserer Meinung nach haben können. Legen Sie den Wert fest, an den Sie glauben, und Sie werden wissen, ob es sich lohnt:'], ['1. Differenzialwert im Vergleich zu den Clubs in der Umgebung: Sie bieten einen anderen Premium-Service an. Spieler, die kommen, um es auszuprobieren, haben mehr Vorbehalte. Vermitteln Sie das Bild eines modernen Clubs und haben Sie noch einen weiteren Punkt für sich.'], ['2. Online-Inhalt. Sie können der Übertragung Logos hinzufügen, sowohl von Sponsoren als auch von Ihrem Verein. Spieler sind bestrebt, ihre Punkte in Netzwerke hochzuladen und mit ihren Freunden zu teilen, und Sie können organisch Teil dieser Videos sein.'], ['3. Aufzeichnung von Turnieren oder Kursen. Ein Extra, das Sie bei jeder Art von Veranstaltung anbieten, die auf der Rennstrecke stattfindet. Für den Unterricht mit Tablet und Kamera gibt es Trainer, die wahre Wunder bewirken.'], ['4º Direkte Monetarisierung: Einige Clubs verlangen einen kleinen Aufpreis und machen das System damit profitabel. Indem Sie 0,5\xa0€ mehr pro Titel verlangen, bezahlen Sie die Rechnungen. 45 € pro Monat und Titel entsprechen 1,5 € pro Tag']]}, 'por-que-no-recomiendo-plan-analytics': {'title': 'Warum empfehle ich den 136-Euro-Plan pro Monat nicht 95 % der Clubs?', 'blocks': [['Wenn Sie diesen Artikel über die 3 Fehler, die Vereine machen, gelesen haben, sollte es ziemlich klar sein.']]}, 'que-pasa-si-cancelo': {'title': 'Was passiert, wenn ich mein Abonnement kündige? Soll ich die Kameras behalten?', 'blocks': [['Das ist eine ziemlich häufige Frage, die mir Clubs stellen.'], ['Ich gebe Ihnen einen kleinen Kontext, falls es nötig sein sollte. Wie dieser Artikel sagt xxx. Wir stellen die Paddelkameras her. Und deshalb fällt für jede Kamera eine Anfangsinvestition von 180 € an. Eine Kamera pro Spur. Wir haben keine Beständigkeit. Es gibt keinen Vertrag, es handelt sich um ein Abonnement, das Sie jederzeit kündigen können.'], ['Und was passiert, wenn ich das Abonnement kündige?', 'Ja, die Kameras gehören Ihnen. Das Problem ist, dass sie nur mit unserer Software funktionieren. Sie können sie also für nichts anderes verwenden. So ist das.'], ['Der Kauf einer Kamera und die Kündigung des Abonnements sind für Sie und auch für uns ein Misserfolg. Sie verlieren 180 €. Die Herstellung der Kameras kostet uns mehr als 180 €. Daher haben wir kein Interesse daran, viele Kameras auf einmal zu verkaufen. Wir haben auch genug Nachfrage, um den Verkauf nicht erzwingen zu müssen. Wir empfehlen, es auf einer Strecke auszuprobieren und zu sehen, wie es läuft, bevor Sie weitere Strecken ausprobieren. Auf lange Sicht gewinnen wir beide.'], ['So bringen wir jeden Monat 97 % der Vereine dazu, freiwillig bei uns zu bleiben.']]}, 'como-montar-camara-save-my-play': {'title': 'Wie lange dauert die Einrichtung einer Save My Play-Kamera?', 'blocks': [['10 Minuten. Eine Leiter, WLAN und eine Steckdose. Das ist alles, was Sie zum Einrichten einer Kamera benötigen. Die Kamera wird mit einer festziehenden Mutter befestigt. Es wird auf dem 4-Meter-Zaun platziert. Mit einem Kabel wird es an die Steckdose angeschlossen und die Verbindung zum WLAN ist sehr einfach.'], ['Alternativ besteht auch die Möglichkeit, es per Kabel an den Router anzuschließen. Wenn Sie bereits das perfekte Kabel haben. Wenn nicht, ist es den Kaufpreis nicht wert. Die Live-Übertragungen auf YouTube werden in etwas besserer Qualität zu sehen sein. Aber die meisten Clubs nutzen WLAN.']]}, 'problemas-con-las-camaras': {'title': 'Was passiert, wenn es Probleme mit den Kameras gibt?', 'blocks': [['Solange wir sie verantwortungsvoll nutzen, haften wir für eventuell auftretende Probleme.', 'Wir arbeiten mit mehr als 1500 Vereinen aus Ländern mit völlig unterschiedlichen Voraussetzungen zusammen. Kameras passen sich an alles an wie ein Chamäleon. Es ist mehr als bewiesen. Nichts sollte scheitern. Sollte das Problem fehlschlagen, berechnen wir Ihnen in dieser Zeit selbstverständlich keine Kosten und helfen Ihnen, das Problem so schnell wie möglich zu beheben']]}, 'que-son-las-coaching-tools': {'title': 'Was sind Coaching-Tools?', 'blocks': [['Demnächst erklären wir ausführlich, wie die Coaching-Tools auf dem Platz funktionieren.']]}, 'camaras-en-exterior-lluvia-nieve-viento': {'title': 'Halten die Kameras auf Pisten im Freien stand?', 'blocks': [['Wir stellen ein Kameramodell her, das allen Belastungen standhält. Wind, Schnee, Regen und Bälle. Was auch immer. Es wird für den Außenbereich und somit für den Innenbereich verwendet']]}, 'como-ver-highlights-sin-app': {'title': 'Warum gibt es keine Save My Play-App? Wie sehe ich meine Highlights?', 'blocks': [['Das Letzte, was ein Spieler eine Minute vor dem Betreten des Spielfelds möchte, ist, eine App herunterladen zu müssen. Was passiert, wenn die Abdeckung oder das Datenvolumen nicht ausreicht und der Download nicht vollständig erfolgt? Damit jeder es nutzen kann, muss es die einfachste Sache der Welt sein. Dies ist der Prozess:'], ['1.Scannen Sie den QR'], ['2. Drücken Sie die rote Taste, um die Aufzeichnung des gesamten Spiels zu starten'], ['3. Geben Sie die erforderlichen Informationen ein: E-Mail, Spielzeit, Übertragungen auf YouTube starten, wählen Sie, dass die KI die Teile herausschneidet, in denen Sie nicht spielen ...'], ['4. Nach jedem Highlight heben Sie Ihre Arme und blicken in die Kamera (oder drücken Sie die grüne Taste). Der letzte Punkt wird gespeichert'], ['5. Eine Stunde nach Beendigung erhalten Sie eine E-Mail mit Ihrem Spiel und den von Ihnen gespeicherten Punkten. Wenn Sie sie nicht ausgewählt haben, kümmert sich die KI darum']]}, 'mejores-empresas-camaras-padel-espana': {'title': 'Welches sind die besten Paddelkamera-Unternehmen in Spanien?', 'blocks': [['In Spanien gibt es heute hauptsächlich drei große Kamerafirmen. Link zu den Gründen, warum Sie Save My Play nicht kennen'], ['Jedes Unternehmen hat seine eigene Vision zum Thema Kameras. Wir engagieren uns für unterschiedliche Technologien und unterschiedliche Geschäftsmodelle. Alles beginnt mit der Vision, die wir von der Nutzung der Kameras durch den Spieler und den Verein haben. Daher empfehle ich Ihnen, mit jedem Unternehmen zu sprechen, zuzuhören und zu vergleichen. Je mehr Informationen, desto besser ist die Entscheidung, die Sie treffen. Ich empfehle auch, mit Vereinen zu sprechen, die über Kameras verfügen, weil sie das schon erlebt haben.'], ['Padmi: Es ist das Unternehmen mit den meisten Bahnen in Spanien, 82 Bahnen in 56 Clubs. Zwei Kameras pro Spur. Sie konzentrieren sich neben den Highlights vor allem auf das Thema Statistik und Analytics mit KI. Die KI analysiert das Spiel und gibt Ihnen Ihre Statistiken über Ihre Schüsse.', 'Kürzlich haben sie eine KI eingeführt, die Sie korrigiert und Ihnen Verbesserungsvorschläge gibt, sowie eine zusätzliche Funktion speziell für Padel-Akademien.', 'Es ist etwas Neues und das unterscheidet Sie zweifellos von anderen Vereinen. Darüber hinaus verfügen sie über ein sehr starkes Markenimage und Marketing mit einer sehr sorgfältigen Ästhetik, wie die App zeigt. Sie sind die Kamerafirma der Adidas Padel Tour.'], ['Aiball: In mehreren Clubs in Spanien. Statistiken und Analysen mit KI zur Analyse Ihres Spiels sowie der Highlights. Es konzentriert sich auf die Zuverlässigkeit der Statistiken und bietet ein objektiveres Bewertungssystem als das der Trainer selbst. Sie sind der offizielle Statistikanbieter der International Padel Federation und der Premier Padel Academy.'], ['Ari Sánchez ist Partner des Unternehmens, ebenso wie Trainer wie Ángel González.'], ['Bestes Startup des Padel World Summit 2025', 'Das Levelsystem trägt dazu bei, Spiele mit ausgeglichenem Level zu schaffen, und Aiball verfügt über Tools, um die Spielerbindung für den Verein zu verbessern. Dies ist mit allen vorhandenen Spielerdaten möglich'], []]}, 'por-que-no-conocia-save-my-play': {'title': 'Warum hatte ich noch nie von Save My Play gehört?', 'blocks': [['Wir sind ein amerikanisches Unternehmen. Obwohl Spanien das Land mit den meisten Pisten der Welt ist, ist es für uns ein unattraktiver Markt. Vor allem im Vergleich zu anderen Ländern. Wir haben Clubs auf der ganzen Welt, die fast ohne Aufforderung Kameras auf jedem einzelnen ihrer Spielfelder anbringen. Und natürlich priorisieren wir diese Kunden. Spanien ist ein komplizierterer Markt, es gibt weniger Geld und alle Vereine betrachten jede Ausgabe mit der Lupe. Wir sind in mehr als 1500 Clubanlagen auf der ganzen Welt vertreten. In den Vereinigten Staaten gibt es Pickleball-, Tennis- und Paddle-Tennisplätze.']]}, 'save-my-play-en-pocas-palabras': {'title': 'Jetzt ist es an der Zeit, darüber zu sprechen, wie gut wir bei Save My Play sind', 'blocks': [['Ich werde mich so kurz wie möglich fassen.', 'Wir sind auf mehr als 1.600 Strecken weltweit vertreten.', 'Die American Padel Federation wählt uns zur Aufzeichnung ihrer FIP-Turniere.', 'Und wir übertragen die American Tennis Federation jedes Wochenende live auf ihren mehr als 100 Plätzen in ihrem Hauptsitz.'], ['Trotzdem haben wir nicht 10 Leute im Unternehmen erreicht.', 'Und das ist es, was die Vereine wertschätzen.', 'Die Nähe. Wenn etwas schief geht, werden wir unser Bestes tun, um das Problem zu beheben.', 'Es geht nicht in der Befehlskette verloren.'], ['Andererseits müssen wir es uns nicht schwer machen, den Chef zu beeindrucken.', 'Wenn die Kameras mit zwei Tasten funktionieren, verzichten wir auf drei.']]}, 'por-que-coolpadel-colabora-con-save-my-play': {'title': 'Warum arbeitet CoolPadel mit Save My Play zusammen?', 'blocks': [['Am meisten gefällt mir an einem Unternehmen in der Padel-Branche der Besuch von Messen und Veranstaltungen in der Branche. Auf diesen Messen spreche ich gerne mit allen Ständen der verschiedenen Unternehmen in der Welt des Padelsports. Da ich diese Veranstaltungen besucht habe, weiß ich recht gut, wie diese Branche funktioniert. Einerseits bin ich der Meinung, dass Save My Play-Kameras in seiner Branche das Unternehmen mit dem größten Potenzial sind. Und andererseits sind sie gute Menschen, was genauso wichtig ist. Aus diesem Grund haben wir die Möglichkeit einer Zusammenarbeit geprüft und es hat geklappt. Save My Play ist ein sehr großes Unternehmen und kann nicht der gesamten Nachfrage nach Clubs gerecht werden. Bei CoolPadel verwalten wir die Clubs in Europa: Spanien, Frankreich, Großbritannien, Italien, Deutschland, ...']]}, 'he-comprado-camaras-que-pasa-ahora': {'title': 'Ich habe einige Kameras von Save My Play gekauft. Wie ist der Ablauf jetzt?', 'blocks': [['1º Ich gebe Ihnen den Link, mit dem Sie die Zahlung über Stripe durchführen können. Die Bezahlung erfolgt in Dollar, da wir ein amerikanisches Unternehmen sind. Ich empfehle die Zahlung in Dollar und nicht in Euro, da Stripe normalerweise mehr Wechselkursgebühren erhebt als Ihre übliche Bank. Wenn Sie diese Voraussetzungen erfüllen, können Sie die erste monatliche Zahlung kostenlos erhalten.'], ['2º Ich gebe Ihnen auch den Link zur Registrierung Ihres Save My Play-Benutzerkontos. Kameras werden Ihnen automatisch zugewiesen'], ['3. In 4 Wochen werden Ihre Kameras eintreffen. Wir müssen einige Kameras herstellen und es kann 5 Wochen dauern. Die letzten, die wir nach Spanien geschickt haben, haben so lange gedauert.'], ['4º Sie erhalten Ihre Kameras. Es fallen Zollgebühren in Höhe von ca. 20 € an. Ab dem Moment, in dem Sie die Kameras in Betrieb nehmen, beginnt die Zeit zu zählen. Wir bitten darum, dass es nicht länger als eine Woche dauert, bis es betriebsbereit ist, da es andere Vereine gibt, die dies jetzt wollen. Sollte dies der Fall sein, lassen Sie es uns wissen und wir werden Ihnen die Unterlagen später problemlos zusenden.']]}, 'por-que-no-me-interesa-venderte-una-camara': {'title': 'Warum bin ich nicht daran interessiert, Ihnen eine Kamera zu verkaufen, wenn Sie nicht überzeugt sind?', 'blocks': [['Wenn ich Ihnen eine Kamera für 180 € verkaufe, Sie sie ausprobieren und nach einem Monat kündigen, haben wir alle verloren']]}}, 'videos': {'como-ver-highlights-sin-app': ('So speichern Sie Highlights auf der Strecke', 'Heben Sie Ihre Arme in Richtung Kamera oder drücken Sie die grüne Taste, um Ihren besten Punkt sofort zu speichern.', 'https://www.youtube-nocookie.com/embed/Z0vnvyrUbPQ'), 'como-montar-camara-save-my-play': ('Wie einfach es zu bedienen ist', 'In nur 10 Minuten und mit nur zwei Tasten können Sie mit der Kamera Spiele, Highlights und Live-Shows unkompliziert aufzeichnen.', 'https://www.youtube-nocookie.com/embed/LuzDvB5Umfs'), 'save-my-play-en-pocas-palabras': ('Live-Übertragung des Miami FIP-Turniers', 'So sieht eine offizielle Live-Übertragung mit Save My Play-Kameras bei internationalen FIP-Turnieren aus.', 'https://www.youtube-nocookie.com/embed/4xwrrveDZxg?start=5623'), 'que-son-las-coaching-tools': ('Verfolgen Sie Trainingstools', 'Mit den Coaching-Tools können Sie das Spiel auf dem Tablet anhalten, Flugbahnen zeichnen und Sprachnotizen für Ihre Schüler aufzeichnen.', 'https://www.youtube-nocookie.com/embed/FcnCWaYahP8')}, 'hub_eyebrow': 'Alles, was Sie vor der Installation von Kameras wissen müssen', 'hub_title': 'Kameras für Padel-Clubs', 'hub_intro': ['Wir wissen, dass Sie die beste Entscheidung über die Kameras treffen möchten.<br>Die Erfahrung zeigt, dass Vereine es zu schätzen wissen, nützliche Informationen zur Verfügung zu haben.<br>Und wenn Sie kein Interesse daran haben, sich selbst zu informieren, lohnt es sich nicht, die Online-Demo zu machen', 'Deshalb haben wir versucht, so ehrlich und transparent wie möglich zu sein.', 'Unterwegs werden Sie erkennen, ob es eine gute Idee ist, Kameras zu installieren oder nicht.<br>Und ob Sie sie von Save My Play oder von einem anderen Unternehmen installieren möchten.<br>Wie auch immer Sie sich entscheiden, es wird für Sie und für uns besser sein', 'Wenn wir also die Demo machen, haben Sie bessere Fragen und wir nutzen unsere Zeit besser'], 'next_step_title': 'Nächster Schritt', 'next_step_p1': 'Wenn Sie noch unsicher sind, finden Sie oben weitere hilfreiche Artikel.', 'next_step_p2': 'Wenn Sie Fragen haben und das System live im Einsatz sehen möchten, buchen Sie eine Demo.', 'read_article': 'Artikel lesen', 'related_title': 'Empfohlene Artikel', 'nav_camaras': 'KAMERAS'}}
+from camaras_fr_data import FR_ARTICLES_DATA, FR_VIDEOS
+
+# Actualizar coaching tools en FR con los 4 bloques completos como en ES
+FR_ARTICLES_DATA["que-son-las-coaching-tools"] = {
+    "title": "Que sont les outils de coaching (coaching tools) ?",
+    "blocks": [
+        [
+            "Les <strong>coaching tools</strong> sont l'outil conçu pour que les entraîneurs de padel tirent un véritable profit des caméras pendant les cours de l'école ou de l'académie."
+        ],
+        [
+            "Au lieu d'attendre la fin du match, le coach dispose d'une tablette connectée directement à la piste.",
+            "Il peut mettre en pause le point que l'élève vient de jouer, revenir quelques secondes en arrière et lui montrer <strong>sur-le-champ ce qu'il a bien fait ou son erreur de placement</strong>."
+        ],
+        [
+            "Directement sur l'écran de la tablette, l'entraîneur peut <strong>tracer des lignes de trajectoire, des angles de raquette et les zones</strong> où la balle aurait dû rebondir.",
+            "Tout est enregistré en vidéo avec sa voix explicative en direct."
+        ],
+        [
+            "À la fin de la séance, l'élève reçoit un lien direct sur son WhatsApp ou par e-mail avec les 3 ou 4 séquences commentées par son professeur.",
+            "C'est un moyen redoutable de <strong>différencier votre académie de celle du club voisin</strong> et de fidéliser les joueurs qui cherchent à progresser."
+        ],
+    ],
+}
+
+EN_ARTICLES_DATA = {
+    "por-donde-empezar-si-estoy-pensando-en-poner-camaras": {
+        "title": "I'm thinking about installing cameras in my club, where do I start?",
+        "blocks": [
+            [
+                "I completely understand if you feel a bit lost.",
+                "You have probably seen other clubs installing cameras on their courts and you are wondering whether you should do the same.",
+                "First of all, <strong>I recommend that you be cautious</strong>.",
+                "Just because everyone else is doing it doesn't automatically mean it's the right move for your club.",
+            ],
+            [
+                "Here is what I would do in your shoes:",
+            ],
+            [
+                "1º <strong>Talk to clubs that already have cameras installed.</strong> Ideally clubs on the other side of the country so they have no conflict of interest and tell you the unfiltered truth. Most camera providers list their partner clubs on their websites.",
+            ],
+            [
+                "2º <strong>Talk to different camera companies</strong> and hear what they offer. In Spain and Europe, besides Save My Play (who I work with), there are Rackety, Padmi, AIball, Courtmaster and a few smaller startups. Below you have my calendar in case you want to book a quick call.",
+            ],
+            [
+                "3º <strong>Gather the feedback from both clubs and providers, compare, discuss it internally and decide.</strong> The first decision is not which brand of cameras to buy. First you have to decide <strong>whether you actually want cameras or not</strong>.",
+            ],
+            [
+                'As your first read, I strongly recommend <a href="../errores-clubs-se-arrepienten-de-poner-camaras/">The 3 mistakes of clubs that regret installing cameras</a>.',
+            ],
+        ],
+    },
+    "errores-clubs-se-arrepienten-de-poner-camaras": {
+        "title": "The 3 mistakes of clubs that regret installing cameras",
+        "blocks": [
+            [
+                "Yes, you read that right.",
+                "And it's not just one or two isolated cases.",
+                "I spend every day speaking with padel club owners and managers, and these <strong>3 mistakes are repeated over and over again</strong>.",
+                "I know that investing in court cameras is not a decision you want to get wrong.",
+                "Take two minutes to read this and understand our perspective.",
+                "Whatever you decide afterwards, you will make a much better-informed decision.",
+            ],
+            [
+                "Error 1: AI analytics and shot statistics",
+                "The idea sounds cool on paper, right?",
+                "An AI that analyzes your match, counts how many shots you hit and tells you what to improve.",
+                "The reality is that by your third match using it, you realize <strong>your heat map looks almost identical to every previous match</strong>.",
+                "And knowing your percentage of sliced backhands with double spin is a metric that adds zero real value to 99% of amateur players.",
+            ],
+            [
+                "It genuinely pains me to see the monthly fees that small local clubs pay for these AI stats packages.",
+                "<strong>It is simply not profitable</strong> to pay those prices.",
+                "It makes no financial sense.",
+                "It's basic common sense.",
+            ],
+            [
+                "Error 2: Free trial periods and long lock-in contracts",
+                "Be very careful with free trial periods.",
+                "Seriously.",
+                "This is how the classic trap works:",
+            ],
+            [
+                "1º <strong>During the first month</strong>, the novelty effect kicks in and everyone tries the cameras.",
+            ],
+            [
+                "2º <strong>You sign a multi-year lock-in contract</strong> assuming usage will stay that high forever.",
+            ],
+            [
+                "3º <strong>When the initial hype fades</strong>, you are stuck paying high monthly fees for years.",
+            ],
+            [
+                "<strong>Never tie your club down</strong> with a mandatory lock-in contract.",
+            ],
+            [
+                "Error 3: Most providers use generic CCTV surveillance cameras",
+                "The video ends up looking like security footage from a bank robbery.",
+                "The image quality and frame rate are poor.",
+                "A dead giveaway to spot a surveillance camera is to look at the court lines.",
+                "If the court lines look curved or fisheye-distorted, <strong>that's a bad sign</strong>.",
+            ],
+            [
+                "When we do the online demo, remind me and I will show you the side-by-side difference.",
+            ],
+            [
+                "ERROR EXTRA: I will share this one with you live during our online demo.",
+            ],
+            [
+                "Conclusion:",
+                "Quite a few clubs end up regretting the contracts and camera systems they signed up for.",
+            ],
+            [
+                "I insist: don't just take my word for it.",
+                "<strong>Talk directly to clubs that already have cameras</strong> and let them tell you their real experience.",
+            ],
+        ],
+    },
+    "camaras-de-padel-o-videovigilancia": {
+        "title": "How to tell if my cameras are true padel cameras or CCTV surveillance cameras?",
+        "blocks": [
+            [
+                "Beyond the obvious difference in video sharpness, there is an instant way to spot it.",
+                "<strong>Just look at the lines of the court</strong>.",
+                "Once you notice this detail, you won't be able to unsee it.",
+                "Let me show you a real example.",
+            ],
+            [
+                "In this image, you can immediately see that the court lines are not straight: <strong>they are visibly curved</strong>.",
+                "The entire court is warped by a cheap wide-angle fisheye lens.",
+                "That is the unmistakable signature of a generic CCTV security camera.",
+            ],
+            [
+                "The lines of a padel court <strong>should always look straight</strong>.",
+                "As close as possible to an official Premier Padel TV broadcast.",
+            ],
+        ],
+    },
+    "cuanto-cuesta-poner-camaras": {
+        "title": "How much does it cost to install cameras in my padel club?",
+        "blocks": [
+            [
+                "One of the first questions on your mind is probably: how much does it actually cost to put Save My Play cameras on my club's courts?",
+                "Here is the exact breakdown, <strong>price per court</strong>.",
+                "Only one camera is needed per court.",
+                "We know this is an important business decision, so here are all the numbers upfront with full transparency:",
+            ],
+            [
+                "We offer two monthly plans with zero lock-in:",
+                '<strong>Plan A: €136 per month.</strong> Includes AI shot statistics and heat maps. I do not recommend it to 95% of clubs (<a href="../por-que-no-recomiendo-plan-analytics/">Why I don\'t recommend the €136/month AI plan</a>).',
+                "<strong>Plan B: €45 per month.</strong> For the price of just one or two court bookings per month, your camera records full matches, instant highlights, YouTube live streams and coaching tools... unlimited.",
+                "<strong>Zero lock-in contract.</strong>",
+                "If you ever want to stop, you cancel your Stripe subscription in one click. No paperwork, no penalties.",
+                "We don't want unhappy clubs locked into a contract; it doesn't benefit anyone in the long run.",
+                "Even without lock-in, <strong>97% of clubs voluntarily stay with us</strong> month after month.",
+            ],
+            [
+                '<strong>Initial hardware investment of €180 per camera</strong>, one camera per court (<a href="../inversion-inicial-camaras-180-euros/">Why is there an initial €180 hardware investment?</a>).',
+                "No civil works or trenching required: it mounts in 5 minutes using just Wi-Fi and a standard power outlet.",
+                "Due to high demand, shipping currently takes around 4 weeks. Customs duties are roughly €20. And if your club meets a few simple criteria, your first month's subscription can be free.",
+            ],
+        ],
+    },
+    "inversion-inicial-camaras-180-euros": {
+        "title": "Why is there an initial investment of €180 for the cameras?",
+        "blocks": [
+            [
+                "I know that <strong>this €180 upfront cost is one of the most common questions</strong> I get from clubs.",
+                "It's a real cost, especially when some competitors advertise 'free hardware'. So you can make the best decision for your club, here is the exact reason behind it.",
+            ],
+            [
+                "The main reason is that <strong>we manufacture our own cameras</strong>.",
+                'That is rare in this industry. Most companies buy generic CCTV security cameras made in China because they are cheap (<a href="../camaras-de-padel-o-videovigilancia/">in this guide I show you how to spot them</a>). We design and manufacture ours in Chicago and California.',
+                "In my opinion, the image quality is night and day. Players want their best rallies to share on Instagram and WhatsApp. You can't give them video that looks like <strong>security footage of a bank robbery</strong>.",
+            ],
+            [
+                "Manufacturing each unit costs us <strong>significantly more than €180</strong>.",
+                "We sell the hardware at a loss and recover the difference over time through the monthly subscription. €180 is the entry point for dedicated sports optics.",
+                "If we gave the cameras away for €0 upfront, we would run out of working capital to manufacture more units unless we drastically raised the monthly fee. And in the long run, high monthly fees hurt your club much more than the initial €180. That's why <strong>our monthly plans are as competitive as possible</strong>.",
+            ],
+        ],
+    },
+    "es-caro-save-my-play": {
+        "title": "Is Save My Play expensive?",
+        "blocks": [
+            [
+                "This is a completely fair question that many club managers ask me. Here is how I see it.",
+                "First of all, court cameras are <strong>not a product for 100% of clubs</strong>. It is a premium, differentiating service for your players. We are not trying to be in every single club, and that exclusivity is part of its value.",
+            ],
+            [
+                "Now let's compare it with other providers. Our €136/month AI analytics plan is around the market average, though we don't recommend it to most clubs.",
+                "However, our <strong>€45 per month plan</strong> is one of the most competitive prices you will find anywhere. Some brand-new startups might offer temporary discounts while testing beta products, but among established providers with proven hardware, it's hard to beat.",
+                "In any case, compare options. <strong>Price isn't everything</strong>: look closely at video clarity, ease of use without apps, and whether they lock you into a multi-year contract.",
+            ],
+        ],
+    },
+    "es-rentable-poner-camaras": {
+        "title": "Is it profitable to install cameras on my padel courts?",
+        "blocks": [
+            [
+                "We know that padel clubs scrutinize every single expense. Naturally, you want to know whether installing cameras on your courts will actually generate a return. Here is our honest view.",
+            ],
+            [
+                "First, let's be transparent: our €136/month AI analytics plan is <strong>not recommended for 95% of clubs</strong> because we don't believe the extra monthly cost pays for itself in most venues.",
+            ],
+            [
+                "On the other hand, with our €45/month plan (plus the €180 camera hardware), here are the four concrete ways clubs make a return:",
+            ],
+            [
+                "1º <strong>Stand out from competing clubs in your area:</strong> you offer a modern service players love. Players book at your club specifically to record their matches, boosting occupancy and positioning your venue as the reference club in town.",
+            ],
+            [
+                "2º <strong>Organic social media marketing:</strong> your club's logo and local sponsor logos appear on every video clip. Players love uploading their best points to Instagram, TikTok and WhatsApp groups, giving your club free daily exposure.",
+            ],
+            [
+                "3º <strong>Tournaments and academy coaching:</strong> live-streaming finals on YouTube and using tablet coaching tools during lessons adds huge value to events and coaching programs.",
+            ],
+            [
+                "4º <strong>Direct monetization:</strong> some clubs add a tiny surcharge on camera courts. Charging just <strong>€0.50 extra per court booking</strong> covers the entire system (since €45/month is only €1.50 per day per court).",
+            ],
+        ],
+    },
+    "por-que-no-recomiendo-plan-analytics": {
+        "title": "Why don't I recommend the €136/month AI plan to 95% of clubs?",
+        "blocks": [
+            [
+                'If you have read our guide on <a href="../errores-clubs-se-arrepienten-de-poner-camaras/">the 3 mistakes clubs make when installing cameras</a>, the reason <strong>should be crystal clear</strong>.',
+                "For 95% of clubs, paying €136 every month for AI heat maps and shot counts that amateur players check twice out of curiosity and then ignore is simply not a profitable investment.",
+            ],
+        ],
+    },
+    "que-pasa-si-cancelo": {
+        "title": "What happens if I cancel my subscription? Do I keep the cameras?",
+        "blocks": [
+            [
+                "This is a very common question clubs ask me before starting.",
+            ],
+            [
+                'To give you full context: as explained in <a href="../inversion-inicial-camaras-180-euros/">why there is an initial €180 investment</a>, we manufacture the padel cameras ourselves. One camera per court. <strong>We have zero lock-in period</strong>—no binding contract, just a monthly subscription you can cancel anytime.',
+            ],
+            [
+                "So what happens if you cancel?",
+                "Yes, <strong>the cameras are yours and you keep them</strong>. However, they are built specifically to run on our cloud software, so they won't work as standalone third-party cameras.",
+            ],
+            [
+                "Buying a camera and cancelling after one month <strong>is a failure for both you and us</strong>. You lose €180, and we lose money because manufacturing each unit costs us much more than €180. That's why we never push clubs to equip 10 courts on day one: we recommend starting with one or two courts first.",
+            ],
+            [
+                "That honest approach is how we get <strong>97% of clubs to stay with us voluntarily</strong> every single month.",
+            ],
+        ],
+    },
+    "como-montar-camara-save-my-play": {
+        "title": "How long does it take to install a Save My Play camera?",
+        "blocks": [
+            [
+                "<strong>10 minutes.</strong>",
+                "A ladder, <strong>Wi-Fi and a standard power outlet</strong>. That is literally all you need to install a camera.",
+                "The camera clamps onto the 4-meter court fence or post with a single tightening nut. You plug the power cable into a standard socket and connect it to your club's Wi-Fi in a couple of minutes.",
+            ],
+            [
+                "You also have the option of connecting it via Ethernet cable to your router. If you already have network cables running to the courts, great. If not, it's not worth paying for civil works: <strong>the vast majority of clubs run smoothly on Wi-Fi</strong>.",
+            ],
+        ],
+    },
+    "problemas-con-las-camaras": {
+        "title": "What happens if there are technical problems with the cameras?",
+        "blocks": [
+            [
+                "As long as the cameras are used normally, <strong>we take full responsibility</strong> for any technical issues that may arise.",
+                "We work with over 1,500 clubs across countries with extreme weather conditions, so the hardware is battle-tested. If anything ever fails, <strong>we obviously pause your billing during that time</strong> and our support team steps in immediately to fix or replace the unit.",
+            ],
+        ],
+    },
+    "que-son-las-coaching-tools": {
+        "title": "What are coaching tools?",
+        "blocks": [
+            [
+                "<strong>Coaching tools</strong> are designed so padel coaches can get real, practical value out of the court cameras during academy lessons.",
+            ],
+            [
+                "Instead of waiting until the lesson is over, the coach has a tablet connected live to the court.",
+                "They can pause the point the student just played, scrub back in slow motion, and show them <strong>on the spot what they did well or where their positioning broke down</strong>.",
+            ],
+            [
+                "Right on the tablet screen, the coach can <strong>draw ball trajectories, racket angles and target zones</strong> while recording their voice explanation.",
+            ],
+            [
+                "At the end of the session, the student receives a direct link on WhatsApp or email with the 3 or 4 clips reviewed by their coach.",
+                "It is a powerful way to <strong>differentiate your padel academy from rival clubs</strong> and retain students who want to improve.",
+            ],
+        ],
+    },
+    "camaras-en-exterior-lluvia-nieve-viento": {
+        "title": "Do the cameras hold up on outdoor courts (rain, snow, wind)?",
+        "blocks": [
+            [
+                "We manufacture a single weatherproof camera model that <strong>withstands whatever nature throws at it</strong>.",
+                "<strong>High wind, snow, heavy rain, sun and direct ball impacts.</strong> It is engineered specifically for outdoor courts, which means it works effortlessly both outdoors and indoors.",
+            ],
+        ],
+    },
+    "como-ver-highlights-sin-app": {
+        "title": "Why is there no Save My Play app? How do players watch their highlights?",
+        "blocks": [
+            [
+                "The last thing a player wants one minute before stepping onto the court is to download an app, create an account and remember a password. What if signal is weak inside the club? For everyone to actually use the system, it has to be frictionless. Here is the process:",
+            ],
+            [
+                "1º <strong>Scan the QR code</strong> at the court entrance.",
+            ],
+            [
+                "2º <strong>Press the red button</strong> to start recording the full match.",
+            ],
+            [
+                "3º <strong>Enter basic details:</strong> email address, match duration, optional YouTube live stream, or AI dead-time trimming.",
+            ],
+            [
+                "4º <strong>Raise your arms facing the camera</strong> after any great point (or press the physical green button on the post) to bookmark that highlight.",
+            ],
+            [
+                "5º <strong>Receive an email about an hour after finishing</strong> with your full match and saved highlights ready to watch and share—<strong>without downloading any mobile app</strong>.",
+            ],
+        ],
+    },
+    "mejores-empresas-camaras-padel-espana": {
+        "title": "What are the best padel camera companies in Spain and Europe?",
+        "blocks": [
+            [
+                'In Spain and Europe today there are several major court camera providers (<a href="../por-que-no-conocia-save-my-play/">here is why you might not have heard of Save My Play before</a>).',
+            ],
+            [
+                "Each company has its own <strong>distinct vision</strong> of how court cameras should work. We bet on different hardware and different business models. That is why I always encourage you to talk to each provider, listen and compare—and above all, ask clubs that already use them.",
+            ],
+            [
+                "<strong>Padmi:</strong> the provider with the most courts in Spain (around 82 courts across 56 clubs), using two cameras per court. They focus heavily on AI shot statistics alongside highlights, have a very polished brand aesthetic, and partner with the Adidas Padel Tour.",
+            ],
+            [
+                "<strong>Aiball:</strong> present in several clubs in Spain, focusing on AI statistics and an objective player-leveling system. Pro player Ari Sánchez is a partner in the company, and they were named Best Startup at the Padel World Summit 2025.",
+            ],
+            [
+                "<strong>Rackety:</strong> installed in around 50 clubs, combining match recording and AI stats with court booking software and WhatsApp chatbots in an all-in-one club management suite.",
+            ],
+        ],
+    },
+    "por-que-no-conocia-save-my-play": {
+        "title": "Why had I never heard of Save My Play?",
+        "blocks": [
+            [
+                "We are an <strong>American company</strong>.",
+                "Even though Spain has more padel courts than any other country, historically it was a tougher market for us compared to the US and northern Europe, where clubs routinely equip every single court on day one—so <strong>we prioritized those international clients</strong>.",
+                "Today we operate on more than <strong>1,500 club courts</strong> worldwide across padel, tennis and pickleball.",
+            ],
+        ],
+    },
+    "save-my-play-en-pocas-palabras": {
+        "title": "Now let's talk about how good we are at Save My Play",
+        "blocks": [
+            [
+                "I'll keep this brief.",
+                "We are installed on more than <strong>1,600 courts around the world</strong>.",
+                "The United States Padel Association (USPA) chose us to broadcast their official FIP tournaments, and the United States Tennis Association (USTA) streams live every weekend across more than 100 courts at its National Campus.",
+            ],
+            [
+                "Even so, <strong>we are a lean team of fewer than 10 people</strong>.",
+                "And that is what club managers value most: <strong>closeness and direct support</strong>. If anything goes wrong, you talk directly to us—your issue never gets lost in corporate bureaucracy.",
+            ],
+            [
+                "We also refuse to overcomplicate things. If <strong>two buttons are enough</strong> to get the cameras running reliably, we don't add a third.",
+            ],
+        ],
+    },
+    "por-que-coolpadel-colabora-con-save-my-play": {
+        "title": "Why does CoolPadel collaborate with Save My Play?",
+        "blocks": [
+            [
+                "My favorite part of working in the padel industry is visiting trade shows and talking to founders at every booth.",
+                "From knowing the market inside out, I consider Save My Play to be the court camera company with the <strong>greatest global potential</strong>—and just as importantly, <strong>they are honest, reliable people</strong>.",
+                "Because Save My Play faces huge demand in the US, we teamed up so that at CoolPadel <strong>we manage and support clubs across Europe</strong>: Spain, France, the UK, Italy, Germany and beyond.",
+            ],
+        ],
+    },
+    "he-comprado-camaras-que-pasa-ahora": {
+        "title": "I bought Save My Play cameras. What is the process now?",
+        "blocks": [
+            [
+                "1º <strong>Payment via Stripe:</strong> I send you the payment link. Billing is processed in USD since Save My Play is a US company (paying in dollars via your bank usually saves on currency conversion fees).",
+            ],
+            [
+                "2º <strong>Club account registration:</strong> you receive the link to create your Save My Play club account, and your cameras are automatically assigned to your venue.",
+            ],
+            [
+                "3º <strong>Manufacturing & shipping:</strong> your cameras arrive in roughly 4 to 5 weeks.",
+            ],
+            [
+                "4º <strong>Delivery & activation:</strong> you pay around €20 in customs duties upon delivery, mount the cameras in 10 minutes, and your monthly subscription only starts counting once the cameras are live on court.",
+            ],
+        ],
+    },
+    "por-que-no-me-interesa-venderte-una-camara": {
+        "title": "Why am I not interested in selling you a camera if you're not convinced?",
+        "blocks": [
+            [
+                "If I sell you a camera for €180, you test it half-heartedly and cancel after a month, <strong>we have all lost</strong>.",
+                "You lose €180 and your time, and we lose money because manufacturing the hardware costs us far more than €180. We only want to work with clubs that truly see the value and want a long-term win-win.",
+            ],
+        ],
+    },
+}
+
+IT_ARTICLES_DATA = {
+    "por-donde-empezar-si-estoy-pensando-en-poner-camaras": {
+        "title": "Sto pensando di installare telecamere nel mio circolo, da dove comincio?",
+        "blocks": [
+            [
+                "Capisco perfettamente che tu possa sentirti un po' disorientato.",
+                "Avrai sicuramente visto diversi circoli installare telecamere sui propri campi da padel e ti sarai chiesto se convenga farlo anche a te.",
+                "Prima di tutto, <strong>ti consiglio di essere prudente</strong>.",
+                "Solo perché lo fanno molti non significa automaticamente che sia la scelta giusta per il tuo club.",
+            ],
+            [
+                "Ecco cosa farei al tuo posto:",
+            ],
+            [
+                "1º <strong>Parla con i circoli che hanno già installato le telecamere.</strong> Meglio se si trovano dall'altra parte del paese, così non sono tuoi concorrenti diretti e ti diranno la pura verità. Sui siti dei fornitori trovi quasi sempre l'elenco dei club partner.",
+            ],
+            [
+                "2º <strong>Parla con diverse aziende di telecamere</strong> e ascolta cosa propongono. In Spagna e in Europa, oltre a Save My Play con cui lavoro, ci sono Rackety, Padmi, AIball, Courtmaster e altre realtà più piccole. In fondo alla pagina trovi il mio calendario se vuoi fissare una chiacchierata.",
+            ],
+            [
+                "3º <strong>Raccogli i pareri dei club e delle aziende, confronta, parlane con i soci del circolo e decidi.</strong> La vera decisione iniziale non è quale marca scegliere, ma capire <strong>se vuoi davvero installare le telecamere oppure no</strong>.",
+            ],
+            [
+                'Come prima lettura ti consiglio questo articolo: <a href="../errores-clubs-se-arrepienten-de-poner-camaras/">I 3 errori dei club che si pentono di aver installato le telecamere</a>.',
+            ],
+        ],
+    },
+    "errores-clubs-se-arrepienten-de-poner-camaras": {
+        "title": "I 3 errori dei club che si pentono di aver installato le telecamere",
+        "blocks": [
+            [
+                "Sì, hai letto bene.",
+                "E non parliamo di uno o due casi isolati.",
+                "Passo le mie giornate a parlare con gestori di circoli di padel e questi <strong>3 errori si ripetono continuamente</strong>.",
+                "So bene che investire nelle telecamere è una scelta su cui non vuoi sbagliare.",
+                "Ti consiglio di leggere queste righe per capire il nostro punto di vista: qualunque cosa deciderai, lo farai con molta più consapevolezza.",
+            ],
+            [
+                "Errore 1: Statistiche e analisi con Intelligenza Artificiale",
+                "Sulla carta l'idea sembra fantastica, vero?",
+                "Un'intelligenza artificiale che analizza la partita, conta quanti colpi fai e ti dice cosa migliorare.",
+                "La realtà è che alla terza partita ti accorgi che <strong>la tua mappa di calore è identica a quella delle partite precedenti</strong>.",
+                "E sapere la percentuale di rovesci tagliati con doppio effetto è un dato che non serve assolutamente a nulla al 99% dei giocatori amatoriali.",
+            ],
+            [
+                "Mi dispiace vedere le cifre altissime che piccoli circoli di provincia pagano ogni mese per queste funzioni.",
+                "<strong>Non è redditizio</strong> pagare quei canoni.",
+                "È una follia.",
+                "È pura logica.",
+            ],
+            [
+                "Errore 2: Periodi di prova gratuita e vincoli di permanenza",
+                "Fai molta attenzione ai cosiddetti periodi di prova gratuita.",
+                "Occhio.",
+                "Il meccanismo classico è sempre questo:",
+            ],
+            [
+                "1º <strong>Durante il primo mese</strong> c'è l'effetto novità e tutti i giocatori provano il sistema.",
+            ],
+            [
+                "2º <strong>Firmi un contratto pluriennale vincolante</strong> pensando che l'entusiasmo rimarrà identico tutto l'anno.",
+            ],
+            [
+                "3º <strong>Quando l'effetto novità cala</strong>, tu continui a pagare canoni pesanti per anni.",
+            ],
+            [
+                "<strong>Non ipotecare il tuo circolo</strong> con un vincolo di permanenza.",
+            ],
+            [
+                "Errore 3: La maggior parte dei fornitori usa normali telecamere di videosorveglianza",
+                "Il video finale sembra il filmato di una rapina in banca.",
+                "La qualità dell'immagine è scarsa e poco fluida.",
+                "Un ottimo indicatore per capire se sono telecamere di sorveglianza sono le linee del campo.",
+                "Se le linee appaiono curve, <strong>brutto segno</strong>.",
+            ],
+            [
+                "Quando faremo la demo online, ricordamelo e ti mostrerò la differenza in diretta.",
+            ],
+            [
+                "ERRORE EXTRA: Te lo svelerò a voce durante la demo online.",
+            ],
+            [
+                "Conclusione:",
+                "Diversi circoli si pentono dei contratti e delle telecamere che hanno sottoscritto.",
+            ],
+            [
+                "Insisto: non fidarti ciecamente dei commerciali o di chi, come me, lavora nel settore.",
+                "<strong>Parla direttamente con i circoli</strong> che le usano già e fatti raccontare la loro esperienza reale.",
+            ],
+        ],
+    },
+    "camaras-de-padel-o-videovigilancia": {
+        "title": "Come capire se le telecamere sono da padel o di semplice videosorveglianza?",
+        "blocks": [
+            [
+                "Oltre alla nitidezza dell'immagine, che salta subito all'occhio, c'è un trucco semplicissimo per riconoscerle all'istante.",
+                "<strong>Guardando le linee del campo</strong>.",
+                "Una volta notato questo dettaglio, lo vedrai sempre.",
+                "Ti mostro un esempio concreto.",
+            ],
+            [
+                "In questa immagine si nota subito che le linee del campo da padel non sono dritte: <strong>sono visibilmente curve</strong>.",
+                "Tutta l'inquadratura è deformata da una lente grandangolare economica a occhio di pesce.",
+                "Questo è il marchio di fabbrica delle telecamere di videosorveglianza (CCTV).",
+            ],
+            [
+                "Le linee del campo <strong>devono vedersi perfettamente dritte</strong>.",
+                "Il più vicino possibile alle riprese televisive ufficiali del Premier Padel.",
+            ],
+        ],
+    },
+    "cuanto-cuesta-poner-camaras": {
+        "title": "Quanto costa installare le telecamere nel mio circolo di padel?",
+        "blocks": [
+            [
+                "Una delle prime domande che ti passerà per la testa è: quanto costa installare le telecamere Save My Play sui campi del mio circolo?",
+                "Ecco la risposta chiara e trasparente, con il <strong>prezzo per campo</strong>.",
+                "Si installa una sola telecamera per ogni campo.",
+                "Sappiamo che è una decisione importante per il tuo club, quindi ecco tutti i numeri senza sorprese:",
+            ],
+            [
+                "Abbiamo due piani mensili:",
+                '<strong>Piano A: 136 € al mese.</strong> Include statistiche e analisi con IA. Non lo consiglio al 95% dei circoli (<a href="../por-que-no-recomiendo-plan-analytics/">Perché non consiglio il piano da 136 € al mese</a>).',
+                "<strong>Piano B: 45 € al mese.</strong> Al costo di un paio d'ore di affitto campo al mese, hai una telecamera che registra partite complete, highlights automatici, dirette su YouTube e coaching tools... senza limiti.",
+                "<strong>Senza alcun vincolo di permanenza.</strong>",
+                "Se non vuoi continuare, annulli l'abbonamento Stripe con un clic quando vuoi. Nessun contratto vincolante.",
+                "Non vogliamo clienti scontenti obbligati a restare: a lungo termine non conviene a nessuno.",
+                "Eppure, <strong>il 97% dei circoli resta volontariamente con noi</strong> mese dopo mese.",
+            ],
+            [
+                '<strong>Investimento iniziale per la telecamera di 180 €</strong>, una per campo (<a href="../inversion-inicial-camaras-180-euros/">Perché è previsto un investimento iniziale di 180 €?</a>).',
+                "Zero lavori edili o scavi: si monta in 5 minuti con il solo Wi-Fi e una presa di corrente.",
+                "Vista l'alta richiesta, la spedizione richiede circa 4 settimane. Gli oneri doganali sono di circa 20 €. Se rispetti alcuni semplici requisiti, il primo mese di abbonamento può essere gratuito.",
+            ],
+        ],
+    },
+    "inversion-inicial-camaras-180-euros": {
+        "title": "Perché è previsto un investimento iniziale di 180 € per le telecamere?",
+        "blocks": [
+            [
+                "So che <strong>questi 180 € iniziali sono una delle obiezioni più frequenti</strong> che ricevo dai circoli.",
+                "È una cifra concreta, soprattutto quando altri fornitori pubblicizzano hardware 'gratuito'. Per aiutarti a prendere la decisione migliore, ti spiego esattamente il motivo.",
+            ],
+            [
+                "La ragione principale è che <strong>produciamo noi stessi le nostre telecamere</strong>.",
+                'Non è affatto la norma nel settore. Di solito si comprano telecamere di videosorveglianza prodotte in serie in Cina perché costano pochissimo (<a href="../camaras-de-padel-o-videovigilancia/">in questo articolo ti mostro come distinguerle</a>). Noi invece le progettiamo e produciamo a Chicago e in California.',
+                "La qualità video non ha paragoni. I giocatori vogliono condividere i loro punti migliori su Instagram e WhatsApp: non puoi offrirgli una qualità che sembri <strong>il filmato di una rapina in banca</strong>.",
+            ],
+            [
+                "Produrre ogni singola unità ci costa <strong>molto più di 180 €</strong>.",
+                "Vendiamo la telecamera in perdita all'inizio e recuperiamo l'investimento nel tempo grazie al canone mensile. 180 € è il prezzo d'ingresso per avere un'ottica sportiva dedicata.",
+                "Se non chiedessimo questo contributo iniziale, dovremmo alzare drasticamente il canone mensile per sostenere la produzione. E nel medio periodo pagheresti molto di più, perché la vera spesa per un circolo sono i canoni mensili ricorrenti. Ecco perché <strong>i nostri canoni mensili sono i più competitivi possibili</strong>.",
+            ],
+        ],
+    },
+    "es-caro-save-my-play": {
+        "title": "Save My Play è costoso?",
+        "blocks": [
+            [
+                "È una domanda legittima che molti gestori mi pongono. Ecco come la vedo.",
+                "Innanzitutto, <strong>non è un prodotto pensato per il 100% dei circoli</strong>. È un servizio premium che differenzia il tuo club. Non cerchiamo di essere ovunque a tutti i costi, e proprio questa esclusività dà valore ai club che lo installano.",
+            ],
+            [
+                "Confrontiamolo ora con gli altri fornitori. Il piano da 136 €/mese con statistiche IA è in linea con la media del mercato, ma non lo consigliamo alla maggior parte dei club.",
+                "Il <strong>piano da 45 € al mese</strong> per campo, invece, è uno dei prezzi migliori che troverai in Europa. Qualche nuova startup in fase di test può offrire sconti temporanei per trovare i primi clienti, ma tra le aziende consolidate è difficile trovare un rapporto qualità-prezzo simile.",
+                "In ogni caso, confronta sempre. <strong>Il prezzo non è tutto</strong>: valuta la qualità dell'immagine, l'assenza di vincoli contrattuali e la semplicità per i giocatori.",
+            ],
+        ],
+    },
+    "es-rentable-poner-camaras": {
+        "title": "È redditizio installare telecamere sui miei campi da padel?",
+        "blocks": [
+            [
+                "Sappiamo bene che i circoli valutano ogni spesa con la lente d'ingrandimento. Vuoi capire se installare le telecamere nel tuo club sia davvero un investimento redditizio. Ecco la nostra opinione sincera.",
+            ],
+            [
+                "Prima di tutto, ti diciamo con totale trasparenza che il piano da 136 €/mese con analisi IA <strong>non è consigliato per il 90% dei circoli</strong> perché difficilmente si ripaga da solo.",
+            ],
+            [
+                "Al contrario, con il piano da 45 €/mese più i 180 € della telecamera, ecco i 4 vantaggi concreti che generano ritorno economico:",
+            ],
+            [
+                "1º <strong>Valore differenziale rispetto ai circoli della zona:</strong> offri un servizio moderno che attira nuovi giocatori e aumenta le prenotazioni, posizionando il tuo centro come il club più innovativo.",
+            ],
+            [
+                "2º <strong>Contenuti online e visibilità:</strong> puoi inserire il logo del tuo circolo e dei tuoi sponsor su ogni video. I giocatori condividono i punti sui social e su WhatsApp, facendoti pubblicità organica gratuita ogni giorno.",
+            ],
+            [
+                "3º <strong>Registrazione di tornei e lezioni:</strong> un valore aggiunto enorme per i tornei del weekend e per i maestri della scuola padel con tablet in campo.",
+            ],
+            [
+                "4º <strong>Monetizzazione diretta:</strong> basta applicare <strong>0,50 € in più a prenotazione campo</strong> per ripagare interamente il sistema (45 € al mese equivalgono a soli 1,50 € al giorno per campo).",
+            ],
+        ],
+    },
+    "por-que-no-recomiendo-plan-analytics": {
+        "title": "Perché non consiglio il piano da 136 € al mese al 95% dei circoli?",
+        "blocks": [
+            [
+                'Se hai letto il nostro articolo sui <a href="../errores-clubs-se-arrepienten-de-poner-camaras/">3 errori che commettono i club</a>, il motivo <strong>dovrebbe essere piuttosto chiaro</strong>.',
+                "Per il 95% dei circoli, pagare 136 € ogni mese per grafici e mappe di calore IA che gli amatori guardano due volte per curiosità prima di stancarsi non è un investimento sostenibile.",
+            ],
+        ],
+    },
+    "que-pasa-si-cancelo": {
+        "title": "Cosa succede se disdico l'abbonamento? Le telecamere restano a me?",
+        "blocks": [
+            [
+                "Questa è una domanda molto frequente che mi fanno i gestori dei circoli.",
+            ],
+            [
+                'Per darti tutto il contesto: come spiegato nell\'articolo sull\'<a href="../inversion-inicial-camaras-180-euros/">investimento iniziale di 180 €</a>, produciamo noi stessi le telecamere da padel. Una telecamera per campo. <strong>Non abbiamo alcun vincolo di permanenza</strong>: nessun contratto bloccante, puoi disdire quando vuoi.',
+            ],
+            [
+                "E cosa succede se decidi di annullare l'abbonamento?",
+                "Sì, <strong>le telecamere sono tue e restano a te</strong>. Tuttavia funzionano esclusivamente con il nostro software cloud, quindi non possono essere riutilizzate con altri sistemi.",
+            ],
+            [
+                "Acquistare una telecamera e disdire dopo un mese <strong>è un fallimento sia per te che per noi</strong>. Tu perdi 180 €, e noi perdiamo denaro perché produrle ci costa molto più di 180 €. Per questo consigliamo sempre di iniziare provando su uno o due campi prima di attrezzare tutto il circolo.",
+            ],
+            [
+                "Ed è proprio così che otteniamo che <strong>il 97% dei circoli resti volontariamente con noi</strong> ogni mese.",
+            ],
+        ],
+    },
+    "como-montar-camara-save-my-play": {
+        "title": "Quanto tempo ci vuole per montare una telecamera Save My Play?",
+        "blocks": [
+            [
+                "<strong>10 minuti.</strong>",
+                "Una scala, <strong>il Wi-Fi e una presa di corrente</strong>. Non serve letteralmente nient'altro per installare la telecamera.",
+                "La telecamera si fissa alla griglia o al palo a 4 metri di altezza stringendo un semplice dado. Si collega il cavo alla presa elettrica e la configurazione Wi-Fi richiede due minuti.",
+            ],
+            [
+                "C'è anche l'alternativa di collegarla via cavo Ethernet al router. Se hai già il cavo tirato fino al campo, ottimo. Altrimenti non vale la pena spendere soldi in lavori: <strong>la stragrande maggioranza dei circoli usa il Wi-Fi senza problemi</strong>.",
+            ],
+        ],
+    },
+    "problemas-con-las-camaras": {
+        "title": "Cosa succede se ci sono problemi tecnici con le telecamere?",
+        "blocks": [
+            [
+                "Finché vengono utilizzate correttamente in campo, <strong>ci assumiamo la piena responsabilità</strong> di qualsiasi problema tecnico possa sorgere.",
+                "Lavoriamo con oltre 1.500 circoli in tutto il mondo, in paesi con condizioni climatiche estreme. Le telecamere sono super collaudate. Se dovesse verificarsi un guasto, <strong>ovviamente non ti addebiteremo nulla durante quel periodo</strong> e interverremo subito per risolverlo o sostituire l'unità.",
+            ],
+        ],
+    },
+    "que-son-las-coaching-tools": {
+        "title": "Cosa sono le coaching tools?",
+        "blocks": [
+            [
+                "Le <strong>coaching tools</strong> sono lo strumento pensato per permettere ai maestri di padel di sfruttare davvero le telecamere durante le lezioni della scuola.",
+            ],
+            [
+                "Invece di aspettare la fine della partita, l'istruttore ha un tablet collegato in diretta al campo.",
+                "Può mettere in pausa il punto appena giocato dall'allievo, tornare indietro al rallentatore e mostrargli <strong>all'istante cosa ha fatto bene o dove ha sbagliato posizione</strong>.",
+            ],
+            [
+                "Direttamente sullo schermo del tablet, il maestro può <strong>disegnare linee di traiettoria, angoli di racchetta e zone di rimbalzo</strong>, registrando tutto con la propria voce.",
+            ],
+            [
+                "A fine lezione, l'allievo riceve un link diretto su WhatsApp o via email con i 3 o 4 clip commentati dal maestro.",
+                "È un modo straordinario per <strong>differenziare la tua scuola padel da quella dei circoli vicini</strong> e fidelizzare gli allievi.",
+            ],
+        ],
+    },
+    "camaras-en-exterior-lluvia-nieve-viento": {
+        "title": "Le telecamere resistono sui campi all'aperto (pioggia, neve, vento)?",
+        "blocks": [
+            [
+                "Produciamo un unico modello di telecamera progettato per <strong>resistere a qualsiasi condizione atmosferica</strong>.",
+                "<strong>Vento forte, neve, pioggia battente, sole e pallate dirette.</strong> Nasce per i campi outdoor ed è quindi perfetta sia all'aperto che sui campi indoor.",
+            ],
+        ],
+    },
+    "como-ver-highlights-sin-app": {
+        "title": "Perché non c'è un'app Save My Play? Come vedo i miei highlights?",
+        "blocks": [
+            [
+                "L'ultima cosa che un giocatore vuole fare un minuto prima di entrare in campo è scaricare un'app e registrarsi. E se dentro il club c'è poco campo? Perché tutti la usino davvero, l'esperienza deve essere immediata. Ecco come funziona:",
+            ],
+            [
+                "1º <strong>Inquadrare il codice QR</strong> all'ingresso del campo.",
+            ],
+            [
+                "2º <strong>Premere il pulsante rosso</strong> per avviare la registrazione dell'intera partita.",
+            ],
+            [
+                "3º <strong>Inserire i dati essenziali:</strong> email, durata della partita, eventuale diretta YouTube o taglio automatico dei tempi morti con IA.",
+            ],
+            [
+                "4º <strong>Alzare le braccia guardando la telecamera</strong> dopo ogni bel punto (o premere il pulsante verde sul palo) per salvare l'highlight.",
+            ],
+            [
+                "5º <strong>Ricevere un'email circa un'ora dopo la fine</strong> con la partita intera e i punti salvati pronti da scaricare e condividere—<strong>senza dover scaricare alcuna app</strong>.",
+            ],
+        ],
+    },
+    "mejores-empresas-camaras-padel-espana": {
+        "title": "Quali sono le migliori aziende di telecamere da padel in Spagna e in Europa?",
+        "blocks": [
+            [
+                'Oggi in Spagna e in Europa operano diverse aziende di telecamere per campi da padel (<a href="../por-que-no-conocia-save-my-play/">qui ti spiego perché forse non avevi mai sentito parlare di Save My Play</a>).',
+            ],
+            [
+                "Ogni azienda ha la propria <strong>visione specifica</strong> del mercato, puntando su tecnologie e modelli di business differenti. Per questo ti consiglio sempre di parlare con ciascun fornitore, ascoltare e confrontare—e soprattutto di chiedere un parere ai circoli che le usano già.",
+            ],
+            [
+                "<strong>Padmi:</strong> è l'azienda con più campi in Spagna (82 campi in 56 club), con due telecamere per campo. Puntano molto sulle statistiche IA oltre agli highlights, hanno un'immagine di marca molto curata e sono partner dell'Adidas Padel Tour.",
+            ],
+            [
+                "<strong>Aiball:</strong> presente in diversi club spagnoli, si concentra sulle statistiche IA e su un sistema oggettivo di livellamento dei giocatori. La giocatrice professionista Ari Sánchez è socia del progetto, premiato come Miglior Startup al Padel World Summit 2025.",
+            ],
+            [
+                "<strong>Rackety:</strong> presente in circa 50 club, unisce la trasmissione delle partite e le statistiche IA a un software gestionale di prenotazione campi e chatbot WhatsApp.",
+            ],
+        ],
+    },
+    "por-que-no-conocia-save-my-play": {
+        "title": "Perché non avevo mai sentito parlare di Save My Play?",
+        "blocks": [
+            [
+                "Siamo un'<strong>azienda americana</strong>.",
+                "Negli Stati Uniti e nel resto del mondo molti circoli installano telecamere su tutti i loro campi fin dal primo giorno, e <strong>abbiamo dato priorità a quei mercati</strong>.",
+                "Oggi siamo presenti su oltre <strong>1.500 campi di club</strong> in tutto il mondo tra padel, tennis e pickleball.",
+            ],
+        ],
+    },
+    "save-my-play-en-pocas-palabras": {
+        "title": "Save My Play in poche parole: chi siamo e cosa facciamo",
+        "blocks": [
+            [
+                "Sarò il più breve possibile.",
+                "Siamo installati su oltre <strong>1.600 campi in tutto il mondo</strong>.",
+                "La Federazione Americana di Padel (USPA) ci ha scelto per registrare i suoi tornei ufficiali FIP, e ogni weekend trasmettiamo in diretta su oltre 100 campi per la Federazione Americana di Tennis (USTA).",
+            ],
+            [
+                "Nonostante questi numeri, <strong>siamo un team snello di meno di 10 persone</strong>.",
+                "Ed è proprio questo che i circoli apprezzano di più: <strong>la vicinanza</strong>. Se qualcosa non va, parli direttamente con noi e risolviamo subito il problema senza passaggi burocratici.",
+            ],
+            [
+                "Inoltre non complichiamo le cose inutilmente: se con <strong>due pulsanti</strong> le telecamere funzionano alla perfezione, non ne mettiamo tre.",
+            ],
+        ],
+    },
+    "por-que-coolpadel-colabora-con-save-my-play": {
+        "title": "Perché CoolPadel collabora con Save My Play?",
+        "blocks": [
+            [
+                "La parte che preferisco del lavorare nel mondo del padel è partecipare alle fiere di settore e confrontarmi con tutte le aziende.",
+                "Conoscendo bene il mercato, ritengo che Save My Play sia l'azienda con il <strong>maggior potenziale in assoluto</strong>—e, cosa altrettanto importante, <strong>sono persone serie e affidabili</strong>.",
+                "Vista l'enorme richiesta globale, in CoolPadel <strong>gestiamo direttamente i circoli in Europa</strong>: Italia, Spagna, Francia, Regno Unito, Germania...",
+            ],
+        ],
+    },
+    "he-comprado-camaras-que-pasa-ahora": {
+        "title": "Ho acquistato le telecamere Save My Play. Qual è il processo adesso?",
+        "blocks": [
+            [
+                "1º <strong>Pagamento tramite Stripe:</strong> ti invio il link di pagamento. La transazione avviene in dollari poiché siamo un'azienda statunitense (pagare in dollari tramite la tua banca evita commissioni di cambio extra).",
+            ],
+            [
+                "2º <strong>Registrazione dell'account del circolo:</strong> ricevi il link per creare il tuo profilo Save My Play e le telecamere vengono associate automaticamente al tuo club.",
+            ],
+            [
+                "3º <strong>Produzione e spedizione:</strong> in circa 4 settimane le telecamere arrivano al tuo circolo.",
+            ],
+            [
+                "4º <strong>Ricezione e attivazione:</strong> alla consegna si saldano circa 20 € di oneri doganali, monti le telecamere in 10 minuti e l'abbonamento mensile parte solo da quando le metti effettivamente in funzione.",
+            ],
+        ],
+    },
+    "por-que-no-me-interesa-venderte-una-camara": {
+        "title": "Perché non mi interessa venderti una telecamera se non sei convinto?",
+        "blocks": [
+            [
+                "Se ti vendo una telecamera a 180 €, la provi senza convinzione e disdici dopo un mese, <strong>abbiamo perso tutti</strong>.",
+                "Tu perdi 180 € e tempo, e noi perdiamo denaro perché produrla ci costa molto più di 180 €. Vogliamo lavorare solo con circoli convinti che cercano una collaborazione duratura.",
+            ],
+        ],
+    },
+}
+
+DE_ARTICLES_DATA = {
+    "por-donde-empezar-si-estoy-pensando-en-poner-camaras": {
+        "title": "Ich überlege, Kameras in meinem Club zu installieren – wo fange ich an?",
+        "blocks": [
+            [
+                "Ich verstehe vollkommen, wenn Sie sich am Anfang etwas orientierungslos fühlen.",
+                "Wahrscheinlich haben Sie gesehen, dass andere Padel-Clubs Kameras auf ihren Plätzen installieren, und fragen sich nun, ob Sie das auch tun sollten.",
+                "Zunächst einmal <strong>empfehle ich Ihnen, vorsichtig zu sein</strong>.",
+                "Nur weil viele es machen, heißt das noch lange nicht, dass es automatisch die beste Entscheidung für Ihren Club ist.",
+            ],
+            [
+                "So würde ich an Ihrer Stelle vorgehen:",
+            ],
+            [
+                "1º <strong>Sprechen Sie mit Clubs, die bereits Kameras installiert haben.</strong> Idealerweise mit Anlagen in einer anderen Region, damit keine direkte Konkurrenz besteht und man Ihnen ehrlich die Wahrheit sagt. Auf den Websites der Anbieter finden Sie meist Referenzclubs.",
+            ],
+            [
+                "2º <strong>Sprechen Sie mit verschiedenen Kamera-Anbietern</strong> und hören Sie sich deren Konzepte an. In Spanien und Europa gibt es neben Save My Play (mit denen ich arbeite) unter anderem Rackety, Padmi, AIball und Courtmaster. Unten auf der Seite finden Sie meinen Kalender, falls Sie unverbindlich sprechen möchten.",
+            ],
+            [
+                "3º <strong>Vergleichen Sie die Aussagen der Clubs und der Anbieter, besprechen Sie alles intern im Club und entscheiden Sie dann.</strong> Die erste Frage lautet nicht, welche Marke Sie kaufen, sondern <strong>ob Sie überhaupt Kameras installieren möchten oder nicht</strong>.",
+            ],
+            [
+                'Als erste Lektüre empfehle ich Ihnen diesen Artikel: <a href="../errores-clubs-se-arrepienten-de-poner-camaras/">Die 3 Fehler von Clubs, die die Installation von Kameras bereuen</a>.',
+            ],
+        ],
+    },
+    "errores-clubs-se-arrepienten-de-poner-camaras": {
+        "title": "Die 3 Fehler von Clubs, die die Installation von Kameras bereuen",
+        "blocks": [
+            [
+                "Ja, Sie haben richtig gelesen.",
+                "Und es handelt sich nicht um Einzelfälle.",
+                "Ich spreche täglich mit Padel-Club-Betreibern, und diese <strong>3 Fehler wiederholen sich immer und immer wieder</strong>.",
+                "Ich weiß, dass die Investition in Platzkameras eine Entscheidung ist, bei der man keinen teuren Fehler machen möchte.",
+                "Nehmen Sie sich kurz Zeit, unsere Sichtweise zu lesen – wie auch immer Sie sich danach entscheiden, Sie treffen eine fundiertere Wahl.",
+            ],
+            [
+                "Fehler 1: KI-Analysen und Schlagstatistiken",
+                "Die Idee klingt auf dem Papier großartig, oder?",
+                "Eine KI analysiert das Match, zählt jeden Schlag und sagt dem Spieler, was er verbessern muss.",
+                "Die Realität sieht so aus: Spätestens beim dritten Match merkt man, dass <strong>die eigene Heatmap fast genauso aussieht wie in den Spielen zuvor</strong>.",
+                "Und die genaue Quote geschnittener Vorhände mit doppeltem Drall bringt 99 % der Freizeitspieler keinerlei echten Mehrwert.",
+            ],
+            [
+                "Es tut mir ehrlich leid zu sehen, welche hohen Monatspreise kleine Clubs für solche KI-Statistikpakete zahlen.",
+                "<strong>Es ist schlichtweg nicht rentabel</strong>, diese Preise zu zahlen.",
+                "Das rechnet sich nicht.",
+                "Das ist gesunder Menschenverstand.",
+            ],
+            [
+                "Fehler 2: Kostenlose Testphasen und lange Vertragsbindungen",
+                "Seien Sie äußerst vorsichtig bei kostenlosen Probemonaten.",
+                "Wirklich.",
+                "Die klassische Falle läuft fast immer so ab:",
+            ],
+            [
+                "1º <strong>Im ersten Monat</strong> ist alles neu und viele Spieler probieren die Kameras neugierig aus.",
+            ],
+            [
+                "2º <strong>Sie unterschreiben einen mehrjährigen Knebelvertrag</strong>, weil Sie glauben, die Nutzung bleibt dauerhaft so hoch.",
+            ],
+            [
+                "3º <strong>Sobald der erste Hype nachlässt</strong>, zahlen Sie trotzdem jahrelang jeden Monat weiter.",
+            ],
+            [
+                "<strong>Binden Sie Ihren Club niemals</strong> an lange Mindestvertragslaufzeiten.",
+            ],
+            [
+                "Fehler 3: Die meisten Anbieter nutzen einfache Überwachungskameras",
+                "Das fertige Video sieht dann aus wie die Überwachungsaufnahme eines Banküberfalls.",
+                "Die Bildqualität ist schwach und verzerrt.",
+                "Ein klarer Indikator für Überwachungskameras sind die Linien des Padel-Platzes.",
+                "Wenn die Platzlinien gekrümmt sind, ist das <strong>ein schlechtes Zeichen</strong>.",
+            ],
+            [
+                "Erinnern Sie mich in unserer Online-Demo gerne daran, dann zeige ich Ihnen den Unterschied im direkten Vergleich.",
+            ],
+            [
+                "EXTRA-FEHLER: Diesen Punkt verrate ich Ihnen persönlich während unserer Online-Demo.",
+            ],
+            [
+                "Fazit:",
+                "Einige Clubs bereuen die Verträge und Kamerasysteme, für die sie sich entschieden haben.",
+            ],
+            [
+                "Ich betone es immer wieder: Glauben Sie nicht blind Vertrieblern oder Leuten wie mir.",
+                "<strong>Sprechen Sie direkt mit den Clubs</strong>, die bereits Kameras nutzen, und lassen Sie sich deren echte Erfahrungen schildern.",
+            ],
+        ],
+    },
+    "camaras-de-padel-o-videovigilancia": {
+        "title": "Wie erkenne ich, ob meine Kameras echte Padel-Kameras oder Überwachungskameras sind?",
+        "blocks": [
+            [
+                "Abgesehen von der offensichtlichen Bildschärfe gibt es einen ganz einfachen Trick, um den Unterschied sofort zu erkennen.",
+                "<strong>Achten Sie auf die Linien des Padel-Platzes</strong>.",
+                "Sobald Sie dieses Detail einmal gesehen haben, fällt es Ihnen jedes Mal sofort auf.",
+                "Ich zeige Ihnen ein konkretes Beispiel.",
+            ],
+            [
+                "Auf diesem Bild sieht man sofort, dass die Linien des Platzes nicht gerade sind: <strong>sie sind deutlich gekrümmt</strong>.",
+                "Das gesamte Bild wird durch ein billiges Fisheye-Weitwinkelobjektiv verzerrt.",
+                "Das ist das typische Merkmal gewöhnlicher CCTV-Überwachungskameras.",
+            ],
+            [
+                "Die Linien des Padel-Platzes <strong>sollten immer gerade aussehen</strong>.",
+                "So nah wie möglich an einer offiziellen TV-Übertragung von Premier Padel.",
+            ],
+        ],
+    },
+    "cuanto-cuesta-poner-camaras": {
+        "title": "Was kostet die Installation von Kameras in meinem Padel-Club?",
+        "blocks": [
+            [
+                "Eine der ersten Fragen, die Ihnen durch den Kopf geht, lautet sicher: Was kostet es konkret, Save My Play-Kameras auf den Plätzen meines Clubs zu installieren?",
+                "Hier ist die transparente Antwort – <strong>Preis pro Padel-Platz</strong>.",
+                "Pro Platz wird nur eine einzige Kamera benötigt.",
+                "Wir wissen, dass Sie diese Investition genau kalkulieren müssen. Deshalb nennen wir Ihnen hier alle Zahlen offen und ohne Kleingedrucktes:",
+            ],
+            [
+                "Wir bieten zwei monatliche Tarife an:",
+                '<strong>Plan A: 136 € pro Monat.</strong> Inklusive KI-Statistiken und Heatmaps. Ich empfehle diesen Tarif 95 % der Clubs ausdrücklich nicht (<a href="../por-que-no-recomiendo-plan-analytics/">Warum ich den 136-€-Tarif nicht empfehle</a>).',
+                "<strong>Plan B: 45 € pro Monat.</strong> Für den Gegenwert von ein bis zwei Platzbuchungen im Monat erhalten Sie eine Kamera für komplette Match-Aufnahmen, automatische Highlights, YouTube-Livestreams und Coaching-Tools... unbegrenzt.",
+                "<strong>Ohne jegliche Mindestvertragslaufzeit.</strong>",
+                "Wenn Sie nicht weitermachen möchten, kündigen Sie das Stripe-Abo jederzeit mit einem Klick. Kein Knebelvertrag.",
+                "Wir wollen keine unzufriedenen Kunden, die nur wegen eines Vertrags bleiben – das bringt langfristig niemandem etwas.",
+                "Trotzdem <strong>bleiben 97 % der Clubs jeden Monat freiwillig bei uns</strong>.",
+            ],
+            [
+                '<strong>Einmalige Anfangsinvestition für die Kamera von 180 €</strong> pro Platz (<a href="../inversion-inicial-camaras-180-euros/">Warum gibt es eine Anfangsinvestition von 180 €?</a>).',
+                "Ohne Bauarbeiten: Die Kamera ist in 5 Minuten montiert – Sie brauchen nur WLAN und eine Steckdose.",
+                "Aufgrund der hohen Nachfrage beträgt die Lieferzeit aktuell etwa 4 Wochen. Hinzu kommen rund 20 € Zollgebühren. Wenn Ihr Club bestimmte Voraussetzungen erfüllt, kann der erste Beitragsmonat kostenlos sein.",
+            ],
+        ],
+    },
+    "inversion-inicial-camaras-180-euros": {
+        "title": "Warum gibt es eine Anfangsinvestition von 180 € für die Kameras?",
+        "blocks": [
+            [
+                "Ich weiß, dass <strong>diese einmaligen 180 € eine der häufigsten Fragen</strong> sind, die mir Clubs stellen.",
+                "Es ist ein spürbarer Betrag, zumal manche Mitbewerber mit vermeintlich 'kostenloser Hardware' werben. Damit Sie die beste Entscheidung treffen können, erkläre ich Ihnen offen den Hintergrund.",
+            ],
+            [
+                "Der Hauptgrund ist, dass <strong>wir unsere Kameras selbst herstellen</strong>.",
+                'Das ist in der Branche alles andere als selbstverständlich. Üblicherweise werden günstige Überwachungskameras aus chinesischer Massenproduktion verwendet (<a href="../camaras-de-padel-o-videovigilancia/">in diesem Artikel zeige ich Ihnen, wie Sie den Unterschied erkennen</a>). Wir fertigen unsere Kameras in Chicago und Kalifornien.',
+                "Die Bildqualität ist ein Unterschied wie Tag und Nacht. Spieler möchten ihre besten Ballwechsel auf Instagram und WhatsApp teilen – da darf das Video nicht aussehen wie <strong>die Überwachungsaufnahme eines Banküberfalls</strong>.",
+            ],
+            [
+                "Die Herstellung kostet uns <strong>deutlich mehr als 180 € pro Kamera</strong>.",
+                "Wir geben die Hardware beim Kauf unter Herstellungskosten ab und amortisieren die Differenz über die Laufzeit. 180 € sind der faire Einstiegspreis für echte Sportoptik.",
+                "Würden wir die Kameras für 0 € verschenken, müssten wir die monatlichen Gebühren massiv erhöhen, um liquide zu bleiben. Auf Dauer käme Sie das viel teurer, denn der größte Kostenblock entsteht über die monatlichen Raten. Genau deshalb <strong>sind unsere Monatsgebühren so wettbewerbsfähig wie möglich</strong>.",
+            ],
+        ],
+    },
+    "es-caro-save-my-play": {
+        "title": "Ist Save My Play teuer?",
+        "blocks": [
+            [
+                "Das ist eine absolut berechtigte Frage. Hier ist meine ehrliche Einschätzung.",
+                "Erstens ist das System <strong>kein Produkt für 100 % aller Clubs</strong>. Es ist ein Premium-Service, mit dem Sie sich abheben. Wir müssen nicht in jedem Club vertreten sein – genau das macht den Mehrwert für unsere Partnerclubs aus.",
+            ],
+            [
+                "Vergleichen wir die Preise mit dem Markt: Unser KI-Statistik-Tarif für 136 €/Monat liegt im Marktdurchschnitt, wird von uns aber den meisten Clubs gar nicht empfohlen.",
+                "Unser <strong>Tarif für 45 € pro Monat</strong> hingegen gehört zu den besten Konditionen auf dem Markt. Manche ganz neuen Startups bieten in ihrer Testphase zwar Lockangebote an, aber unter etablierten Anbietern mit ausgereifter Hardware ist dieses Preis-Leistungs-Verhältnis kaum zu schlagen.",
+                "Vergleichen Sie in Ruhe. <strong>Der Preis ist nicht alles</strong>: Achten Sie auf die Bildqualität, die Vertragsfreiheit und darauf, wie einfach das System für Ihre Spieler ist.",
+            ],
+        ],
+    },
+    "es-rentable-poner-camaras": {
+        "title": "Lohnt es sich wirtschaftlich, Kameras auf meinen Padel-Plätzen zu installieren?",
+        "blocks": [
+            [
+                "Wir wissen, dass Clubs jede Ausgabe genau prüfen. Sie möchten wissen, ob sich Kameras auf Ihren Plätzen finanziell rechnen. Hier ist unsere ehrliche Meinung.",
+            ],
+            [
+                "Vorweg ganz offen: Unseren 136-€-Tarif mit KI-Statistiken <strong>empfehlen wir 90 % der Clubs nicht</strong>, weil sich dieser Aufpreis im normalen Cluballtag selten direkt amortisiert.",
+            ],
+            [
+                "Beim Tarif für 45 €/Monat (plus 180 € einmalig für die Kamera) gibt es vier klare Hebel, über die Clubs ihre Investition zurückspielen:",
+            ],
+            [
+                "1º <strong>Alleinstellungsmerkmal in Ihrer Region:</strong> Sie bieten einen modernen Premium-Service. Spieler buchen gezielt bei Ihnen, um ihre Matches aufzunehmen – das steigert die Auslastung und stärkt Ihr Image als innovativer Club.",
+            ],
+            [
+                "2º <strong>Organische Reichweite in sozialen Netzwerken:</strong> Sie können das Logo Ihres Clubs und lokaler Sponsoren fest im Video einblenden. Spieler teilen ihre Highlights begeistert auf Instagram und WhatsApp und machen so täglich kostenlose Werbung für Ihren Club.",
+            ],
+            [
+                "3º <strong>Turniere und Training:</strong> Livestreams auf YouTube bei Clubturnieren und das direkte Video-Feedback per Tablet im Training bieten einen enormen Mehrwert.",
+            ],
+            [
+                "4º <strong>Direkte Monetarisierung:</strong> Einige Clubs erheben einen kleinen Aufschlag. Schon mit <strong>0,50 € mehr pro Platzbuchung</strong> trägt sich das System von selbst (45 € im Monat entsprechen nur 1,50 € pro Tag und Platz).",
+            ],
+        ],
+    },
+    "por-que-no-recomiendo-plan-analytics": {
+        "title": "Warum empfehle ich den 136-€-Monatstarif 95 % der Clubs nicht?",
+        "blocks": [
+            [
+                'Wenn Sie unseren Artikel über <a href="../errores-clubs-se-arrepienten-de-poner-camaras/">die 3 häufigsten Fehler von Clubs</a> gelesen haben, <strong>sollte der Grund klar sein</strong>.',
+                "Für 95 % der Anlagen lohnt es sich schlichtweg nicht, jeden Monat 136 € für KI-Heatmaps und Schlagstatistiken zu zahlen, die Freizeitspieler zweimal neugierig anschauen und danach kaum noch nutzen.",
+            ],
+        ],
+    },
+    "que-pasa-si-cancelo": {
+        "title": "Was passiert, wenn ich mein Abonnement kündige? Behalte ich die Kameras?",
+        "blocks": [
+            [
+                "Das ist eine sehr häufige und berechtigte Frage von Clubbetreibern.",
+            ],
+            [
+                'Kurz zum Hintergrund: Wie im Artikel über <a href="../inversion-inicial-camaras-180-euros/">die Anfangsinvestition von 180 €</a> erklärt, fertigen wir unsere Padel-Kameras selbst. Eine Kamera pro Platz. <strong>Wir haben keinerlei Mindestvertragslaufzeit</strong> – es ist ein flexibles Monatsabo, das Sie jederzeit kündigen können.',
+            ],
+            [
+                "Und was passiert, wenn Sie kündigen?",
+                "Ja, <strong>die Kameras gehören Ihnen und Sie behalten sie</strong>. Da sie jedoch speziell für unsere Cloud-Software entwickelt wurden, lassen sie sich nicht mit Fremdsystemen weiterverwenden.",
+            ],
+            [
+                "Eine Kamera zu kaufen und nach einem Monat zu kündigen, <strong>ist für Sie und für uns ein Misserfolg</strong>. Sie verlieren 180 €, und wir legen drauf, weil uns die Produktion deutlich mehr als 180 € kostet. Deshalb raten wir immer dazu, erst auf einem Platz zu starten und das System in Ruhe zu testen.",
+            ],
+            [
+                "Genau dank dieser Offenheit <strong>bleiben 97 % der Clubs jeden Monat freiwillig bei uns</strong>.",
+            ],
+        ],
+    },
+    "como-montar-camara-save-my-play": {
+        "title": "Wie lange dauert die Montage einer Save My Play-Kamera?",
+        "blocks": [
+            [
+                "<strong>10 Minuten.</strong>",
+                "Eine Leiter, <strong>WLAN und eine normale Steckdose</strong>. Mehr brauchen Sie für die Montage einer Kamera nicht.",
+                "Die Kamera wird mit einer Feststellmutter direkt am 4-Meter-Gitter oder Pfosten befestigt. Anschließend stecken Sie das Stromkabel in die Steckdose und verbinden die Kamera kinderleicht mit dem WLAN.",
+            ],
+            [
+                "Alternativ können Sie die Kamera auch per Netzwerkkabel (Ethernet) mit dem Router verbinden. Wenn bereits ein Kabel am Platz liegt, perfekt. Falls nicht, lohnen sich teure Verlegearbeiten kaum: <strong>Die allermeisten Clubs nutzen problemlos WLAN</strong>.",
+            ],
+        ],
+    },
+    "problemas-con-las-camaras": {
+        "title": "Was passiert, wenn technische Probleme mit den Kameras auftreten?",
+        "blocks": [
+            [
+                "Solange Sie ordentlich mit der Hardware umgehen, <strong>übernehmen wir die volle Verantwortung</strong> für alle technischen Probleme.",
+                "Wir arbeiten weltweit mit über 1.500 Clubs unter verschiedensten klimatischen Bedingungen zusammen. Sollte dennoch einmal ein Defekt auftreten, <strong>berechnen wir Ihnen für diese Ausfallzeit selbstverständlich keine Gebühren</strong> und kümmern uns schnellstmöglich um die Behebung oder den Austausch.",
+            ],
+        ],
+    },
+    "que-son-las-coaching-tools": {
+        "title": "Was sind die Coaching-Tools?",
+        "blocks": [
+            [
+                "Die <strong>Coaching-Tools</strong> wurden entwickelt, damit Padel-Trainer während des Unterrichts auf dem Platz einen echten Mehrwert aus den Kameras ziehen können.",
+            ],
+            [
+                "Statt bis zum Ende der Trainerstunde zu warten, ist der Coach mit einem Tablet live mit der Platzkamera verbunden.",
+                "Er kann den gerade gespielten Ballwechsel pausieren, zurückspulen und dem Schüler <strong>sofort auf dem Platz zeigen, was gut war oder wo der Stellungsfehler lag</strong>.",
+            ],
+            [
+                "Direkt auf dem Tablet-Bildschirm kann der Trainer <strong>Laufwege, Schlagwinkel und Zielzonen einzeichnen</strong>, während seine gesprochene Erklärung live mitaufgezeichnet wird.",
+            ],
+            [
+                "Nach dem Training erhält der Schüler per WhatsApp oder E-Mail einen direkten Link mit den 3 bis 4 kommentierten Videoclips seines Trainers.",
+                "Das ist eine erstklassige Möglichkeit, <strong>Ihre Padel-Schule von anderen Clubs abzuheben</strong> und ambitionierte Spieler langfristig zu binden.",
+            ],
+        ],
+    },
+    "camaras-en-exterior-lluvia-nieve-viento": {
+        "title": "Halten die Kameras auf Außenplätzen (Regen, Schnee, Wind) stand?",
+        "blocks": [
+            [
+                "Wir bauen ein einziges, extrem robustes Kameramodell, das <strong>jeder Witterung standhält</strong>.",
+                "<strong>Sturm, Schnee, Starkregen, Hitze und direkte Balltreffer.</strong> Das Gehäuse ist speziell für Outdoor-Plätze konzipiert und funktioniert damit sowohl im Freien als auch in der Halle absolut zuverlässig.",
+            ],
+        ],
+    },
+    "como-ver-highlights-sin-app": {
+        "title": "Warum gibt es keine Save My Play-App? Wie sehe ich meine Highlights?",
+        "blocks": [
+            [
+                "Das Letzte, was ein Spieler eine Minute vor Matchbeginn tun möchte, ist eine App herunterzuladen. Was, wenn der Empfang in der Halle schwach ist? Damit wirklich jeder das System nutzt, muss es kinderleicht sein. So funktioniert der Ablauf:",
+            ],
+            [
+                "1º <strong>QR-Code scannen</strong> direkt am Platzeingang.",
+            ],
+            [
+                "2º <strong>Roten Knopf drücken</strong>, um die Aufnahme des gesamten Matches zu starten.",
+            ],
+            [
+                "3º <strong>Kurze Angaben eintragen:</strong> E-Mail-Adresse, Spielzeit, optionaler YouTube-Livestream oder automatischer KI-Zuschnitt der Pausen.",
+            ],
+            [
+                "4º <strong>Nach jedem starken Punkt die Arme Richtung Kamera heben</strong> (oder den grünen Knopf am Pfosten drücken), und der letzte Ballwechsel wird als Highlight markiert.",
+            ],
+            [
+                "5º <strong>Etwa eine Stunde nach Spielende erhalten Sie eine E-Mail</strong> mit dem kompletten Match und Ihren gespeicherten Highlights – <strong>komplett ohne App-Download</strong>.",
+            ],
+        ],
+    },
+    "mejores-empresas-camaras-padel-espana": {
+        "title": "Welche sind die besten Anbieter für Padel-Kameras in Spanien und Europa?",
+        "blocks": [
+            [
+                'In Spanien und Europa gibt es heute mehrere große Anbieter für Platzkameras (<a href="../por-que-no-conocia-save-my-play/">hier erfahren Sie, warum Sie vielleicht noch nie von Save My Play gehört haben</a>).',
+            ],
+            [
+                "Jedes Unternehmen verfolgt seine <strong>eigene Vision</strong> beim Thema Kameras, setzt auf unterschiedliche Technologien und Geschäftsmodelle. Deshalb rate ich Ihnen: Sprechen Sie mit jedem Anbieter, vergleichen Sie in Ruhe und fragen Sie vor allem Clubs, die die Systeme bereits im Alltag nutzen.",
+            ],
+            [
+                "<strong>Padmi:</strong> der Anbieter mit den meisten Plätzen in Spanien (82 Plätze in 56 Clubs), nutzt zwei Kameras pro Platz. Neben Highlights liegt der Fokus stark auf KI-Statistiken, begleitet von einem sehr hochwertigen Markenauftritt als Partner der Adidas Padel Tour.",
+            ],
+            [
+                "<strong>Aiball:</strong> in mehreren spanischen Clubs vertreten, spezialisiert auf KI-Spielanalysen und ein objektives Spielstärken-System. Profi-Spielerin Ari Sánchez ist Partnerin des Unternehmens, das auf dem Padel World Summit 2025 als Bestes Startup ausgezeichnet wurde.",
+            ],
+            [
+                "<strong>Rackety:</strong> in rund 50 Clubs im Einsatz; kombiniert Match-Übertragungen und KI-Statistiken mit einem Platzbuchungssystem sowie WhatsApp-Chatbots zu einer Komplettlösung für den Club.",
+            ],
+        ],
+    },
+    "por-que-no-conocia-save-my-play": {
+        "title": "Warum hatte ich noch nie von Save My Play gehört?",
+        "blocks": [
+            [
+                "Wir sind ein <strong>amerikanisches Unternehmen</strong>.",
+                "Obwohl Spanien weltweit die meisten Padel-Plätze hat, haben wir uns zunächst auf Märkte konzentriert, in denen Clubs fast selbstverständlich sofort alle Plätze ihrer Anlage mit Kameras ausstatten – <strong>diese Kunden hatten für uns Priorität</strong>.",
+                "Inzwischen sind wir auf mehr als <strong>1.500 Club-Plätzen weltweit</strong> im Einsatz – im Padel, Tennis und Pickleball.",
+            ],
+        ],
+    },
+    "save-my-play-en-pocas-palabras": {
+        "title": "Save My Play in wenigen Worten: Wer wir sind",
+        "blocks": [
+            [
+                "Ich fasse mich kurz.",
+                "Unsere Kameras laufen auf mehr als <strong>1.600 Plätzen weltweit</strong>.",
+                "Der US-amerikanische Padel-Verband (USPA) nutzt unser System für seine offiziellen FIP-Turniere, und der US-Tennisverband (USTA) überträgt jedes Wochenende live von über 100 Plätzen seines National Campus.",
+            ],
+            [
+                "Trotzdem <strong>sind wir im Kernteam weniger als 10 Personen</strong>.",
+                "Und genau das schätzen die Clubs: <strong>die persönliche Nähe</strong>. Wenn etwas nicht funktioniert, sprechen Sie direkt mit uns und das Anliegen geht nicht in einer Hotline verloren.",
+            ],
+            [
+                "Außerdem machen wir Dinge nicht unnötig kompliziert: Wenn Ihre Kameras mit <strong>zwei Knöpfen</strong> perfekt laufen, bauen wir keinen dritten ein.",
+            ],
+        ],
+    },
+    "por-que-coolpadel-colabora-con-save-my-play": {
+        "title": "Warum arbeitet CoolPadel mit Save My Play zusammen?",
+        "blocks": [
+            [
+                "Was mir in der Padel-Branche am meisten Spaß macht, ist der persönliche Austausch auf Fachmessen mit allen Herstellern.",
+                "Dadurch kenne ich den Markt sehr genau: Für mich hat Save My Play unter allen Kamera-Anbietern das <strong>größte Potenzial</strong> – und mindestens genauso wichtig: <strong>es sind ehrliche, verlässliche Menschen</strong>.",
+                "Da Save My Play weltweit extrem stark nachgefragt wird, betreuen wir von CoolPadel aus <strong>die Clubs in Europa</strong>: Deutschland, Österreich, Schweiz, Spanien, Frankreich, Großbritannien und Italien.",
+            ],
+        ],
+    },
+    "he-comprado-camaras-que-pasa-ahora": {
+        "title": "Ich habe Kameras von Save My Play gekauft. Wie geht es jetzt weiter?",
+        "blocks": [
+            [
+                "1º <strong>Zahlung über Stripe:</strong> Ich sende Ihnen den Zahlungslink. Abgerechnet wird in US-Dollar, da wir ein amerikanisches Unternehmen sind (die Zahlung in Dollar über Ihre Hausbank spart meist Wechselkursgebühren).",
+            ],
+            [
+                "2º <strong>Registrierung Ihres Club-Kontos:</strong> Sie erhalten den Link zur Erstellung Ihres Save My Play-Kontos, dem Ihre Kameras automatisch zugewiesen werden.",
+            ],
+            [
+                "3º <strong>Produktion & Versand:</strong> In rund 4 bis 5 Wochen treffen die Kameras bei Ihnen im Club ein.",
+            ],
+            [
+                "4º <strong>Empfang & Start:</strong> Bei Lieferung fallen ca. 20 € Zollgebühren an. Die monatliche Laufzeit beginnt erst ab dem Tag, an dem Sie die Kameras auf dem Platz in Betrieb nehmen.",
+            ],
+        ],
+    },
+    "por-que-no-me-interesa-venderte-una-camara": {
+        "title": "Warum möchte ich Ihnen keine Kamera verkaufen, wenn Sie nicht überzeugt sind?",
+        "blocks": [
+            [
+                "Wenn ich Ihnen eine Kamera für 180 € verkaufe, Sie das System halbherzig testen und nach einem Monat kündigen, <strong>haben wir alle verloren</strong>.",
+                "Sie verlieren 180 € und Zeit, und wir legen Geld drauf, weil die Herstellung der Kamera deutlich mehr als 180 € kostet. Wir möchten nur mit Clubs arbeiten, die vom Mehrwert überzeugt sind.",
+            ],
+        ],
+    },
+}
+
+CAMARAS_I18N = {
+    "fr": {
+        "articles": FR_ARTICLES_DATA,
+        "videos": FR_VIDEOS,
+        "hub_eyebrow": "Tout ce que vous devez savoir avant d'installer des caméras",
+        "hub_title": "Caméras pour clubs de padel",
+        "hub_intro": [
+            "Nous savons que vous voulez prendre la meilleure décision concernant les caméras<br>L'expérience nous montre que les clubs apprécient d'avoir des informations utiles et transparentes à disposition<br>Et que si vous n'avez aucun intérêt à vous informer, cela ne vaut pas la peine de faire une démo en ligne",
+            "C'est pourquoi nous avons voulu être les plus sincères et transparents possible",
+            "Au fil de vos lectures, vous vous rendrez compte par vous-même si c'est une bonne idée d'installer des caméras ou non<br>Et si vous souhaitez les prendre chez Save My Play ou chez un confrère<br>Quelle que soit votre décision, ce sera la meilleure pour vous comme pour nous",
+            "Ainsi, si nous faisons la démo, vous aurez de bien meilleures questions et nous rentabiliserons au mieux notre temps d'échange",
+        ],
+        "next_step_title": "Étape suivante",
+        "next_step_p1": "Si vous hésitez encore, découvrez ci-dessus nos guides détaillés sur les caméras de padel.",
+        "next_step_p2": "Si vous avez des questions précises et souhaitez voir concrètement le système en direct, réservez votre créneau pour la démo.",
+        "read_article": "Lire l'article",
+        "related_title": "Articles recommandés",
+        "nav_camaras": "CAMÉRAS",
+    },
+    "en": {
+        "articles": EN_ARTICLES_DATA,
+        "videos": {
+            "como-ver-highlights-sin-app": (
+                "How to save highlights on court",
+                "Raise your arms facing the camera or press the green button on the post to save your best point instantly.",
+                "https://www.youtube-nocookie.com/embed/Z0vnvyrUbPQ",
+            ),
+            "como-montar-camara-save-my-play": (
+                "How easy it is to use",
+                "In just 10 minutes and with only two buttons, your camera is recording full matches, highlights and live streams effortlessly.",
+                "https://www.youtube-nocookie.com/embed/LuzDvB5Umfs",
+            ),
+            "save-my-play-en-pocas-palabras": (
+                "Live broadcast of the Miami FIP tournament",
+                "This is what an official live broadcast looks like with Save My Play cameras at international FIP tournaments.",
+                "https://www.youtube-nocookie.com/embed/4xwrrveDZxg?start=5623",
+            ),
+            "que-son-las-coaching-tools": (
+                "On-court coaching tools",
+                "With the coaching tools you can pause the rally on a tablet, draw trajectories and record voice feedback for your students.",
+                "https://www.youtube-nocookie.com/embed/FcnCWaYahP8",
+            ),
+        },
+        "hub_eyebrow": "Everything you need to know before installing cameras",
+        "hub_title": "Cameras for padel clubs",
+        "hub_intro": [
+            "We know you want to make the best decision about court cameras<br>Experience tells us that clubs appreciate having honest, useful information upfront<br>And if you're not interested in reading up first, doing an online demo isn't worth your time",
+            "That is why we have been as direct and transparent as possible",
+            "Along the way you will figure out whether installing cameras makes sense for your club or not<br>And whether you want them from Save My Play or from another provider<br>Whatever you decide, it will be better for both you and us",
+            "That way, if we do jump on a demo call, you will have much better questions and we'll make the most of our time",
+        ],
+        "next_step_title": "Next step",
+        "next_step_p1": "If you're still not sure, check out the camera guides above—they will help you decide.",
+        "next_step_p2": "If you have questions and want me to walk you through how everything works live, pick a time for a demo.",
+        "read_article": "Read article",
+        "related_title": "Recommended articles",
+        "nav_camaras": "CAMERAS",
+    },
+    "it": {
+        "articles": IT_ARTICLES_DATA,
+        "videos": {
+            "como-ver-highlights-sin-app": (
+                "Come salvare gli highlights in campo",
+                "Alza le braccia guardando la telecamera o premi il pulsante verde sul palo per salvare all'istante il tuo punto migliore.",
+                "https://www.youtube-nocookie.com/embed/Z0vnvyrUbPQ",
+            ),
+            "como-montar-camara-save-my-play": (
+                "Quanto è facile da usare",
+                "In soli 10 minuti e con soli due pulsanti hai la telecamera pronta a registrare partite, highlights e dirette senza complicazioni.",
+                "https://www.youtube-nocookie.com/embed/LuzDvB5Umfs",
+            ),
+            "save-my-play-en-pocas-palabras": (
+                "Diretta ufficiale del torneo FIP di Miami",
+                "Ecco come appare una trasmissione live ufficiale con le telecamere Save My Play nei tornei internazionali FIP.",
+                "https://www.youtube-nocookie.com/embed/4xwrrveDZxg?start=5623",
+            ),
+            "que-son-las-coaching-tools": (
+                "Strumenti di allenamento in campo",
+                "Con le coaching tools puoi mettere in pausa l'azione sul tablet, disegnare traiettorie e registrare note vocali per i tuoi allievi.",
+                "https://www.youtube-nocookie.com/embed/FcnCWaYahP8",
+            ),
+        },
+        "hub_eyebrow": "Tutto quello che devi sapere prima di installare le telecamere",
+        "hub_title": "Telecamere per club di padel",
+        "hub_intro": [
+            "Sappiamo che vuoi prendere la decisione migliore sulle telecamere<br>L'esperienza ci insegna che i circoli apprezzano avere informazioni chiare e utili a disposizione<br>E che se non hai interesse a informarti prima, non vale la pena fare la demo online",
+            "Per questo abbiamo cercato di essere il più sinceri e trasparenti possibile",
+            "Leggendo capirai se installare le telecamere nel tuo circolo è una buona idea oppure no<br>E se preferisci sceglierle con Save My Play o con un'altra azienda<br>Qualunque sia la tua scelta, sarà meglio sia per voi che per noi",
+            "Così, se faremo la demo, avrai domande più mirate e sfrutteremo al meglio il nostro tempo",
+        ],
+        "next_step_title": "Passo successivo",
+        "next_step_p1": "Se hai ancora qualche dubbio, qui sopra trovi altri articoli sulle telecamere che ti aiuteranno a chiarirti le idee.",
+        "next_step_p2": "Se hai domande e vuoi vedere bene come funziona tutto in diretta, prenota il tuo spazio per la demo.",
+        "read_article": "Leggi l'articolo",
+        "related_title": "Articoli consigliati",
+        "nav_camaras": "TELECAMERE",
+    },
+    "de": {
+        "articles": DE_ARTICLES_DATA,
+        "videos": {
+            "como-ver-highlights-sin-app": (
+                "So speichern Sie Highlights direkt auf dem Platz",
+                "Heben Sie die Arme Richtung Kamera oder drücken Sie den grünen Knopf am Pfosten, um Ihren besten Punkt sofort zu speichern.",
+                "https://www.youtube-nocookie.com/embed/Z0vnvyrUbPQ",
+            ),
+            "como-montar-camara-save-my-play": (
+                "Kinderleichte Bedienung",
+                "In nur 10 Minuten und mit nur zwei Knöpfen zeichnet Ihre Kamera Matches, Highlights und Livestreams unkompliziert auf.",
+                "https://www.youtube-nocookie.com/embed/LuzDvB5Umfs",
+            ),
+            "save-my-play-en-pocas-palabras": (
+                "Live-Übertragung des FIP-Turniers in Miami",
+                "So sieht ein offizieller Livestream mit Save My Play-Kameras bei internationalen FIP-Turnieren aus.",
+                "https://www.youtube-nocookie.com/embed/4xwrrveDZxg?start=5623",
+            ),
+            "que-son-las-coaching-tools": (
+                "Trainingstools direkt auf dem Platz",
+                "Mit den Coaching-Tools können Sie den Ballwechsel auf dem Tablet anhalten, Laufwege einzeichnen und Sprachnotizen für Ihre Schüler aufnehmen.",
+                "https://www.youtube-nocookie.com/embed/FcnCWaYahP8",
+            ),
+        },
+        "hub_eyebrow": "Alles, was Sie vor der Installation von Kameras wissen müssen",
+        "hub_title": "Kameras für Padel-Clubs",
+        "hub_intro": [
+            "Wir wissen, dass Sie die beste Entscheidung beim Thema Platzkameras treffen möchten<br>Unsere Erfahrung zeigt, dass Clubs ehrliche und praxisnahe Informationen vorab schätzen<br>Und wenn Sie sich vorab gar nicht informieren möchten, lohnt sich auch keine Online-Demo",
+            "Deshalb sind wir in diesen Artikeln so offen und transparent wie möglich",
+            "Beim Lesen werden Sie schnell merken, ob Kameras für Ihren Club sinnvoll sind oder nicht<br>Und ob Sie sich für Save My Play oder einen anderen Anbieter entscheiden möchten<br>Wie auch immer Ihre Entscheidung ausfällt – es ist besser für Sie und für uns",
+            "Wenn wir danach die Online-Demo machen, haben Sie gezieltere Fragen und wir nutzen unsere gemeinsame Zeit optimal",
+        ],
+        "next_step_title": "Nächster Schritt",
+        "next_step_p1": "Wenn Sie noch unsicher sind, finden Sie oben weitere Artikel über Kameras, die Ihnen weiterhelfen.",
+        "next_step_p2": "Wenn Sie Fragen haben und live sehen möchten, wie alles funktioniert, buchen Sie hier Ihren Termin für die Demo.",
+        "read_article": "Artikel lesen",
+        "related_title": "Empfohlene Artikel",
+        "nav_camaras": "KAMERAS",
+    },
+}
