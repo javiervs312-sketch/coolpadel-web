@@ -256,7 +256,7 @@ EXTRA_ARTICLES_I18N = {
         "en": {
             "title": "Corporate Merchandising & Gifting at Padel Tournaments | CoolPadel Studios",
             "desc": "Why generic cheap plastic pens harm your brand and how tactile custom 3D keychains create authentic club loyalty.",
-            "h1": "Gifting Strategy for Padel Expos and Tournaments: What Actually Works [B2B Guide]",
+            "h1": "Gifting Strategy for Padel Expos and Tournaments: What Actually Works · B2B Guide",
             "subtitle": "Tactile marketing psychology: choosing memorable branded items that players keep on their tournament bags.",
             "badge": "B2B Merch & Trade Shows"
         },
@@ -399,7 +399,7 @@ EXTRA_ARTICLES_I18N = {
         "es": {
             "title": "Regalos para Eventos de Pádel y Cenas de Socios | CoolPadel",
             "desc": "Trofeos útiles y recuerdos con escudo oficial para fidelizar abonados.",
-            "h1": "Regalos para eventos de pádel, torneos sociales y cenas de socios [Detalles de Club]",
+            "h1": "Regalos para eventos de pádel, torneos sociales y cenas de socios · Detalles de Club",
             "subtitle": "Trofeos útiles y recuerdos con escudo oficial para fidelizar abonados.",
             "badge": "Eventos & Socios"
         },
@@ -489,7 +489,7 @@ EXTRA_ARTICLES_I18N = {
         "es": {
             "title": "Cómo Retransmitir Torneos de Pádel en YouTube | CoolPadel",
             "desc": "Emisión Full HD autónoma a 4m de altura, marcadores e inserción de sponsors.",
-            "h1": "Cómo retransmitir torneos de pádel en directo por YouTube sin operadores [Streaming Full HD]",
+            "h1": "Cómo retransmitir torneos de pádel en directo por YouTube sin operadores · Streaming Full HD",
             "subtitle": "Emisión Full HD autónoma a 4m de altura, marcadores e inserción de sponsors.",
             "badge": "Streaming & YouTube"
         },
@@ -519,7 +519,7 @@ EXTRA_ARTICLES_I18N = {
         "es": {
             "title": "Smart Courts y Pistas de Pádel Inteligentes 2026 | CoolPadel",
             "desc": "Los 4 pilares tecnológicos para reducir costes y dinamizar mañanas de 10:00 a 17:00.",
-            "h1": "Pistas de Pádel Inteligentes (Smart Courts): Cómo llenar horas valle de 10:00 a 17:00 [Protocolo PDF]",
+            "h1": "Pistas de Pádel Inteligentes (Smart Courts): Cómo llenar horas valle de 10:00 a 17:00 · Protocolo PDF",
             "subtitle": "Los 4 pilares tecnológicos para reducir costes y dinamizar mañanas de 10:00 a 17:00.",
             "badge": "Smart Courts & Negocio"
         },
@@ -579,7 +579,7 @@ EXTRA_ARTICLES_I18N = {
         "es": {
             "title": "Vender Llaveros en Pro-Shop (+60% Margen) | CoolPadel",
             "desc": "Evita stock muerto: coste desde 1,50 €, PVP 5-6 € y rotación junto a recepción.",
-            "h1": "Cómo vender llaveros en la pro-shop de tu club: producto de impulso con +60% de margen [Simulador]",
+            "h1": "Cómo vender llaveros en la pro-shop de tu club: producto de impulso con +60% de margen · Simulador",
             "subtitle": "Evita stock muerto: coste desde 1,50 €, PVP 5-6 € y rotación junto a recepción.",
             "badge": "Pro-Shop & Retail"
         },

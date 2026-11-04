@@ -457,13 +457,13 @@ def generate_blog_index():
           {{
             "@type": "ListItem",
             "position": 5,
-            "name": "¿Cuánto cuesta instalar cámaras en una pista de pádel y cómo se amortizan? [Precios y ROI 2026]",
+            "name": "¿Cuánto cuesta instalar cámaras en una pista de pádel y cómo se amortizan? · Precios y ROI 2026",
             "url": "https://coolpadelstudios.com/blog/rentabilidad-camaras-pistas-padel/"
           }},
           {{
             "@type": "ListItem",
             "position": 6,
-            "name": "Welcome Pack para Torneos de Pádel: 10 Ideas de Regalos que los Jugadores No Tiran [Checklist PDF]",
+            "name": "Welcome Pack para Torneos de Pádel: 10 Ideas de Regalos que los Jugadores No Tiran · Checklist PDF",
             "url": "https://coolpadelstudios.com/blog/welcome-pack-torneo-padel-ideas/"
           }},
           {{
@@ -475,31 +475,31 @@ def generate_blog_index():
           {{
             "@type": "ListItem",
             "position": 8,
-            "name": "Pistas de Pádel Inteligentes (Smart Courts): Cómo llenar horas valle de 10:00 a 17:00 [Protocolo PDF]",
+            "name": "Pistas de Pádel Inteligentes (Smart Courts): Cómo llenar horas valle de 10:00 a 17:00 · Protocolo PDF",
             "url": "https://coolpadelstudios.com/blog/smart-courts-pistas-inteligentes-padel-horas-valle/"
           }},
           {{
             "@type": "ListItem",
             "position": 9,
-            "name": "Cómo retransmitir torneos de pádel en directo por YouTube sin operadores [Streaming Full HD]",
+            "name": "Cómo retransmitir torneos de pádel en directo por YouTube sin operadores · Streaming Full HD",
             "url": "https://coolpadelstudios.com/blog/retransmitir-torneos-padel-streaming-youtube-camaras/"
           }},
           {{
             "@type": "ListItem",
             "position": 10,
-            "name": "Cómo vender llaveros en la pro-shop de tu club: producto de impulso con +60% de margen [Simulador]",
+            "name": "Cómo vender llaveros en la pro-shop de tu club: producto de impulso con +60% de margen · Simulador",
             "url": "https://coolpadelstudios.com/blog/vender-llaveros-tienda-club-padel-pro-shop/"
           }},
           {{
             "@type": "ListItem",
             "position": 11,
-            "name": "Regalos para eventos de pádel, torneos sociales y cenas de socios [Detalles de Club]",
+            "name": "Regalos para eventos de pádel, torneos sociales y cenas de socios · Detalles de Club",
             "url": "https://coolpadelstudios.com/blog/regalos-eventos-padel-cenas-socios-llaveros/"
           }},
           {{
             "@type": "ListItem",
             "position": 12,
-            "name": "Política de regalos en ferias y torneos de pádel: Qué regalar y errores costosos [Guía B2B]",
+            "name": "Política de regalos en ferias y torneos de pádel: Qué regalar y errores costosos · Guía B2B",
             "url": "https://coolpadelstudios.com/blog/merchandising-ferias-torneos-padel-regalos-marcas/"
           }},
           {{
@@ -1901,14 +1901,14 @@ ALL_ARTICLES_CATALOG = {
         "desc": "Ideas y cosas de pádel por menos de 3€, 5€ y 10€: de llaveros 3D a accesorios de paletero."
     },
     "rentabilidad-camaras-pistas-padel": {
-        "title": "¿Cuánto cuesta instalar cámaras en una pista de pádel y cómo se amortizan? [Precios y ROI 2026]",
+        "title": "¿Cuánto cuesta instalar cámaras en una pista de pádel y cómo se amortizan? · Precios y ROI 2026",
         "badge": "Guía Económica · Cámaras",
         "url": "../rentabilidad-camaras-pistas-padel/",
         "img": "savemyplay-1.jpg",
         "desc": "Hardware a 180 € y software a 45 €/mes. Desglose de 3 modelos de amortización."
     },
     "welcome-pack-torneo-padel-ideas": {
-        "title": "Welcome Pack para Torneos de Pádel: 10 Ideas de Regalos que los Jugadores No Tiran [Checklist PDF]",
+        "title": "Welcome Pack para Torneos de Pádel: 10 Ideas de Regalos que los Jugadores No Tiran · Checklist PDF",
         "badge": "Torneos & Regalos",
         "url": "../welcome-pack-torneo-padel-ideas/",
         "img": "llaveros-1.jpg",
@@ -1922,35 +1922,35 @@ ALL_ARTICLES_CATALOG = {
         "desc": "Comparativa de precios, hardware y ROI: Save My Play, PUSHIT, MATCHi TV, Wingfield y PlaySight."
     },
     "smart-courts-pistas-inteligentes-padel-horas-valle": {
-        "title": "Pistas de Pádel Inteligentes (Smart Courts): Cómo llenar horas valle de 10:00 a 17:00 [Protocolo PDF]",
+        "title": "Pistas de Pádel Inteligentes (Smart Courts): Cómo llenar horas valle de 10:00 a 17:00 · Protocolo PDF",
         "badge": "Smart Courts & Negocio",
         "url": "../smart-courts-pistas-inteligentes-padel-horas-valle/",
         "img": "savemyplay-2.jpg",
         "desc": "Los 4 pilares tecnológicos para reducir costes y dinamizar mañanas de 10:00 a 17:00."
     },
     "retransmitir-torneos-padel-streaming-youtube-camaras": {
-        "title": "Cómo retransmitir torneos de pádel en directo por YouTube sin operadores [Streaming Full HD]",
+        "title": "Cómo retransmitir torneos de pádel en directo por YouTube sin operadores · Streaming Full HD",
         "badge": "Streaming & YouTube",
         "url": "../retransmitir-torneos-padel-streaming-youtube-camaras/",
         "img": "savemyplay-3.jpg",
         "desc": "Emisión Full HD autónoma a 4m de altura, marcadores e inserción de sponsors."
     },
     "vender-llaveros-tienda-club-padel-pro-shop": {
-        "title": "Cómo vender llaveros en la pro-shop de tu club: producto de impulso con +60% de margen [Simulador]",
+        "title": "Cómo vender llaveros en la pro-shop de tu club: producto de impulso con +60% de margen · Simulador",
         "badge": "Pro-Shop & Retail",
         "url": "../vender-llaveros-tienda-club-padel-pro-shop/",
         "img": "gallery-padel-3.jpg",
         "desc": "Evita stock muerto: coste desde 1,50 €, PVP 5-6 € y rotación junto a recepción."
     },
     "regalos-eventos-padel-cenas-socios-llaveros": {
-        "title": "Regalos para eventos de pádel, torneos sociales y cenas de socios [Detalles de Club]",
+        "title": "Regalos para eventos de pádel, torneos sociales y cenas de socios · Detalles de Club",
         "badge": "Eventos & Socios",
         "url": "../regalos-eventos-padel-cenas-socios-llaveros/",
         "img": "llaveros-2.jpg",
         "desc": "Trofeos útiles y recuerdos con escudo oficial para fidelizar abonados."
     },
     "merchandising-ferias-torneos-padel-regalos-marcas": {
-        "title": "Política de regalos en ferias y torneos de pádel: Qué regalar y errores costosos [Guía B2B]",
+        "title": "Política de regalos en ferias y torneos de pádel: Qué regalar y errores costosos · Guía B2B",
         "badge": "Ferias & Marcas B2B",
         "url": "../merchandising-ferias-torneos-padel-regalos-marcas/",
         "img": "foto-reportaje.jpg",
@@ -3275,7 +3275,7 @@ def generate_all():
     generate_guide_page(
         slug="rentabilidad-camaras-pistas-padel",
         category_badge="Guía Económica · Cámaras",
-        title="¿Cuánto cuesta instalar cámaras en una pista de pádel y cómo se amortizan? [Precios y ROI 2026]",
+        title="¿Cuánto cuesta instalar cámaras en una pista de pádel y cómo se amortizan? · Precios y ROI 2026",
         subtitle="Desglose real de inversión (hardware de 180 € y 45 €/mes) y los 3 modelos para generar ingresos con la grabación de partidos en tu club.",
         meta_desc="Coste de cámaras en pistas de pádel (180 € hardware, 45 €/mes) y los 3 modelos probados para amortizar la inversión en menos de 90 días.",
         date_str="Mayo 2026",
@@ -3392,7 +3392,7 @@ def generate_all():
     generate_guide_page(
         slug="welcome-pack-torneo-padel-ideas",
         category_badge="Organización Torneos · Merch",
-        title="Welcome Pack para Torneos de Pádel: 10 Ideas de Regalos que los Jugadores No Tiran [Checklist PDF]",
+        title="Welcome Pack para Torneos de Pádel: 10 Ideas de Regalos que los Jugadores No Tiran · Checklist PDF",
         subtitle="Por qué las camisetas genéricas acaban en el fondo del cajón y cómo los llaveros de pala a escala 3D autofinanciados por patrocinadores multiplican el recuerdo de marca.",
         meta_desc="Welcome packs para torneos de pádel: ideas rentables por menos de 5 €, alternativas a la camiseta y cómo financiar el 100% del coste con sponsors.",
         date_str="Octubre 2025",
@@ -3850,7 +3850,7 @@ def generate_all():
     generate_guide_page(
         slug="regalos-eventos-padel-cenas-socios-llaveros",
         category_badge="Eventos & Fidelización · Socios",
-        title="Regalos para eventos de pádel, torneos sociales y cenas de socios [Detalles de Club]",
+        title="Regalos para eventos de pádel, torneos sociales y cenas de socios · Detalles de Club",
         subtitle="Por qué los trofeos convencionales y el vino no crean comunidad y cómo los llaveros de pala 3D personalizados se convierten en el símbolo de pertenencia de tus abonados.",
         meta_desc="Ideas de regalos para eventos de pádel, cenas de socios y aniversarios de club. Guía sobre el impacto y utilidad de los llaveros de pala en 3D.",
         date_str="Diciembre 2024",
@@ -3987,7 +3987,7 @@ def generate_all():
     generate_guide_page(
         slug="vender-llaveros-tienda-club-padel-pro-shop",
         category_badge="Pro-Shop & Retail · Ingresos",
-        title="Cómo vender llaveros en la pro-shop de tu club: producto de impulso con +60% de margen [Simulador]",
+        title="Cómo vender llaveros en la pro-shop de tu club: producto de impulso con +60% de margen · Simulador",
         subtitle="Evita el stock muerto de palas y ropa cara: coste desde 1,50 €, PVP recomendado de 5 € a 6 € y rotación constante junto al mostrador de pago.",
         meta_desc="Guía para rentabilizar la pro-shop de tu club de pádel vendiendo llaveros personalizados de pala 3D. Márgenes de beneficio y precios de venta.",
         date_str="Marzo 2025",
@@ -4074,7 +4074,7 @@ def generate_all():
     generate_guide_page(
         slug="merchandising-ferias-torneos-padel-regalos-marcas",
         category_badge="Ferias & Marcas · Estrategia",
-        title="Política de regalos en ferias y torneos de pádel: Qué regalar y errores costosos [Guía B2B]",
+        title="Política de regalos en ferias y torneos de pádel: Qué regalar y errores costosos · Guía B2B",
         subtitle="Analizamos los errores de más de 120 stands en ferias como PWS y RacquetX: cómo invertir tu presupuesto de merchandising en recuerdos de alto valor percibido que tus clientes no tiren a la basura.",
         meta_desc="Estrategia de regalos promocionales para marcas en torneos y ferias de pádel. Evita errores costosos y maximiza el recuerdo de marca.",
         date_str="Febrero 2026",
@@ -4168,7 +4168,7 @@ def generate_all():
     generate_guide_page(
         slug="retransmitir-torneos-padel-streaming-youtube-camaras",
         category_badge="Streaming & Clubs · Tecnología",
-        title="Cómo retransmitir torneos de pádel en directo por YouTube sin operadores [Streaming Full HD]",
+        title="Cómo retransmitir torneos de pádel en directo por YouTube sin operadores · Streaming Full HD",
         subtitle="Emisión Full HD automatizada a 4 metros de altura, marcador digital e inserción de patrocinadores locales: la guía para profesionalizar las finales de tu club sin arruinarte.",
         meta_desc="Cómo retransmitir partidos y torneos de pádel en YouTube Live desde tu club. Sistema autónomo Save my Play sin operadores ni unidades móviles.",
         date_str="Junio 2025",
@@ -4250,7 +4250,7 @@ def generate_all():
     generate_guide_page(
         slug="smart-courts-pistas-inteligentes-padel-horas-valle",
         category_badge="Smart Courts & Gestión · Negocio",
-        title="Pistas de Pádel Inteligentes (Smart Courts): Cómo llenar horas valle de 10:00 a 17:00 [Protocolo PDF]",
+        title="Pistas de Pádel Inteligentes (Smart Courts): Cómo llenar horas valle de 10:00 a 17:00 · Protocolo PDF",
         subtitle="Los 4 pilares tecnológicos que reducen costes operativos y transforman una pista convencional en un centro de experiencia deportiva para clases y torneos.",
         meta_desc="Cómo una pista inteligente (Smart Court) reduce costes operativos y llena horas valle en tu club de pádel mediante domótica y vídeo en pista.",
         date_str="Mayo 2025",

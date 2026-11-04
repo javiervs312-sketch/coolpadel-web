@@ -14,11 +14,11 @@ def get_llaveros_calculator_html(lang="es", asset_prefix="../"):
       <div class="space-y-6">
         <div class="flex justify-between items-end pb-3 border-b border-slate-100">
           <div>
-            <span class="text-[11px] font-bold text-slate-500 uppercase tracking-wider block">Nº de llaveros:</span>
+            <span class="text-· 11px font-bold text-slate-500 uppercase tracking-wider block">Nº de llaveros:</span>
             <span id="landing-calc-qty" class="text-xl sm:text-3xl font-black font-heading text-slate-950">100 unidades</span>
           </div>
           <div class="text-right">
-            <span class="text-[11px] font-bold text-slate-500 uppercase tracking-wider block">Importe estimado:</span>
+            <span class="text-· 11px font-bold text-slate-500 uppercase tracking-wider block">Importe estimado:</span>
             <div class="flex items-baseline justify-end gap-1.5">
               <span id="landing-calc-price" class="text-xl sm:text-3xl font-black font-heading text-[#f2920b]">300 €</span>
               <span id="landing-calc-unit" class="text-xs font-bold text-slate-500">(3,00 €/ud)</span>
@@ -34,7 +34,7 @@ def get_llaveros_calculator_html(lang="es", asset_prefix="../"):
               <img src="{asset_prefix}assets/images/eyes-thumb.png" alt="Selector" width="36" height="18" class="w-full h-full object-contain drop-shadow-sm select-none">
             </div>
           </div>
-          <div class="relative w-full text-[11px] font-extrabold text-slate-500 h-6 mt-3">
+          <div class="relative w-full text-· 11px font-extrabold text-slate-500 h-6 mt-3">
             <button type="button" onclick="setLandingTier(0)" class="absolute left-0 hover:text-[#f2920b] transition">100 uds</button>
             <button type="button" onclick="setLandingTier(1)" class="absolute left-[33.3%] -translate-x-1/2 hover:text-[#f2920b] transition">250 uds</button>
             <button type="button" onclick="setLandingTier(2)" class="absolute left-[66.6%] -translate-x-1/2 hover:text-[#f2920b] transition">500 uds</button>
@@ -234,7 +234,7 @@ LANDINGS = [
 
         "slug": "welcome-packs-torneos-padel",
 
-        "title": "Welcome Packs Torneos Pádel [Desde 1,50€] | CoolPadel",
+        "title": "Welcome Packs Torneos Pádel · Desde 1,50€ | CoolPadel",
 
         "meta_desc": "Regalos originales y detalles para welcome packs de torneos de pádel. Llaveros de goma 3D personalizados con logo. Tiradas desde 100 uds y muestra por 15€.",
 
@@ -296,7 +296,7 @@ LANDINGS = [
 
         "slug": "llaveros-personalizados-clubs-padel",
 
-        "title": "Llaveros Personalizados Clubs Pádel [Muestra 15€]",
+        "title": "Llaveros Personalizados Clubs Pádel · Muestra 15€",
 
         "meta_desc": "Llaveros oficiales y merchandising para clubes de pádel. Detalles de goma 3D para socios, escuelas y venta en pro-shop con +60% de margen. Más de 30 clubes.",
 
@@ -358,7 +358,7 @@ LANDINGS = [
 
         "slug": "camaras-grabacion-pistas-padel",
 
-        "title": "Cámaras con IA para Pistas de Pádel [Sin Obras] | Save My Play",
+        "title": "Cámaras con IA para Pistas de Pádel · Sin Obras | Save My Play",
 
         "meta_desc": "Cámaras con IA para pistas de pádel: grabación automática con pulsador, clips en 25s al móvil y sin obras. Desde 45 €/mes. Pide tu demo para tu club.",
 
@@ -422,7 +422,7 @@ LANDINGS = [
 
         "slug": "camaras-padel-playtomic",
 
-        "title": "Cámaras Pistas Pádel Playtomic [45€/mes] | Save My Play",
+        "title": "Cámaras Pistas Pádel Playtomic · 45€/mes | Save My Play",
 
         "meta_desc": "Cámaras Save my Play para pistas de pádel en Playtomic. Grabación con pulsador en red, repeticiones por QR y monetización sin obras ni permanencia.",
 
@@ -484,7 +484,7 @@ LANDINGS = [
 
         "slug": "camaras-padel-matchi",
 
-        "title": "Cámaras Pádel para Clubs Matchi [45€/mes] | Save My Play",
+        "title": "Cámaras Pádel para Clubs Matchi · 45€/mes | Save My Play",
 
         "meta_desc": "Sistema de grabación autónomo Save my Play para instalaciones de pádel con Matchi. Replay instantáneo con QR, 0 obras y hardware en propiedad por 180 €.",
 
@@ -546,7 +546,7 @@ LANDINGS = [
 
         "slug": "camaras-padel-resasports",
 
-        "title": "Cámaras Pádel Resasports [0 Obras · 45€/mes] | Save My Play",
+        "title": "Cámaras Pádel Resasports · 0 Obras · 45€/mes | Save My Play",
 
         "meta_desc": "Grabación para centros deportivos y clubes con software Resasports. Montaje en 5 minutos, pulsador en red y cuota desde 45€/mes sin permanencia.",
 
@@ -608,7 +608,7 @@ LANDINGS = [
 
         "slug": "camaras-padel-madrid",
 
-        "title": "Cámaras Pistas Pádel Madrid [Demo Gratis] | Save My Play",
+        "title": "Cámaras Pistas Pádel Madrid · Demo Gratis | Save My Play",
 
         "meta_desc": "Cámaras inteligentes Save my Play en Madrid (Pozuelo, Las Rozas, Alcobendas, La Moraleja). Grabación HD en 5 min, sin obras ni contratos de permanencia.",
 
@@ -670,7 +670,7 @@ LANDINGS = [
 
         "slug": "camaras-padel-barcelona",
 
-        "title": "Cámaras Pistas Pádel Barcelona [0 Obras] | Save My Play",
+        "title": "Cámaras Pistas Pádel Barcelona · 0 Obras | Save My Play",
 
         "meta_desc": "Cámaras Save my Play en Barcelona y Cataluña (Sant Cugat, Badalona, Sabadell). Grabación con pulsador en red, repeticiones QR y streaming sin obras.",
 
@@ -730,7 +730,7 @@ LANDINGS = [
 
     {
         "slug": "camaras-padel-valencia",
-        "title": "Cámaras Pistas Pádel Valencia [0 Obras · 45€/mes] | Save My Play",
+        "title": "Cámaras Pistas Pádel Valencia · 0 Obras · 45€/mes | Save My Play",
         "meta_desc": "Cámaras Save my Play en Valencia y Comunidad Valenciana (Paterna, Torrent, Alzira, Gandia). Grabación en 5 min sin obras, pulsador en red y 0 permanencia.",
         "badge": "COMUNIDAD VALENCIANA · SAVE MY PLAY",
         "breadcrumb_leaf": "Pistas Valencia",
@@ -761,7 +761,7 @@ LANDINGS = [
     },
     {
         "slug": "camaras-padel-malaga",
-        "title": "Cámaras Pistas Pádel Málaga & Costa del Sol [45€/mes] | Save My Play",
+        "title": "Cámaras Pistas Pádel Málaga & Costa del Sol · 45€/mes | Save My Play",
         "meta_desc": "Cámaras Save my Play en Málaga y Costa del Sol (Marbella, Fuengirola, Mijas, Estepona). Grabación de pádel en 5 min sin obras, sin cables y sin permanencia.",
         "badge": "MÁLAGA & COSTA DEL SOL · SAVE MY PLAY",
         "breadcrumb_leaf": "Pistas Málaga & Costa del Sol",
@@ -1097,7 +1097,7 @@ def render_landing(landing, lang="es"):
             </div>
             <div class="p-4 flex-1 flex flex-col justify-between">
               <div>
-                <span class="text-[10px] font-heading font-black uppercase text-[#d97706] tracking-wider">Streaming Live</span>
+                <span class="text-· 10px font-heading font-black uppercase text-[#d97706] tracking-wider">Streaming Live</span>
                 <h3 class="font-heading font-bold text-sm text-slate-900 mt-1">FIP Miami YouTube Live</h3>
                 <p class="text-xs text-slate-600 mt-1">{"Retransmisión en directo en 1080p sin cortes con imagen rectilínea." if lang=="es" else "Live 1080p broadcast with crisp rectilinear court view." if lang=="en" else "Diffusion 1080p en direct sans déformation fisheye." if lang=="fr" else "Diretta streaming 1080p nitida senza distorsioni ottiche."}</p>
               </div>
@@ -1114,7 +1114,7 @@ def render_landing(landing, lang="es"):
             </div>
             <div class="p-4 flex-1 flex flex-col justify-between">
               <div>
-                <span class="text-[10px] font-heading font-black uppercase text-emerald-600 tracking-wider">{"Jugador" if lang=="es" else "Player Experience" if lang=="en" else "Expérience Joueur" if lang=="fr" else "Esperienza Giocatore"}</span>
+                <span class="text-· 10px font-heading font-black uppercase text-emerald-600 tracking-wider">{"Jugador" if lang=="es" else "Player Experience" if lang=="en" else "Expérience Joueur" if lang=="fr" else "Esperienza Giocatore"}</span>
                 <h3 class="font-heading font-bold text-sm text-slate-900 mt-1">{"Cómo se Juega y Descarga" if lang=="es" else "How to Play & Download" if lang=="en" else "Comment Jouer & Télécharger" if lang=="fr" else "Come Giocare e Scaricare"}</h3>
                 <p class="text-xs text-slate-600 mt-1">{"Pulsador en red y escaneo QR inmediato sin descargar apps." if lang=="es" else "Net button tap and instant QR scan without downloading apps." if lang=="en" else "Pression bouton au filet et scan QR immédiat sans application." if lang=="fr" else "Pulsante a rete e scansione QR istantanea senza app."}</p>
               </div>
@@ -1131,7 +1131,7 @@ def render_landing(landing, lang="es"):
             </div>
             <div class="p-4 flex-1 flex flex-col justify-between">
               <div>
-                <span class="text-[10px] font-heading font-black uppercase text-sky-600 tracking-wider">{"Clip Automático" if lang=="es" else "Automatic Clip" if lang=="en" else "Clip Automatique" if lang=="fr" else "Clip Automatica"}</span>
+                <span class="text-· 10px font-heading font-black uppercase text-sky-600 tracking-wider">{"Clip Automático" if lang=="es" else "Automatic Clip" if lang=="en" else "Clip Automatique" if lang=="fr" else "Clip Automatica"}</span>
                 <h3 class="font-heading font-bold text-sm text-slate-900 mt-1">{"Highlights de 25 Segundos" if lang=="es" else "25-Second Highlights" if lang=="en" else "Highlights de 25 Secondes" if lang=="fr" else "Highlights di 25 Secondi"}</h3>
                 <p class="text-xs text-slate-600 mt-1">{"Calidad Full HD lista para Instagram, TikTok o WhatsApp." if lang=="es" else "Full HD quality ready to share on Instagram, TikTok, or WhatsApp." if lang=="en" else "Qualité Full HD prête à partager sur Instagram, TikTok ou WhatsApp." if lang=="fr" else "Qualità Full HD pronta da condividere su Instagram, TikTok o WhatsApp."}</p>
               </div>
@@ -1148,7 +1148,7 @@ def render_landing(landing, lang="es"):
             </div>
             <div class="p-4 flex-1 flex flex-col justify-between">
               <div>
-                <span class="text-[10px] font-heading font-black uppercase text-purple-600 tracking-wider">{"Coaching" if lang=="en" else "Monitores" if lang=="es" else "Entraîneurs" if lang=="fr" else "Maestri"}</span>
+                <span class="text-· 10px font-heading font-black uppercase text-purple-600 tracking-wider">{"Coaching" if lang=="en" else "Monitores" if lang=="es" else "Entraîneurs" if lang=="fr" else "Maestri"}</span>
                 <h3 class="font-heading font-bold text-sm text-slate-900 mt-1">{"Coaching Tools & Táctica" if lang=="es" else "Coaching Tools & Tactics" if lang=="en" else "Outils Coaching & Tactique" if lang=="fr" else "Strumenti Coaching & Tattica"}</h3>
                 <p class="text-xs text-slate-600 mt-1">{"Repetición instantánea para corrección técnica en clases." if lang=="es" else "Instant replay for technical correction in coaching sessions." if lang=="en" else "Ralenti instantané pour correction technique pendant les cours." if lang=="fr" else "Replay istantaneo per correzioni tecniche durante le lezioni."}</p>
               </div>
@@ -1649,19 +1649,19 @@ def render_landing(landing, lang="es"):
                 <div class="mt-4 p-4 rounded-2xl bg-slate-50 border border-slate-200/80">
                   <div class="grid grid-cols-2 gap-3 text-left">
                     <div>
-                      <span class="text-[10px] font-heading font-black uppercase text-slate-400 tracking-wider block">{quick_label_1}</span>
+                      <span class="text-· 10px font-heading font-black uppercase text-slate-400 tracking-wider block">{quick_label_1}</span>
                       <span class="text-xs sm:text-sm font-bold text-slate-900">{quick_val_1}</span>
                     </div>
                     <div>
-                      <span class="text-[10px] font-heading font-black uppercase text-slate-400 tracking-wider block">{quick_label_2}</span>
+                      <span class="text-· 10px font-heading font-black uppercase text-slate-400 tracking-wider block">{quick_label_2}</span>
                       <span class="text-xs sm:text-sm font-bold text-slate-900">{quick_val_2}</span>
                     </div>
                     <div>
-                      <span class="text-[10px] font-heading font-black uppercase text-slate-400 tracking-wider block">{quick_label_3}</span>
+                      <span class="text-· 10px font-heading font-black uppercase text-slate-400 tracking-wider block">{quick_label_3}</span>
                       <span class="text-xs sm:text-sm font-bold text-[#f2920b]">{quick_val_3}</span>
                     </div>
                     <div>
-                      <span class="text-[10px] font-heading font-black uppercase text-slate-400 tracking-wider block">{quick_label_4}</span>
+                      <span class="text-· 10px font-heading font-black uppercase text-slate-400 tracking-wider block">{quick_label_4}</span>
                       <span class="text-xs sm:text-sm font-bold text-emerald-700">{quick_val_4}</span>
                     </div>
                   </div>
@@ -1828,7 +1828,7 @@ def render_landing(landing, lang="es"):
 
   <!-- FOOTER OFICIAL (FORMATO EXACTO HOME) -->
   <footer class="relative z-20 bg-[#3478a6] bg-textured-blue text-white pt-14 pb-10 border-t border-sky-700/40 text-xs">
-    <div class="max-w-[1700px] mx-auto px-4 sm:px-8 space-y-10">
+    <div class="max-w-· 1700px mx-auto px-4 sm:px-8 space-y-10">
       <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pb-8 border-b border-white/20">
         <div class="flex items-center gap-3.5">
           <img src="{asset_prefix}assets/images/coolpadel-mascot-hd.png" alt="CoolPadel Mascota" width="60" height="60" class="h-10 sm:h-12 w-auto object-contain drop-shadow-sm" loading="lazy">
@@ -1904,7 +1904,7 @@ def build_all_landings():
             with open(f"{out_dir}/index.html", "w", encoding="utf-8") as f:
                 f.write(html_content)
             count += 1
-        print(f"  [OK] Generadas {count} landings para {lang.upper()}")
+        print(f" · OK Generadas {count} landings para {lang.upper()}")
 
 
 if __name__ == "__main__":

@@ -20,7 +20,7 @@ LOCAL_LANDINGS = [
         "geo_region": "ES-MD",
         "geo_placename": "Madrid, España",
         "geo_position": "40.4168;-3.7038",
-        "title": "Cámaras Pádel Madrid [Hub Oficial · 45€/mes] | Save My Play",
+        "title": "Cámaras Pádel Madrid · Hub Oficial · 45€/mes | Save My Play",
         "meta_desc": "Cámaras Save my Play en Madrid y zona centro (+1.500 pistas). Grabación en 5 min sin obras, repeticiones por QR, cuota desde 45€/mes y soporte directo.",
         "badge": "MADRID HUB · SAVE MY PLAY ESPAÑA",
         "breadcrumb_leaf": "Pistas Madrid",
@@ -55,7 +55,7 @@ LOCAL_LANDINGS = [
         "geo_region": "ES-CT",
         "geo_placename": "Barcelona, Catalunya",
         "geo_position": "41.3879;2.1699",
-        "title": "Cámaras Pádel Barcelona y Cataluña [45€/mes] | Save My Play",
+        "title": "Cámaras Pádel Barcelona y Cataluña · 45€/mes | Save My Play",
         "meta_desc": "Cámaras Save my Play en Barcelona y Cataluña. Grabación con pulsador en red, descarga instantánea por QR y 0 permanencia para clubes de pádel.",
         "badge": "BARCELONA & CATALUÑA · SAVE MY PLAY",
         "breadcrumb_leaf": "Pistas Barcelona",
@@ -90,7 +90,7 @@ LOCAL_LANDINGS = [
         "geo_region": "ES-VC",
         "geo_placename": "Valencia, España",
         "geo_position": "39.4699;-0.3763",
-        "title": "Cámaras Pistas Pádel Valencia [0 Obras · 45€/mes] | Save My Play",
+        "title": "Cámaras Pistas Pádel Valencia · 0 Obras · 45€/mes | Save My Play",
         "meta_desc": "Cámaras Save my Play en Valencia y Comunidad Valenciana (Paterna, Torrent, Alzira, Gandia). Grabación en 5 min sin obras, pulsador en red y 0 permanencia.",
         "badge": "COMUNIDAD VALENCIANA · SAVE MY PLAY",
         "breadcrumb_leaf": "Pistas Valencia",
@@ -125,7 +125,7 @@ LOCAL_LANDINGS = [
         "geo_region": "ES-AN",
         "geo_placename": "Málaga, Andalucía",
         "geo_position": "36.7213;-4.4214",
-        "title": "Cámaras Pistas Pádel Málaga & Costa del Sol [45€/mes] | Save My Play",
+        "title": "Cámaras Pistas Pádel Málaga & Costa del Sol · 45€/mes | Save My Play",
         "meta_desc": "Cámaras Save my Play en Málaga y Costa del Sol (Marbella, Fuengirola, Mijas, Estepona). Grabación de pádel en 5 min sin obras, sin cables y sin permanencia.",
         "badge": "MÁLAGA & COSTA DEL SOL · SAVE MY PLAY",
         "breadcrumb_leaf": "Pistas Málaga & Costa del Sol",
@@ -197,7 +197,7 @@ LOCAL_LANDINGS = [
         "geo_region": "US-FL",
         "geo_placename": "Miami, Florida, USA",
         "geo_position": "25.7617;-80.1918",
-        "title": "Padel Court Cameras in Miami & Florida [From $49/mo] | Save My Play",
+        "title": "Padel Court Cameras in Miami & Florida · From $49/mo | Save My Play",
         "meta_desc": "Official USTA & USA Padel court cameras in Miami & South Florida (Wynwood, Brickell, Coral Gables). Zero civil works, instant QR highlights, and no long contracts.",
         "badge": "MIAMI & FLORIDA · USA PADEL OFFICIAL",
         "breadcrumb_leaf": "Miami Courts",
@@ -234,7 +234,7 @@ LOCAL_LANDINGS = [
         "geo_region": "FR-IDF",
         "geo_placename": "Paris, Île-de-France",
         "geo_position": "48.8566;2.3522",
-        "title": "Caméras Terrains Padel Paris & Île-de-France [Dès 45€/mois] | Save My Play",
+        "title": "Caméras Terrains Padel Paris & Île-de-France · Dès 45€/mois | Save My Play",
         "meta_desc": "Caméras intelligentes Save my Play à Paris et en Île-de-France. Bouton au filet, téléchargement QR instantané et diffusion YouTube sans aucuns travaux.",
         "badge": "PARIS & ÎLE-DE-FRANCE · SAVE MY PLAY",
         "breadcrumb_leaf": "Terrains Paris",
@@ -269,7 +269,7 @@ LOCAL_LANDINGS = [
         "geo_region": "FR-ARA",
         "geo_placename": "Lyon, Auvergne-Rhône-Alpes",
         "geo_position": "45.7640;4.8357",
-        "title": "Caméras Pistes Padel Lyon & Rhône-Alpes [45€/mois] | Save My Play",
+        "title": "Caméras Pistes Padel Lyon & Rhône-Alpes · 45€/mois | Save My Play",
         "meta_desc": "Caméras Save my Play à Lyon et en Rhône-Alpes. Installation en 5 minutes sans travaux, bouton au filet et vidéos par QR code pour complexes de padel.",
         "badge": "LYON & RHÔNE-ALPES · SAVE MY PLAY",
         "breadcrumb_leaf": "Terrains Lyon",
@@ -306,7 +306,7 @@ LOCAL_LANDINGS = [
         "geo_region": "IT-62",
         "geo_placename": "Roma, Lazio, Italia",
         "geo_position": "41.9028;12.4964",
-        "title": "Telecamere Campi Padel Roma [0 Opere Murarie · 45€/mese] | Save My Play",
+        "title": "Telecamere Campi Padel Roma · 0 Opere Murarie · 45€/mese | Save My Play",
         "meta_desc": "Telecamere intelligenti Save my Play a Roma e nel Lazio (+1.500 campi). Pulsante a rete, video istantanei con QR e streaming YouTube senza vincoli.",
         "badge": "ROMA & LAZIO · SAVE MY PLAY",
         "breadcrumb_leaf": "Campi Roma",
@@ -341,7 +341,7 @@ LOCAL_LANDINGS = [
         "geo_region": "IT-25",
         "geo_placename": "Milano, Lombardia, Italia",
         "geo_position": "45.4642;9.1900",
-        "title": "Telecamere Campi Padel Milano & Lombardia [45€/mese] | Save My Play",
+        "title": "Telecamere Campi Padel Milano & Lombardia · 45€/mese | Save My Play",
         "meta_desc": "Telecamere Save my Play per campi da padel a Milano, Monza e Lombardia. Registrazione partite in 5 min senza scavi, replay con QR e disdetta libera.",
         "badge": "MILANO & LOMBARDIA · SAVE MY PLAY",
         "breadcrumb_leaf": "Campi Milano",
@@ -555,6 +555,8 @@ def render_local_landing(l):
   <meta name="author" content="CoolPadel">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
   <link rel="canonical" href="{page_url}">
+  <link rel="alternate" type="text/markdown" href="https://coolpadelstudios.com/llms.txt" title="LLMs.txt">
+  <link rel="alternate" type="text/markdown" href="https://coolpadelstudios.com/llms-full.txt" title="LLMs-Full.txt">
 
   <meta name="language" content="{lang}">
   <link rel="icon" type="image/png" href="{asset_prefix}assets/images/favicon_transparente.png?v=transp3">
@@ -681,19 +683,19 @@ def render_local_landing(l):
     <section class="max-w-6xl mx-auto px-4 sm:px-6 -mt-8 relative z-20">
       <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
         <div class="bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/90 shadow-md">
-          <span class="text-[11px] font-bold text-slate-500 uppercase tracking-wider block">{l['quick_summary']['label_1']}</span>
+          <span class="text-· 11px font-bold text-slate-500 uppercase tracking-wider block">{l['quick_summary']['label_1']}</span>
           <span class="text-sm sm:text-base font-black font-heading text-slate-950 mt-1 block">{l['quick_summary']['val_1']}</span>
         </div>
         <div class="bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/90 shadow-md">
-          <span class="text-[11px] font-bold text-slate-500 uppercase tracking-wider block">{l['quick_summary']['label_2']}</span>
+          <span class="text-· 11px font-bold text-slate-500 uppercase tracking-wider block">{l['quick_summary']['label_2']}</span>
           <span class="text-sm sm:text-base font-black font-heading text-slate-950 mt-1 block">{l['quick_summary']['val_2']}</span>
         </div>
         <div class="bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/90 shadow-md">
-          <span class="text-[11px] font-bold text-slate-500 uppercase tracking-wider block">{l['quick_summary']['label_3']}</span>
+          <span class="text-· 11px font-bold text-slate-500 uppercase tracking-wider block">{l['quick_summary']['label_3']}</span>
           <span class="text-sm sm:text-base font-black font-heading text-slate-950 mt-1 block">{l['quick_summary']['val_3']}</span>
         </div>
         <div class="bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/90 shadow-md">
-          <span class="text-[11px] font-bold text-slate-500 uppercase tracking-wider block">{l['quick_summary']['label_4']}</span>
+          <span class="text-· 11px font-bold text-slate-500 uppercase tracking-wider block">{l['quick_summary']['label_4']}</span>
           <span class="text-sm sm:text-base font-black font-heading text-slate-950 mt-1 block">{l['quick_summary']['val_4']}</span>
         </div>
       </div>
@@ -740,7 +742,7 @@ def render_local_landing(l):
         </a>
         <p class="text-slate-400">Madrid · Javier Villoria Soleto · WhatsApp: +34 680 31 74 86</p>
       </div>
-      <div class="text-center text-slate-500 text-[11px]">
+      <div class="text-center text-slate-500 text-· 11px">
         © 2026 CoolPadel Studios · Distribuidor Partner Oficial Save my Play. Todos los derechos reservados.
       </div>
     </div>
@@ -777,7 +779,7 @@ def build_all_local_landings():
             f.write(html_content)
 
         generated_urls.append(page_path)
-        print(f"  [OK] {lang.upper()} -> {page_path}")
+        print(f" · OK {lang.upper()} -> {page_path}")
 
     return generated_urls
 
