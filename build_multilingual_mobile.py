@@ -5865,7 +5865,10 @@ def build_all():
     try:
         from seo_post_build import run_seo_post_build
         run_seo_post_build()
-try:
+    except Exception as e:
+        print(f"  [ERROR] En SEO post build: {e}")
+
+    try:
         import build_paises_camaras
         print("  [OK] 50 Landings de Países generadas y sincronizadas con éxito.")
     except Exception as e:
