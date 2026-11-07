@@ -377,7 +377,6 @@ LANDINGS = [
         },
         "benefits": [
             ("No son cámaras de vigilancia: máxima calidad de imagen", "Diseñadas exclusivamente para pádel y tenis. Grabación nítida, gran angular sin deformar la pista y streaming directo sin cortes."),
-            ("Procesamiento inteligente con IA", "Las cámaras utilizan IA para procesar la señal de vídeo en tiempo real, elegir los mejores puntos y generar vídeos listos para compartir."),
             ("Planes mensuales por pista", "Grabación de partidos, highlights y directos por 45 €/mes. Estadísticas con IA por 136 €/mes que incluyen análisis completo de tu juego."),
             ("Fácil de usar y sin obras", "Inversión hardware de 180 € en propiedad. Se instala en 5 minutos en el poste de la red o iluminación, y sin permanencias.")
         ],

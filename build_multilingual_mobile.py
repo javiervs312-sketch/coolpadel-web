@@ -5869,7 +5869,8 @@ def build_all():
         print(f"  [ERROR] En SEO post build: {e}")
 
     try:
-        import build_paises_camaras
+        import build_paises_camaras_v2
+        build_paises_camaras_v2.build_all()
         print("  [OK] 50 Landings de Países generadas y sincronizadas con éxito.")
     except Exception as e:
         print(f"  [ERROR] Al generar Landings de Países: {e}")
