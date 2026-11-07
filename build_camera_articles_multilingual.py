@@ -104,6 +104,7 @@ TEXTURE_CSS = """
 ARTICLE_CSS = """
 :root { --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif; --font-heading: 'Outfit', sans-serif; }
 body { margin: 0; font-family: var(--font-sans); color: #0f172a; background: #ffffff; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+h1, h2, h3, h4, .font-heading { font-family: var(--font-heading) !important; }
 .article-container { max-width: 820px; margin: 0 auto; padding: 48px 20px 80px; }
 .article-header { margin-bottom: 32px; }
 .back-link { display: inline-flex; align-items: center; gap: 8px; color: #64748b; font-size: 14px; font-weight: 600; text-decoration: none; margin-bottom: 24px; transition: color .2s; }
@@ -148,12 +149,12 @@ body { margin: 0; font-family: var(--font-sans); color: #0f172a; background: #ff
 .related-card:hover { border-color: #f2920b; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
 .related-card img { width: 100%; aspect-ratio: 16/9; object-fit: cover; border-radius: 8px; margin-bottom: 10px; }
 .related-card-title { font-size: 14px; font-weight: 700; color: #0f172a; line-height: 1.35; margin: 0; }
-.cta-box { max-width: 820px; margin: 32px auto 0; padding: 22px 28px; border-radius: 16px; background: #ffffff; border: 2px solid #f2920b; box-shadow: 0 4px 16px rgba(15,23,42,.04); text-align: center; }
+.cta-box { max-width: 860px; margin: 32px auto 0; padding: 20px 24px; border-radius: 16px; background: #ffffff; border: 2px solid #f2920b; box-shadow: 0 4px 16px rgba(15,23,42,.04); text-align: center; }
 .cta-box h2, .cta-box h3 { font-family: var(--font-heading); font-size: 23px; font-weight: 800; color: #0f172a; margin: 0 0 6px; }
-.cta-box p { max-width: 740px; margin: 2px auto 8px; font-size: 16px; color: #475569; line-height: 1.5; }
+.cta-box p { max-width: 820px; margin: 2px auto 6px; font-size: 15px; color: #475569; line-height: 1.45; }
 
-.calendly-wrapper { max-width: 470px; margin: 10px auto 0; height: 330px; overflow: hidden; border-radius: 12px; border: 1px solid #e2e8f0; position: relative; }
-.calendly-inline-widget { width: 125% !important; height: 490px !important; min-width: 300px; margin-top: -46px !important; margin-left: 0 !important; border: 0 !important; transform: scale(0.80); transform-origin: top left; }
+.calendly-wrapper { max-width: 440px; margin: 8px auto 0; height: 282px; overflow: hidden; border-radius: 12px; border: 1px solid #e2e8f0; position: relative; }
+.calendly-inline-widget { width: 133% !important; height: 450px !important; min-width: 300px; margin-top: -55px !important; margin-left: 0 !important; border: 0 !important; transform: scale(0.75); transform-origin: top left; }
 @media (max-width: 768px) {
   .related-grid { grid-template-columns: 1fr; }
   .article-block { margin: 0 0 40px; }
@@ -168,11 +169,11 @@ HUB_BASE_CSS = """
 .article-card { color: #0f172a; text-decoration: none; }
 .article-card img { display: block; }
 .card-action:active { background: #76d3f6; transform: scale(.98); }
-.next-step { max-width: 820px; margin: 28px auto 24px; padding: 22px 28px; border: 2px solid #f2920b; border-radius: 16px; background: #ffffff; box-shadow: 0 6px 20px rgba(15,23,42,.04); text-align: center; }
+.next-step { max-width: 860px; margin: 28px auto 24px; padding: 20px 24px; border: 2px solid #f2920b; border-radius: 16px; background: #ffffff; box-shadow: 0 6px 20px rgba(15,23,42,.04); text-align: center; }
 .next-step h2 { color: #0f172a; font-size: 23px; font-weight: 900; margin: 0 0 6px; letter-spacing: -0.02em; }
-.next-step p { max-width: 740px; margin: 2px auto 6px; font-size: 16px; line-height: 1.5; color: #334155; }
-.calendly-wrapper { max-width: 470px; margin: 10px auto 0; height: 330px; overflow: hidden; border-radius: 12px; border: 1px solid #e2e8f0; position: relative; }
-.calendly-inline-widget { width: 125% !important; height: 490px !important; min-width: 300px; margin-top: -46px !important; margin-left: 0 !important; border: 0 !important; transform: scale(0.80); transform-origin: top left; }
+.next-step p { max-width: 820px; margin: 2px auto 6px; font-size: 15px; line-height: 1.45; color: #334155; }
+.calendly-wrapper { max-width: 440px; margin: 8px auto 0; height: 282px; overflow: hidden; border-radius: 12px; border: 1px solid #e2e8f0; position: relative; }
+.calendly-inline-widget { width: 133% !important; height: 450px !important; min-width: 300px; margin-top: -55px !important; margin-left: 0 !important; border: 0 !important; transform: scale(0.75); transform-origin: top left; }
 @media (max-width: 1050px) { .article-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 760px) { .hub-hero { margin: 18px auto 38px; text-align: left; } .hub-title { white-space: normal; } .intro { margin: 0; } .article-grid { grid-template-columns: 1fr; } }
 """ + TEXTURE_CSS
