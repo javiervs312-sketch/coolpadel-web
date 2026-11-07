@@ -77,12 +77,14 @@ TEXTURE_CSS = """
   right: 50%;
   margin-left: -50vw;
   margin-right: -50vw;
+  margin-top: 36px;
+  margin-bottom: 6px;
   background-color: #3478a6;
   background-image: linear-gradient(rgba(52, 120, 166, 0.40), rgba(52, 120, 166, 0.40)), url('/assets/images/branding/textura_editorial_coolpadel.webp');
   background-blend-mode: normal, soft-light;
   background-size: cover;
   background-position: center;
-  padding: 44px 20px;
+  padding: 40px 20px;
   border-top: 1px solid rgba(255, 255, 255, 0.15);
   border-bottom: 1px solid rgba(255, 255, 255, 0.15);
   box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.08);
@@ -713,10 +715,64 @@ def build_all():
 </a>'''
             cards_html.append(card)
 
-        intro_p_html = "\n".join([f"<p>{p}</p>" for p in hub_intro_paras if p.strip()])
         calendly_locale = lang if lang in ["es", "fr", "en", "it", "de"] else "en"
 
-        hub_content = f'''<main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+        if lang == "es":
+            # Formato intercalado: 3 articulos -> parrafo -> 3 articulos -> parrafo...
+            sections_parts = []
+            # 1. Primeros 3 articulos inmediatamente tras el hero
+            g0 = "\n      ".join(cards_html[0:3])
+            sections_parts.append(f'''  <section>
+    <div class="article-grid">
+      {g0}
+    </div>
+  </section>''')
+            
+            # 2. Intercalar 4 parrafos con los siguientes grupos de articulos
+            art_idx = 3
+            for p_idx, p_text in enumerate(hub_intro_paras):
+                if not p_text.strip():
+                    continue
+                band_html = f'''  <div class="intro-full-band">
+    <div class="intro">
+      <p>{p_text}</p>
+    </div>
+  </div>'''
+                sections_parts.append(band_html)
+
+                if p_idx < 3:
+                    art_group = cards_html[art_idx:art_idx+3]
+                    art_idx += 3
+                else:
+                    art_group = cards_html[art_idx:]
+
+                if art_group:
+                    g_html = "\n      ".join(art_group)
+                    sections_parts.append(f'''  <section>
+    <div class="article-grid">
+      {g_html}
+    </div>
+  </section>''')
+
+            body_sections_html = "\n\n".join(sections_parts)
+            hub_content = f'''<main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+  <section class="hub-hero">
+    <p class="hub-eyebrow">{html.escape(hub_eyebrow)}</p>
+    <h1 class="hub-title">{html.escape(hub_title)}</h1>
+  </section>
+
+{body_sections_html}
+
+  <section class="next-step">
+    <h2>{html.escape(next_step_title)}</h2>
+    <p>{html.escape(next_step_p1)}</p>
+    <p>{html.escape(next_step_p2)}</p>
+    <div class="calendly-inline-widget" data-url="https://calendly.com/javier-vs-312/demo-save-my-play?locale={calendly_locale}&hide_landing_page_details=1&hide_gdpr_banner=1"></div>
+  </section>
+</main>'''
+        else:
+            intro_p_html = "\n".join([f"<p>{p}</p>" for p in hub_intro_paras if p.strip()])
+            hub_content = f'''<main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
   <section class="hub-hero">
     <p class="hub-eyebrow">{html.escape(hub_eyebrow)}</p>
     <h1 class="hub-title">{html.escape(hub_title)}</h1>
