@@ -225,6 +225,14 @@ def generate_sitemap():
         ))
 
     # 4b. Landings Geo-Locales Nativas por Idioma y Ciudad (10 URLs)
+    # 4c. 50 Landings de Países de Cámaras Save My Play
+    try:
+        from paises_data import COUNTRIES
+        for c in COUNTRIES:
+            all_blocks.append(get_single_xml(f"/camaras/{c['slug']}/", priority="0.95", changefreq="weekly"))
+    except Exception as e:
+        print(f"Error adding country landings to sitemap: {e}")
+
     for path, prio in GEO_LOCAL_LANDINGS:
         all_blocks.append(get_single_xml(path, priority=prio, changefreq="weekly"))
 

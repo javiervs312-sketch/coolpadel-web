@@ -5865,6 +5865,13 @@ def build_all():
     try:
         from seo_post_build import run_seo_post_build
         run_seo_post_build()
+try:
+        import build_paises_camaras
+        print("  [OK] 50 Landings de Países generadas y sincronizadas con éxito.")
+    except Exception as e:
+        print(f"  [ERROR] Al generar Landings de Países: {e}")
+
+    try:
         from generate_master_sitemap import generate_sitemap
         generate_sitemap()
     except Exception as e:
