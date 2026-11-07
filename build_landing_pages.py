@@ -362,7 +362,7 @@ LANDINGS = [
         "badge": "CÁMARA OFICIAL USA PADEL Y USTA · +1500 PISTAS",
         "breadcrumb_leaf": "Grabación y Estadísticas con IA",
         "h1": "Cámaras para Pistas de Pádel: Grabación Partidos, Highlights y Estadísticas con IA",
-        "subtitle": "Las cámaras utilizan IA para procesar la señal de vídeo en tiempo real, elegir los mejores puntos y generar vídeos listos para compartir. La tecnología oficial de USA Padel y USTA, presente en más de 1.500 pistas en todo el mundo. Sin permanencia y montaje en 5 minutos sin obras.",
+        "subtitle": "La cámara oficial de USA Padel y USTA, ya en más de 1.500 pistas. Inversión de 180 € en propiedad, planes desde 45 €/mes, montaje en 5 minutos sin obras y sin permanencias.",
         "hero_img": "assets/images/savemyplay-1.jpg",
         "hero_img_alt": "Sistema de cámaras de grabación para pistas de pádel Save My Play",
         "wa_msg": "Hola Javier, quiero información y demo de Save My Play para las pistas de mi club",
@@ -373,12 +373,13 @@ LANDINGS = [
             "label_2": "Cuota Software", "val_2": "45 €/mes (Grabación) · 136 €/mes (Estadísticas con IA)",
             "label_3": "Permanencia", "val_3": "0 meses (Cancelación libre mes a mes)",
             "label_4": "Instalación", "val_4": "5 minutos sin obras",
-            "p": "Save My Play es el sistema oficial de grabación de partidos y estadísticas con IA para pistas de pádel y tenis. Las cámaras utilizan IA para procesar la señal de vídeo en tiempo real, elegir los mejores puntos y generar vídeos listos para compartir."
+            "p": "Save My Play es el sistema oficial de grabación de partidos y estadísticas con IA para pistas de pádel y tenis. Calidad deportiva profesional, instalación en 5 minutos y cancelación libre mes a mes."
         },
         "benefits": [
             ("No son cámaras de vigilancia: máxima calidad de imagen", "Diseñadas exclusivamente para pádel y tenis. Grabación nítida, gran angular sin deformar la pista y streaming directo sin cortes."),
-            ("Planes mensuales flexibles", "Grabación de partidos, highlights y directos por 45 €/mes. Planes de estadísticas con IA por 136 €/mes que incluyen análisis completo de tu juego."),
-            ("Fácil de usar y sin obras", "Se instala en 5 minutos en el poste de la red o iluminación. Conexión estándar de 220V y Wi-Fi.")
+            ("Procesamiento inteligente con IA", "Las cámaras utilizan IA para procesar la señal de vídeo en tiempo real, elegir los mejores puntos y generar vídeos listos para compartir."),
+            ("Planes mensuales por pista", "Grabación de partidos, highlights y directos por 45 €/mes. Estadísticas con IA por 136 €/mes que incluyen análisis completo de tu juego."),
+            ("Fácil de usar y sin obras", "Inversión hardware de 180 € en propiedad. Se instala en 5 minutos en el poste de la red o iluminación, y sin permanencias.")
         ],
         "faqs": [
             ("¿Se necesitan obras o canalizaciones en el suelo?", "No, cero obras. El sistema se ancla directamente al poste de la pista y la instalación dura solo 5 minutos por pista."),
@@ -844,6 +845,11 @@ def render_landing(landing, lang="es"):
     l_badge = trans.get("badge", landing["badge"])
     l_leaf = trans.get("breadcrumb_leaf", landing["breadcrumb_leaf"])
     l_h1 = trans.get("h1", landing["h1"])
+    # Format exactly in 3 lines if it is the main padel cameras title
+    if "Cámaras para Pistas de Pádel" in l_h1 and "Estadísticas con IA" in l_h1:
+        h1_formatted_html = 'Cámaras para Pistas de Pádel:<br class="hidden sm:inline"> Grabación Partidos, Highlights<br class="hidden sm:inline"> y Estadísticas con IA'
+    else:
+        h1_formatted_html = l_h1
     l_subtitle = trans.get("subtitle", landing["subtitle"])
     l_hero_alt = trans.get("hero_img_alt", landing["hero_img_alt"])
     l_wa_msg = trans.get("wa_msg", landing["wa_msg"])
@@ -966,7 +972,7 @@ def render_landing(landing, lang="es"):
                   <td class="py-4 px-3 text-slate-900">{"Inversión Hardware en Propiedad" if lang=="es" else "Owned Hardware Investment" if lang=="en" else "Investissement Matériel Possédé" if lang=="fr" else "Investimento Hardware di Proprietà"}</td>
                   <td class="py-4 px-3 text-[#f2920b]">180 € / {"pista" if lang in ["es","fr"] else "court" if lang=="en" else "campo"}</td>
                   <td class="py-4 px-3 text-slate-700">{"Pago único (+20€ envío int.)" if lang=="es" else "One-time payment (+€20 int. shipping)" if lang=="en" else "Paiement unique (+20€ port int.)" if lang=="fr" else "Pagamento unico (+20€ sped. int.)"}</td>
-                  <td class="py-4 px-3 text-slate-600 text-xs font-medium">{"1 cámara rectilínea por pista (sin efecto pez) + fijación a poste + pulsador físico en red" if lang=="es" else "1 rectilinear camera per court (no fish-eye) + post mount + smart net push button" if lang=="en" else "1 caméra rectilinéaire par terrain (sans fisheye) + fixation poteau + bouton filet" if lang=="fr" else "1 telecamera rettilinea per campo (no fish-eye) + attacco a palo + tasto a rete"}</td>
+                  <td class="py-4 px-3 text-slate-600 text-xs font-medium">{"1 cámara rectilínea por pista (sin efecto pez) + fijación a poste " if lang=="es" else "1 rectilinear camera per court (no fish-eye) + post mount " if lang=="en" else "1 caméra rectilinéaire par terrain (sans fisheye) + fixation poteau " if lang=="fr" else "1 telecamera rettilinea per campo (no fish-eye) + attacco a palo "}</td>
                 </tr>
                 <tr>
                   <td class="py-4 px-3 text-slate-900">{"Software Highlights & Streaming (< 5 pistas)" if lang=="es" else "Software Highlights & Streaming (< 5 courts)" if lang=="en" else "Logiciel Highlights & Streaming (< 5 pistes)" if lang=="fr" else "Software Highlights & Streaming (< 5 campi)"}</td>
@@ -1010,7 +1016,7 @@ def render_landing(landing, lang="es"):
           </div>"""
 
         step_titles = {
-            "es": ("Demo Online (15 min)", "Te mostramos en vivo cómo funciona la cámara, el pulsador y la descarga QR.", "Instalación en 5 min", "Se fija directamente al poste de la pista sin obras y sin zanjas.", "Activación y Sin Permanencia", "Tus jugadores disfrutan de sus mejores jugadas con cancelación libre."),
+            "es": ("Demo Online (15 min)", "Te mostramos en vivo cómo funciona la cámara, la calidad deportiva y la descarga QR.", "Instalación en 5 min", "Se fija directamente al poste de la pista sin obras y sin zanjas.", "Activación y Sin Permanencia", "Tus jugadores disfrutan de sus mejores jugadas con cancelación libre."),
             "en": ("Online Demo (15 min)", "Live screen-share demo of the camera feed, net button, and instant QR downloads.", "5-Min Installation", "Clamps directly onto the court post without civil works, trenching, or court closures.", "Activation & Zero Lock-in", "Players enjoy highlights immediately with complete month-to-month freedom."),
             "fr": ("Démo en Ligne (15 min)", "Démonstration en direct de la caméra, du bouton au filet et du téléchargement QR.", "Pose en 5 min", "Fixation directe sur le poteau du terrain sans tranchée ni interruption d'activité.", "Activation Sans Engagement", "Vos joueurs profitent de leurs meilleurs coups avec résiliation libre."),
             "it": ("Demo Online (15 min)", "Ti mostriamo dal vivo la telecamera, il tasto a rete e il download con QR code.", "Montaggio in 5 min", "Si fissa direttamente al palo del campo senza scavi né interruzione delle partite.", "Attivazione Senza Vincoli", "I giocatori scaricano le loro giocate con totale libertà di disdetta.")
@@ -1036,10 +1042,10 @@ def render_landing(landing, lang="es"):
         </div>"""
 
         vid_headers = {
-            "es": ("Demostración en Pista Real", "Comprueba la Calidad de Grabación y Streaming", "Partidos oficiales FIP en directo, repeticiones automáticas con pulsador y herramientas de análisis táctico.", "Ver en YouTube"),
-            "en": ("Real Court Demonstration", "Experience Recording and Streaming Quality", "Official FIP live broadcasts, automated net button replays, and tactical coaching analysis tools.", "Watch on YouTube"),
-            "fr": ("Démonstration sur Piste Réelle", "Vérifiez la Qualité d'Enregistrement et de Streaming", "Matches officiels FIP en direct, replays automatiques au filet et outils d'analyse tactique.", "Voir sur YouTube"),
-            "it": ("Dimostrazione su Campo Reale", "Verifica la Qualità di Registrazione e Streaming", "Partite ufficiali FIP in diretta, replay automatici con tasto a rete e strumenti tattici.", "Guarda su YouTube")
+            "es": ("Demostración en Pista Real", "Comprueba la Calidad de Grabación y Streaming", "Partidos oficiales FIP en directo, repeticiones automáticas y herramientas de análisis táctico.", "Ver en YouTube"),
+            "en": ("Real Court Demonstration", "Experience Recording and Streaming Quality", "Official FIP live broadcasts, automated highlights, and tactical coaching analysis tools.", "Watch on YouTube"),
+            "fr": ("Démonstration sur Piste Réelle", "Vérifiez la Qualité d'Enregistrement et de Streaming", "Matches officiels FIP en direct, replays automatiques et outils d'analyse tactique.", "Voir sur YouTube"),
+            "it": ("Dimostrazione su Campo Reale", "Verifica la Qualità di Registrazione e Streaming", "Partite ufficiali FIP in diretta, replay automatici e strumenti tattici.", "Guarda su YouTube")
         }.get(lang, ("Demo", "Calidad", "Partidos", "YouTube"))
 
         videos_html = f"""
@@ -1084,7 +1090,7 @@ def render_landing(landing, lang="es"):
               <div>
                 <span class="text-· 10px font-heading font-black uppercase text-emerald-600 tracking-wider">{"Jugador" if lang=="es" else "Player Experience" if lang=="en" else "Expérience Joueur" if lang=="fr" else "Esperienza Giocatore"}</span>
                 <h3 class="font-heading font-bold text-sm text-slate-900 mt-1">{"Cómo se Juega y Descarga" if lang=="es" else "How to Play & Download" if lang=="en" else "Comment Jouer & Télécharger" if lang=="fr" else "Come Giocare e Scaricare"}</h3>
-                <p class="text-xs text-slate-600 mt-1">{"Pulsador en red y escaneo QR inmediato sin descargar apps." if lang=="es" else "Net button tap and instant QR scan without downloading apps." if lang=="en" else "Pression bouton au filet et scan QR immédiat sans application." if lang=="fr" else "Pulsante a rete e scansione QR istantanea senza app."}</p>
+                <p class="text-xs text-slate-600 mt-1">{"Grabación automática y descarga directa de highlights por código QR sin apps." if lang=="es" else "Automated recording and instant QR scan without downloading apps." if lang=="en" else "Enregistrement automatique et téléchargement direct par QR sans application." if lang=="fr" else "Registrazione automatica e download diretto con QR senza app."}</p>
               </div>
               <a href="https://www.youtube.com/watch?v=LuzDvB5Umfs" target="_blank" rel="noopener" class="mt-3 inline-flex items-center gap-1 text-xs font-bold text-[#f2920b] hover:underline">
                 <span>{vid_headers[3]}</span>
@@ -1579,8 +1585,8 @@ def render_landing(landing, lang="es"):
               <span>{l_badge}</span>
             </div>
 
-            <h1 class="font-heading font-black text-3xl sm:text-5xl lg:text-6xl text-slate-950 uppercase tracking-tight leading-[1.08]">
-              {l_h1}
+            <h1 class="font-heading font-black text-2xl sm:text-3xl lg:text-4xl text-slate-950 uppercase tracking-tight leading-[1.18]">
+              {h1_formatted_html}
             </h1>
 
             <p class="text-base sm:text-lg text-slate-600 leading-relaxed font-normal">
