@@ -356,70 +356,38 @@ LANDINGS = [
 
     {
 
-        "slug": "camaras-grabacion-pistas-padel",
-
-        "title": "Cámaras con IA para Pistas de Pádel · Sin Obras | Save My Play",
-
-        "meta_desc": "Cámaras con IA para pistas de pádel: grabación automática con pulsador, clips en 25s al móvil y sin obras. Desde 45 €/mes. Pide tu demo para tu club.",
-
-        "badge": "TECNOLOGÍA DE CLUB · SAVE MY PLAY",
-
-        "breadcrumb_leaf": "Grabación sin Obras",
-
-        "h1": "Cámaras Inteligentes para Pistas de Pádel sin Obras",
-
-        "subtitle": "La tecnología de repetición y analítica en pista que fideliza a tus jugadores y genera ingresos recurrentes para tu club de pádel o tenis. Sin permanencia, sin zanjas y montado en 5 minutos.",
-
+                "slug": "camaras-grabacion-pistas-padel",
+        "title": "Cámaras para Pistas de Pádel: Grabación Partidos, Highlights y Estadísticas con IA",
+        "meta_desc": "Cámaras para pistas de pádel: 180 € hardware en propiedad, grabación automática por 45 €/mes y estadísticas con IA por 136 €/mes con análisis de juego. Solicita demo.",
+        "badge": "CÁMARA OFICIAL USA PADEL Y USTA · +1500 PISTAS",
+        "breadcrumb_leaf": "Grabación y Estadísticas con IA",
+        "h1": "Cámaras para Pistas de Pádel: Grabación Partidos, Highlights y Estadísticas con IA",
+        "subtitle": "Las cámaras utilizan IA para procesar la señal de vídeo en tiempo real, elegir los mejores puntos y generar vídeos listos para compartir. La tecnología oficial de USA Padel y USTA, presente en más de 1.500 pistas en todo el mundo. Sin permanencia y montaje en 5 minutos sin obras.",
         "hero_img": "assets/images/savemyplay-1.jpg",
-
-        "hero_img_alt": "Sistema de cámaras inteligentes de grabación para pistas de pádel Save My Play",
-
-        "wa_msg": "Hola Javier, quiero información sobre el sistema de cámaras y grabación Save My Play para las pistas de mi club",
-
-        "price_anchor": "Hardware 180 € / pista · Software desde 45 €/mes · Sin obras",
-
-        "target_audience": "Gerentes de clubes de pádel y tenis, directores de academias e inversores deportivos que buscan modernizar sus pistas con vídeo de alta definición.",
-
+        "hero_img_alt": "Sistema de cámaras de grabación para pistas de pádel Save My Play",
+        "wa_msg": "Hola Javier, quiero información y demo de Save My Play para las pistas de mi club",
+        "price_anchor": "Hardware 180 € / pista · Grabación 45 €/mes · Estadísticas IA 136 €/mes",
+        "target_audience": "Gerentes de clubes de pádel y tenis, directores de academias e inversores deportivos que buscan modernizar sus pistas con vídeo de alta definición y analítica.",
         "quick_summary": {
-
-            "label_1": "Hardware Pista", "val_1": "180 € / cámara en propiedad (Pago único)",
-
-            "label_2": "Cuota Software", "val_2": "Desde 45 € / mes por pista (Plan B Highlights)",
-
+            "label_1": "Hardware Pista", "val_1": "180 € en propiedad (Pago único)",
+            "label_2": "Cuota Software", "val_2": "45 €/mes (Grabación) · 136 €/mes (Estadísticas con IA)",
             "label_3": "Permanencia", "val_3": "0 meses (Cancelación libre mes a mes)",
-
-            "label_4": "Instalación", "val_4": "5 minutos sin obras ni zanjas en pista",
-
-            "p": "Save My Play es el sistema autónomo de grabación de partidos y highlights en pista de pádel y tenis sin obras civiles. Pulsador físico en red, descarga instantánea por QR sin apps y retransmisión por YouTube en Full HD."
-
+            "label_4": "Instalación", "val_4": "5 minutos sin obras",
+            "p": "Save My Play es el sistema oficial de grabación de partidos y estadísticas con IA para pistas de pádel y tenis. Las cámaras utilizan IA para procesar la señal de vídeo en tiempo real, elegir los mejores puntos y generar vídeos listos para compartir."
         },
-
         "benefits": [
-
-            ("Cero Obras y Montaje en 5 Minutos", "Se instala directamente en el poste de la pista sin necesidad de abrir zanjas, tirar tubos ni obras de albañilería."),
-
-            ("Pulsador Físico de Highlights en Pista", "Los jugadores pulsan un botón físico tras un gran punto y descargan sus mejores jugadas al instante mediante código QR."),
-
-            ("Sin Contratos de Permanencia", "Máxima flexibilidad. Pruébalo en tus pistas centrales y amplía cuando compruebes la satisfacción de los socios.")
-
+            ("No son cámaras de vigilancia: máxima calidad de imagen", "Diseñadas exclusivamente para pádel y tenis. Grabación nítida, gran angular sin deformar la pista y streaming directo sin cortes."),
+            ("Planes mensuales flexibles", "Grabación de partidos, highlights y directos por 45 €/mes. Planes de estadísticas con IA por 136 €/mes que incluyen análisis completo de tu juego."),
+            ("Fácil de usar y sin obras", "Se instala en 5 minutos en el poste de la red o iluminación. Conexión estándar de 220V y Wi-Fi.")
         ],
-
         "faqs": [
-
-            ("¿Se necesitan obras o canalizaciones en el suelo?", "No. El sistema se ancla directamente al poste de la pista y no requiere zanjas ni obras civiles. La instalación dura solo 5 minutos por pista."),
-
-            ("¿Cuál es el precio y modelo de suscripción?", "Inversión única en hardware de 180 € por pista. La cuota mensual es de 45 €/mes (Plan Básico Highlights) o 136 €/mes (Plan Analítica IA Avanzada), sin permanencia."),
-
-            ("¿Cómo reciben los jugadores sus jugadas?", "El jugador pulsa el botón tras una jugada y al finalizar el partido escanea el QR en pista para tener el vídeo en su móvil al instante."),
-
+            ("¿Se necesitan obras o canalizaciones en el suelo?", "No, cero obras. El sistema se ancla directamente al poste de la pista y la instalación dura solo 5 minutos por pista."),
+            ("¿Cuál es el precio y qué planes hay?", "180 € por cámara en propiedad. Planes mensuales: 45 €/mes por pista para grabación, highlights y directos; o planes de estadísticas con IA por 136 €/mes con análisis de tu juego."),
+            ("¿Cómo funciona la IA de las cámaras?", "Las cámaras utilizan IA para procesar la señal de vídeo en tiempo real, elegir los mejores puntos y generar vídeos listos para compartir al instante."),
             ("¿Cumple con la normativa RGPD de protección de datos?", "Totalmente. El sistema cumple los estándares europeos de privacidad: los clips se almacenan temporalmente y solo los jugadores que activan su sesión acceden a sus grabaciones.")
-
         ]
-
     },
-
     {
-
         "slug": "camaras-padel-playtomic",
 
         "title": "Cámaras Pistas Pádel Playtomic · 45€/mes | Save My Play",
