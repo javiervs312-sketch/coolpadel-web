@@ -23,7 +23,11 @@ import os
 import re
 import urllib.parse
 from paises_data_50 import COUNTRIES_50
-from country_i18n_master import ALL_LANGS_MASTER
+from country_i18n_native_all import NATIVE_TRANSLATIONS_21
+from country_i18n_native_part2 import REMAINING_13_LANGS
+
+ALL_LANGS_MASTER = dict(NATIVE_TRANSLATIONS_21)
+ALL_LANGS_MASTER.update(REMAINING_13_LANGS)
 
 OUTPUT_ROOT = 'coolpadel-web/camaras'
 os.makedirs(OUTPUT_ROOT, exist_ok=True)
@@ -347,64 +351,68 @@ def generate_country_page(item, slug_to_use):
         <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-xs hover:shadow-md transition flex flex-col">
             <div class="aspect-video bg-slate-900 relative">
-              <iframe class="w-full h-full" src="https://www.youtube-nocookie.com/embed/4xwrrveDZxg?start=5623" title="{t['vid1_t']}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+              <iframe class="w-full h-full" src="https://www.youtube-nocookie.com/embed/4xwrrveDZxg?start=5623" title="{t['vid1_title']}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
             </div>
             <div class="p-4 flex-1 flex flex-col justify-between">
               <div>
-                <h3 class="font-heading font-bold text-slate-900 text-sm leading-snug">{t["vid1_t"]}</h3>
-                <p class="text-xs text-slate-600 mt-1">{t["vid1_d"]}</p>
+                <span class="inline-block px-2 py-0.5 mb-2 rounded bg-amber-50 text-[#f2920b] font-black text-[10px] uppercase tracking-wider">{t.get("vid1_badge", "Live")}</span>
+                <h3 class="font-heading font-bold text-slate-900 text-sm leading-snug">{t["vid1_title"]}</h3>
+                <p class="text-xs text-slate-600 mt-1">{t["vid1_desc"]}</p>
               </div>
-              <a href="https://youtu.be/4xwrrveDZxg?t=5623" target="_blank" rel="noopener" class="mt-3 inline-flex items-center gap-1.5 text-xs font-bold text-[#3478a6] hover:text-[#f2920b] transition">
+              <a href="https://www.youtube.com/live/4xwrrveDZxg?t=5623" target="_blank" rel="noopener" class="mt-3 inline-flex items-center gap-1.5 text-xs font-bold text-[#3478a6] hover:text-[#f2920b] transition">
                 <i data-lucide="play-circle" class="w-4 h-4"></i>
-                <span>YouTube</span>
+                <span>{t.get("vid_btn", "YouTube")}</span>
               </a>
             </div>
           </div>
 
           <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-xs hover:shadow-md transition flex flex-col">
             <div class="aspect-video bg-slate-900 relative">
-              <iframe class="w-full h-full" src="https://www.youtube-nocookie.com/embed/H21vG3a6u14" title="{t['vid2_t']}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+              <iframe class="w-full h-full" src="https://www.youtube-nocookie.com/embed/LuzDvB5Umfs" title="{t['vid2_title']}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
             </div>
             <div class="p-4 flex-1 flex flex-col justify-between">
               <div>
-                <h3 class="font-heading font-bold text-slate-900 text-sm leading-snug">{t["vid2_t"]}</h3>
-                <p class="text-xs text-slate-600 mt-1">{t["vid2_d"]}</p>
+                <span class="inline-block px-2 py-0.5 mb-2 rounded bg-amber-50 text-[#f2920b] font-black text-[10px] uppercase tracking-wider">{t.get("vid2_badge", "Demo")}</span>
+                <h3 class="font-heading font-bold text-slate-900 text-sm leading-snug">{t["vid2_title"]}</h3>
+                <p class="text-xs text-slate-600 mt-1">{t["vid2_desc"]}</p>
               </div>
-              <a href="https://youtu.be/H21vG3a6u14" target="_blank" rel="noopener" class="mt-3 inline-flex items-center gap-1.5 text-xs font-bold text-[#3478a6] hover:text-[#f2920b] transition">
+              <a href="https://www.youtube.com/watch?v=LuzDvB5Umfs" target="_blank" rel="noopener" class="mt-3 inline-flex items-center gap-1.5 text-xs font-bold text-[#3478a6] hover:text-[#f2920b] transition">
                 <i data-lucide="play-circle" class="w-4 h-4"></i>
-                <span>YouTube</span>
+                <span>{t.get("vid_btn", "YouTube")}</span>
               </a>
             </div>
           </div>
 
           <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-xs hover:shadow-md transition flex flex-col">
             <div class="aspect-video bg-slate-900 relative">
-              <iframe class="w-full h-full" src="https://www.youtube-nocookie.com/embed/5aC4Vj9XwG0" title="{t['vid3_t']}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+              <iframe class="w-full h-full" src="https://www.youtube-nocookie.com/embed/Z0vnvyrUbPQ" title="{t['vid3_title']}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
             </div>
             <div class="p-4 flex-1 flex flex-col justify-between">
               <div>
-                <h3 class="font-heading font-bold text-slate-900 text-sm leading-snug">{t["vid3_t"]}</h3>
-                <p class="text-xs text-slate-600 mt-1">{t["vid3_d"]}</p>
+                <span class="inline-block px-2 py-0.5 mb-2 rounded bg-amber-50 text-[#f2920b] font-black text-[10px] uppercase tracking-wider">{t.get("vid3_badge", "Clip")}</span>
+                <h3 class="font-heading font-bold text-slate-900 text-sm leading-snug">{t["vid3_title"]}</h3>
+                <p class="text-xs text-slate-600 mt-1">{t["vid3_desc"]}</p>
               </div>
-              <a href="https://youtu.be/5aC4Vj9XwG0" target="_blank" rel="noopener" class="mt-3 inline-flex items-center gap-1.5 text-xs font-bold text-[#3478a6] hover:text-[#f2920b] transition">
+              <a href="https://youtu.be/Z0vnvyrUbPQ" target="_blank" rel="noopener" class="mt-3 inline-flex items-center gap-1.5 text-xs font-bold text-[#3478a6] hover:text-[#f2920b] transition">
                 <i data-lucide="play-circle" class="w-4 h-4"></i>
-                <span>YouTube</span>
+                <span>{t.get("vid_btn", "YouTube")}</span>
               </a>
             </div>
           </div>
 
           <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-xs hover:shadow-md transition flex flex-col">
             <div class="aspect-video bg-slate-900 relative">
-              <iframe class="w-full h-full" src="https://www.youtube-nocookie.com/embed/m6gW5QvK8_8" title="{t['vid4_t']}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+              <iframe class="w-full h-full" src="https://www.youtube-nocookie.com/embed/FcnCWaYahP8" title="{t['vid4_title']}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
             </div>
             <div class="p-4 flex-1 flex flex-col justify-between">
               <div>
-                <h3 class="font-heading font-bold text-slate-900 text-sm leading-snug">{t["vid4_t"]}</h3>
-                <p class="text-xs text-slate-600 mt-1">{t["vid4_d"]}</p>
+                <span class="inline-block px-2 py-0.5 mb-2 rounded bg-amber-50 text-[#f2920b] font-black text-[10px] uppercase tracking-wider">{t.get("vid4_badge", "Coach")}</span>
+                <h3 class="font-heading font-bold text-slate-900 text-sm leading-snug">{t["vid4_title"]}</h3>
+                <p class="text-xs text-slate-600 mt-1">{t["vid4_desc"]}</p>
               </div>
-              <a href="https://youtu.be/m6gW5QvK8_8" target="_blank" rel="noopener" class="mt-3 inline-flex items-center gap-1.5 text-xs font-bold text-[#3478a6] hover:text-[#f2920b] transition">
+              <a href="https://www.youtube.com/watch?v=FcnCWaYahP8" target="_blank" rel="noopener" class="mt-3 inline-flex items-center gap-1.5 text-xs font-bold text-[#3478a6] hover:text-[#f2920b] transition">
                 <i data-lucide="play-circle" class="w-4 h-4"></i>
-                <span>YouTube</span>
+                <span>{t.get("vid_btn", "YouTube")}</span>
               </a>
             </div>
           </div>
@@ -484,7 +492,7 @@ def generate_country_page(item, slug_to_use):
               <div class="w-11 h-11 rounded-xl bg-emerald-50 text-[#25D366] flex items-center justify-center shadow-inner group-hover:scale-105 group-hover:bg-[#25D366] group-hover:text-white transition-all duration-300">
                 <i data-lucide="message-circle" class="w-6 h-6 stroke-[2.2]"></i>
               </div>
-              <h3 class="font-heading font-black text-base sm:text-lg text-slate-950">WhatsApp Directo</h3>
+              <h3 class="font-heading font-black text-base sm:text-lg text-slate-950">{t.get("contact_wa_title", "WhatsApp Directo")}</h3>
               <p class="font-mono font-bold text-xs sm:text-sm text-emerald-600 tracking-wide">+34 680 31 74 86</p>
               <div class="pt-1">
                 <div class="p-1.5 bg-white border border-slate-200 rounded-xl shadow-2xs inline-block group-hover:border-emerald-300 transition">
@@ -506,7 +514,7 @@ def generate_country_page(item, slug_to_use):
               <div class="w-11 h-11 rounded-xl bg-sky-50 text-[#3478a6] flex items-center justify-center shadow-inner group-hover:scale-105 group-hover:bg-[#3478a6] group-hover:text-white transition-all duration-300">
                 <i data-lucide="mail" class="w-6 h-6 stroke-[2.2]"></i>
               </div>
-              <h3 class="font-heading font-black text-base sm:text-lg text-slate-950">Correo Electrónico</h3>
+              <h3 class="font-heading font-black text-base sm:text-lg text-slate-950">{t.get("contact_mail_title", "Correo Electrónico")}</h3>
               <p class="font-sans font-bold text-xs sm:text-sm text-sky-800 tracking-normal break-all">javier@coolpadelstudios.com</p>
               <div class="pt-1">
                 <div class="p-1.5 bg-white border border-slate-200 rounded-xl shadow-2xs inline-block group-hover:border-sky-300 transition">
