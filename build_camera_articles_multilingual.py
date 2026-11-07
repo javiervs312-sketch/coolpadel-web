@@ -719,47 +719,46 @@ def build_all():
 
         calendly_locale = lang if lang in ["es", "fr", "en", "it", "de"] else "en"
 
-        if lang == "es":
-            # Formato intercalado: 3 articulos -> parrafo -> 3 articulos -> parrafo...
-            sections_parts = []
-            # 1. Primeros 3 articulos inmediatamente tras el hero
-            g0 = "\n      ".join(cards_html[0:3])
-            sections_parts.append(f'''  <section>
+        # Formato intercalado universal para todos los idiomas: 3 articulos -> parrafo -> 3 articulos...
+        sections_parts = []
+        # 1. Primeros 3 articulos inmediatamente tras el hero
+        g0 = "\n      ".join(cards_html[0:3])
+        sections_parts.append(f'''  <section>
     <div class="article-grid">
       {g0}
     </div>
   </section>''')
-            
-            # 2. Intercalar 6 parrafos con grupos de 3 articulos
-            art_idx = 3
-            num_paras = len(hub_intro_paras)
-            for p_idx, p_text in enumerate(hub_intro_paras):
-                if not p_text.strip():
-                    continue
-                band_html = f'''  <div class="intro-full-band">
+        
+        # 2. Intercalar parrafos de texto con grupos de articulos
+        art_idx = 3
+        num_paras = len(hub_intro_paras)
+        for p_idx, p_text in enumerate(hub_intro_paras):
+            if not p_text.strip():
+                continue
+            band_html = f'''  <div class="intro-full-band">
     <div class="intro">
       <p>{p_text}</p>
     </div>
   </div>'''
-                sections_parts.append(band_html)
+            sections_parts.append(band_html)
 
-                if p_idx < num_paras - 1:
-                    art_group = cards_html[art_idx:art_idx+3]
-                    art_idx += 3
-                else:
-                    # Ultimo bloque con todos los articulos restantes
-                    art_group = cards_html[art_idx:]
+            if p_idx < num_paras - 1:
+                art_group = cards_html[art_idx:art_idx+3]
+                art_idx += 3
+            else:
+                # Ultimo bloque con todos los articulos restantes
+                art_group = cards_html[art_idx:]
 
-                if art_group:
-                    g_html = "\n      ".join(art_group)
-                    sections_parts.append(f'''  <section>
+            if art_group:
+                g_html = "\n      ".join(art_group)
+                sections_parts.append(f'''  <section>
     <div class="article-grid">
       {g_html}
     </div>
   </section>''')
 
-            body_sections_html = "\n\n".join(sections_parts)
-            hub_content = f'''<main class="max-w-[1216px] mx-auto px-4 sm:px-6 lg:px-8 pt-2 sm:pt-3 pb-8 sm:pb-12">
+        body_sections_html = "\n\n".join(sections_parts)
+        hub_content = f'''<main class="max-w-[1216px] mx-auto px-4 sm:px-6 lg:px-8 pt-2 sm:pt-3 pb-8 sm:pb-12">
   <section class="hub-hero">
     <h1 class="hub-title">{html.escape(hub_title)}</h1>
     <p class="hub-eyebrow">{html.escape(hub_eyebrow)}</p>
@@ -771,34 +770,7 @@ def build_all():
     <h2>{html.escape(next_step_title)}</h2>
     <p>{html.escape(next_step_p1)}</p>
     <p>{html.escape(next_step_p2)}</p>
-    <div class="calendly-inline-widget" data-url="https://calendly.com/javier-vs-312/demo-save-my-play?locale={calendly_locale}&hide_landing_page_details=1&hide_gdpr_banner=1"></div>
-  </section>
-</main>'''
-        else:
-            intro_p_html = "\n".join([f"<p>{p}</p>" for p in hub_intro_paras if p.strip()])
-            hub_content = f'''<main class="max-w-[1216px] mx-auto px-4 sm:px-6 lg:px-8 pt-2 sm:pt-3 pb-8 sm:pb-12">
-  <section class="hub-hero">
-    <h1 class="hub-title">{html.escape(hub_title)}</h1>
-    <p class="hub-eyebrow">{html.escape(hub_eyebrow)}</p>
-  </section>
-
-  <div class="intro-full-band">
-    <div class="intro">
-      {intro_p_html}
-    </div>
-  </div>
-
-  <section>
-    <div class="article-grid">
-      {"\n".join(cards_html)}
-    </div>
-  </section>
-
-  <section class="next-step">
-    <h2>{html.escape(next_step_title)}</h2>
-    <p>{html.escape(next_step_p1)}</p>
-    <p>{html.escape(next_step_p2)}</p>
-    <div class="calendly-inline-widget" data-url="https://calendly.com/javier-vs-312/demo-save-my-play?locale={calendly_locale}&hide_landing_page_details=1&hide_gdpr_banner=1"></div>
+    <div class="calendly-inline-widget" data-url="https://calendly.com/javier-vs-312/demo-save-my-play?locale={calendly_locale}&hide_landing_page_details=1&hide_gdpr_banner=1&hide_event_type_details=1"></div>
   </section>
 </main>'''
 
@@ -1008,7 +980,7 @@ def build_all():
   <div class="cta-box">
     <h2>{html.escape(next_step_title)}</h2>
     <p>{html.escape(next_step_p2)}</p>
-    <div class="calendly-inline-widget" data-url="https://calendly.com/javier-vs-312/demo-save-my-play?locale={calendly_locale}&hide_landing_page_details=1&hide_gdpr_banner=1"></div>
+    <div class="calendly-inline-widget" data-url="https://calendly.com/javier-vs-312/demo-save-my-play?locale={calendly_locale}&hide_landing_page_details=1&hide_gdpr_banner=1&hide_event_type_details=1"></div>
   </div>
 
   <div class="related-section">

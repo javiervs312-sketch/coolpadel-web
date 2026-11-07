@@ -154,9 +154,9 @@ body { margin: 0; font-family: var(--font-sans); color: #0f172a; background: #ff
 .related-card:hover { border-color: #f2920b; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
 .related-card img { width: 100%; aspect-ratio: 16/9; object-fit: cover; border-radius: 8px; margin-bottom: 10px; }
 .related-card-title { font-size: 14px; font-weight: 700; color: #0f172a; line-height: 1.35; margin: 0; }
-.cta-box { margin-top: 56px; padding: 32px; border-radius: 16px; background: #f8fafc; border: 2px solid #f2920b; text-align: center; }
-.cta-box h2, .cta-box h3 { font-family: var(--font-heading); font-size: 24px; font-weight: 800; color: #0f172a; margin: 0 0 12px; }
-.cta-box p { font-size: 16px; color: #475569; margin: 0 0 24px; }
+.cta-box { max-width: 680px; margin: 36px auto 0; padding: 20px 22px; border-radius: 14px; background: #ffffff; border: 2px solid #f2920b; box-shadow: 0 4px 16px rgba(15,23,42,.04); text-align: center; }
+.cta-box h2, .cta-box h3 { font-family: var(--font-heading); font-size: 20px; font-weight: 800; color: #0f172a; margin: 0 0 6px; }
+.cta-box p { font-size: 14.5px; color: #475569; margin: 0 0 12px; line-height: 1.5; }
 @media (max-width: 768px) {
   .related-grid { grid-template-columns: 1fr; }
   .article-block { margin: 0 0 40px; }
@@ -170,10 +170,10 @@ body { margin: 0; font-family: var(--font-sans); color: #0f172a; background: #ff
 .article-card { color: #0f172a; text-decoration: none; }
 .article-card img { display: block; }
 .card-action:active { background: #76d3f6; transform: scale(.98); }
-.next-step { max-width: 860px; margin: 40px auto 36px; padding: 26px 28px 28px; border: 2px solid #f2920b; border-radius: 18px; background: #ffffff; box-shadow: 0 8px 24px rgba(15,23,42,.04); text-align: center; }
-.next-step h2 { color: #0f172a; font-size: clamp(24px, 3.2vw, 30px); font-weight: 900; margin: 0 0 10px; letter-spacing: -0.02em; }
-.next-step p { margin: 4px 0 8px; font-size: 16px; line-height: 1.6; color: #334155; }
-.calendly-inline-widget { max-width: 760px; width: 100%; min-width: 320px; height: 560px; margin: 18px auto 0; border-radius: 14px; overflow: hidden; border: 1px solid #e2e8f0; }
+.next-step { max-width: 680px; margin: 32px auto 28px; padding: 20px 22px; border: 2px solid #f2920b; border-radius: 14px; background: #ffffff; box-shadow: 0 6px 20px rgba(15,23,42,.04); text-align: center; }
+.next-step h2 { color: #0f172a; font-size: clamp(21px, 2.6vw, 25px); font-weight: 900; margin: 0 0 6px; letter-spacing: -0.02em; }
+.next-step p { margin: 2px 0 6px; font-size: 14.5px; line-height: 1.5; color: #334155; }
+.calendly-inline-widget { max-width: 620px; width: 100%; min-width: 300px; height: 430px; margin: 12px auto 0; border-radius: 12px; overflow: hidden; border: 1px solid #e2e8f0; }
 @media (max-width: 1050px) { .article-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 760px) { .hub-hero { margin: 18px auto 38px; text-align: left; } .hub-title { white-space: normal; } .intro { margin: 0; } .article-grid { grid-template-columns: 1fr; } }
 
@@ -227,60 +227,6 @@ body { margin: 0; font-family: var(--font-sans); color: #0f172a; background: #ff
         if (arrow) arrow.classList.remove('rotate-180');
       }
     });
-  </script>
-  <!-- Google Analytics 4 -->
-  <script>
-    (function() {
-      try {
-        var p = new URLSearchParams(window.location.search);
-        if (p.get('yo') === '1' || p.get('admin') === '1' || p.get('no_track') === '1') {
-          localStorage.setItem('cp_ignore_owner', '1');
-        } else if (p.get('borrar_yo') === '1' || p.get('track_me') === '1') {
-          localStorage.removeItem('cp_ignore_owner');
-        }
-        if (localStorage.getItem('cp_ignore_owner') === '1') {
-          window['ga-disable-G-3FY3DTNN21'] = true;
-          window.__CP_IS_OWNER__ = true;
-        }
-      } catch(e) {}
-    })();
-  </script>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-3FY3DTNN21"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-3FY3DTNN21');
-    // Eventos clave (leads): WhatsApp, email, teléfono, demo, dossier
-    document.addEventListener('click', function (e) {
-      try {
-        if (window.__CP_IS_OWNER__) return;
-        var a = e.target.closest && e.target.closest('a, button');
-        if (!a) return;
-        var href = (a.getAttribute('href') || '').toLowerCase();
-        var txt = (a.innerText || '').replace(/\s+/g, ' ').trim().slice(0, 60);
-        var p = { link_text: txt, link_url: href, page_path: location.pathname };
-        if (href.indexOf('wa.me') > -1 || href.indexOf('whatsapp.com') > -1) gtag('event', 'click_whatsapp', p);
-        else if (href.indexOf('mailto:') === 0) gtag('event', 'click_email', p);
-        else if (href.indexOf('tel:') === 0) gtag('event', 'click_telefono', p);
-        else if (/\.pdf($|\?)/.test(href) || /dossier/i.test(href + ' ' + txt)) gtag('event', 'descarga_dossier', p);
-        else if (/demo|reuni[oó]n|meeting|calendly|agenda|r[eé]serv|prueba gratis|free trial/i.test(href + ' ' + txt)) gtag('event', 'solicitar_demo', p);
-      } catch (err) {}
-    }, { passive: true });
-    document.addEventListener('submit', function (e) {
-      try {
-        if (window.__CP_IS_OWNER__) return;
-        gtag('event', 'enviar_formulario', { form_id: (e.target && (e.target.id || e.target.name)) || '', page_path: location.pathname }); } catch (err) {}
-    }, true);
-  </script>
-  <!-- /GA4 -->
-  <!-- Microsoft Clarity -->
-  <script type="text/javascript">
-    (function(c,l,a,r,i,t,y){
-      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "q7p8g52y9e");
   </script>
 </head>
 <body>
@@ -359,7 +305,7 @@ body { margin: 0; font-family: var(--font-sans); color: #0f172a; background: #ff
   <div class="cta-box">
     <h2>Passo successivo</h2>
     <p>Se hai domande e vuoi vedere bene come funziona tutto in diretta, prenota il tuo spazio per la demo.</p>
-    <div class="calendly-inline-widget" data-url="https://calendly.com/javier-vs-312/demo-save-my-play?locale=it&hide_landing_page_details=1&hide_gdpr_banner=1"></div>
+    <div class="calendly-inline-widget" data-url="https://calendly.com/javier-vs-312/demo-save-my-play?locale=it&hide_landing_page_details=1&hide_gdpr_banner=1&hide_event_type_details=1"></div>
   </div>
 
   <div class="related-section">
@@ -485,6 +431,6 @@ body { margin: 0; font-family: var(--font-sans); color: #0f172a; background: #ff
 
   <script>if (window.lucide) lucide.createIcons();</script>
   <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
-  <script src="/assets/js/cp-analytics.js?v=20261028a" defer></script>
+  <script src="/assets/js/cp-analytics.js" defer></script>
 </body>
 </html>

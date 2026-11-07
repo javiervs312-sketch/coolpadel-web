@@ -265,9 +265,9 @@ body { margin: 0; font-family: var(--font-sans); color: #0f172a; background: #ff
 .related-card:hover { border-color: #f2920b; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
 .related-card img { width: 100%; aspect-ratio: 16/9; object-fit: cover; border-radius: 8px; margin-bottom: 10px; }
 .related-card-title { font-size: 14px; font-weight: 700; color: #0f172a; line-height: 1.35; margin: 0; }
-.cta-box { margin-top: 56px; padding: 32px; border-radius: 16px; background: #f8fafc; border: 2px solid #f2920b; text-align: center; }
-.cta-box h2, .cta-box h3 { font-family: var(--font-heading); font-size: 24px; font-weight: 800; color: #0f172a; margin: 0 0 12px; }
-.cta-box p { font-size: 16px; color: #475569; margin: 0 0 24px; }
+.cta-box { max-width: 680px; margin: 36px auto 0; padding: 20px 22px; border-radius: 14px; background: #ffffff; border: 2px solid #f2920b; box-shadow: 0 4px 16px rgba(15,23,42,.04); text-align: center; }
+.cta-box h2, .cta-box h3 { font-family: var(--font-heading); font-size: 20px; font-weight: 800; color: #0f172a; margin: 0 0 6px; }
+.cta-box p { font-size: 14.5px; color: #475569; margin: 0 0 12px; line-height: 1.5; }
 @media (max-width: 768px) {
   .related-grid { grid-template-columns: 1fr; }
   .article-block { margin: 0 0 40px; }
@@ -281,10 +281,10 @@ body { margin: 0; font-family: var(--font-sans); color: #0f172a; background: #ff
 .article-card { color: #0f172a; text-decoration: none; }
 .article-card img { display: block; }
 .card-action:active { background: #76d3f6; transform: scale(.98); }
-.next-step { max-width: 860px; margin: 40px auto 36px; padding: 26px 28px 28px; border: 2px solid #f2920b; border-radius: 18px; background: #ffffff; box-shadow: 0 8px 24px rgba(15,23,42,.04); text-align: center; }
-.next-step h2 { color: #0f172a; font-size: clamp(24px, 3.2vw, 30px); font-weight: 900; margin: 0 0 10px; letter-spacing: -0.02em; }
-.next-step p { margin: 4px 0 8px; font-size: 16px; line-height: 1.6; color: #334155; }
-.calendly-inline-widget { max-width: 760px; width: 100%; min-width: 320px; height: 560px; margin: 18px auto 0; border-radius: 14px; overflow: hidden; border: 1px solid #e2e8f0; }
+.next-step { max-width: 680px; margin: 32px auto 28px; padding: 20px 22px; border: 2px solid #f2920b; border-radius: 14px; background: #ffffff; box-shadow: 0 6px 20px rgba(15,23,42,.04); text-align: center; }
+.next-step h2 { color: #0f172a; font-size: clamp(21px, 2.6vw, 25px); font-weight: 900; margin: 0 0 6px; letter-spacing: -0.02em; }
+.next-step p { margin: 2px 0 6px; font-size: 14.5px; line-height: 1.5; color: #334155; }
+.calendly-inline-widget { max-width: 620px; width: 100%; min-width: 300px; height: 430px; margin: 12px auto 0; border-radius: 12px; overflow: hidden; border: 1px solid #e2e8f0; }
 @media (max-width: 1050px) { .article-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 760px) { .hub-hero { margin: 18px auto 38px; text-align: left; } .hub-title { white-space: normal; } .intro { margin: 0; } .article-grid { grid-template-columns: 1fr; } }
 
@@ -339,60 +339,6 @@ body { margin: 0; font-family: var(--font-sans); color: #0f172a; background: #ff
       }
     });
   </script>
-  <!-- Google Analytics 4 -->
-  <script>
-    (function() {
-      try {
-        var p = new URLSearchParams(window.location.search);
-        if (p.get('yo') === '1' || p.get('admin') === '1' || p.get('no_track') === '1') {
-          localStorage.setItem('cp_ignore_owner', '1');
-        } else if (p.get('borrar_yo') === '1' || p.get('track_me') === '1') {
-          localStorage.removeItem('cp_ignore_owner');
-        }
-        if (localStorage.getItem('cp_ignore_owner') === '1') {
-          window['ga-disable-G-3FY3DTNN21'] = true;
-          window.__CP_IS_OWNER__ = true;
-        }
-      } catch(e) {}
-    })();
-  </script>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-3FY3DTNN21"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-3FY3DTNN21');
-    // Eventos clave (leads): WhatsApp, email, teléfono, demo, dossier
-    document.addEventListener('click', function (e) {
-      try {
-        if (window.__CP_IS_OWNER__) return;
-        var a = e.target.closest && e.target.closest('a, button');
-        if (!a) return;
-        var href = (a.getAttribute('href') || '').toLowerCase();
-        var txt = (a.innerText || '').replace(/\s+/g, ' ').trim().slice(0, 60);
-        var p = { link_text: txt, link_url: href, page_path: location.pathname };
-        if (href.indexOf('wa.me') > -1 || href.indexOf('whatsapp.com') > -1) gtag('event', 'click_whatsapp', p);
-        else if (href.indexOf('mailto:') === 0) gtag('event', 'click_email', p);
-        else if (href.indexOf('tel:') === 0) gtag('event', 'click_telefono', p);
-        else if (/\.pdf($|\?)/.test(href) || /dossier/i.test(href + ' ' + txt)) gtag('event', 'descarga_dossier', p);
-        else if (/demo|reuni[oó]n|meeting|calendly|agenda|r[eé]serv|prueba gratis|free trial/i.test(href + ' ' + txt)) gtag('event', 'solicitar_demo', p);
-      } catch (err) {}
-    }, { passive: true });
-    document.addEventListener('submit', function (e) {
-      try {
-        if (window.__CP_IS_OWNER__) return;
-        gtag('event', 'enviar_formulario', { form_id: (e.target && (e.target.id || e.target.name)) || '', page_path: location.pathname }); } catch (err) {}
-    }, true);
-  </script>
-  <!-- /GA4 -->
-  <!-- Microsoft Clarity -->
-  <script type="text/javascript">
-    (function(c,l,a,r,i,t,y){
-      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "q7p8g52y9e");
-  </script>
 </head>
 <body>
   <header class="fixed top-0 left-0 w-full z-50 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-xs w-full">
@@ -434,17 +380,8 @@ body { margin: 0; font-family: var(--font-sans); color: #0f172a; background: #ff
   <main class="max-w-[1216px] mx-auto px-4 sm:px-6 lg:px-8 pt-2 sm:pt-3 pb-8 sm:pb-12">
   <section class="hub-hero">
     <h1 class="hub-title">Telecamere per club di padel</h1>
-    <p class="hub-eyebrow">Tutto quello che devi sapere prima di installare le telecamere</p>
+    <p class="hub-eyebrow">Quello que devi sapere</p>
   </section>
-
-  <div class="intro-full-band">
-    <div class="intro">
-      <p>Sappiamo che vuoi prendere la decisione migliore sulle telecamere<br>L'esperienza ci insegna che i circoli apprezzano avere informazioni chiare e utili a disposizione<br>E che se non hai interesse a informarti prima, non vale la pena fare la demo online</p>
-<p>Per questo abbiamo cercato di essere il più sinceri e trasparenti possibile</p>
-<p>Leggendo capirai se installare le telecamere nel tuo circolo è una buona idea oppure no<br>E se preferisci sceglierle con Save My Play o con un'altra azienda<br>Qualunque sia la tua scelta, sarà meglio sia per voi che per noi</p>
-<p>Così, se faremo la demo, avrai domande più mirate e sfrutteremo al meglio il nostro tempo</p>
-    </div>
-  </div>
 
   <section>
     <div class="article-grid">
@@ -466,7 +403,7 @@ body { margin: 0; font-family: var(--font-sans); color: #0f172a; background: #ff
     </div>
   </div>
 </a>
-<a href="articulos/errores-clubs-se-arrepienten-de-poner-camaras/" class="article-card bg-white border-2 border-slate-200/90 hover:border-[#f2920b] rounded-2xl p-4 sm:p-5 shadow-2xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between group hover:-translate-y-0.5 cursor-pointer block">
+      <a href="articulos/errores-clubs-se-arrepienten-de-poner-camaras/" class="article-card bg-white border-2 border-slate-200/90 hover:border-[#f2920b] rounded-2xl p-4 sm:p-5 shadow-2xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between group hover:-translate-y-0.5 cursor-pointer block">
   <div class="space-y-3">
     <div class="aspect-[16/9] rounded-xl overflow-hidden bg-slate-900 border border-slate-200/90 shadow-sm relative">
       <img src="/assets/images/camaras/retransmision-directo-marcador-youtube.png" alt="I 3 errori dei club che si pentono di aver installato le telecamere" width="800" height="450" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
@@ -484,7 +421,7 @@ body { margin: 0; font-family: var(--font-sans); color: #0f172a; background: #ff
     </div>
   </div>
 </a>
-<a href="articulos/camaras-de-padel-o-videovigilancia/" class="article-card bg-white border-2 border-slate-200/90 hover:border-[#f2920b] rounded-2xl p-4 sm:p-5 shadow-2xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between group hover:-translate-y-0.5 cursor-pointer block">
+      <a href="articulos/camaras-de-padel-o-videovigilancia/" class="article-card bg-white border-2 border-slate-200/90 hover:border-[#f2920b] rounded-2xl p-4 sm:p-5 shadow-2xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between group hover:-translate-y-0.5 cursor-pointer block">
   <div class="space-y-3">
     <div class="aspect-[16/9] rounded-xl overflow-hidden bg-slate-900 border border-slate-200/90 shadow-sm relative">
       <img src="/assets/images/camaras/camera-05.jpg" alt="Come capire se le telecamere sono da padel o di semplice videosorveglianza?" width="800" height="450" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
@@ -502,7 +439,18 @@ body { margin: 0; font-family: var(--font-sans); color: #0f172a; background: #ff
     </div>
   </div>
 </a>
-<a href="articulos/cuanto-cuesta-poner-camaras/" class="article-card bg-white border-2 border-slate-200/90 hover:border-[#f2920b] rounded-2xl p-4 sm:p-5 shadow-2xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between group hover:-translate-y-0.5 cursor-pointer block">
+    </div>
+  </section>
+
+  <div class="intro-full-band">
+    <div class="intro">
+      <p>Sappiamo che vuoi prendere la decisione migliore sulle telecamere<br>L'esperienza ci insegna che i circoli apprezzano avere informazioni chiare e utili a disposizione</p>
+    </div>
+  </div>
+
+  <section>
+    <div class="article-grid">
+      <a href="articulos/cuanto-cuesta-poner-camaras/" class="article-card bg-white border-2 border-slate-200/90 hover:border-[#f2920b] rounded-2xl p-4 sm:p-5 shadow-2xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between group hover:-translate-y-0.5 cursor-pointer block">
   <div class="space-y-3">
     <div class="aspect-[16/9] rounded-xl overflow-hidden bg-slate-900 border border-slate-200/90 shadow-sm relative">
       <img src="/assets/images/camaras/pista-moqueta-negra-indoor.png" alt="Quanto costa installare le telecamere nel mio circolo di padel?" width="800" height="450" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
@@ -520,7 +468,7 @@ body { margin: 0; font-family: var(--font-sans); color: #0f172a; background: #ff
     </div>
   </div>
 </a>
-<a href="articulos/inversion-inicial-camaras-180-euros/" class="article-card bg-white border-2 border-slate-200/90 hover:border-[#f2920b] rounded-2xl p-4 sm:p-5 shadow-2xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between group hover:-translate-y-0.5 cursor-pointer block">
+      <a href="articulos/inversion-inicial-camaras-180-euros/" class="article-card bg-white border-2 border-slate-200/90 hover:border-[#f2920b] rounded-2xl p-4 sm:p-5 shadow-2xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between group hover:-translate-y-0.5 cursor-pointer block">
   <div class="space-y-3">
     <div class="aspect-[16/9] rounded-xl overflow-hidden bg-slate-900 border border-slate-200/90 shadow-sm relative">
       <img src="/assets/images/camaras/camera-02.jpg" alt="Perché è previsto un investimento iniziale di 180 € per le telecamere?" width="800" height="450" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
@@ -538,7 +486,7 @@ body { margin: 0; font-family: var(--font-sans); color: #0f172a; background: #ff
     </div>
   </div>
 </a>
-<a href="articulos/es-caro-save-my-play/" class="article-card bg-white border-2 border-slate-200/90 hover:border-[#f2920b] rounded-2xl p-4 sm:p-5 shadow-2xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between group hover:-translate-y-0.5 cursor-pointer block">
+      <a href="articulos/es-caro-save-my-play/" class="article-card bg-white border-2 border-slate-200/90 hover:border-[#f2920b] rounded-2xl p-4 sm:p-5 shadow-2xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between group hover:-translate-y-0.5 cursor-pointer block">
   <div class="space-y-3">
     <div class="aspect-[16/9] rounded-xl overflow-hidden bg-slate-900 border border-slate-200/90 shadow-sm relative">
       <img src="/assets/images/camaras/camera-06.jpg" alt="Save My Play è costoso?" width="800" height="450" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
@@ -556,7 +504,18 @@ body { margin: 0; font-family: var(--font-sans); color: #0f172a; background: #ff
     </div>
   </div>
 </a>
-<a href="articulos/es-rentable-poner-camaras/" class="article-card bg-white border-2 border-slate-200/90 hover:border-[#f2920b] rounded-2xl p-4 sm:p-5 shadow-2xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between group hover:-translate-y-0.5 cursor-pointer block">
+    </div>
+  </section>
+
+  <div class="intro-full-band">
+    <div class="intro">
+      <p>E che se non hai interesse a informarti prima, non vale la pena fare la demo online</p>
+    </div>
+  </div>
+
+  <section>
+    <div class="article-grid">
+      <a href="articulos/es-rentable-poner-camaras/" class="article-card bg-white border-2 border-slate-200/90 hover:border-[#f2920b] rounded-2xl p-4 sm:p-5 shadow-2xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between group hover:-translate-y-0.5 cursor-pointer block">
   <div class="space-y-3">
     <div class="aspect-[16/9] rounded-xl overflow-hidden bg-slate-900 border border-slate-200/90 shadow-sm relative">
       <img src="/assets/images/camaras/partido-directo-patrocinador-harbor.png" alt="È redditizio installare telecamere sui miei campi da padel?" width="800" height="450" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
@@ -574,7 +533,7 @@ body { margin: 0; font-family: var(--font-sans); color: #0f172a; background: #ff
     </div>
   </div>
 </a>
-<a href="articulos/por-que-no-recomiendo-plan-analytics/" class="article-card bg-white border-2 border-slate-200/90 hover:border-[#f2920b] rounded-2xl p-4 sm:p-5 shadow-2xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between group hover:-translate-y-0.5 cursor-pointer block">
+      <a href="articulos/por-que-no-recomiendo-plan-analytics/" class="article-card bg-white border-2 border-slate-200/90 hover:border-[#f2920b] rounded-2xl p-4 sm:p-5 shadow-2xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between group hover:-translate-y-0.5 cursor-pointer block">
   <div class="space-y-3">
     <div class="aspect-[16/9] rounded-xl overflow-hidden bg-slate-900 border border-slate-200/90 shadow-sm relative">
       <img src="/assets/images/camaras/portada-mapa-calor-analytics.png" alt="Perché non consiglio il piano da 136 € al mese al 95% dei circoli?" width="800" height="450" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
@@ -592,7 +551,7 @@ body { margin: 0; font-family: var(--font-sans); color: #0f172a; background: #ff
     </div>
   </div>
 </a>
-<a href="articulos/que-pasa-si-cancelo/" class="article-card bg-white border-2 border-slate-200/90 hover:border-[#f2920b] rounded-2xl p-4 sm:p-5 shadow-2xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between group hover:-translate-y-0.5 cursor-pointer block">
+      <a href="articulos/que-pasa-si-cancelo/" class="article-card bg-white border-2 border-slate-200/90 hover:border-[#f2920b] rounded-2xl p-4 sm:p-5 shadow-2xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between group hover:-translate-y-0.5 cursor-pointer block">
   <div class="space-y-3">
     <div class="aspect-[16/9] rounded-xl overflow-hidden bg-slate-900 border border-slate-200/90 shadow-sm relative">
       <img src="/assets/images/camaras/portada-mascota-savemyplay.png" alt="Cosa succede se disdico l&#x27;abbonamento? Le telecamere restano a me?" width="800" height="450" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
@@ -610,7 +569,18 @@ body { margin: 0; font-family: var(--font-sans); color: #0f172a; background: #ff
     </div>
   </div>
 </a>
-<a href="articulos/como-montar-camara-save-my-play/" class="article-card bg-white border-2 border-slate-200/90 hover:border-[#f2920b] rounded-2xl p-4 sm:p-5 shadow-2xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between group hover:-translate-y-0.5 cursor-pointer block">
+    </div>
+  </section>
+
+  <div class="intro-full-band">
+    <div class="intro">
+      <p>Per questo abbiamo cercato di essere il più sinceri e trasparenti possibile</p>
+    </div>
+  </div>
+
+  <section>
+    <div class="article-grid">
+      <a href="articulos/como-montar-camara-save-my-play/" class="article-card bg-white border-2 border-slate-200/90 hover:border-[#f2920b] rounded-2xl p-4 sm:p-5 shadow-2xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between group hover:-translate-y-0.5 cursor-pointer block">
   <div class="space-y-3">
     <div class="aspect-[16/9] rounded-xl overflow-hidden bg-slate-900 border border-slate-200/90 shadow-sm relative">
       <img src="/assets/images/camaras/camara-instalada-reja-4m-crop.jpg" alt="Quanto tempo ci vuole per montare una telecamera Save My Play?" width="800" height="450" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
@@ -628,7 +598,7 @@ body { margin: 0; font-family: var(--font-sans); color: #0f172a; background: #ff
     </div>
   </div>
 </a>
-<a href="articulos/problemas-con-las-camaras/" class="article-card bg-white border-2 border-slate-200/90 hover:border-[#f2920b] rounded-2xl p-4 sm:p-5 shadow-2xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between group hover:-translate-y-0.5 cursor-pointer block">
+      <a href="articulos/problemas-con-las-camaras/" class="article-card bg-white border-2 border-slate-200/90 hover:border-[#f2920b] rounded-2xl p-4 sm:p-5 shadow-2xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between group hover:-translate-y-0.5 cursor-pointer block">
   <div class="space-y-3">
     <div class="aspect-[16/9] rounded-xl overflow-hidden bg-slate-900 border border-slate-200/90 shadow-sm relative">
       <img src="/assets/images/camaras/camera-04.jpg" alt="Cosa succede se ci sono problemi tecnici con le telecamere?" width="800" height="450" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
@@ -646,7 +616,7 @@ body { margin: 0; font-family: var(--font-sans); color: #0f172a; background: #ff
     </div>
   </div>
 </a>
-<a href="articulos/que-son-las-coaching-tools/" class="article-card bg-white border-2 border-slate-200/90 hover:border-[#f2920b] rounded-2xl p-4 sm:p-5 shadow-2xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between group hover:-translate-y-0.5 cursor-pointer block">
+      <a href="articulos/que-son-las-coaching-tools/" class="article-card bg-white border-2 border-slate-200/90 hover:border-[#f2920b] rounded-2xl p-4 sm:p-5 shadow-2xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between group hover:-translate-y-0.5 cursor-pointer block">
   <div class="space-y-3">
     <div class="aspect-[16/9] rounded-xl overflow-hidden bg-slate-900 border border-slate-200/90 shadow-sm relative">
       <img src="/assets/images/camaras/portada-coaching-tools-tablet.png" alt="Cosa sono le coaching tools?" width="800" height="450" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
@@ -664,7 +634,18 @@ body { margin: 0; font-family: var(--font-sans); color: #0f172a; background: #ff
     </div>
   </div>
 </a>
-<a href="articulos/camaras-en-exterior-lluvia-nieve-viento/" class="article-card bg-white border-2 border-slate-200/90 hover:border-[#f2920b] rounded-2xl p-4 sm:p-5 shadow-2xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between group hover:-translate-y-0.5 cursor-pointer block">
+    </div>
+  </section>
+
+  <div class="intro-full-band">
+    <div class="intro">
+      <p>Leggendo capirai se installare le telecamere nel tuo circolo è una buona idea oppure no<br>E se preferisci sceglierle con Save My Play o con un'altra azienda</p>
+    </div>
+  </div>
+
+  <section>
+    <div class="article-grid">
+      <a href="articulos/camaras-en-exterior-lluvia-nieve-viento/" class="article-card bg-white border-2 border-slate-200/90 hover:border-[#f2920b] rounded-2xl p-4 sm:p-5 shadow-2xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between group hover:-translate-y-0.5 cursor-pointer block">
   <div class="space-y-3">
     <div class="aspect-[16/9] rounded-xl overflow-hidden bg-slate-900 border border-slate-200/90 shadow-sm relative">
       <img src="/assets/images/camaras/pista-outdoor-world-sports.png" alt="Le telecamere resistono sui campi all&#x27;aperto (pioggia, neve, vento)?" width="800" height="450" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
@@ -682,7 +663,7 @@ body { margin: 0; font-family: var(--font-sans); color: #0f172a; background: #ff
     </div>
   </div>
 </a>
-<a href="articulos/como-ver-highlights-sin-app/" class="article-card bg-white border-2 border-slate-200/90 hover:border-[#f2920b] rounded-2xl p-4 sm:p-5 shadow-2xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between group hover:-translate-y-0.5 cursor-pointer block">
+      <a href="articulos/como-ver-highlights-sin-app/" class="article-card bg-white border-2 border-slate-200/90 hover:border-[#f2920b] rounded-2xl p-4 sm:p-5 shadow-2xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between group hover:-translate-y-0.5 cursor-pointer block">
   <div class="space-y-3">
     <div class="aspect-[16/9] rounded-xl overflow-hidden bg-slate-900 border border-slate-200/90 shadow-sm relative">
       <img src="/assets/images/camaras/portada-email-highlights.png" alt="Perché non c&#x27;è un&#x27;app Save My Play? Come vedo i miei highlights?" width="800" height="450" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
@@ -700,7 +681,7 @@ body { margin: 0; font-family: var(--font-sans); color: #0f172a; background: #ff
     </div>
   </div>
 </a>
-<a href="articulos/mejores-empresas-camaras-padel-espana/" class="article-card bg-white border-2 border-slate-200/90 hover:border-[#f2920b] rounded-2xl p-4 sm:p-5 shadow-2xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between group hover:-translate-y-0.5 cursor-pointer block">
+      <a href="articulos/mejores-empresas-camaras-padel-espana/" class="article-card bg-white border-2 border-slate-200/90 hover:border-[#f2920b] rounded-2xl p-4 sm:p-5 shadow-2xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between group hover:-translate-y-0.5 cursor-pointer block">
   <div class="space-y-3">
     <div class="aspect-[16/9] rounded-xl overflow-hidden bg-slate-900 border border-slate-200/90 shadow-sm relative">
       <img src="/assets/images/camaras/camera-03.jpg" alt="Quali sono le migliori aziende di telecamere da padel in Spagna e in Europa?" width="800" height="450" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
@@ -718,7 +699,18 @@ body { margin: 0; font-family: var(--font-sans); color: #0f172a; background: #ff
     </div>
   </div>
 </a>
-<a href="articulos/por-que-no-conocia-save-my-play/" class="article-card bg-white border-2 border-slate-200/90 hover:border-[#f2920b] rounded-2xl p-4 sm:p-5 shadow-2xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between group hover:-translate-y-0.5 cursor-pointer block">
+    </div>
+  </section>
+
+  <div class="intro-full-band">
+    <div class="intro">
+      <p>Qualunque sia la tua scelta, sarà meglio sia per voi che per noi</p>
+    </div>
+  </div>
+
+  <section>
+    <div class="article-grid">
+      <a href="articulos/por-que-no-conocia-save-my-play/" class="article-card bg-white border-2 border-slate-200/90 hover:border-[#f2920b] rounded-2xl p-4 sm:p-5 shadow-2xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between group hover:-translate-y-0.5 cursor-pointer block">
   <div class="space-y-3">
     <div class="aspect-[16/9] rounded-xl overflow-hidden bg-slate-900 border border-slate-200/90 shadow-sm relative">
       <img src="/assets/images/camaras/save-email-clip-sportime.png" alt="Perché non avevo mai sentito parlare di Save My Play?" width="800" height="450" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
@@ -736,7 +728,7 @@ body { margin: 0; font-family: var(--font-sans); color: #0f172a; background: #ff
     </div>
   </div>
 </a>
-<a href="articulos/save-my-play-en-pocas-palabras/" class="article-card bg-white border-2 border-slate-200/90 hover:border-[#f2920b] rounded-2xl p-4 sm:p-5 shadow-2xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between group hover:-translate-y-0.5 cursor-pointer block">
+      <a href="articulos/save-my-play-en-pocas-palabras/" class="article-card bg-white border-2 border-slate-200/90 hover:border-[#f2920b] rounded-2xl p-4 sm:p-5 shadow-2xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between group hover:-translate-y-0.5 cursor-pointer block">
   <div class="space-y-3">
     <div class="aspect-[16/9] rounded-xl overflow-hidden bg-slate-900 border border-slate-200/90 shadow-sm relative">
       <img src="/assets/images/camaras/retransmision-usta-national-campus.png" alt="Save My Play in poche parole: chi siamo e cosa facciamo" width="800" height="450" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
@@ -754,7 +746,7 @@ body { margin: 0; font-family: var(--font-sans); color: #0f172a; background: #ff
     </div>
   </div>
 </a>
-<a href="articulos/por-que-coolpadel-colabora-con-save-my-play/" class="article-card bg-white border-2 border-slate-200/90 hover:border-[#f2920b] rounded-2xl p-4 sm:p-5 shadow-2xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between group hover:-translate-y-0.5 cursor-pointer block">
+      <a href="articulos/por-que-coolpadel-colabora-con-save-my-play/" class="article-card bg-white border-2 border-slate-200/90 hover:border-[#f2920b] rounded-2xl p-4 sm:p-5 shadow-2xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between group hover:-translate-y-0.5 cursor-pointer block">
   <div class="space-y-3">
     <div class="aspect-[16/9] rounded-xl overflow-hidden bg-slate-900 border border-slate-200/90 shadow-sm relative">
       <img src="/assets/images/camaras/portada-coolpadel-savemyplay.jpg" alt="Perché CoolPadel collabora con Save My Play?" width="800" height="450" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
@@ -772,7 +764,18 @@ body { margin: 0; font-family: var(--font-sans); color: #0f172a; background: #ff
     </div>
   </div>
 </a>
-<a href="articulos/he-comprado-camaras-que-pasa-ahora/" class="article-card bg-white border-2 border-slate-200/90 hover:border-[#f2920b] rounded-2xl p-4 sm:p-5 shadow-2xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between group hover:-translate-y-0.5 cursor-pointer block">
+    </div>
+  </section>
+
+  <div class="intro-full-band">
+    <div class="intro">
+      <p>Così, se faremo la demo, avrai domande più mirate e sfrutteremo al meglio il nostro tempo</p>
+    </div>
+  </div>
+
+  <section>
+    <div class="article-grid">
+      <a href="articulos/he-comprado-camaras-que-pasa-ahora/" class="article-card bg-white border-2 border-slate-200/90 hover:border-[#f2920b] rounded-2xl p-4 sm:p-5 shadow-2xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between group hover:-translate-y-0.5 cursor-pointer block">
   <div class="space-y-3">
     <div class="aspect-[16/9] rounded-xl overflow-hidden bg-slate-900 border border-slate-200/90 shadow-sm relative">
       <img src="/assets/images/camaras/pista-indoor-blue-zone-clean.png" alt="Ho acquistato le telecamere Save My Play. Qual è il processo adesso?" width="800" height="450" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
@@ -790,7 +793,7 @@ body { margin: 0; font-family: var(--font-sans); color: #0f172a; background: #ff
     </div>
   </div>
 </a>
-<a href="articulos/por-que-no-me-interesa-venderte-una-camara/" class="article-card bg-white border-2 border-slate-200/90 hover:border-[#f2920b] rounded-2xl p-4 sm:p-5 shadow-2xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between group hover:-translate-y-0.5 cursor-pointer block">
+      <a href="articulos/por-que-no-me-interesa-venderte-una-camara/" class="article-card bg-white border-2 border-slate-200/90 hover:border-[#f2920b] rounded-2xl p-4 sm:p-5 shadow-2xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between group hover:-translate-y-0.5 cursor-pointer block">
   <div class="space-y-3">
     <div class="aspect-[16/9] rounded-xl overflow-hidden bg-slate-900 border border-slate-200/90 shadow-sm relative">
       <img src="/assets/images/camaras/portada-bandido-highlight.jpg" alt="Perché non mi interessa venderti una telecamera se non sei convinto?" width="800" height="450" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
@@ -815,7 +818,7 @@ body { margin: 0; font-family: var(--font-sans); color: #0f172a; background: #ff
     <h2>Passo successivo</h2>
     <p>Se hai ancora qualche dubbio, qui sopra trovi altri articoli sulle telecamere che ti aiuteranno a chiarirti le idee.</p>
     <p>Se hai domande e vuoi vedere bene come funziona tutto in diretta, prenota il tuo spazio per la demo.</p>
-    <div class="calendly-inline-widget" data-url="https://calendly.com/javier-vs-312/demo-save-my-play?locale=it&hide_landing_page_details=1&hide_gdpr_banner=1"></div>
+    <div class="calendly-inline-widget" data-url="https://calendly.com/javier-vs-312/demo-save-my-play?locale=it&hide_landing_page_details=1&hide_gdpr_banner=1&hide_event_type_details=1"></div>
   </section>
 </main>
   
@@ -923,6 +926,6 @@ body { margin: 0; font-family: var(--font-sans); color: #0f172a; background: #ff
 
   <script>if (window.lucide) lucide.createIcons();</script>
   <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
-  <script src="/assets/js/cp-analytics.js?v=20261028a" defer></script>
+  <script src="/assets/js/cp-analytics.js" defer></script>
 </body>
 </html>
