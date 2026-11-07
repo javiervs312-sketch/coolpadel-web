@@ -66,3 +66,7 @@ for lang_code, base_dict in ALL_LANGS_I18N.items():
         ALL_LANGS_MASTER[lang_code] = merged
 
 print(f"ALL_LANGS_MASTER compiled with {len(ALL_LANGS_MASTER)} fully unified languages.")
+
+NAV_FRANQUIZIAS_DICT = {'es': 'Cadenas de clubs', 'en': 'Padel Clubs & Chains', 'it': 'Catene di Club', 'fr': 'Chaînes de Clubs', 'de': 'Padel-Clubketten', 'sv': 'Klubbkedjor', 'nl': 'Clubketens', 'da': 'Klubkæder', 'pt': 'Cadeias de Clubes', 'no': 'Klubbkjeder', 'pl': 'Sieci Klubów', 'fi': 'Klubiketjut', 'ca': 'Cadenes de clubs', 'el': 'Αλυσίδες Club', 'hr': 'Lanci Klubova', 'id': 'Jaringan Klub', 'tr': 'Kulüp Zincirleri', 'ja': 'クラブ・チェーン', 'ar': 'سلاسل الأندية', 'cs': 'Řetězce Klubů', 'ro': 'Lanțuri de Cluburi'}
+for l_code, m_dict in ALL_LANGS_MASTER.items():
+    m_dict['nav_franquicias'] = NAV_FRANQUIZIAS_DICT.get(l_code, 'Padel Clubs & Chains')

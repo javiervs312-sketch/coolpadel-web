@@ -140,12 +140,18 @@ def generate_country_page(item, slug_to_use):
       
       <div class="flex items-center gap-2 sm:gap-4 lg:gap-6">
         <a href="{nav_prefix}llaveros-padel-personalizados/" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition">{t["nav_llaveros"]}</a>
-        <a href="{nav_prefix}herramientas/" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition">{t["nav_calc"]}</a>
+        <a href="{nav_prefix}camaras/" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition whitespace-nowrap">{t["nav_camaras"]}</a>
         <a href="{nav_prefix}blog/" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition">{t["nav_blog"]}</a>
+        <a href="{nav_prefix}franquicias-padel/" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition">{t.get("nav_franquicias", "Cadenas de clubs")}</a>
 
         <a href="{wa_url}" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-4 py-2 sm:px-5 sm:py-2.5 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] text-slate-950 font-heading font-black text-xs sm:text-sm uppercase tracking-wider transition shadow-sm hover:scale-105 active:scale-95">
           <i data-lucide="message-circle" class="w-4 h-4 text-slate-950"></i>
           <span>WhatsApp Demo</span>
+        </a>
+
+        <!-- OJOS DEL LOGO A LA DERECHA DEL TODO -->
+        <a href="{nav_prefix}" class="group py-1 inline-flex items-center shrink-0 pl-1" aria-label="CoolPadel Eyes">
+          <img src="../../assets/images/eyes-thumb.png?v=fixed_eyes" alt="CoolPadel Eyes" width="28" height="28" style="height: 26px; max-height: 26px; width: auto;" class="object-contain group-hover:scale-110 transition duration-300">
         </a>
       </div>
     </div>
