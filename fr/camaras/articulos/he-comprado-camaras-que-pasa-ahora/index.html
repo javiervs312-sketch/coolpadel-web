@@ -154,9 +154,12 @@ body { margin: 0; font-family: var(--font-sans); color: #0f172a; background: #ff
 .related-card:hover { border-color: #f2920b; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
 .related-card img { width: 100%; aspect-ratio: 16/9; object-fit: cover; border-radius: 8px; margin-bottom: 10px; }
 .related-card-title { font-size: 14px; font-weight: 700; color: #0f172a; line-height: 1.35; margin: 0; }
-.cta-box { max-width: 680px; margin: 36px auto 0; padding: 20px 22px; border-radius: 14px; background: #ffffff; border: 2px solid #f2920b; box-shadow: 0 4px 16px rgba(15,23,42,.04); text-align: center; }
-.cta-box h2, .cta-box h3 { font-family: var(--font-heading); font-size: 20px; font-weight: 800; color: #0f172a; margin: 0 0 6px; }
-.cta-box p { font-size: 14.5px; color: #475569; margin: 0 0 12px; line-height: 1.5; }
+.cta-box { max-width: 620px; margin: 32px auto 0; padding: 18px 20px; border-radius: 14px; background: #ffffff; border: 2px solid #f2920b; box-shadow: 0 4px 16px rgba(15,23,42,.04); text-align: center; }
+.cta-box h2, .cta-box h3 { font-family: var(--font-heading); font-size: 20px; font-weight: 800; color: #0f172a; margin: 0 0 4px; }
+.cta-box p { font-size: 14px; color: #475569; margin: 0 0 8px; line-height: 1.45; }
+
+.calendly-wrapper { max-width: 540px; margin: 8px auto 0; height: 500px; overflow: hidden; border-radius: 12px; border: 1px solid #e2e8f0; }
+.calendly-inline-widget { width: 120% !important; height: 595px !important; min-width: 300px; margin: 0 !important; border: 0 !important; transform: scale(0.833); transform-origin: top left; }
 @media (max-width: 768px) {
   .related-grid { grid-template-columns: 1fr; }
   .article-block { margin: 0 0 40px; }
@@ -170,10 +173,11 @@ body { margin: 0; font-family: var(--font-sans); color: #0f172a; background: #ff
 .article-card { color: #0f172a; text-decoration: none; }
 .article-card img { display: block; }
 .card-action:active { background: #76d3f6; transform: scale(.98); }
-.next-step { max-width: 680px; margin: 32px auto 28px; padding: 20px 22px; border: 2px solid #f2920b; border-radius: 14px; background: #ffffff; box-shadow: 0 6px 20px rgba(15,23,42,.04); text-align: center; }
-.next-step h2 { color: #0f172a; font-size: clamp(21px, 2.6vw, 25px); font-weight: 900; margin: 0 0 6px; letter-spacing: -0.02em; }
-.next-step p { margin: 2px 0 6px; font-size: 14.5px; line-height: 1.5; color: #334155; }
-.calendly-inline-widget { max-width: 620px; width: 100%; min-width: 300px; height: 430px; margin: 12px auto 0; border-radius: 12px; overflow: hidden; border: 1px solid #e2e8f0; }
+.next-step { max-width: 620px; margin: 28px auto 24px; padding: 18px 20px; border: 2px solid #f2920b; border-radius: 14px; background: #ffffff; box-shadow: 0 6px 20px rgba(15,23,42,.04); text-align: center; }
+.next-step h2 { color: #0f172a; font-size: 21px; font-weight: 900; margin: 0 0 4px; letter-spacing: -0.02em; }
+.next-step p { margin: 2px 0 4px; font-size: 14px; line-height: 1.45; color: #334155; }
+.calendly-wrapper { max-width: 540px; margin: 8px auto 0; height: 500px; overflow: hidden; border-radius: 12px; border: 1px solid #e2e8f0; }
+.calendly-inline-widget { width: 120% !important; height: 595px !important; min-width: 300px; margin: 0 !important; border: 0 !important; transform: scale(0.833); transform-origin: top left; }
 @media (max-width: 1050px) { .article-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 760px) { .hub-hero { margin: 18px auto 38px; text-align: left; } .hub-title { white-space: normal; } .intro { margin: 0; } .article-grid { grid-template-columns: 1fr; } }
 
@@ -299,7 +303,7 @@ body { margin: 0; font-family: var(--font-sans); color: #0f172a; background: #ff
   <div class="cta-box">
     <h2>Étape suivante</h2>
     <p>Si vous avez des questions précises et souhaitez voir concrètement le système en direct, réservez votre créneau pour la démo.</p>
-    <div class="calendly-inline-widget" data-url="https://calendly.com/javier-vs-312/demo-save-my-play?locale=fr&hide_landing_page_details=1&hide_gdpr_banner=1&hide_event_type_details=1"></div>
+    <div class="calendly-wrapper"><div class="calendly-inline-widget" data-url="https://calendly.com/javier-vs-312/demo-save-my-play?locale=fr&hide_landing_page_details=1&hide_gdpr_banner=1&hide_event_type_details=1"></div></div>
   </div>
 
   <div class="related-section">
