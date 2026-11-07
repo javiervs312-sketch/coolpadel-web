@@ -158,7 +158,7 @@ body { margin: 0; font-family: var(--font-sans); color: #0f172a; background: #ff
 """
 
 HUB_BASE_CSS = """
-.hub-hero { max-width: 1200px; margin: 20px auto 26px; text-align: center; }
+.hub-hero { max-width: 1200px; margin: 10px auto 22px; text-align: center; }
 .hub-eyebrow { margin: 0 0 12px; color: #f2920b; font-size: 13px; font-weight: 900; letter-spacing: .04em; text-transform: uppercase; }
 .hub-title { font-family: 'Outfit', Arial, sans-serif !important; max-width: none !important; margin: 0 0 16px !important; font-size: clamp(38px, 4vw, 56px) !important; font-weight: 900 !important; line-height: 1.08 !important; color: #0f172a !important; text-transform: uppercase; letter-spacing: -.04em; }
 .article-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; margin: 22px 0 0; }
@@ -759,7 +759,7 @@ def build_all():
   </section>''')
 
             body_sections_html = "\n\n".join(sections_parts)
-            hub_content = f'''<main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+            hub_content = f'''<main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-2 sm:pt-3 pb-8 sm:pb-12">
   <section class="hub-hero">
     <p class="hub-eyebrow">{html.escape(hub_eyebrow)}</p>
     <h1 class="hub-title">{html.escape(hub_title)}</h1>
@@ -776,7 +776,7 @@ def build_all():
 </main>'''
         else:
             intro_p_html = "\n".join([f"<p>{p}</p>" for p in hub_intro_paras if p.strip()])
-            hub_content = f'''<main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+            hub_content = f'''<main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-2 sm:pt-3 pb-8 sm:pb-12">
   <section class="hub-hero">
     <p class="hub-eyebrow">{html.escape(hub_eyebrow)}</p>
     <h1 class="hub-title">{html.escape(hub_title)}</h1>
