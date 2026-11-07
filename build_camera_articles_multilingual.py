@@ -77,14 +77,14 @@ TEXTURE_CSS = """
   right: 50%;
   margin-left: -50vw;
   margin-right: -50vw;
-  margin-top: 36px;
-  margin-bottom: 6px;
+  margin-top: 24px;
+  margin-bottom: 2px;
   background-color: #3478a6;
   background-image: linear-gradient(rgba(52, 120, 166, 0.40), rgba(52, 120, 166, 0.40)), url('/assets/images/branding/textura_editorial_coolpadel.webp');
   background-blend-mode: normal, soft-light;
   background-size: cover;
   background-position: center;
-  padding: 40px 20px;
+  padding: 24px 20px;
   border-top: 1px solid rgba(255, 255, 255, 0.15);
   border-bottom: 1px solid rgba(255, 255, 255, 0.15);
   box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.08);
@@ -96,8 +96,8 @@ TEXTURE_CSS = """
   background-size: cover;
   background-position: center;
 }
-.intro { max-width: 880px; margin: 0 auto; color: #ffffff; font-size: 19px; line-height: 1.6; text-align: center; }
-.intro p { margin: 0 0 28px; color: #ffffff !important; font-size: 19px !important; font-weight: 500; }
+.intro { max-width: 760px; margin: 0 auto; color: #ffffff; font-size: 18px; line-height: 1.55; text-align: center; }
+.intro p { margin: 0 0 16px; color: #ffffff !important; font-size: 18px !important; font-weight: 500; }
 .intro p:last-child { margin-bottom: 0; }
 """
 
@@ -158,10 +158,10 @@ body { margin: 0; font-family: var(--font-sans); color: #0f172a; background: #ff
 """
 
 HUB_BASE_CSS = """
-.hub-hero { max-width: 1200px; margin: 30px auto 36px; text-align: center; }
-.hub-eyebrow { margin: 0 0 14px; color: #f2920b; font-size: 13px; font-weight: 900; letter-spacing: .04em; text-transform: uppercase; }
-.hub-title { max-width: none !important; margin: 0 0 16px !important; font-size: clamp(42px, 3.5vw, 58px) !important; font-weight: 900 !important; line-height: 1.05 !important; color: #0f172a !important; white-space: nowrap; text-transform: uppercase; letter-spacing: -.04em; }
-.article-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; margin: 34px 0 0; }
+.hub-hero { max-width: 1200px; margin: 20px auto 26px; text-align: center; }
+.hub-eyebrow { margin: 0 0 12px; color: #f2920b; font-size: 13px; font-weight: 900; letter-spacing: .04em; text-transform: uppercase; }
+.hub-title { font-family: 'Outfit', Arial, sans-serif !important; max-width: none !important; margin: 0 0 16px !important; font-size: clamp(38px, 4vw, 56px) !important; font-weight: 900 !important; line-height: 1.08 !important; color: #0f172a !important; text-transform: uppercase; letter-spacing: -.04em; }
+.article-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; margin: 22px 0 0; }
 .article-card { color: #0f172a; text-decoration: none; }
 .article-card img { display: block; }
 .card-action:active { background: #76d3f6; transform: scale(.98); }
@@ -622,9 +622,11 @@ def build_all():
             hub_title = "Cámaras para clubs de pádel"
             hub_eyebrow = "Todo lo que necesitas saber antes de poner cámaras"
             hub_intro_paras = [
-                "Sabemos que queréis tomar la mejor decisión sobre las cámaras<br>La experiencia nos dice que los clubs agradecen tener información útil a su disposición<br>Y que si no tenéis interés en informaros, no merece la pena hacer la demo online",
+                "Sabemos que queréis tomar la mejor decisión sobre las cámaras<br>La experiencia nos dice que los clubs agradecen tener información útil a su disposición",
+                "Y que si no tenéis interés en informaros, no merece la pena hacer la demo online",
                 "Por eso, hemos tratado de ser lo más sinceros y transparentes posible",
-                "Por el camino os iréis dando cuenta de si es buena idea poner cámaras o no<br>Y si queréis ponerlas de Save My Play o de otra empresa<br>Sea cual sea la decisión, será mejor para vosotros y para nosotros",
+                "Por el camino os iréis dando cuenta de si es buena idea poner cámaras o no<br>Y si queréis ponerlas de Save My Play o de otra empresa",
+                "Sea cual sea la decisión, será mejor para vosotros y para nosotros",
                 "Así si hacemos la demo, tenéis mejores preguntas y aprovechamos mejor el tiempo"
             ]
             next_step_title = "Siguiente paso"
@@ -728,8 +730,9 @@ def build_all():
     </div>
   </section>''')
             
-            # 2. Intercalar 4 parrafos con los siguientes grupos de articulos
+            # 2. Intercalar 6 parrafos con grupos de 3 articulos
             art_idx = 3
+            num_paras = len(hub_intro_paras)
             for p_idx, p_text in enumerate(hub_intro_paras):
                 if not p_text.strip():
                     continue
@@ -740,10 +743,11 @@ def build_all():
   </div>'''
                 sections_parts.append(band_html)
 
-                if p_idx < 3:
+                if p_idx < num_paras - 1:
                     art_group = cards_html[art_idx:art_idx+3]
                     art_idx += 3
                 else:
+                    # Ultimo bloque con todos los articulos restantes
                     art_group = cards_html[art_idx:]
 
                 if art_group:
