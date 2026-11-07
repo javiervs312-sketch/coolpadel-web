@@ -1794,7 +1794,7 @@ def render_landing(landing, lang="es"):
             </div>
             <div class="w-full pt-3 border-t border-slate-100 mt-3">
               <div class="w-full inline-flex items-center justify-center px-4 py-2 sm:py-2.5 rounded-full bg-[#25D366] group-hover:bg-[#20ba59] text-white font-sans font-black text-xs uppercase tracking-wider shadow-sm transition">
-                <span>{"Chatear por WhatsApp" if lang=="es" else "Chat on WhatsApp"}</span>
+                <span>{"Enviar WhatsApp" if lang=="es" else "Chat on WhatsApp"}</span>
               </div>
             </div>
           </a>
@@ -1816,7 +1816,7 @@ def render_landing(landing, lang="es"):
             </div>
             <div class="w-full pt-3 border-t border-slate-100 mt-3">
               <div class="w-full inline-flex items-center justify-center px-4 py-2 sm:py-2.5 rounded-full bg-[#3478a6] group-hover:bg-[#2c668d] text-white font-sans font-black text-xs uppercase tracking-wider shadow-sm transition">
-                <span>{"Enviar Email" if lang=="es" else "Send Email"}</span>
+                <span>{"Enviar Correo" if lang=="es" else "Send Email"}</span>
               </div>
             </div>
           </a>
