@@ -152,8 +152,8 @@ body { margin: 0; font-family: var(--font-sans); color: #0f172a; background: #ff
 .cta-box h2, .cta-box h3 { font-family: var(--font-heading); font-size: 20px; font-weight: 800; color: #0f172a; margin: 0 0 4px; }
 .cta-box p { font-size: 14px; color: #475569; margin: 0 0 8px; line-height: 1.45; }
 
-.calendly-wrapper { max-width: 540px; margin: 8px auto 0; height: 500px; overflow: hidden; border-radius: 12px; border: 1px solid #e2e8f0; }
-.calendly-inline-widget { width: 120% !important; height: 595px !important; min-width: 300px; margin: 0 !important; border: 0 !important; transform: scale(0.833); transform-origin: top left; }
+.calendly-wrapper { max-width: 440px; margin: 8px auto 0; height: 385px; overflow: hidden; border-radius: 12px; border: 1px solid #e2e8f0; position: relative; }
+.calendly-inline-widget { width: 133% !important; height: 620px !important; min-width: 300px; margin-top: -46px !important; margin-left: 0 !important; border: 0 !important; transform: scale(0.75); transform-origin: top left; }
 @media (max-width: 768px) {
   .related-grid { grid-template-columns: 1fr; }
   .article-block { margin: 0 0 40px; }
@@ -171,8 +171,8 @@ HUB_BASE_CSS = """
 .next-step { max-width: 620px; margin: 28px auto 24px; padding: 18px 20px; border: 2px solid #f2920b; border-radius: 14px; background: #ffffff; box-shadow: 0 6px 20px rgba(15,23,42,.04); text-align: center; }
 .next-step h2 { color: #0f172a; font-size: 21px; font-weight: 900; margin: 0 0 4px; letter-spacing: -0.02em; }
 .next-step p { margin: 2px 0 4px; font-size: 14px; line-height: 1.45; color: #334155; }
-.calendly-wrapper { max-width: 540px; margin: 8px auto 0; height: 500px; overflow: hidden; border-radius: 12px; border: 1px solid #e2e8f0; }
-.calendly-inline-widget { width: 120% !important; height: 595px !important; min-width: 300px; margin: 0 !important; border: 0 !important; transform: scale(0.833); transform-origin: top left; }
+.calendly-wrapper { max-width: 440px; margin: 8px auto 0; height: 385px; overflow: hidden; border-radius: 12px; border: 1px solid #e2e8f0; position: relative; }
+.calendly-inline-widget { width: 133% !important; height: 620px !important; min-width: 300px; margin-top: -46px !important; margin-left: 0 !important; border: 0 !important; transform: scale(0.75); transform-origin: top left; }
 @media (max-width: 1050px) { .article-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 760px) { .hub-hero { margin: 18px auto 38px; text-align: left; } .hub-title { white-space: normal; } .intro { margin: 0; } .article-grid { grid-template-columns: 1fr; } }
 """ + TEXTURE_CSS
