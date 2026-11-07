@@ -322,12 +322,18 @@ def render_page(title: str, content: str, lang: str, prefix: str = "/", slug: st
         aeo_entry = AEO_FAQS_AND_DESCS.get(lang, {}).get(slug, {}) or AEO_FAQS_AND_DESCS.get("es", {}).get(slug, {})
         if not meta_desc and aeo_entry.get("desc"):
             meta_desc = aeo_entry["desc"]
-        seo_title = aeo_entry.get("seo_title") or (f"{title} | CoolPadel" if len(title) <= 55 else title)
+        raw_seo_title = aeo_entry.get("seo_title") or (f"{title} | CoolPadel" if len(title) <= 55 else title)
+        if len(raw_seo_title) > 65 and " | CoolPadel" in raw_seo_title:
+            raw_seo_title = raw_seo_title.replace(" | CoolPadel", "").strip()
+        seo_title = raw_seo_title
     else:
         hub_meta = HUB_SEO_META.get(lang, {}) or HUB_SEO_META.get("es", {})
         if hub_meta.get("desc"):
             meta_desc = hub_meta["desc"]
-        seo_title = hub_meta.get("seo_title") or f"{title} | Save my Play & CoolPadel"
+        raw_hub_title = hub_meta.get("seo_title") or f"{title} | Save my Play & CoolPadel"
+        if len(raw_hub_title) > 65 and " | CoolPadel" in raw_hub_title:
+            raw_hub_title = raw_hub_title.replace(" | CoolPadel", "").strip()
+        seo_title = raw_hub_title
 
     if not meta_desc:
         meta_desc = f"{title} - CoolPadel Studios y Save my Play. Descubre costes, rentabilidad y grabación inteligente en pista."
@@ -842,6 +848,49 @@ def build_all():
   </div>
 </div>''')
 
+            # Ejemplo en vivo de analíticas IA Save My Play para el artículo correspondiente
+            if slug == "por-que-no-recomiendo-plan-analytics":
+                analytics_card_title = {
+                    "es": "Ejemplo en directo de analíticas y estadísticas con IA",
+                    "en": "Live Demo: AI Court Analytics & Heatmaps in Action",
+                    "fr": "Exemple en direct d'analyses et statistiques IA sur piste",
+                    "it": "Esempio live di statistiche e analisi IA sul campo",
+                    "de": "Live-Demo: KI-Statistiken & Heatmaps auf dem Platz",
+                }.get(lang, "Live Demo: AI Court Analytics & Heatmaps")
+                analytics_card_desc = {
+                    "es": "Puedes ver un informe interactivo real con mapa de calor y análisis de golpeo generado automáticamente por la IA en este enlace:",
+                    "en": "Explore a real interactive match report with AI-generated heatmaps, stroke analysis, and tracking stats directly on Save My Play:",
+                    "fr": "Découvrez un rapport interactif réel avec cartes de chaleur et analyse des frappes généré par l'IA sur Save My Play :",
+                    "it": "Esplora un report interattivo reale con mappe di calore e analisi dei colpi generato dall'IA direttamente su Save My Play:",
+                    "de": "Erkunden Sie einen echten interaktiven Spielbericht mit KI-Heatmaps und Schlaganalysen direkt auf Save My Play:",
+                }.get(lang, "Explore a real interactive match report with AI stats.")
+                analytics_btn_label = {
+                    "es": "Ver ejemplo en directo en Save My Play",
+                    "en": "View Live Example on Save My Play",
+                    "fr": "Voir l'exemple en direct sur Save My Play",
+                    "it": "Vedi esempio live su Save My Play",
+                    "de": "Live-Beispiel auf Save My Play ansehen",
+                }.get(lang, "View Live Example on Save My Play")
+                body_html_parts.append(f'''<div class="article-block">
+  <div class="bg-gradient-to-br from-cyan-500/10 via-slate-100 to-slate-50 border-2 border-cyan-500/40 rounded-2xl p-6 sm:p-7 shadow-xs">
+    <div class="flex items-start gap-3 sm:gap-4">
+      <div class="w-10 h-10 rounded-xl bg-cyan-500 text-slate-950 flex items-center justify-center shrink-0 shadow-sm mt-0.5">
+        <i data-lucide="bar-chart-3" class="w-5 h-5 stroke-[2.5]"></i>
+      </div>
+      <div class="space-y-2 flex-grow">
+        <h3 class="font-heading font-black text-base sm:text-lg text-slate-950 m-0">{analytics_card_title}</h3>
+        <p class="text-sm text-slate-600 m-0 leading-relaxed">{analytics_card_desc}</p>
+        <div class="pt-2">
+          <a href="https://savemyplay.com/replays/634779-ni9DexZC-the-club-at-monroe/analytics" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-[#f2920b] hover:bg-[#d98006] text-slate-950 font-heading font-black text-xs uppercase tracking-wider transition shadow-sm hover:scale-105 active:scale-95">
+            <span>{analytics_btn_label}</span>
+            <i data-lucide="external-link" class="w-3.5 h-3.5 stroke-[3]"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>''')
+
             # Video embed si corresponde
             if slug in videos_data:
                 v_title, v_desc, v_url = videos_data[slug]
@@ -853,11 +902,13 @@ def build_all():
 </div>'''
                 body_html_parts.append(vid_html)
 
-            # Recomendaciones rotativas (el siguiente en la lista en primer lugar + 2 variados)
-            next_idx = (i + 1) % len(ARTICLE_ORDER)
-            var_idx1 = (i + 5) % len(ARTICLE_ORDER)
-            var_idx2 = (i + 11) % len(ARTICLE_ORDER)
-            related_slugs = [ARTICLE_ORDER[next_idx], ARTICLE_ORDER[var_idx1], ARTICLE_ORDER[var_idx2]]
+            # Recomendaciones semánticas uniformes (grafo 3-regular balanceado)
+            related_slugs = RELATED_MAP.get(slug)
+            if not related_slugs or len(related_slugs) != 3:
+                next_idx = (i + 1) % len(ARTICLE_ORDER)
+                var_idx1 = (i + 5) % len(ARTICLE_ORDER)
+                var_idx2 = (i + 11) % len(ARTICLE_ORDER)
+                related_slugs = [ARTICLE_ORDER[next_idx], ARTICLE_ORDER[var_idx1], ARTICLE_ORDER[var_idx2]]
 
             related_cards_html = []
             for r_slug in related_slugs:

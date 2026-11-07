@@ -7,23 +7,23 @@ para el Hub y los 20 artículos de cámaras en los 5 idiomas (ES, FR, EN, IT, DE
 
 HUB_SEO_META = {
     "es": {
-        "seo_title": "Cámaras para Clubs de Pádel: Precios, Empresas y Opiniones | CoolPadel",
+        "seo_title": "Cámaras para Clubs de Pádel: Precios, Empresas y ROI",
         "desc": "Guía sincera antes de poner cámaras en tu club de pádel: precios reales (180 € hardware, desde 27-45 €/mes), comparativa de empresas, rentabilidad y 0 permanencia."
     },
     "fr": {
-        "seo_title": "Caméras pour Clubs de Padel : Prix, Comparatif et Avis | CoolPadel",
+        "seo_title": "Caméras pour Clubs de Padel : Prix, Comparatif et Avis",
         "desc": "Tout savoir avant d'installer des caméras dans votre club de padel : tarifs réels (180 € matériel, dès 27-45 €/mois), comparatif, rentabilité et 0 engagement."
     },
     "en": {
-        "seo_title": "Padel Court Cameras for Clubs: Pricing, Reviews & ROI Guide | CoolPadel",
+        "seo_title": "Padel Court Cameras for Clubs: Pricing, Reviews & ROI Guide",
         "desc": "Honest guide before installing padel court cameras: real costs (€180 hardware, €27-45/mo software), company comparison, club ROI and zero lock-in contracts."
     },
     "it": {
-        "seo_title": "Telecamere per Campi da Padel e Circoli: Prezzi e Guida | CoolPadel",
+        "seo_title": "Telecamere per Campi da Padel e Circoli: Prezzi e Guida",
         "desc": "Tutto quello che devi sapere prima di installare telecamere nel tuo club di padel: prezzi (180 € hardware, da 27-45 €/mese), confronto aziende e zero vincoli."
     },
     "de": {
-        "seo_title": "Padel-Kameras für Clubs: Preise, Vergleich & Erfahrungen | CoolPadel",
+        "seo_title": "Padel-Kameras für Clubs: Preise, Vergleich & Erfahrungen",
         "desc": "Alles, was Sie vor der Installation von Padel-Platz-Kameras wissen müssen: faire Preise (180 € Hardware, ab 27-45 €/Monat), Anbietervergleich und 0 Monate Bindung."
     }
 }
@@ -143,7 +143,7 @@ AEO_FAQS_AND_DESCS = {
             "answer": "Les trois erreurs courantes sont : 1) Payer des options IA chères que les joueurs amateurs délaissent ; 2) Signer des contrats bloquants de 3 à 5 ans ; et 3) Acheter du matériel de vidéosurveillance déformant l'image en œil-de-bœuf."
         },
         "camaras-de-padel-o-videovigilancia": {
-            "seo_title": "Caméras de Padel ou Vidéosurveillance CCTV : Comment les Distinguer | CoolPadel",
+            "seo_title": "Caméras de Padel ou Vidéosurveillance CCTV : Le Guide",
             "desc": "Apprenez à différencier une vraie caméra sportive de padel d'une caméra de surveillance CCTV en observant les lignes du terrain.",
             "answer": "Observez les lignes du court sur la vidéo : si elles sont courbées avec un effet fisheye, il s'agit d'une caméra de vidéosurveillance bas de gamme. Une vraie caméra de padel affiche des lignes parfaitement droites d'une vitre à l'autre."
         },
@@ -168,12 +168,12 @@ AEO_FAQS_AND_DESCS = {
             "answer": "Oui, grâce à 4 leviers : attirer des joueurs en heures creuses, afficher le logo de sponsors locaux sur les vidéos partagées sur Instagram, filmer les tournois/cours et ajouter 0,50 € par réservation."
         },
         "por-que-no-recomiendo-plan-analytics": {
-            "seo_title": "Statistiques IA au Padel : Pourquoi Éviter le Forfait à 136 €/mois | CoolPadel",
+            "seo_title": "Statistiques IA Padel : Pourquoi Éviter le Plan à 136 €",
             "desc": "Pourquoi nous déconseillons l'abonnement statistiques IA à 136 €/mois à 95 % des clubs de padel : des données complexes peu consultées.",
             "answer": "95 % des joueurs de padel loisir veulent uniquement partager leurs beaux points sur WhatsApp et Instagram. Payer 136 €/mois pour des cartes de chaleur que les joueurs délaissent après 3 parties n'est pas rentable pour un club."
         },
         "que-pasa-si-cancelo": {
-            "seo_title": "Résiliation sans Engagement Save My Play : Garde-t-on les Caméras ? | CoolPadel",
+            "seo_title": "Résiliation Save My Play : Que Deviennent les Caméras ?",
             "desc": "Résiliation d'abonnement Save My Play : vous conservez vos caméras de padel en propriété et arrêtez les mensualités Stripe sans pénalité.",
             "answer": "Vous pouvez résilier votre abonnement mensuel Stripe à tout moment en un clic sans frais ni préavis. Les caméras achetées à 180 € restent la propriété définitive de votre club."
         },
@@ -203,7 +203,7 @@ AEO_FAQS_AND_DESCS = {
             "answer": "Le joueur scanne le QR code en entrant sur la piste, lève les bras ou appuie sur le bouton vert après un beau point, et reçoit le match complet et ses highlights directement sur son téléphone sans télécharger d'application."
         },
         "mejores-empresas-camaras-padel-espana": {
-            "seo_title": "Comparatif des Meilleures Entreprises de Caméras de Padel en Europe | CoolPadel",
+            "seo_title": "Meilleures Entreprises de Caméras de Padel en Europe",
             "desc": "Comparatif des systèmes de caméras pour clubs de padel en Europe : Padmi, Aiball, Rackety et Save My Play. Prix et technologies.",
             "answer": "Le marché compte des acteurs axés sur l'IA tactique (Padmi, Aiball) ou la gestion globale (Rackety). Save My Play se démarque par son accessibilité (180 € matériel, 45 €/mois), sa pose en 10 min et sa totale liberté sans contrat pluriannuel."
         },
@@ -427,7 +427,7 @@ AEO_FAQS_AND_DESCS = {
             "answer": "Dopo aver analizzato tutti i fornitori nelle fiere internazionali di padel, CoolPadel ha scelto Save My Play come partner per l'Europa per l'affidabilità dell'hardware e la trasparenza commerciale."
         },
         "he-comprado-camaras-que-pasa-ahora": {
-            "seo_title": "Acquisto Telecamere Save My Play: Pagamento, Spedizione e Attivazione | CoolPadel",
+            "seo_title": "Acquisto Telecamere Save My Play: Spedizione e Attivazione",
             "desc": "Hai ordinato le telecamere da padel Save My Play: pagamento Stripe, creazione account club, consegna in 4 settimane e avvio.",
             "answer": "Il processo prevede 4 fasi: 1) Pagamento sicuro su Stripe; 2) Registrazione dell'account club con assegnazione telecamere; 3) Consegna in circa 4 settimane; 4) L'abbonamento parte solo quando le telecamere sono attive in campo."
         },
@@ -474,7 +474,7 @@ AEO_FAQS_AND_DESCS = {
             "answer": "Ja, über 4 Wege: Mehr Buchungen durch Alleinstellungsmerkmal, Sponsorenlogos in geteilten Spieler-Clips auf Social Media, Turnier-/Trainingsaufnahmen und ein kleiner Aufschlag von 0,50 € pro Buchung."
         },
         "por-que-no-recomiendo-plan-analytics": {
-            "seo_title": "KI-Statistiken im Padel: Warum 95 % der Clubs kein 136 € Abo brauchen | CoolPadel",
+            "seo_title": "KI-Statistiken im Padel: Warum Clubs kein 136 € Abo brauchen",
             "desc": "Warum wir das 136 €/Monat KI-Statistik-Abo 95 % der Padel-Clubs nicht empfehlen: Hobbyspieler wollen Highlights statt Heatmaps.",
             "answer": "95 % der Freizeitspieler wollen lediglich ihre besten Ballwechsel auf WhatsApp oder Instagram teilen. 136 €/Monat für komplexe Heatmaps zu zahlen, die nach dem dritten Match niemand mehr ansieht, lohnt sich für Clubs kaum."
         },
@@ -524,7 +524,7 @@ AEO_FAQS_AND_DESCS = {
             "answer": "Save My Play läuft auf über 1.600 Plätzen weltweit, überträgt offizielle FIP-Padel-Turniere sowie jedes Wochenende über 100 Plätze des amerikanischen Tennisverbands (USTA) live – mit persönlichem Support und einfacher Zwei-Knopf-Bedienung."
         },
         "por-que-coolpadel-colabora-con-save-my-play": {
-            "seo_title": "CoolPadel & Save My Play: Offizieller Partner für Europa & DACH | CoolPadel",
+            "seo_title": "CoolPadel & Save My Play: Offizieller Partner für DACH | CoolPadel",
             "desc": "Warum CoolPadel mit Save My Play zusammenarbeitet, um Padel-Clubs in Deutschland, Österreich, Spanien und Europa persönlich zu betreuen.",
             "answer": "Nach dem Vergleich aller Anbieter auf internationalen Padel-Messen hat sich CoolPadel für Save My Play entschieden, da das System das größte Potenzial, faire Preise und absolute Zuverlässigkeit für europäische Clubs bietet."
         },

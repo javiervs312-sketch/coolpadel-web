@@ -113,7 +113,7 @@ RELATED_MAP = {   'camaras-de-padel-o-videovigilancia': [   'cuanto-cuesta-poner
     'problemas-con-las-camaras': [   'que-son-las-coaching-tools',
                                      'como-montar-camara-save-my-play',
                                      'por-que-coolpadel-colabora-con-save-my-play'],
-    'que-pasa-si-cancelo': [   'como-montar-camara-save-my-play',
+    'que-pasa-si-cancelo': [   'camaras-de-padel-o-videovigilancia',
                                'inversion-inicial-camaras-180-euros',
                                'problemas-con-las-camaras'],
     'que-son-las-coaching-tools': [   'camaras-en-exterior-lluvia-nieve-viento',

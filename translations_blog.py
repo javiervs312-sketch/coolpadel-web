@@ -295,21 +295,21 @@ FLAGSHIP_GUIDES_DATA = {
     "informe-tendencias-industria-padel-2026": {
         "es": {
             "title": "Informe de Tendencias de la Industria del Pádel 2026: Smart Courts, Comunidades y Expansión | CoolPadel",
-            "desc": "Informe oficial de tendencias de la industria del pádel 2026: madurez del mercado, Smart Courts, comunidades de club, pádel lifestyle, boom en EE.UU. y pickleball.",
+            "desc": "Informe de tendencias del pádel 2026: madurez del mercado, Smart Courts con IA, fidelización de jugadores, clubes lifestyle y expansión internacional.",
             "h1": "Informe de Tendencias de la Industria del Pádel 2026: Smart Courts, Comunidades, Expansión USA y Rentabilidad",
             "subtitle": "Radiografía estratégica de hacia dónde va el negocio del pádel en 2026: consolidación post-boom, pistas inteligentes, modelo lifestyle y sinergias multirraqueta.",
             "badge": "Informe Oficial de Tendencias · 2026"
         },
         "en": {
             "title": "2026 Padel Industry Trends Report: Smart Courts, Club Communities & US Expansion | CoolPadel Studios",
-            "desc": "Official 2026 Padel Industry Trends Report: post-boom consolidation, AI Smart Courts, community-driven retention, lifestyle clubs, US growth, and pickleball synergies.",
+            "desc": "Official 2026 Padel Industry Report: market consolidation, AI Smart Courts, player retention, lifestyle clubs, US growth, and pickleball trends.",
             "h1": "2026 Padel Industry Trends Report: Smart Courts, Club Communities, US Expansion & Profitability",
             "subtitle": "Executive strategic analysis of where the global padel business is heading in 2026: sustainable unit economics, court automation, lifestyle amenities, and multi-racquet models.",
             "badge": "Official Industry Trends Report · 2026"
         },
         "fr": {
             "title": "Rapport sur les Tendances de l'Industrie du Padel 2026 : Smart Courts, Communautés et Expansion | CoolPadel Studios",
-            "desc": "Rapport officiel 2026 sur les tendances du padel : consolidation du marché, pistes connectées IA, fidélisation communautaire, clubs lifestyle etessor aux États-Unis.",
+            "desc": "Rapport 2026 sur les tendances du padel : consolidation du marché, pistes connectées IA, fidélisation des joueurs, clubs lifestyle etessor aux États-Unis.",
             "h1": "Rapport sur les Tendances de l'Industrie du Padel 2026 : Smart Courts, Communautés et Rentabilité",
             "subtitle": "Analyse stratégique de l'évolution du marché du padel en 2026 : rentabilité durable, pistes intelligentes, modèle lifestyle et synergies multi-raquettes.",
             "badge": "Rapport Officiel Tendances · 2026"

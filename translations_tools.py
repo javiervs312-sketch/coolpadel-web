@@ -261,7 +261,7 @@ CALCULADORA_ROI_DATA = {
     },
     "fr": {
         "title": "Calculateur de ROI et Rentabilité Caméras Padel | CoolPadel Studios",
-        "desc": "Calculez la rentabilité de l'installation de caméras Save my Play dans votre club de padel. Simulez vos coûts (45€/mois), revenus en heures creuses et amortissement.",
+        "desc": "Calculez la rentabilité des caméras Save my Play pour votre club de padel : simulation des coûts (45 €/mois), revenus en heures creuses et ROI rapide.",
         "badge": "Simulateur Financier Officiel Save my Play 2026",
         "h1": "Calculateur de ROI et Rentabilité des <span class=\"text-[#76d3f6]\">Caméras sur Piste</span>",
         "lead": "Découvrez de manière interactive les revenus générés par votre club et le délai d'amortissement. Aucun engagement de durée ni frais cachés.",
@@ -303,7 +303,7 @@ CALCULADORA_ROI_DATA = {
     },
     "it": {
         "title": "Calcolatore ROI e Redditività Telecamere Padel | CoolPadel Studios",
-        "desc": "Calcola la redditività dell'installazione delle telecamere Save my Play nel tuo circolo di padel. Simula costi (45€/mese), entrate da ore non di punta e ammortamento.",
+        "desc": "Calcola la redditività delle telecamere Save my Play per il tuo circolo di padel : simula costi (45 €/mese), entrate in ore di morbida e ammortamento esatto.",
         "badge": "Simulatore Finanziario Ufficiale Save my Play 2026",
         "h1": "Calcolatore ROI e Redditività <span class=\"text-[#76d3f6]\">Telecamere in Campo</span>",
         "lead": "Scopri in modo interattivo quanto incasserà il tuo circolo e in quanti giorni ripagherai l'impianto. Nessun vincolo contrattuale né costi nascosti.",
@@ -397,7 +397,7 @@ CALCULADORA_COSTES_DATA = {
     },
     "en": {
         "title": "Padel Court Construction & ROI Calculator | CoolPadel Studios",
-        "desc": "Calculate the total cost of building padel courts (panoramic glass, concrete slab, LED lighting, indoor canopies): monthly turnover, operating costs, and exact payback in months.",
+        "desc": "Calculate padel court construction costs (panoramic glass, slab, LED, indoor): estimate turnover, operating costs, and exact payback in months.",
         "badge": "2026 Economic Feasibility Simulator",
         "h1": "Padel Court <span class=\"text-[#f2920b]\">Cost & ROI</span> Calculator",
         "lead": "Simulate your turnkey investment budget (civil works, concrete slab, structure, turf, LED, and cameras) and calculate monthly net profits and capital payback timeline.",
@@ -446,7 +446,7 @@ CALCULADORA_COSTES_DATA = {
     },
     "fr": {
         "title": "Calculateur de Coût et Rentabilité des Pistes de Padel | CoolPadel Studios",
-        "desc": "Calculez le coût d'installation de pistes de padel (verre panoramique, dalle béton, LED, couverture) : chiffre d'affaires mensuel, coûts d'exploitation et amortissement exact.",
+        "desc": "Calculez le coût d'installation de pistes de padel (verre panoramique, dalle béton, LED, halle indoor) : chiffre d'affaires mensuel et amortissement en mois.",
         "badge": "Simulateur de Viabilité Économique 2026",
         "h1": "Calculateur de <span class=\"text-[#f2920b]\">Coût et Rentabilité</span> des Pistes de Padel",
         "lead": "Simulez le budget d'investissement (génie civil, dalle, structure, gazon, éclairage LED et caméras) et projetez vos bénéfices nets mensuels ainsi que la durée d'amortissement.",
@@ -495,7 +495,7 @@ CALCULADORA_COSTES_DATA = {
     },
     "it": {
         "title": "Calcolatore Costo e Redditività Campi Padel | CoolPadel Studios",
-        "desc": "Calcola quanto costa costruire campi da padel (vetro panoramico, soletta in cemento, LED, coperture indoor): ricavi mensili, costi operativi e ammortamento esatto in mesi.",
+        "desc": "Calcola quanto costa costruire campi da padel (vetro panoramico, soletta, LED, indoor): stima ricavi mensili, costi di gestione e ammortamento esatto in mesi.",
         "badge": "Simulatore di Redditività Economica 2026",
         "h1": "Calcolatore di <span class=\"text-[#f2920b]\">Costo e Redditività</span> dei Campi da Padel",
         "lead": "Simula il budget di investimento chiavi in mano (opere edili, soletta, struttura, erba sintetica, illuminazione LED e telecamere) e calcola l'utile netto mensile e i tempi di rientro del capitale.",
@@ -593,7 +593,7 @@ GENERADOR_AMERICANA_DATA = {
     },
     "en": {
         "title": "Free Padel Americano Tournament Generator | CoolPadel Studios",
-        "desc": "Free interactive Americano and Mexicano padel tournament generator for 8 to 24 players. Balanced partner rotations, live standings, and 1-click WhatsApp schedule copy.",
+        "desc": "Free Americano & Mexicano padel tournament generator for 8 to 24 players. Balanced partner rotations, live standings, and 1-click WhatsApp schedule copy.",
         "badge": "Official 2026 Social Tournament Generator",
         "h1": "Padel <span class=\"text-[#f2920b]\">Americano Tournament</span> Generator",
         "lead": "Create balanced round-robin brackets in 5 seconds. Everyone partners and plays against everyone without repeated pairs. Ready to copy and paste to WhatsApp.",
@@ -685,7 +685,7 @@ GENERADOR_AMERICANA_DATA = {
     },
     "it": {
         "title": "Generatore Gratuito Torneo all'Americana Padel | CoolPadel Studios",
-        "desc": "Generatore interattivo gratuito di tornei all'americana per 8-24 giocatori. Rotazioni equilibrate, classifica in tempo reale e copia del programma WhatsApp in 1 clic.",
+        "desc": "Generatore gratuito di tornei di padel all'americana per 8-24 giocatori. Rotazioni bilanciate, classifica in tempo reale e copia del tabellone per WhatsApp.",
         "badge": "Generatore Ufficiale di Tornei Sociali 2026",
         "h1": "Generatore di <span class=\"text-[#f2920b]\">Tornei all'Americana</span> di Padel",
         "lead": "Crea tabelloni e rotazioni bilanciate in 5 secondi. Ognuno gioca con tutti e contro tutti senza ripetere coppie. Pronto da copiare e incollare su WhatsApp.",
@@ -779,7 +779,7 @@ GENERADOR_CUADROS_DATA = {
     },
     "en": {
         "title": "Free Padel Tournament Bracket Generator | CoolPadel Studios",
-        "desc": "Free interactive single-elimination tournament bracket generator for 8, 16, or 32 pairs with automated consolation draw, live winner progression, and WhatsApp / PDF export.",
+        "desc": "Free padel single-elimination bracket generator for 8, 16 or 32 pairs with consolation draw, live score progression, and 1-click WhatsApp / PDF export.",
         "badge": "Official 2026 Knockout Bracket Generator",
         "h1": "Padel <span class=\"text-[#f2920b]\">Tournament Bracket</span> Generator",
         "lead": "Design professional single-elimination tournament brackets in seconds. Seed placements, automated consolation draw, click-to-advance winners, and print-ready PDF export.",
@@ -824,7 +824,7 @@ GENERADOR_CUADROS_DATA = {
     },
     "fr": {
         "title": "Générateur Gratuit de Tableaux de Tournoi Padel | CoolPadel Studios",
-        "desc": "Générateur interactif gratuit de tableaux à élimination directe pour 8, 16 ou 32 paires avec consolante automatique, progression des vainqueurs et export PDF / WhatsApp.",
+        "desc": "Générateur gratuit de tableaux de padel à élimination directe pour 8, 16 ou 32 paires avec consolante, suivi en direct et export PDF ou WhatsApp.",
         "badge": "Générateur Officiel de Tableaux 2026",
         "h1": "Générateur de <span class=\"text-[#f2920b]\">Tableaux de Tournoi</span> de Padel",
         "lead": "Créez des tableaux de compétition à élimination directe en quelques secondes. Têtes de série, tableau de consolante, progression interactive des vainqueurs et impression PDF.",
@@ -869,7 +869,7 @@ GENERADOR_CUADROS_DATA = {
     },
     "it": {
         "title": "Generatore Gratuito di Tabelloni di Torneo Padel | CoolPadel Studios",
-        "desc": "Generatore interattivo gratuito di tabelloni ad eliminazione diretta per 8, 16 o 32 coppie con torneo di consolazione, avanzamento vincitori ed esportazione PDF / WhatsApp.",
+        "desc": "Generatore gratuito di tabelloni di padel a eliminazione diretta per 8, 16 o 32 coppie con consolazione, risultati live ed export facile su PDF e WhatsApp.",
         "badge": "Generatore Ufficiale Tabelloni di Torneo 2026",
         "h1": "Generatore di <span class=\"text-[#f2920b]\">Tabelloni di Torneo</span> di Padel",
         "lead": "Crea tabelloni di gara ad eliminazione diretta in pochi secondi. Teste di serie, tabellone di consolazione, avanzamento automatico vincitori e stampa in formato PDF.",
