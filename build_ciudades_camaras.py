@@ -29,6 +29,8 @@ def generate_city_page(country_item, city, slug_country_used):
     rec = country_item["rec"]
     ai = country_item["ai"]
 
+    badge_plan_rec = "Consigliato" if lang == "it" else ("Recommandé" if lang == "fr" else ("Empfohlen" if lang == "de" else ("Rekommenderad" if lang == "sv" else ("Recommended" if lang == "en" else "Recomendado"))))
+
     # Localized City Title & Meta
     title = f"Cámaras para Pistas de Pádel en {city_name} ({country_display}) | Save My Play" if lang == "es" else \
             f"Padel Court Cameras in {city_name} ({country_display}) | Save My Play" if lang == "en" else \
@@ -375,7 +377,7 @@ def generate_city_page(country_item, city, slug_country_used):
                       <i data-lucide="video" class="w-4 h-4 text-[#f2920b]"></i>
                       <span>{t["tbl_rec_title"]}</span>
                     </div>
-                    <span class="inline-block mt-1 px-2 py-0.5 rounded text-[10px] font-heading font-black uppercase bg-[#f2920b] text-slate-950">97% de los clubs</span>
+                    <span class="inline-block mt-1 px-2 py-0.5 rounded text-[10px] font-heading font-black uppercase bg-[#f2920b] text-slate-950">{badge_plan_rec}</span>
                   </td>
                   <td class="p-4 sm:p-5 font-heading font-black text-base text-[#f2920b]">{rec}</td>
                   <td class="p-4 sm:p-5 text-slate-600">{t["tbl_rec_mod"]}</td>
