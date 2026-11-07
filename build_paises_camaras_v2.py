@@ -4,29 +4,33 @@ Generador Maestro y Determinista de las 50 Landings B2B de Países de Pádel.
 Cumple rigurosamente todos los requerimientos de Javier:
 1. Generación en el idioma nativo de cada uno de los 50 países.
 2. Slug en el nombre del país en su idioma nativo (ej: /camaras/sverige/, /camaras/france/, /camaras/deutschland/, etc.)
-   y compatibilidad con slug en español.
-3. Precios y planes en su moneda local y equivalencia en euros/dólares.
-4. Sección '¿Por qué elegir Save My Play para tu club?' con exactamente las 3 razones:
-   - 1) No son cámaras de vigilancia: máxima calidad de imagen deportiva
-   - 2) Planes mensuales claros por pista (grabación 45 €/mes, estadísticas IA 136 €/mes)
-   - 3) Fácil de usar y sin obras (180 € hardware en propiedad, 5 min montaje)
-5. H1 exacto en 3 líneas limpias.
-6. Cero menciones a 'pulsador' ni 'zanjas'.
-7. Enlaces de navegación con fallback a /en/ si no es ES.
+   y compatibilidad con slug en español (/camaras/suecia/, /camaras/francia/).
+3. Precios y planes en su moneda local y equivalencia en euros/dólares, con la tarifa unificada de 3 filas:
+   - Fila 1: Inversión Hardware en Propiedad (180 €)
+   - Fila 2: Grabación, Highlights & Streaming (45 €/mes)
+   - Fila 3: Estadísticas con IA y Análisis Táctico (136 €/mes)
+4. Orden estricto de las secciones:
+   - 1) Hero (H1 en 3 líneas exactas con tipografía reducida y sin texto de IA)
+   - 2) ¿Por qué elegir Save My Play para tu club? (exactamente las 3 razones sin duplicar IA)
+   - 3) Tabla de Tarifas
+   - 4) Demostración en Pista Real (4 vídeos)
+   - 5) Preguntas Frecuentes desplegables (<details><summary>)
+   - 6) Bloque de Contacto Directo con tarjetas WhatsApp (con QR) y Email
+   - 7) Pie de página azul con textura (idéntico al de español con los 4 silos SEO de enlaces)
 """
 
 import os
 import re
 import urllib.parse
 from paises_data_50 import COUNTRIES_50
-from country_i18n_dict_full import ALL_LANGS_I18N
+from country_i18n_master import ALL_LANGS_MASTER
 
 OUTPUT_ROOT = 'coolpadel-web/camaras'
 os.makedirs(OUTPUT_ROOT, exist_ok=True)
 
 def generate_country_page(item, slug_to_use):
     lang = item["lang"]
-    t = ALL_LANGS_I18N.get(lang, ALL_LANGS_I18N["en"])
+    t = ALL_LANGS_MASTER.get(lang, ALL_LANGS_MASTER["en"])
     country_display = item["country_local"]
     
     hw = item["hw"]
@@ -116,6 +120,13 @@ def generate_country_page(item, slug_to_use):
     }}
   }}
   </script>
+  <style>
+    .bg-textured-blue {{
+      background-color: #3478a6;
+      background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 0);
+      background-size: 20px 20px;
+    }}
+  </style>
 </head>
 <body class="bg-white text-slate-800 font-body antialiased flex flex-col min-h-screen">
 
@@ -142,7 +153,7 @@ def generate_country_page(item, slug_to_use):
 
   <main class="flex-1 pt-20">
 
-    <!-- HERO SECTION -->
+    <!-- 1. HERO SECTION -->
     <section class="py-12 sm:py-20 bg-gradient-to-b from-white via-slate-50 to-[#f8fafc] border-b border-slate-200">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         
@@ -223,7 +234,7 @@ def generate_country_page(item, slug_to_use):
       </div>
     </section>
 
-    <!-- 3 RAZONES / POR QUÉ ELEGIR SAVE MY PLAY -->
+    <!-- 2. POR QUÉ ELEGIR SAVE MY PLAY (EXACTAMENTE 3 RAZONES) -->
     <section class="py-14 sm:py-20 bg-white border-b border-slate-200">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center max-w-2xl mx-auto mb-10 sm:mb-14 space-y-2">
@@ -265,14 +276,15 @@ def generate_country_page(item, slug_to_use):
       </div>
     </section>
 
-    <!-- TABLA DE PRECIOS TRANSPARENTES -->
+    <!-- 3. TABLA DE PRECIOS EXACTA EN 3 FILAS (PUESTA INMEDIATAMENTE DESPUÉS DE POR QUÉ ELEGIR) -->
     <section id="precios" class="py-14 sm:py-20 bg-slate-50 border-b border-slate-200 scroll-mt-20">
       <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        
         <div class="overflow-x-auto">
           <table class="w-full text-left text-sm sm:text-base">
             <thead>
               <tr class="border-b border-slate-200 text-xs uppercase tracking-wider text-slate-500">
-                <th class="py-3 px-3">{t["pricing_h2"]}</th>
+                <th class="py-3 px-3">{t["pricing_th_plan"]}</th>
                 <th class="py-3 px-3">{t["pricing_th_invest"]}</th>
                 <th class="py-3 px-3">{t["pricing_th_mod"]}</th>
                 <th class="py-3 px-3">{t["pricing_th_serv"]}</th>
@@ -291,7 +303,7 @@ def generate_country_page(item, slug_to_use):
                 <td class="py-4 px-3 text-emerald-600">{t["tbl_rec_mod"]}</td>
                 <td class="py-4 px-3 text-slate-600 text-xs font-medium">{t["tbl_rec_desc"]}</td>
               </tr>
-              <tr>
+              <tr class="bg-amber-50/50">
                 <td class="py-4 px-3 text-slate-900">{t["tbl_ai_title"]}</td>
                 <td class="py-4 px-3 text-[#f2920b]">{ai}</td>
                 <td class="py-4 px-3 text-slate-700">{t["tbl_ai_mod"]}</td>
@@ -301,51 +313,271 @@ def generate_country_page(item, slug_to_use):
           </table>
         </div>
 
-        <div class="mt-8 text-center">
-          <a href="{wa_url}" target="_blank" rel="noopener" class="inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] text-slate-950 font-heading font-black text-sm uppercase tracking-wider transition shadow-md hover:scale-105 active:scale-95">
-            <i data-lucide="message-circle" class="w-5 h-5 text-slate-950"></i>
-            <span>{t["demo_btn"]}</span>
+        <div class="mt-6 pt-5 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <span class="text-xs text-slate-500">{t["pricing_footnote"]}</span>
+          <a href="{wa_url}" target="_blank" rel="noopener" class="px-6 py-3 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] text-slate-950 font-heading font-black text-xs uppercase tracking-wider transition">
+            {t["demo_btn"]}
           </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 4. DEMOSTRACIÓN EN PISTA REAL (4 VÍDEOS) -->
+    <section class="py-14 sm:py-20 bg-slate-50 border-b border-slate-200">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-2xl mx-auto mb-10 sm:mb-14 space-y-2">
+          <span class="inline-block text-[#f2920b] font-heading font-black text-xs uppercase tracking-wider">
+            {t["vid_badge"]}
+          </span>
+          <h2 class="font-heading font-black text-2xl sm:text-4xl text-slate-950 uppercase tracking-tight">
+            {t["vid_title"]}
+          </h2>
+          <p class="text-sm sm:text-base text-slate-600 font-medium">
+            {t["vid_sub"]}
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-xs hover:shadow-md transition flex flex-col">
+            <div class="aspect-video bg-slate-900 relative">
+              <iframe class="w-full h-full" src="https://www.youtube-nocookie.com/embed/4xwrrveDZxg?start=5623" title="{t['vid1_t']}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+            </div>
+            <div class="p-4 flex-1 flex flex-col justify-between">
+              <div>
+                <h3 class="font-heading font-bold text-slate-900 text-sm leading-snug">{t["vid1_t"]}</h3>
+                <p class="text-xs text-slate-600 mt-1">{t["vid1_d"]}</p>
+              </div>
+              <a href="https://youtu.be/4xwrrveDZxg?t=5623" target="_blank" rel="noopener" class="mt-3 inline-flex items-center gap-1.5 text-xs font-bold text-[#3478a6] hover:text-[#f2920b] transition">
+                <i data-lucide="play-circle" class="w-4 h-4"></i>
+                <span>YouTube</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-xs hover:shadow-md transition flex flex-col">
+            <div class="aspect-video bg-slate-900 relative">
+              <iframe class="w-full h-full" src="https://www.youtube-nocookie.com/embed/H21vG3a6u14" title="{t['vid2_t']}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+            </div>
+            <div class="p-4 flex-1 flex flex-col justify-between">
+              <div>
+                <h3 class="font-heading font-bold text-slate-900 text-sm leading-snug">{t["vid2_t"]}</h3>
+                <p class="text-xs text-slate-600 mt-1">{t["vid2_d"]}</p>
+              </div>
+              <a href="https://youtu.be/H21vG3a6u14" target="_blank" rel="noopener" class="mt-3 inline-flex items-center gap-1.5 text-xs font-bold text-[#3478a6] hover:text-[#f2920b] transition">
+                <i data-lucide="play-circle" class="w-4 h-4"></i>
+                <span>YouTube</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-xs hover:shadow-md transition flex flex-col">
+            <div class="aspect-video bg-slate-900 relative">
+              <iframe class="w-full h-full" src="https://www.youtube-nocookie.com/embed/5aC4Vj9XwG0" title="{t['vid3_t']}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+            </div>
+            <div class="p-4 flex-1 flex flex-col justify-between">
+              <div>
+                <h3 class="font-heading font-bold text-slate-900 text-sm leading-snug">{t["vid3_t"]}</h3>
+                <p class="text-xs text-slate-600 mt-1">{t["vid3_d"]}</p>
+              </div>
+              <a href="https://youtu.be/5aC4Vj9XwG0" target="_blank" rel="noopener" class="mt-3 inline-flex items-center gap-1.5 text-xs font-bold text-[#3478a6] hover:text-[#f2920b] transition">
+                <i data-lucide="play-circle" class="w-4 h-4"></i>
+                <span>YouTube</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-xs hover:shadow-md transition flex flex-col">
+            <div class="aspect-video bg-slate-900 relative">
+              <iframe class="w-full h-full" src="https://www.youtube-nocookie.com/embed/m6gW5QvK8_8" title="{t['vid4_t']}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+            </div>
+            <div class="p-4 flex-1 flex flex-col justify-between">
+              <div>
+                <h3 class="font-heading font-bold text-slate-900 text-sm leading-snug">{t["vid4_t"]}</h3>
+                <p class="text-xs text-slate-600 mt-1">{t["vid4_d"]}</p>
+              </div>
+              <a href="https://youtu.be/m6gW5QvK8_8" target="_blank" rel="noopener" class="mt-3 inline-flex items-center gap-1.5 text-xs font-bold text-[#3478a6] hover:text-[#f2920b] transition">
+                <i data-lucide="play-circle" class="w-4 h-4"></i>
+                <span>YouTube</span>
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- PREGUNTAS FRECUENTES -->
+    <!-- 5. PREGUNTAS FRECUENTES DESPLEGABLES (<details><summary>) -->
     <section class="py-14 sm:py-20 bg-white border-b border-slate-200">
       <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center max-w-2xl mx-auto mb-10 space-y-2">
           <h2 class="font-heading font-black text-2xl sm:text-4xl text-slate-950 uppercase tracking-tight">
-            {t["faq_h2"]}
+            {t["faq_title"]}
           </h2>
+          <p class="text-sm sm:text-base text-slate-600 font-medium">
+            {t["faq_sub"]}
+          </p>
         </div>
 
         <div class="space-y-4">
-          <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200">
-            <h3 class="font-heading font-black text-base sm:text-lg text-slate-950 mb-2">{t["faq1_q"]}</h3>
-            <p class="text-slate-600 text-sm leading-relaxed">{t["faq1_a"]}</p>
-          </div>
+          <details class="group bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/90 shadow-2xs transition hover:border-[#f2920b]">
+            <summary class="flex items-center justify-between font-heading font-black text-sm sm:text-base text-slate-950 cursor-pointer list-none select-none">
+              <span>{t["faq1_q"]}</span>
+              <span class="w-6 h-6 rounded-full bg-slate-100 text-slate-700 group-open:rotate-180 group-open:bg-[#f2920b] group-open:text-slate-950 flex items-center justify-center transition-transform text-xs shrink-0 ml-3">▼</span>
+            </summary>
+            <p class="mt-3 text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">{t["faq1_a"]}</p>
+          </details>
 
-          <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200">
-            <h3 class="font-heading font-black text-base sm:text-lg text-slate-950 mb-2">{t["faq2_q"]}</h3>
-            <p class="text-slate-600 text-sm leading-relaxed">{t["faq2_a"].format(hw=hw, rec=rec, ai=ai)}</p>
-          </div>
+          <details class="group bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/90 shadow-2xs transition hover:border-[#f2920b]">
+            <summary class="flex items-center justify-between font-heading font-black text-sm sm:text-base text-slate-950 cursor-pointer list-none select-none">
+              <span>{t["faq2_q"]}</span>
+              <span class="w-6 h-6 rounded-full bg-slate-100 text-slate-700 group-open:rotate-180 group-open:bg-[#f2920b] group-open:text-slate-950 flex items-center justify-center transition-transform text-xs shrink-0 ml-3">▼</span>
+            </summary>
+            <p class="mt-3 text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">{t["faq2_a"].format(hw=hw, rec=rec, ai=ai)}</p>
+          </details>
 
-          <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200">
-            <h3 class="font-heading font-black text-base sm:text-lg text-slate-950 mb-2">{t["faq3_q"]}</h3>
-            <p class="text-slate-600 text-sm leading-relaxed">{t["faq3_a"]}</p>
-          </div>
+          <details class="group bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/90 shadow-2xs transition hover:border-[#f2920b]">
+            <summary class="flex items-center justify-between font-heading font-black text-sm sm:text-base text-slate-950 cursor-pointer list-none select-none">
+              <span>{t["faq3_q"]}</span>
+              <span class="w-6 h-6 rounded-full bg-slate-100 text-slate-700 group-open:rotate-180 group-open:bg-[#f2920b] group-open:text-slate-950 flex items-center justify-center transition-transform text-xs shrink-0 ml-3">▼</span>
+            </summary>
+            <p class="mt-3 text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">{t["faq3_a"]}</p>
+          </details>
+
+          <details class="group bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/90 shadow-2xs transition hover:border-[#f2920b]">
+            <summary class="flex items-center justify-between font-heading font-black text-sm sm:text-base text-slate-950 cursor-pointer list-none select-none">
+              <span>{t["faq4_q"]}</span>
+              <span class="w-6 h-6 rounded-full bg-slate-100 text-slate-700 group-open:rotate-180 group-open:bg-[#f2920b] group-open:text-slate-950 flex items-center justify-center transition-transform text-xs shrink-0 ml-3">▼</span>
+            </summary>
+            <p class="mt-3 text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">{t["faq4_a"]}</p>
+          </details>
         </div>
+      </div>
+    </section>
+
+    <!-- 6. CONTACTO DIRECTO (WHATSAPP CON QR + EMAIL) -->
+    <section id="contacto" class="py-10 sm:py-14 bg-slate-50 relative border-t border-slate-200 text-slate-900 overflow-hidden">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 relative z-10 text-center">
+        
+        <div class="max-w-2xl mx-auto text-center mb-6">
+          <span class="inline-block text-[#f2920b] text-xs font-bold uppercase tracking-wider mb-2">
+            {t["contact_badge"]}
+          </span>
+          <h2 class="text-2xl sm:text-4xl font-black font-heading text-slate-950 uppercase tracking-tight leading-tight">
+            {t["contact_title"]}
+          </h2>
+          <p class="text-slate-600 text-xs sm:text-sm mt-2">
+            {t["contact_sub"]}
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 max-w-2xl mx-auto text-left">
+          <!-- WhatsApp Card -->
+          <a id="landing-contact-wa" href="{wa_url}" target="_blank" rel="noopener noreferrer"
+             class="bg-white border border-slate-200 hover:border-[#25D366] rounded-2xl p-5 shadow-xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between items-center text-center group cursor-pointer block no-underline text-inherit">
+            <div class="flex flex-col items-center space-y-2 w-full">
+              <div class="w-11 h-11 rounded-xl bg-emerald-50 text-[#25D366] flex items-center justify-center shadow-inner group-hover:scale-105 group-hover:bg-[#25D366] group-hover:text-white transition-all duration-300">
+                <i data-lucide="message-circle" class="w-6 h-6 stroke-[2.2]"></i>
+              </div>
+              <h3 class="font-heading font-black text-base sm:text-lg text-slate-950">WhatsApp Directo</h3>
+              <p class="font-mono font-bold text-xs sm:text-sm text-emerald-600 tracking-wide">+34 680 31 74 86</p>
+              <div class="pt-1">
+                <div class="p-1.5 bg-white border border-slate-200 rounded-xl shadow-2xs inline-block group-hover:border-emerald-300 transition">
+                  <img src="../../assets/images/qr_whatsapp_coolpadel.png" alt="WhatsApp CoolPadel" width="80" height="80" class="w-16 h-16 sm:w-20 sm:h-20 object-contain" loading="lazy">
+                </div>
+              </div>
+            </div>
+            <div class="w-full pt-3 border-t border-slate-100 mt-3">
+              <div class="w-full inline-flex items-center justify-center px-4 py-2 sm:py-2.5 rounded-full bg-[#25D366] group-hover:bg-[#20ba59] text-white font-sans font-black text-xs uppercase tracking-wider shadow-sm transition">
+                <span>{t["contact_wa_btn"]}</span>
+              </div>
+            </div>
+          </a>
+
+          <!-- Email Card -->
+          <a id="landing-contact-mail" href="mailto:javier@coolpadelstudios.com?subject=Consulta%20CoolPadel%20/%20Save%20my%20Play"
+             class="bg-white border border-slate-200 hover:border-[#3478a6] rounded-2xl p-5 shadow-xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between items-center text-center group cursor-pointer block no-underline text-inherit">
+            <div class="flex flex-col items-center space-y-2 w-full">
+              <div class="w-11 h-11 rounded-xl bg-sky-50 text-[#3478a6] flex items-center justify-center shadow-inner group-hover:scale-105 group-hover:bg-[#3478a6] group-hover:text-white transition-all duration-300">
+                <i data-lucide="mail" class="w-6 h-6 stroke-[2.2]"></i>
+              </div>
+              <h3 class="font-heading font-black text-base sm:text-lg text-slate-950">Correo Electrónico</h3>
+              <p class="font-sans font-bold text-xs sm:text-sm text-sky-800 tracking-normal break-all">javier@coolpadelstudios.com</p>
+              <div class="pt-1">
+                <div class="p-1.5 bg-white border border-slate-200 rounded-xl shadow-2xs inline-block group-hover:border-sky-300 transition">
+                  <img src="../../assets/images/qr_email_coolpadel.png" alt="Email CoolPadel" width="80" height="80" class="w-16 h-16 sm:w-20 sm:h-20 object-contain" loading="lazy">
+                </div>
+              </div>
+            </div>
+            <div class="w-full pt-3 border-t border-slate-100 mt-3">
+              <div class="w-full inline-flex items-center justify-center px-4 py-2 sm:py-2.5 rounded-full bg-[#3478a6] group-hover:bg-[#2c668d] text-white font-sans font-black text-xs uppercase tracking-wider shadow-sm transition">
+                <span>{t["contact_mail_btn"]}</span>
+              </div>
+            </div>
+          </a>
+        </div>
+
       </div>
     </section>
 
   </main>
 
-  <!-- FOOTER -->
-  <footer class="bg-slate-950 text-white py-12 border-t border-slate-800">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
-      <p class="text-xs text-slate-500">
-        © 2026 CoolPadel Studios • Save My Play — {country_display}. All rights reserved.
-      </p>
+  <!-- 7. FOOTER TEXTURIZADO AZUL IDÉNTICO EN TODOS LOS IDIOMAS CON 4 SILOS SEO -->
+  <footer class="relative z-20 bg-[#3478a6] bg-textured-blue text-white pt-14 pb-10 border-t border-sky-700/40 text-xs">
+    <div class="max-w-[1700px] mx-auto px-4 sm:px-8 space-y-10">
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pb-8 border-b border-white/20">
+        <div class="flex items-center gap-3.5">
+          <img src="../../assets/images/coolpadel-mascot-hd.png" alt="CoolPadel Mascota" width="60" height="60" class="h-10 sm:h-12 w-auto object-contain drop-shadow-sm" loading="lazy">
+          <img src="../../assets/images/coolpadel-typography-hd.png" alt="CoolPadel" width="160" height="32" class="h-5 sm:h-6 w-auto object-contain drop-shadow-sm" loading="lazy">
+        </div>
+      </div>
+
+      <nav aria-label="Estructura y Silos SEO de CoolPadel" class="grid grid-cols-2 lg:grid-cols-4 gap-8 text-left">
+        <div class="space-y-3">
+          <div class="font-heading font-black text-sm uppercase tracking-wider text-white">{t["footer_b2b"]}</div>
+          <ul class="space-y-2 text-white/80 font-normal">
+            <li><a href="{nav_prefix}llaveros-padel-personalizados/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Llaveros de Pádel 3D</a></li>
+            <li><a href="{nav_prefix}llaveros-tenis-personalizados/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Llaveros de Tenis</a></li>
+            <li><a href="{nav_prefix}welcome-packs-torneos-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Welcome Packs Torneos</a></li>
+            <li><a href="{nav_prefix}llaveros-personalizados-clubs-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Merchandising Clubes</a></li>
+          </ul>
+        </div>
+
+        <div class="space-y-3">
+          <div class="font-heading font-black text-sm uppercase tracking-wider text-white">{t["footer_tech"]}</div>
+          <ul class="space-y-2 text-white/80 font-normal">
+            <li><a href="/camaras-grabacion-pistas-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Cámaras Inteligentes Pádel</a></li>
+            <li><a href="{nav_prefix}save-my-play/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Save My Play Clubes</a></li>
+            <li><a href="{nav_prefix}camaras-padel-playtomic/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Integración Playtomic</a></li>
+            <li><a href="{nav_prefix}camaras-padel-matchi/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Integración MATCHi</a></li>
+          </ul>
+        </div>
+
+        <div class="space-y-3">
+          <div class="font-heading font-black text-sm uppercase tracking-wider text-white">{t["footer_tools"]}</div>
+          <ul class="space-y-2 text-white/80 font-normal">
+            <li><a href="{nav_prefix}herramientas/calculadora-roi-camaras-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Calculadora ROI Cámaras</a></li>
+            <li><a href="{nav_prefix}herramientas/calculadora-coste-pistas-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Calculadora Coste Pistas</a></li>
+            <li><a href="{nav_prefix}herramientas/generador-americana-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Generador Americana</a></li>
+            <li><a href="{nav_prefix}herramientas/generador-cuadros-torneo-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Generador Cuadros Torneo</a></li>
+          </ul>
+        </div>
+
+        <div class="space-y-3">
+          <div class="font-heading font-black text-sm uppercase tracking-wider text-white">{t["footer_corp"]}</div>
+          <ul class="space-y-2 text-white/80 font-normal">
+            <li><a href="{nav_prefix}blog/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Blog & Tendencias</a></li>
+            <li><a href="{nav_prefix}franquicias-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Directorio Franquicias</a></li>
+            <li><a href="{nav_prefix}privacidad.html" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Política de Privacidad</a></li>
+            <li><a href="{nav_prefix}aviso-legal.html" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Aviso Legal</a></li>
+          </ul>
+        </div>
+      </nav>
+
+      <div class="pt-8 border-t border-white/20 text-center space-y-2">
+        <p class="text-white/70">
+          © 2026 CoolPadel Studios • Save My Play — {country_display}. Todos los derechos reservados.
+        </p>
+      </div>
     </div>
   </footer>
 
