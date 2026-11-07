@@ -620,7 +620,7 @@ def build_all():
                 for a in articles_es
             }
             hub_title = "Cámaras para clubs de pádel"
-            hub_eyebrow = "Todo lo que necesitas saber antes de poner cámaras"
+            hub_eyebrow = "Lo que necesitas saber"
             hub_intro_paras = [
                 "Sabemos que queréis tomar la mejor decisión sobre las cámaras<br>La experiencia nos dice que los clubs agradecen tener información útil a su disposición",
                 "Y que si no tenéis interés en informaros, no merece la pena hacer la demo online",
