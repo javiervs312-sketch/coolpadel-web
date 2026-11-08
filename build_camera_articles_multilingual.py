@@ -234,7 +234,7 @@ def format_es_sentence(raw: str, slug: str) -> str:
 
 def get_header(lang: str, prefix: str, slug: str = None) -> str:
     """Genera cabecera con selector multilingüe y URLs canónicas de idiomas."""
-    home_url = "/" if lang == "es" else f"/{lang}/"
+    home_url = "/de/camaras/" if lang == "de" else ("/" if lang == "es" else f"/{lang}/")
     # En alemán (/de/) solo existe el hub de cámaras; las demás secciones enlazan a /en/ o /
     base_nav_lang = "en" if lang == "de" else lang
     llaveros_url = f"/{base_nav_lang}/llaveros-padel-personalizados/" if base_nav_lang != "es" else "/llaveros-padel-personalizados/"
