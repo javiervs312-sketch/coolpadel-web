@@ -1,0 +1,23 @@
+{
+  "name": "coolpadel-web",
+  "version": "1.0.0",
+  "description": "Sitio web oficial interactivo y de alto impacto para **CoolPadel**: venta de merchandising / llaveros personalizados para clubes de pádel, federaciones y torneos, partner oficial de **Save my Play** y análisis de negocio del pádel.",
+  "main": "google_apps_script_webhook.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/javiervs312-sketch/coolpadel-web.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/javiervs312-sketch/coolpadel-web/issues"
+  },
+  "homepage": "https://github.com/javiervs312-sketch/coolpadel-web#readme",
+  "devDependencies": {
+    "tailwindcss": "^3.4.17"
+  }
+}
