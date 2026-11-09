@@ -557,9 +557,19 @@
   }
 
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initTracking);
+    window.addEventListener('load', () => {
+      if ('requestIdleCallback' in window) {
+        requestIdleCallback(initTracking, { timeout: 2000 });
+      } else {
+        setTimeout(initTracking, 500);
+      }
+    });
   } else {
-    initTracking();
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(initTracking, { timeout: 2000 });
+    } else {
+      setTimeout(initTracking, 300);
+    }
   }
 })();
 
