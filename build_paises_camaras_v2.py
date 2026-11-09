@@ -116,7 +116,7 @@ def generate_country_page(item, slug_to_use):
     }},
     "offers": {{
       "@type": "AggregateOffer",
-      "priceCurrency": "{item.get('curr_symbol', 'EUR')}",
+      "priceCurrency": "{item.get('curr_code', 'EUR')}",
       "lowPrice": "45",
       "highPrice": "180",
       "offerCount": "2",
