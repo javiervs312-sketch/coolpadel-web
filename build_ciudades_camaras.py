@@ -17,7 +17,7 @@ from ciudades_data_250 import CITIES_50
 
 OUTPUT_ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'camaras')
 
-def generate_city_page(country_item, city, slug_country_used):
+def generate_city_page(country_item, city, slug_country_used, canonical_country_slug=None):
     lang = country_item["lang"]
     t = ALL_LANGS_MASTER.get(lang, ALL_LANGS_MASTER["en"])
     country_display = country_item["country_local"]
@@ -76,7 +76,8 @@ def generate_city_page(country_item, city, slug_country_used):
 
     encoded_wa = urllib.parse.quote(wa_msg)
     wa_url = f"https://api.whatsapp.com/send?phone=34680317486&text={encoded_wa}"
-    canonical_url = f"https://coolpadelstudios.com/camaras/{slug_country_used}/{city_slug}/"
+    target_country = canonical_country_slug if canonical_country_slug else slug_country_used
+    canonical_url = f"https://coolpadelstudios.com/camaras/{target_country}/{city_slug}/"
     country_url = f"https://coolpadelstudios.com/camaras/{slug_country_used}/"
 
     is_es = (lang == "es")
@@ -678,11 +679,11 @@ def build_all_cities():
             built += 1
             generated_city_urls.append(f"https://coolpadelstudios.com/camaras/{slug_local}/{city['slug']}/")
             
-            # 2. Si el slug en español difiere del local (ej: suecia vs sverige), generar ambos para que ningún enlace falle
+            # 2. Si el slug en español difiere del local (ej: suecia vs sverige), generar versión española canicalizada a la nativa local
             if slug_es != slug_local:
                 dir_city_es = os.path.join(OUTPUT_ROOT, slug_es, city["slug"])
                 os.makedirs(dir_city_es, exist_ok=True)
-                html_city_es = generate_city_page(country_item, city, slug_es)
+                html_city_es = generate_city_page(country_item, city, slug_es, canonical_country_slug=slug_local)
                 with open(os.path.join(dir_city_es, 'index.html'), 'w', encoding='utf-8') as f:
                     f.write(html_city_es)
                 built += 1

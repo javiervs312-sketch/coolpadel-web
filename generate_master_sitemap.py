@@ -225,16 +225,17 @@ def generate_sitemap():
         ))
 
     # 4b. Landings Geo-Locales Nativas por Idioma y Ciudad (10 URLs)
-    # 4c. 50 Landings de Países de Cámaras Save My Play (78 slugs únicos)
+    # 4c. 50 Landings Canónicas de Países de Cámaras Save My Play (50 URLs oficiales nativas, sin duplicados)
     try:
         from paises_data_50 import COUNTRIES_50
         seen_slugs = set()
         for item in COUNTRIES_50:
-            for s in [item.get('slug'), item.get('slug_local')]:
-                if s and s not in seen_slugs:
-                    seen_slugs.add(s)
-                    all_blocks.append(get_single_xml(f"/camaras/{s}/", priority="0.95", changefreq="weekly"))
-        print(f"Added {len(seen_slugs)} country slugs to sitemap.")
+            # La versión canónica oficial es siempre el slug local nativo
+            s = item.get('slug_local') or item.get('slug')
+            if s and s not in seen_slugs:
+                seen_slugs.add(s)
+                all_blocks.append(get_single_xml(f"/camaras/{s}/", priority="0.95", changefreq="weekly"))
+        print(f"Added {len(seen_slugs)} canonical country slugs to sitemap (0 duplicate alternates).")
     except Exception as e:
         print(f"Error adding country landings to sitemap: {e}")
 

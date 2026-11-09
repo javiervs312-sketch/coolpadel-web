@@ -29,10 +29,10 @@ from country_i18n_native_part2 import REMAINING_13_LANGS
 ALL_LANGS_MASTER = dict(NATIVE_TRANSLATIONS_21)
 ALL_LANGS_MASTER.update(REMAINING_13_LANGS)
 
-OUTPUT_ROOT = 'coolpadel-web/camaras'
+OUTPUT_ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'camaras')
 os.makedirs(OUTPUT_ROOT, exist_ok=True)
 
-def generate_country_page(item, slug_to_use):
+def generate_country_page(item, slug_to_use, canonical_slug=None):
     lang = item["lang"]
     t = ALL_LANGS_MASTER.get(lang, ALL_LANGS_MASTER["en"])
     country_display = item["country_local"]
@@ -49,7 +49,8 @@ def generate_country_page(item, slug_to_use):
     wa_msg = t["wa_msg"].format(country=country_display)
     encoded_wa = urllib.parse.quote(wa_msg)
     wa_url = f"https://api.whatsapp.com/send?phone=34680317486&text={encoded_wa}"
-    canonical_url = f"https://coolpadelstudios.com/camaras/{slug_to_use}/"
+    target_slug = canonical_slug if canonical_slug else slug_to_use
+    canonical_url = f"https://coolpadelstudios.com/camaras/{target_slug}/"
     
     is_es = (lang == "es")
     nav_prefix = "/" if is_es else "/en/"
@@ -622,11 +623,11 @@ def build_all():
         built += 1
         all_generated_urls.append(f"https://coolpadelstudios.com/camaras/{slug_local}/")
         
-        # 2. If slug_es differs from slug_local (e.g. suecia vs sverige), generate both so both URLs work!
+        # 2. If slug_es differs from slug_local (e.g. suecia vs sverige), generate Spanish slug pointing canonical to native local slug!
         if slug_es != slug_local:
             dir_es = os.path.join(OUTPUT_ROOT, slug_es)
             os.makedirs(dir_es, exist_ok=True)
-            html_es = generate_country_page(item, slug_es)
+            html_es = generate_country_page(item, slug_es, canonical_slug=slug_local)
             with open(os.path.join(dir_es, 'index.html'), 'w', encoding='utf-8') as f:
                 f.write(html_es)
             built += 1
