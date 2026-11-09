@@ -1346,12 +1346,33 @@
       } catch(e) {}
     })();
   </script>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-3FY3DTNN21"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-3FY3DTNN21');
+
+    // Carga diferida no bloqueante de gtag.js (prioriza el hilo principal y el render)
+    (function() {
+      var gtmLoaded = false;
+      function loadGtmScript() {
+        if (gtmLoaded) return;
+        gtmLoaded = true;
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-3FY3DTNN21';
+        document.head.appendChild(s);
+      }
+      if ('requestIdleCallback' in window) {
+        window.requestIdleCallback(loadGtmScript, { timeout: 3000 });
+      } else {
+        setTimeout(loadGtmScript, 2500);
+      }
+      ['touchstart', 'scroll', 'mousemove', 'keydown'].forEach(function(evt) {
+        window.addEventListener(evt, loadGtmScript, { once: true, passive: true });
+      });
+    })();
+
     // Eventos clave (leads): WhatsApp, email, teléfono, demo, dossier
     document.addEventListener('click', function (e) {
       try {
