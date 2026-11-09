@@ -263,7 +263,7 @@
           }
         })
         .catch(() => {
-          fetch('https://ipapi.co/json/')
+          Promise.reject('ipapi_disabled')
             .then(r => r.json())
             .then(d => {
               clearTimeout(timer);
