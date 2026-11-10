@@ -442,7 +442,11 @@ def render_local_landing(l):
         "creator": {{
           "@type": "Organization",
           "name": "CoolPadel"
-        }}
+        }},
+        "copyrightNotice": "© CoolPadel",
+        "creditText": "CoolPadel Studios",
+        "license": "https://coolpadelstudios.com/politica-de-devoluciones.html",
+        "acquireLicensePage": "{page_url}"
       }},
       {{
         "@type": "Organization",

@@ -59,3 +59,9 @@ Allow: /
 
 # Sitemap
 Sitemap: https://coolpadelstudios.com/sitemap.xml
+
+# LLM Directives & Context
+# llms.txt: https://coolpadelstudios.com/llms.txt
+# llms-full.txt: https://coolpadelstudios.com/llms-full.txt
+# LLM Knowledge Hub: https://coolpadelstudios.com/llm-knowledge.html
+

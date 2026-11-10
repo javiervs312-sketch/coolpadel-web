@@ -380,10 +380,7 @@ def render_page(title: str, content: str, lang: str, prefix: str = "/", slug: st
         "@type": "Organization",
         "name": "CoolPadel Studios",
         "url": "https://coolpadelstudios.com",
-        "logo": {{
-          "@type": "ImageObject",
-          "url": "https://coolpadelstudios.com/assets/images/coolpadel-mascot-hd.png"
-        }},
+        "logo": "https://coolpadelstudios.com/assets/images/coolpadel-mascot-hd.png",
         "sameAs": [
           "https://www.instagram.com/coolpadel_/",
           "https://www.linkedin.com/in/javier-villoria-soleto-606737298/",

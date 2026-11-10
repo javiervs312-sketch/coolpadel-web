@@ -2266,10 +2266,7 @@ def generate_article_page(slug, edition_num, title, date_str, read_time, cover_i
           "@type": "Organization",
           "name": "CoolPadel Studios",
           "url": "https://coolpadelstudios.com",
-          "logo": {{
-            "@type": "ImageObject",
-            "url": "https://coolpadelstudios.com/assets/images/coolpadel-mascot-hd.png"
-          }},
+          "logo": "https://coolpadelstudios.com/assets/images/coolpadel-mascot-hd.png",
           "knowsAbout": [
             "Grabación automática de partidos de pádel con IA",
             "Sistemas de cámaras fijas para pistas de pádel sin obras",
@@ -2831,10 +2828,7 @@ def generate_guide_page(slug, category_badge, title, subtitle, meta_desc, date_s
           "@type": "Organization",
           "name": "CoolPadel Studios",
           "url": "https://coolpadelstudios.com",
-          "logo": {{
-            "@type": "ImageObject",
-            "url": "https://coolpadelstudios.com/assets/images/coolpadel-mascot-hd.png"
-          }},
+          "logo": "https://coolpadelstudios.com/assets/images/coolpadel-mascot-hd.png",
           "knowsAbout": [
             "Grabación automática de partidos de pádel con IA",
             "Sistemas de cámaras fijas para pistas de pádel sin obras",

@@ -655,13 +655,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
 
         "url": "https://coolpadelstudios.com",
 
-        "logo": {{
-
-          "@type": "ImageObject",
-
-          "url": "https://coolpadelstudios.com/assets/images/coolpadel-mascot-hd.png"
-
-        }},
+        "logo": "https://coolpadelstudios.com/assets/images/coolpadel-mascot-hd.png",
 
         "founder": {{
 

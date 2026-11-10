@@ -114,10 +114,7 @@ def build_barometro():
           "@type": "Organization",
           "name": "CoolPadel Studios",
           "url": "https://coolpadelstudios.com",
-          "logo": {
-            "@type": "ImageObject",
-            "url": "https://coolpadelstudios.com/assets/images/coolpadel-mascot-hd.png"
-          }
+          "logo": "https://coolpadelstudios.com/assets/images/coolpadel-mascot-hd.png"
         }
       },
       {
