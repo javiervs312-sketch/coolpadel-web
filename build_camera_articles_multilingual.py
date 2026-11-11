@@ -974,6 +974,7 @@ def build_all():
                 related_cards_html.append(r_card)
 
             home_url = "/" if lang in ("es", "de") else f"/{lang}/"
+            camaras_hub_url = f"/{lang}/camaras/" if lang != "es" else "/camaras/"
             back_text = {
                 "es": "Volver a Cámaras", "fr": "Retour aux caméras", "en": "Back to Cameras", "it": "Torna alle telecamere", "de": "Zurück zu Kameras"
             }.get(lang, "Volver")
@@ -993,7 +994,7 @@ def build_all():
   <nav class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100 border border-slate-200/80 text-xs font-semibold text-slate-600 mb-6 flex-wrap" aria-label="Breadcrumb">
     <a href="{home_url}" class="hover:text-[#f2920b] transition">Home</a>
     <i data-lucide="chevron-right" class="w-3.5 h-3.5 text-slate-400"></i>
-    <a href="../" class="hover:text-[#f2920b] transition">{back_text}</a>
+    <a href="{camaras_hub_url}" class="hover:text-[#f2920b] transition">{back_text}</a>
     <i data-lucide="chevron-right" class="w-3.5 h-3.5 text-slate-400"></i>
     <span class="text-slate-900 font-bold truncate max-w-[240px] sm:max-w-none">{html.escape(title)}</span>
   </nav>
