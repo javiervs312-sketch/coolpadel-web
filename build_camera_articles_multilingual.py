@@ -633,7 +633,7 @@ def build_all():
             ]
             next_step_title = "Siguiente paso:"
             next_step_p1 = "Si todavía no lo ves claro, te dejo arriba más artículos sobre cámaras que te ayudarán."
-            next_step_p2 = "Si tienes alguna pregunta y quieres que te enseñe bien cómo funciona todo, busca tu hueco para la demo."
+            next_step_p2 = "Si tienes alguna pregunta y quieres que te enseñe bien cómo funciona todo, escríbeme directamente y lo vemos."
             read_article_btn = "Leer artículo"
             related_heading = "Artículos recomendados"
             videos_data = {
@@ -760,10 +760,28 @@ def build_all():
   </section>''')
 
         body_sections_html = "\n\n".join(sections_parts)
+        if lang == "es":
+            hero_btn_html = '''    <div class="mt-5 flex justify-center">
+      <a href="https://wa.me/34680317486?text=Hola%20Javier%2C%20quiero%20informaci%C3%B3n%20sobre%20las%20c%C3%A1maras%20de%20p%C3%A1del%20para%20mi%20club" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2.5 px-6 py-3 rounded-full bg-[#25D366] hover:bg-[#20ba59] text-white font-heading font-black text-xs uppercase tracking-wider transition-all duration-300 shadow-md hover:scale-105 active:scale-95 group">
+        <i data-lucide="message-circle" class="w-4 h-4 stroke-[2.5]"></i>
+        <span>Contactar por WhatsApp</span>
+      </a>
+    </div>'''
+            next_step_action_html = '''    <div class="mt-4 flex justify-center">
+      <a href="https://wa.me/34680317486?text=Hola%20Javier%2C%20quiero%20informaci%C3%B3n%20sobre%20las%20c%C3%A1maras%20de%20p%C3%A1del%20para%20mi%20club" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2.5 px-8 py-3.5 rounded-full bg-[#25D366] hover:bg-[#20ba59] text-white font-heading font-black text-sm uppercase tracking-wider transition-all duration-300 shadow-md hover:scale-105 active:scale-95 group">
+        <i data-lucide="message-circle" class="w-5 h-5 stroke-[2.5]"></i>
+        <span>Contactar por WhatsApp</span>
+      </a>
+    </div>'''
+        else:
+            hero_btn_html = ''
+            next_step_action_html = f'    <div class="calendly-wrapper"><div class="calendly-inline-widget" data-url="https://calendly.com/javier-vs-312/demo-save-my-play?locale={calendly_locale}&hide_landing_page_details=1&hide_gdpr_banner=1&hide_event_type_details=1&primary_color=f2920b"></div></div>'
+
         hub_content = f'''<main class="max-w-[1216px] mx-auto px-4 sm:px-6 lg:px-8 pt-2 sm:pt-3 pb-8 sm:pb-12">
   <section class="hub-hero">
     <h1 class="hub-title">{html.escape(hub_title)}</h1>
     <p class="hub-eyebrow">{html.escape(hub_eyebrow)}</p>
+{hero_btn_html}
   </section>
 
 {body_sections_html}
@@ -772,7 +790,7 @@ def build_all():
     <h2>{html.escape(next_step_title)}</h2>
     <p>{html.escape(next_step_p1)}</p>
     <p>{html.escape(next_step_p2)}</p>
-    <div class="calendly-wrapper"><div class="calendly-inline-widget" data-url="https://calendly.com/javier-vs-312/demo-save-my-play?locale={calendly_locale}&hide_landing_page_details=1&hide_gdpr_banner=1&hide_event_type_details=1&primary_color=f2920b"></div></div>
+{next_step_action_html}
   </section>
 </main>'''
 
