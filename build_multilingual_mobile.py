@@ -5845,6 +5845,11 @@ def build_all():
     try:
         from build_camera_articles_multilingual import build_all as build_all_cameras
         build_all_cameras()
+        try:
+            import build_new_clusters_articles
+            build_new_clusters_articles.build_all_new_articles()
+        except Exception as e_clust:
+            pass
     except Exception as e:
         print(f"  [ERROR] Al generar Hub y Artículos de Cámaras Multilingüe: {e}")
 

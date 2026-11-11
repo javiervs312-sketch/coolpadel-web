@@ -978,6 +978,16 @@ def build_all():
                 "es": "Volver a Cámaras", "fr": "Retour aux caméras", "en": "Back to Cameras", "it": "Torna alle telecamere", "de": "Zurück zu Kameras"
             }.get(lang, "Volver")
 
+            if lang == "es":
+                article_cta_html = '''    <div class="mt-4 flex justify-center">
+      <a href="https://wa.me/34680317486?text=Hola%20Javier%2C%20quiero%20informaci%C3%B3n%20sobre%20las%20c%C3%A1maras%20de%20p%C3%A1del%20para%20mi%20club" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2.5 px-8 py-3.5 rounded-full bg-[#25D366] hover:bg-[#20ba59] text-white font-heading font-black text-sm uppercase tracking-wider transition-all duration-300 shadow-md hover:scale-105 active:scale-95 group">
+        <i data-lucide="message-circle" class="w-5 h-5 stroke-[2.5]"></i>
+        <span>Contactar por WhatsApp</span>
+      </a>
+    </div>'''
+            else:
+                article_cta_html = f'    <div class="calendly-wrapper"><div class="calendly-inline-widget" data-url="https://calendly.com/javier-vs-312/demo-save-my-play?locale={calendly_locale}&hide_landing_page_details=1&hide_gdpr_banner=1&hide_event_type_details=1&primary_color=f2920b"></div></div>'
+
             article_page_content = f'''<main class="article-container">
   <!-- BREADCRUMB VISUAL -->
   <nav class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100 border border-slate-200/80 text-xs font-semibold text-slate-600 mb-6 flex-wrap" aria-label="Breadcrumb">
@@ -1000,7 +1010,7 @@ def build_all():
   <div class="cta-box">
     <h2>{html.escape(next_step_title)}</h2>
     <p>{html.escape(next_step_p2)}</p>
-    <div class="calendly-wrapper"><div class="calendly-inline-widget" data-url="https://calendly.com/javier-vs-312/demo-save-my-play?locale={calendly_locale}&hide_landing_page_details=1&hide_gdpr_banner=1&hide_event_type_details=1&primary_color=f2920b"></div></div>
+{article_cta_html}
   </div>
 
   <div class="related-section">
