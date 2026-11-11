@@ -5860,19 +5860,26 @@ def build_all():
     except Exception as e:
         print(f"  [ERROR] Al generar Landings Geo-Locales: {e}")
 
-
-    try:
-        from seo_post_build import run_seo_post_build
-        run_seo_post_build()
-    except Exception as e:
-        print(f"  [ERROR] En SEO post build: {e}")
-
+    # 2.10. 50 Landings de Países y 250 Landings de Ciudades (ANTES de seo_post_build para inyectar GA4 y Clarity)
     try:
         import build_paises_camaras_v2
         build_paises_camaras_v2.build_all()
         print("  [OK] 50 Landings de Países generadas y sincronizadas con éxito.")
     except Exception as e:
         print(f"  [ERROR] Al generar Landings de Países: {e}")
+
+    try:
+        import build_ciudades_camaras
+        build_ciudades_camaras.build_all_cities()
+        print("  [OK] 250 Landings de Ciudades generadas y sincronizadas con éxito.")
+    except Exception as e:
+        print(f"  [ERROR] Al generar Landings de Ciudades: {e}")
+
+    try:
+        from seo_post_build import run_seo_post_build
+        run_seo_post_build()
+    except Exception as e:
+        print(f"  [ERROR] En SEO post build: {e}")
 
     try:
         from generate_master_sitemap import generate_sitemap

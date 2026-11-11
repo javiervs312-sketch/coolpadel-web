@@ -78,11 +78,34 @@ def generate_city_page(country_item, city, slug_country_used, canonical_country_
     wa_url = f"https://api.whatsapp.com/send?phone=34680317486&text={encoded_wa}"
     target_country = canonical_country_slug if canonical_country_slug else slug_country_used
     canonical_url = f"https://coolpadelstudios.com/camaras/{target_country}/{city_slug}/"
-    country_url = f"https://coolpadelstudios.com/camaras/{slug_country_used}/"
+    country_url = f"/camaras/{target_country}/"
 
     is_es = (lang == "es")
     nav_prefix = "/" if is_es else "/en/"
     dir_attr = ' dir="rtl"' if lang == "ar" else ''
+
+    sibling_cities = [c for c in CITIES_50.get(country_item["slug"], []) if c["slug"] != city_slug]
+    sibling_pills_html = ""
+    if sibling_cities:
+        pills = [
+            f'<a href="{country_url}" class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-slate-100 hover:bg-[#f2920b] text-slate-800 hover:text-slate-950 border border-slate-200 font-heading font-bold text-[11px] uppercase tracking-wider transition">'
+            f'<span>{country_display}</span>'
+            f'</a>'
+        ]
+        for s_city in sibling_cities:
+            s_url = f"/camaras/{target_country}/{s_city['slug']}/"
+            pills.append(
+                f'<a href="{s_url}" class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-white hover:bg-[#f2920b] text-slate-700 hover:text-slate-950 border border-slate-200 hover:border-[#f2920b] font-heading font-bold text-[11px] uppercase tracking-wider transition shadow-2xs">'
+                f'<i data-lucide="map-pin" class="w-3 h-3 text-[#f2920b]"></i>'
+                f'<span>{s_city["name"]}</span>'
+                f'</a>'
+            )
+        sibling_pills_html = f'<div class="pt-2 flex flex-wrap items-center gap-1.5">{"".join(pills)}</div>'
+
+    sibling_footer_links = "\n".join(
+        f'            <li><a href="/camaras/{target_country}/{s_city["slug"]}/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Save My Play {s_city["name"]}</a></li>'
+        for s_city in sibling_cities[:4]
+    )
 
     html = f"""<!DOCTYPE html>
 <html lang="{lang}"{dir_attr} class="scroll-smooth">
@@ -237,6 +260,7 @@ def generate_city_page(country_item, city, slug_country_used, canonical_country_
                 <i data-lucide="arrow-down" class="w-4 h-4 text-slate-500"></i>
               </a>
             </div>
+            {sibling_pills_html}
           </div>
 
           <div class="lg:col-span-5">
@@ -628,12 +652,11 @@ def generate_city_page(country_item, city, slug_country_used, canonical_country_
         </div>
 
         <div class="space-y-3">
-          <div class="font-heading font-black text-sm uppercase tracking-wider text-white">{t["footer_corp"]}</div>
+          <div class="font-heading font-black text-sm uppercase tracking-wider text-white">{country_display} &amp; {t["footer_corp"]}</div>
           <ul class="space-y-2 text-white/80 font-normal">
-            <li><a href="{nav_prefix}contacto/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Contacto y Presupuestos</a></li>
+{sibling_footer_links}
             <li><a href="{nav_prefix}blog/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Blog Oficial</a></li>
-            <li><a href="{nav_prefix}manual-marca.html" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Manual de Marca</a></li>
-            <li><a href="{nav_prefix}politica-de-devoluciones.html" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Términos y Privacidad</a></li>
+            <li><a href="/politica-de-devoluciones.html" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Política de Devoluciones</a></li>
           </ul>
         </div>
       </nav>

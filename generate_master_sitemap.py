@@ -239,6 +239,39 @@ def generate_sitemap():
     except Exception as e:
         print(f"Error adding country landings to sitemap: {e}")
 
+    # 4d. 250 Landings Canónicas de Ciudades de Cámaras Save My Play (Top 5 por País bajo slug_local canónico)
+    try:
+        from paises_data_50 import COUNTRIES_50
+        from ciudades_data_250 import CITIES_50
+        country_map = {c["slug"]: c for c in COUNTRIES_50}
+        seen_city_paths = set()
+        for country_slug, cities in CITIES_50.items():
+            c_item = country_map.get(country_slug)
+            if not c_item:
+                continue
+            s_local = c_item.get("slug_local") or c_item.get("slug")
+            for city in cities:
+                c_path = f"/camaras/{s_local}/{city['slug']}/"
+                if c_path not in seen_city_paths:
+                    seen_city_paths.add(c_path)
+                    all_blocks.append(get_single_xml(c_path, priority="0.90", changefreq="weekly"))
+        print(f"Added {len(seen_city_paths)} canonical city slugs to sitemap (0 duplicate alternates).")
+    except Exception as e:
+        print(f"Error adding city landings to sitemap: {e}")
+
+    # 4e. 8 Nuevos Artículos Estratégicos de Clústeres de Cámaras (/camaras/{slug}/)
+    try:
+        from new_clusters_articles_data import NEW_ARTICLES_CONTENT
+        seen_cluster_arts = set()
+        for art_slug in NEW_ARTICLES_CONTENT.keys():
+            a_path = f"/camaras/{art_slug}/"
+            if a_path not in seen_cluster_arts:
+                seen_cluster_arts.add(a_path)
+                all_blocks.append(get_single_xml(a_path, priority="0.88", changefreq="weekly"))
+        print(f"Added {len(seen_cluster_arts)} strategic camera cluster articles to sitemap.")
+    except Exception as e:
+        print(f"Error adding strategic camera cluster articles to sitemap: {e}")
+
     for path, prio in GEO_LOCAL_LANDINGS:
         all_blocks.append(get_single_xml(path, priority=prio, changefreq="weekly"))
 
@@ -327,7 +360,8 @@ def generate_sitemap():
             changefreq="monthly"
         ))
 
-    # 12. Páginas estáticas secundarias
+    # 12. Páginas estáticas secundarias y base de conocimiento GEO
+    all_blocks.append(get_single_xml("/llm-knowledge.html", priority="0.70", changefreq="monthly"))
     all_blocks.append(get_single_xml("/politica-de-devoluciones.html", priority="0.30", changefreq="yearly"))
 
     xml_content = f"""<?xml version="1.0" encoding="UTF-8"?>

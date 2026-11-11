@@ -4,12 +4,14 @@ Compilador Maestro de los Nuevos Artículos de Cámaras (Clústeres A, C e Integ
 Genera páginas bajo /camaras/{slug}/ y enlaza con el hub canónico.
 """
 
+import json
 import os
 import re
 import sys
 
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 from new_clusters_articles_data import NEW_ARTICLES_CONTENT
+from build_blog import get_silo_footer_html
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
 SAMPLE_ARTICLE_PATH = os.path.join(ROOT, 'camaras', 'articulos', 'cuanto-cuesta-poner-camaras', 'index.html')
@@ -44,12 +46,67 @@ def build_article_page(art):
     h = re.sub(r'<meta name="twitter:description" content=".*?">', f'<meta name="twitter:description" content="{meta_desc}">', h)
     h = re.sub(r'<meta name="twitter:image" content=".*?">', f'<meta name="twitter:image" content="https://coolpadelstudios.com{hero_img}">', h)
     
-    # Adaptar Schema JSON-LD
-    h = re.sub(r'"headline":\s*".*?"', f'"headline": "{meta_title}"', h)
-    h = re.sub(r'"alternativeHeadline":\s*".*?"', f'"alternativeHeadline": "{title}"', h)
-    h = re.sub(r'"image":\s*\[".*?"\]', f'"image": ["https://coolpadelstudios.com{hero_img}"]', h)
-    h = re.sub(r'"mainEntityOfPage":\s*".*?"', f'"mainEntityOfPage": "{canonical_url}"', h)
-    h = re.sub(r'"@id":\s*".*?#breadcrumb"', f'"@id": "{canonical_url}#breadcrumb"', h)
+    # Adaptar Schema JSON-LD completo sin residuos de plantilla
+    clean_intro = re.sub(r'<[^>]+>', '', art["intro_p"]).strip()
+    schema_obj = {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "Article",
+                "headline": meta_title,
+                "alternativeHeadline": title,
+                "description": meta_desc,
+                "image": [f"https://coolpadelstudios.com{hero_img}"],
+                "datePublished": "2026-10-15T09:00:00+02:00",
+                "dateModified": "2026-11-11T09:00:00+01:00",
+                "mainEntityOfPage": canonical_url,
+                "inLanguage": "es",
+                "speakable": {
+                    "@type": "SpeakableSpecification",
+                    "cssSelector": [".article-title", ".article-body p:first-of-type"]
+                },
+                "author": {
+                    "@type": "Person",
+                    "name": "Javier Villoria",
+                    "jobTitle": "Founder & B2B Director",
+                    "url": "https://www.linkedin.com/in/javier-villoria-soleto-606737298/"
+                },
+                "publisher": {
+                    "@type": "Organization",
+                    "name": "CoolPadel Studios",
+                    "url": "https://coolpadelstudios.com",
+                    "logo": "https://coolpadelstudios.com/assets/images/coolpadel-mascot-hd.png",
+                    "sameAs": [
+                        "https://www.instagram.com/coolpadel_/",
+                        "https://www.linkedin.com/in/javier-villoria-soleto-606737298/",
+                        "https://maps.google.com/?cid=5000443597205028051"
+                    ]
+                }
+            },
+            {
+                "@type": "BreadcrumbList",
+                "@id": f"{canonical_url}#breadcrumb",
+                "itemListElement": [
+                    {"@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://coolpadelstudios.com/"},
+                    {"@type": "ListItem", "position": 2, "name": "Cámaras", "item": "https://coolpadelstudios.com/camaras/"},
+                    {"@type": "ListItem", "position": 3, "name": title, "item": canonical_url}
+                ]
+            },
+            {
+                "@type": "FAQPage",
+                "mainEntity": [{
+                    "@type": "Question",
+                    "name": h1,
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": f"{meta_desc} {clean_intro}"
+                    }
+                }]
+            }
+        ]
+    }
+    schema_script = f'<script type="application/ld+json">\n{json.dumps(schema_obj, ensure_ascii=False, indent=2)}\n</script>'
+    h = re.sub(r'<script type="application/ld\+json">.*?</script>', lambda _: schema_script, h, count=1, flags=re.DOTALL)
     
     # Alternates canónicos en otros idiomas hacia el hub
     h = re.sub(r'<link rel="alternate" hreflang="es".*?>', f'<link rel="alternate" hreflang="es" href="{canonical_url}">', h)
@@ -68,6 +125,23 @@ def build_article_page(art):
 
     # Cuerpo del artículo
     body_blocks_html = "\n".join(art["blocks"])
+
+    # Artículos recomendados rotativos entre los 8 clústeres y artículos core
+    all_cluster_items = list(NEW_ARTICLES_CONTENT.values())
+    other_clusters = [item for item in all_cluster_items if item["slug"] != slug]
+    idx_self = next((idx for idx, item in enumerate(all_cluster_items) if item["slug"] == slug), 0)
+    picked = [
+        other_clusters[idx_self % len(other_clusters)],
+        other_clusters[(idx_self + 2) % len(other_clusters)],
+        other_clusters[(idx_self + 4) % len(other_clusters)],
+    ]
+    related_cards = "\n".join(
+        f'''      <a href="../{p["slug"]}/" class="related-card">
+        <img src="{p["hero_img"]}" alt="{p["title"]}" loading="lazy">
+        <p class="related-card-title">{p["title"]}</p>
+      </a>'''
+        for p in picked
+    )
 
     main_html = f"""<main class="article-container">
   <!-- BREADCRUMB VISUAL -->
@@ -105,24 +179,14 @@ def build_article_page(art):
   <div class="related-section">
     <h2 class="related-title">Artículos recomendados</h2>
     <div class="related-grid">
-      <a href="../save-my-play-vs-camaras-vigilancia/" class="related-card">
-        <img src="/assets/images/camaras/camera-05.jpg" alt="Cámaras de Pádel vs Videovigilancia CCTV" loading="lazy">
-        <p class="related-card-title">Cámaras de Pádel vs Videovigilancia CCTV</p>
-      </a>
-      <a href="../cuanto-cuesta-poner-camaras-pistas-padel/" class="related-card">
-        <img src="/assets/images/camaras/pista-moqueta-negra-indoor.png" alt="¿Cuánto Cuesta Poner Cámaras de Pádel?" loading="lazy">
-        <p class="related-card-title">¿Cuánto Cuesta y Qué ROI Tienen las Cámaras?</p>
-      </a>
-      <a href="../save-my-play-vs-sistemas-con-obras/" class="related-card">
-        <img src="/assets/images/camaras/camara-instalada-reja-4m-crop.jpg" alt="Instalación Sin Obras en 5 Minutos" loading="lazy">
-        <p class="related-card-title">Sistemas Sin Obras vs Instalaciones Tradicionales</p>
-      </a>
+{related_cards}
     </div>
   </div>
 </main>"""
 
-    # Footer
-    f_html = orig_footer
+    # Footer actualizado desde get_silo_footer_html
+    footer_Html = get_silo_footer_html(root_prefix="/")
+    f_html = re.sub(r'<footer.*?</footer>', lambda _: footer_Html.strip(), orig_footer, count=1, flags=re.DOTALL)
 
     return f"{h}\n{main_html}\n{f_html}"
 

@@ -189,6 +189,15 @@ COMMON_TRACKING_JS = f"""
 """
 
 def get_silo_footer_html(root_prefix="../../"):
+    try:
+        from paises_data_50 import COUNTRIES_50
+        country_pills = " · ".join(
+            f'<a href="/camaras/{c["slug_local"]}/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">{c["country_local"]}</a>'
+            for c in COUNTRIES_50
+        )
+    except Exception:
+        country_pills = '<a href="/camaras/espana/" class="hover:text-white underline">España</a> · <a href="/camaras/italia/" class="hover:text-white underline">Italia</a> · <a href="/camaras/france/" class="hover:text-white underline">France</a> · <a href="/camaras/sverige/" class="hover:text-white underline">Sverige</a> · <a href="/camaras/united-states/" class="hover:text-white underline">United States</a> · <a href="/camaras/united-kingdom/" class="hover:text-white underline">United Kingdom</a>'
+
     return f"""
   <!-- FOOTER INFERIOR (COLOR CELESTE LLAVEROS #3478a6 CON TEXTURA CANVA: BRANDING COOLPADEL, SILOS TEMÁTICOS SEO Y COPYRIGHT) -->
   <footer class="bg-[#3478a6] bg-textured-blue text-white pt-14 pb-10 border-t border-sky-700/40 text-xs">
@@ -216,8 +225,8 @@ def get_silo_footer_html(root_prefix="../../"):
             <li><a href="/llaveros-tenis-personalizados/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Llaveros de Tenis y Pickleball</a></li>
             <li><a href="/welcome-packs-torneos-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Welcome Packs para Torneos</a></li>
             <li><a href="/llaveros-personalizados-clubs-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Merchandising para Clubs</a></li>
-            <li><a href="/save-my-play/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition font-bold text-amber-300">Save my Play España (+1.500)</a></li>
-            <li><a href="/camaras/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition font-bold text-[#f2920b]">Hub de Cámaras para Clubs (20 Guías)</a></li>
+            <li><a href="/save-my-play/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition font-bold text-amber-300">Save my Play España (+1.600)</a></li>
+            <li><a href="/camaras/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition font-bold text-[#f2920b]">Hub de Cámaras para Clubs (28 Guías)</a></li>
             <li><a href="/camaras/articulos/cuanto-cuesta-poner-camaras/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Cuánto Cuesta Poner Cámaras</a></li>
             <li><a href="/camaras/articulos/errores-clubs-se-arrepienten-de-poner-camaras/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">3 Errores al Instalar Cámaras</a></li>
             <li><a href="/camaras/articulos/mejores-empresas-camaras-padel-espana/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Mejores Empresas Cámaras Pádel</a></li>
@@ -234,8 +243,14 @@ def get_silo_footer_html(root_prefix="../../"):
             <li><a href="/camaras-padel-playtomic/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Integración con Playtomic</a></li>
             <li><a href="/camaras-padel-matchi/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Compatibilidad Matchi</a></li>
             <li><a href="/camaras-padel-resasports/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Conexión Resasports &amp; Syltek</a></li>
-            <li><a href="/blog/smart-courts-pistas-inteligentes-padel-horas-valle/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Smart Courts y Domótica</a></li>
-            <li><a href="/blog/retransmitir-torneos-padel-streaming-youtube-camaras/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Streaming en Directo YouTube</a></li>
+            <li><a href="/camaras/camaras-padel-playtomic-matchi-padelmates/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Playtomic, Matchi y Padel Mates</a></li>
+            <li><a href="/camaras/save-my-play-vs-camaras-vigilancia/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Cámaras Pádel vs Videovigilancia</a></li>
+            <li><a href="/camaras/save-my-play-vs-sistemas-con-obras/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Cámaras Sin Obras vs Cableado</a></li>
+            <li><a href="/camaras/cuanto-cuesta-poner-camaras-pistas-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Tarifas y ROI Cámaras Pádel</a></li>
+            <li><a href="/camaras/camaras-para-clubes-indoor-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Cámaras Clubes Pádel Indoor</a></li>
+            <li><a href="/camaras/camaras-para-pistas-outdoor-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Cámaras Pistas Pádel Outdoor</a></li>
+            <li><a href="/camaras/camaras-padel-urbanizaciones-comunidades/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Cámaras Urbanizaciones y Vecinos</a></li>
+            <li><a href="/camaras/camaras-retransmision-torneos-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Streaming Torneos Pádel Directo</a></li>
           </ul>
         </div>
 
@@ -251,10 +266,10 @@ def get_silo_footer_html(root_prefix="../../"):
             <li><a href="/herramientas/calculadora-coste-pistas-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Calculadora Coste Pistas</a></li>
             <li><a href="/herramientas/calculadora-roi-camaras-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Calculadora ROI Cámaras</a></li>
             <li><a href="/franquicias-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Directorio Franquicias (+167)</a></li>
-            <li><a href="/camaras-padel-madrid/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Clubes Pádel Madrid</a></li>
-            <li><a href="/camaras-padel-barcelona/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Clubes Pádel Barcelona</a></li>
-            <li><a href="/camaras-padel-valencia/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Clubes Pádel Valencia</a></li>
-            <li><a href="/camaras-padel-malaga/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Clubes Pádel Málaga</a></li>
+            <li><a href="/camaras/espana/madrid/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Cámaras Pádel Madrid</a></li>
+            <li><a href="/camaras/espana/barcelona/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Cámaras Pádel Barcelona</a></li>
+            <li><a href="/camaras/espana/valencia/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Cámaras Pádel Valencia</a></li>
+            <li><a href="/camaras/espana/malaga/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Cámaras Pádel Málaga</a></li>
           </ul>
         </div>
 
@@ -272,10 +287,22 @@ def get_silo_footer_html(root_prefix="../../"):
             <li><a href="/blog/rentabilidad-camaras-pistas-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Precios y ROI de Cámaras</a></li>
             <li><a href="/blog/sistemas-grabacion-pistas-padel-comparativa/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Cámaras Fijas vs Trípodes (RGPD)</a></li>
             <li><a href="/blog/welcome-pack-torneo-padel-ideas/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Ideas de Welcome Pack</a></li>
+            <li><a href="/blog/smart-courts-pistas-inteligentes-padel-horas-valle/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Smart Courts y Domótica</a></li>
+            <li><a href="/blog/retransmitir-torneos-padel-streaming-youtube-camaras/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Streaming en Directo YouTube</a></li>
           </ul>
         </div>
 
       </nav>
+
+      <!-- DIRECTORIO INTERNACIONAL 50 PAÍSES SAVE MY PLAY -->
+      <div class="pt-6 border-t border-white/15 text-left space-y-2">
+        <div class="font-heading font-black text-[11px] uppercase tracking-wider text-white/90">
+          Save My Play · Cobertura Internacional (50 Países &amp; +250 Ciudades):
+        </div>
+        <p class="text-[11px] text-white/75 leading-relaxed font-normal">
+          {country_pills}
+        </p>
+      </div>
 
       <!-- BOTTOM: COPYRIGHT Y ENLACES LEGALES -->
       <div class="pt-8 border-t border-white/20 flex flex-col sm:flex-row items-center justify-between gap-3 text-white/75 text-center sm:text-left">

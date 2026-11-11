@@ -23,6 +23,7 @@ import os
 import re
 import urllib.parse
 from paises_data_50 import COUNTRIES_50
+from ciudades_data_250 import CITIES_50
 from country_i18n_native_all import NATIVE_TRANSLATIONS_21
 from country_i18n_native_part2 import REMAINING_13_LANGS
 
@@ -54,6 +55,25 @@ def generate_country_page(item, slug_to_use, canonical_slug=None):
     
     is_es = (lang == "es")
     nav_prefix = "/" if is_es else "/en/"
+    
+    cities_for_country = CITIES_50.get(item["slug"], [])
+    city_pills_html = ""
+    if cities_for_country:
+        pills = []
+        for c_obj in cities_for_country:
+            c_url = f"/camaras/{target_slug}/{c_obj['slug']}/"
+            pills.append(
+                f'<a href="{c_url}" class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-white hover:bg-[#f2920b] text-slate-700 hover:text-slate-950 border border-slate-200 hover:border-[#f2920b] font-heading font-bold text-[11px] uppercase tracking-wider transition shadow-2xs">'
+                f'<i data-lucide="map-pin" class="w-3 h-3 text-[#f2920b] group-hover:text-slate-950"></i>'
+                f'<span>{c_obj["name"]}</span>'
+                f'</a>'
+            )
+        city_pills_html = f'<div class="pt-2 flex flex-wrap items-center gap-1.5">{"".join(pills)}</div>'
+    
+    city_footer_links = "\n".join(
+        f'            <li><a href="/camaras/{target_slug}/{c_obj["slug"]}/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Save My Play {c_obj["name"]}</a></li>'
+        for c_obj in cities_for_country[:4]
+    )
     
     # HTML dir for Arabic
     dir_attr = ' dir="rtl"' if lang == "ar" else ''
@@ -172,7 +192,7 @@ def generate_country_page(item, slug_to_use, canonical_slug=None):
         <nav aria-label="Breadcrumb" class="flex items-center gap-2 text-xs font-bold text-slate-500 mb-6 uppercase tracking-wider">
           <a href="{nav_prefix}" class="hover:text-slate-900 transition">{t["nav_home"]}</a>
           <span>/</span>
-          <span class="hover:text-slate-900 transition">{t["nav_camaras"]}</span>
+          <a href="{nav_prefix}camaras/" class="hover:text-slate-900 transition">{t["nav_camaras"]}</a>
           <span>/</span>
           <span class="text-[#f2920b] font-black">{country_display} ({item['courts']} {t.get('nav_courts', 'Courts') if lang != 'es' else 'Pistas'})</span>
         </nav>
@@ -205,6 +225,7 @@ def generate_country_page(item, slug_to_use, canonical_slug=None):
                 <i data-lucide="arrow-down" class="w-4 h-4 text-slate-500"></i>
               </a>
             </div>
+            {city_pills_html}
           </div>
 
           <div class="lg:col-span-5">
@@ -560,7 +581,8 @@ def generate_country_page(item, slug_to_use, canonical_slug=None):
         <div class="space-y-3">
           <div class="font-heading font-black text-sm uppercase tracking-wider text-white">{t["footer_tech"]}</div>
           <ul class="space-y-2 text-white/80 font-normal">
-            <li><a href="/camaras-grabacion-pistas-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Cámaras Inteligentes Pádel</a></li>
+            <li><a href="{nav_prefix}camaras/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition font-bold text-[#f2920b]">Hub Cámaras Save My Play</a></li>
+            <li><a href="{nav_prefix}camaras-grabacion-pistas-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Cámaras Inteligentes Pádel</a></li>
             <li><a href="{nav_prefix}save-my-play/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Save My Play Clubes</a></li>
             <li><a href="{nav_prefix}camaras-padel-playtomic/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Integración Playtomic</a></li>
             <li><a href="{nav_prefix}camaras-padel-matchi/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Integración MATCHi</a></li>
@@ -578,12 +600,12 @@ def generate_country_page(item, slug_to_use, canonical_slug=None):
         </div>
 
         <div class="space-y-3">
-          <div class="font-heading font-black text-sm uppercase tracking-wider text-white">{t["footer_corp"]}</div>
+          <div class="font-heading font-black text-sm uppercase tracking-wider text-white">{country_display} &amp; {t["footer_corp"]}</div>
           <ul class="space-y-2 text-white/80 font-normal">
-            <li><a href="{nav_prefix}blog/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Blog & Tendencias</a></li>
+{city_footer_links}
+            <li><a href="{nav_prefix}blog/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Blog &amp; Tendencias</a></li>
             <li><a href="{nav_prefix}franquicias-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Directorio Franquicias</a></li>
-            <li><a href="{nav_prefix}privacidad.html" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Política de Privacidad</a></li>
-            <li><a href="{nav_prefix}aviso-legal.html" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Aviso Legal</a></li>
+            <li><a href="/politica-de-devoluciones.html" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Política de Devoluciones</a></li>
           </ul>
         </div>
       </nav>
