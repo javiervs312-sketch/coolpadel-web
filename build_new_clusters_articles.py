@@ -169,9 +169,10 @@ def build_article_page(art):
     <h2>Siguiente paso:</h2>
     <p>Si tienes alguna pregunta y quieres que te enseñe bien cómo funciona todo, escríbeme directamente y lo vemos.</p>
     <div class="mt-4 flex justify-center">
-      <a href="https://wa.me/34680317486?text=Hola%20Javier%2C%20%C2%BFpuedo%20agendar%20una%20demo%20para%20las%20c%C3%A1maras%20de%20mi%20club%3F" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2.5 px-8 py-3.5 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] text-slate-950 font-heading font-black text-sm uppercase tracking-wider transition-all duration-300 shadow-md hover:scale-105 active:scale-95 group">
-        <i data-lucide="message-circle" class="w-5 h-5 text-slate-950 stroke-[2.5]"></i>
+      <a href="https://wa.me/34680317486?text=Hola%20Javier%2C%20%C2%BFpuedo%20agendar%20una%20demo%20para%20las%20c%C3%A1maras%20de%20mi%20club%3F" target="_blank" rel="noopener noreferrer" style="gap: 8px;" class="inline-flex items-center justify-center gap-2.5 px-8 py-3.5 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] text-slate-950 font-heading font-black text-sm uppercase tracking-wider transition-all duration-300 shadow-md hover:scale-105 active:scale-95 group">
+        <i data-lucide="message-circle" style="width:18px;height:18px;flex-shrink:0;" class="w-5 h-5 text-slate-950 stroke-[2.5] shrink-0"></i>
         <span>¿Puedo agendar una demo?</span>
+        <svg width="16" height="16" style="width:16px;height:16px;flex-shrink:0;" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 shrink-0 group-hover:translate-x-0.5 transition-transform duration-300" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
       </a>
     </div>
   </div>

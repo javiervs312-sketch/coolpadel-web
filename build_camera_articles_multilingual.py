@@ -815,22 +815,34 @@ def build_all():
   </section>''')
 
         body_sections_html = "\n\n".join(sections_parts)
-        if lang == "es":
-            hero_btn_html = '''    <div class="mt-5 flex justify-center">
-      <a href="https://wa.me/34680317486?text=Hola%20Javier%2C%20%C2%BFpuedo%20agendar%20una%20demo%20para%20las%20c%C3%A1maras%20de%20mi%20club%3F" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2.5 px-6 py-3 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] text-slate-950 font-heading font-black text-xs uppercase tracking-wider transition-all duration-300 shadow-md hover:scale-105 active:scale-95 group">
-        <i data-lucide="message-circle" class="w-4 h-4 text-slate-950 stroke-[2.5]"></i>
-        <span>¿Puedo agendar una demo?</span>
+        demo_btn_label = {
+            "es": "¿Puedo agendar una demo?",
+            "en": "Can I schedule a demo?",
+            "fr": "Puis-je planifier une démo ?",
+            "it": "Posso prenotare una demo?",
+            "de": "Kann ich eine Demo vereinbaren?",
+        }.get(lang, "¿Puedo agendar una demo?")
+        demo_wa_url = {
+            "es": "https://wa.me/34680317486?text=Hola%20Javier%2C%20%C2%BFpuedo%20agendar%20una%20demo%20para%20las%20c%C3%A1maras%20de%20mi%20club%3F",
+            "en": "https://wa.me/34680317486?text=Hi%20Javier%2C%20can%20I%20schedule%20a%20demo%20for%20my%20club%27s%20cameras%3F",
+            "fr": "https://wa.me/34680317486?text=Bonjour%20Javier%2C%20puis-je%20planifier%20une%20d%C3%A9mo%20pour%20les%20cam%C3%A9ras%20de%20mon%20club%20%3F",
+            "it": "https://wa.me/34680317486?text=Ciao%20Javier%2C%20posso%20prenotare%20una%20demo%20per%20le%20telecamere%20del%20mio%20club%3F",
+            "de": "https://wa.me/34680317486?text=Hallo%20Javier%2C%20kann%20ich%20eine%20Demo%20f%C3%BCr%20die%20Kameras%20meines%20Clubs%20vereinbaren%3F",
+        }.get(lang, "https://wa.me/34680317486?text=Hola%20Javier%2C%20%C2%BFpuedo%20agendar%20una%20demo%20para%20las%20c%C3%A1maras%20de%20mi%20club%3F")
+        hero_btn_html = f'''    <div class="mt-5 flex justify-center">
+      <a href="{demo_wa_url}" target="_blank" rel="noopener noreferrer" style="gap: 8px;" class="inline-flex items-center justify-center gap-2.5 px-6 py-3 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] text-slate-950 font-heading font-black text-xs uppercase tracking-wider transition-all duration-300 shadow-md hover:scale-105 active:scale-95 group">
+        <i data-lucide="message-circle" style="width:16px;height:16px;flex-shrink:0;" class="w-4 h-4 text-slate-950 stroke-[2.5] shrink-0"></i>
+        <span>{demo_btn_label}</span>
+        <svg width="16" height="16" style="width:16px;height:16px;flex-shrink:0;" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 shrink-0 group-hover:translate-x-0.5 transition-transform duration-300" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
       </a>
     </div>'''
-            next_step_action_html = '''    <div class="mt-4 flex justify-center">
-      <a href="https://wa.me/34680317486?text=Hola%20Javier%2C%20%C2%BFpuedo%20agendar%20una%20demo%20para%20las%20c%C3%A1maras%20de%20mi%20club%3F" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2.5 px-8 py-3.5 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] text-slate-950 font-heading font-black text-sm uppercase tracking-wider transition-all duration-300 shadow-md hover:scale-105 active:scale-95 group">
-        <i data-lucide="message-circle" class="w-5 h-5 text-slate-950 stroke-[2.5]"></i>
-        <span>¿Puedo agendar una demo?</span>
+        next_step_action_html = f'''    <div class="mt-4 flex justify-center">
+      <a href="{demo_wa_url}" target="_blank" rel="noopener noreferrer" style="gap: 8px;" class="inline-flex items-center justify-center gap-2.5 px-8 py-3.5 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] text-slate-950 font-heading font-black text-sm uppercase tracking-wider transition-all duration-300 shadow-md hover:scale-105 active:scale-95 group">
+        <i data-lucide="message-circle" style="width:18px;height:18px;flex-shrink:0;" class="w-5 h-5 text-slate-950 stroke-[2.5] shrink-0"></i>
+        <span>{demo_btn_label}</span>
+        <svg width="16" height="16" style="width:16px;height:16px;flex-shrink:0;" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 shrink-0 group-hover:translate-x-0.5 transition-transform duration-300" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
       </a>
     </div>'''
-        else:
-            hero_btn_html = ''
-            next_step_action_html = f'    <div class="calendly-wrapper"><div class="calendly-inline-widget" data-url="https://calendly.com/javier-vs-312/demo-save-my-play?locale={calendly_locale}&hide_landing_page_details=1&hide_gdpr_banner=1&hide_event_type_details=1&primary_color=f2920b"></div></div>'
 
         hub_content = f'''<main class="max-w-[1216px] mx-auto px-4 sm:px-6 lg:px-8 pt-2 sm:pt-3 pb-8 sm:pb-12">
   <section class="hub-hero">
@@ -1034,15 +1046,13 @@ def build_all():
                 "es": "Volver a Cámaras", "fr": "Retour aux caméras", "en": "Back to Cameras", "it": "Torna alle telecamere", "de": "Zurück zu Kameras"
             }.get(lang, "Volver")
 
-            if lang == "es":
-                article_cta_html = '''    <div class="mt-4 flex justify-center">
-      <a href="https://wa.me/34680317486?text=Hola%20Javier%2C%20%C2%BFpuedo%20agendar%20una%20demo%20para%20las%20c%C3%A1maras%20de%20mi%20club%3F" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2.5 px-8 py-3.5 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] text-slate-950 font-heading font-black text-sm uppercase tracking-wider transition-all duration-300 shadow-md hover:scale-105 active:scale-95 group">
-        <i data-lucide="message-circle" class="w-5 h-5 text-slate-950 stroke-[2.5]"></i>
-        <span>¿Puedo agendar una demo?</span>
+            article_cta_html = f'''    <div class="mt-4 flex justify-center">
+      <a href="{demo_wa_url}" target="_blank" rel="noopener noreferrer" style="gap: 8px;" class="inline-flex items-center justify-center gap-2.5 px-8 py-3.5 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] text-slate-950 font-heading font-black text-sm uppercase tracking-wider transition-all duration-300 shadow-md hover:scale-105 active:scale-95 group">
+        <i data-lucide="message-circle" style="width:18px;height:18px;flex-shrink:0;" class="w-5 h-5 text-slate-950 stroke-[2.5] shrink-0"></i>
+        <span>{demo_btn_label}</span>
+        <svg width="16" height="16" style="width:16px;height:16px;flex-shrink:0;" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 shrink-0 group-hover:translate-x-0.5 transition-transform duration-300" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
       </a>
     </div>'''
-            else:
-                article_cta_html = f'    <div class="calendly-wrapper"><div class="calendly-inline-widget" data-url="https://calendly.com/javier-vs-312/demo-save-my-play?locale={calendly_locale}&hide_landing_page_details=1&hide_gdpr_banner=1&hide_event_type_details=1&primary_color=f2920b"></div></div>'
 
             article_page_content = f'''<main class="article-container">
   <!-- BREADCRUMB VISUAL -->
