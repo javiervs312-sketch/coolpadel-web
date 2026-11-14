@@ -1792,6 +1792,23 @@ def get_base_html(active_lang="es", is_subfolder=False):
       -webkit-tap-highlight-color: transparent;
 
     }}
+    /* Estilo e iluminacion interactiva analoga de WhatsApp (igual que Correo) */
+    #contact-wa-btn .wa-icon-box {
+      background-color: #ecfdf5 !important;
+      color: #4bbb81 !important;
+      transition: all 0.3s ease !important;
+    }
+    #contact-wa-btn:hover .wa-icon-box {
+      background-color: #4bbb81 !important;
+      color: #ffffff !important;
+      transform: scale(1.05) !important;
+    }
+    #contact-wa-btn .wa-phone-num {
+      color: #4bbb81 !important;
+    }
+    #contact-wa-btn:hover {
+      border-color: #4bbb81 !important;
+    }
   </style>
 
 </head>
@@ -2590,7 +2607,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
 
             <!-- Icono Circular WhatsApp -->
 
-            <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-emerald-50 text-[#4bbb81] flex items-center justify-center shadow-inner group-hover:scale-105 group-hover:bg-[#4bbb81] group-hover:text-white transition-all duration-300">
+            <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-xl wa-icon-box bg-emerald-50 text-[#4bbb81] flex items-center justify-center shadow-inner group-hover:scale-105 group-hover:bg-[#4bbb81] group-hover:text-white transition-all duration-300">
 
               <svg class="w-5 h-5 sm:w-6 sm:h-6 fill-current" viewBox="0 0 24 24">
 
@@ -2610,7 +2627,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
 
             
 
-            <p class="font-mono font-bold text-xs sm:text-sm text-[#4bbb81] tracking-wide">
+            <p class="font-mono font-bold text-xs sm:text-sm wa-phone-num tracking-wide">
 
               +34 680 31 74 86
 
