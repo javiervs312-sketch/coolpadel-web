@@ -2614,6 +2614,10 @@ def get_base_html(active_lang="es", is_subfolder=False):
 
 
 
+          </div>
+
+
+
           <!-- BOTÓN ACCIÓN WHATSAPP -->
 
           <div class="w-full pt-4 border-t border-slate-100 mt-4">
@@ -2661,6 +2665,10 @@ def get_base_html(active_lang="es", is_subfolder=False):
               javier@coolpadelstudios.com
 
             </p>
+
+
+
+          </div>
 
 
 
