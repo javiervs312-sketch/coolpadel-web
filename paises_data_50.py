@@ -19,7 +19,7 @@ COUNTRIES_50 = [
     {
         "rank": 3, "country_es": "Argentina", "country_local": "Argentina", "lang": "es",
         "courts": 7000, "curr_code": "ARS", "curr_symbol": "$", "slug": "argentina", "slug_local": "argentina",
-        "hw": "180 $", "rec": "45 $/mes", "ai": "136 $/mes"
+        "hw": "180 USD", "rec": "45 USD/mes", "ai": "136 USD/mes"
     },
     {
         "rank": 4, "country_es": "Suecia", "country_local": "Sverige", "lang": "sv",
@@ -39,12 +39,12 @@ COUNTRIES_50 = [
     {
         "rank": 7, "country_es": "México", "country_local": "México", "lang": "es",
         "courts": 2560, "curr_code": "MXN", "curr_symbol": "$", "slug": "mexico", "slug_local": "mexico",
-        "hw": "180 $", "rec": "45 $/mes", "ai": "136 $/mes"
+        "hw": "180 USD", "rec": "45 USD/mes", "ai": "136 USD/mes"
     },
     {
         "rank": 8, "country_es": "Chile", "country_local": "Chile", "lang": "es",
         "courts": 2300, "curr_code": "CLP", "curr_symbol": "$", "slug": "chile", "slug_local": "chile",
-        "hw": "180 $", "rec": "45 $/mes", "ai": "136 $/mes"
+        "hw": "180 USD", "rec": "45 USD/mes", "ai": "136 USD/mes"
     },
     {
         "rank": 9, "country_es": "Bélgica", "country_local": "Belgique", "lang": "fr",
@@ -54,7 +54,7 @@ COUNTRIES_50 = [
     {
         "rank": 10, "country_es": "Paraguay", "country_local": "Paraguay", "lang": "es",
         "courts": 2000, "curr_code": "PYG", "curr_symbol": "$", "slug": "paraguay", "slug_local": "paraguay",
-        "hw": "180 $", "rec": "45 $/mes", "ai": "136 $/mes"
+        "hw": "180 USD", "rec": "45 USD/mes", "ai": "136 USD/mes"
     },
     {
         "rank": 11, "country_es": "Dinamarca", "country_local": "Danmark", "lang": "da",
@@ -149,7 +149,7 @@ COUNTRIES_50 = [
     {
         "rank": 29, "country_es": "Colombia", "country_local": "Colombia", "lang": "es",
         "courts": 400, "curr_code": "COP", "curr_symbol": "$", "slug": "colombia", "slug_local": "colombia",
-        "hw": "180 $", "rec": "45 $/mes", "ai": "136 $/mes"
+        "hw": "180 USD", "rec": "45 USD/mes", "ai": "136 USD/mes"
     },
     {
         "rank": 30, "country_es": "Kuwait", "country_local": "الكويت", "lang": "ar",
@@ -189,32 +189,32 @@ COUNTRIES_50 = [
     {
         "rank": 37, "country_es": "Uruguay", "country_local": "Uruguay", "lang": "es",
         "courts": 250, "curr_code": "UYU", "curr_symbol": "$", "slug": "uruguay", "slug_local": "uruguay",
-        "hw": "180 $", "rec": "45 $/mes", "ai": "136 $/mes"
+        "hw": "180 USD", "rec": "45 USD/mes", "ai": "136 USD/mes"
     },
     {
         "rank": 38, "country_es": "Venezuela", "country_local": "Venezuela", "lang": "es",
         "courts": 220, "curr_code": "VES", "curr_symbol": "$", "slug": "venezuela", "slug_local": "venezuela",
-        "hw": "180 $", "rec": "45 $/mes", "ai": "136 $/mes"
+        "hw": "180 USD", "rec": "45 USD/mes", "ai": "136 USD/mes"
     },
     {
         "rank": 39, "country_es": "Costa Rica", "country_local": "Costa Rica", "lang": "es",
         "courts": 200, "curr_code": "CRC", "curr_symbol": "$", "slug": "costa-rica", "slug_local": "costa-rica",
-        "hw": "180 $", "rec": "45 $/mes", "ai": "136 $/mes"
+        "hw": "180 USD", "rec": "45 USD/mes", "ai": "136 USD/mes"
     },
     {
         "rank": 40, "country_es": "República Dominicana", "country_local": "República Dominicana", "lang": "es",
         "courts": 200, "curr_code": "DOP", "curr_symbol": "$", "slug": "republica-dominicana", "slug_local": "republica-dominicana",
-        "hw": "180 $", "rec": "45 $/mes", "ai": "136 $/mes"
+        "hw": "180 USD", "rec": "45 USD/mes", "ai": "136 USD/mes"
     },
     {
         "rank": 41, "country_es": "Panamá", "country_local": "Panamá", "lang": "es",
         "courts": 180, "curr_code": "PAB", "curr_symbol": "$", "slug": "panama", "slug_local": "panama",
-        "hw": "180 $", "rec": "45 $/mes", "ai": "136 $/mes"
+        "hw": "180 USD", "rec": "45 USD/mes", "ai": "136 USD/mes"
     },
     {
         "rank": 42, "country_es": "Ecuador", "country_local": "Ecuador", "lang": "es",
         "courts": 180, "curr_code": "USD", "curr_symbol": "$", "slug": "ecuador", "slug_local": "ecuador",
-        "hw": "180 $", "rec": "45 $/mes", "ai": "136 $/mes"
+        "hw": "180 USD", "rec": "45 USD/mes", "ai": "136 USD/mes"
     },
     {
         "rank": 43, "country_es": "Australia", "country_local": "Australia", "lang": "en",

@@ -9,6 +9,8 @@
   <link rel="alternate" hreflang="cs" href="https://coolpadelstudios.com/camaras/ceska-republika/brno/"/>
   <link rel="alternate" hreflang="x-default" href="https://coolpadelstudios.com/camaras/ceska-republika/brno/"/>
   <meta name="robots" content="index, follow">
+  <link rel="alternate" type="text/markdown" href="https://coolpadelstudios.com/llms.txt" title="LLMs.txt">
+  <link rel="alternate" type="text/plain" href="https://coolpadelstudios.com/llms-full.txt" title="LLMs Full Context">
 
   <!-- Open Graph / Social -->
   <meta property="og:type" content="product">
@@ -48,28 +50,104 @@
   <!-- Schema.org Microdata -->
   <script type="application/ld+json">
   {
-    "@context": "https://schema.org/",
-    "@type": ["Product", "Service"],
-    "name": "Save My Play - Brno (Česká republika)",
-    "description": "Kamery na padelové kurty v Brno, Česká republika: 4.500 Kč (180 €) hardware do vlastnictví, záznam od 1.130 Kč/měs (45 €) a AI statistiky za 3.400 Kč/měs (136 €). Objednejte si live ukázku.",
-    "image": ["https://coolpadelstudios.com/assets/images/savemyplay-1.jpg"],
-    "brand": {
-      "@type": "Brand",
-      "name": "Save My Play"
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": [
+        "Product",
+        "Service"
+      ],
+      "name": "Save My Play - Brno (Česká republika)",
+      "description": "Kamery na padelové kurty v Brno, Česká republika: 4.500 Kč (180 €) hardware do vlastnictví, záznam od 1.130 Kč/měs (45 €) a AI statistiky za 3.400 Kč/měs (136 €). Objednejte si live ukázku.",
+      "image": [
+        "https://coolpadelstudios.com/assets/images/savemyplay-1.jpg"
+      ],
+      "brand": {
+        "@type": "Brand",
+        "name": "Save My Play"
+      },
+      "areaServed": {
+        "@type": "City",
+        "name": "Brno"
+      },
+      "offers": {
+        "@type": "AggregateOffer",
+        "priceCurrency": "EUR",
+        "lowPrice": "45",
+        "highPrice": "180",
+        "offerCount": "2",
+        "availability": "https://schema.org/InStock"
+      }
     },
-    "areaServed": {
-      "@type": "City",
-      "name": "Brno"
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Domů",
+          "item": "https://coolpadelstudios.com/en/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Kamery",
+          "item": "https://coolpadelstudios.com/en/camaras/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Česká republika",
+          "item": "https://coolpadelstudios.com/camaras/ceska-republika/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "Brno",
+          "item": "https://coolpadelstudios.com/camaras/ceska-republika/brno/"
+        }
+      ]
     },
-    "offers": {
-      "@type": "AggregateOffer",
-      "priceCurrency": "CZK",
-      "lowPrice": "45",
-      "highPrice": "180",
-      "offerCount": "2",
-      "availability": "https://schema.org/InStock"
+    {
+      "@type": "FAQPage",
+      "@id": "https://coolpadelstudios.com/camaras/ceska-republika/brno/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Jsou vyžadovány stavební úpravy nebo výkopy pro kabely v zemi?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ne, žádné stavební práce. Kamera se během 5 minut připevní přímo na sloupek sítě."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Kolik to stojí a jaké jsou plány?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "4.500 Kč (180 €) za kameru do trvalého vlastnictví. Měsíční plány: 1.130 Kč/měs (45 €) za kurt pro záznam a streaming; nebo 3.400 Kč/měs (136 €) pro AI statistiky s herní analýzou."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Existuje nějaká minimální doba vázanosti?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Zcela bez závazků. Měsíčně flexibilně zrušitelné."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is there any long-term contract or lock-in?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Zero contract lock-in. Cancel or pause month-to-month without penalty."
+          }
+        }
+      ]
     }
-  }
+  ]
+}
   </script>
   <style>
     .bg-textured-blue {
@@ -476,7 +554,7 @@
               <span>Kolik to stojí a jaké jsou plány?</span>
               <span class="w-6 h-6 rounded-full bg-slate-100 text-slate-700 group-open:rotate-180 group-open:bg-[#f2920b] group-open:text-slate-950 flex items-center justify-center transition-transform text-xs shrink-0 ml-3">▼</span>
             </summary>
-            <p class="mt-3 text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">{hw} za kameru do trvalého vlastnictví. Měsíční plány: {rec} za kurt pro záznam a streaming; nebo {ai} pro AI statistiky s herní analýzou.</p>
+            <p class="mt-3 text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">4.500 Kč (180 €) za kameru do trvalého vlastnictví. Měsíční plány: 1.130 Kč/měs (45 €) za kurt pro záznam a streaming; nebo 3.400 Kč/měs (136 €) pro AI statistiky s herní analýzou.</p>
           </details>
 
           <details class="group bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/90 shadow-2xs transition hover:border-[#f2920b]">

@@ -9,6 +9,8 @@
   <link rel="alternate" hreflang="es" href="https://coolpadelstudios.com/camaras/espana/madrid/"/>
   <link rel="alternate" hreflang="x-default" href="https://coolpadelstudios.com/camaras/espana/madrid/"/>
   <meta name="robots" content="index, follow">
+  <link rel="alternate" type="text/markdown" href="https://coolpadelstudios.com/llms.txt" title="LLMs.txt">
+  <link rel="alternate" type="text/plain" href="https://coolpadelstudios.com/llms-full.txt" title="LLMs Full Context">
 
   <!-- Open Graph / Social -->
   <meta property="og:type" content="product">
@@ -48,28 +50,104 @@
   <!-- Schema.org Microdata -->
   <script type="application/ld+json">
   {
-    "@context": "https://schema.org/",
-    "@type": ["Product", "Service"],
-    "name": "Save My Play - Madrid (España)",
-    "description": "Cámaras Save My Play en Madrid (España): 180 € hardware en propiedad, grabación automática por 45 €/mes y estadísticas con IA por 136 €/mes. Solicita demo en directo.",
-    "image": ["https://coolpadelstudios.com/assets/images/savemyplay-1.jpg"],
-    "brand": {
-      "@type": "Brand",
-      "name": "Save My Play"
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": [
+        "Product",
+        "Service"
+      ],
+      "name": "Save My Play - Madrid (España)",
+      "description": "Cámaras Save My Play en Madrid (España): 180 € hardware en propiedad, grabación automática por 45 €/mes y estadísticas con IA por 136 €/mes. Solicita demo en directo.",
+      "image": [
+        "https://coolpadelstudios.com/assets/images/savemyplay-1.jpg"
+      ],
+      "brand": {
+        "@type": "Brand",
+        "name": "Save My Play"
+      },
+      "areaServed": {
+        "@type": "City",
+        "name": "Madrid"
+      },
+      "offers": {
+        "@type": "AggregateOffer",
+        "priceCurrency": "EUR",
+        "lowPrice": "45",
+        "highPrice": "180",
+        "offerCount": "2",
+        "availability": "https://schema.org/InStock"
+      }
     },
-    "areaServed": {
-      "@type": "City",
-      "name": "Madrid"
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Inicio",
+          "item": "https://coolpadelstudios.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Cámaras",
+          "item": "https://coolpadelstudios.com/camaras/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "España",
+          "item": "https://coolpadelstudios.com/camaras/espana/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "Madrid",
+          "item": "https://coolpadelstudios.com/camaras/espana/madrid/"
+        }
+      ]
     },
-    "offers": {
-      "@type": "AggregateOffer",
-      "priceCurrency": "EUR",
-      "lowPrice": "45",
-      "highPrice": "180",
-      "offerCount": "2",
-      "availability": "https://schema.org/InStock"
+    {
+      "@type": "FAQPage",
+      "@id": "https://coolpadelstudios.com/camaras/espana/madrid/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Se necesitan obras o canalizaciones en el suelo?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No, cero obras. El sistema se ancla directamente al poste de la pista y la instalación dura solo 5 minutos por pista."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cuál es el precio y qué planes hay?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "180 € por cámara en propiedad. Planes mensuales: 45 €/mes por pista para grabación, highlights y directos; o planes de estadísticas con IA por 136 €/mes con análisis completo de juego."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cómo procesa la IA los mejores puntos?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Las cámaras utilizan IA para procesar la señal de vídeo en tiempo real, elegir los mejores puntos y generar vídeos listos para compartir al móvil al instante."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Hay permanencia en el servicio?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ninguna permanencia. Cancelación libre mes a mes sin penalizaciones."
+          }
+        }
+      ]
     }
-  }
+  ]
+}
   </script>
   <style>
     .bg-textured-blue {
@@ -476,7 +554,7 @@
               <span>¿Cuál es el precio y qué planes hay?</span>
               <span class="w-6 h-6 rounded-full bg-slate-100 text-slate-700 group-open:rotate-180 group-open:bg-[#f2920b] group-open:text-slate-950 flex items-center justify-center transition-transform text-xs shrink-0 ml-3">▼</span>
             </summary>
-            <p class="mt-3 text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">{hw} por cámara en propiedad. Planes mensuales: {rec} por pista para grabación, highlights y directos; o planes de estadísticas con IA por {ai} con análisis completo de juego.</p>
+            <p class="mt-3 text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">180 € por cámara en propiedad. Planes mensuales: 45 €/mes por pista para grabación, highlights y directos; o planes de estadísticas con IA por 136 €/mes con análisis completo de juego.</p>
           </details>
 
           <details class="group bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/90 shadow-2xs transition hover:border-[#f2920b]">

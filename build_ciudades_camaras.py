@@ -7,6 +7,7 @@ En el idioma nativo de cada país, con moneda local, estructura aprobada por Jav
 
 import os
 import re
+import json
 import urllib.parse
 import sys
 
@@ -80,13 +81,68 @@ def generate_city_page(country_item, city, slug_country_used, canonical_country_
     canonical_url = f"https://coolpadelstudios.com/camaras/{target_country}/{city_slug}/"
     country_url = f"/camaras/{target_country}/"
 
-    # Redirección JS si es página duplicada de ciudad (slug_es != slug_local)
-    is_duplicate = canonical_country_slug is not None and canonical_country_slug != slug_country_used
-    redirect_js = f'  <script>window.location.replace("{canonical_url}");</script>\n' if is_duplicate else ""
+    redirect_js = ""
+    robots_content = "index, follow"
+    hreflang_tags = (
+        f'  <link rel="alternate" hreflang="{lang}" href="{canonical_url}"/>\n'
+        f'  <link rel="alternate" hreflang="x-default" href="{canonical_url}"/>\n'
+    )
 
     is_es = (lang == "es")
     nav_prefix = "/" if is_es else "/en/"
     dir_attr = ' dir="rtl"' if lang == "ar" else ''
+
+    faq2_a_fmt = t["faq2_a"].format(hw=hw, rec=rec, ai=ai)
+    schema_curr = "GBP" if "£" in hw else ("USD" if ("$" in hw or "USD" in hw) else "EUR")
+    faq_pairs = [
+        (t["faq1_q"], t["faq1_a"].format(hw=hw, rec=rec, ai=ai)),
+        (t["faq2_q"], faq2_a_fmt),
+        (t["faq3_q"], t["faq3_a"].format(hw=hw, rec=rec, ai=ai)),
+        (t["faq4_q"], t["faq4_a"].format(hw=hw, rec=rec, ai=ai)),
+    ]
+    schema_obj = {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": ["Product", "Service"],
+                "name": f"Save My Play - {city_name} ({country_display})",
+                "description": meta_desc,
+                "image": ["https://coolpadelstudios.com/assets/images/savemyplay-1.jpg"],
+                "brand": {"@type": "Brand", "name": "Save My Play"},
+                "areaServed": {"@type": "City", "name": city_name},
+                "offers": {
+                    "@type": "AggregateOffer",
+                    "priceCurrency": schema_curr,
+                    "lowPrice": "45",
+                    "highPrice": "180",
+                    "offerCount": "2",
+                    "availability": "https://schema.org/InStock",
+                },
+            },
+            {
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                    {"@type": "ListItem", "position": 1, "name": t["nav_home"], "item": f"https://coolpadelstudios.com{nav_prefix}"},
+                    {"@type": "ListItem", "position": 2, "name": t["nav_camaras"], "item": f"https://coolpadelstudios.com{nav_prefix}camaras/"},
+                    {"@type": "ListItem", "position": 3, "name": country_display, "item": f"https://coolpadelstudios.com{country_url}"},
+                    {"@type": "ListItem", "position": 4, "name": city_name, "item": canonical_url},
+                ],
+            },
+            {
+                "@type": "FAQPage",
+                "@id": f"{canonical_url}#faq",
+                "mainEntity": [
+                    {
+                        "@type": "Question",
+                        "name": fq,
+                        "acceptedAnswer": {"@type": "Answer", "text": fa},
+                    }
+                    for fq, fa in faq_pairs
+                ],
+            },
+        ],
+    }
+    schema_json_str = json.dumps(schema_obj, ensure_ascii=False, indent=2)
 
     sibling_cities = [c for c in CITIES_50.get(country_item["slug"], []) if c["slug"] != city_slug]
     sibling_pills_html = ""
@@ -119,9 +175,9 @@ def generate_city_page(country_item, city, slug_country_used, canonical_country_
   <title>{title}</title>
   <meta name="description" content="{meta_desc}">
   <link rel="canonical" href="{canonical_url}">
-  <link rel="alternate" hreflang="{lang}" href="{canonical_url}"/>
-  <link rel="alternate" hreflang="x-default" href="{canonical_url}"/>
-  <meta name="robots" content="index, follow">
+{hreflang_tags}  <meta name="robots" content="{robots_content}">
+  <link rel="alternate" type="text/markdown" href="https://coolpadelstudios.com/llms.txt" title="LLMs.txt">
+  <link rel="alternate" type="text/plain" href="https://coolpadelstudios.com/llms-full.txt" title="LLMs Full Context">
 
   <!-- Open Graph / Social -->
   <meta property="og:type" content="product">
@@ -160,29 +216,7 @@ def generate_city_page(country_item, city, slug_country_used, canonical_country_
 
   <!-- Schema.org Microdata -->
   <script type="application/ld+json">
-  {{
-    "@context": "https://schema.org/",
-    "@type": ["Product", "Service"],
-    "name": "Save My Play - {city_name} ({country_display})",
-    "description": "{meta_desc}",
-    "image": ["https://coolpadelstudios.com/assets/images/savemyplay-1.jpg"],
-    "brand": {{
-      "@type": "Brand",
-      "name": "Save My Play"
-    }},
-    "areaServed": {{
-      "@type": "City",
-      "name": "{city_name}"
-    }},
-    "offers": {{
-      "@type": "AggregateOffer",
-      "priceCurrency": "{country_item.get('curr_code', 'EUR')}",
-      "lowPrice": "45",
-      "highPrice": "180",
-      "offerCount": "2",
-      "availability": "https://schema.org/InStock"
-    }}
-  }}
+  {schema_json_str}
   </script>
   <style>
     .bg-textured-blue {{
@@ -535,7 +569,7 @@ def generate_city_page(country_item, city, slug_country_used, canonical_country_
               <span>{t["faq2_q"]}</span>
               <span class="w-6 h-6 rounded-full bg-slate-100 text-slate-700 group-open:rotate-180 group-open:bg-[#f2920b] group-open:text-slate-950 flex items-center justify-center transition-transform text-xs shrink-0 ml-3">▼</span>
             </summary>
-            <p class="mt-3 text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">{t["faq2_a"]}</p>
+            <p class="mt-3 text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">{faq2_a_fmt}</p>
           </details>
 
           <details class="group bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/90 shadow-2xs transition hover:border-[#f2920b]">
@@ -700,7 +734,7 @@ def build_all_cities():
         slug_es = country_item["slug"]
         
         for city in cities:
-            # 1. Generar en el slug local del país: /camaras/{slug_local}/{city_slug}/
+            # Generar EXCLUSIVAMENTE en el slug local nativo del país: /camaras/{slug_local}/{city_slug}/
             dir_city_local = os.path.join(OUTPUT_ROOT, slug_local, city["slug"])
             os.makedirs(dir_city_local, exist_ok=True)
             html_city = generate_city_page(country_item, city, slug_local)
@@ -708,16 +742,6 @@ def build_all_cities():
                 f.write(html_city)
             built += 1
             generated_city_urls.append(f"https://coolpadelstudios.com/camaras/{slug_local}/{city['slug']}/")
-            
-            # 2. Si el slug en español difiere del local (ej: suecia vs sverige), generar versión española canicalizada a la nativa local
-            if slug_es != slug_local:
-                dir_city_es = os.path.join(OUTPUT_ROOT, slug_es, city["slug"])
-                os.makedirs(dir_city_es, exist_ok=True)
-                html_city_es = generate_city_page(country_item, city, slug_es, canonical_country_slug=slug_local)
-                with open(os.path.join(dir_city_es, 'index.html'), 'w', encoding='utf-8') as f:
-                    f.write(html_city_es)
-                built += 1
-                generated_city_urls.append(f"https://coolpadelstudios.com/camaras/{slug_es}/{city['slug']}/")
 
         print(f"OK [5 Ciudades] -> {country_slug} ({slug_local})")
 

@@ -174,8 +174,8 @@ FLAGSHIP_GUIDES_DATA = {
     },
     "sistemas-grabacion-pistas-padel-comparativa": {
         "es": {
-            "title": "Sistemas de Grabación para Pistas de Pádel: Comparativa 2026 (Cámaras Fijas vs Trípodes)",
-            "desc": "Comparativa técnica y legal 2026: cámaras fijas inteligentes (Save my Play) frente a trípodes de jugadores. Resolución, buffer en memoria, RGPD y costes.",
+            "title": "9 Mejores Cámaras IA para Pistas de Pádel 2026 (Comparativa Precios)",
+            "desc": "Comparativa real de precios, hardware y RGPD: Save My Play (180€ + 45€/mes sin obras) vs PlaySight, Wingfield, Matchi TV y trípodes.",
             "h1": "Sistemas de Grabación para Pistas de Pádel: Comparativa 2026",
             "subtitle": "Análisis exhaustivo entre cámaras fijas profesionales integradas en poste y trípodes portátiles de usuarios particulares: legalidad, seguridad y calidad.",
             "badge": "Tecnología en Pista · Comparativas"
@@ -204,8 +204,8 @@ FLAGSHIP_GUIDES_DATA = {
     },
     "cuanto-cuesta-montar-pista-padel-presupuesto-rentabilidad": {
         "es": {
-            "title": "Cuánto Cuesta Montar una Pista y un Club de Pádel en 2026: Presupuesto y Rentabilidad",
-            "desc": "Coste exacto de construir pistas de pádel (cristal panorámico, solera, césped, LED e indoor): desglose de presupuesto, licencias y cálculo de amortización.",
+            "title": "¿Cuánto Cuesta Montar una Pista de Pádel? Presupuesto Real 2026",
+            "desc": "Desglose real de costes: obra civil, pista panorámica, iluminación LED, cámaras y ROI. Desde 15.000€. Calculadora gratuita y guía para inversores.",
             "h1": "Cuánto Cuesta Montar una Pista y un Club de Pádel en 2026",
             "subtitle": "Guía económica completa para emprendedores e inversores: costes de obra civil, naves industriales, equipamiento y cuenta de resultados proyectada.",
             "badge": "Inversión & Montaje de Pistas"
@@ -234,8 +234,8 @@ FLAGSHIP_GUIDES_DATA = {
     },
     "como-organizar-torneo-padel-americana-reglas-cuadros": {
         "es": {
-            "title": "Cómo Organizar un Torneo de Pádel y una Americana Paso a Paso: Reglas, Cuadros y Premios",
-            "desc": "Guía práctica para directores y monitores: formatos de americana, pozo y eliminatoria, rotación perfecta de parejas, cuadros en Excel y trofeos personalizados.",
+            "title": "Cómo Organizar un Torneo de Pádel Americano (Guía 2026) | CoolPadel",
+            "desc": "Descarga cuadros de americano gratuitos, reglas paso a paso y consejos de premios para tu torneo. +500 torneos organizados con nuestra guía paso a paso.",
             "h1": "Cómo Organizar un Torneo de Pádel y una Americana Paso a Paso",
             "subtitle": "Reglamentos de puntuación, gestión de pistas, comunicación por WhatsApp y merchandising para dinamizar los fines de semana en tu club.",
             "badge": "Torneos & Gestión de Club"

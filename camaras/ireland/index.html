@@ -7,6 +7,8 @@
   <meta name="description" content="Padel court cameras in Ireland: €180 owned hardware, automated recording from €45/mo, and AI stats for €136/mo with deep game analysis. Request live demo.">
   <link rel="canonical" href="https://coolpadelstudios.com/camaras/ireland/">
   <meta name="robots" content="index, follow">
+  <link rel="alternate" type="text/markdown" href="https://coolpadelstudios.com/llms.txt" title="LLMs.txt">
+  <link rel="alternate" type="text/plain" href="https://coolpadelstudios.com/llms-full.txt" title="LLMs Full Context">
 
   <!-- Open Graph / Social -->
   <meta property="og:type" content="product">
@@ -46,24 +48,94 @@
   <!-- Schema.org Microdata -->
   <script type="application/ld+json">
   {
-    "@context": "https://schema.org/",
-    "@type": ["Product", "Service"],
-    "name": "Save My Play - Ireland",
-    "description": "Padel court cameras in Ireland: €180 owned hardware, automated recording from €45/mo, and AI stats for €136/mo with deep game analysis. Request live demo.",
-    "image": ["https://coolpadelstudios.com/assets/images/savemyplay-1.jpg"],
-    "brand": {
-      "@type": "Brand",
-      "name": "Save My Play"
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": [
+        "Product",
+        "Service"
+      ],
+      "name": "Save My Play - Ireland",
+      "description": "Padel court cameras in Ireland: €180 owned hardware, automated recording from €45/mo, and AI stats for €136/mo with deep game analysis. Request live demo.",
+      "image": [
+        "https://coolpadelstudios.com/assets/images/savemyplay-1.jpg"
+      ],
+      "brand": {
+        "@type": "Brand",
+        "name": "Save My Play"
+      },
+      "offers": {
+        "@type": "AggregateOffer",
+        "priceCurrency": "EUR",
+        "lowPrice": "45",
+        "highPrice": "180",
+        "offerCount": "2",
+        "availability": "https://schema.org/InStock"
+      }
     },
-    "offers": {
-      "@type": "AggregateOffer",
-      "priceCurrency": "EUR",
-      "lowPrice": "45",
-      "highPrice": "180",
-      "offerCount": "2",
-      "availability": "https://schema.org/InStock"
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://coolpadelstudios.com/en/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "CAMERAS",
+          "item": "https://coolpadelstudios.com/en/camaras/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Ireland",
+          "item": "https://coolpadelstudios.com/camaras/ireland/"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://coolpadelstudios.com/camaras/ireland/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Are civil works, cabling, or floor trenches required?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No, absolutely zero works. The camera mounts directly onto the court net post or light column in just 5 minutes."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the pricing model and what plans exist?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "€180 per camera owned outright. Monthly subscriptions: €45/mo per court for recording, highlights, and live streaming; or €136/mo for AI statistics and tactical analysis."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How does the AI process the best shots?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The cameras use AI to process the video stream in real time, automatically extracting top rallies ready to share on mobile."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is there any long-term contract or lock-in?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Zero contract lock-in. Cancel or pause month-to-month without penalty."
+          }
+        }
+      ]
     }
-  }
+  ]
+}
   </script>
   <style>
     .bg-textured-blue {

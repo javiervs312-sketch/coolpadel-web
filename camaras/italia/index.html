@@ -7,6 +7,8 @@
   <meta name="description" content="Telecamere per campi da padel in Italia: 180 € hardware di proprietà, registrazione automatica da 45 €/mese e statistiche con IA per 136 €/mese. Richiedi demo dal vivo.">
   <link rel="canonical" href="https://coolpadelstudios.com/camaras/italia/">
   <meta name="robots" content="index, follow">
+  <link rel="alternate" type="text/markdown" href="https://coolpadelstudios.com/llms.txt" title="LLMs.txt">
+  <link rel="alternate" type="text/plain" href="https://coolpadelstudios.com/llms-full.txt" title="LLMs Full Context">
 
   <!-- Open Graph / Social -->
   <meta property="og:type" content="product">
@@ -46,24 +48,94 @@
   <!-- Schema.org Microdata -->
   <script type="application/ld+json">
   {
-    "@context": "https://schema.org/",
-    "@type": ["Product", "Service"],
-    "name": "Save My Play - Italia",
-    "description": "Telecamere per campi da padel in Italia: 180 € hardware di proprietà, registrazione automatica da 45 €/mese e statistiche con IA per 136 €/mese. Richiedi demo dal vivo.",
-    "image": ["https://coolpadelstudios.com/assets/images/savemyplay-1.jpg"],
-    "brand": {
-      "@type": "Brand",
-      "name": "Save My Play"
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": [
+        "Product",
+        "Service"
+      ],
+      "name": "Save My Play - Italia",
+      "description": "Telecamere per campi da padel in Italia: 180 € hardware di proprietà, registrazione automatica da 45 €/mese e statistiche con IA per 136 €/mese. Richiedi demo dal vivo.",
+      "image": [
+        "https://coolpadelstudios.com/assets/images/savemyplay-1.jpg"
+      ],
+      "brand": {
+        "@type": "Brand",
+        "name": "Save My Play"
+      },
+      "offers": {
+        "@type": "AggregateOffer",
+        "priceCurrency": "EUR",
+        "lowPrice": "45",
+        "highPrice": "180",
+        "offerCount": "2",
+        "availability": "https://schema.org/InStock"
+      }
     },
-    "offers": {
-      "@type": "AggregateOffer",
-      "priceCurrency": "EUR",
-      "lowPrice": "45",
-      "highPrice": "180",
-      "offerCount": "2",
-      "availability": "https://schema.org/InStock"
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://coolpadelstudios.com/en/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "TELECAMERE",
+          "item": "https://coolpadelstudios.com/en/camaras/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Italia",
+          "item": "https://coolpadelstudios.com/camaras/italia/"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://coolpadelstudios.com/camaras/italia/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Sono necessari lavori edili o canaline nel terreno?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No, zero lavori edili. Il dispositivo si fissa direttamente al palo della rete in 5 minuti."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Qual è il costo e quali piani sono disponibili?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "180 € a telecamera di proprietà. Piani mensili: 45 €/mese a campo per registrazione, highlights e streaming; oppure 136 €/mese per statistiche con IA e analisi tattica."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "In che modo l'IA seleziona i punti migliori?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Le telecamere elaborano il segnale video in tempo reale con l'IA, estraendo automaticamente i migliori scambi pronti per essere condivisi sullo smartphone."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Ci sono vincoli o contratti a lungo termine?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Nessun vincolo. Disdetta libera mese per mese."
+          }
+        }
+      ]
     }
-  }
+  ]
+}
   </script>
   <style>
     .bg-textured-blue {

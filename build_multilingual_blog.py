@@ -16,6 +16,10 @@ cur_dir = os.path.dirname(os.path.abspath(__file__))
 if cur_dir not in sys.path:
     sys.path.insert(0, cur_dir)
 
+_REPO_ROOT = os.path.dirname(cur_dir)
+if os.path.basename(os.getcwd()).lower() == "coolpadel-web":
+    os.chdir(_REPO_ROOT)
+
 from translations_blog import BLOG_HUB_DATA, FLAGSHIP_GUIDES_DATA
 from extra_articles_i18n import EXTRA_ARTICLES_I18N
 
@@ -156,7 +160,7 @@ def build_blog_hub(lang):
     # Limpiar cualquier bloque hreflang previo para evitar duplicados
     html = re.sub(r'\s*<!-- SEO Multilingüe Hreflang -->\s*(<link rel="alternate" hreflang="[^"]+" href="[^"]+">\s*)+', '', base_html)
     html = re.sub(r'\s*<meta name="language" content="[^"]+">', '', html)
-    html = re.sub(r'<link rel="canonical"[^>]*>', hreflangs, html)
+    html = re.sub(r'[ \t]*<link rel="canonical"[^>]*>', hreflangs, html)
 
     if is_es:
         return html
@@ -218,13 +222,24 @@ def build_article_page(slug, lang):
     # Limpiar cualquier bloque previo de hreflangs
     html = re.sub(r'\s*<!-- SEO Multilingüe Hreflang -->\s*(<link rel="alternate" hreflang="[^"]+" href="[^"]+">\s*)+', '', base_html)
     html = re.sub(r'\s*<meta name="language" content="[^"]+">', '', html)
-    html = re.sub(r'<link rel="canonical"[^>]*>', hreflangs, html)
+    html = re.sub(r'[ \t]*<link rel="canonical"[^>]*>', hreflangs, html)
 
     if is_es:
         es_d = ALL_ARTICLES_I18N[slug]["es"]
-        if len(es_d.get("title", "")) > 65 and " | " in es_d.get("title", ""):
-            short_es_title = es_d["title"].split(" | ")[0]
-            html = re.sub(r'<title>.*?</title>', f'<title>{short_es_title}</title>', html)
+        if slug in (
+            "como-organizar-torneo-padel-americana-reglas-cuadros",
+            "cuanto-cuesta-montar-pista-padel-presupuesto-rentabilidad",
+            "sistemas-grabacion-pistas-padel-comparativa",
+            "regalos-padel-originales-baratos-ideas-detalles-torneos",
+        ):
+            es_t = es_d["title"]
+            es_desc = es_d["desc"]
+            html = re.sub(r'<title>.*?</title>', f'<title>{es_t}</title>', html)
+            html = re.sub(r'<meta name="description" content=".*?">', f'<meta name="description" content="{es_desc}">', html)
+            html = re.sub(r'<meta property="og:title" content="[^"]*">', f'<meta property="og:title" content="{es_t}">', html)
+            html = re.sub(r'<meta property="og:description" content="[^"]*">', f'<meta property="og:description" content="{es_desc}">', html)
+            html = re.sub(r'<meta name="twitter:title" content="[^"]*">', f'<meta name="twitter:title" content="{es_t}">', html)
+            html = re.sub(r'<meta name="twitter:description" content="[^"]*">', f'<meta name="twitter:description" content="{es_desc}">', html)
         return html
 
     d = ALL_ARTICLES_I18N[slug][lang]
@@ -274,6 +289,8 @@ def run():
     # 1. Compilación del Blog Hub
     for lang in ["es", "en", "fr", "it"]:
         html = build_blog_hub(lang)
+        if len(html) <= 10000:
+            raise ValueError(f"Blog Hub ({lang.upper()}) generado demasiado corto ({len(html)} bytes), abortando.")
         out_path = "coolpadel-web/blog/index.html" if lang == "es" else f"coolpadel-web/{lang}/blog/index.html"
         os.makedirs(os.path.dirname(out_path), exist_ok=True)
         with open(out_path, "w", encoding="utf-8") as f:

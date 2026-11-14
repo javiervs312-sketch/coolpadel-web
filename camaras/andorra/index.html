@@ -7,6 +7,8 @@
   <meta name="description" content="Càmeres per a pistes de pàdel a Andorra: 180 € maquinari en propietat, gravació automàtica per 45 €/mes i estadístiques amb IA per 136 €/mes. Demana demo.">
   <link rel="canonical" href="https://coolpadelstudios.com/camaras/andorra/">
   <meta name="robots" content="index, follow">
+  <link rel="alternate" type="text/markdown" href="https://coolpadelstudios.com/llms.txt" title="LLMs.txt">
+  <link rel="alternate" type="text/plain" href="https://coolpadelstudios.com/llms-full.txt" title="LLMs Full Context">
 
   <!-- Open Graph / Social -->
   <meta property="og:type" content="product">
@@ -46,24 +48,94 @@
   <!-- Schema.org Microdata -->
   <script type="application/ld+json">
   {
-    "@context": "https://schema.org/",
-    "@type": ["Product", "Service"],
-    "name": "Save My Play - Andorra",
-    "description": "Càmeres per a pistes de pàdel a Andorra: 180 € maquinari en propietat, gravació automàtica per 45 €/mes i estadístiques amb IA per 136 €/mes. Demana demo.",
-    "image": ["https://coolpadelstudios.com/assets/images/savemyplay-1.jpg"],
-    "brand": {
-      "@type": "Brand",
-      "name": "Save My Play"
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": [
+        "Product",
+        "Service"
+      ],
+      "name": "Save My Play - Andorra",
+      "description": "Càmeres per a pistes de pàdel a Andorra: 180 € maquinari en propietat, gravació automàtica per 45 €/mes i estadístiques amb IA per 136 €/mes. Demana demo.",
+      "image": [
+        "https://coolpadelstudios.com/assets/images/savemyplay-1.jpg"
+      ],
+      "brand": {
+        "@type": "Brand",
+        "name": "Save My Play"
+      },
+      "offers": {
+        "@type": "AggregateOffer",
+        "priceCurrency": "EUR",
+        "lowPrice": "45",
+        "highPrice": "180",
+        "offerCount": "2",
+        "availability": "https://schema.org/InStock"
+      }
     },
-    "offers": {
-      "@type": "AggregateOffer",
-      "priceCurrency": "EUR",
-      "lowPrice": "45",
-      "highPrice": "180",
-      "offerCount": "2",
-      "availability": "https://schema.org/InStock"
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Inici",
+          "item": "https://coolpadelstudios.com/en/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "CÀMERES",
+          "item": "https://coolpadelstudios.com/en/camaras/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Andorra",
+          "item": "https://coolpadelstudios.com/camaras/andorra/"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://coolpadelstudios.com/camaras/andorra/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Cal fer obres, rases a terra o passar cables?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No, absolutament cap obra. El sistema es fixa directament al pal de la xarxa en 5 minuts."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Quin cost té i quins plans hi ha disponibles?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "180 € per càmera en propietat. Plans mensuals: 45 €/mes per pista per a gravació, highlights i streaming; o 136 €/mes per a estadístiques amb IA."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Com processa la intel·ligència artificial els millors punts?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Les càmeres utilitzen IA per processar el senyal de vídeo en temps real, extreure les millors jugades i generar vídeos a punt per compartir."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Hi ha algun tipus de permanència?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Zero permanència. Cancel·lació lliure mes a mes."
+          }
+        }
+      ]
     }
-  }
+  ]
+}
   </script>
   <style>
     .bg-textured-blue {

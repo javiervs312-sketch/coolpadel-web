@@ -7,6 +7,8 @@
   <meta name="description" content="Türkiye padel kortu kameraları: $180 (6.500 ₺) mülkiyetli donanım, $45/ay (1.600 ₺) ücretle otomatik maç kaydı ve $136/ay (4.900 ₺) yapay zeka istatistikleri. Canlı demo isteyin.">
   <link rel="canonical" href="https://coolpadelstudios.com/camaras/turkiye/">
   <meta name="robots" content="index, follow">
+  <link rel="alternate" type="text/markdown" href="https://coolpadelstudios.com/llms.txt" title="LLMs.txt">
+  <link rel="alternate" type="text/plain" href="https://coolpadelstudios.com/llms-full.txt" title="LLMs Full Context">
 
   <!-- Open Graph / Social -->
   <meta property="og:type" content="product">
@@ -46,24 +48,94 @@
   <!-- Schema.org Microdata -->
   <script type="application/ld+json">
   {
-    "@context": "https://schema.org/",
-    "@type": ["Product", "Service"],
-    "name": "Save My Play - Türkiye",
-    "description": "Türkiye padel kortu kameraları: $180 (6.500 ₺) mülkiyetli donanım, $45/ay (1.600 ₺) ücretle otomatik maç kaydı ve $136/ay (4.900 ₺) yapay zeka istatistikleri. Canlı demo isteyin.",
-    "image": ["https://coolpadelstudios.com/assets/images/savemyplay-1.jpg"],
-    "brand": {
-      "@type": "Brand",
-      "name": "Save My Play"
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": [
+        "Product",
+        "Service"
+      ],
+      "name": "Save My Play - Türkiye",
+      "description": "Türkiye padel kortu kameraları: $180 (6.500 ₺) mülkiyetli donanım, $45/ay (1.600 ₺) ücretle otomatik maç kaydı ve $136/ay (4.900 ₺) yapay zeka istatistikleri. Canlı demo isteyin.",
+      "image": [
+        "https://coolpadelstudios.com/assets/images/savemyplay-1.jpg"
+      ],
+      "brand": {
+        "@type": "Brand",
+        "name": "Save My Play"
+      },
+      "offers": {
+        "@type": "AggregateOffer",
+        "priceCurrency": "USD",
+        "lowPrice": "45",
+        "highPrice": "180",
+        "offerCount": "2",
+        "availability": "https://schema.org/InStock"
+      }
     },
-    "offers": {
-      "@type": "AggregateOffer",
-      "priceCurrency": "TRY",
-      "lowPrice": "45",
-      "highPrice": "180",
-      "offerCount": "2",
-      "availability": "https://schema.org/InStock"
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Ana Sayfa",
+          "item": "https://coolpadelstudios.com/en/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "KAMERALAR",
+          "item": "https://coolpadelstudios.com/en/camaras/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Türkiye",
+          "item": "https://coolpadelstudios.com/camaras/turkiye/"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://coolpadelstudios.com/camaras/turkiye/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Kortta inşaat, zemin kırma veya kablo çekimi gerekiyor mu?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Hayır, kesinlikle inşaat gerekmez. Sistem 5 dakikada doğrudan file direğine sabitlenir."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Maliyeti nedir ve hangi paketler mevcuttur?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "$180 (6.500 ₺) kamera başına tek seferlik donanım ücreti. Aylık planlar: kayıt ve yayın için $45/ay (1.600 ₺); veya yapay zeka analizleri için $136/ay (4.900 ₺)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Yapay zeka en iyi puanları nasıl seçiyor?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Kameralar video sinyalini yapay zeka ile gerçek zamanlı işler, en heyecanlı rallileri otomatik keser ve telefona hazır hale getirir."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Uzun süreli sözleşme veya taahhüt var mı?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Hiçbir taahhüt yoktur. İstediğiniz ay iptal edebilirsiniz."
+          }
+        }
+      ]
     }
-  }
+  ]
+}
   </script>
   <style>
     .bg-textured-blue {

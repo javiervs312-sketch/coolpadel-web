@@ -21,6 +21,7 @@ Cumple rigurosamente todos los requerimientos de Javier:
 
 import os
 import re
+import json
 import urllib.parse
 from paises_data_50 import COUNTRIES_50
 from ciudades_data_250 import CITIES_50
@@ -50,25 +51,63 @@ def generate_country_page(item, slug_to_use, canonical_slug=None):
     wa_msg = t["wa_msg"].format(country=country_display)
     encoded_wa = urllib.parse.quote(wa_msg)
     wa_url = f"https://api.whatsapp.com/send?phone=34680317486&text={encoded_wa}"
-    target_slug = canonical_slug if canonical_slug else slug_to_use
+    target_slug = slug_to_use
     canonical_url = f"https://coolpadelstudios.com/camaras/{target_slug}/"
-
-    # SEO: si es página duplicada (slug_es != slug_local), inyectar redirect JS en el body
-    is_duplicate = canonical_slug is not None and canonical_slug != slug_to_use
-    redirect_js = f'<script>window.location.replace("{canonical_url}");</script>\n' if is_duplicate else ""
-    
-    # SEO: si es página duplicada (slug_es != slug_local), inyectar redirect JS en el body
-    is_duplicate = canonical_slug is not None and canonical_slug != slug_to_use
-    redirect_js = f'<script>window.location.replace("{canonical_url}");</script>\n' if is_duplicate else ""
-
-    # SEO: hreflang solo en páginas canónicas (no en duplicadas)
-    if not is_duplicate:
-        hreflang_tags = f'  <link rel="alternate" hreflang="{lang}" href="{canonical_url}"/>\n  <link rel="alternate" hreflang="x-default" href="{canonical_url}"/>'
-    else:
-        hreflang_tags = ""
+    redirect_js = ""
+    robots_content = "index, follow"
+    hreflang_tags = f'  <link rel="alternate" hreflang="{lang}" href="{canonical_url}"/>\n  <link rel="alternate" hreflang="x-default" href="{canonical_url}"/>' 
     
     is_es = (lang == "es")
     nav_prefix = "/" if is_es else "/en/"
+
+    schema_curr = "GBP" if "£" in hw else ("USD" if ("$" in hw or "USD" in hw) else "EUR")
+    faq_pairs = [
+        (t["faq1_q"], t["faq1_a"].format(hw=hw, rec=rec, ai=ai)),
+        (t["faq2_q"], t["faq2_a"].format(hw=hw, rec=rec, ai=ai)),
+        (t["faq3_q"], t["faq3_a"].format(hw=hw, rec=rec, ai=ai)),
+        (t["faq4_q"], t["faq4_a"].format(hw=hw, rec=rec, ai=ai)),
+    ]
+    schema_obj = {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": ["Product", "Service"],
+                "name": f"Save My Play - {country_display}",
+                "description": meta_desc,
+                "image": ["https://coolpadelstudios.com/assets/images/savemyplay-1.jpg"],
+                "brand": {"@type": "Brand", "name": "Save My Play"},
+                "offers": {
+                    "@type": "AggregateOffer",
+                    "priceCurrency": schema_curr,
+                    "lowPrice": "45",
+                    "highPrice": "180",
+                    "offerCount": "2",
+                    "availability": "https://schema.org/InStock",
+                },
+            },
+            {
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                    {"@type": "ListItem", "position": 1, "name": t["nav_home"], "item": f"https://coolpadelstudios.com{nav_prefix}"},
+                    {"@type": "ListItem", "position": 2, "name": t["nav_camaras"], "item": f"https://coolpadelstudios.com{nav_prefix}camaras/"},
+                    {"@type": "ListItem", "position": 3, "name": country_display, "item": canonical_url},
+                ],
+            },
+            {
+                "@type": "FAQPage",
+                "@id": f"{canonical_url}#faq",
+                "mainEntity": [
+                    {
+                        "@type": "Question",
+                        "name": fq,
+                        "acceptedAnswer": {"@type": "Answer", "text": fa},
+                    }
+                    for fq, fa in faq_pairs
+                ],
+            },
+        ],
+    }
+    schema_json_str = json.dumps(schema_obj, ensure_ascii=False, indent=2)
     
 
     cities_for_country = CITIES_50.get(item["slug"], [])
@@ -101,7 +140,9 @@ def generate_country_page(item, slug_to_use, canonical_slug=None):
   <title>{title}</title>
   <meta name="description" content="{meta_desc}">
   <link rel="canonical" href="{canonical_url}">
-  <meta name="robots" content="index, follow">
+  <meta name="robots" content="{robots_content}">
+  <link rel="alternate" type="text/markdown" href="https://coolpadelstudios.com/llms.txt" title="LLMs.txt">
+  <link rel="alternate" type="text/plain" href="https://coolpadelstudios.com/llms-full.txt" title="LLMs Full Context">
 
   <!-- Open Graph / Social -->
   <meta property="og:type" content="product">
@@ -140,25 +181,7 @@ def generate_country_page(item, slug_to_use, canonical_slug=None):
 
   <!-- Schema.org Microdata -->
   <script type="application/ld+json">
-  {{
-    "@context": "https://schema.org/",
-    "@type": ["Product", "Service"],
-    "name": "Save My Play - {country_display}",
-    "description": "{meta_desc}",
-    "image": ["https://coolpadelstudios.com/assets/images/savemyplay-1.jpg"],
-    "brand": {{
-      "@type": "Brand",
-      "name": "Save My Play"
-    }},
-    "offers": {{
-      "@type": "AggregateOffer",
-      "priceCurrency": "{item.get('curr_code', 'EUR')}",
-      "lowPrice": "45",
-      "highPrice": "180",
-      "offerCount": "2",
-      "availability": "https://schema.org/InStock"
-    }}
-  }}
+  {schema_json_str}
   </script>
   <style>
     .bg-textured-blue {{
@@ -650,9 +673,8 @@ def build_all():
     
     for item in COUNTRIES_50:
         slug_local = item["slug_local"]
-        slug_es = item["slug"]
         
-        # 1. Generate in native local slug (e.g. /camaras/sverige/, /camaras/france/)
+        # Generar EXCLUSIVAMENTE en el slug local nativo (100% idioma local)
         dir_local = os.path.join(OUTPUT_ROOT, slug_local)
         os.makedirs(dir_local, exist_ok=True)
         html_local = generate_country_page(item, slug_local)
@@ -660,18 +682,7 @@ def build_all():
             f.write(html_local)
         built += 1
         all_generated_urls.append(f"https://coolpadelstudios.com/camaras/{slug_local}/")
-        
-        # 2. If slug_es differs from slug_local (e.g. suecia vs sverige), generate Spanish slug pointing canonical to native local slug!
-        if slug_es != slug_local:
-            dir_es = os.path.join(OUTPUT_ROOT, slug_es)
-            os.makedirs(dir_es, exist_ok=True)
-            html_es = generate_country_page(item, slug_es, canonical_slug=slug_local)
-            with open(os.path.join(dir_es, 'index.html'), 'w', encoding='utf-8') as f:
-                f.write(html_es)
-            built += 1
-            all_generated_urls.append(f"https://coolpadelstudios.com/camaras/{slug_es}/")
-            
-        print(f"[{item['rank']}/50] OK slug: {slug_local} (lang: {item['lang']})")
+        print(f"[{item['rank']}/50] OK slug nativo: {slug_local} (lang: {item['lang']})")
         
     print(f"\nGeneradas {built} páginas de países en sus idiomas y monedas locales.")
     return all_generated_urls

@@ -9,6 +9,8 @@
   <link rel="alternate" hreflang="pl" href="https://coolpadelstudios.com/camaras/polska/gdansk/"/>
   <link rel="alternate" hreflang="x-default" href="https://coolpadelstudios.com/camaras/polska/gdansk/"/>
   <meta name="robots" content="index, follow">
+  <link rel="alternate" type="text/markdown" href="https://coolpadelstudios.com/llms.txt" title="LLMs.txt">
+  <link rel="alternate" type="text/plain" href="https://coolpadelstudios.com/llms-full.txt" title="LLMs Full Context">
 
   <!-- Open Graph / Social -->
   <meta property="og:type" content="product">
@@ -48,28 +50,104 @@
   <!-- Schema.org Microdata -->
   <script type="application/ld+json">
   {
-    "@context": "https://schema.org/",
-    "@type": ["Product", "Service"],
-    "name": "Save My Play - Gdańsk (Polska)",
-    "description": "Kamery na korty do padla w Gdańsk, Polska: 780 zł (180 €) sprzęt na własność, nagrywanie od 195 zł/mies. (45 €) i statystyki AI za 590 zł/mies. (136 €). Umów bezpłatne demo.",
-    "image": ["https://coolpadelstudios.com/assets/images/savemyplay-1.jpg"],
-    "brand": {
-      "@type": "Brand",
-      "name": "Save My Play"
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": [
+        "Product",
+        "Service"
+      ],
+      "name": "Save My Play - Gdańsk (Polska)",
+      "description": "Kamery na korty do padla w Gdańsk, Polska: 780 zł (180 €) sprzęt na własność, nagrywanie od 195 zł/mies. (45 €) i statystyki AI za 590 zł/mies. (136 €). Umów bezpłatne demo.",
+      "image": [
+        "https://coolpadelstudios.com/assets/images/savemyplay-1.jpg"
+      ],
+      "brand": {
+        "@type": "Brand",
+        "name": "Save My Play"
+      },
+      "areaServed": {
+        "@type": "City",
+        "name": "Gdańsk"
+      },
+      "offers": {
+        "@type": "AggregateOffer",
+        "priceCurrency": "EUR",
+        "lowPrice": "45",
+        "highPrice": "180",
+        "offerCount": "2",
+        "availability": "https://schema.org/InStock"
+      }
     },
-    "areaServed": {
-      "@type": "City",
-      "name": "Gdańsk"
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Start",
+          "item": "https://coolpadelstudios.com/en/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Kamery",
+          "item": "https://coolpadelstudios.com/en/camaras/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Polska",
+          "item": "https://coolpadelstudios.com/camaras/polska/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "Gdańsk",
+          "item": "https://coolpadelstudios.com/camaras/polska/gdansk/"
+        }
+      ]
     },
-    "offers": {
-      "@type": "AggregateOffer",
-      "priceCurrency": "PLN",
-      "lowPrice": "45",
-      "highPrice": "180",
-      "offerCount": "2",
-      "availability": "https://schema.org/InStock"
+    {
+      "@type": "FAQPage",
+      "@id": "https://coolpadelstudios.com/camaras/polska/gdansk/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Czy instalacja wymaga kucia podłoża lub wykopów kablowych?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Nie, zero prac budowlanych. Kamera jest mocowana bezpośrednio do słupka siatki w 5 minut."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Ile to kosztuje i jakie są pakiety?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "780 zł (180 €) za kamerę na własność. Pakiety miesięczne: 195 zł/mies. (45 €) za kort za nagrywanie i streaming; lub 590 zł/mies. (136 €) za statystyki z analizą gry AI."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Czy obowiązuje umowa długoterminowa?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Brak jakichkolwiek umów lojalnościowych. Rezygnacja z miesiąca na miesiąc."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is there any long-term contract or lock-in?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Zero contract lock-in. Cancel or pause month-to-month without penalty."
+          }
+        }
+      ]
     }
-  }
+  ]
+}
   </script>
   <style>
     .bg-textured-blue {
@@ -476,7 +554,7 @@
               <span>Ile to kosztuje i jakie są pakiety?</span>
               <span class="w-6 h-6 rounded-full bg-slate-100 text-slate-700 group-open:rotate-180 group-open:bg-[#f2920b] group-open:text-slate-950 flex items-center justify-center transition-transform text-xs shrink-0 ml-3">▼</span>
             </summary>
-            <p class="mt-3 text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">{hw} za kamerę na własność. Pakiety miesięczne: {rec} za kort za nagrywanie i streaming; lub {ai} za statystyki z analizą gry AI.</p>
+            <p class="mt-3 text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">780 zł (180 €) za kamerę na własność. Pakiety miesięczne: 195 zł/mies. (45 €) za kort za nagrywanie i streaming; lub 590 zł/mies. (136 €) za statystyki z analizą gry AI.</p>
           </details>
 
           <details class="group bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/90 shadow-2xs transition hover:border-[#f2920b]">

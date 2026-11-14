@@ -9,6 +9,10 @@ Generador del Blog y Artículos de Newsletter de CoolPadel Studios:
 import os
 import urllib.parse
 
+_REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+if os.path.basename(os.getcwd()).lower() == "coolpadel-web":
+    os.chdir(_REPO_ROOT)
+
 WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbxnF9JmVrikeAW7PdLc02r_1kkuSJVz1Ncl71ZeVGT37H0ji5DQ3DVw60122pcuYnxCgA/exec'
 
 COMMON_HEAD = """
@@ -1806,6 +1810,8 @@ def generate_blog_index():
 </body>
 </html>"""
 
+    if len(html) <= 10000:
+        raise ValueError(f"Blog hub HTML demasiado corto ({len(html)} bytes), abortando escritura.")
     os.makedirs("coolpadel-web/blog", exist_ok=True)
     with open("coolpadel-web/blog/index.html", "w", encoding="utf-8") as f:
         f.write(html)
@@ -2663,16 +2669,16 @@ SHORT_SEO_TITLES = {
     "highlights-01": "Highlights #01: Startups Padel World Summit 2026 | CoolPadel",
     "rentabilidad-camaras-pistas-padel": "Precios y ROI de Cámaras en Pistas de Pádel | CoolPadel",
     "welcome-pack-torneo-padel-ideas": "Ideas de Welcome Pack para Torneos de Pádel | CoolPadel",
-    "sistemas-grabacion-pistas-padel-comparativa": "9 Mejores Cámaras IA para Pistas de Pádel | CoolPadel",
+    "sistemas-grabacion-pistas-padel-comparativa": "9 Mejores Cámaras IA para Pistas de Pádel 2026 (Comparativa Precios)",
     "regalos-eventos-padel-cenas-socios-llaveros": "Regalos para Eventos de Pádel y Cenas de Socios | CoolPadel",
     "vender-llaveros-tienda-club-padel-pro-shop": "Vender Llaveros en Pro-Shop (+60% Margen) | CoolPadel",
     "merchandising-ferias-torneos-padel-regalos-marcas": "Regalos y Merchandising para Torneos de Pádel | CoolPadel",
     "retransmitir-torneos-padel-streaming-youtube-camaras": "Cómo Retransmitir Torneos de Pádel en YouTube | CoolPadel",
     "smart-courts-pistas-inteligentes-padel-horas-valle": "Smart Courts y Pistas de Pádel Inteligentes 2026 | CoolPadel",
-    "regalos-padel-originales-baratos-ideas-detalles-torneos": "15 Regalos de Pádel Originales y Baratos (<10€) | CoolPadel",
+    "regalos-padel-originales-baratos-ideas-detalles-torneos": "50 Regalos de Pádel Originales y Baratos para Torneos 2026 | desde 1,50€",
     "normativa-rgpd-camaras-pistas-padel": "Normativa RGPD para Cámaras en Pistas de Pádel | CoolPadel",
-    "cuanto-cuesta-montar-pista-padel-presupuesto-rentabilidad": "Cuánto Cuesta Montar una Pista de Pádel 2026 | CoolPadel",
-    "como-organizar-torneo-padel-americana-reglas-cuadros": "Cómo Organizar un Torneo de Pádel y Americana | CoolPadel",
+    "cuanto-cuesta-montar-pista-padel-presupuesto-rentabilidad": "¿Cuánto Cuesta Montar una Pista de Pádel? Presupuesto Real 2026",
+    "como-organizar-torneo-padel-americana-reglas-cuadros": "Cómo Organizar un Torneo de Pádel Americano (Guía 2026) | CoolPadel",
     "barometro-camaras-padel-2026": "Barómetro de Cámaras y Digitalización Pádel 2026 | CoolPadel",
 }
 
@@ -3725,7 +3731,7 @@ def generate_all():
         category_badge="Tecnología & Comparativa · Cámaras",
         title="Los 9 Mejores Sistemas de Cámaras con IA para Pistas de Pádel en 2026: Comparativa de Precios, Grabación y ROI",
         subtitle="Análisis técnico independiente y comparativa de mercado: Save My Play, PUSHIT, MATCHi TV, Wingfield, PlaySight, Clutch, GameCam y PadX. Costes reales de instalación, cuotas mensuales públicas, fricción para el jugador y cumplimiento RGPD.",
-        meta_desc="Comparativa 2026 de cámaras con IA para pistas de pádel: Save My Play, PUSHIT, MATCHi TV, Wingfield, PlaySight y GameCam. Precios, hardware y ROI.",
+        meta_desc="Comparativa real de precios, hardware y RGPD: Save My Play (180€ + 45€/mes sin obras) vs PlaySight, Wingfield, Matchi TV y trípodes.",
         date_str="Noviembre 2025",
         date_iso="2025-11-22",
         read_time="Lectura 7 min",
@@ -4621,7 +4627,7 @@ def generate_all():
         category_badge="Ideas Regalos & Merch · Torneos y Clubs",
         title="15 Regalos de Pádel Originales y Baratos para Jugadores, Clubs y Torneos (2026)",
         subtitle="De detalles por menos de 3 € (llaveros de pala en 3D con logo) a accesorios útiles para el paletero y welcome packs que los participantes no tiran a la basura.",
-        meta_desc="15 ideas originales y baratas de regalos de pádel por menos de 3€, 5€ y 10€ para torneos, jugadores y socios de club. Precios y comparativa 2026.",
+        meta_desc="Ideas únicas de regalo para jugadores de pádel: llaveros 3D personalizados desde 1,50€, welcome packs y detalles para clubes y torneos. Envío mundial.",
         date_str="Diciembre 2025",
         date_iso="2025-12-15",
         read_time="Lectura 6 min",

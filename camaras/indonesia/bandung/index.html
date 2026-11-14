@@ -9,6 +9,8 @@
   <link rel="alternate" hreflang="id" href="https://coolpadelstudios.com/camaras/indonesia/bandung/"/>
   <link rel="alternate" hreflang="x-default" href="https://coolpadelstudios.com/camaras/indonesia/bandung/"/>
   <meta name="robots" content="index, follow">
+  <link rel="alternate" type="text/markdown" href="https://coolpadelstudios.com/llms.txt" title="LLMs.txt">
+  <link rel="alternate" type="text/plain" href="https://coolpadelstudios.com/llms-full.txt" title="LLMs Full Context">
 
   <!-- Open Graph / Social -->
   <meta property="og:type" content="product">
@@ -48,28 +50,104 @@
   <!-- Schema.org Microdata -->
   <script type="application/ld+json">
   {
-    "@context": "https://schema.org/",
-    "@type": ["Product", "Service"],
-    "name": "Save My Play - Bandung (Indonesia)",
-    "description": "Kamera lapangan padel di Bandung, Indonesia: $180 (Rp 2.9jt) perangkat keras hak milik, rekaman otomatis mulai $45/bln (Rp 720rb), dan statistik AI seharga $136/bln (Rp 2.2jt). Minta demo langsung.",
-    "image": ["https://coolpadelstudios.com/assets/images/savemyplay-1.jpg"],
-    "brand": {
-      "@type": "Brand",
-      "name": "Save My Play"
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": [
+        "Product",
+        "Service"
+      ],
+      "name": "Save My Play - Bandung (Indonesia)",
+      "description": "Kamera lapangan padel di Bandung, Indonesia: $180 (Rp 2.9jt) perangkat keras hak milik, rekaman otomatis mulai $45/bln (Rp 720rb), dan statistik AI seharga $136/bln (Rp 2.2jt). Minta demo langsung.",
+      "image": [
+        "https://coolpadelstudios.com/assets/images/savemyplay-1.jpg"
+      ],
+      "brand": {
+        "@type": "Brand",
+        "name": "Save My Play"
+      },
+      "areaServed": {
+        "@type": "City",
+        "name": "Bandung"
+      },
+      "offers": {
+        "@type": "AggregateOffer",
+        "priceCurrency": "USD",
+        "lowPrice": "45",
+        "highPrice": "180",
+        "offerCount": "2",
+        "availability": "https://schema.org/InStock"
+      }
     },
-    "areaServed": {
-      "@type": "City",
-      "name": "Bandung"
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Beranda",
+          "item": "https://coolpadelstudios.com/en/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Kamera",
+          "item": "https://coolpadelstudios.com/en/camaras/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Indonesia",
+          "item": "https://coolpadelstudios.com/camaras/indonesia/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "Bandung",
+          "item": "https://coolpadelstudios.com/camaras/indonesia/bandung/"
+        }
+      ]
     },
-    "offers": {
-      "@type": "AggregateOffer",
-      "priceCurrency": "IDR",
-      "lowPrice": "45",
-      "highPrice": "180",
-      "offerCount": "2",
-      "availability": "https://schema.org/InStock"
+    {
+      "@type": "FAQPage",
+      "@id": "https://coolpadelstudios.com/camaras/indonesia/bandung/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Apakah diperlukan pekerjaan galian atau kabel tanam di lantai?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Tidak, sama sekali tanpa pekerjaan sipil. Kamera dipasang langsung di tiang net dalam 5 menit."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Berapa biayanya dan apa saja paket yang tersedia?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "$180 (Rp 2.9jt) per kamera hak milik permanen. Paket bulanan: $45/bln (Rp 720rb) per lapangan untuk rekaman dan streaming; atau $136/bln (Rp 2.2jt) untuk statistik AI dengan analisis permainan."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Apakah ada ikatan kontrak jangka panjang?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sama sekali tanpa ikatan kontrak. Berhenti kapan saja dari bulan ke bulan."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is there any long-term contract or lock-in?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Zero contract lock-in. Cancel or pause month-to-month without penalty."
+          }
+        }
+      ]
     }
-  }
+  ]
+}
   </script>
   <style>
     .bg-textured-blue {
@@ -476,7 +554,7 @@
               <span>Berapa biayanya dan apa saja paket yang tersedia?</span>
               <span class="w-6 h-6 rounded-full bg-slate-100 text-slate-700 group-open:rotate-180 group-open:bg-[#f2920b] group-open:text-slate-950 flex items-center justify-center transition-transform text-xs shrink-0 ml-3">▼</span>
             </summary>
-            <p class="mt-3 text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">{hw} per kamera hak milik permanen. Paket bulanan: {rec} per lapangan untuk rekaman dan streaming; atau {ai} untuk statistik AI dengan analisis permainan.</p>
+            <p class="mt-3 text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">$180 (Rp 2.9jt) per kamera hak milik permanen. Paket bulanan: $45/bln (Rp 720rb) per lapangan untuk rekaman dan streaming; atau $136/bln (Rp 2.2jt) untuk statistik AI dengan analisis permainan.</p>
           </details>
 
           <details class="group bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/90 shadow-2xs transition hover:border-[#f2920b]">

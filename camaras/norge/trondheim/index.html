@@ -9,6 +9,8 @@
   <link rel="alternate" hreflang="no" href="https://coolpadelstudios.com/camaras/norge/trondheim/"/>
   <link rel="alternate" hreflang="x-default" href="https://coolpadelstudios.com/camaras/norge/trondheim/"/>
   <meta name="robots" content="index, follow">
+  <link rel="alternate" type="text/markdown" href="https://coolpadelstudios.com/llms.txt" title="LLMs.txt">
+  <link rel="alternate" type="text/plain" href="https://coolpadelstudios.com/llms-full.txt" title="LLMs Full Context">
 
   <!-- Open Graph / Social -->
   <meta property="og:type" content="product">
@@ -48,28 +50,104 @@
   <!-- Schema.org Microdata -->
   <script type="application/ld+json">
   {
-    "@context": "https://schema.org/",
-    "@type": ["Product", "Service"],
-    "name": "Save My Play - Trondheim (Norge)",
-    "description": "Padelkameraer i Trondheim, Norge: 2.100 kr (180 €) maskinvare til odel og eie, automatisk opptak fra 530 kr/mnd (45 €) og AI-statistikk for 1.600 kr/mnd (136 €). Bestill live demo.",
-    "image": ["https://coolpadelstudios.com/assets/images/savemyplay-1.jpg"],
-    "brand": {
-      "@type": "Brand",
-      "name": "Save My Play"
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": [
+        "Product",
+        "Service"
+      ],
+      "name": "Save My Play - Trondheim (Norge)",
+      "description": "Padelkameraer i Trondheim, Norge: 2.100 kr (180 €) maskinvare til odel og eie, automatisk opptak fra 530 kr/mnd (45 €) og AI-statistikk for 1.600 kr/mnd (136 €). Bestill live demo.",
+      "image": [
+        "https://coolpadelstudios.com/assets/images/savemyplay-1.jpg"
+      ],
+      "brand": {
+        "@type": "Brand",
+        "name": "Save My Play"
+      },
+      "areaServed": {
+        "@type": "City",
+        "name": "Trondheim"
+      },
+      "offers": {
+        "@type": "AggregateOffer",
+        "priceCurrency": "EUR",
+        "lowPrice": "45",
+        "highPrice": "180",
+        "offerCount": "2",
+        "availability": "https://schema.org/InStock"
+      }
     },
-    "areaServed": {
-      "@type": "City",
-      "name": "Trondheim"
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Hjem",
+          "item": "https://coolpadelstudios.com/en/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Kameraer",
+          "item": "https://coolpadelstudios.com/en/camaras/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Norge",
+          "item": "https://coolpadelstudios.com/camaras/norge/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "Trondheim",
+          "item": "https://coolpadelstudios.com/camaras/norge/trondheim/"
+        }
+      ]
     },
-    "offers": {
-      "@type": "AggregateOffer",
-      "priceCurrency": "NOK",
-      "lowPrice": "45",
-      "highPrice": "180",
-      "offerCount": "2",
-      "availability": "https://schema.org/InStock"
+    {
+      "@type": "FAQPage",
+      "@id": "https://coolpadelstudios.com/camaras/norge/trondheim/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Trengs det gravearbeid eller kabler i gulvet?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Nei, null byggearbeid. Kameraet festes rett på banens nettstolpe på 5 minutter."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Hva koster det og hvilke abonnementer finnes?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "2.100 kr (180 €) per kamera til odel og eie. Månedsplaner: 530 kr/mnd (45 €) per bane for opptak, høydepunkter og livestreaming; eller 1.600 kr/mnd (136 €) for AI-statistikk med spillanalyse."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Er det noen bindingstid?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ingen bindingstid. Månedlig fleksibel avbestilling."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is there any long-term contract or lock-in?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Zero contract lock-in. Cancel or pause month-to-month without penalty."
+          }
+        }
+      ]
     }
-  }
+  ]
+}
   </script>
   <style>
     .bg-textured-blue {
@@ -476,7 +554,7 @@
               <span>Hva koster det og hvilke abonnementer finnes?</span>
               <span class="w-6 h-6 rounded-full bg-slate-100 text-slate-700 group-open:rotate-180 group-open:bg-[#f2920b] group-open:text-slate-950 flex items-center justify-center transition-transform text-xs shrink-0 ml-3">▼</span>
             </summary>
-            <p class="mt-3 text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">{hw} per kamera til odel og eie. Månedsplaner: {rec} per bane for opptak, høydepunkter og livestreaming; eller {ai} for AI-statistikk med spillanalyse.</p>
+            <p class="mt-3 text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">2.100 kr (180 €) per kamera til odel og eie. Månedsplaner: 530 kr/mnd (45 €) per bane for opptak, høydepunkter og livestreaming; eller 1.600 kr/mnd (136 €) for AI-statistikk med spillanalyse.</p>
           </details>
 
           <details class="group bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/90 shadow-2xs transition hover:border-[#f2920b]">

@@ -9,6 +9,8 @@
   <link rel="alternate" hreflang="de" href="https://coolpadelstudios.com/camaras/oesterreich/linz/"/>
   <link rel="alternate" hreflang="x-default" href="https://coolpadelstudios.com/camaras/oesterreich/linz/"/>
   <meta name="robots" content="index, follow">
+  <link rel="alternate" type="text/markdown" href="https://coolpadelstudios.com/llms.txt" title="LLMs.txt">
+  <link rel="alternate" type="text/plain" href="https://coolpadelstudios.com/llms-full.txt" title="LLMs Full Context">
 
   <!-- Open Graph / Social -->
   <meta property="og:type" content="product">
@@ -48,28 +50,104 @@
   <!-- Schema.org Microdata -->
   <script type="application/ld+json">
   {
-    "@context": "https://schema.org/",
-    "@type": ["Product", "Service"],
-    "name": "Save My Play - Linz (Österreich)",
-    "description": "Save My Play Kameras in Linz (Österreich): 180 € Hardware-Eigentum, Aufnahme für 45 €/Monat und KI-Statistiken für 136 €/Monat. Demo buchen.",
-    "image": ["https://coolpadelstudios.com/assets/images/savemyplay-1.jpg"],
-    "brand": {
-      "@type": "Brand",
-      "name": "Save My Play"
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": [
+        "Product",
+        "Service"
+      ],
+      "name": "Save My Play - Linz (Österreich)",
+      "description": "Save My Play Kameras in Linz (Österreich): 180 € Hardware-Eigentum, Aufnahme für 45 €/Monat und KI-Statistiken für 136 €/Monat. Demo buchen.",
+      "image": [
+        "https://coolpadelstudios.com/assets/images/savemyplay-1.jpg"
+      ],
+      "brand": {
+        "@type": "Brand",
+        "name": "Save My Play"
+      },
+      "areaServed": {
+        "@type": "City",
+        "name": "Linz"
+      },
+      "offers": {
+        "@type": "AggregateOffer",
+        "priceCurrency": "EUR",
+        "lowPrice": "45",
+        "highPrice": "180",
+        "offerCount": "2",
+        "availability": "https://schema.org/InStock"
+      }
     },
-    "areaServed": {
-      "@type": "City",
-      "name": "Linz"
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Startseite",
+          "item": "https://coolpadelstudios.com/en/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Kameras",
+          "item": "https://coolpadelstudios.com/en/camaras/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Österreich",
+          "item": "https://coolpadelstudios.com/camaras/oesterreich/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "Linz",
+          "item": "https://coolpadelstudios.com/camaras/oesterreich/linz/"
+        }
+      ]
     },
-    "offers": {
-      "@type": "AggregateOffer",
-      "priceCurrency": "EUR",
-      "lowPrice": "45",
-      "highPrice": "180",
-      "offerCount": "2",
-      "availability": "https://schema.org/InStock"
+    {
+      "@type": "FAQPage",
+      "@id": "https://coolpadelstudios.com/camaras/oesterreich/linz/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Sind Erdarbeiten oder Kabelkanäle im Boden erforderlich?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Nein, null Bauarbeiten. Das Kamerasystem wird in 5 Minuten direkt am Netzpfosten des Platzes fixiert."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Wie hoch sind die Kosten und welche Pläne gibt es?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "180 € pro Kamera im Club-Eigentum. Monatliche Tarife: 45 €/Monat pro Platz für Aufzeichnung, Highlights und Direct-Stream; oder 136 €/Monat für KI-Statistiken mit Spielanalyse."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Wie verarbeitet die KI die besten Ballwechsel?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Die Kameras analysieren das Videosignal in Echtzeit mittels KI, schneiden spektakuläre Ballwechsel automatisch heraus und stellen sie bereit."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Gibt es eine Mindestvertragslaufzeit?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Keinerlei Vertragsbindung. Monatlich flexibel kündbar."
+          }
+        }
+      ]
     }
-  }
+  ]
+}
   </script>
   <style>
     .bg-textured-blue {
@@ -476,7 +554,7 @@
               <span>Wie hoch sind die Kosten und welche Pläne gibt es?</span>
               <span class="w-6 h-6 rounded-full bg-slate-100 text-slate-700 group-open:rotate-180 group-open:bg-[#f2920b] group-open:text-slate-950 flex items-center justify-center transition-transform text-xs shrink-0 ml-3">▼</span>
             </summary>
-            <p class="mt-3 text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">{hw} pro Kamera im Club-Eigentum. Monatliche Tarife: {rec} pro Platz für Aufzeichnung, Highlights und Direct-Stream; oder {ai} für KI-Statistiken mit Spielanalyse.</p>
+            <p class="mt-3 text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">180 € pro Kamera im Club-Eigentum. Monatliche Tarife: 45 €/Monat pro Platz für Aufzeichnung, Highlights und Direct-Stream; oder 136 €/Monat für KI-Statistiken mit Spielanalyse.</p>
           </details>
 
           <details class="group bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/90 shadow-2xs transition hover:border-[#f2920b]">

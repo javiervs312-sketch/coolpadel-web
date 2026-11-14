@@ -7,6 +7,8 @@
   <meta name="description" content="Padelcamera's in Nederland: 180 € hardware in eigendom, automatische opname vanaf 45 €/mnd en AI-statistieken voor 136 €/mnd. Vraag een live demo aan.">
   <link rel="canonical" href="https://coolpadelstudios.com/camaras/nederland/">
   <meta name="robots" content="index, follow">
+  <link rel="alternate" type="text/markdown" href="https://coolpadelstudios.com/llms.txt" title="LLMs.txt">
+  <link rel="alternate" type="text/plain" href="https://coolpadelstudios.com/llms-full.txt" title="LLMs Full Context">
 
   <!-- Open Graph / Social -->
   <meta property="og:type" content="product">
@@ -46,24 +48,94 @@
   <!-- Schema.org Microdata -->
   <script type="application/ld+json">
   {
-    "@context": "https://schema.org/",
-    "@type": ["Product", "Service"],
-    "name": "Save My Play - Nederland",
-    "description": "Padelcamera's in Nederland: 180 € hardware in eigendom, automatische opname vanaf 45 €/mnd en AI-statistieken voor 136 €/mnd. Vraag een live demo aan.",
-    "image": ["https://coolpadelstudios.com/assets/images/savemyplay-1.jpg"],
-    "brand": {
-      "@type": "Brand",
-      "name": "Save My Play"
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": [
+        "Product",
+        "Service"
+      ],
+      "name": "Save My Play - Nederland",
+      "description": "Padelcamera's in Nederland: 180 € hardware in eigendom, automatische opname vanaf 45 €/mnd en AI-statistieken voor 136 €/mnd. Vraag een live demo aan.",
+      "image": [
+        "https://coolpadelstudios.com/assets/images/savemyplay-1.jpg"
+      ],
+      "brand": {
+        "@type": "Brand",
+        "name": "Save My Play"
+      },
+      "offers": {
+        "@type": "AggregateOffer",
+        "priceCurrency": "EUR",
+        "lowPrice": "45",
+        "highPrice": "180",
+        "offerCount": "2",
+        "availability": "https://schema.org/InStock"
+      }
     },
-    "offers": {
-      "@type": "AggregateOffer",
-      "priceCurrency": "EUR",
-      "lowPrice": "45",
-      "highPrice": "180",
-      "offerCount": "2",
-      "availability": "https://schema.org/InStock"
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://coolpadelstudios.com/en/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "CAMERA'S",
+          "item": "https://coolpadelstudios.com/en/camaras/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Nederland",
+          "item": "https://coolpadelstudios.com/camaras/nederland/"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://coolpadelstudios.com/camaras/nederland/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Zijn er graafwerkzaamheden of grondkabels nodig?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Nee, nul bouwwerkzaamheden. De camera wordt binnen 5 minuten rechtstreeks aan de netpaal bevestigd."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Wat zijn de kosten en welke pakketten zijn er?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "180 € per camera in eigen bezit. Maandelijkse plannen: 45 €/mnd per baan voor opname, highlights en streaming; of 136 €/mnd voor AI-statistieken met tactische analyse."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Hoe selecteert de AI de beste punten?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "De camera's analyseren het videosignaal in realtime met kunstmatige intelligentie, knippen de beste rally's direct uit en maken ze deelbaar."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Zit ik vast aan een lang contract?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Geen enkel lang contract. Maandelijks flexibel opzegbaar."
+          }
+        }
+      ]
     }
-  }
+  ]
+}
   </script>
   <style>
     .bg-textured-blue {

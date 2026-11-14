@@ -347,8 +347,8 @@ CALCULADORA_ROI_DATA = {
 
 CALCULADORA_COSTES_DATA = {
     "es": {
-        "title": "Calculadora de Coste y Rentabilidad de Pistas de Pádel | CoolPadel Studios",
-        "desc": "Calcula cuánto cuesta montar pistas de pádel (cristal, solera, LED, indoor): ingresos mensuales, costes operativos y amortización exacta en meses.",
+        "title": "Calculadora Gratuita: Coste y Rentabilidad de Pistas de Pádel 2026",
+        "desc": "Calcula al instante el coste real de construir pistas de pádel: obra, cristal, focos y cuenta de explotación con amortización en meses. Sin registro.",
         "badge": "Simulador de Viabilidad Económica 2026",
         "h1": "Calculadora de <span class=\"text-[#f2920b]\">Coste y Rentabilidad</span> de Pistas de Pádel",
         "lead": "Simula el presupuesto de inversión (obra civil, solera, estructura, césped, LED y cámaras) y calcula los ingresos mensuales netos y el plazo de amortización de tu club o instalación.",

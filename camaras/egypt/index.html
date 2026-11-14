@@ -7,6 +7,8 @@
   <meta name="description" content="كاميرات ملاعب البادل في مصر: أجهزة مملوكة بالكامل بقيمة $180، تسجيل تلقائي من $45 / شهرياً وإحصائيات الذكاء الاصطناعي مقابل $136 / شهرياً. اطلب عرضاً مباشراً.">
   <link rel="canonical" href="https://coolpadelstudios.com/camaras/egypt/">
   <meta name="robots" content="index, follow">
+  <link rel="alternate" type="text/markdown" href="https://coolpadelstudios.com/llms.txt" title="LLMs.txt">
+  <link rel="alternate" type="text/plain" href="https://coolpadelstudios.com/llms-full.txt" title="LLMs Full Context">
 
   <!-- Open Graph / Social -->
   <meta property="og:type" content="product">
@@ -46,24 +48,94 @@
   <!-- Schema.org Microdata -->
   <script type="application/ld+json">
   {
-    "@context": "https://schema.org/",
-    "@type": ["Product", "Service"],
-    "name": "Save My Play - مصر",
-    "description": "كاميرات ملاعب البادل في مصر: أجهزة مملوكة بالكامل بقيمة $180، تسجيل تلقائي من $45 / شهرياً وإحصائيات الذكاء الاصطناعي مقابل $136 / شهرياً. اطلب عرضاً مباشراً.",
-    "image": ["https://coolpadelstudios.com/assets/images/savemyplay-1.jpg"],
-    "brand": {
-      "@type": "Brand",
-      "name": "Save My Play"
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": [
+        "Product",
+        "Service"
+      ],
+      "name": "Save My Play - مصر",
+      "description": "كاميرات ملاعب البادل في مصر: أجهزة مملوكة بالكامل بقيمة $180، تسجيل تلقائي من $45 / شهرياً وإحصائيات الذكاء الاصطناعي مقابل $136 / شهرياً. اطلب عرضاً مباشراً.",
+      "image": [
+        "https://coolpadelstudios.com/assets/images/savemyplay-1.jpg"
+      ],
+      "brand": {
+        "@type": "Brand",
+        "name": "Save My Play"
+      },
+      "offers": {
+        "@type": "AggregateOffer",
+        "priceCurrency": "USD",
+        "lowPrice": "45",
+        "highPrice": "180",
+        "offerCount": "2",
+        "availability": "https://schema.org/InStock"
+      }
     },
-    "offers": {
-      "@type": "AggregateOffer",
-      "priceCurrency": "EGP",
-      "lowPrice": "45",
-      "highPrice": "180",
-      "offerCount": "2",
-      "availability": "https://schema.org/InStock"
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "الرئيسية",
+          "item": "https://coolpadelstudios.com/en/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "الكاميرات",
+          "item": "https://coolpadelstudios.com/en/camaras/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "مصر",
+          "item": "https://coolpadelstudios.com/camaras/egypt/"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://coolpadelstudios.com/camaras/egypt/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "هل يتطلب التركيب أي أعمال حفر أو تمديدات أرضية للكابلات؟",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "لا، إطلاقاً بدون أي أعمال حفر. يتم تثبيت الكاميرا مباشرة على عمود الشبكة في 5 دقائق فقط."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "ما هي التكلفة وما هي الباقات المتوفرة؟",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "$180 لكل كاميرا ملكاً للنادي. الباقات الشهرية: $45 / شهرياً للملعب للتسجيل والبث؛ أو $136 / شهرياً لإحصائيات الذكاء الاصطناعي وتحليل الأداء."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "كيف يحدد الذكاء الاصطناعي أفضل الكرات والضربات؟",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "تقوم الكاميرات بمعالجة الفيديو لحظياً بالذكاء الاصطناعي لاكتشاف النقاط الحماسية وقصها وتجهيزها للمشاركة على الهاتف."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "هل توجد أي عقود إلزامية أو شروط احتكار؟",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "لا يوجد أي التزام زمني. يمكنك الإلغاء أو التوقف في أي شهر بكل حرية."
+          }
+        }
+      ]
     }
-  }
+  ]
+}
   </script>
   <style>
     .bg-textured-blue {

@@ -7,6 +7,8 @@
   <meta name="description" content="日本のパデルコート用スマートカメラ：¥27,000 ($180)のハードウェア買い切り、¥6,800/月 ($45)からの自動試合録画、¥20,500/月 ($136)のAI統計分析。オンラインデモ受付中。">
   <link rel="canonical" href="https://coolpadelstudios.com/camaras/japan/">
   <meta name="robots" content="index, follow">
+  <link rel="alternate" type="text/markdown" href="https://coolpadelstudios.com/llms.txt" title="LLMs.txt">
+  <link rel="alternate" type="text/plain" href="https://coolpadelstudios.com/llms-full.txt" title="LLMs Full Context">
 
   <!-- Open Graph / Social -->
   <meta property="og:type" content="product">
@@ -46,24 +48,94 @@
   <!-- Schema.org Microdata -->
   <script type="application/ld+json">
   {
-    "@context": "https://schema.org/",
-    "@type": ["Product", "Service"],
-    "name": "Save My Play - 日本",
-    "description": "日本のパデルコート用スマートカメラ：¥27,000 ($180)のハードウェア買い切り、¥6,800/月 ($45)からの自動試合録画、¥20,500/月 ($136)のAI統計分析。オンラインデモ受付中。",
-    "image": ["https://coolpadelstudios.com/assets/images/savemyplay-1.jpg"],
-    "brand": {
-      "@type": "Brand",
-      "name": "Save My Play"
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": [
+        "Product",
+        "Service"
+      ],
+      "name": "Save My Play - 日本",
+      "description": "日本のパデルコート用スマートカメラ：¥27,000 ($180)のハードウェア買い切り、¥6,800/月 ($45)からの自動試合録画、¥20,500/月 ($136)のAI統計分析。オンラインデモ受付中。",
+      "image": [
+        "https://coolpadelstudios.com/assets/images/savemyplay-1.jpg"
+      ],
+      "brand": {
+        "@type": "Brand",
+        "name": "Save My Play"
+      },
+      "offers": {
+        "@type": "AggregateOffer",
+        "priceCurrency": "USD",
+        "lowPrice": "45",
+        "highPrice": "180",
+        "offerCount": "2",
+        "availability": "https://schema.org/InStock"
+      }
     },
-    "offers": {
-      "@type": "AggregateOffer",
-      "priceCurrency": "JPY",
-      "lowPrice": "45",
-      "highPrice": "180",
-      "offerCount": "2",
-      "availability": "https://schema.org/InStock"
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "ホーム",
+          "item": "https://coolpadelstudios.com/en/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "カメラ",
+          "item": "https://coolpadelstudios.com/en/camaras/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "日本",
+          "item": "https://coolpadelstudios.com/camaras/japan/"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://coolpadelstudios.com/camaras/japan/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "配線工事やコート床面の掘削工事は必要ですか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "いいえ、大がかりな工事は一切不要です。ネットポストにわずか5分で装着できます。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "費用とプラン体系はどうなっていますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "カメラ本体は¥27,000 ($180)の一括買い切りです。月額プランは録画と配信が¥6,800/月 ($45)、AI統計分析付きが¥20,500/月 ($136)となります。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "AIはどのようにしてベストラリーを自動判別しますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "AIが映像をリアルタイムで解析し、盛り上がったラリーや決定打を自動でクリップ化してスマホに届けます。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "契約の最低利用期間などの縛りはありますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "契約縛りは一切ありません。月単位でいつでも自由に休止・解約が可能です。"
+          }
+        }
+      ]
     }
-  }
+  ]
+}
   </script>
   <style>
     .bg-textured-blue {

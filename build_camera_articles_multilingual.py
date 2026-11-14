@@ -529,6 +529,61 @@ def render_page(title: str, content: str, lang: str, prefix: str = "/", slug: st
         }}
       ]
     }}""")
+        hub_faqs_i18n = {
+            "es": [
+                ("¿Cuánto cuesta instalar cámaras Save my Play en un club de pádel?", "La inversión inicial del hardware es de 180 € por pista (equipo en propiedad del club). La suscripción mensual parte de 45 €/mes en el Plan Básico (con descuentos por volumen hasta 27 €/mes) o 136 €/mes en el Plan A con Inteligencia Artificial táctica."),
+                ("¿La instalación requiere obras, cableado o servidores locales?", "No. La cámara se fija al poste de la red o estructura en solo 5 minutos utilizando alimentación estándar y WiFi, sin zanjas, sin obras civiles ni servidores locales en recepción."),
+                ("¿Cómo ven y descargan los jugadores sus mejores jugadas?", "Tras pulsar el botón físico en el poste o pista, los jugadores escanean el código QR en pista o recepción y descargan sus clips en segundos desde el navegador web del móvil, sin instalar ninguna aplicación."),
+                ("¿Existe compromiso de permanencia?", "No hay permanencia obligatoria: puedes cancelar mes a mes sin penalizaciones (0 meses de permanencia) y dispones de 30 días de garantía de devolución sobre el hardware."),
+                ("¿Las cámaras de Save my Play cumplen con la normativa RGPD y LOPDGDD?", "Sí. El sistema trabaja con buffer volátil en RAM y solo almacena clips deportivos cuando el jugador acciona voluntariamente el pulsador en pista, incluyendo cartel informativo homologado y contrato Art. 28 RGPD.")
+            ],
+            "en": [
+                ("How much does it cost to install Save my Play cameras at a padel club?", "Hardware is a one-time investment of €180 per court (owned outright by the club). Monthly plans start at €45/month for Basic highlights & streaming (volume tiers down to €27/month) or €136/month for tactical AI analytics."),
+                ("Does installation require civil works, trenching, or local servers?", "No. Each camera mounts directly onto the net post in just 5 minutes using standard power and Wi-Fi—zero trenching, zero downtime, and no local servers required."),
+                ("How do players watch and download their match highlights?", "Players press the wireless court button after a rally and scan the on-court QR code to view and download highlights instantly in their mobile browser—no app download required."),
+                ("Is there a minimum contract lock-in period?", "Zero lock-in contracts: clubs can pause or cancel month-to-month without penalties, backed by a 30-day hardware return guarantee."),
+                ("Is Save my Play compliant with GDPR data privacy regulations?", "Yes. The system uses a volatile memory buffer and only saves sport clips when a player voluntarily presses the button, providing compliant court signage and GDPR Art. 28 documentation.")
+            ],
+            "fr": [
+                ("Combien coûte l'installation des caméras Save my Play dans un club de padel ?", "L'investissement matériel est de 180 € par piste (en pleine propriété du club). L'abonnement mensuel commence à 45 €/mois pour le Plan Basique (dégressif jusqu'à 27 €/mois) ou 136 €/mois avec le module d'Intelligence Artificielle tactique."),
+                ("L'installation nécessite-t-elle des travaux ou des serveurs locaux ?", "Non. La caméra se fixe sur le poteau du filet ou un mât en 5 minutes avec une simple prise secteur et le Wi-Fi, sans tranchées ni serveur local à l'accueil."),
+                ("Comment les joueurs téléchargent-ils leurs vidéos et highlights ?", "Les joueurs appuient sur le bouton en piste, scannent le QR code affiché et accèdent directement à leurs clips depuis le navigateur mobile, 100 % web et sans télécharger d'application."),
+                ("Y a-t-il une durée minimale d'engagement ?", "Zéro mois d'engagement : résiliation libre mois par mois sans pénalités, avec une garantie satisfait ou remboursé de 30 jours sur le matériel."),
+                ("Le système est-il conforme au RGPD ?", "Oui. La caméra fonctionne avec une mémoire tampon volatile et n'enregistre les séquences sportives que sur action volontaire du joueur via le bouton, avec affichage légal inclus.")
+            ],
+            "it": [
+                ("Quanto costa installare le telecamere Save my Play in un circolo di padel?", "L'investimento hardware iniziale è di 180 € per campo (di proprietà del club). L'abbonamento mensile parte da 45 €/mese per il Piano Base (fino a 27 €/mese per più campi) o 136 €/mese per le statistiche IA avanzate."),
+                ("L'installazione richiede opere murarie o server locali?", "No. La telecamera si fissa al palo della rete in soli 5 minuti usando una presa di corrente standard e il Wi-Fi, senza scavi né server locali in segreteria."),
+                ("Come guardano e scaricano i video i giocatori?", "Premendo il pulsante wireless in campo e scansionando il codice QR, i giocatori accedono subito alle clip dal browser dello smartphone, senza installare alcuna app."),
+                ("C'è un vincolo di permanenza contrattuale?", "Zero mesi di permanenza: è possibile disdire mese per mese senza penali, con garanzia di reso di 30 giorni sull'hardware."),
+                ("Le telecamere Save my Play sono conformi al GDPR?", "Sì. Il sistema utilizza un buffer volatile e salva i video solo su attivazione volontaria tramite pulsante, includendo cartellonistica informativa e documentazione GDPR.")
+            ],
+            "de": [
+                ("Wie viel kostet die Installation von Save my Play Kameras in einem Padel-Club?", "Die Hardware-Investition beträgt einmalig 180 € pro Platz (volles Eigentum des Clubs). Das Monatsabo startet ab 45 €/Monat im Basis-Tarif (Mengenrabatt bis 27 €/Monat) oder 136 €/Monat für KI-Taktikanalysen."),
+                ("Sind für die Montage Bauarbeiten oder lokale Server nötig?", "Nein. Die Kamera wird in nur 5 Minuten direkt am Netzpfosten über Strom und WLAN montiert – ganz ohne Erdarbeiten oder lokale Server."),
+                ("Wie laden Spieler ihre Highlights herunter?", "Nach Druck auf den kabellosen Button scannen die Spieler den QR-Code am Platz und laden ihre Clips direkt im mobilen Browser herunter – 100 % webbasiert ohne App-Download."),
+                ("Gibt es eine Mindestvertragslaufzeit?", "Keine Vertragsbindung (0 Monate Laufzeit): monatlich flexibel kündbar ohne Gebühren, inklusive 30 Tage Geld-zurück-Garantie auf die Hardware."),
+                ("Ist das Kamerasystem DSGVO-konform?", "Ja. Die Kamera arbeitet mit einem flüchtigen Zwischenspeicher und speichert Clips ausschließlich auf aktiven Knopfdruck der Spieler, inklusive DSGVO-Hinweisschild.")
+            ],
+        }
+        faq_items_json = ",\n".join(
+            f"""        {{
+          "@type": "Question",
+          "name": {json.dumps(fq, ensure_ascii=False)},
+          "acceptedAnswer": {{
+            "@type": "Answer",
+            "text": {json.dumps(fa, ensure_ascii=False)}
+          }}
+        }}"""
+            for fq, fa in hub_faqs_i18n.get(lang, hub_faqs_i18n["es"])
+        )
+        schema_parts.append(f"""    {{
+      "@type": "FAQPage",
+      "@id": "{canonical_url}#faq",
+      "mainEntity": [
+{faq_items_json}
+      ]
+    }}""")
 
     schema_json = '<script type="application/ld+json">\n{\n  "@context": "https://schema.org",\n  "@graph": [\n' + ',\n'.join(schema_parts) + '\n  ]\n}\n</script>'
 

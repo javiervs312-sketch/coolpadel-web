@@ -7,6 +7,8 @@
   <meta name="description" content="Caméras pour terrains de padel en Belgique: 180 € matériel possédé, enregistrement dès 45 €/mois et statistiques avec IA à 136 €/mois. Demandez une démo en direct.">
   <link rel="canonical" href="https://coolpadelstudios.com/camaras/belgique/">
   <meta name="robots" content="index, follow">
+  <link rel="alternate" type="text/markdown" href="https://coolpadelstudios.com/llms.txt" title="LLMs.txt">
+  <link rel="alternate" type="text/plain" href="https://coolpadelstudios.com/llms-full.txt" title="LLMs Full Context">
 
   <!-- Open Graph / Social -->
   <meta property="og:type" content="product">
@@ -46,24 +48,94 @@
   <!-- Schema.org Microdata -->
   <script type="application/ld+json">
   {
-    "@context": "https://schema.org/",
-    "@type": ["Product", "Service"],
-    "name": "Save My Play - Belgique",
-    "description": "Caméras pour terrains de padel en Belgique: 180 € matériel possédé, enregistrement dès 45 €/mois et statistiques avec IA à 136 €/mois. Demandez une démo en direct.",
-    "image": ["https://coolpadelstudios.com/assets/images/savemyplay-1.jpg"],
-    "brand": {
-      "@type": "Brand",
-      "name": "Save My Play"
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": [
+        "Product",
+        "Service"
+      ],
+      "name": "Save My Play - Belgique",
+      "description": "Caméras pour terrains de padel en Belgique: 180 € matériel possédé, enregistrement dès 45 €/mois et statistiques avec IA à 136 €/mois. Demandez une démo en direct.",
+      "image": [
+        "https://coolpadelstudios.com/assets/images/savemyplay-1.jpg"
+      ],
+      "brand": {
+        "@type": "Brand",
+        "name": "Save My Play"
+      },
+      "offers": {
+        "@type": "AggregateOffer",
+        "priceCurrency": "EUR",
+        "lowPrice": "45",
+        "highPrice": "180",
+        "offerCount": "2",
+        "availability": "https://schema.org/InStock"
+      }
     },
-    "offers": {
-      "@type": "AggregateOffer",
-      "priceCurrency": "EUR",
-      "lowPrice": "45",
-      "highPrice": "180",
-      "offerCount": "2",
-      "availability": "https://schema.org/InStock"
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Accueil",
+          "item": "https://coolpadelstudios.com/en/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "CAMÉRAS",
+          "item": "https://coolpadelstudios.com/en/camaras/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Belgique",
+          "item": "https://coolpadelstudios.com/camaras/belgique/"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://coolpadelstudios.com/camaras/belgique/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Faut-il réaliser des travaux ou des tranchées au sol ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Non, zéro travaux. Le boîtier se fixe directement au poteau du filet en 5 minutes."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Quel est le tarif et quels forfaits existent ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "180 € par caméra en propriété. Abonnements mensuels: 45 €/mois par piste pour l'enregistrement, highlights et direct; ou 136 €/mois pour les statistiques par IA et analyse du jeu."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Comment l'IA sélectionne-t-elle les meilleurs points ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Les caméras traitent le signal vidéo en temps réel grâce à l'IA pour extraire automatiquement les meilleurs échanges prêts à partager sur mobile."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Y a-t-il un engagement de durée ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Aucun engagement. Résiliation libre mois par mois."
+          }
+        }
+      ]
     }
-  }
+  ]
+}
   </script>
   <style>
     .bg-textured-blue {

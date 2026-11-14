@@ -7,6 +7,8 @@
   <meta name="description" content="Κάμερες padel σε Ελλάδα: 180 € εξοπλισμός στην ιδιοκτησία σας, αυτόματη καταγραφή από 45 €/μήνα και στατιστικά AI με 136 €/μήνα. Ζητήστε live demo.">
   <link rel="canonical" href="https://coolpadelstudios.com/camaras/ellada/">
   <meta name="robots" content="index, follow">
+  <link rel="alternate" type="text/markdown" href="https://coolpadelstudios.com/llms.txt" title="LLMs.txt">
+  <link rel="alternate" type="text/plain" href="https://coolpadelstudios.com/llms-full.txt" title="LLMs Full Context">
 
   <!-- Open Graph / Social -->
   <meta property="og:type" content="product">
@@ -46,24 +48,94 @@
   <!-- Schema.org Microdata -->
   <script type="application/ld+json">
   {
-    "@context": "https://schema.org/",
-    "@type": ["Product", "Service"],
-    "name": "Save My Play - Ελλάδα",
-    "description": "Κάμερες padel σε Ελλάδα: 180 € εξοπλισμός στην ιδιοκτησία σας, αυτόματη καταγραφή από 45 €/μήνα και στατιστικά AI με 136 €/μήνα. Ζητήστε live demo.",
-    "image": ["https://coolpadelstudios.com/assets/images/savemyplay-1.jpg"],
-    "brand": {
-      "@type": "Brand",
-      "name": "Save My Play"
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": [
+        "Product",
+        "Service"
+      ],
+      "name": "Save My Play - Ελλάδα",
+      "description": "Κάμερες padel σε Ελλάδα: 180 € εξοπλισμός στην ιδιοκτησία σας, αυτόματη καταγραφή από 45 €/μήνα και στατιστικά AI με 136 €/μήνα. Ζητήστε live demo.",
+      "image": [
+        "https://coolpadelstudios.com/assets/images/savemyplay-1.jpg"
+      ],
+      "brand": {
+        "@type": "Brand",
+        "name": "Save My Play"
+      },
+      "offers": {
+        "@type": "AggregateOffer",
+        "priceCurrency": "EUR",
+        "lowPrice": "45",
+        "highPrice": "180",
+        "offerCount": "2",
+        "availability": "https://schema.org/InStock"
+      }
     },
-    "offers": {
-      "@type": "AggregateOffer",
-      "priceCurrency": "EUR",
-      "lowPrice": "45",
-      "highPrice": "180",
-      "offerCount": "2",
-      "availability": "https://schema.org/InStock"
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Αρχική",
+          "item": "https://coolpadelstudios.com/en/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "ΚΑΜΕΡΕΣ",
+          "item": "https://coolpadelstudios.com/en/camaras/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Ελλάδα",
+          "item": "https://coolpadelstudios.com/camaras/ellada/"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://coolpadelstudios.com/camaras/ellada/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Χρειάζονται οικοδομικές εργασίες ή καλώδια στο έδαφος;",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Όχι, απολύτως μηδενικές εργασίες. Το σύστημα τοποθετείται στον στύλο του φιλέ σε μόλις 5 λεπτά."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Ποιο είναι το κόστος και ποια προγράμματα υπάρχουν;",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "180 € ανά κάμερα στην ιδιοκτησία του club. Μηνιαίες συνδρομές: 45 €/μήνα ανά γήπεδο για καταγραφή και streaming, ή 136 €/μήνα για στατιστικά AI και ανάλυση."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Πώς επεξεργάζεται η τεχνητή νοημοσύνη τις καλύτερες φάσεις;",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Οι κάμερες επεξεργάζονται το βίντεο σε πραγματικό χρόνο με AI, επιλέγουν αυτόματα τους καλύτερους πόντους και δημιουργούν έτοιμα βίντεο."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Υπάρχει κάποιο συμβόλαιο δέσμευσης;",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Καμία δέσμευση. Ελεύθερη διακοπή μήνα με τον μήνα."
+          }
+        }
+      ]
     }
-  }
+  ]
+}
   </script>
   <style>
     .bg-textured-blue {

@@ -7,6 +7,8 @@
   <meta name="description" content="Padelkameraer i Danmark: 1.350 kr (180 €) hardware i fuldt eje, automatisk kampoptagelse fra 340 kr/md (45 €) og AI-statistik for 1.020 kr/md (136 €). Bestil live demo.">
   <link rel="canonical" href="https://coolpadelstudios.com/camaras/danmark/">
   <meta name="robots" content="index, follow">
+  <link rel="alternate" type="text/markdown" href="https://coolpadelstudios.com/llms.txt" title="LLMs.txt">
+  <link rel="alternate" type="text/plain" href="https://coolpadelstudios.com/llms-full.txt" title="LLMs Full Context">
 
   <!-- Open Graph / Social -->
   <meta property="og:type" content="product">
@@ -46,24 +48,94 @@
   <!-- Schema.org Microdata -->
   <script type="application/ld+json">
   {
-    "@context": "https://schema.org/",
-    "@type": ["Product", "Service"],
-    "name": "Save My Play - Danmark",
-    "description": "Padelkameraer i Danmark: 1.350 kr (180 €) hardware i fuldt eje, automatisk kampoptagelse fra 340 kr/md (45 €) og AI-statistik for 1.020 kr/md (136 €). Bestil live demo.",
-    "image": ["https://coolpadelstudios.com/assets/images/savemyplay-1.jpg"],
-    "brand": {
-      "@type": "Brand",
-      "name": "Save My Play"
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": [
+        "Product",
+        "Service"
+      ],
+      "name": "Save My Play - Danmark",
+      "description": "Padelkameraer i Danmark: 1.350 kr (180 €) hardware i fuldt eje, automatisk kampoptagelse fra 340 kr/md (45 €) og AI-statistik for 1.020 kr/md (136 €). Bestil live demo.",
+      "image": [
+        "https://coolpadelstudios.com/assets/images/savemyplay-1.jpg"
+      ],
+      "brand": {
+        "@type": "Brand",
+        "name": "Save My Play"
+      },
+      "offers": {
+        "@type": "AggregateOffer",
+        "priceCurrency": "EUR",
+        "lowPrice": "45",
+        "highPrice": "180",
+        "offerCount": "2",
+        "availability": "https://schema.org/InStock"
+      }
     },
-    "offers": {
-      "@type": "AggregateOffer",
-      "priceCurrency": "DKK",
-      "lowPrice": "45",
-      "highPrice": "180",
-      "offerCount": "2",
-      "availability": "https://schema.org/InStock"
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Hjem",
+          "item": "https://coolpadelstudios.com/en/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "KAMERAER",
+          "item": "https://coolpadelstudios.com/en/camaras/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Danmark",
+          "item": "https://coolpadelstudios.com/camaras/danmark/"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://coolpadelstudios.com/camaras/danmark/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Kræves der byggearbejde, kabler i jorden eller huller?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Nej, absolut intet byggearbejde. Kamerasystemet fastgøres direkte på banens netstolpe på kun 5 minutter."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Hvad koster det, og hvilke abonnementsmuligheder findes der?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "1.350 kr (180 €) pr. kamera i klubbens eje. Månedlige abonnementer: 340 kr/md (45 €) pr. bane til optagelse, højdepunkter og streaming; eller 1.020 kr/md (136 €) for AI-statistik med taktisk analyse."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Hvordan udvælger den kunstige intelligens de bedste dueller?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Kameraerne bruger AI til at analysere videostrømmen i realtid, udvælger automatisk de bedste bolde og genererer videoklip klar til deling."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Er der nogen bindingsperiode?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ingen bindingsperiode. Frit opsigeligt måned for måned."
+          }
+        }
+      ]
     }
-  }
+  ]
+}
   </script>
   <style>
     .bg-textured-blue {

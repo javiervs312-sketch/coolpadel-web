@@ -164,7 +164,7 @@ def run_seo_post_build():
             except OSError:
                 continue
             changed = False
-            if "</head>" in c and GA4_SNIPPET not in c:
+            if "</head>" in c and GA4_ID not in c:
                 c = GA4_OLD_RE.sub("", c)
                 c = c.replace("</head>", GA4_SNIPPET + "</head>", 1)
                 changed = True

@@ -427,8 +427,8 @@ EXTRA_ARTICLES_I18N = {
     },
     "regalos-padel-originales-baratos-ideas-detalles-torneos": {
         "es": {
-            "title": "15 Regalos de Pádel Originales y Baratos (<10€) | CoolPadel",
-            "desc": "Ideas y cosas de pádel por menos de 3€, 5€ y 10€: de llaveros 3D a accesorios de paletero.",
+            "title": "50 Regalos de Pádel Originales y Baratos para Torneos 2026 | desde 1,50€",
+            "desc": "Ideas únicas de regalo para jugadores de pádel: llaveros 3D personalizados desde 1,50€, welcome packs y detalles para clubes y torneos. Envío mundial.",
             "h1": "15 Regalos de Pádel Originales y Baratos para Jugadores, Clubs y Torneos (2026)",
             "subtitle": "Ideas y cosas de pádel por menos de 3€, 5€ y 10€: de llaveros 3D a accesorios de paletero.",
             "badge": "Regalos & Merch"

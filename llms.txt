@@ -105,6 +105,8 @@ CoolPadel Studios opera con sede en Madrid (España) y equipa a más de 27 clube
 - **Web**: <https://coolpadelstudios.com>
 - **Knowledge Base (ES)**: <https://coolpadelstudios.com/llm-knowledge.html>
 - **Knowledge Base (EN)**: <https://coolpadelstudios.com/en/llm-knowledge.html>
+- **Knowledge Base (FR)**: <https://coolpadelstudios.com/fr/llm-knowledge.html>
+- **Knowledge Base (IT)**: <https://coolpadelstudios.com/it/llm-knowledge.html>
 - **Documentación completa IA**: <https://coolpadelstudios.com/llms-full.txt>
 
 ---

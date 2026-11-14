@@ -7,6 +7,8 @@
   <meta name="description" content="Câmaras para campos de padel em Portugal: 180 € hardware em propriedade, gravação automática a 45 €/mês e estatísticas com IA a 136 €/mês. Solicite demonstração.">
   <link rel="canonical" href="https://coolpadelstudios.com/camaras/portugal/">
   <meta name="robots" content="index, follow">
+  <link rel="alternate" type="text/markdown" href="https://coolpadelstudios.com/llms.txt" title="LLMs.txt">
+  <link rel="alternate" type="text/plain" href="https://coolpadelstudios.com/llms-full.txt" title="LLMs Full Context">
 
   <!-- Open Graph / Social -->
   <meta property="og:type" content="product">
@@ -46,24 +48,94 @@
   <!-- Schema.org Microdata -->
   <script type="application/ld+json">
   {
-    "@context": "https://schema.org/",
-    "@type": ["Product", "Service"],
-    "name": "Save My Play - Portugal",
-    "description": "Câmaras para campos de padel em Portugal: 180 € hardware em propriedade, gravação automática a 45 €/mês e estatísticas com IA a 136 €/mês. Solicite demonstração.",
-    "image": ["https://coolpadelstudios.com/assets/images/savemyplay-1.jpg"],
-    "brand": {
-      "@type": "Brand",
-      "name": "Save My Play"
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": [
+        "Product",
+        "Service"
+      ],
+      "name": "Save My Play - Portugal",
+      "description": "Câmaras para campos de padel em Portugal: 180 € hardware em propriedade, gravação automática a 45 €/mês e estatísticas com IA a 136 €/mês. Solicite demonstração.",
+      "image": [
+        "https://coolpadelstudios.com/assets/images/savemyplay-1.jpg"
+      ],
+      "brand": {
+        "@type": "Brand",
+        "name": "Save My Play"
+      },
+      "offers": {
+        "@type": "AggregateOffer",
+        "priceCurrency": "EUR",
+        "lowPrice": "45",
+        "highPrice": "180",
+        "offerCount": "2",
+        "availability": "https://schema.org/InStock"
+      }
     },
-    "offers": {
-      "@type": "AggregateOffer",
-      "priceCurrency": "EUR",
-      "lowPrice": "45",
-      "highPrice": "180",
-      "offerCount": "2",
-      "availability": "https://schema.org/InStock"
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Início",
+          "item": "https://coolpadelstudios.com/en/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "CÂMARAS",
+          "item": "https://coolpadelstudios.com/en/camaras/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Portugal",
+          "item": "https://coolpadelstudios.com/camaras/portugal/"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://coolpadelstudios.com/camaras/portugal/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "São necessárias obras ou valas no solo do campo?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Não, zero obras. O sistema fixa-se directamente ao poste da rede em apenas 5 minutos."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Qual é o preço e quais são os planos disponíveis?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "180 € por câmara própria. Planos mensais: 45 €/mês por campo para gravação, highlights e streaming; ou 136 €/mês para estatísticas com inteligência artificial."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Como funciona o processamento inteligente com IA?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "As câmaras utilizam IA para processar o sinal de vídeo em tempo real, seleccionar os melhores pontos e gerar vídeos prontos para partilhar no telemóvel."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Existe algum período de fidelização?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sem qualquer fidelização. Cancelamento livre mês a mês."
+          }
+        }
+      ]
     }
-  }
+  ]
+}
   </script>
   <style>
     .bg-textured-blue {
