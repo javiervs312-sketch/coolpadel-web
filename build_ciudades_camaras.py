@@ -619,9 +619,6 @@ def generate_city_page(country_item, city, slug_country_used, canonical_country_
               </div>
               <h3 class="font-heading font-black text-slate-950 text-base mb-1">WhatsApp Directo</h3>
               <p class="text-slate-500 text-xs mb-3">Respuesta directa con Javier</p>
-              <div class="p-2 bg-slate-50 rounded-xl border border-slate-100 mb-3 group-hover:border-emerald-200 transition-colors">
-                <img src="../../../assets/images/qr_whatsapp_coolpadel.png" alt="WhatsApp CoolPadel" width="80" height="80" class="w-16 h-16 sm:w-20 sm:h-20 object-contain" loading="lazy">
-              </div>
             </div>
             <span class="inline-flex items-center justify-center gap-1.5 w-full py-2.5 px-4 rounded-xl bg-[#25D366] text-white font-heading font-bold text-xs uppercase tracking-wider group-hover:bg-[#1ebd59] transition-colors shadow-xs">
               <i data-lucide="message-circle" class="w-3.5 h-3.5"></i>
@@ -638,9 +635,6 @@ def generate_city_page(country_item, city, slug_country_used, canonical_country_
               </div>
               <h3 class="font-heading font-black text-slate-950 text-base mb-1">Email Dossier</h3>
               <p class="text-slate-500 text-xs mb-3">javier@coolpadelstudios.com</p>
-              <div class="p-2 bg-slate-50 rounded-xl border border-slate-100 mb-3 group-hover:border-sky-200 transition-colors">
-                <img src="../../../assets/images/qr_email_coolpadel.png" alt="Email CoolPadel" width="80" height="80" class="w-16 h-16 sm:w-20 sm:h-20 object-contain" loading="lazy">
-              </div>
             </div>
             <span class="inline-flex items-center justify-center gap-1.5 w-full py-2.5 px-4 rounded-xl bg-sky-600 text-white font-heading font-bold text-xs uppercase tracking-wider group-hover:bg-sky-500 transition-colors shadow-xs">
               <i data-lucide="send" class="w-3.5 h-3.5"></i>
