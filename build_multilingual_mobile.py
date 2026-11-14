@@ -99,7 +99,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
 
             f'<div class="flex items-center justify-center shrink-0 px-2.5 sm:px-5 group"{aria_attr}>'
 
-            f'<img src="{asset_prefix}assets/images/Clubs/client-{str(i).zfill(2)}.png" '
+            f'<img src="{asset_prefix}assets/images/Clubs/client-{str(i).zfill(2)}.webp" '
 
             f'alt="{alt_text}" '
 
@@ -508,8 +508,6 @@ def get_base_html(active_lang="es", is_subfolder=False):
   <link rel="dns-prefetch" href="https://fonts.googleapis.com">
 
   <link rel="dns-prefetch" href="https://fonts.gstatic.com">
-
-  <link rel="dns-prefetch" href="https://cdn.tailwindcss.com">
 
   <link rel="dns-prefetch" href="https://unpkg.com">
 
@@ -1441,7 +1439,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
 
   <link rel="alternate" type="text/markdown" href="{asset_prefix}llms.txt" title="LLMs Info">
 
-  <link rel="preload" as="image" href="{asset_prefix}assets/images/slide-1.jpg" fetchpriority="high">
+  <link rel="preload" as="image" href="{asset_prefix}assets/images/slide-1.webp" fetchpriority="high">
 
   
 
@@ -1455,77 +1453,9 @@ def get_base_html(active_lang="es", is_subfolder=False):
 
   </noscript>
 
-  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="{asset_prefix}assets/css/styles.min.css?v=20261114">
 
-  <script>
-
-    tailwind.config = {{
-
-      darkMode: 'class',
-
-      theme: {{
-
-        extend: {{
-
-          fontFamily: {{
-
-            outfit: ['Outfit', 'sans-serif'],
-
-            jakarta: ['Plus Jakarta Sans', 'sans-serif'],
-
-          }},
-
-          colors: {{
-
-            cool: {{
-
-              navy: '#091322',
-
-              dark: '#0e1d33',
-
-              card: '#132845',
-
-              blue: '#0284c7',
-
-              cyan: '#76d3f6',
-
-              orange: '#f2920b',
-
-              amber: '#d97706'
-
-            }}
-
-          }},
-
-          animation: {{
-
-            'ticker-slow': 'tickerSlow 9s linear infinite',
-
-            'ticker-trusted': 'tickerSlow 12s linear infinite',
-
-          }},
-
-          keyframes: {{
-
-            tickerSlow: {{
-
-              '0%': {{ transform: 'translateX(0%)' }},
-
-              '100%': {{ transform: 'translateX(-50%)' }}
-
-            }}
-
-          }}
-
-        }}
-
-      }}
-
-    }}
-
-  </script>
-
-  <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"></script>
+  <script defer src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"></script>
 
 
 
@@ -1924,6 +1854,9 @@ def get_base_html(active_lang="es", is_subfolder=False):
   <!-- Espaciador para compensar cabecera fija que acompaña al scroll -->
   <div class="h-16 sm:h-20 w-full shrink-0" aria-hidden="true"></div>
 
+  <!-- MAIN LANDMARK ACCESIBLE -->
+  <main id="main-content">
+
 
 
   <!-- 3. HERO PRINCIPAL: FOTO GRANDE LLAVEROS PARA TU CLUB / COMUNIDAD -->
@@ -1938,7 +1871,12 @@ def get_base_html(active_lang="es", is_subfolder=False):
 
       <div id="coverflow-0" class="relative z-10 w-full h-[340px] sm:h-[420px] lg:h-[480px] xl:h-[520px] rounded-3xl sm:rounded-[2.2rem] overflow-hidden bg-neutral-900 shadow-[0_20px_50px_-12px_rgba(0,0,0,0.35)] border border-slate-200/80 group">
 
-        <img src="{asset_prefix}assets/images/slide-1.jpg" alt="Llaveros de pádel personalizados para clubs y comunidades CoolPadel" width="1920" height="1080" class="w-full h-full object-cover group-hover:scale-[1.015] transition-transform duration-700 ease-out" fetchpriority="high" decoding="async">
+        <!-- Hero Imagen LCP Responsive: WebP móvil (600w) y WebP desktop (1280w) -->
+        <picture class="w-full h-full">
+          <source type="image/webp" media="(max-width: 640px)" srcset="{asset_prefix}assets/images/slide-1-mob.webp">
+          <source type="image/webp" srcset="{asset_prefix}assets/images/slide-1.webp">
+          <img src="{asset_prefix}assets/images/slide-1.webp" alt="Llaveros de pádel personalizados para clubs y comunidades CoolPadel" width="1280" height="720" class="w-full h-full object-cover group-hover:scale-[1.015] transition-transform duration-700 ease-out" fetchpriority="high" decoding="async">
+        </picture>
 
         
 
@@ -2040,7 +1978,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
         <a href="llaveros-tenis-personalizados/" class="relative overflow-hidden cursor-pointer bg-slate-50/90 hover:bg-white border-2 border-slate-200/90 hover:border-[#f2920b] hover:ring-4 hover:ring-[#f2920b]/25 hover:shadow-[0_16px_40px_rgba(0,0,0,0.2)] hover:scale-[1.015] active:scale-[0.98] transition-all duration-300 rounded-2xl sm:rounded-3xl p-2.5 sm:p-5 flex flex-col justify-between group">
           <div class="flex-1 flex flex-col justify-center">
             <div class="rounded-xl sm:rounded-2xl overflow-hidden shadow-sm border border-slate-200/90 bg-slate-100 my-auto aspect-[16/11] sm:aspect-[16/10]">
-              <img src="{asset_prefix}assets/images/llaveros-tenis-personalizados-clubs.jpg?v=16" alt="Llaveros de tenis y pádel personalizados con relieve 3D para clubs y torneos" width="1024" height="640" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
+              <img src="{asset_prefix}assets/images/llaveros-tenis-personalizados-clubs.webp" alt="Llaveros de tenis y pádel personalizados con relieve 3D para clubs y torneos" width="500" height="312" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
             </div>
           </div>
           <div class="mt-2 pt-1.5 sm:mt-3 sm:pt-3 border-t border-slate-100 flex items-center justify-between gap-1">
@@ -2058,7 +1996,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
         <a href="llaveros-padel-personalizados/" class="relative overflow-hidden cursor-pointer bg-slate-50/90 hover:bg-white border-2 border-slate-200/90 hover:border-[#f2920b] hover:ring-4 hover:ring-[#f2920b]/25 hover:shadow-[0_16px_40px_rgba(0,0,0,0.2)] hover:scale-[1.015] active:scale-[0.98] transition-all duration-300 rounded-2xl sm:rounded-3xl p-2.5 sm:p-5 flex flex-col justify-between group">
           <div class="flex-1 flex flex-col justify-center">
             <div class="rounded-xl sm:rounded-2xl overflow-hidden shadow-sm border border-slate-200/90 bg-slate-100 my-auto aspect-[16/11] sm:aspect-[16/10]">
-              <img src="{asset_prefix}assets/images/llaveros-padel-personalizados-clubs.jpg?v=16" alt="Llaveros de pádel de goma 3D personalizados con logo para clubes de pádel" width="1024" height="737" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
+              <img src="{asset_prefix}assets/images/llaveros-padel-personalizados-clubs.webp" alt="Llaveros de pádel de goma 3D personalizados con logo para clubes de pádel" width="500" height="359" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
             </div>
           </div>
           <div class="mt-2 pt-1.5 sm:mt-3 sm:pt-3 border-t border-slate-100 flex items-center justify-between gap-1">
@@ -2123,7 +2061,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
         <!-- FOTO 1 -->
         <a href="{camaras_url}" class="rounded-xl sm:rounded-2xl overflow-hidden shadow-md transition-all duration-300 group border-2 border-slate-900 bg-slate-800 hover:-translate-y-0.5 block cursor-pointer">
           <div class="relative aspect-[4/3] sm:aspect-[16/10] overflow-hidden">
-            <img src="{asset_prefix}assets/images/savemyplay-1.jpg" alt="Cámara Save my Play grabando partido en pista de pádel" width="600" height="375" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" decoding="async">
+            <img src="{asset_prefix}assets/images/savemyplay-1.webp" alt="Cámara Save my Play grabando partido en pista de pádel" width="480" height="269" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" decoding="async">
             <div class="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent"></div>
           </div>
         </a>
@@ -2131,7 +2069,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
         <!-- FOTO 2 -->
         <a href="{camaras_url}" class="rounded-xl sm:rounded-2xl overflow-hidden shadow-md transition-all duration-300 group border-2 border-slate-900 bg-slate-800 hover:-translate-y-0.5 block cursor-pointer">
           <div class="relative aspect-[4/3] sm:aspect-[16/10] overflow-hidden">
-            <img src="{asset_prefix}assets/images/savemyplay-2.jpg" alt="Jugadores de pádel usando la app Save my Play para ver repeticiones" width="600" height="375" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" decoding="async">
+            <img src="{asset_prefix}assets/images/savemyplay-2.webp" alt="Jugadores de pádel usando la app Save my Play para ver repeticiones" width="480" height="269" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" decoding="async">
             <div class="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent"></div>
           </div>
         </a>
@@ -2139,7 +2077,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
         <!-- FOTO 3 -->
         <a href="{camaras_url}" class="rounded-xl sm:rounded-2xl overflow-hidden shadow-md transition-all duration-300 group border-2 border-slate-900 bg-slate-800 hover:-translate-y-0.5 block cursor-pointer">
           <div class="relative aspect-[4/3] sm:aspect-[16/10] overflow-hidden">
-            <img src="{asset_prefix}assets/images/savemyplay-3.jpg" alt="Pista panorámica con sistema de vídeo inteligente Save my Play" width="600" height="375" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" decoding="async">
+            <img src="{asset_prefix}assets/images/savemyplay-3.webp" alt="Pista panorámica con sistema de vídeo inteligente Save my Play" width="480" height="269" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" decoding="async">
             <div class="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent"></div>
           </div>
         </a>
@@ -2182,7 +2120,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
 
       <!-- Listado semántico HTML accesible de clubes para indexación de clientes y GEO (sr-only) -->
       <div class="sr-only">
-        <h4>{seo['sr_clubs_h4']}</h4>
+        <h3 class="sr-only">{seo['sr_clubs_h4']}</h3>
         <ul>
           {club_list_html}
         </ul>
@@ -2668,7 +2606,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
 
             
 
-            <p class="font-mono font-bold text-xs sm:text-sm text-emerald-600 tracking-wide">
+            <p class="font-mono font-bold text-xs sm:text-sm text-emerald-700 tracking-wide">
 
               +34 680 31 74 86
 
@@ -2798,7 +2736,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
 
   </section>
 
-
+  </main>
 
   <!-- 9. FOOTER INFERIOR (COLOR CELESTE LLAVEROS #3478a6 CON TEXTURA CANVA: BRANDING COOLPADEL, SILOS TEMÁTICOS SEO Y COPYRIGHT) -->
 
@@ -3028,7 +2966,16 @@ def get_base_html(active_lang="es", is_subfolder=False):
 
   <script>
 
-    lucide.createIcons();
+    function initLucideSafe() {{
+      if (typeof lucide !== 'undefined' && lucide.createIcons) {{
+        lucide.createIcons();
+      }} else {{
+        window.addEventListener('load', function() {{
+          if (typeof lucide !== 'undefined' && lucide.createIcons) lucide.createIcons();
+        }});
+      }}
+    }}
+    initLucideSafe();
 
 
 
@@ -3239,8 +3186,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
 
 
       // Re-renderizar iconos de Lucide
-
-      lucide.createIcons();
+      initLucideSafe();
 
     }}
 

@@ -25,8 +25,8 @@ module.exports = {
         }
       },
       animation: {
-        'ticker-slow': 'tickerSlow 30s linear infinite',
-        'ticker-trusted': 'tickerSlow 45s linear infinite',
+        'ticker-slow': 'tickerSlow 9s linear infinite',
+        'ticker-trusted': 'tickerSlow 12s linear infinite',
       },
       keyframes: {
         tickerSlow: {
