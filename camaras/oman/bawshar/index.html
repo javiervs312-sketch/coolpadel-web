@@ -78,62 +78,9 @@
       background-size: 20px 20px;
     }
   </style>
-  <!-- Google Analytics 4 -->
-  <script>
-    (function() {
-      try {
-        var p = new URLSearchParams(window.location.search);
-        if (p.get('yo') === '1' || p.get('admin') === '1' || p.get('no_track') === '1') {
-          localStorage.setItem('cp_ignore_owner', '1');
-        } else if (p.get('borrar_yo') === '1' || p.get('track_me') === '1') {
-          localStorage.removeItem('cp_ignore_owner');
-        }
-        if (localStorage.getItem('cp_ignore_owner') === '1') {
-          window['ga-disable-G-3FY3DTNN21'] = true;
-          window.__CP_IS_OWNER__ = true;
-        }
-      } catch(e) {}
-    })();
-  </script>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-3FY3DTNN21"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-3FY3DTNN21');
-    // Eventos clave (leads): WhatsApp, email, teléfono, demo, dossier
-    document.addEventListener('click', function (e) {
-      try {
-        if (window.__CP_IS_OWNER__) return;
-        var a = e.target.closest && e.target.closest('a, button');
-        if (!a) return;
-        var href = (a.getAttribute('href') || '').toLowerCase();
-        var txt = (a.innerText || '').replace(/\s+/g, ' ').trim().slice(0, 60);
-        var p = { link_text: txt, link_url: href, page_path: location.pathname };
-        if (href.indexOf('wa.me') > -1 || href.indexOf('whatsapp.com') > -1) gtag('event', 'click_whatsapp', p);
-        else if (href.indexOf('mailto:') === 0) gtag('event', 'click_email', p);
-        else if (href.indexOf('tel:') === 0) gtag('event', 'click_telefono', p);
-        else if (/\.pdf($|\?)/.test(href) || /dossier/i.test(href + ' ' + txt)) gtag('event', 'descarga_dossier', p);
-        else if (/demo|reuni[oó]n|meeting|calendly|agenda|r[eé]serv|prueba gratis|free trial/i.test(href + ' ' + txt)) gtag('event', 'solicitar_demo', p);
-      } catch (err) {}
-    }, { passive: true });
-    document.addEventListener('submit', function (e) {
-      try {
-        if (window.__CP_IS_OWNER__) return;
-        gtag('event', 'enviar_formulario', { form_id: (e.target && (e.target.id || e.target.name)) || '', page_path: location.pathname }); } catch (err) {}
-    }, true);
-  </script>
-  <!-- /GA4 -->
-  <!-- Microsoft Clarity -->
-  <script type="text/javascript">
-    (function(c,l,a,r,i,t,y){
-      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "q7p8g52y9e");
-  </script>
 </head>
 <body class="bg-white text-slate-800 font-body antialiased flex flex-col min-h-screen">
+
 
   <!-- HEADER -->
   <header class="fixed top-0 left-0 w-full z-50 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-xs">
@@ -516,9 +463,9 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 max-w-2xl mx-auto text-left">
           <!-- WhatsApp Card -->
           <a id="landing-contact-wa" href="https://api.whatsapp.com/send?phone=34680317486&text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%20%D8%AE%D8%A7%D9%81%D9%8A%D9%8A%D8%B1%D8%8C%20%D8%A3%D9%88%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B7%D9%84%D8%A7%D8%B9%20%D8%B9%D9%84%D9%89%20%D8%B9%D8%B1%D8%B6%20%D9%84%D9%86%D8%B8%D8%A7%D9%85%20Save%20My%20Play%20%D9%84%D9%85%D9%84%D8%A7%D8%B9%D8%A8%20%D8%A7%D9%84%D8%A8%D8%A7%D8%AF%D9%84%20%D9%81%D9%8A%20Bawshar%2C%20%D8%B9%D9%8F%D9%85%D8%A7%D9%86" target="_blank" rel="noopener noreferrer"
-             class="bg-white border border-slate-200 hover:border-[#25D366] rounded-2xl p-5 shadow-xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between items-center text-center group cursor-pointer">
+             class="bg-white border border-slate-200 hover:border-[#4bbb81] rounded-2xl p-5 shadow-xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between items-center text-center group cursor-pointer">
             <div class="flex flex-col items-center">
-              <div class="w-12 h-12 rounded-xl bg-emerald-50 text-[#25D366] flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+              <div class="w-12 h-12 rounded-xl bg-emerald-50 text-[#4bbb81] flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
                 <i data-lucide="message-circle" class="w-6 h-6"></i>
               </div>
               <h3 class="font-heading font-black text-slate-950 text-base mb-1">WhatsApp Directo</h3>
@@ -527,7 +474,7 @@
                 <img src="../../../assets/images/qr_whatsapp_coolpadel.png" alt="WhatsApp CoolPadel" width="80" height="80" class="w-16 h-16 sm:w-20 sm:h-20 object-contain" loading="lazy">
               </div>
             </div>
-            <span class="inline-flex items-center justify-center gap-1.5 w-full py-2.5 px-4 rounded-xl bg-[#25D366] text-white font-heading font-bold text-xs uppercase tracking-wider group-hover:bg-[#1ebd59] transition-colors shadow-xs">
+            <span class="inline-flex items-center justify-center gap-1.5 w-full py-2.5 px-4 rounded-xl bg-[#4bbb81] text-white font-heading font-bold text-xs uppercase tracking-wider group-hover:bg-[#1ebd59] transition-colors shadow-xs">
               <i data-lucide="message-circle" class="w-3.5 h-3.5"></i>
               <span>Send WhatsApp</span>
             </span>

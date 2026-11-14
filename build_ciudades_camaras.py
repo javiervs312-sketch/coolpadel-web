@@ -80,6 +80,10 @@ def generate_city_page(country_item, city, slug_country_used, canonical_country_
     canonical_url = f"https://coolpadelstudios.com/camaras/{target_country}/{city_slug}/"
     country_url = f"/camaras/{target_country}/"
 
+    # Redirección JS si es página duplicada de ciudad (slug_es != slug_local)
+    is_duplicate = canonical_country_slug is not None and canonical_country_slug != slug_country_used
+    redirect_js = f'  <script>window.location.replace("{canonical_url}");</script>\n' if is_duplicate else ""
+
     is_es = (lang == "es")
     nav_prefix = "/" if is_es else "/en/"
     dir_attr = ' dir="rtl"' if lang == "ar" else ''
@@ -189,6 +193,7 @@ def generate_city_page(country_item, city, slug_country_used, canonical_country_
   </style>
 </head>
 <body class="bg-white text-slate-800 font-body antialiased flex flex-col min-h-screen">
+{redirect_js}
 
   <!-- HEADER -->
   <header class="fixed top-0 left-0 w-full z-50 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-xs">

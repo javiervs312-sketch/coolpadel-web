@@ -2580,13 +2580,13 @@ def get_base_html(active_lang="es", is_subfolder=False):
 
            target="_blank" rel="noopener noreferrer"
 
-           class="bg-white border border-slate-200 hover:border-[#25D366] rounded-2xl p-6 sm:p-7 shadow-xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between items-center text-center group hover:-translate-y-0.5 cursor-pointer block no-underline text-inherit">
+           class="bg-white border border-slate-200 hover:border-[#4bbb81] rounded-2xl p-6 sm:p-7 shadow-xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between items-center text-center group hover:-translate-y-0.5 cursor-pointer block no-underline text-inherit">
 
           <div class="flex flex-col items-center space-y-3 w-full">
 
             <!-- Icono Circular WhatsApp -->
 
-            <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-emerald-50 text-[#25D366] flex items-center justify-center shadow-inner group-hover:scale-105 group-hover:bg-[#25D366] group-hover:text-white transition-all duration-300">
+            <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-emerald-50 text-[#4bbb81] flex items-center justify-center shadow-inner group-hover:scale-105 group-hover:bg-[#4bbb81] group-hover:text-white transition-all duration-300">
 
               <svg class="w-5 h-5 sm:w-6 sm:h-6 fill-current" viewBox="0 0 24 24">
 
@@ -2642,7 +2642,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
 
           <div class="w-full pt-4 border-t border-slate-100 mt-4">
 
-            <div class="w-full inline-flex items-center justify-center px-4 py-3 sm:py-3.5 rounded-full bg-[#25D366] group-hover:bg-[#20ba59] active:bg-[#20ba59] text-white font-sans font-black text-sm uppercase tracking-wider shadow-sm group-hover:shadow-md transition-all duration-300">
+            <div class="w-full inline-flex items-center justify-center px-4 py-3 sm:py-3.5 rounded-full bg-[#4bbb81] group-hover:bg-[#40ab73] active:bg-[#40ab73] text-white font-sans font-black text-sm uppercase tracking-wider shadow-sm group-hover:shadow-md transition-all duration-300">
 
               <span data-i18n="contact_wa_btn">{t['contact_wa_btn']}</span>
 
@@ -2936,7 +2936,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
 
      target="_blank" rel="noopener noreferrer" 
 
-     class="fixed bottom-5 right-5 sm:bottom-6 sm:right-6 z-50 p-3.5 sm:p-4 rounded-full bg-[#25D366] text-white shadow-[0_10px_30px_rgba(37,211,102,0.45)] hover:bg-[#20ba59] hover:scale-110 active:scale-95 transition flex items-center justify-center group"
+     class="fixed bottom-5 right-5 sm:bottom-6 sm:right-6 z-50 p-3.5 sm:p-4 rounded-full bg-[#4bbb81] text-white shadow-[0_10px_30px_rgba(37,211,102,0.45)] hover:bg-[#40ab73] hover:scale-110 active:scale-95 transition flex items-center justify-center group"
 
      title="Hablar por WhatsApp con Javier">
 

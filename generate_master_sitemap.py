@@ -362,6 +362,7 @@ def generate_sitemap():
 
     # 12. Páginas estáticas secundarias y base de conocimiento GEO
     all_blocks.append(get_single_xml("/llm-knowledge.html", priority="0.70", changefreq="monthly"))
+    all_blocks.append(get_single_xml("/en/llm-knowledge.html", priority="0.70", changefreq="monthly"))
     all_blocks.append(get_single_xml("/politica-de-devoluciones.html", priority="0.30", changefreq="yearly"))
 
     xml_content = f"""<?xml version="1.0" encoding="UTF-8"?>
