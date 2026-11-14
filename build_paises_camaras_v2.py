@@ -52,10 +52,25 @@ def generate_country_page(item, slug_to_use, canonical_slug=None):
     wa_url = f"https://api.whatsapp.com/send?phone=34680317486&text={encoded_wa}"
     target_slug = canonical_slug if canonical_slug else slug_to_use
     canonical_url = f"https://coolpadelstudios.com/camaras/{target_slug}/"
+
+    # SEO: si es página duplicada (slug_es != slug_local), inyectar redirect JS en el body
+    is_duplicate = canonical_slug is not None and canonical_slug != slug_to_use
+    redirect_js = f'<script>window.location.replace("{canonical_url}");</script>\n' if is_duplicate else ""
+    
+    # SEO: si es página duplicada (slug_es != slug_local), inyectar redirect JS en el body
+    is_duplicate = canonical_slug is not None and canonical_slug != slug_to_use
+    redirect_js = f'<script>window.location.replace("{canonical_url}");</script>\n' if is_duplicate else ""
+
+    # SEO: hreflang solo en páginas canónicas (no en duplicadas)
+    if not is_duplicate:
+        hreflang_tags = f'  <link rel="alternate" hreflang="{lang}" href="{canonical_url}"/>\n  <link rel="alternate" hreflang="x-default" href="{canonical_url}"/>'
+    else:
+        hreflang_tags = ""
     
     is_es = (lang == "es")
     nav_prefix = "/" if is_es else "/en/"
     
+
     cities_for_country = CITIES_50.get(item["slug"], [])
     city_pills_html = ""
     if cities_for_country:
@@ -152,9 +167,10 @@ def generate_country_page(item, slug_to_use, canonical_slug=None):
       background-size: 20px 20px;
     }}
   </style>
+{hreflang_tags}
 </head>
 <body class="bg-white text-slate-800 font-body antialiased flex flex-col min-h-screen">
-
+{redirect_js}
   <!-- HEADER -->
   <header class="fixed top-0 left-0 w-full z-50 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-xs">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between">
