@@ -6,6 +6,10 @@ import urllib.parse
 
 from translations_data import TRANSLATIONS
 
+_REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+if os.path.basename(os.getcwd()).lower() == "coolpadel-web":
+    os.chdir(_REPO_ROOT)
+
 
 
 CLUB_NAMES_MAP = {
@@ -2606,7 +2610,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
 
             
 
-            <p class="font-mono font-bold text-xs sm:text-sm text-emerald-700 tracking-wide">
+            <p class="font-mono font-bold text-xs sm:text-sm text-[#4bbb81] tracking-wide">
 
               +34 680 31 74 86
 
