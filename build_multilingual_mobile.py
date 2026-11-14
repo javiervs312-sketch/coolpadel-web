@@ -2643,7 +2643,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
 
           <div class="w-full pt-4 border-t border-slate-100 mt-4">
 
-            <div class="w-full inline-flex items-center justify-center px-4 py-3 sm:py-3.5 rounded-full bg-[#4bbb81] group-hover:bg-[#40ab73] active:bg-[#40ab73] text-white font-sans font-black text-sm uppercase tracking-wider shadow-sm group-hover:shadow-md transition-all duration-300">
+            <div class="w-full inline-flex items-center justify-center px-4 py-3 sm:py-3.5 rounded-full bg-[#4bbb81] group-hover:bg-[#40ab73] active:bg-[#40ab73] text-slate-950 font-sans font-black text-sm uppercase tracking-wider shadow-sm group-hover:shadow-md transition-all duration-300">
 
               <span data-i18n="contact_wa_btn">{t['contact_wa_btn']}</span>
 
@@ -2697,7 +2697,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
 
           <div class="w-full pt-4 border-t border-slate-100 mt-4">
 
-            <div class="w-full inline-flex items-center justify-center px-4 py-3 sm:py-3.5 rounded-full bg-[#3478a6] group-hover:bg-[#2c668d] active:bg-[#2c668d] text-white font-sans font-black text-sm uppercase tracking-wider shadow-sm group-hover:shadow-md transition-all duration-300">
+            <div class="w-full inline-flex items-center justify-center px-4 py-3 sm:py-3.5 rounded-full bg-[#3478a6] group-hover:bg-[#2c668d] active:bg-[#2c668d] text-slate-950 font-sans font-black text-sm uppercase tracking-wider shadow-sm group-hover:shadow-md transition-all duration-300">
 
               <span data-i18n="contact_mail_btn">{t['contact_mail_btn']}</span>
 
