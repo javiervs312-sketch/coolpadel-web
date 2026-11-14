@@ -1793,22 +1793,22 @@ def get_base_html(active_lang="es", is_subfolder=False):
 
     }}
     /* Estilo e iluminacion interactiva analoga de WhatsApp (igual que Correo) */
-    #contact-wa-btn .wa-icon-box {
+    #contact-wa-btn .wa-icon-box {{
       background-color: #ecfdf5 !important;
       color: #4bbb81 !important;
       transition: all 0.3s ease !important;
-    }
-    #contact-wa-btn:hover .wa-icon-box {
+    }}
+    #contact-wa-btn:hover .wa-icon-box {{
       background-color: #4bbb81 !important;
       color: #ffffff !important;
       transform: scale(1.05) !important;
-    }
-    #contact-wa-btn .wa-phone-num {
+    }}
+    #contact-wa-btn .wa-phone-num {{
       color: #4bbb81 !important;
-    }
-    #contact-wa-btn:hover {
+    }}
+    #contact-wa-btn:hover {{
       border-color: #4bbb81 !important;
-    }
+    }}
   </style>
 
 </head>
