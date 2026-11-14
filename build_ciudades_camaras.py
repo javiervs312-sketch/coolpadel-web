@@ -377,7 +377,7 @@ def generate_city_page(country_item, city, slug_country_used, canonical_country_
                 {t["f2_title"]}
               </h3>
               <p class="text-sm text-slate-600 leading-relaxed font-normal">
-                {t["f2_desc"]}
+                {t["f2_desc"].format(hw=hw, rec=rec, ai=ai)}
               </p>
             </div>
           </div>
@@ -391,7 +391,7 @@ def generate_city_page(country_item, city, slug_country_used, canonical_country_
                 {t["f3_title"]}
               </h3>
               <p class="text-sm text-slate-600 leading-relaxed font-normal">
-                {t["f3_desc"]}
+                {t["f3_desc"].format(hw=hw, rec=rec, ai=ai)}
               </p>
             </div>
           </div>
