@@ -115,6 +115,8 @@ def generate_city_page(country_item, city, slug_country_used, canonical_country_
   <title>{title}</title>
   <meta name="description" content="{meta_desc}">
   <link rel="canonical" href="{canonical_url}">
+  <link rel="alternate" hreflang="{lang}" href="{canonical_url}"/>
+  <link rel="alternate" hreflang="x-default" href="{canonical_url}"/>
   <meta name="robots" content="index, follow">
 
   <!-- Open Graph / Social -->

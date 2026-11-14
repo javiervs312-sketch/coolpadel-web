@@ -2045,13 +2045,13 @@ def get_base_html(active_lang="es", is_subfolder=False):
       <div class="max-w-3xl mx-auto text-center space-y-1.5 sm:space-y-2 mb-4 sm:mb-6">
         <div class="inline-flex items-center gap-2 text-slate-950 text-xs font-black tracking-wider uppercase mb-0.5">
           <i data-lucide="video" class="w-3.5 h-3.5"></i>
-          <span>Partner Oficial Save my Play · +1.500 Pistas</span>
+          <span>Partner Oficial Save my Play</span>
         </div>
         <h2 data-i18n="smp_title" class="text-2xl sm:text-4xl font-black font-heading text-slate-950 uppercase tracking-tight leading-tight">
           {t['smp_title']}
         </h2>
         <p class="text-xs sm:text-sm text-slate-900 font-semibold max-w-2xl mx-auto">
-          Sistema de cámaras fijas con botón físico en pista y visión artificial. Sin obras, sin app obligatoria y con amortización desde el primer mes.
+          Cámara Nº1 en Estados Unidos en tenis, padel y pickleball
         </p>
       </div>
 
