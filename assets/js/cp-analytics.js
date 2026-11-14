@@ -28,10 +28,35 @@
   const isAdmin = isOwner;
 
   // 2. Atribución de Leads y Parámetros UTM / Buscadores / Subruta de Club (/camaras/nombre-club/)
+  // Slugs reservados del sistema (artículos, países, categorías) que NUNCA deben asignarse como nombre de Lead/Club
+  const SLUGS_RESERVADOS_CAMARAS = new Set([
+    'articulos', 'assets', 'index.html',
+    'alemania', 'andorra', 'arabia-saudi', 'argentina', 'australia', 'austria',
+    'bahrain', 'bahrein', 'belgica', 'belgique', 'brasil',
+    'camaras-padel-playtomic-matchi-padelmates', 'camaras-padel-urbanizaciones-comunidades',
+    'camaras-para-clubes-indoor-padel', 'camaras-para-pistas-outdoor-padel',
+    'camaras-retransmision-torneos-padel', 'ceska-republika', 'chile', 'colombia',
+    'como-ver-highlights-sin-app', 'costa-rica', 'croacia',
+    'cuanto-cuesta-poner-camaras-pistas-padel', 'danmark', 'deutschland', 'dinamarca',
+    'ecuador', 'egipto', 'egypt', 'ellada', 'emiratos-arabes-unidos', 'espana',
+    'estados-unidos', 'finlandia', 'france', 'francia', 'gran-bretana', 'grecia',
+    'hrvatska', 'india', 'indonesia', 'ireland', 'irlanda', 'italia', 'japan', 'japon',
+    'kuwait', 'lebanon', 'libano', 'maroc', 'marruecos', 'mexico', 'nederland', 'norge',
+    'noruega', 'oesterreich', 'oman', 'paises-bajos', 'panama', 'paraguay', 'polonia',
+    'polska', 'portugal', 'qatar', 'republica-checa', 'republica-dominicana', 'romania',
+    'rumania', 'saudi-arabia', 'save-my-play-vs-camaras-vigilancia',
+    'save-my-play-vs-sistemas-con-obras', 'schweiz', 'south-africa', 'sudafrica',
+    'suecia', 'suiza', 'suomi', 'sverige', 'tunez', 'tunisie', 'turkiye', 'turquia',
+    'uae', 'united-kingdom', 'united-states', 'uruguay', 'venezuela'
+  ]);
+
   let slugClub = '';
   const camarasMatch = window.location.pathname.match(/\/(?:(?:en|fr|it|de)\/)?camaras\/([a-z0-9\-]+)\/?$/i);
-  if (camarasMatch && !['articulos', 'assets', 'index.html'].includes(camarasMatch[1].toLowerCase())) {
-    slugClub = camarasMatch[1].replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+  if (camarasMatch) {
+    const rawSlug = camarasMatch[1].toLowerCase();
+    if (!SLUGS_RESERVADOS_CAMARAS.has(rawSlug)) {
+      slugClub = camarasMatch[1].replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+    }
   }
 
   const pLead = urlParams.get('lead') || urlParams.get('club') || urlParams.get('nombre') || urlParams.get('director') || slugClub || '';
