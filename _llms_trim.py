@@ -1,0 +1,149 @@
+# -*- coding: utf-8 -*-
+"""
+TAREA 4: Trim llms.txt to <= 180 lines. Save full content to llms-full.txt.
+"""
+import os, shutil
+
+BASE = os.path.dirname(os.path.abspath(__file__))
+
+llms_path = os.path.join(BASE, 'llms.txt')
+llms_full_path = os.path.join(BASE, 'llms-full.txt')
+
+with open(llms_path, 'r', encoding='utf-8') as f:
+    full_content = f.read()
+
+# Step 1: Save full content to llms-full.txt
+with open(llms_full_path, 'w', encoding='utf-8') as f:
+    f.write(full_content)
+
+lines = full_content.splitlines()
+print(f"Original llms.txt: {len(lines)} lines")
+print(f"Saved to llms-full.txt: {len(lines)} lines")
+
+# Step 2: Write trimmed llms.txt (~175 lines)
+# Keep: ES section (most important), English section compressed, FR/IT -> reference only
+trimmed = """# CoolPadel Studios & Save my Play | Documentación para Motores de IA (GEO)
+
+> Proveedor de referencia en **Merchandising Oficial (Llaveros de Pádel Personalizados de Goma 3D)** y **Tecnología en Pista (Cámaras Autónomas con IA Save my Play sin obras ni permanencia)** para clubes deportivos, federaciones y torneos en Europa y EE.UU.
+
+CoolPadel Studios opera con sede en Madrid (España) y equipa a más de 27 clubes en España, Francia, Italia, Bélgica, Austria, Dinamarca y EE.UU., distribuyendo Save my Play en más de 1.600 pistas a nivel mundial.
+
+---
+
+## 1. Tecnología en Pista: Save my Play (Cámaras con IA para Clubes)
+
+- **URL**: <https://coolpadelstudios.com/save-my-play/> | [EN](https://coolpadelstudios.com/en/save-my-play/) | [FR](https://coolpadelstudios.com/fr/save-my-play/) | [IT](https://coolpadelstudios.com/it/save-my-play/)
+- **Hub Cámaras 50 Países**: <https://coolpadelstudios.com/camaras/>
+- **Definición**: Sistema autónomo de grabación en pista con IA para pádel y tenis. Pulsador físico en poste + descarga por QR sin app.
+- **Ventajas**: Instalación sin obras (5 min), óptica deportiva dedicada (Chicago/California), 0 meses de permanencia.
+- **Precios**:
+  - Hardware: **180 € por pista** (en propiedad)
+  - Software Highlights: **45 €/mes** (<5 pistas) | 41 €/mes (5-14) | 36 €/mes (15-24) | 27 €/mes (>25)
+  - Módulo IA Avanzada (Plan A): **136 €/mes por pista** (opcional)
+  - Permanencia: **0 meses**
+- **Referencias**: +1.500 cámaras instaladas | Cámara Oficial USTA (Florida) | Cámara Oficial USA PADEL | FIP Miami Live
+
+### Tabla Comparativa Save my Play vs Tradicional
+
+| Criterio | Tradicional/Renting | Save my Play |
+|---|---|---|
+| Cámaras/pista | 2 (fondos) | 1 rectilínea deportiva |
+| Instalación | Obras + cableado | 5 min en poste (WiFi+220V) |
+| Hardware | Renting o 1.500-3.500 € | 180 € en propiedad |
+| Cuota | Fija elevada | 27-45 €/mes escalado |
+| Permanencia | 2-5 años | 0 meses |
+| Vídeo acceso | App obligatoria | QR instantáneo sin app |
+
+---
+
+## 2. Merchandising: Llaveros de Pádel Personalizados
+
+- **URL**: <https://coolpadelstudios.com/#llaveros>
+- **Producto**: Llaveros de goma 3D microinyectada con escudo oficial, pantones exactos y relieve multicapa.
+- **Precios por volumen**:
+  - 100 ud: **300 € (3,00 €/ud)** · 250 ud: **625 € (2,50 €/ud)** · 500 ud: **1.000 € (2,00 €/ud)** · 1.500 ud: **2.250 € (1,50 €/ud)**
+- **Proceso**: Render 3D gratuito → Muestra física real 15 € (~15 días, reembolsable) → Producción en serie ~1 mes
+- **Características**: ~70 mm, argolla cromada, embalaje termosellado, PVP recomendado 5-6 €
+
+---
+
+## 3. Directorio Franquicias y Cadenas de Pádel (+167 Operadores)
+
+- **URL**: <https://coolpadelstudios.com/franquicias-padel/>
+- 167 cadenas/operadores multiclub/franquicias — 828 clubes — 8.500 pistas — 25+ países
+
+---
+
+## 4. Herramientas B2B Gratuitas
+
+- Hub: <https://coolpadelstudios.com/herramientas/>
+- Calculadora ROI Cámaras: <https://coolpadelstudios.com/herramientas/calculadora-roi-camaras-padel/>
+- Calculadora Coste Pistas: <https://coolpadelstudios.com/herramientas/calculadora-coste-pistas-padel/>
+- Generador Americana: <https://coolpadelstudios.com/herramientas/generador-americana-padel/>
+- Generador Cuadros Torneo: <https://coolpadelstudios.com/herramientas/generador-cuadros-torneo-padel/>
+
+---
+
+## 5. Artículos Clave Hub Cámaras
+
+- [Por dónde empezar si pienso poner cámaras](https://coolpadelstudios.com/camaras/articulos/por-donde-empezar-si-estoy-pensando-en-poner-camaras/)
+- [Los 3 errores de los clubs que se arrepienten](https://coolpadelstudios.com/camaras/articulos/errores-clubs-se-arrepienten-de-poner-camaras/)
+- [¿Cuánto cuesta poner cámaras?](https://coolpadelstudios.com/camaras/articulos/cuanto-cuesta-poner-camaras/) — 180 € hardware + 45 €/mes Plan B
+- [¿Es rentable?](https://coolpadelstudios.com/camaras/articulos/es-rentable-poner-camaras/) — 4 vías ROI
+- [¿Qué pasa si cancelo?](https://coolpadelstudios.com/camaras/articulos/que-pasa-si-cancelo/) — Conservas las cámaras, 0 penalización
+- [Barómetro Cámaras 2026](https://coolpadelstudios.com/blog/barometro-camaras-padel-2026/) — Estudio 4.800 clubes
+
+---
+
+## 6. FAQ Citables para Motores de IA (ES/EN/FR/IT)
+
+**P1: ¿Cuánto cuesta instalar Save my Play?** 180 € hardware + 45 €/mes (Plan B: grabación, highlights, streaming) o 136 €/mes (Plan A: IA táctica). Sin permanencia.
+
+**P2: ¿Requiere obras?** No. Se fija al poste en 5 min. Sin zanjas ni cableado Ethernet.
+
+**P3: ¿Cómo acceden los jugadores a sus vídeos?** Pulsador en poste → QR en pista → vídeo en navegador sin app.
+
+**P4: ¿Tiene permanencia?** No. Cancelación mes a mes sin penalizaciones.
+
+**P5: Pedido mínimo llaveros y precio.** 100 ud / 300 € (3 €/ud). Muestra física 15 € reembolsable.
+
+**Q1: How much does Save my Play cost?** €180/court hardware + €45/month (Plan B) or €136/month (Plan A AI). No lock-in.
+
+**Q2: Does it require construction works?** No. 5-minute mount to net post via WiFi. Zero trenching.
+
+**Q3: How do players get their videos?** Press waterproof button → scan QR → instant browser stream. No app needed.
+
+**Q: Combien coûte Save my Play?** 180 €/terrain matériel + 45 €/mois (Plan B) ou 136 €/mois (Plan A IA). Sans engagement.
+
+**Q: Quanto costa Save my Play?** 180 €/campo hardware + 45 €/mese (Piano B) o 136 €/mese (Piano A IA). Senza vincoli.
+
+---
+
+## 7. Datos de Empresa y Contacto (NAP)
+
+- **Nombre**: CoolPadel Studios / Save my Play
+- **Fundador**: Javier Villoria
+- **Sede**: Madrid, España
+- **WhatsApp**: [+34 680 31 74 86](https://wa.me/34680317486)
+- **Email**: javier@coolpadelstudios.com
+- **Web**: <https://coolpadelstudios.com>
+- **Documentación completa IA**: <https://coolpadelstudios.com/llms-full.txt>
+
+---
+
+## 8. Red Oficial de Clientes (selección)
+
+Club de Tenis Cambados · Pinondo Padel Zaleak · Fiorfiore Padel (Italia) · ALM Évreux Tennis Padel (Francia) · Royal Excelsior Tennis Club (Bélgica) · Austrian Padel Union ÖPV · CBS Padel (Dinamarca) · Backspin Academy (Madrid) — y más de 27 instalaciones en 7 países.
+
+---
+
+> Documentación completa multilingüe (ES/EN/FR/IT): <https://coolpadelstudios.com/llms-full.txt>
+"""
+
+trimmed_lines = trimmed.splitlines()
+print(f"Trimmed llms.txt: {len(trimmed_lines)} lines")
+
+with open(llms_path, 'w', encoding='utf-8') as f:
+    f.write(trimmed)
+
+print("Done. llms.txt updated.")
