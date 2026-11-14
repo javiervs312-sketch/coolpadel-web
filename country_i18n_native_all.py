@@ -70,9 +70,9 @@ NATIVE_TRANSLATIONS_21 = {
         "wa_msg": "Hola Javier, me interesa ver una demo de Save My Play para pistas de pádel en {country}"
     },
 
-    # 2. PORTUGUÉS (pt) - Portugal, Brasil
+    # 2. PORTUGUÉS (pt) - Portugal
     "pt": {
-        "nav_home": "Início", "nav_llaveros": "Porta-chaves", "nav_camaras": "CÂMARAS", "nav_blog": "Blog", "nav_franquicias": "Cadeias de Clubes", "nav_contact": "Contactar",
+        "nav_home": "Início", "nav_llaveros": "Porta-chaves", "nav_camaras": "CÂMARAS", "nav_blog": "Blog", "nav_franquicias": "Cadeias de Clubes", "nav_contact": "Contactar", "nav_courts": "Campos",
         "title": "Câmaras para Campos de Padel em {country}: Gravação, Highlights e Estatísticas com IA",
         "meta_desc": "Câmaras para campos de padel em {country}: {hw} hardware em propriedade, gravação automática a {rec} e estatísticas com IA a {ai}. Solicite demonstração.",
         "badge": "CÂMARA OFICIAL USA PADEL E USTA • +1500 CAMPOS",
@@ -467,5 +467,63 @@ NATIVE_TRANSLATIONS_21 = {
 
         "footer_b2b": "B2B Lösungen", "footer_tech": "Platz-Technologie", "footer_tools": "Kostenlose Tools", "footer_corp": "Unternehmen & Rechtliches",
         "wa_msg": "Hallo Javier, ich interessiere mich für eine Demo von Save My Play für Padelplätze in {country}"
+    },
+
+    # 2b. PORTUGUÉS DE BRASIL (pt-br) - Brasil
+    "pt-br": {
+        "nav_home": "Início", "nav_llaveros": "Chaveiros", "nav_camaras": "CÂMERAS", "nav_calc": "Calculadoras", "nav_blog": "Blog", "nav_franquicias": "Redes de Clubes", "nav_contact": "Contato", "nav_courts": "Quadras",
+        "title": "Câmeras para Quadras de Padel em {country}: Gravação, Highlights e Estatísticas com IA",
+        "meta_desc": "Câmeras para quadras de padel em {country}: {hw} hardware próprio, gravação automática a {rec} e estatísticas com IA a {ai}. Solicite demonstração ao vivo.",
+        "badge": "CÂMERA OFICIAL USA PADEL E USTA • +1500 QUADRAS",
+        "h1": "Câmeras para Quadras de Padel:<br class=\"hidden sm:inline\"> Gravação de Partidas, Highlights<br class=\"hidden sm:inline\"> e Estatísticas com IA",
+        "sub": "A câmera oficial da USA Padel e USTA, já instalada em mais de 1.500 quadras. Investimento de {hw} em hardware próprio, planos a partir de {rec}, instalação em 5 minutos sem obras e sem fidelidade.",
+        "p1_label": "Hardware por quadra", "p1_val": "{hw} próprio (compra única)",
+        "p2_label": "Assinatura Mensal", "p2_val": "{rec} (Gravação) • {ai} (Estatísticas IA)",
+        "p3_label": "Fidelidade", "p3_val": "0 meses (Cancelamento livre)",
+        "p4_label": "Instalação", "p4_val": "5 minutos sem obras",
+        "quick_p": "Save My Play é o sistema oficial de gravação de partidas e estatísticas com inteligência artificial para quadras de padel e tênis. Qualidade esportiva nítida, montagem em 5 minutos e cancelamento livre mês a mês.",
+        "why_title": "Por que escolher a Save My Play para o seu clube?",
+        "why_sub": "A tecnologia de gravação e análise esportiva mais ágil para a sua quadra, sem obras nem custos ocultos",
+        "f1_title": "Não são câmeras de segurança: máxima qualidade esportiva",
+        "f1_desc": "Desenvolvidas exclusivamente para padel e tênis. Gravação nítida, grande angular sem distorção da quadra e transmissão ao vivo sem travamentos.",
+        "f2_title": "Planos mensais transparentes por quadra",
+        "f2_desc": "Gravação de partidas, melhores momentos e transmissão ao vivo por {rec}. Estatísticas com IA por {ai} com análise tática completa do jogo.",
+        "f3_title": "Fácil de usar e sem obras",
+        "f3_desc": "Hardware próprio por {hw}. Instala em 5 minutos no poste da rede ou iluminação, sem fidelidade.",
+        "demo_btn": "Agendar Demo de 15 min pelo WhatsApp",
+        "rates_btn": "Ver Planos e Preços",
+        "pricing_h2": "Plano / Especificação", "pricing_th_plan": "Plano / Especificação", "pricing_th_invest": "Investimento / Mensalidade", "pricing_th_mod": "Modalidade", "pricing_th_serv": "Serviços Incluídos",
+        "tbl_hw_title": "Investimento em Hardware Próprio", "tbl_hw_mod": "Pagamento único", "tbl_hw_desc": "1 câmera esportiva por quadra (lente retilínea sem olho de peixe) + suporte de fixação no poste",
+        "tbl_rec_title": "Gravação, Highlights & Streaming", "tbl_rec_mod": "Sem fidelidade • Mês a mês", "tbl_rec_desc": "Gravação em nuvem privada, geração automática de melhores jogadas e transmissão ao vivo no YouTube",
+        "tbl_ai_title": "Estatísticas com IA e Análise Tática", "tbl_ai_mod": "Sem fidelidade • Opcional", "tbl_ai_desc": "Análise de golpes, mapas de calor, velocidade da bola e estatísticas individuais por jogador",
+        "pricing_footnote": "* Preços sem impostos locais. Sem fidelidade contratual. Instalação em 5 minutos.",
+
+        "vid_badge": "Demonstração em Quadra Real",
+        "vid_title": "Comprove a Qualidade de Gravação e Transmissão",
+        "vid_sub": "Partidas oficiais FIP ao vivo, replays automáticos e ferramentas de análise tática.",
+        "vid1_badge": "Transmissão Ao Vivo", "vid1_title": "FIP Miami YouTube Live", "vid1_desc": "Streaming 1080p sem cortes com lente esportiva retilínea.", "vid1_t": "FIP Miami Padel Open", "vid1_d": "Transmissão oficial ao vivo e multicâmera",
+        "vid2_badge": "Jogador", "vid2_title": "Como Jogar e Baixar", "vid2_desc": "Gravação automática e download direto por QR Code no celular sem instalar aplicativo.", "vid2_t": "Highlights Automáticos", "vid2_d": "Download direto no celular via QR Code sem instalar app",
+        "vid3_badge": "Clipe Automático", "vid3_title": "Highlights de 25 Segundos", "vid3_desc": "Qualidade Full HD pronta para compartilhar no Instagram, TikTok ou WhatsApp.", "vid3_t": "Análise Tática para Treinadores", "vid3_d": "Ferramentas de vídeo para professores e academias",
+        "vid4_badge": "Treinadores", "vid4_title": "Ferramentas de Coaching & Tática", "vid4_desc": "Replay imediato para correção técnica durante as aulas.", "vid4_t": "Transmissão de Torneios", "vid4_d": "Live no YouTube com placar e logo do clube",
+        "vid_btn": "Assistir no YouTube",
+
+        "faq_h2": "Perguntas Frequentes",
+        "faq_title": "Perguntas Frequentes",
+        "faq_sub": "Tire todas as suas dúvidas sobre o sistema de câmeras Save My Play para clubes de padel",
+        "faq1_q": "São necessárias obras ou passagem de cabos no piso da quadra?",
+        "faq1_a": "Não, zero obras. O equipamento é fixado diretamente no poste da rede ou de iluminação em apenas 5 minutos.",
+        "faq2_q": "Qual é o preço e quais planos estão disponíveis?",
+        "faq2_a": "{hw} por câmera em propriedade do clube. Planos mensais: {rec} por quadra para gravação, highlights e transmissão ao vivo; ou {ai} para estatísticas com inteligência artificial.",
+        "faq3_q": "Como a IA seleciona os melhores pontos da partida?",
+        "faq3_a": "As câmeras processam o vídeo em tempo real com IA, identificando os melhores ralis e gerando clipes prontos para baixar no celular via QR Code.",
+        "faq4_q": "Existe fidelidade ou tempo mínimo de contrato?",
+        "faq4_a": "Nenhuma fidelidade. Você pode cancelar ou pausar mês a mês sem multa.",
+
+        "contact_badge": "Contato Direto", "contact_title": "Fale Conosco", "contact_sub": "Atendimento rápido para gestores de clubes, torneios e demonstrações ao vivo.",
+        "contact_wa_title": "WhatsApp Direto", "contact_mail_title": "E-mail Comercial",
+        "contact_wa_btn": "Enviar WhatsApp", "contact_mail_btn": "Enviar E-mail",
+
+        "footer_b2b": "Soluções B2B", "footer_tech": "Tecnologia em Quadra", "footer_tools": "Ferramentas Gratuitas", "footer_corp": "Institucional e Legal",
+        "wa_msg": "Olá Javier, gostaria de agendar uma demonstração das câmeras Save My Play para quadras de padel em {country}"
     }
 }

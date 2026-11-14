@@ -15,6 +15,11 @@ from country_i18n_unified import ALL_LANGS_UNIFIED
 
 # We import the base 21 languages from ALL_LANGS_I18N and enrich them with the video/faq/footer/contact fields
 from country_i18n_dict_full import ALL_LANGS_I18N
+from country_i18n_native_all import NATIVE_TRANSLATIONS_21
+from country_i18n_native_part2 import REMAINING_13_LANGS
+
+ALL_NATIVE_OVERRIDES = dict(NATIVE_TRANSLATIONS_21)
+ALL_NATIVE_OVERRIDES.update(REMAINING_13_LANGS)
 
 # Default English fallback additions for any secondary language keys
 EN_EXTRA = {
@@ -51,22 +56,27 @@ EN_EXTRA = {
 
 ALL_LANGS_MASTER = {}
 
-for lang_code, base_dict in ALL_LANGS_I18N.items():
+for lang_code in sorted(set(ALL_LANGS_I18N.keys()) | set(ALL_NATIVE_OVERRIDES.keys())):
+    merged = dict(ALL_LANGS_I18N.get(lang_code, {}))
     if lang_code in ALL_LANGS_UNIFIED:
-        # Merge unified
-        merged = dict(base_dict)
         merged.update(ALL_LANGS_UNIFIED[lang_code])
-        ALL_LANGS_MASTER[lang_code] = merged
     else:
-        # Enrich with EN_EXTRA
-        merged = dict(base_dict)
         for k, v in EN_EXTRA.items():
             if k not in merged:
                 merged[k] = v
-        ALL_LANGS_MASTER[lang_code] = merged
+    if lang_code in ALL_NATIVE_OVERRIDES:
+        merged.update(ALL_NATIVE_OVERRIDES[lang_code])
+    for idx in range(1, 5):
+        if f"vid{idx}_title" in merged:
+            merged[f"vid{idx}_t"] = merged[f"vid{idx}_title"]
+        if f"vid{idx}_desc" in merged:
+            merged[f"vid{idx}_d"] = merged[f"vid{idx}_desc"]
+    if "pricing_h2" not in merged:
+        merged["pricing_h2"] = merged.get("pricing_th_plan", EN_EXTRA["pricing_th_plan"])
+    ALL_LANGS_MASTER[lang_code] = merged
 
 print(f"ALL_LANGS_MASTER compiled with {len(ALL_LANGS_MASTER)} fully unified languages.")
 
-NAV_FRANQUIZIAS_DICT = {'es': 'Cadenas de clubs', 'en': 'Padel Clubs & Chains', 'it': 'Catene di Club', 'fr': 'Chaînes de Clubs', 'de': 'Padel-Clubketten', 'sv': 'Klubbkedjor', 'nl': 'Clubketens', 'da': 'Klubkæder', 'pt': 'Cadeias de Clubes', 'no': 'Klubbkjeder', 'pl': 'Sieci Klubów', 'fi': 'Klubiketjut', 'ca': 'Cadenes de clubs', 'el': 'Αλυσίδες Club', 'hr': 'Lanci Klubova', 'id': 'Jaringan Klub', 'tr': 'Kulüp Zincirleri', 'ja': 'クラブ・チェーン', 'ar': 'سلاسل الأندية', 'cs': 'Řetězce Klubů', 'ro': 'Lanțuri de Cluburi'}
+NAV_FRANQUIZIAS_DICT = {'es': 'Cadenas de clubs', 'en': 'Padel Clubs & Chains', 'it': 'Catene di Club', 'fr': 'Chaînes de Clubs', 'de': 'Padel-Clubketten', 'sv': 'Klubbkedjor', 'nl': 'Clubketens', 'da': 'Klubkæder', 'pt': 'Cadeias de Clubes', 'pt-br': 'Redes de Clubes', 'no': 'Klubbkjeder', 'pl': 'Sieci Klubów', 'fi': 'Klubiketjut', 'ca': 'Cadenes de clubs', 'el': 'Αλυσίδες Club', 'hr': 'Lanci Klubova', 'id': 'Jaringan Klub', 'tr': 'Kulüp Zincirleri', 'ja': 'クラブ・チェーン', 'ar': 'سلاسل الأندية', 'cs': 'Řetězce Klubů', 'ro': 'Lanțuri de Cluburi'}
 for l_code, m_dict in ALL_LANGS_MASTER.items():
     m_dict['nav_franquicias'] = NAV_FRANQUIZIAS_DICT.get(l_code, 'Padel Clubs & Chains')

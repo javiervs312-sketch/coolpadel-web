@@ -39,7 +39,8 @@ def generate_city_page(country_item, city, slug_country_used, canonical_country_
             f"Caméras pour Pistes de Padel à {city_name} ({country_display}) | Save My Play" if lang == "fr" else \
             f"Kameras für Padel-Plätze in {city_name} ({country_display}) | Save My Play" if lang == "de" else \
             f"Kameror för padelbanor i {city_name} ({country_display}) | Save My Play" if lang == "sv" else \
-            f"Câmeras para Quadras de Padel em {city_name} ({country_display}) | Save My Play" if lang == "pt" else \
+            f"Câmeras para Quadras de Padel em {city_name} ({country_display}) | Save My Play" if lang == "pt-br" else \
+            f"Câmaras para Campos de Padel em {city_name} ({country_display}) | Save My Play" if lang == "pt" else \
             f"Padelbaan Camera's in {city_name} ({country_display}) | Save My Play" if lang == "nl" else \
             f"Kamery na korty do padla w {city_name} ({country_display}) | Save My Play" if lang == "pl" else \
             f"Padelbaner Kameraer i {city_name} ({country_display}) | Save My Play" if lang == "da" else \
@@ -58,7 +59,8 @@ def generate_city_page(country_item, city, slug_country_used, canonical_country_
          f"Caméras pour Pistes de Padel à {city_name} :<br class=\"hidden sm:inline\"> Enregistrement Matchs, Highlights<br class=\"hidden sm:inline\"> et Statistiques IA" if lang == "fr" else \
          f"Padel-Kameras in {city_name}:<br class=\"hidden sm:inline\"> Spielaufnahme, Highlights<br class=\"hidden sm:inline\"> & KI-Analysen" if lang == "de" else \
          f"Kameror för padelbanor i {city_name}:<br class=\"hidden sm:inline\"> Matchinspelning, Höjdpunkter<br class=\"hidden sm:inline\"> & AI-Statistik" if lang == "sv" else \
-         f"Câmeras para Padel em {city_name}:<br class=\"hidden sm:inline\"> Gravação de Jogos, Highlights<br class=\"hidden sm:inline\"> e Estatísticas com IA" if lang == "pt" else \
+         f"Câmeras para Quadras de Padel em {city_name}:<br class=\"hidden sm:inline\"> Gravação de Partidas, Highlights<br class=\"hidden sm:inline\"> e Estatísticas com IA" if lang == "pt-br" else \
+         f"Câmaras para Campos de Padel em {city_name}:<br class=\"hidden sm:inline\"> Gravação de Jogos, Highlights<br class=\"hidden sm:inline\"> e Estatísticas com IA" if lang == "pt" else \
          t["h1"]
 
     sub = f"La cámara oficial de USA Padel y USTA, disponible para clubes en {city_name} y área metropolitana (+{city_courts} pistas). Inversión de {hw} en propiedad, planes desde {rec}, montaje en 5 minutos sin obras y sin permanencias." if lang == "es" else \

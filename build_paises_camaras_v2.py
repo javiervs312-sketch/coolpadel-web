@@ -49,6 +49,10 @@ def generate_country_page(item, slug_to_use, canonical_slug=None):
     sub = t["sub"].format(country=country_display, hw=hw, rec=rec, ai=ai)
     
     wa_msg = t["wa_msg"].format(country=country_display)
+    if lang in ("pt", "pt-br") and country_display == "Brasil":
+        title = title.replace("em Brasil", "no Brasil")
+        meta_desc = meta_desc.replace("em Brasil", "no Brasil")
+        wa_msg = wa_msg.replace("em Brasil", "no Brasil")
     encoded_wa = urllib.parse.quote(wa_msg)
     wa_url = f"https://api.whatsapp.com/send?phone=34680317486&text={encoded_wa}"
     target_slug = slug_to_use

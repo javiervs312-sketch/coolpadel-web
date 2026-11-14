@@ -92,7 +92,7 @@ COUNTRIES_50 = [
         "hw": "£155 (180 €)", "rec": "£39/mo (45 €)", "ai": "£118/mo (136 €)"
     },
     {
-        "rank": 18, "country_es": "Brasil", "country_local": "Brasil", "lang": "pt",
+        "rank": 18, "country_es": "Brasil", "country_local": "Brasil", "lang": "pt-br",
         "courts": 1000, "curr_code": "BRL", "curr_symbol": "R$", "slug": "brasil", "slug_local": "brasil",
         "hw": "R$ 1.100 ($180)", "rec": "R$ 275/mês ($45)", "ai": "R$ 830/mês ($136)"
     },
