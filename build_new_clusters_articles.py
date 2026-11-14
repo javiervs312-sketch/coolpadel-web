@@ -169,9 +169,9 @@ def build_article_page(art):
     <h2>Siguiente paso:</h2>
     <p>Si tienes alguna pregunta y quieres que te enseñe bien cómo funciona todo, escríbeme directamente y lo vemos.</p>
     <div class="mt-4 flex justify-center">
-      <a href="https://wa.me/34680317486?text=Hola%20Javier%2C%20quiero%20informaci%C3%B3n%20sobre%20las%20c%C3%A1maras%20de%20p%C3%A1del%20para%20mi%20club" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2.5 px-8 py-3.5 rounded-full bg-[#4bbb81] hover:bg-[#40ab73] text-white font-heading font-black text-sm uppercase tracking-wider transition-all duration-300 shadow-md hover:scale-105 active:scale-95 group">
-        <i data-lucide="message-circle" class="w-5 h-5 stroke-[2.5]"></i>
-        <span>Contactar por WhatsApp</span>
+      <a href="https://wa.me/34680317486?text=Hola%20Javier%2C%20%C2%BFpuedo%20agendar%20una%20demo%20para%20las%20c%C3%A1maras%20de%20mi%20club%3F" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2.5 px-8 py-3.5 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] text-slate-950 font-heading font-black text-sm uppercase tracking-wider transition-all duration-300 shadow-md hover:scale-105 active:scale-95 group">
+        <i data-lucide="message-circle" class="w-5 h-5 text-slate-950 stroke-[2.5]"></i>
+        <span>¿Puedo agendar una demo?</span>
       </a>
     </div>
   </div>

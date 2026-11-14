@@ -2614,30 +2614,6 @@ def get_base_html(active_lang="es", is_subfolder=False):
 
 
 
-            <!-- CÓDIGO QR WHATSAPP PARA ESCRITORIO -->
-
-            <div class="pt-1">
-
-              <div class="p-1.5 bg-white border border-slate-200 rounded-xl shadow-2xs inline-block group-hover:border-emerald-300 transition">
-
-                <img src="{asset_prefix}assets/images/qr_whatsapp_coolpadel.png" 
-
-                     alt="WhatsApp CoolPadel" 
-
-                     width="104" height="104" 
-
-                     class="w-20 h-20 sm:w-24 sm:h-24 object-contain" 
-
-                     loading="lazy">
-
-              </div>
-
-            </div>
-
-          </div>
-
-
-
           <!-- BOTÓN ACCIÓN WHATSAPP -->
 
           <div class="w-full pt-4 border-t border-slate-100 mt-4">
@@ -2685,30 +2661,6 @@ def get_base_html(active_lang="es", is_subfolder=False):
               javier@coolpadelstudios.com
 
             </p>
-
-
-
-            <!-- CÓDIGO QR EMAIL PARA ESCRITORIO -->
-
-            <div class="pt-1">
-
-              <div class="p-1.5 bg-white border border-slate-200 rounded-xl shadow-2xs inline-block group-hover:border-sky-300 transition">
-
-                <img src="{asset_prefix}assets/images/qr_email_coolpadel.png" 
-
-                     alt="Email CoolPadel" 
-
-                     width="104" height="104" 
-
-                     class="w-20 h-20 sm:w-24 sm:h-24 object-contain" 
-
-                     loading="lazy">
-
-              </div>
-
-            </div>
-
-          </div>
 
 
 
