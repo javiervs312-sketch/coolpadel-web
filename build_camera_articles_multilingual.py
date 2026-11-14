@@ -345,7 +345,9 @@ def render_page(title: str, content: str, lang: str, prefix: str = "/", slug: st
     if not meta_desc:
         meta_desc = f"{title} - CoolPadel Studios y Save my Play. Descubre costes, rentabilidad y grabación inteligente en pista."
     clean_desc = re.sub(r'\s+', ' ', meta_desc).strip()
-    safe_desc = html.escape(clean_desc)[:160]
+    if len(clean_desc) > 170:
+        clean_desc = clean_desc[:167].rsplit(' ', 1)[0] + '...'
+    safe_desc = html.escape(clean_desc)
 
     schema_parts = []
     if slug:

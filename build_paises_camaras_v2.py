@@ -656,6 +656,7 @@ def generate_country_page(item, slug_to_use, canonical_slug=None):
       lucide.createIcons();
     }}
   </script>
+  <script src="/assets/js/cp-analytics.js?v=20261114b" defer></script>
 </body>
 </html>
 """

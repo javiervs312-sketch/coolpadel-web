@@ -84,12 +84,14 @@
 
   const nowMs = Date.now();
   let sessionId = '';
+  const currentPageKey = (window.location.pathname || '/').replace(/[^a-zA-Z0-9]/g, '_').slice(0, 48);
   try {
-    sessionId = sessionStorage.getItem('cp_session_id') || '';
+    const storageKey = 'cp_sid_' + currentPageKey;
+    sessionId = sessionStorage.getItem(storageKey) || '';
     const lastActivity = parseInt(sessionStorage.getItem('cp_session_activity') || '0', 10);
     if (!sessionId || (nowMs - lastActivity > 30 * 60 * 1000)) {
       sessionId = generateUid('s');
-      sessionStorage.setItem('cp_session_id', sessionId);
+      sessionStorage.setItem(storageKey, sessionId);
     }
     sessionStorage.setItem('cp_session_activity', nowMs.toString());
   } catch (e) {
@@ -361,7 +363,7 @@
     if (pct > maxScrollPercent) maxScrollPercent = pct;
 
     // Actualizar tiempo activo y % scroll en la fila de la sesión sin ensuciar la columna Evento Real
-    [25, 50, 75, 90].forEach(m => {
+    [10, 25, 50, 75, 90].forEach(m => {
       if (pct >= m && !scrollMilestonesReached[m]) {
         scrollMilestonesReached[m] = true;
         sendToWebhook('visita_iniciada', {
@@ -525,7 +527,7 @@
     });
 
     // Latidos periódicos de lectura activa (actualizan Tiempo Activo y % Scroll manteniendo el estado limpio)
-    const heartbeats = [15, 45, 90, 180];
+    const heartbeats = [4, 8, 15, 45, 90, 180];
     const heartbeatsSent = {};
     setInterval(() => {
       if (!document.hidden && activeSeconds > 0 && initialVisitSent) {

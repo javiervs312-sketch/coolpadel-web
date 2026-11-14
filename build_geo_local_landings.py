@@ -746,7 +746,7 @@ def render_local_landing(l):
         </a>
         <p class="text-slate-400">Madrid · Javier Villoria Soleto · WhatsApp: +34 680 31 74 86</p>
       </div>
-      <div class="text-center text-slate-500 text-· 11px">
+      <div class="text-center text-slate-500 text-[11px]">
         © 2026 CoolPadel Studios · Distribuidor Partner Oficial Save my Play. Todos los derechos reservados.
       </div>
     </div>
@@ -757,6 +757,7 @@ def render_local_landing(l):
       lucide.createIcons();
     }}
   </script>
+  <script src="/assets/js/cp-analytics.js?v=20261114b" defer></script>
 </body>
 </html>
 """

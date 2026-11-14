@@ -710,6 +710,7 @@ def generate_city_page(country_item, city, slug_country_used, canonical_country_
       lucide.createIcons();
     }}
   </script>
+  <script src="/assets/js/cp-analytics.js?v=20261114b" defer></script>
 </body>
 </html>
 """
