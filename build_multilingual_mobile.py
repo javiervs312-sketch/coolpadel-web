@@ -2051,7 +2051,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
           {t['smp_title']}
         </h2>
         <p class="text-xs sm:text-sm text-slate-900 font-semibold max-w-2xl mx-auto">
-          Cámara Nº1 en Estados Unidos en tenis, padel y pickleball
+          Cámara Nº1 de Tenis, Padel y Pickleball en Estados Unidos
         </p>
       </div>
 
