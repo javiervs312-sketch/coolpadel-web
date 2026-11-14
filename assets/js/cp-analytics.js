@@ -76,19 +76,31 @@
   const utmSource = pSource || (function () { try { return localStorage.getItem('cp_utm_source') || ''; } catch (e) { return ''; } })();
   const utmCampaign = pCampaign || (function () { try { return localStorage.getItem('cp_utm_campaign') || ''; } catch (e) { return ''; } })();
 
-  // 3. ID de Sesión único por cada visita/página cargada (evita que páginas distintas sobrescriban la misma fila)
+  // 3. ID de Sesión e ID de Visitante persistentes
+  // Mantiene el mismo sessionId a lo largo de toda la navegación del usuario en la sesión activa (pestaña / 30 min)
   function generateUid(prefix) {
     return prefix + '_' + Date.now().toString(36) + '_' + Math.random().toString(36).substring(2, 6);
   }
 
-  const sessionId = generateUid('s');
+  const nowMs = Date.now();
+  let sessionId = '';
+  try {
+    sessionId = sessionStorage.getItem('cp_session_id') || '';
+    const lastActivity = parseInt(sessionStorage.getItem('cp_session_activity') || '0', 10);
+    if (!sessionId || (nowMs - lastActivity > 30 * 60 * 1000)) {
+      sessionId = generateUid('s');
+      sessionStorage.setItem('cp_session_id', sessionId);
+    }
+    sessionStorage.setItem('cp_session_activity', nowMs.toString());
+  } catch (e) {
+    sessionId = generateUid('s');
+  }
 
   // Contador de visitas del usuario en localStorage
   let visitorId = '';
   let visitCount = 1;
   try {
     visitorId = localStorage.getItem('cp_visitor_id') || '';
-    const nowMs = Date.now();
     const lastVisitMs = parseInt(localStorage.getItem('cp_last_visit') || '0', 10);
     if (!visitorId) {
       visitorId = generateUid('v');
@@ -99,8 +111,8 @@
       sessionStorage.setItem('cp_counted_in_session', 'true');
     } else {
       let count = parseInt(localStorage.getItem('cp_visit_count') || '1', 10);
-      // Incrementar si es una nueva pestaña/sesión o si pasaron más de 20 minutos
-      if (!sessionStorage.getItem('cp_counted_in_session') || (nowMs - lastVisitMs > 20 * 60 * 1000)) {
+      // Incrementar si es una nueva sesión o si pasaron más de 30 minutos sin actividad
+      if (!sessionStorage.getItem('cp_counted_in_session') || (nowMs - lastVisitMs > 30 * 60 * 1000)) {
         count++;
         localStorage.setItem('cp_visit_count', count.toString());
         sessionStorage.setItem('cp_counted_in_session', 'true');
@@ -202,11 +214,15 @@
       return '✉️ Link Email' + (camp ? ' (' + camp + ')' : '');
     }
 
-    // 5. Navegación interna desde otra página de la web
+    // 5. Navegación interna desde otra página de la web (Preservar canal de adquisición inicial si existe)
     if (ref && (ref.includes('coolpadelstudios.com') || ref.includes('savemyplay.com') || (window.location.host && ref.includes(window.location.host.toLowerCase())))) {
       try {
         const urlRef = new URL(document.referrer);
         const pathRef = urlRef.pathname || '/';
+        const canalInicial = (function () { try { return sessionStorage.getItem('cp_initial_channel') || ''; } catch (e) { return ''; } })();
+        if (canalInicial && !canalInicial.startsWith('🌐 Desde la Web')) {
+          return canalInicial;
+        }
         if (pathRef !== window.location.pathname) {
           return '🌐 Desde la Web (de ' + pathRef + ')';
         }
@@ -401,13 +417,18 @@
       const dev = getDeviceInfo();
       delete extraData._unload;
       const origenActual = getChannelOrigin();
+      try {
+        if (!sessionStorage.getItem('cp_initial_channel') && !origenActual.startsWith('🌐 Desde la Web')) {
+          sessionStorage.setItem('cp_initial_channel', origenActual);
+        }
+      } catch (e) {}
 
-      // Nota: enviamos visitor_id vacío al webhook para que cada visita nueva cree su propia fila
+      // Incluimos visitor_id para vincular visitas del mismo usuario/dispositivo
       // e incluimos el origen real tras '||' en session_id para que el normalizador lo extraiga con precisión.
       const payload = {
         tipo: 'analitica_evento',
         session_id: sessionId + '||' + origenActual,
-        visitor_id: '',
+        visitor_id: visitorId,
         visita_num: visitCount,
         lead_label: getLeadIdentification(),
         lead_name: leadName,

@@ -239,7 +239,8 @@ function doPost(e) {
     }
 
     // ID de Sesión e ID de Visitante
-    const sessionId = (data.session_id || "").trim() || ("s_" + dia.replace("/", "") + "_" + (data.dispositivo || "web").toLowerCase() + "_" + Math.random().toString(36).substring(2, 6));
+    const rawSessionId = (data.session_id || "").trim();
+    const sessionId = (rawSessionId.includes("||") ? rawSessionId.split("||")[0].trim() : rawSessionId) || ("s_" + dia.replace("/", "") + "_" + (data.dispositivo || "web").toLowerCase() + "_" + Math.random().toString(36).substring(2, 6));
     const visitorId = (data.visitor_id || "").trim();
 
     // Nº de visitas (1ª visita, 2ª visita, 5ª visita...)
