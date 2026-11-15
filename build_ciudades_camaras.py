@@ -15,6 +15,7 @@ sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 from paises_data_50 import COUNTRIES_50
 from country_i18n_master import ALL_LANGS_MASTER
 from ciudades_data_250 import CITIES_50
+from country_i18n_extras import ISO_MAP, COURTS_TERM, NAV_PREFIX_MAP, FOOTER_I18N, CITY_TEMPLATES
 
 OUTPUT_ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'camaras')
 
@@ -32,50 +33,19 @@ def generate_city_page(country_item, city, slug_country_used, canonical_country_
 
     badge_plan_rec = "Consigliato" if lang == "it" else ("Recommandé" if lang == "fr" else ("Empfohlen" if lang == "de" else ("Rekommenderad" if lang == "sv" else ("Recommended" if lang == "en" else "Recomendado"))))
 
-    # Localized City Title & Meta
-    title = f"Cámaras para Pistas de Pádel en {city_name} ({country_display}) | Save My Play" if lang == "es" else \
-            f"Padel Court Cameras in {city_name} ({country_display}) | Save My Play" if lang == "en" else \
-            f"Telecamere per Campi da Padel a {city_name} ({country_display}) | Save My Play" if lang == "it" else \
-            f"Caméras pour Pistes de Padel à {city_name} ({country_display}) | Save My Play" if lang == "fr" else \
-            f"Kameras für Padel-Plätze in {city_name} ({country_display}) | Save My Play" if lang == "de" else \
-            f"Kameror för padelbanor i {city_name} ({country_display}) | Save My Play" if lang == "sv" else \
-            f"Câmeras para Quadras de Padel em {city_name} ({country_display}) | Save My Play" if lang == "pt-br" else \
-            f"Câmaras para Campos de Padel em {city_name} ({country_display}) | Save My Play" if lang == "pt" else \
-            f"Padelbaan Camera's in {city_name} ({country_display}) | Save My Play" if lang == "nl" else \
-            f"Kamery na korty do padla w {city_name} ({country_display}) | Save My Play" if lang == "pl" else \
-            f"Padelbaner Kameraer i {city_name} ({country_display}) | Save My Play" if lang == "da" else \
-            t["title"].format(country=f"{city_name}, {country_display}", hw=hw, rec=rec, ai=ai)
+    # Localized City Title, Meta, H1, Sub & WA Message para los 22 idiomas
+    c_tmpl = CITY_TEMPLATES.get(lang, CITY_TEMPLATES["en"])
+    title = c_tmpl["title"].format(city=city_name, country=country_display)
+    meta_desc = c_tmpl["meta_desc"].format(city=city_name, country=country_display, hw=hw, rec=rec, ai=ai)
+    h1 = c_tmpl["h1"].format(city=city_name)
+    sub = c_tmpl["sub"].format(city=city_name, country=country_display, courts=city_courts, hw=hw, rec=rec, ai=ai)
+    wa_msg = c_tmpl["wa_msg"].format(city=city_name, country=country_display)
 
-    meta_desc = f"Cámaras Save My Play en {city_name} ({country_display}): {hw} hardware en propiedad, grabación automática por {rec} y estadísticas con IA por {ai}. Solicita demo en directo." if lang == "es" else \
-                f"Save My Play cameras in {city_name} ({country_display}): {hw} hardware, automatic recording for {rec} and AI analytics for {ai}. Book a live demo." if lang == "en" else \
-                f"Telecamere Save My Play a {city_name} ({country_display}): {hw} hardware proprio, registrazione per {rec} e statistiche AI per {ai}. Richiedi una demo." if lang == "it" else \
-                f"Caméras Save My Play à {city_name} ({country_display}) : {hw} matériel en propriété, enregistrement pour {rec} et IA pour {ai}. Réservez une démo." if lang == "fr" else \
-                f"Save My Play Kameras in {city_name} ({country_display}): {hw} Hardware-Eigentum, Aufnahme für {rec} und KI-Statistiken für {ai}. Demo buchen." if lang == "de" else \
-                t["meta_desc"].format(country=f"{city_name}, {country_display}", hw=hw, rec=rec, ai=ai)
-
-    h1 = f"Cámaras para Pistas de Pádel en {city_name}:<br class=\"hidden sm:inline\"> Grabación, Highlights<br class=\"hidden sm:inline\"> y Estadísticas con IA" if lang == "es" else \
-         f"Padel Court Cameras in {city_name}:<br class=\"hidden sm:inline\"> Match Recording, Highlights<br class=\"hidden sm:inline\"> & AI Analytics" if lang == "en" else \
-         f"Telecamere per Campi da Padel a {city_name}:<br class=\"hidden sm:inline\"> Registrazione Partite, Highlights<br class=\"hidden sm:inline\"> e Statistiche IA" if lang == "it" else \
-         f"Caméras pour Pistes de Padel à {city_name} :<br class=\"hidden sm:inline\"> Enregistrement Matchs, Highlights<br class=\"hidden sm:inline\"> et Statistiques IA" if lang == "fr" else \
-         f"Padel-Kameras in {city_name}:<br class=\"hidden sm:inline\"> Spielaufnahme, Highlights<br class=\"hidden sm:inline\"> & KI-Analysen" if lang == "de" else \
-         f"Kameror för padelbanor i {city_name}:<br class=\"hidden sm:inline\"> Matchinspelning, Höjdpunkter<br class=\"hidden sm:inline\"> & AI-Statistik" if lang == "sv" else \
-         f"Câmeras para Quadras de Padel em {city_name}:<br class=\"hidden sm:inline\"> Gravação de Partidas, Highlights<br class=\"hidden sm:inline\"> e Estatísticas com IA" if lang == "pt-br" else \
-         f"Câmaras para Campos de Padel em {city_name}:<br class=\"hidden sm:inline\"> Gravação de Jogos, Highlights<br class=\"hidden sm:inline\"> e Estatísticas com IA" if lang == "pt" else \
-         t["h1"]
-
-    sub = f"La cámara oficial de USA Padel y USTA, disponible para clubes en {city_name} y área metropolitana (+{city_courts} pistas). Inversión de {hw} en propiedad, planes desde {rec}, montaje en 5 minutos sin obras y sin permanencias." if lang == "es" else \
-          f"The official camera of USA Padel & USTA, available for padel clubs across {city_name} (+{city_courts} courts). {hw} hardware ownership, subscriptions from {rec}, 5-min installation with no civil works and no lock-in." if lang == "en" else \
-          f"La telecamera ufficiale di USA Padel e USTA per i circoli di {city_name} (+{city_courts} campi). Investimento di {hw} in proprietà, piani da {rec}, montaggio in 5 minuti senza opere e senza vincoli." if lang == "it" else \
-          f"La caméra officielle d'USA Padel et de l'USTA pour les clubs de {city_name} (+{city_courts} pistes). Matériel en pleine propriété {hw}, abonnements dès {rec}, installation en 5 minutes sans travaux." if lang == "fr" else \
-          f"Die offizielle Kamera von USA Padel und USTA für Clubs in {city_name} (+{city_courts} Plätze). Hardware-Eigentum für {hw}, Monatspläne ab {rec}, 5-Minuten-Montage ohne Bauarbeiten." if lang == "de" else \
-          t["sub"].format(country=f"{city_name}, {country_display}", hw=hw, rec=rec, ai=ai)
-
-    wa_msg = f"Hola Javier, dirijo un club de pádel en {city_name} ({country_display}) y quiero ver una demo de las cámaras Save My Play." if lang == "es" else \
-             f"Hi Javier, I run a padel club in {city_name} ({country_display}) and would like to see a demo of Save My Play cameras." if lang == "en" else \
-             f"Ciao Javier, gestisco un circolo padel a {city_name} ({country_display}) e vorrei vedere una demo di Save My Play." if lang == "it" else \
-             f"Bonjour Javier, je gère un club de padel à {city_name} ({country_display}) et j'aimerais voir une démo de Save My Play." if lang == "fr" else \
-             f"Hallo Javier, ich leite einen Padel-Club in {city_name} ({country_display}) und möchte eine Demo der Save My Play Kameras sehen." if lang == "de" else \
-             t["wa_msg"].format(country=f"{city_name}, {country_display}")
+    if lang in ("pt", "pt-br") and country_display == "Brasil":
+        title = title.replace("em Brasil", "no Brasil")
+        meta_desc = meta_desc.replace("em Brasil", "no Brasil")
+        sub = sub.replace("em Brasil", "no Brasil")
+        wa_msg = wa_msg.replace("em Brasil", "no Brasil")
 
     encoded_wa = urllib.parse.quote(wa_msg)
     wa_url = f"https://api.whatsapp.com/send?phone=34680317486&text={encoded_wa}"
@@ -85,17 +55,38 @@ def generate_city_page(country_item, city, slug_country_used, canonical_country_
 
     redirect_js = ""
     robots_content = "index, follow"
+
+    # ISO y Hreflang Regional de la Ciudad
+    iso_code = ISO_MAP.get(target_country, ISO_MAP.get(country_item["slug"], "ES"))
+    regional_hreflang = f"{lang}-{iso_code}" if lang != "pt-br" else "pt-BR"
+
     hreflang_tags = (
         f'  <link rel="alternate" hreflang="{lang}" href="{canonical_url}"/>\n'
+        f'  <link rel="alternate" hreflang="{regional_hreflang}" href="{canonical_url}"/>\n'
         f'  <link rel="alternate" hreflang="x-default" href="{canonical_url}"/>\n'
     )
 
-    is_es = (lang == "es")
-    nav_prefix = "/" if is_es else "/en/"
+    # Prefijo de navegación según hub nativo
+    nav_prefix = NAV_PREFIX_MAP.get(lang, "/en/")
     dir_attr = ' dir="rtl"' if lang == "ar" else ''
 
+    # Diccionario de footer y término de pistas localizado
+    f_i18n = FOOTER_I18N.get(lang, FOOTER_I18N["en"])
+    courts_word = COURTS_TERM.get(lang, "Courts")
+
+    # Detección determinista de divisa
+    schema_curr = country_item.get("curr_code")
+    if not schema_curr or schema_curr in ("ARS", "CLP", "COP", "PYG", "UYU", "VES", "CRC", "DOP", "PAB"):
+        if "USD" in hw or "$" in hw:
+            schema_curr = "USD"
+        elif "€" in hw:
+            schema_curr = "EUR"
+        elif "£" in hw:
+            schema_curr = "GBP"
+        else:
+            schema_curr = country_item.get("curr_code", "EUR")
+
     faq2_a_fmt = t["faq2_a"].format(hw=hw, rec=rec, ai=ai)
-    schema_curr = "GBP" if "£" in hw else ("USD" if ("$" in hw or "USD" in hw) else "EUR")
     faq_pairs = [
         (t["faq1_q"], t["faq1_a"].format(hw=hw, rec=rec, ai=ai)),
         (t["faq2_q"], faq2_a_fmt),
@@ -108,10 +99,19 @@ def generate_city_page(country_item, city, slug_country_used, canonical_country_
             {
                 "@type": ["Product", "Service"],
                 "name": f"Save My Play - {city_name} ({country_display})",
+                "inLanguage": lang,
                 "description": meta_desc,
                 "image": ["https://coolpadelstudios.com/assets/images/savemyplay-1.jpg"],
                 "brand": {"@type": "Brand", "name": "Save My Play"},
-                "areaServed": {"@type": "City", "name": city_name},
+                "areaServed": {
+                    "@type": "City",
+                    "name": city_name,
+                    "containedInPlace": {
+                        "@type": "Country",
+                        "name": country_display,
+                        "identifier": iso_code
+                    }
+                },
                 "offers": {
                     "@type": "AggregateOffer",
                     "priceCurrency": schema_curr,
@@ -129,6 +129,16 @@ def generate_city_page(country_item, city, slug_country_used, canonical_country_
                     {"@type": "ListItem", "position": 3, "name": country_display, "item": f"https://coolpadelstudios.com{country_url}"},
                     {"@type": "ListItem", "position": 4, "name": city_name, "item": canonical_url},
                 ],
+            },
+            {
+                "@type": "VideoObject",
+                "name": f"Save My Play Demonstration - {city_name} ({country_display})",
+                "description": f"Demostración en pista real de grabación Save My Play para clubes en {city_name}",
+                "thumbnailUrl": "https://img.youtube.com/vi/4xwrrveDZxg/hqdefault.jpg",
+                "uploadDate": "2026-01-15T12:00:00+01:00",
+                "contentUrl": "https://www.youtube.com/watch?v=4xwrrveDZxg",
+                "embedUrl": "https://www.youtube-nocookie.com/embed/4xwrrveDZxg",
+                "inLanguage": lang
             },
             {
                 "@type": "FAQPage",
@@ -272,7 +282,7 @@ def generate_city_page(country_item, city, slug_country_used, canonical_country_
           <span>/</span>
           <a href="{country_url}" class="hover:text-slate-900 transition">{country_display}</a>
           <span>/</span>
-          <span class="text-[#f2920b] font-black">{city_name} (+{city_courts} {t.get('nav_courts', 'Courts') if lang != 'es' else 'Pistas'})</span>
+          <span class="text-[#f2920b] font-black">{city_name} (+{city_courts} {courts_word})</span>
         </nav>
 
         <div class="grid lg:grid-cols-12 gap-8 sm:gap-12 items-center">
@@ -472,7 +482,7 @@ def generate_city_page(country_item, city, slug_country_used, canonical_country_
         <div class="mt-8 text-center">
           <a href="{wa_url}" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] text-slate-950 font-heading font-black text-sm uppercase tracking-wider transition shadow-md hover:scale-105 active:scale-95">
             <i data-lucide="message-circle" class="w-4 h-4 text-slate-950"></i>
-            <span>Pedir presupuesto para mi club en {city_name}</span>
+            <span>{f_i18n["quote_city_btn"].format(city=city_name)}</span>
           </a>
         </div>
       </div>
@@ -617,8 +627,8 @@ def generate_city_page(country_item, city, slug_country_used, canonical_country_
               <div class="w-12 h-12 rounded-xl bg-emerald-50 text-[#25D366] flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
                 <i data-lucide="message-circle" class="w-6 h-6"></i>
               </div>
-              <h3 class="font-heading font-black text-slate-950 text-base mb-1">WhatsApp Directo</h3>
-              <p class="text-slate-500 text-xs mb-3">Respuesta directa con Javier</p>
+              <h3 class="font-heading font-black text-slate-950 text-base mb-1">{f_i18n["wa_direct_title"]}</h3>
+              <p class="text-slate-500 text-xs mb-3">{f_i18n["wa_direct_sub"]}</p>
             </div>
             <span class="inline-flex items-center justify-center gap-1.5 w-full py-2.5 px-4 rounded-xl bg-[#25D366] text-white font-heading font-bold text-xs uppercase tracking-wider group-hover:bg-[#1ebd59] transition-colors shadow-xs">
               <i data-lucide="message-circle" class="w-3.5 h-3.5"></i>
@@ -633,7 +643,7 @@ def generate_city_page(country_item, city, slug_country_used, canonical_country_
               <div class="w-12 h-12 rounded-xl bg-sky-50 text-sky-600 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
                 <i data-lucide="mail" class="w-6 h-6"></i>
               </div>
-              <h3 class="font-heading font-black text-slate-950 text-base mb-1">Email Dossier</h3>
+              <h3 class="font-heading font-black text-slate-950 text-base mb-1">{f_i18n["email_dossier_title"]}</h3>
               <p class="text-slate-500 text-xs mb-3">javier@coolpadelstudios.com</p>
             </div>
             <span class="inline-flex items-center justify-center gap-1.5 w-full py-2.5 px-4 rounded-xl bg-sky-600 text-white font-heading font-bold text-xs uppercase tracking-wider group-hover:bg-sky-500 transition-colors shadow-xs">
@@ -661,30 +671,30 @@ def generate_city_page(country_item, city, slug_country_used, canonical_country_
         <div class="space-y-3">
           <div class="font-heading font-black text-sm uppercase tracking-wider text-white">{t["footer_b2b"]}</div>
           <ul class="space-y-2 text-white/80 font-normal">
-            <li><a href="{nav_prefix}llaveros-padel-personalizados/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Llaveros de Pádel 3D</a></li>
-            <li><a href="{nav_prefix}llaveros-tenis-personalizados/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Llaveros de Tenis</a></li>
-            <li><a href="{nav_prefix}welcome-packs-torneos-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Welcome Packs Torneos</a></li>
-            <li><a href="{nav_prefix}llaveros-personalizados-clubs-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Merchandising Clubes</a></li>
+            <li><a href="{nav_prefix}llaveros-padel-personalizados/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">{f_i18n["llaveros_3d"]}</a></li>
+            <li><a href="{nav_prefix}llaveros-tenis-personalizados/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">{f_i18n["llaveros_tenis"]}</a></li>
+            <li><a href="{nav_prefix}welcome-packs-torneos-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">{f_i18n["welcome_packs"]}</a></li>
+            <li><a href="{nav_prefix}llaveros-personalizados-clubs-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">{f_i18n["merch_clubs"]}</a></li>
           </ul>
         </div>
 
         <div class="space-y-3">
           <div class="font-heading font-black text-sm uppercase tracking-wider text-white">{t["footer_tech"]}</div>
           <ul class="space-y-2 text-white/80 font-normal">
-            <li><a href="{nav_prefix}camaras/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Cámaras Save My Play</a></li>
-            <li><a href="{country_url}" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Cámaras {country_display}</a></li>
-            <li><a href="{nav_prefix}camaras-grabacion-pistas-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Grabación y Streaming</a></li>
-            <li><a href="{nav_prefix}camaras/articulos/cuanto-cuesta-poner-camaras/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Tarifas y Precios</a></li>
+            <li><a href="{nav_prefix}camaras/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">{f_i18n["camaras_hub"]}</a></li>
+            <li><a href="{country_url}" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">{f_i18n["camaras_country"].format(country=country_display)}</a></li>
+            <li><a href="{nav_prefix}camaras-grabacion-pistas-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">{f_i18n["grabacion_streaming"]}</a></li>
+            <li><a href="{nav_prefix}camaras/articulos/cuanto-cuesta-poner-camaras/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">{f_i18n["tarifas_precios"]}</a></li>
           </ul>
         </div>
 
         <div class="space-y-3">
           <div class="font-heading font-black text-sm uppercase tracking-wider text-white">{t["footer_tools"]}</div>
           <ul class="space-y-2 text-white/80 font-normal">
-            <li><a href="{nav_prefix}herramientas/calculadora-coste-pistas-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Calculadora Coste Pistas</a></li>
-            <li><a href="{nav_prefix}herramientas/calculadora-roi-camaras-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Calculadora ROI Cámaras</a></li>
-            <li><a href="{nav_prefix}herramientas/generador-cuadros-torneo-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Generador de Cuadros</a></li>
-            <li><a href="{nav_prefix}franquicias-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Cadenas de Clubs</a></li>
+            <li><a href="{nav_prefix}herramientas/calculadora-coste-pistas-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">{f_i18n["calc_cost"]}</a></li>
+            <li><a href="{nav_prefix}herramientas/calculadora-roi-camaras-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">{f_i18n["calc_roi"]}</a></li>
+            <li><a href="{nav_prefix}herramientas/generador-cuadros-torneo-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">{f_i18n["gen_cuadros"]}</a></li>
+            <li><a href="{nav_prefix}franquicias-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">{f_i18n["cadenas_clubs"]}</a></li>
           </ul>
         </div>
 
@@ -692,15 +702,15 @@ def generate_city_page(country_item, city, slug_country_used, canonical_country_
           <div class="font-heading font-black text-sm uppercase tracking-wider text-white">{country_display} &amp; {t["footer_corp"]}</div>
           <ul class="space-y-2 text-white/80 font-normal">
 {sibling_footer_links}
-            <li><a href="{nav_prefix}blog/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Blog Oficial</a></li>
-            <li><a href="/politica-de-devoluciones.html" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Política de Devoluciones</a></li>
+            <li><a href="{nav_prefix}blog/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">{f_i18n["blog_oficial"]}</a></li>
+            <li><a href="/politica-de-devoluciones.html" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">{f_i18n["politica_dev"]}</a></li>
           </ul>
         </div>
       </nav>
 
       <div class="pt-8 border-t border-white/20 flex flex-col sm:flex-row items-center justify-between gap-4 text-white/70">
-        <p>© 2026 CoolPadel Studios · Distribuidor Oficial Save My Play en {city_name} ({country_display}).</p>
-        <p class="text-right">Hardware en propiedad · Cero Permanencia · IA Nativa</p>
+        <p>© 2026 CoolPadel Studios · {f_i18n["distribuidor_oficial"].format(city=city_name, country=country_display)}</p>
+        <p class="text-right">{f_i18n["propiedad_tagline"]}</p>
       </div>
     </div>
   </footer>

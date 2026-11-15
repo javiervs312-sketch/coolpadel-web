@@ -106,11 +106,11 @@ CITIES_50 = {
     ],
     # 13. Egipto
     "egipto": [
-        {"name": "Cairo", "slug": "cairo", "courts": 650},
-        {"name": "Alexandria", "slug": "alexandria", "courts": 280},
-        {"name": "Giza", "slug": "giza", "courts": 240},
-        {"name": "New Cairo", "slug": "new-cairo", "courts": 260},
-        {"name": "El Gouna", "slug": "el-gouna", "courts": 110},
+        {"name": "القاهرة (Cairo)", "slug": "cairo", "courts": 650},
+        {"name": "الإسكندرية (Alexandria)", "slug": "alexandria", "courts": 280},
+        {"name": "الجيزة (Giza)", "slug": "giza", "courts": 240},
+        {"name": "القاهرة الجديدة (New Cairo)", "slug": "new-cairo", "courts": 260},
+        {"name": "الجونة (El Gouna)", "slug": "el-gouna", "courts": 110},
     ],
     # 14. Sudáfrica
     "sudafrica": [
@@ -122,11 +122,11 @@ CITIES_50 = {
     ],
     # 15. Arabia Saudí
     "arabia-saudi": [
-        {"name": "Riyadh", "slug": "riyadh", "courts": 690},
-        {"name": "Jeddah", "slug": "jeddah", "courts": 420},
-        {"name": "Dammam", "slug": "dammam", "courts": 260},
-        {"name": "Khobar", "slug": "khobar", "courts": 230},
-        {"name": "Medina", "slug": "medina", "courts": 120},
+        {"name": "الرياض (Riyadh)", "slug": "riyadh", "courts": 690},
+        {"name": "جدة (Jeddah)", "slug": "jeddah", "courts": 420},
+        {"name": "الدمام (Dammam)", "slug": "dammam", "courts": 260},
+        {"name": "الخبر (Khobar)", "slug": "khobar", "courts": 230},
+        {"name": "المدينة المنورة (Medina)", "slug": "medina", "courts": 120},
     ],
     # 16. Finlandia
     "finlandia": [
@@ -154,11 +154,11 @@ CITIES_50 = {
     ],
     # 19. Emiratos Árabes Unidos
     "emiratos-arabes-unidos": [
-        {"name": "Dubai", "slug": "dubai", "courts": 780},
-        {"name": "Abu Dhabi", "slug": "abu-dhabi", "courts": 360},
-        {"name": "Sharjah", "slug": "sharjah", "courts": 190},
-        {"name": "Ajman", "slug": "ajman", "courts": 110},
-        {"name": "Ras Al Khaimah", "slug": "ras-al-khaimah", "courts": 90},
+        {"name": "دبي (Dubai)", "slug": "dubai", "courts": 780},
+        {"name": "أبوظبي (Abu Dhabi)", "slug": "abu-dhabi", "courts": 360},
+        {"name": "الشارقة (Sharjah)", "slug": "sharjah", "courts": 190},
+        {"name": "عجمان (Ajman)", "slug": "ajman", "courts": 110},
+        {"name": "رأس الخيمة (Ras Al Khaimah)", "slug": "ras-al-khaimah", "courts": 90},
     ],
     # 20. Alemania
     "alemania": [
@@ -218,19 +218,19 @@ CITIES_50 = {
     ],
     # 27. Grecia
     "grecia": [
-        {"name": "Athina", "slug": "athina", "courts": 260},
-        {"name": "Thessaloniki", "slug": "thessaloniki", "courts": 180},
-        {"name": "Patra", "slug": "patra", "courts": 90},
-        {"name": "Heraklion", "slug": "heraklion", "courts": 80},
-        {"name": "Larissa", "slug": "larissa", "courts": 70},
+        {"name": "Αθήνα (Athina)", "slug": "athina", "courts": 260},
+        {"name": "Θεσσαλονίκη (Thessaloniki)", "slug": "thessaloniki", "courts": 180},
+        {"name": "Πάτρα (Patra)", "slug": "patra", "courts": 90},
+        {"name": "Ηράκλειο (Heraklion)", "slug": "heraklion", "courts": 80},
+        {"name": "Λάρισα (Larissa)", "slug": "larissa", "courts": 70},
     ],
     # 28. Qatar
     "qatar": [
-        {"name": "Doha", "slug": "doha", "courts": 380},
-        {"name": "Al Rayyan", "slug": "al-rayyan", "courts": 190},
-        {"name": "Al Wakrah", "slug": "al-wakrah", "courts": 120},
-        {"name": "Lusail", "slug": "lusail", "courts": 160},
-        {"name": "Al Khor", "slug": "al-khor", "courts": 80},
+        {"name": "الدوحة (Doha)", "slug": "doha", "courts": 380},
+        {"name": "الريان (Al Rayyan)", "slug": "al-rayyan", "courts": 190},
+        {"name": "الوكرة (Al Wakrah)", "slug": "al-wakrah", "courts": 120},
+        {"name": "لوسيل (Lusail)", "slug": "lusail", "courts": 160},
+        {"name": "الخور (Al Khor)", "slug": "al-khor", "courts": 80},
     ],
     # 29. Colombia
     "colombia": [
@@ -242,11 +242,11 @@ CITIES_50 = {
     ],
     # 30. Kuwait
     "kuwait": [
-        {"name": "Kuwait City", "slug": "kuwait-city", "courts": 350},
-        {"name": "Hawalli", "slug": "hawalli", "courts": 210},
-        {"name": "Salmiya", "slug": "salmiya", "courts": 180},
-        {"name": "Al Ahmadi", "slug": "al-ahmadi", "courts": 130},
-        {"name": "Farwaniya", "slug": "farwaniya", "courts": 110},
+        {"name": "مدينة الكويت (Kuwait City)", "slug": "kuwait-city", "courts": 350},
+        {"name": "حولي (Hawalli)", "slug": "hawalli", "courts": 210},
+        {"name": "السالمية (Salmiya)", "slug": "salmiya", "courts": 180},
+        {"name": "الأحمدي (Al Ahmadi)", "slug": "al-ahmadi", "courts": 130},
+        {"name": "الفروانية (Farwaniya)", "slug": "farwaniya", "courts": 110},
     ],
     # 31. Croacia
     "croacia": [
@@ -354,35 +354,35 @@ CITIES_50 = {
     ],
     # 44. Japón
     "japon": [
-        {"name": "Tokyo", "slug": "tokyo", "courts": 230},
-        {"name": "Osaka", "slug": "osaka", "courts": 140},
-        {"name": "Nagoya", "slug": "nagoya", "courts": 90},
-        {"name": "Fukuoka", "slug": "fukuoka", "courts": 80},
-        {"name": "Yokohama", "slug": "yokohama", "courts": 70},
+        {"name": "東京 (Tokyo)", "slug": "tokyo", "courts": 230},
+        {"name": "大阪 (Osaka)", "slug": "osaka", "courts": 140},
+        {"name": "名古屋 (Nagoya)", "slug": "nagoya", "courts": 90},
+        {"name": "福岡 (Fukuoka)", "slug": "fukuoka", "courts": 80},
+        {"name": "横浜 (Yokohama)", "slug": "yokohama", "courts": 70},
     ],
     # 45. Líbano
     "libano": [
-        {"name": "Beirut", "slug": "beirut", "courts": 180},
-        {"name": "Jounieh", "slug": "jounieh", "courts": 90},
-        {"name": "Tripoli", "slug": "tripoli", "courts": 60},
-        {"name": "Byblos", "slug": "byblos", "courts": 50},
-        {"name": "Saida", "slug": "saida", "courts": 40},
+        {"name": "بيروت (Beirut)", "slug": "beirut", "courts": 180},
+        {"name": "جونيه (Jounieh)", "slug": "jounieh", "courts": 90},
+        {"name": "طرابلس (Tripoli)", "slug": "tripoli", "courts": 60},
+        {"name": "جبيل (Byblos)", "slug": "byblos", "courts": 50},
+        {"name": "صيدا (Saida)", "slug": "saida", "courts": 40},
     ],
     # 46. Bahréin
     "bahrein": [
-        {"name": "Manama", "slug": "manama", "courts": 160},
-        {"name": "Riffa", "slug": "riffa", "courts": 90},
-        {"name": "Muharraq", "slug": "muharraq", "courts": 70},
-        {"name": "Hamad Town", "slug": "hamad-town", "courts": 50},
-        {"name": "A'ali", "slug": "a-ali", "courts": 40},
+        {"name": "المنامة (Manama)", "slug": "manama", "courts": 160},
+        {"name": "الرفاع (Riffa)", "slug": "riffa", "courts": 90},
+        {"name": "المحرق (Muharraq)", "slug": "muharraq", "courts": 70},
+        {"name": "مدينة حمد (Hamad Town)", "slug": "hamad-town", "courts": 50},
+        {"name": "عالي (A'ali)", "slug": "a-ali", "courts": 40},
     ],
     # 47. Omán
     "oman": [
-        {"name": "Muscat", "slug": "muscat", "courts": 170},
-        {"name": "Salalah", "slug": "salalah", "courts": 70},
-        {"name": "Sohar", "slug": "sohar", "courts": 50},
-        {"name": "Seeb", "slug": "seeb", "courts": 60},
-        {"name": "Bawshar", "slug": "bawshar", "courts": 40},
+        {"name": "مسقط (Muscat)", "slug": "muscat", "courts": 170},
+        {"name": "صلالة (Salalah)", "slug": "salalah", "courts": 70},
+        {"name": "صحار (Sohar)", "slug": "sohar", "courts": 50},
+        {"name": "السيب (Seeb)", "slug": "seeb", "courts": 60},
+        {"name": "بوشر (Bawshar)", "slug": "bawshar", "courts": 40},
     ],
     # 48. India
     "india": [

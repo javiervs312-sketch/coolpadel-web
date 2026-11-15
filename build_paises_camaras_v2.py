@@ -27,9 +27,13 @@ from paises_data_50 import COUNTRIES_50
 from ciudades_data_250 import CITIES_50
 from country_i18n_native_all import NATIVE_TRANSLATIONS_21
 from country_i18n_native_part2 import REMAINING_13_LANGS
+from country_i18n_extras import ISO_MAP, COURTS_TERM, NAV_PREFIX_MAP, FOOTER_I18N
 
 ALL_LANGS_MASTER = dict(NATIVE_TRANSLATIONS_21)
 ALL_LANGS_MASTER.update(REMAINING_13_LANGS)
+
+# Precomputar mapa de país a su URL canónica y regional hreflangs
+COUNTRY_CANONICAL_MAP = {c["slug_local"]: f"https://coolpadelstudios.com/camaras/{c['slug_local']}/" for c in COUNTRIES_50}
 
 OUTPUT_ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'camaras')
 os.makedirs(OUTPUT_ROOT, exist_ok=True)
@@ -59,12 +63,46 @@ def generate_country_page(item, slug_to_use, canonical_slug=None):
     canonical_url = f"https://coolpadelstudios.com/camaras/{target_slug}/"
     redirect_js = ""
     robots_content = "index, follow"
-    hreflang_tags = f'  <link rel="alternate" hreflang="{lang}" href="{canonical_url}"/>\n  <link rel="alternate" hreflang="x-default" href="{canonical_url}"/>' 
     
-    is_es = (lang == "es")
-    nav_prefix = "/" if is_es else "/en/"
+    # ISO y Hreflang Regional Clúster
+    iso_code = ISO_MAP.get(target_slug, ISO_MAP.get(item["slug"], "ES"))
+    regional_hreflang = f"{lang}-{iso_code}" if lang != "pt-br" else "pt-BR"
+    
+    # Hreflangs: propio idioma, regional exacto, x-default y enlaces a los 50 países hermanos
+    hreflang_list = [
+        f'  <link rel="alternate" hreflang="{lang}" href="{canonical_url}"/>',
+        f'  <link rel="alternate" hreflang="{regional_hreflang}" href="{canonical_url}"/>',
+        f'  <link rel="alternate" hreflang="x-default" href="https://coolpadelstudios.com/camaras/"/>',
+    ]
+    for other_c in COUNTRIES_50:
+        other_slug = other_c["slug_local"]
+        if other_slug != target_slug:
+            other_iso = ISO_MAP.get(other_slug, "ES")
+            other_lang = other_c["lang"]
+            other_reg = f"{other_lang}-{other_iso}" if other_lang != "pt-br" else "pt-BR"
+            other_url = COUNTRY_CANONICAL_MAP[other_slug]
+            hreflang_list.append(f'  <link rel="alternate" hreflang="{other_reg}" href="{other_url}"/>')
+    hreflang_tags = "\n".join(hreflang_list)
+    
+    # Enrutamiento canónico de navegación por idioma
+    nav_prefix = NAV_PREFIX_MAP.get(lang, "/en/")
 
-    schema_curr = "GBP" if "£" in hw else ("USD" if ("$" in hw or "USD" in hw) else "EUR")
+    # Detección determinista de divisa
+    schema_curr = item.get("curr_code")
+    if not schema_curr or schema_curr in ("ARS", "CLP", "COP", "PYG", "UYU", "VES", "CRC", "DOP", "PAB"):
+        if "USD" in hw or "$" in hw:
+            schema_curr = "USD"
+        elif "€" in hw:
+            schema_curr = "EUR"
+        elif "£" in hw:
+            schema_curr = "GBP"
+        else:
+            schema_curr = item.get("curr_code", "EUR")
+
+    # Vocabulario de footer y pistas localizado
+    f_i18n = FOOTER_I18N.get(lang, FOOTER_I18N["en"])
+    courts_word = COURTS_TERM.get(lang, "Courts")
+
     faq_pairs = [
         (t["faq1_q"], t["faq1_a"].format(hw=hw, rec=rec, ai=ai)),
         (t["faq2_q"], t["faq2_a"].format(hw=hw, rec=rec, ai=ai)),
@@ -77,9 +115,15 @@ def generate_country_page(item, slug_to_use, canonical_slug=None):
             {
                 "@type": ["Product", "Service"],
                 "name": f"Save My Play - {country_display}",
+                "inLanguage": lang,
                 "description": meta_desc,
                 "image": ["https://coolpadelstudios.com/assets/images/savemyplay-1.jpg"],
                 "brand": {"@type": "Brand", "name": "Save My Play"},
+                "areaServed": {
+                    "@type": "Country",
+                    "name": country_display,
+                    "identifier": iso_code
+                },
                 "offers": {
                     "@type": "AggregateOffer",
                     "priceCurrency": schema_curr,
@@ -96,6 +140,16 @@ def generate_country_page(item, slug_to_use, canonical_slug=None):
                     {"@type": "ListItem", "position": 2, "name": t["nav_camaras"], "item": f"https://coolpadelstudios.com{nav_prefix}camaras/"},
                     {"@type": "ListItem", "position": 3, "name": country_display, "item": canonical_url},
                 ],
+            },
+            {
+                "@type": "VideoObject",
+                "name": f"Save My Play Demonstration - {country_display}",
+                "description": f"Demostración en pista real del sistema de cámaras Save My Play en {country_display}",
+                "thumbnailUrl": "https://img.youtube.com/vi/4xwrrveDZxg/hqdefault.jpg",
+                "uploadDate": "2026-01-15T12:00:00+01:00",
+                "contentUrl": "https://www.youtube.com/watch?v=4xwrrveDZxg",
+                "embedUrl": "https://www.youtube-nocookie.com/embed/4xwrrveDZxg",
+                "inLanguage": lang
             },
             {
                 "@type": "FAQPage",
@@ -237,7 +291,7 @@ def generate_country_page(item, slug_to_use, canonical_slug=None):
           <span>/</span>
           <a href="{nav_prefix}camaras/" class="hover:text-slate-900 transition">{t["nav_camaras"]}</a>
           <span>/</span>
-          <span class="text-[#f2920b] font-black">{country_display} ({item['courts']} {t.get('nav_courts', 'Courts') if lang != 'es' else 'Pistas'})</span>
+          <span class="text-[#f2920b] font-black">{country_display} ({item['courts']} {courts_word})</span>
         </nav>
 
         <div class="grid lg:grid-cols-12 gap-8 sm:gap-12 items-center">
@@ -604,31 +658,31 @@ def generate_country_page(item, slug_to_use, canonical_slug=None):
         <div class="space-y-3">
           <div class="font-heading font-black text-sm uppercase tracking-wider text-white">{t["footer_b2b"]}</div>
           <ul class="space-y-2 text-white/80 font-normal">
-            <li><a href="{nav_prefix}llaveros-padel-personalizados/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Llaveros de Pádel 3D</a></li>
-            <li><a href="{nav_prefix}llaveros-tenis-personalizados/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Llaveros de Tenis</a></li>
-            <li><a href="{nav_prefix}welcome-packs-torneos-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Welcome Packs Torneos</a></li>
-            <li><a href="{nav_prefix}llaveros-personalizados-clubs-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Merchandising Clubes</a></li>
+            <li><a href="{nav_prefix}llaveros-padel-personalizados/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">{f_i18n["llaveros_3d"]}</a></li>
+            <li><a href="{nav_prefix}llaveros-tenis-personalizados/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">{f_i18n["llaveros_tenis"]}</a></li>
+            <li><a href="{nav_prefix}welcome-packs-torneos-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">{f_i18n["welcome_packs"]}</a></li>
+            <li><a href="{nav_prefix}llaveros-personalizados-clubs-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">{f_i18n["merch_clubs"]}</a></li>
           </ul>
         </div>
 
         <div class="space-y-3">
           <div class="font-heading font-black text-sm uppercase tracking-wider text-white">{t["footer_tech"]}</div>
           <ul class="space-y-2 text-white/80 font-normal">
-            <li><a href="{nav_prefix}camaras/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition font-bold text-[#f2920b]">Hub Cámaras Save My Play</a></li>
-            <li><a href="{nav_prefix}camaras-grabacion-pistas-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Cámaras Inteligentes Pádel</a></li>
-            <li><a href="{nav_prefix}save-my-play/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Save My Play Clubes</a></li>
-            <li><a href="{nav_prefix}camaras-padel-playtomic/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Integración Playtomic</a></li>
-            <li><a href="{nav_prefix}camaras-padel-matchi/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Integración MATCHi</a></li>
+            <li><a href="{nav_prefix}camaras/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition font-bold text-[#f2920b]">{f_i18n["camaras_hub"]}</a></li>
+            <li><a href="{nav_prefix}camaras-grabacion-pistas-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">{f_i18n["camaras_smart"]}</a></li>
+            <li><a href="{nav_prefix}save-my-play/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">{f_i18n["save_my_play_clubs"]}</a></li>
+            <li><a href="{nav_prefix}camaras-padel-playtomic/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">{f_i18n["playtomic_int"]}</a></li>
+            <li><a href="{nav_prefix}camaras-padel-matchi/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">{f_i18n["matchi_int"]}</a></li>
           </ul>
         </div>
 
         <div class="space-y-3">
           <div class="font-heading font-black text-sm uppercase tracking-wider text-white">{t["footer_tools"]}</div>
           <ul class="space-y-2 text-white/80 font-normal">
-            <li><a href="{nav_prefix}herramientas/calculadora-roi-camaras-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Calculadora ROI Cámaras</a></li>
-            <li><a href="{nav_prefix}herramientas/calculadora-coste-pistas-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Calculadora Coste Pistas</a></li>
-            <li><a href="{nav_prefix}herramientas/generador-americana-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Generador Americana</a></li>
-            <li><a href="{nav_prefix}herramientas/generador-cuadros-torneo-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Generador Cuadros Torneo</a></li>
+            <li><a href="{nav_prefix}herramientas/calculadora-roi-camaras-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">{f_i18n["calc_roi"]}</a></li>
+            <li><a href="{nav_prefix}herramientas/calculadora-coste-pistas-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">{f_i18n["calc_cost"]}</a></li>
+            <li><a href="{nav_prefix}herramientas/generador-americana-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">{f_i18n["gen_americana"]}</a></li>
+            <li><a href="{nav_prefix}herramientas/generador-cuadros-torneo-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">{f_i18n["gen_cuadros"]}</a></li>
           </ul>
         </div>
 
@@ -636,16 +690,16 @@ def generate_country_page(item, slug_to_use, canonical_slug=None):
           <div class="font-heading font-black text-sm uppercase tracking-wider text-white">{country_display} &amp; {t["footer_corp"]}</div>
           <ul class="space-y-2 text-white/80 font-normal">
 {city_footer_links}
-            <li><a href="{nav_prefix}blog/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Blog &amp; Tendencias</a></li>
-            <li><a href="{nav_prefix}franquicias-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Directorio Franquicias</a></li>
-            <li><a href="/politica-de-devoluciones.html" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Política de Devoluciones</a></li>
+            <li><a href="{nav_prefix}blog/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">{f_i18n["blog_tendencias"]}</a></li>
+            <li><a href="{nav_prefix}franquicias-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">{f_i18n["dir_franquicias"]}</a></li>
+            <li><a href="/politica-de-devoluciones.html" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">{f_i18n["politica_dev"]}</a></li>
           </ul>
         </div>
       </nav>
 
       <div class="pt-8 border-t border-white/20 text-center space-y-2">
         <p class="text-white/70">
-          © 2026 CoolPadel Studios • Save My Play — {country_display}. Todos los derechos reservados.
+          © 2026 CoolPadel Studios • Save My Play — {country_display}. {f_i18n["copyright_rights"]}
         </p>
       </div>
     </div>
