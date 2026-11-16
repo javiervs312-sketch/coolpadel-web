@@ -329,7 +329,7 @@
             </p>
 
             <div class="pt-4 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4">
-              <a href="https://api.whatsapp.com/send?phone=34680317486&text=Bonjour%20Javier%2C%20je%20souhaite%20voir%20une%20d%C3%A9monstration%20de%20Save%20My%20Play%20pour%20les%20pistes%20de%20padel%20en%20France" target="_blank" rel="noopener" class="inline-flex items-center justify-center gap-2.5 px-7 py-4 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] text-slate-950 font-heading font-black text-sm uppercase tracking-wider transition shadow-md hover:scale-105 active:scale-95 group">
+              <a id="hero-wa-btn" href="https://api.whatsapp.com/send?phone=34680317486&text=Bonjour%20Javier%2C%20je%20souhaite%20voir%20une%20d%C3%A9monstration%20de%20Save%20My%20Play%20pour%20les%20pistes%20de%20padel%20en%20France" target="_blank" rel="noopener" class="inline-flex items-center justify-center gap-2.5 px-7 py-4 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] text-slate-950 font-heading font-black text-sm uppercase tracking-wider transition shadow-md hover:scale-105 active:scale-95 group">
                 <i data-lucide="message-circle" class="w-5 h-5 text-slate-950"></i>
                 <span>Demander une démo de 15 min via WhatsApp</span>
               </a>
@@ -725,10 +725,60 @@
     </div>
   </footer>
 
+  <!-- BOTÓN FLOTANTE QUE ACOMPAÑA AL HACER SCROLL (STICKY DEMO) -->
+  <div id="sticky-wa-container" class="fixed bottom-5 right-5 sm:bottom-6 sm:right-6 z-50 transition-all duration-300 transform translate-y-24 opacity-0 pointer-events-none">
+    <a href="https://api.whatsapp.com/send?phone=34680317486&text=Bonjour%20Javier%2C%20je%20souhaite%20voir%20une%20d%C3%A9monstration%20de%20Save%20My%20Play%20pour%20les%20pistes%20de%20padel%20en%20France" 
+       target="_blank" rel="noopener" 
+       class="inline-flex items-center gap-2.5 px-5 py-3.5 sm:px-6 sm:py-3.5 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] text-slate-950 font-heading font-black text-xs sm:text-sm uppercase tracking-wider transition-all duration-200 shadow-xl hover:shadow-2xl hover:scale-105 active:scale-95 border-2 border-white">
+      <i data-lucide="message-circle" class="w-5 h-5 text-slate-950"></i>
+      <span>Demander une démo de 15 min via WhatsApp</span>
+    </a>
+  </div>
+
   <script>
     if (typeof lucide !== 'undefined') {
       lucide.createIcons();
     }
+
+    // Lógica para mostrar/ocultar el botón flotante que acompaña al hacer scroll
+    (function() {
+      var heroBtn = document.getElementById('hero-wa-btn');
+      var stickyContainer = document.getElementById('sticky-wa-container');
+      if (!stickyContainer) return;
+
+      var ticking = false;
+      function checkScroll() {
+        var show = false;
+        if (heroBtn) {
+          var rect = heroBtn.getBoundingClientRect();
+          // Cuando el botón original del Hero sale de la vista hacia arriba
+          if (rect.bottom < 0) {
+            show = true;
+          }
+        } else {
+          if (window.scrollY > 300) show = true;
+        }
+
+        if (show) {
+          stickyContainer.classList.remove('translate-y-24', 'opacity-0', 'pointer-events-none');
+          stickyContainer.classList.add('translate-y-0', 'opacity-100', 'pointer-events-auto');
+        } else {
+          stickyContainer.classList.remove('translate-y-0', 'opacity-100', 'pointer-events-auto');
+          stickyContainer.classList.add('translate-y-24', 'opacity-0', 'pointer-events-none');
+        }
+        ticking = false;
+      }
+
+      window.addEventListener('scroll', function() {
+        if (!ticking) {
+          window.requestAnimationFrame(checkScroll);
+          ticking = true;
+        }
+      }, { passive: true });
+
+      // Comprobar posición inicial por si recargan a mitad de página
+      checkScroll();
+    })();
   </script>
   <script src="/assets/js/cp-analytics.js?v=20261114b" defer></script>
 </body>
