@@ -23,8 +23,15 @@ def update_full_sitemap():
             if f.endswith('.html'):
                 rel_path = os.path.relpath(os.path.join(root, f), BASE_DIR).replace('\\', '/')
                 
-                # Excluir páginas de error o plantillas
-                if rel_path in ['404.html', 'template_clean.html', 'articulo_camaras_club.html']:
+                # Excluir páginas de error, utilitarias para LLMs, verificación o plantillas
+                if rel_path in ['404.html', 'template_clean.html', 'articulo_camaras_club.html', 'propuesta-2.html', 'propuesta-3.html', 'manual-marca.html', 'si-estas-pensando-en-poner-camaras-en-el-club.html']:
+                    continue
+                if 'llm-knowledge.html' in rel_path or rel_path.startswith('google') and rel_path.endswith('.html'):
+                    continue
+                
+                # Excluir fichas de franquicias individuales (dejar sólo el hub /franquicias-padel/)
+                # para evitar Soft 404 / Thin Content y preservar crawl budget
+                if 'franquicias-padel/' in rel_path and not rel_path.endswith('franquicias-padel/index.html'):
                     continue
                     
                 if rel_path == 'index.html':
