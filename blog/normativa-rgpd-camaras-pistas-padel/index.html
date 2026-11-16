@@ -4,13 +4,6 @@
   <title>Normativa RGPD para Cámaras en Pistas de Pádel | CoolPadel</title>
   <meta name="description" content="Guía legal RGPD 2026 para instalar cámaras en pistas de pádel: cartelería homologada, menores, streaming y cómo evitar sanciones de la AEPD en tu club.">
   <link rel="canonical" href="https://coolpadelstudios.com/blog/normativa-rgpd-camaras-pistas-padel/">
-
-  <!-- SEO Multilingüe Hreflang -->
-  <link rel="alternate" hreflang="es" href="https://coolpadelstudios.com/blog/normativa-rgpd-camaras-pistas-padel/">
-  <link rel="alternate" hreflang="en" href="https://coolpadelstudios.com/en/blog/normativa-rgpd-camaras-pistas-padel/">
-  <link rel="alternate" hreflang="fr" href="https://coolpadelstudios.com/fr/blog/normativa-rgpd-camaras-pistas-padel/">
-  <link rel="alternate" hreflang="it" href="https://coolpadelstudios.com/it/blog/normativa-rgpd-camaras-pistas-padel/">
-  <link rel="alternate" hreflang="x-default" href="https://coolpadelstudios.com/blog/normativa-rgpd-camaras-pistas-padel/">
   <meta name="language" content="es">
   
   <!-- Open Graph / Redes Sociales -->
@@ -195,52 +188,6 @@
     }
   </style>
 
-  <!-- Google Analytics 4 -->
-  <script>
-    (function() {
-      try {
-        var p = new URLSearchParams(window.location.search);
-        if (p.get('yo') === '1' || p.get('admin') === '1' || p.get('no_track') === '1') {
-          localStorage.setItem('cp_ignore_owner', '1');
-        } else if (p.get('borrar_yo') === '1' || p.get('track_me') === '1') {
-          localStorage.removeItem('cp_ignore_owner');
-        }
-        if (localStorage.getItem('cp_ignore_owner') === '1') {
-          window['ga-disable-G-3FY3DTNN21'] = true;
-          window.__CP_IS_OWNER__ = true;
-        }
-      } catch(e) {}
-    })();
-  </script>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-3FY3DTNN21"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-3FY3DTNN21');
-    // Eventos clave (leads): WhatsApp, email, teléfono, demo, dossier
-    document.addEventListener('click', function (e) {
-      try {
-        if (window.__CP_IS_OWNER__) return;
-        var a = e.target.closest && e.target.closest('a, button');
-        if (!a) return;
-        var href = (a.getAttribute('href') || '').toLowerCase();
-        var txt = (a.innerText || '').replace(/\s+/g, ' ').trim().slice(0, 60);
-        var p = { link_text: txt, link_url: href, page_path: location.pathname };
-        if (href.indexOf('wa.me') > -1 || href.indexOf('whatsapp.com') > -1) gtag('event', 'click_whatsapp', p);
-        else if (href.indexOf('mailto:') === 0) gtag('event', 'click_email', p);
-        else if (href.indexOf('tel:') === 0) gtag('event', 'click_telefono', p);
-        else if (/\.pdf($|\?)/.test(href) || /dossier/i.test(href + ' ' + txt)) gtag('event', 'descarga_dossier', p);
-        else if (/demo|reuni[oó]n|meeting|calendly|agenda|r[eé]serv|prueba gratis|free trial/i.test(href + ' ' + txt)) gtag('event', 'solicitar_demo', p);
-      } catch (err) {}
-    }, { passive: true });
-    document.addEventListener('submit', function (e) {
-      try {
-        if (window.__CP_IS_OWNER__) return;
-        gtag('event', 'enviar_formulario', { form_id: (e.target && (e.target.id || e.target.name)) || '', page_path: location.pathname }); } catch (err) {}
-    }, true);
-  </script>
-  <!-- /GA4 -->
 </head>
 <body class="bg-white text-slate-900 min-h-screen relative selection:bg-[#f2920b] selection:text-white flex flex-col justify-between">
 
@@ -824,90 +771,12 @@
           </a>
         </div>
 
-      
-      <!-- CONTEXTUAL CAMARAS CTA -->
-      <aside id="camaras-contextual-cta" class="my-10 p-6 sm:p-7 rounded-3xl bg-slate-50 border border-slate-200 shadow-xs space-y-4">
-        <div class="text-[11px] font-heading font-black uppercase tracking-wider text-[#f2920b]">Save my Play · Cámaras en Pista</div>
-        <h3 class="text-xl font-heading font-black text-slate-950">¿Pensando en instalar cámaras IA en las pistas de tu club?</h3>
-        <p class="text-sm text-slate-600 leading-relaxed">Hardware en propiedad por 180 € (sin obras ni permanencia), grabación automática por 45 €/mes, highlights por código QR al instante y retransmisión directa a YouTube.</p>
-        <div class="flex flex-wrap gap-3 pt-1">
-          <a href="/camaras/" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] text-slate-950 font-heading font-black text-xs uppercase tracking-wider transition">
-            <span>Ver Hub Oficial de Cámaras</span>
-          </a>
-          <a href="/herramientas/calculadora-roi-camaras-padel/" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white hover:bg-slate-100 text-slate-900 border border-slate-200 font-heading font-black text-xs uppercase tracking-wider transition">
-            <span>Calcular ROI en Pista</span>
-          </a>
-        </div>
-        <ul class="pt-3 border-t border-slate-200/80 flex flex-wrap gap-x-5 gap-y-2 text-xs font-bold text-sky-700">
-          <li><a href="/camaras/articulos/cuanto-cuesta-poner-camaras/" class="underline hover:text-[#f2920b] transition">→ ¿Cuánto cuesta poner cámaras?</a></li>
-          <li><a href="/camaras/articulos/es-rentable-poner-camaras/" class="underline hover:text-[#f2920b] transition">→ ¿Es rentable poner cámaras?</a></li>
-          <li><a href="/camaras/articulos/camaras-de-padel-o-videovigilancia/" class="underline hover:text-[#f2920b] transition">→ Cámaras de pádel vs videovigilancia</a></li>
-        </ul>
-      </aside>
-
-    </article>
+      </article>
     </main>
   </div>
 
   
   <!-- FOOTER INFERIOR (COLOR CELESTE LLAVEROS #3478a6 CON TEXTURA CANVA: BRANDING COOLPADEL, SILOS TEMÁTICOS SEO Y COPYRIGHT) -->
-  
-  <!-- SEO INTERNAL SILO MESH -->
-  <section id="seo-internal-silo-mesh" class="bg-[#08101c] border-t border-slate-800/80 py-10 px-4 sm:px-6 text-slate-300">
-    <div class="max-w-5xl mx-auto space-y-8">
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div>
-          <h3 class="font-heading font-black text-xs uppercase tracking-wider text-[#f2920b] mb-3">Herramientas Gratuitas para Clubes</h3>
-          <ul class="space-y-2 text-xs">
-            <li><a href="/herramientas/" class="text-white font-bold hover:text-[#f2920b] transition">→ Hub de Herramientas de Pádel</a></li>
-            <li><a href="/herramientas/generador-americana-padel/" class="text-slate-300 hover:text-[#f2920b] transition">→ Generador de Torneos Americana Online</a></li>
-            <li><a href="/herramientas/generador-cuadros-torneo-padel/" class="text-slate-300 hover:text-[#f2920b] transition">→ Generador de Cuadros Eliminatoria PDF</a></li>
-            <li><a href="/herramientas/calculadora-coste-pistas-padel/" class="text-slate-300 hover:text-[#f2920b] transition">→ Calculadora de Coste de Pistas de Pádel</a></li>
-            <li><a href="/herramientas/calculadora-roi-camaras-padel/" class="text-slate-300 hover:text-[#f2920b] transition">→ Calculadora ROI de Cámaras en Pista</a></li>
-            <li><a href="/franquicias-padel/" class="text-slate-300 hover:text-[#f2920b] transition">→ Directorio Oficial de Franquicias (+165)</a></li>
-          </ul>
-        </div>
-        <div>
-          <h3 class="font-heading font-black text-xs uppercase tracking-wider text-[#76d3f6] mb-3">Soluciones B2B &amp; Save my Play</h3>
-          <ul class="space-y-2 text-xs">
-            <li><a href="/camaras/" class="text-white font-bold hover:text-[#f2920b] transition">→ Hub Cámaras para Clubs de Pádel (20 Guías)</a></li>
-            <li><a href="/camaras/articulos/cuanto-cuesta-poner-camaras/" class="text-slate-300 hover:text-[#76d3f6] transition">→ ¿Cuánto Cuesta Poner Cámaras en mi Club?</a></li>
-            <li><a href="/camaras/articulos/errores-clubs-se-arrepienten-de-poner-camaras/" class="text-slate-300 hover:text-[#76d3f6] transition">→ Los 3 Errores al Instalar Cámaras de Pádel</a></li>
-            <li><a href="/camaras/articulos/mejores-empresas-camaras-padel-espana/" class="text-slate-300 hover:text-[#76d3f6] transition">→ Mejores Empresas de Cámaras de Pádel</a></li>
-            <li><a href="/camaras/articulos/camaras-de-padel-o-videovigilancia/" class="text-slate-300 hover:text-[#76d3f6] transition">→ Cámaras de Pádel vs Videovigilancia CCTV</a></li>
-            <li><a href="/save-my-play/" class="text-white font-bold hover:text-[#76d3f6] transition">→ Hub Oficial Save my Play España</a></li>
-            <li><a href="/camaras-grabacion-pistas-padel/" class="text-slate-300 hover:text-[#76d3f6] transition">→ Grabación de Partidos sin Obras</a></li>
-            <li><a href="/camaras-padel-playtomic/" class="text-slate-300 hover:text-[#76d3f6] transition">→ Cámaras para Clubes con Playtomic</a></li>
-            <li><a href="/camaras-padel-matchi/" class="text-slate-300 hover:text-[#76d3f6] transition">→ Cámaras para Clubes con Matchi</a></li>
-            <li><a href="/llaveros-padel-personalizados/" class="text-slate-300 hover:text-[#76d3f6] transition">→ Llaveros de Pádel 3D Personalizados</a></li>
-            <li><a href="/welcome-packs-torneos-padel/" class="text-slate-300 hover:text-[#76d3f6] transition">→ Welcome Packs para Torneos de Pádel</a></li>
-          </ul>
-        </div>
-        <div>
-          <h3 class="font-heading font-black text-xs uppercase tracking-wider text-white mb-3">Guías e Informes del Sector</h3>
-          <ul class="space-y-1.5 text-xs">
-          <li><a href="/blog/informe-tendencias-industria-padel-2026/" class="text-slate-300 hover:text-[#f2920b] transition text-xs flex items-center gap-1.5"><span>→</span><span>Informe de Tendencias de la Industria del Pádel 2026: ¿Hacia dónde avanza el negocio?</span></a></li>
-          <li><a href="/blog/barometro-camaras-padel-2026/" class="text-slate-300 hover:text-[#f2920b] transition text-xs flex items-center gap-1.5"><span>→</span><span>Barómetro de Cámaras y Digitalización en Pistas de Pádel 2026</span></a></li>
-          <li><a href="/blog/sistemas-grabacion-pistas-padel-comparativa/" class="text-slate-300 hover:text-[#f2920b] transition text-xs flex items-center gap-1.5"><span>→</span><span>Comparativa: Los 9 Mejores Sistemas de Cámaras para Pistas de Pádel</span></a></li>
-          <li><a href="/blog/rentabilidad-camaras-pistas-padel/" class="text-slate-300 hover:text-[#f2920b] transition text-xs flex items-center gap-1.5"><span>→</span><span>Precios y Rentabilidad de Instalar Cámaras en un Club de Pádel</span></a></li>
-          <li><a href="/blog/como-organizar-torneo-padel-americana-reglas-cuadros/" class="text-slate-300 hover:text-[#f2920b] transition text-xs flex items-center gap-1.5"><span>→</span><span>Cómo Organizar un Torneo de Pádel Americana: Reglas y Cuadros</span></a></li>
-          <li><a href="/blog/cuanto-cuesta-montar-pista-padel-presupuesto-rentabilidad/" class="text-slate-300 hover:text-[#f2920b] transition text-xs flex items-center gap-1.5"><span>→</span><span>¿Cuánto Cuesta Montar una Pista o Club de Pádel en 2026?</span></a></li>
-          <li><a href="/blog/welcome-pack-torneo-padel-ideas/" class="text-slate-300 hover:text-[#f2920b] transition text-xs flex items-center gap-1.5"><span>→</span><span>Qué Regalar en el Welcome Pack de un Torneo de Pádel</span></a></li>
-          <li><a href="/blog/regalos-padel-originales-baratos-ideas-detalles-torneos/" class="text-slate-300 hover:text-[#f2920b] transition text-xs flex items-center gap-1.5"><span>→</span><span>15 Regalos de Pádel Originales y Baratos para Torneos y Jugadores</span></a></li>
-          <li><a href="/blog/vender-llaveros-tienda-club-padel-pro-shop/" class="text-slate-300 hover:text-[#f2920b] transition text-xs flex items-center gap-1.5"><span>→</span><span>Cómo Vender Merchandising y Llaveros en la Pro-Shop de tu Club</span></a></li>
-          <li><a href="/blog/regalos-eventos-padel-cenas-socios-llaveros/" class="text-slate-300 hover:text-[#f2920b] transition text-xs flex items-center gap-1.5"><span>→</span><span>Regalos para Eventos de Pádel y Cenas de Socios</span></a></li>
-          <li><a href="/blog/merchandising-ferias-torneos-padel-regalos-marcas/" class="text-slate-300 hover:text-[#f2920b] transition text-xs flex items-center gap-1.5"><span>→</span><span>Estrategia de Merchandising en Ferias y Torneos de Pádel</span></a></li>
-          <li><a href="/blog/retransmitir-torneos-padel-streaming-youtube-camaras/" class="text-slate-300 hover:text-[#f2920b] transition text-xs flex items-center gap-1.5"><span>→</span><span>Cómo Retransmitir Torneos de Pádel en Directo por YouTube</span></a></li>
-          <li><a href="/blog/smart-courts-pistas-inteligentes-padel-horas-valle/" class="text-slate-300 hover:text-[#f2920b] transition text-xs flex items-center gap-1.5"><span>→</span><span>Smart Courts y Cómo Llenar Horas Valle en tu Club de Pádel</span></a></li>
-          <li><a href="/blog/highlights-01/" class="text-slate-300 hover:text-[#f2920b] transition text-xs flex items-center gap-1.5"><span>→</span><span>Highlights #01: Padel World Summit 2026 Startup Recap</span></a></li>
-          <li><a href="/blog/highlights-02/" class="text-slate-300 hover:text-[#f2920b] transition text-xs flex items-center gap-1.5"><span>→</span><span>Highlights #02: ¿Por qué el Pádel aún está lejos de ser Olímpico?</span></a></li>
-          <li><a href="/blog/highlights-03/" class="text-slate-300 hover:text-[#f2920b] transition text-xs flex items-center gap-1.5"><span>→</span><span>Highlights #03: ¿Cómo crece realmente la industria del pádel?</span></a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <footer class="bg-[#3478a6] bg-textured-blue text-white pt-14 pb-10 border-t border-sky-700/40 text-xs">
     <div class="max-w-[1700px] mx-auto px-4 sm:px-8 space-y-10">
       
@@ -1027,9 +896,16 @@
     </div>
   </footer>
 
-
   
-  <script src="/assets/js/cp-analytics.js?v=20261114b" defer></script>
+  <!-- BOTÓN FLOTANTE PERMANENTE EN COLOR NARANJA -->
+  <div class="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50">
+    <a href="https://wa.me/34680317486?text=Hola%20Javier%2C%20%C2%BFpuedo%20agendar%20una%20demo%20para%20las%20c%C3%A1maras%20de%20mi%20club%3F" target="_blank" rel="noopener noreferrer" style="background-color: #f2920b;" class="inline-flex items-center gap-2 px-4 py-3 sm:px-5 sm:py-3.5 rounded-full text-slate-950 font-heading font-black text-xs sm:text-sm uppercase tracking-wider transition-all duration-200 shadow-xl hover:shadow-2xl hover:scale-105 active:scale-95 group">
+      <i data-lucide="message-circle" class="w-4 h-4 sm:w-5 sm:h-5 text-slate-950 stroke-[2.5] shrink-0"></i>
+      <span>Pedir demo WhatsApp</span>
+    </a>
+  </div>
+  
+  <script src="/assets/js/cp-analytics.js" defer></script>
   <script>
     lucide.createIcons();
 

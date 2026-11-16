@@ -591,10 +591,10 @@ def render_page(title: str, content: str, lang: str, prefix: str = "/", slug: st
 
     sticky_btn_label = {
         "es": "Pedir demo WhatsApp",
-        "en": "WhatsApp Demo",
-        "fr": "Démo WhatsApp",
-        "it": "Demo WhatsApp",
-        "de": "WhatsApp Demo",
+        "en": "Ask for WhatsApp Demo",
+        "fr": "Demander une démo WhatsApp",
+        "it": "Richiedi una demo WhatsApp",
+        "de": "WhatsApp-Demo anfragen",
     }.get(lang, "Pedir demo WhatsApp")
     sticky_wa_url = {
         "es": "https://wa.me/34680317486?text=Hola%20Javier%2C%20%C2%BFpuedo%20agendar%20una%20demo%20para%20las%20c%C3%A1maras%20de%20mi%20club%3F",

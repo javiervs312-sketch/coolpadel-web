@@ -384,6 +384,7 @@ def generate_toc_and_anchor_content(content_html, has_faqs=True, has_related=Tru
 
 def generate_blog_index():
     root_prefix = "../"
+    floating_camera_btn_html = ""
     html = f"""<!DOCTYPE html>
 <html lang="es" class="scroll-smooth">
 <head>
@@ -1777,7 +1778,7 @@ def generate_blog_index():
   </div>
 
   {get_silo_footer_html(root_prefix)}
-
+  {floating_camera_btn_html}
   {COMMON_TRACKING_JS}
   <script>
     function handleReportDownload(e) {{
@@ -2177,6 +2178,7 @@ def generate_other_highlights_html(current_slug, root_prefix=""):
 
 def generate_article_page(slug, edition_num, title, date_str, read_time, cover_img, paragraphs, faqs=None):
     root_prefix = "../../"
+    floating_camera_btn_html = ""
     html_items = []
     for p in paragraphs:
         if p == "" or p == "<br>":
@@ -2462,7 +2464,7 @@ def generate_article_page(slug, edition_num, title, date_str, read_time, cover_i
   </div>
 
   {get_silo_footer_html(root_prefix)}
-
+  {floating_camera_btn_html}
   {COMMON_TRACKING_JS}
 </body>
 </html>"""
@@ -2684,6 +2686,17 @@ SHORT_SEO_TITLES = {
 
 def generate_guide_page(slug, category_badge, title, subtitle, meta_desc, date_str, date_iso, read_time, cover_img, content_html, faqs, cta_type="camaras"):
     root_prefix = "../../"
+    
+    floating_camera_btn_html = ""
+    if cta_type == "camaras":
+        floating_camera_btn_html = """
+  <!-- BOTÓN FLOTANTE PERMANENTE EN COLOR NARANJA -->
+  <div class="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50">
+    <a href="https://wa.me/34680317486?text=Hola%20Javier%2C%20%C2%BFpuedo%20agendar%20una%20demo%20para%20las%20c%C3%A1maras%20de%20mi%20club%3F" target="_blank" rel="noopener noreferrer" style="background-color: #f2920b;" class="inline-flex items-center gap-2 px-4 py-3 sm:px-5 sm:py-3.5 rounded-full text-slate-950 font-heading font-black text-xs sm:text-sm uppercase tracking-wider transition-all duration-200 shadow-xl hover:shadow-2xl hover:scale-105 active:scale-95 group">
+      <i data-lucide="message-circle" class="w-4 h-4 sm:w-5 sm:h-5 text-slate-950 stroke-[2.5] shrink-0"></i>
+      <span>Pedir demo WhatsApp</span>
+    </a>
+  </div>"""
     
     download_box_html = ""
     if slug in DOWNLOAD_BOXES:
@@ -3028,7 +3041,7 @@ def generate_guide_page(slug, category_badge, title, subtitle, meta_desc, date_s
   </div>
 
   {get_silo_footer_html(root_prefix)}
-
+  {floating_camera_btn_html}
   {COMMON_TRACKING_JS}
 </body>
 </html>"""
