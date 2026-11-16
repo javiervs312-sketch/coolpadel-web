@@ -348,27 +348,11 @@ def generate_sitemap():
         else:
             all_blocks.append(get_single_xml(f"/blog/{b_dir}/", priority="0.80", changefreq="weekly"))
 
-    # 11. Fichas de Franquicias Individuales (100% traducidas en 4 idiomas con clúster simétrico)
-    for f in FRANQUICIAS:
-        fid = f["id"]
-        all_blocks.extend(get_cluster_xml(
-            f"/franquicias-padel/{fid}/",
-            f"/en/franquicias-padel/{fid}/",
-            f"/fr/franquicias-padel/{fid}/",
-            f"/it/franquicias-padel/{fid}/",
-            priority="0.75",
-            changefreq="monthly"
-        ))
+    # 11. Fichas de Franquicias Individuales EXCLUIDAS del sitemap
+    # (Se dejan indexables a nivel web pero fuera del sitemap para preservar crawl budget y evitar avisos de Thin Content / Soft 404 en GSC)
+    # Solo se incluyen los 4 hubs principales (/franquicias-padel/, /en/..., /fr/..., /it/...)
 
-    # 12. Páginas estáticas secundarias y base de conocimiento GEO
-    all_blocks.extend(get_cluster_xml(
-        "/llm-knowledge.html",
-        "/en/llm-knowledge.html",
-        "/fr/llm-knowledge.html",
-        "/it/llm-knowledge.html",
-        priority="0.80",
-        changefreq="monthly"
-    ))
+    # 12. Páginas estáticas secundarias
     all_blocks.append(get_single_xml("/politica-de-devoluciones.html", priority="0.30", changefreq="yearly"))
 
     xml_content = f"""<?xml version="1.0" encoding="UTF-8"?>
