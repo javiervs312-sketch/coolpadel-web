@@ -311,8 +311,9 @@ def generate_country_page(item, slug_to_use, canonical_slug=None):
               {sub}
             </p>
 
-            <div class="pt-4 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4">
-              <a href="{wa_url}" target="_blank" rel="noopener" class="inline-flex items-center justify-center gap-2.5 px-7 py-4 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] text-slate-950 font-heading font-black text-sm uppercase tracking-wider transition shadow-md hover:scale-105 active:scale-95 group">
+            <div class="pt-4 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 relative" style="min-height: 58px;">
+              <div id="hero-btn-placeholder" style="display: none; height: 54px;" class="w-full sm:w-[350px]"></div>
+              <a id="hero-wa-btn" href="{wa_url}" target="_blank" rel="noopener" class="inline-flex items-center justify-center gap-2.5 px-7 py-4 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] text-slate-950 font-heading font-black text-sm uppercase tracking-wider transition-all duration-200 shadow-md hover:scale-105 active:scale-95 group z-40">
                 <i data-lucide="message-circle" class="w-5 h-5 text-slate-950"></i>
                 <span>{t["demo_btn"]}</span>
               </a>
@@ -709,6 +710,93 @@ def generate_country_page(item, slug_to_use, canonical_slug=None):
     if (typeof lucide !== 'undefined') {{
       lucide.createIcons();
     }}
+
+    // Mantener el MISMO boton en la misma posicion de la pantalla al hacer scroll
+    (function() {{
+      var heroBtn = document.getElementById('hero-wa-btn');
+      var placeholder = document.getElementById('hero-btn-placeholder');
+      if (!heroBtn || !placeholder) return;
+
+      var initialLeft = null;
+      var initialTop = null;
+      var initialWidth = null;
+      var initialHeight = null;
+      var isFixed = false;
+      var ticking = false;
+
+      function updateInitialMetrics() {{
+        if (!isFixed) {{
+          var rect = heroBtn.getBoundingClientRect();
+          initialLeft = rect.left;
+          initialTop = rect.top;
+          initialWidth = rect.width;
+          initialHeight = rect.height;
+        }}
+      }}
+
+      window.addEventListener('resize', function() {{
+        if (isFixed) {{
+          heroBtn.style.position = '';
+          heroBtn.style.top = '';
+          heroBtn.style.left = '';
+          heroBtn.style.width = '';
+          heroBtn.style.maxWidth = '';
+          placeholder.style.display = 'none';
+          isFixed = false;
+        }}
+        updateInitialMetrics();
+        onScroll();
+      }});
+
+      function onScroll() {{
+        if (initialTop === null) {{
+          updateInitialMetrics();
+        }}
+
+        var anchor = isFixed ? placeholder : heroBtn;
+        var anchorRect = anchor.getBoundingClientRect();
+
+        if (anchorRect.top <= initialTop) {{
+          if (!isFixed) {{
+            isFixed = true;
+            placeholder.style.width = initialWidth + 'px';
+            placeholder.style.height = initialHeight + 'px';
+            placeholder.style.display = 'block';
+
+            heroBtn.style.position = 'fixed';
+            heroBtn.style.top = initialTop + 'px';
+            heroBtn.style.left = initialLeft + 'px';
+            heroBtn.style.width = initialWidth + 'px';
+            heroBtn.style.margin = '0';
+            heroBtn.classList.add('shadow-xl');
+          }}
+        }} else {{
+          if (isFixed) {{
+            isFixed = false;
+            heroBtn.style.position = '';
+            heroBtn.style.top = '';
+            heroBtn.style.left = '';
+            heroBtn.style.width = '';
+            heroBtn.style.margin = '';
+            heroBtn.classList.remove('shadow-xl');
+            placeholder.style.display = 'none';
+          }}
+        }}
+        ticking = false;
+      }}
+
+      window.addEventListener('scroll', function() {{
+        if (!ticking) {{
+          window.requestAnimationFrame(onScroll);
+          ticking = true;
+        }}
+      }}, {{ passive: true }});
+
+      setTimeout(function() {{
+        updateInitialMetrics();
+        onScroll();
+      }}, 100);
+    }})();
   </script>
   <script src="/assets/js/cp-analytics.js?v=20261114b" defer></script>
 </body>

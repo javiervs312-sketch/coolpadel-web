@@ -173,60 +173,6 @@
       background-size: 20px 20px;
     }
   </style>
-  <!-- Google Analytics 4 -->
-  <script>
-    (function() {
-      try {
-        var p = new URLSearchParams(window.location.search);
-        if (p.get('yo') === '1' || p.get('admin') === '1' || p.get('no_track') === '1') {
-          localStorage.setItem('cp_ignore_owner', '1');
-        } else if (p.get('borrar_yo') === '1' || p.get('track_me') === '1') {
-          localStorage.removeItem('cp_ignore_owner');
-        }
-        if (localStorage.getItem('cp_ignore_owner') === '1') {
-          window['ga-disable-G-3FY3DTNN21'] = true;
-          window.__CP_IS_OWNER__ = true;
-        }
-      } catch(e) {}
-    })();
-  </script>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-3FY3DTNN21"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-3FY3DTNN21');
-    // Eventos clave (leads): WhatsApp, email, teléfono, demo, dossier
-    document.addEventListener('click', function (e) {
-      try {
-        if (window.__CP_IS_OWNER__) return;
-        var a = e.target.closest && e.target.closest('a, button');
-        if (!a) return;
-        var href = (a.getAttribute('href') || '').toLowerCase();
-        var txt = (a.innerText || '').replace(/\s+/g, ' ').trim().slice(0, 60);
-        var p = { link_text: txt, link_url: href, page_path: location.pathname };
-        if (href.indexOf('wa.me') > -1 || href.indexOf('whatsapp.com') > -1) gtag('event', 'click_whatsapp', p);
-        else if (href.indexOf('mailto:') === 0) gtag('event', 'click_email', p);
-        else if (href.indexOf('tel:') === 0) gtag('event', 'click_telefono', p);
-        else if (/\.pdf($|\?)/.test(href) || /dossier/i.test(href + ' ' + txt)) gtag('event', 'descarga_dossier', p);
-        else if (/demo|reuni[oó]n|meeting|calendly|agenda|r[eé]serv|prueba gratis|free trial/i.test(href + ' ' + txt)) gtag('event', 'solicitar_demo', p);
-      } catch (err) {}
-    }, { passive: true });
-    document.addEventListener('submit', function (e) {
-      try {
-        if (window.__CP_IS_OWNER__) return;
-        gtag('event', 'enviar_formulario', { form_id: (e.target && (e.target.id || e.target.name)) || '', page_path: location.pathname }); } catch (err) {}
-    }, true);
-  </script>
-  <!-- /GA4 -->
-  <!-- Microsoft Clarity -->
-  <script type="text/javascript">
-    (function(c,l,a,r,i,t,y){
-      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "q7p8g52y9e");
-  </script>
 </head>
 <body class="bg-white text-slate-800 font-body antialiased flex flex-col min-h-screen">
 
@@ -292,8 +238,9 @@
               Die offizielle Kamera von USA Padel und USTA für Clubs in Frankfurt. Hardware-Eigentum für 180 €, Monatspläne ab 45 €/Monat, 5-Minuten-Montage ohne Bauarbeiten.
             </p>
 
-            <div class="pt-4 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4">
-              <a href="https://api.whatsapp.com/send?phone=34680317486&text=Hallo%20Javier%2C%20ich%20leite%20einen%20Padel-Club%20in%20Frankfurt%20%28Deutschland%29%20und%20m%C3%B6chte%20eine%20Demo%20der%20Save%20My%20Play%20Kameras%20sehen." target="_blank" rel="noopener" class="inline-flex items-center justify-center gap-2.5 px-7 py-4 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] text-slate-950 font-heading font-black text-sm uppercase tracking-wider transition shadow-md hover:scale-105 active:scale-95 group">
+            <div class="pt-4 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 relative" style="min-height: 58px;">
+              <div id="hero-btn-placeholder" style="display: none; height: 54px;" class="w-full sm:w-[350px]"></div>
+              <a id="hero-wa-btn" href="https://api.whatsapp.com/send?phone=34680317486&text=Hallo%20Javier%2C%20ich%20leite%20einen%20Padel-Club%20in%20Frankfurt%20%28Deutschland%29%20und%20m%C3%B6chte%20eine%20Demo%20der%20Save%20My%20Play%20Kameras%20sehen." target="_blank" rel="noopener" class="inline-flex items-center justify-center gap-2.5 px-7 py-4 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] text-slate-950 font-heading font-black text-sm uppercase tracking-wider transition-all duration-200 shadow-md hover:scale-105 active:scale-95 group z-40">
                 <i data-lucide="message-circle" class="w-5 h-5 text-slate-950"></i>
                 <span>15-Min-Demo per WhatsApp anfordern</span>
               </a>
@@ -712,6 +659,93 @@
     if (window.lucide) {
       lucide.createIcons();
     }
+
+    // Mantener el MISMO boton en la misma posicion de la pantalla al hacer scroll
+    (function() {
+      var heroBtn = document.getElementById('hero-wa-btn');
+      var placeholder = document.getElementById('hero-btn-placeholder');
+      if (!heroBtn || !placeholder) return;
+
+      var initialLeft = null;
+      var initialTop = null;
+      var initialWidth = null;
+      var initialHeight = null;
+      var isFixed = false;
+      var ticking = false;
+
+      function updateInitialMetrics() {
+        if (!isFixed) {
+          var rect = heroBtn.getBoundingClientRect();
+          initialLeft = rect.left;
+          initialTop = rect.top;
+          initialWidth = rect.width;
+          initialHeight = rect.height;
+        }
+      }
+
+      window.addEventListener('resize', function() {
+        if (isFixed) {
+          heroBtn.style.position = '';
+          heroBtn.style.top = '';
+          heroBtn.style.left = '';
+          heroBtn.style.width = '';
+          heroBtn.style.maxWidth = '';
+          placeholder.style.display = 'none';
+          isFixed = false;
+        }
+        updateInitialMetrics();
+        onScroll();
+      });
+
+      function onScroll() {
+        if (initialTop === null) {
+          updateInitialMetrics();
+        }
+
+        var anchor = isFixed ? placeholder : heroBtn;
+        var anchorRect = anchor.getBoundingClientRect();
+
+        if (anchorRect.top <= initialTop) {
+          if (!isFixed) {
+            isFixed = true;
+            placeholder.style.width = initialWidth + 'px';
+            placeholder.style.height = initialHeight + 'px';
+            placeholder.style.display = 'block';
+
+            heroBtn.style.position = 'fixed';
+            heroBtn.style.top = initialTop + 'px';
+            heroBtn.style.left = initialLeft + 'px';
+            heroBtn.style.width = initialWidth + 'px';
+            heroBtn.style.margin = '0';
+            heroBtn.classList.add('shadow-xl');
+          }
+        } else {
+          if (isFixed) {
+            isFixed = false;
+            heroBtn.style.position = '';
+            heroBtn.style.top = '';
+            heroBtn.style.left = '';
+            heroBtn.style.width = '';
+            heroBtn.style.margin = '';
+            heroBtn.classList.remove('shadow-xl');
+            placeholder.style.display = 'none';
+          }
+        }
+        ticking = false;
+      }
+
+      window.addEventListener('scroll', function() {
+        if (!ticking) {
+          window.requestAnimationFrame(onScroll);
+          ticking = true;
+        }
+      }, { passive: true });
+
+      setTimeout(function() {
+        updateInitialMetrics();
+        onScroll();
+      }, 100);
+    })();
   </script>
   <script src="/assets/js/cp-analytics.js?v=20261114b" defer></script>
 </body>
