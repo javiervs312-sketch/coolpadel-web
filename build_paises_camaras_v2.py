@@ -282,11 +282,11 @@ def generate_country_page(item, slug_to_use, canonical_slug=None):
   <main class="flex-1 pt-16 sm:pt-20">
 
     <!-- 1. HERO SECTION -->
-    <section class="pt-6 pb-12 sm:pt-8 sm:pb-16 bg-gradient-to-b from-white via-slate-50 to-[#f8fafc] border-b border-slate-200">
+    <section class="pt-5 pb-12 sm:pt-6 sm:pb-16 bg-gradient-to-b from-white via-slate-50 to-[#f8fafc] border-b border-slate-200">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <!-- Breadcrumbs Navigation -->
-        <nav aria-label="Breadcrumb" class="flex items-center gap-2 text-xs font-bold text-slate-500 mb-0 uppercase tracking-wider">
+        <nav aria-label="Breadcrumb" class="flex items-center gap-2 text-xs font-bold text-slate-500 mb-3 sm:mb-4 uppercase tracking-wider flex-wrap">
           <a href="{nav_prefix}" class="hover:text-slate-900 transition">{t["nav_home"]}</a>
           <span>/</span>
           <a href="{nav_prefix}camaras/" class="hover:text-slate-900 transition">{t["nav_camaras"]}</a>
@@ -296,14 +296,14 @@ def generate_country_page(item, slug_to_use, canonical_slug=None):
 
         <div class="grid lg:grid-cols-12 gap-6 sm:gap-10 items-center">
           
-          <div class="lg:col-span-7 space-y-4 -mt-6 sm:-mt-9">
+          <div class="lg:col-span-7 space-y-3.5">
             <div class="inline-flex items-center gap-2 text-[#f2920b] font-heading font-black text-xs uppercase tracking-wider">
               <i data-lucide="award" class="w-4 h-4"></i>
               <span>{t["badge"]}</span>
             </div>
 
             <!-- H1 FORMATTED IN 3 LINES -->
-            <h1 class="font-heading font-black text-2xl sm:text-3xl lg:text-4xl text-slate-950 uppercase tracking-tight leading-[1.18]">
+            <h1 class="font-heading font-black text-2xl sm:text-3xl lg:text-[2rem] text-slate-950 uppercase tracking-tight leading-[1.15]">
               {h1}
             </h1>
 
