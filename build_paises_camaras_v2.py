@@ -286,7 +286,7 @@ def generate_country_page(item, slug_to_use, canonical_slug=None):
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <!-- Breadcrumbs Navigation -->
-        <nav aria-label="Breadcrumb" class="flex items-center gap-2 text-xs font-bold text-slate-500 mb-6 uppercase tracking-wider">
+        <nav aria-label="Breadcrumb" class="flex items-center gap-2 text-xs font-bold text-slate-500 mb-3.5 uppercase tracking-wider">
           <a href="{nav_prefix}" class="hover:text-slate-900 transition">{t["nav_home"]}</a>
           <span>/</span>
           <a href="{nav_prefix}camaras/" class="hover:text-slate-900 transition">{t["nav_camaras"]}</a>
