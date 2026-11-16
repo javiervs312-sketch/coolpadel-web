@@ -268,14 +268,14 @@ def generate_city_page(country_item, city, slug_country_used, canonical_country_
     </div>
   </header>
 
-  <main class="flex-1 pt-20">
+  <main class="flex-1 pt-16 sm:pt-20">
 
     <!-- 1. HERO SECTION -->
-    <section class="py-12 sm:py-20 bg-gradient-to-b from-white via-slate-50 to-[#f8fafc] border-b border-slate-200">
+    <section class="pt-6 pb-12 sm:pt-8 sm:pb-16 bg-gradient-to-b from-white via-slate-50 to-[#f8fafc] border-b border-slate-200">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <!-- Breadcrumbs Navigation -->
-        <nav aria-label="Breadcrumb" class="flex items-center gap-2 text-xs font-bold text-slate-500 mb-6 uppercase tracking-wider flex-wrap">
+        <nav aria-label="Breadcrumb" class="flex items-center gap-2 text-xs font-bold text-slate-500 mb-0 uppercase tracking-wider flex-wrap">
           <a href="{nav_prefix}" class="hover:text-slate-900 transition">{t["nav_home"]}</a>
           <span>/</span>
           <a href="{nav_prefix}camaras/" class="hover:text-slate-900 transition">{t["nav_camaras"]}</a>
@@ -285,9 +285,9 @@ def generate_city_page(country_item, city, slug_country_used, canonical_country_
           <span class="text-[#f2920b] font-black">{city_name} (+{city_courts} {courts_word})</span>
         </nav>
 
-        <div class="grid lg:grid-cols-12 gap-8 sm:gap-12 items-center">
+        <div class="grid lg:grid-cols-12 gap-6 sm:gap-10 items-center">
           
-          <div class="lg:col-span-7 space-y-6">
+          <div class="lg:col-span-7 space-y-4 -mt-6 sm:-mt-9">
             <div class="inline-flex items-center gap-2 text-[#f2920b] font-heading font-black text-xs uppercase tracking-wider">
               <i data-lucide="award" class="w-4 h-4"></i>
               <span>{city_name} · {t["badge"]}</span>
