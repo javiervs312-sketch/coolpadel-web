@@ -296,7 +296,7 @@ def generate_country_page(item, slug_to_use, canonical_slug=None):
 
         <div class="grid lg:grid-cols-12 gap-6 sm:gap-10 items-center">
           
-          <div class="lg:col-span-7 space-y-4 -mt-4 sm:-mt-6">
+          <div class="lg:col-span-7 space-y-4 -mt-6 sm:-mt-9">
             <div class="inline-flex items-center gap-2 text-[#f2920b] font-heading font-black text-xs uppercase tracking-wider">
               <i data-lucide="award" class="w-4 h-4"></i>
               <span>{t["badge"]}</span>
