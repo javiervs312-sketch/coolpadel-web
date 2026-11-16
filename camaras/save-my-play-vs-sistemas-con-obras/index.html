@@ -171,9 +171,9 @@ h1, h2, h3, h4, .font-heading { font-family: var(--font-heading) !important; }
 }
 
 
-.hub-hero { max-width: 1200px; margin: 8px auto 18px; text-align: center; }
-.hub-title { font-family: 'Outfit', Arial, sans-serif !important; max-width: none !important; margin: 0 0 6px !important; font-size: clamp(30px, 3.2vw, 45px) !important; font-weight: 900 !important; line-height: 1.08 !important; color: #0f172a !important; text-transform: uppercase; letter-spacing: -.04em; }
-.hub-eyebrow { margin: 0; color: #f2920b; font-size: 12px; font-weight: 900; letter-spacing: .04em; text-transform: uppercase; }
+.hub-hero { max-width: 1200px; margin: 8px auto 24px; text-align: center; }
+.hub-title { font-family: 'Outfit', Arial, sans-serif !important; max-width: none !important; margin: 0 0 10px !important; font-size: clamp(30px, 3.2vw, 45px) !important; font-weight: 900 !important; line-height: 1.08 !important; color: #0f172a !important; text-transform: uppercase; letter-spacing: -.04em; }
+.hub-eyebrow { margin: 0 auto; color: #334155; font-size: clamp(15px, 1.35vw, 18px); font-weight: 600; line-height: 1.5; max-width: 820px; }
 .article-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin: 20px 0 0; }
 .article-card { color: #0f172a; text-decoration: none; }
 .article-card img { display: block; }
@@ -522,6 +522,13 @@ h1, h2, h3, h4, .font-heading { font-family: var(--font-heading) !important; }
     </div>
   </footer>
 
+  <!-- BOTÓN FLOTANTE PERMANENTE EN COLOR NARANJA -->
+  <div class="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50">
+    <a href="https://wa.me/34680317486?text=Hola%20Javier%2C%20%C2%BFpuedo%20agendar%20una%20demo%20para%20las%20c%C3%A1maras%20de%20mi%20club%3F" target="_blank" rel="noopener noreferrer" style="background-color: #f2920b;" class="inline-flex items-center gap-2 px-4 py-3 sm:px-5 sm:py-3.5 rounded-full text-slate-950 font-heading font-black text-xs sm:text-sm uppercase tracking-wider transition-all duration-200 shadow-xl hover:shadow-2xl hover:scale-105 active:scale-95 group">
+      <i data-lucide="message-circle" class="w-4 h-4 sm:w-5 sm:h-5 text-slate-950 stroke-[2.5] shrink-0"></i>
+      <span>Pedir demo WhatsApp</span>
+    </a>
+  </div>
   <script>if (window.lucide) lucide.createIcons();</script>
   <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
   <script src="/assets/js/cp-analytics.js?v=20261114b" defer></script>
