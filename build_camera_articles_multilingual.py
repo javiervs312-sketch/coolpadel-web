@@ -32,7 +32,7 @@ from build_camera_articles import (
     split_into_sentences,
 )
 from build_blog import get_silo_footer_html
-from camaras_fr_data import FR_ARTICLES_DATA, FR_VIDEOS
+from camaras_fr_data import FR_ARTICLES_DATA, FR_VIDEOS, FR_HUB_INTRO
 try:
     from camaras_aeo_data import AEO_FAQS_AND_DESCS, HUB_SEO_META
 except ImportError:
@@ -162,9 +162,9 @@ h1, h2, h3, h4, .font-heading { font-family: var(--font-heading) !important; }
 """
 
 HUB_BASE_CSS = """
-.hub-hero { max-width: 1200px; margin: 8px auto 18px; text-align: center; }
-.hub-title { font-family: 'Outfit', Arial, sans-serif !important; max-width: none !important; margin: 0 0 6px !important; font-size: clamp(30px, 3.2vw, 45px) !important; font-weight: 900 !important; line-height: 1.08 !important; color: #0f172a !important; text-transform: uppercase; letter-spacing: -.04em; }
-.hub-eyebrow { margin: 0; color: #f2920b; font-size: 12px; font-weight: 900; letter-spacing: .04em; text-transform: uppercase; }
+.hub-hero { max-width: 1200px; margin: 8px auto 24px; text-align: center; }
+.hub-title { font-family: 'Outfit', Arial, sans-serif !important; max-width: none !important; margin: 0 0 10px !important; font-size: clamp(30px, 3.2vw, 45px) !important; font-weight: 900 !important; line-height: 1.08 !important; color: #0f172a !important; text-transform: uppercase; letter-spacing: -.04em; }
+.hub-eyebrow { margin: 0 auto; color: #334155; font-size: clamp(15px, 1.35vw, 18px); font-weight: 600; line-height: 1.5; max-width: 820px; }
 .article-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin: 20px 0 0; }
 .article-card { color: #0f172a; text-decoration: none; }
 .article-card img { display: block; }
@@ -589,6 +589,29 @@ def render_page(title: str, content: str, lang: str, prefix: str = "/", slug: st
 
     schema_json = '<script type="application/ld+json">\n{\n  "@context": "https://schema.org",\n  "@graph": [\n' + ',\n'.join(schema_parts) + '\n  ]\n}\n</script>'
 
+    sticky_btn_label = {
+        "es": "Pedir demo WhatsApp",
+        "en": "WhatsApp Demo",
+        "fr": "Démo WhatsApp",
+        "it": "Demo WhatsApp",
+        "de": "WhatsApp Demo",
+    }.get(lang, "Pedir demo WhatsApp")
+    sticky_wa_url = {
+        "es": "https://wa.me/34680317486?text=Hola%20Javier%2C%20%C2%BFpuedo%20agendar%20una%20demo%20para%20las%20c%C3%A1maras%20de%20mi%20club%3F",
+        "en": "https://wa.me/34680317486?text=Hi%20Javier%2C%20can%20I%20schedule%20a%20demo%20for%20my%20club%27s%20cameras%3F",
+        "fr": "https://wa.me/34680317486?text=Bonjour%20Javier%2C%20puis-je%20planifier%20une%20d%C3%A9mo%20pour%20les%20cam%C3%A9ras%20de%20mon%20club%20%3F",
+        "it": "https://wa.me/34680317486?text=Ciao%20Javier%2C%20posso%20prenotare%20una%20demo%20per%20le%20telecamere%20del%20mio%20club%3F",
+        "de": "https://wa.me/34680317486?text=Hallo%20Javier%2C%20kann%20ich%20eine%20Demo%20f%C3%BCr%20die%20Kameras%20meines%20Clubs%20vereinbaren%3F",
+    }.get(lang, "https://wa.me/34680317486?text=Hola%20Javier%2C%20%C2%BFpuedo%20agendar%20una%20demo%20para%20las%20c%C3%A1maras%20de%20mi%20club%3F")
+
+    sticky_wa_btn_html = f'''<!-- BOTÓN FLOTANTE PERMANENTE EN COLOR NARANJA -->
+  <div class="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50">
+    <a href="{sticky_wa_url}" target="_blank" rel="noopener noreferrer" style="background-color: #f2920b;" class="inline-flex items-center gap-2 px-4 py-3 sm:px-5 sm:py-3.5 rounded-full text-slate-950 font-heading font-black text-xs sm:text-sm uppercase tracking-wider transition-all duration-200 shadow-xl hover:shadow-2xl hover:scale-105 active:scale-95 group">
+      <i data-lucide="message-circle" class="w-4 h-4 sm:w-5 sm:h-5 text-slate-950 stroke-[2.5] shrink-0"></i>
+      <span>{sticky_btn_label}</span>
+    </a>
+  </div>'''
+
     header_html = get_header(lang, prefix, slug=slug)
     footer_html = get_silo_footer_html(root_prefix="/")
 
@@ -648,6 +671,7 @@ def render_page(title: str, content: str, lang: str, prefix: str = "/", slug: st
   {header_html}
   {content}
   {footer_html}
+  {sticky_wa_btn_html}
   <script>if (window.lucide) lucide.createIcons();</script>
   <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
   <script src="/assets/js/cp-analytics.js" defer></script>
@@ -679,7 +703,6 @@ def build_all():
                 for a in articles_es
             }
             hub_title = "Cámaras para clubs de pádel"
-            hub_eyebrow = "Lo que necesitas saber"
             hub_intro_paras = [
                 "Sabemos que queréis tomar la mejor decisión sobre las cámaras<br>La experiencia nos dice que los clubs agradecen tener información útil a su disposición",
                 "Y que si no tenéis interés en informaros, no merece la pena hacer la demo online",
@@ -688,6 +711,7 @@ def build_all():
                 "Sea cual sea la decisión, será mejor para vosotros y para nosotros",
                 "Así si hacemos la demo, tenéis mejores preguntas y aprovechamos mejor el tiempo"
             ]
+            hub_eyebrow = hub_intro_paras[0]
             next_step_title = "Siguiente paso:"
             next_step_p1 = "Si todavía no lo ves claro, te dejo arriba más artículos sobre cámaras que te ayudarán."
             next_step_p2 = "Si tienes alguna pregunta y quieres que te enseñe bien cómo funciona todo, escríbeme directamente y lo vemos."
@@ -720,13 +744,8 @@ def build_all():
             lang_entry = i18n_dict.get("fr", {})
             articles_data = lang_entry.get("articles", FR_ARTICLES_DATA)
             hub_title = "Caméras pour clubs de padel"
-            hub_eyebrow = "Tout ce que vous devez savoir avant d'installer des caméras"
-            hub_intro_paras = [
-                "Nous savons que vous voulez prendre la meilleure décision concernant les caméras<br>L'expérience nous montre que les clubs apprécient d'avoir des informations utiles et transparentes à disposition<br>Et que si vous n'avez aucun intérêt à vous informer, cela ne vaut pas la peine de faire une démo en ligne",
-                "C'est pourquoi nous avons voulu être les plus sincères et transparents possible",
-                "Au fil de vos lectures, vous vous rendrez compte par vous-même si c'est une bonne idée d'installer des caméras ou non<br>Et si vous souhaitez les prendre chez Save My Play ou chez un confrère<br>Quelle que soit votre décision, ce sera la meilleure pour vous comme pour nous",
-                "Ainsi, si nous faisons la démo, vous aurez de bien meilleures questions et nous rentabiliserons au mieux notre temps d'échange"
-            ]
+            hub_intro_paras = FR_HUB_INTRO
+            hub_eyebrow = hub_intro_paras[0]
             next_step_title = "Étape suivante"
             next_step_p1 = "Si vous hésitez encore, découvrez ci-dessus nos guides détaillés sur les caméras de padel."
             next_step_p2 = "Si vous avez des questions précises et souhaitez voir concrètement le système en direct, réservez votre créneau pour la démo."
@@ -739,8 +758,8 @@ def build_all():
             articles_data = lang_entry.get("articles", {})
             videos_data = lang_entry.get("videos", {})
             hub_title = lang_entry.get("hub_title", "Cameras for padel clubs")
-            hub_eyebrow = lang_entry.get("hub_eyebrow", "Everything you need to know before installing cameras")
             hub_intro_paras = lang_entry.get("hub_intro", [])
+            hub_eyebrow = hub_intro_paras[0] if hub_intro_paras else lang_entry.get("hub_eyebrow", "Everything you need to know before installing cameras")
             next_step_title = lang_entry.get("next_step_title", "Next step")
             next_step_p1 = lang_entry.get("next_step_p1", "If you're still not sure, check out our guides above on padel court cameras.")
             next_step_p2 = lang_entry.get("next_step_p2", "If you have questions and want to see how it all works live, book a demo call.")
@@ -778,20 +797,20 @@ def build_all():
 
         calendly_locale = lang if lang in ["es", "fr", "en", "it", "de"] else "en"
 
-        # Formato intercalado universal para todos los idiomas: 3 articulos -> parrafo -> 3 articulos...
+        # Formato intercalado: 4 artículos -> banda táctil -> 4 artículos...
         sections_parts = []
-        # 1. Primeros 3 articulos inmediatamente tras el hero
-        g0 = "\n      ".join(cards_html[0:3])
+        # Primeros 4 articulos inmediatamente tras el hero
+        g0 = "\n      ".join(cards_html[0:4])
         sections_parts.append(f'''  <section>
     <div class="article-grid">
       {g0}
     </div>
   </section>''')
         
-        # 2. Intercalar parrafos de texto con grupos de articulos
-        art_idx = 3
-        num_paras = len(hub_intro_paras)
-        for p_idx, p_text in enumerate(hub_intro_paras):
+        # Intercalar las 5 bandas restantes con los 16 articulos en grupos de 4
+        art_idx = 4
+        remaining_paras = hub_intro_paras[1:] if len(hub_intro_paras) > 1 else hub_intro_paras
+        for p_idx, p_text in enumerate(remaining_paras):
             if not p_text.strip():
                 continue
             band_html = f'''  <div class="intro-full-band">
@@ -801,12 +820,8 @@ def build_all():
   </div>'''
             sections_parts.append(band_html)
 
-            if p_idx < num_paras - 1:
-                art_group = cards_html[art_idx:art_idx+3]
-                art_idx += 3
-            else:
-                # Ultimo bloque con todos los articulos restantes
-                art_group = cards_html[art_idx:]
+            art_group = cards_html[art_idx:art_idx+4] if p_idx < len(remaining_paras) - 1 else cards_html[art_idx:]
+            art_idx += 4
 
             if art_group:
                 g_html = "\n      ".join(art_group)
@@ -831,13 +846,6 @@ def build_all():
             "it": "https://wa.me/34680317486?text=Ciao%20Javier%2C%20posso%20prenotare%20una%20demo%20per%20le%20telecamere%20del%20mio%20club%3F",
             "de": "https://wa.me/34680317486?text=Hallo%20Javier%2C%20kann%20ich%20eine%20Demo%20f%C3%BCr%20die%20Kameras%20meines%20Clubs%20vereinbaren%3F",
         }.get(lang, "https://wa.me/34680317486?text=Hola%20Javier%2C%20%C2%BFpuedo%20agendar%20una%20demo%20para%20las%20c%C3%A1maras%20de%20mi%20club%3F")
-        hero_btn_html = f'''    <div class="mt-5 flex justify-center">
-      <a href="{demo_wa_url}" target="_blank" rel="noopener noreferrer" style="gap: 8px;" class="inline-flex items-center justify-center gap-2.5 px-6 py-3 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] text-slate-950 font-heading font-black text-xs uppercase tracking-wider transition-all duration-300 shadow-md hover:scale-105 active:scale-95 group">
-        <i data-lucide="message-circle" style="width:16px;height:16px;flex-shrink:0;" class="w-4 h-4 text-slate-950 stroke-[2.5] shrink-0"></i>
-        <span>{demo_btn_label}</span>
-        <svg width="16" height="16" style="width:16px;height:16px;flex-shrink:0;" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 shrink-0 group-hover:translate-x-0.5 transition-transform duration-300" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-      </a>
-    </div>'''
         next_step_action_html = f'''    <div class="mt-4 flex justify-center">
       <a href="{demo_wa_url}" target="_blank" rel="noopener noreferrer" style="gap: 8px;" class="inline-flex items-center justify-center gap-2.5 px-8 py-3.5 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] text-slate-950 font-heading font-black text-sm uppercase tracking-wider transition-all duration-300 shadow-md hover:scale-105 active:scale-95 group">
         <i data-lucide="message-circle" style="width:18px;height:18px;flex-shrink:0;" class="w-5 h-5 text-slate-950 stroke-[2.5] shrink-0"></i>
@@ -849,8 +857,7 @@ def build_all():
         hub_content = f'''<main class="max-w-[1216px] mx-auto px-4 sm:px-6 lg:px-8 pt-2 sm:pt-3 pb-8 sm:pb-12">
   <section class="hub-hero">
     <h1 class="hub-title">{html.escape(hub_title)}</h1>
-    <p class="hub-eyebrow">{html.escape(hub_eyebrow)}</p>
-{hero_btn_html}
+    <p class="hub-eyebrow">{hub_eyebrow}</p>
   </section>
 
 {body_sections_html}

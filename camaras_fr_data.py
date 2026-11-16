@@ -4,6 +4,15 @@ Dictionnaire complet de traduction française des 20 articles sur les caméras S
 Style : Javier - Direct, authentique, percutant, sans jargon corporatif ni clichés IA.
 """
 
+FR_HUB_INTRO = [
+    "Nous savons que vous voulez prendre la meilleure décision concernant les caméras<br>L'expérience nous montre que les clubs apprécient d'avoir des informations utiles et transparentes à disposition",
+    "Et que si vous n'avez aucun intérêt à vous informer avant, cela ne vaut pas la peine de faire la démo en ligne",
+    "C'est pourquoi nous avons voulu être les plus sincères et transparents possible",
+    "Au fil de vos lectures, vous vous rendrez compte si c'est une bonne idée d'installer des caméras ou non<br>Et si vous souhaitez les prendre chez Save My Play ou chez un confrère",
+    "Quelle que soit votre décision, ce sera la meilleure pour vous comme pour nous",
+    "Ainsi, si nous faisons la démo, vous aurez de bien meilleures questions et nous rentabiliserons au mieux notre temps d'échange"
+]
+
 FR_ARTICLES_DATA = {
     "por-donde-empezar-si-estoy-pensando-en-poner-camaras": {
         "title": "J'envisage d'installer des caméras dans mon club, par où commencer ?",
