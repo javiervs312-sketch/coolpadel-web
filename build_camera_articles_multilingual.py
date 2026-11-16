@@ -797,35 +797,38 @@ def build_all():
 
         calendly_locale = lang if lang in ["es", "fr", "en", "it", "de"] else "en"
 
-        # Formato intercalado: 4 artículos -> banda táctil -> 4 artículos...
+        # Formato intercalado: 3 artículos -> franja azul táctil -> 3 artículos...
         sections_parts = []
-        # Primeros 4 articulos inmediatamente tras el hero
-        g0 = "\n      ".join(cards_html[0:4])
-        sections_parts.append(f'''  <section>
-    <div class="article-grid">
-      {g0}
-    </div>
-  </section>''')
-        
-        # Intercalar las 5 bandas restantes con los 16 articulos en grupos de 4
-        art_idx = 4
-        remaining_paras = hub_intro_paras[1:] if len(hub_intro_paras) > 1 else hub_intro_paras
-        for p_idx, p_text in enumerate(remaining_paras):
-            if not p_text.strip():
-                continue
-            band_html = f'''  <div class="intro-full-band">
+        art_idx = 0
+        total_arts = len(cards_html)
+        num_paras = len(hub_intro_paras)
+
+        for p_idx, p_text in enumerate(hub_intro_paras):
+            # 1. Franja azul táctil
+            if p_text.strip():
+                band_html = f'''  <div class="intro-full-band">
     <div class="intro">
       <p>{p_text}</p>
     </div>
   </div>'''
-            sections_parts.append(band_html)
+                sections_parts.append(band_html)
 
-            art_group = cards_html[art_idx:art_idx+4] if p_idx < len(remaining_paras) - 1 else cards_html[art_idx:]
-            art_idx += 4
-
+            # 2. Bloque de 3 artículos
+            art_group = cards_html[art_idx:art_idx+3]
+            art_idx += 3
             if art_group:
                 g_html = "\n      ".join(art_group)
                 sections_parts.append(f'''  <section>
+    <div class="article-grid">
+      {g_html}
+    </div>
+  </section>''')
+
+        # Si sobran artículos después de agotar las franjas (20 artículos - 6*3 = 2 restantes), se muestran en el último bloque
+        if art_idx < total_arts:
+            art_group = cards_html[art_idx:]
+            g_html = "\n      ".join(art_group)
+            sections_parts.append(f'''  <section>
     <div class="article-grid">
       {g_html}
     </div>
@@ -857,7 +860,6 @@ def build_all():
         hub_content = f'''<main class="max-w-[1216px] mx-auto px-4 sm:px-6 lg:px-8 pt-2 sm:pt-3 pb-8 sm:pb-12">
   <section class="hub-hero">
     <h1 class="hub-title">{html.escape(hub_title)}</h1>
-    <p class="hub-eyebrow">{hub_eyebrow}</p>
   </section>
 
 {body_sections_html}
