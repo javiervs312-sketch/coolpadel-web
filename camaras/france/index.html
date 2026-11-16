@@ -328,8 +328,9 @@
               La caméra officielle de USA Padel et de l'USTA, déjà présente sur plus de 1 500 terrains. Investissement de 180 € en matériel en pleine propriété, forfaits dès 45 €/mois, installation en 5 minutes sans travaux ni engagement.
             </p>
 
-            <div class="pt-4 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4">
-              <a id="hero-wa-btn" href="https://api.whatsapp.com/send?phone=34680317486&text=Bonjour%20Javier%2C%20je%20souhaite%20voir%20une%20d%C3%A9monstration%20de%20Save%20My%20Play%20pour%20les%20pistes%20de%20padel%20en%20France" target="_blank" rel="noopener" class="inline-flex items-center justify-center gap-2.5 px-7 py-4 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] text-slate-950 font-heading font-black text-sm uppercase tracking-wider transition shadow-md hover:scale-105 active:scale-95 group">
+            <div class="pt-4 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 relative" style="min-height: 58px;">
+              <div id="hero-btn-placeholder" style="display: none; height: 54px;" class="w-full sm:w-[350px]"></div>
+              <a id="hero-wa-btn" href="https://api.whatsapp.com/send?phone=34680317486&text=Bonjour%20Javier%2C%20je%20souhaite%20voir%20une%20d%C3%A9monstration%20de%20Save%20My%20Play%20pour%20les%20pistes%20de%20padel%20en%20France" target="_blank" rel="noopener" class="inline-flex items-center justify-center gap-2.5 px-7 py-4 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] text-slate-950 font-heading font-black text-sm uppercase tracking-wider transition-all duration-200 shadow-md hover:scale-105 active:scale-95 group z-40">
                 <i data-lucide="message-circle" class="w-5 h-5 text-slate-950"></i>
                 <span>Demander une démo de 15 min via WhatsApp</span>
               </a>
@@ -725,59 +726,100 @@
     </div>
   </footer>
 
-  <!-- BOTÓN FLOTANTE QUE ACOMPAÑA AL HACER SCROLL (STICKY DEMO) -->
-  <div id="sticky-wa-container" class="fixed bottom-5 right-5 sm:bottom-6 sm:right-6 z-50 transition-all duration-300 transform translate-y-24 opacity-0 pointer-events-none">
-    <a href="https://api.whatsapp.com/send?phone=34680317486&text=Bonjour%20Javier%2C%20je%20souhaite%20voir%20une%20d%C3%A9monstration%20de%20Save%20My%20Play%20pour%20les%20pistes%20de%20padel%20en%20France" 
-       target="_blank" rel="noopener" 
-       class="inline-flex items-center gap-2.5 px-5 py-3.5 sm:px-6 sm:py-3.5 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] text-slate-950 font-heading font-black text-xs sm:text-sm uppercase tracking-wider transition-all duration-200 shadow-xl hover:shadow-2xl hover:scale-105 active:scale-95 border-2 border-white">
-      <i data-lucide="message-circle" class="w-5 h-5 text-slate-950"></i>
-      <span>Demander une démo de 15 min via WhatsApp</span>
-    </a>
-  </div>
-
   <script>
     if (typeof lucide !== 'undefined') {
       lucide.createIcons();
     }
 
-    // Lógica para mostrar/ocultar el botón flotante que acompaña al hacer scroll
+    // Mantener el MISMO botón en la misma posición de la pantalla al hacer scroll
     (function() {
       var heroBtn = document.getElementById('hero-wa-btn');
-      var stickyContainer = document.getElementById('sticky-wa-container');
-      if (!stickyContainer) return;
+      var placeholder = document.getElementById('hero-btn-placeholder');
+      if (!heroBtn || !placeholder) return;
 
+      var initialLeft = null;
+      var initialTop = null;
+      var initialWidth = null;
+      var initialHeight = null;
+      var isFixed = false;
       var ticking = false;
-      function checkScroll() {
-        var show = false;
-        if (heroBtn) {
+
+      function updateInitialMetrics() {
+        if (!isFixed) {
           var rect = heroBtn.getBoundingClientRect();
-          // Cuando el botón original del Hero sale de la vista hacia arriba
-          if (rect.bottom < 0) {
-            show = true;
-          }
-        } else {
-          if (window.scrollY > 300) show = true;
+          initialLeft = rect.left;
+          initialTop = rect.top;
+          initialWidth = rect.width;
+          initialHeight = rect.height;
+        }
+      }
+
+      window.addEventListener('resize', function() {
+        if (isFixed) {
+          // Restaurar temporalmente para recalcular métricas responsive
+          heroBtn.style.position = '';
+          heroBtn.style.top = '';
+          heroBtn.style.left = '';
+          heroBtn.style.width = '';
+          heroBtn.style.maxWidth = '';
+          placeholder.style.display = 'none';
+          isFixed = false;
+        }
+        updateInitialMetrics();
+        onScroll();
+      });
+
+      function onScroll() {
+        if (initialTop === null) {
+          updateInitialMetrics();
         }
 
-        if (show) {
-          stickyContainer.classList.remove('translate-y-24', 'opacity-0', 'pointer-events-none');
-          stickyContainer.classList.add('translate-y-0', 'opacity-100', 'pointer-events-auto');
+        // Punto de anclaje: placeholder cuando está fixed, o el propio botón
+        var anchor = isFixed ? placeholder : heroBtn;
+        var anchorRect = anchor.getBoundingClientRect();
+
+        // Cuando el punto de origen del botón alcanza su posición en pantalla
+        if (anchorRect.top <= initialTop) {
+          if (!isFixed) {
+            isFixed = true;
+            placeholder.style.width = initialWidth + 'px';
+            placeholder.style.height = initialHeight + 'px';
+            placeholder.style.display = 'block';
+
+            heroBtn.style.position = 'fixed';
+            heroBtn.style.top = initialTop + 'px';
+            heroBtn.style.left = initialLeft + 'px';
+            heroBtn.style.width = initialWidth + 'px';
+            heroBtn.style.margin = '0';
+            heroBtn.classList.add('shadow-xl', 'border-2', 'border-white');
+          }
         } else {
-          stickyContainer.classList.remove('translate-y-0', 'opacity-100', 'pointer-events-auto');
-          stickyContainer.classList.add('translate-y-24', 'opacity-0', 'pointer-events-none');
+          if (isFixed) {
+            isFixed = false;
+            heroBtn.style.position = '';
+            heroBtn.style.top = '';
+            heroBtn.style.left = '';
+            heroBtn.style.width = '';
+            heroBtn.style.margin = '';
+            heroBtn.classList.remove('shadow-xl', 'border-2', 'border-white');
+            placeholder.style.display = 'none';
+          }
         }
         ticking = false;
       }
 
       window.addEventListener('scroll', function() {
         if (!ticking) {
-          window.requestAnimationFrame(checkScroll);
+          window.requestAnimationFrame(onScroll);
           ticking = true;
         }
       }, { passive: true });
 
-      // Comprobar posición inicial por si recargan a mitad de página
-      checkScroll();
+      // Ejecutar cálculo inicial
+      setTimeout(function() {
+        updateInitialMetrics();
+        onScroll();
+      }, 100);
     })();
   </script>
   <script src="/assets/js/cp-analytics.js?v=20261114b" defer></script>
