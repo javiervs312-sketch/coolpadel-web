@@ -282,7 +282,7 @@ def generate_city_page(country_item, city, slug_country_used, canonical_country_
           <span>/</span>
           <a href="{country_url}" class="hover:text-slate-900 transition">{country_display}</a>
           <span>/</span>
-          <span class="text-[#f2920b] font-black">{city_name} (+{city_courts} {courts_word})</span>
+          <span class="text-[#f2920b] font-black">{city_name}</span>
         </nav>
 
         <div class="grid lg:grid-cols-12 gap-6 sm:gap-10 items-center">

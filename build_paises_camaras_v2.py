@@ -291,7 +291,7 @@ def generate_country_page(item, slug_to_use, canonical_slug=None):
           <span>/</span>
           <a href="{nav_prefix}camaras/" class="hover:text-slate-900 transition">{t["nav_camaras"]}</a>
           <span>/</span>
-          <span class="text-[#f2920b] font-black">{country_display} ({item['courts']} {courts_word})</span>
+          <span class="text-[#f2920b] font-black">{country_display}</span>
         </nav>
 
         <div class="grid lg:grid-cols-12 gap-6 sm:gap-10 items-center">

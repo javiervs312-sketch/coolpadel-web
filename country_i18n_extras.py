@@ -608,7 +608,7 @@ FOOTER_I18N = {
         'title': '{city}（{country}）のパデルコート専用カメラ | Save My Play',
         'meta_desc': '{city}（{country}）のSave My Playカメラ：{hw}買い取り機器、{rec}自動録画、{ai}AIスタッツ分析。オンラインデモ受付中。',
         'h1': '{city}のパデルコート専用カメラ:<br class="hidden sm:inline"> 試合自動録画、ハイライト生成<br class="hidden sm:inline"> ＆ AI詳細スタッツ',
-        'sub': 'USA Padel＆USTA公式採用カメラが{city}のクラブへ（+{courts}コート）。{hw}の機器購入、月額{rec}〜、工事不要で5分設置、解約ペナルティなし。',
+        'sub': 'USA Padel＆USTA公式採用カメラが{city}のクラブへ。{hw}の機器購入、月額{rec}〜、工事不要で5分設置、解約ペナルティなし。',
         'wa_msg': 'Javierさん、こんにちは。{city}（{country}）でパデルクラブを運営しており、Save My Playのデモを希望します。',
         'llaveros_3d': '3Dパデルキーホルダー',
         'llaveros_tenis': 'テニスキーホルダー',
@@ -737,154 +737,154 @@ CITY_TEMPLATES = {
         'title': 'Cámaras para Pistas de Pádel en {city} ({country}) | Save My Play',
         'meta_desc': 'Cámaras Save My Play en {city} ({country}): {hw} hardware en propiedad, grabación automática por {rec} y estadísticas con IA por {ai}. Solicita demo en directo.',
         'h1': 'Cámaras para Pistas de Pádel en {city}:<br class="hidden sm:inline"> Grabación, Highlights<br class="hidden sm:inline"> y Estadísticas con IA',
-        'sub': 'La cámara oficial de USA Padel y USTA, disponible para clubes en {city} y área metropolitana (+{courts} pistas). Inversión de {hw} en propiedad, planes desde {rec}, montaje en 5 minutos sin obras y sin permanencias.',
+        'sub': 'La cámara oficial de USA Padel y USTA, disponible para clubes en {city} y área metropolitana. Inversión de {hw} en propiedad, planes desde {rec}, montaje en 5 minutos sin obras y sin permanencias.',
         'wa_msg': 'Hola Javier, dirijo un club de pádel en {city} ({country}) y quiero ver una demo de las cámaras Save My Play.'
     },
     'en': {
         'title': 'Padel Court Cameras in {city} ({country}) | Save My Play',
         'meta_desc': 'Save My Play cameras in {city} ({country}): {hw} hardware, automatic recording for {rec} and AI analytics for {ai}. Book a live demo.',
         'h1': 'Padel Court Cameras in {city}:<br class="hidden sm:inline"> Match Recording, Highlights<br class="hidden sm:inline"> & AI Analytics',
-        'sub': 'The official camera of USA Padel & USTA, available for padel clubs across {city} (+{courts} courts). {hw} hardware ownership, subscriptions from {rec}, 5-min installation with no civil works and no lock-in.',
+        'sub': 'The official camera of USA Padel & USTA, available for padel clubs across {city}. {hw} hardware ownership, subscriptions from {rec}, 5-min installation with no civil works and no lock-in.',
         'wa_msg': 'Hi Javier, I run a padel club in {city} ({country}) and would like to see a demo of Save My Play cameras.'
     },
     'it': {
         'title': 'Telecamere per Campi da Padel a {city} ({country}) | Save My Play',
         'meta_desc': 'Telecamere Save My Play a {city} ({country}): {hw} hardware proprio, registrazione per {rec} e statistiche AI per {ai}. Richiedi una demo.',
         'h1': 'Telecamere per Campi da Padel a {city}:<br class="hidden sm:inline"> Registrazione Partite, Highlights<br class="hidden sm:inline"> e Statistiche IA',
-        'sub': 'La telecamera ufficiale di USA Padel e USTA per i circoli di {city} (+{courts} campi). Investimento di {hw} in proprietà, piani da {rec}, montaggio in 5 minuti senza opere e senza vincoli.',
+        'sub': 'La telecamera ufficiale di USA Padel e USTA per i circoli di {city}. Investimento di {hw} in proprietà, piani da {rec}, montaggio in 5 minuti senza opere e senza vincoli.',
         'wa_msg': 'Ciao Javier, gestisco un circolo padel a {city} ({country}) e vorrei vedere una demo di Save My Play.'
     },
     'fr': {
         'title': 'Caméras pour Pistes de Padel à {city} ({country}) | Save My Play',
         'meta_desc': 'Caméras Save My Play à {city} ({country}) : {hw} matériel en propriété, enregistrement pour {rec} et IA pour {ai}. Réservez une démo.',
         'h1': 'Caméras pour Pistes de Padel à {city} :<br class="hidden sm:inline"> Enregistrement Matchs, Highlights<br class="hidden sm:inline"> et Statistiques IA',
-        'sub': 'La caméra officielle d\'USA Padel et de l\'USTA pour les clubs de {city} (+{courts} pistes). Matériel en pleine propriété {hw}, abonnements dès {rec}, installation en 5 minutes sans travaux.',
+        'sub': 'La caméra officielle d\'USA Padel et de l\'USTA pour les clubs de {city}. Matériel en pleine propriété {hw}, abonnements dès {rec}, installation en 5 minutes sans travaux.',
         'wa_msg': 'Bonjour Javier, je gère un club de padel à {city} ({country}) et j\'aimerais voir une démo de Save My Play.'
     },
     'de': {
         'title': 'Kameras für Padel-Plätze in {city} ({country}) | Save My Play',
         'meta_desc': 'Save My Play Kameras in {city} ({country}): {hw} Hardware-Eigentum, Aufnahme für {rec} und KI-Statistiken für {ai}. Demo buchen.',
         'h1': 'Padel-Kameras in {city}:<br class="hidden sm:inline"> Spielaufnahme, Highlights<br class="hidden sm:inline"> & KI-Analysen',
-        'sub': 'Die offizielle Kamera von USA Padel und USTA für Clubs in {city} (+{courts} Plätze). Hardware-Eigentum für {hw}, Monatspläne ab {rec}, 5-Minuten-Montage ohne Bauarbeiten.',
+        'sub': 'Die offizielle Kamera von USA Padel und USTA für Clubs in {city}. Hardware-Eigentum für {hw}, Monatspläne ab {rec}, 5-Minuten-Montage ohne Bauarbeiten.',
         'wa_msg': 'Hallo Javier, ich leite einen Padel-Club in {city} ({country}) und möchte eine Demo der Save My Play Kameras sehen.'
     },
     'sv': {
         'title': 'Kameror för padelbanor i {city} ({country}) | Save My Play',
         'meta_desc': 'Save My Play kameror i {city} ({country}): {hw} hårdvara i ägo, automatisk inspelning för {rec} och AI-statistik för {ai}. Boka demo.',
         'h1': 'Kameror för padelbanor i {city}:<br class="hidden sm:inline"> Matchinspelning, Höjdpunkter<br class="hidden sm:inline"> & AI-Statistik',
-        'sub': 'Den officiella kameran för USA Padel och USTA för klubbar i {city} (+{courts} banor). {hw} hårdvara i ägo, månadsplaner från {rec}, 5 minuters installation utan ingrepp.',
+        'sub': 'Den officiella kameran för USA Padel och USTA för klubbar i {city}. {hw} hårdvara i ägo, månadsplaner från {rec}, 5 minuters installation utan ingrepp.',
         'wa_msg': 'Hej Javier, jag driver en padelklubb i {city} ({country}) och vill se en demo av Save My Play.'
     },
     'pt': {
         'title': 'Câmaras para Campos de Padel em {city} ({country}) | Save My Play',
         'meta_desc': 'Câmaras Save My Play em {city} ({country}): {hw} hardware em propriedade, gravação por {rec} e estatísticas IA por {ai}. Peça uma demonstração.',
         'h1': 'Câmaras para Campos de Padel em {city}:<br class="hidden sm:inline"> Gravação de Jogos, Highlights<br class="hidden sm:inline"> e Estatísticas com IA',
-        'sub': 'A câmara oficial da USA Padel e USTA para clubes em {city} (+{courts} campos). {hw} hardware próprio, planos a partir de {rec}, montagem em 5 minutos sem obras nem fidelização.',
+        'sub': 'A câmara oficial da USA Padel e USTA para clubes em {city}. {hw} hardware próprio, planos a partir de {rec}, montagem em 5 minutos sem obras nem fidelização.',
         'wa_msg': 'Olá Javier, dirijo um clube de padel em {city} ({country}) e gostaria de ver uma demonstração de Save My Play.'
     },
     'pt-br': {
         'title': 'Câmeras para Quadras de Padel em {city} ({country}) | Save My Play',
         'meta_desc': 'Câmeras Save My Play em {city} ({country}): {hw} hardware próprio, gravação automática por {rec} e estatísticas com IA por {ai}. Agende uma demonstração ao vivo.',
         'h1': 'Câmeras para Quadras de Padel em {city}:<br class="hidden sm:inline"> Gravação de Partidas, Highlights<br class="hidden sm:inline"> e Estatísticas com IA',
-        'sub': 'A câmera oficial da USA Padel e USTA, disponível para clubes em {city} (+{courts} quadras). {hw} hardware em propriedade, planos a partir de {rec}, instalação em 5 minutos sem reformas.',
+        'sub': 'A câmera oficial da USA Padel e USTA, disponível para clubes em {city}. {hw} hardware em propriedade, planos a partir de {rec}, instalação em 5 minutos sem reformas.',
         'wa_msg': 'Olá Javier, administro um clube de padel em {city} ({country}) e quero ver uma demonstração das câmeras Save My Play.'
     },
     'nl': {
         'title': 'Padelbaan Camera\'s in {city} ({country}) | Save My Play',
         'meta_desc': 'Save My Play camera\'s in {city} ({country}): {hw} hardware in eigendom, automatische opname voor {rec} en AI-statistieken voor {ai}. Vraag een demo aan.',
         'h1': 'Padelbaan Camera\'s in {city}:<br class="hidden sm:inline"> Wedstrijdopname, Highlights<br class="hidden sm:inline"> & AI-Statistieken',
-        'sub': 'De officiële camera van USA Padel en USTA voor clubs in {city} (+{courts} banen). {hw} hardware-investering, maandplannen vanaf {rec}, installatie in 5 minuten zonder werkzaamheden.',
+        'sub': 'De officiële camera van USA Padel en USTA voor clubs in {city}. {hw} hardware-investering, maandplannen vanaf {rec}, installatie in 5 minuten zonder werkzaamheden.',
         'wa_msg': 'Hallo Javier, ik beheer een padelclub in {city} ({country}) en wil graag een demo van Save My Play zien.'
     },
     'pl': {
         'title': 'Kamery na korty do padla w {city} ({country}) | Save My Play',
         'meta_desc': 'Kamery Save My Play w {city} ({country}): {hw} sprzęt na własność, nagrywanie od {rec} i statystyki AI od {ai}. Umów się na demo na żywo.',
         'h1': 'Kamery na Korty do Padla w {city}:<br class="hidden sm:inline"> Nagrywanie Meczów, Highlights<br class="hidden sm:inline"> i Statystyki AI',
-        'sub': 'Oficjalna kamera USA Padel i USTA dla klubów w {city} (+{courts} kortów). Sprzęt {hw} na własność, plany od {rec}, montaż w 5 minut bez prac budowlanych i bez umowy terminowej.',
+        'sub': 'Oficjalna kamera USA Padel i USTA dla klubów w {city}. Sprzęt {hw} na własność, plany od {rec}, montaż w 5 minut bez prac budowlanych i bez umowy terminowej.',
         'wa_msg': 'Cześć Javier, prowadzę klub padla w {city} ({country}) i chcę zobaczyć demo kamer Save My Play.'
     },
     'da': {
         'title': 'Padelbaner Kameraer i {city} ({country}) | Save My Play',
         'meta_desc': 'Save My Play kameraer i {city} ({country}): {hw} hardware i eje, automatisk optagelse for {rec} og AI-statistik for {ai}. Book en live demo.',
         'h1': 'Padelbaner Kameraer i {city}:<br class="hidden sm:inline"> Kampoptagelse, Highlights<br class="hidden sm:inline"> & AI-Statistik',
-        'sub': 'Det officielle kamera for USA Padel og USTA til klubber i {city} (+{courts} baner). {hw} hardware i eje, abonnementer fra {rec}, 5-minutters opsætning uden byggearbejde.',
+        'sub': 'Det officielle kamera for USA Padel og USTA til klubber i {city}. {hw} hardware i eje, abonnementer fra {rec}, 5-minutters opsætning uden byggearbejde.',
         'wa_msg': 'Hej Javier, jeg driver en padelklub i {city} ({country}) og vil gerne se en demo af Save My Play.'
     },
     'no': {
         'title': 'Padelbaner Kameraer i {city} ({country}) | Save My Play',
         'meta_desc': 'Save My Play kameraer i {city} ({country}): {hw} maskinvare til eie, opptak for {rec} og AI-statistikk for {ai}. Bestill live demo.',
         'h1': 'Padelbaner Kameraer i {city}:<br class="hidden sm:inline"> Kampopptak, Høydepunkter<br class="hidden sm:inline"> & AI-Statistikk',
-        'sub': 'Det offisielle kameraet for USA Padel og USTA til klubber i {city} (+{courts} baner). {hw} maskinvare til odel og eie, abonnementer fra {rec}, 5-minutters montering uten byggearbeid.',
+        'sub': 'Det offisielle kameraet for USA Padel og USTA til klubber i {city}. {hw} maskinvare til odel og eie, abonnementer fra {rec}, 5-minutters montering uten byggearbeid.',
         'wa_msg': 'Hei Javier, jeg driver en padelklubb i {city} ({country}) og vil gjerne se en demo av Save My Play.'
     },
     'fi': {
         'title': 'Padelkenttä Kamerat kaupungissa {city} ({country}) | Save My Play',
         'meta_desc': 'Save My Play -kamerat kaupungissa {city} ({country}): {hw} laitteisto omaksi, automaattinen tallennus {rec} ja AI-tilastot {ai}. Pyydä live-demo.',
         'h1': 'Padelkenttä Kamerat kaupungissa {city}:<br class="hidden sm:inline"> Ottelutallennus, Parhaat Palat<br class="hidden sm:inline"> & Tekoälytilastot',
-        'sub': 'USA Padelin ja USTAn virallinen kamera klubeille kaupungissa {city} (+{courts} kenttää). {hw} laitteisto omaksi, kuukausisopimukset alkaen {rec}, 5 minuutin asennus ilman sitoutumisaikaa.',
+        'sub': 'USA Padelin ja USTAn virallinen kamera klubeille kaupungissa {city}. {hw} laitteisto omaksi, kuukausisopimukset alkaen {rec}, 5 minuutin asennus ilman sitoutumisaikaa.',
         'wa_msg': 'Hei Javier, johdan padelklubia kaupungissa {city} ({country}) ja haluan nähdä Save My Play -kameroiden demon.'
     },
     'ca': {
         'title': 'Càmeres per a Pistes de Pàdel a {city} ({country}) | Save My Play',
         'meta_desc': 'Càmeres Save My Play a {city} ({country}): {hw} maquinari en propietat, enregistrament per {rec} i estadístiques IA per {ai}. Demana demo en directe.',
         'h1': 'Càmeres per a Pistes de Pàdel a {city}:<br class="hidden sm:inline"> Enregistrament, Highlights<br class="hidden sm:inline"> i Estadístiques amb IA',
-        'sub': 'La càmera oficial d\'USA Padel i USTA, disponible per a clubs a {city} i àrea metropolitana (+{courts} pistes). Inversió de {hw} en propietat, quotes des de {rec}, muntatge en 5 minuts sense obres.',
+        'sub': 'La càmera oficial d\'USA Padel i USTA, disponible per a clubs a {city} i àrea metropolitana. Inversió de {hw} en propietat, quotes des de {rec}, muntatge en 5 minuts sense obres.',
         'wa_msg': 'Hola Javier, dirigeixo un club de pàdel a {city} ({country}) i vull veure una demo de Save My Play.'
     },
     'el': {
         'title': 'Κάμερες για Γήπεδα Πάντελ στην {city} ({country}) | Save My Play',
         'meta_desc': 'Κάμερες Save My Play στην {city} ({country}): {hw} εξοπλισμός σε ιδιοκτησία, αυτόματη καταγραφή για {rec} και στατιστικά AI για {ai}. Ζητήστε live demo.',
         'h1': 'Κάμερες για Γήπεδα Πάντελ στην {city}:<br class="hidden sm:inline"> Καταγραφή Αγώνων, Highlights<br class="hidden sm:inline"> & Στατιστικά AI',
-        'sub': 'Η επίσημη κάμερα των USA Padel & USTA για συλλόγους στην {city} (+{courts} γήπεδα). Εξοπλισμός {hw} σε ιδιοκτησία, συνδρομές από {rec}, εγκατάσταση σε 5 λεπτά χωρίς έργα.',
+        'sub': 'Η επίσημη κάμερα των USA Padel & USTA για συλλόγους στην {city}. Εξοπλισμός {hw} σε ιδιοκτησία, συνδρομές από {rec}, εγκατάσταση σε 5 λεπτά χωρίς έργα.',
         'wa_msg': 'Γεια σου Javier, διαχειρίζομαι σύλλογο πάντελ στην {city} ({country}) και θέλω να δω μια επίδειξη του Save My Play.'
     },
     'hr': {
         'title': 'Kamere za Padel Terene u {city} ({country}) | Save My Play',
         'meta_desc': 'Save My Play kamere u {city} ({country}): {hw} hardver u vlasništvu, snimanje za {rec} i AI statistika za {ai}. Zatražite live demo.',
         'h1': 'Kamere za Padel Terene u {city}:<br class="hidden sm:inline"> Snimanje Mečeva, Highlights<br class="hidden sm:inline"> & AI Statistika',
-        'sub': 'Službena kamera USA Padel i USTA za klubove u {city} (+{courts} terena). Investicija {hw} u vlasništvu, planovi od {rec}, montaža u 5 minuta bez građevinskih radova.',
+        'sub': 'Službena kamera USA Padel i USTA za klubove u {city}. Investicija {hw} u vlasništvu, planovi od {rec}, montaža u 5 minuta bez građevinskih radova.',
         'wa_msg': 'Pozdrav Javier, vodim padel klub u {city} ({country}) i želim vidjeti demo Save My Play kamera.'
     },
     'id': {
         'title': 'Kamera Lapangan Padel di {city} ({country}) | Save My Play',
         'meta_desc': 'Kamera Save My Play di {city} ({country}): {hw} perangkat keras milik sendiri, perekaman untuk {rec} dan analitik AI untuk {ai}. Minta demo langsung.',
         'h1': 'Kamera Lapangan Padel di {city}:<br class="hidden sm:inline"> Perekaman Pertandingan, Sorotan<br class="hidden sm:inline"> & Statistik AI',
-        'sub': 'Kamera resmi USA Padel & USTA untuk klub di {city} (+{courts} lapangan). Investasi {hw} milik sendiri, langganan mulai dari {rec}, pemasangan 5 menit tanpa renovasi.',
+        'sub': 'Kamera resmi USA Padel & USTA untuk klub di {city}. Investasi {hw} milik sendiri, langganan mulai dari {rec}, pemasangan 5 menit tanpa renovasi.',
         'wa_msg': 'Halo Javier, saya mengelola klub padel di {city} ({country}) dan ingin melihat demo Save My Play.'
     },
     'tr': {
         'title': '{city} ({country}) Padel Kortu Kameraları | Save My Play',
         'meta_desc': '{city} ({country}) Save My Play kameraları: {hw} mülkiyeti sizde donanım, {rec} otomatik kayıt ve {ai} yapay zeka analitiği. Canlı demo isteyin.',
         'h1': '{city} Padel Kortu Kameraları:<br class="hidden sm:inline"> Maç Kaydı, Özet Görüntüler<br class="hidden sm:inline"> & Yapay Zeka Analizi',
-        'sub': '{city} kulüpleri için USA Padel ve USTA resmi kamerası (+{courts} kort). {hw} donanım mülkiyeti, {rec} başlayan planlar, inşaatsız 5 dakikada kolay montaj.',
+        'sub': '{city} kulüpleri için USA Padel ve USTA resmi kamerası. {hw} donanım mülkiyeti, {rec} başlayan planlar, inşaatsız 5 dakikada kolay montaj.',
         'wa_msg': 'Merhaba Javier, {city} ({country}) padel kulübü yöneticisiyim ve Save My Play demo görmek istiyorum.'
     },
     'ja': {
         'title': '{city}（{country}）のパデルコート専用カメラ | Save My Play',
         'meta_desc': '{city}（{country}）のSave My Playカメラ：{hw}買い取り機器、{rec}自動録画、{ai}AIスタッツ分析。オンラインデモ受付中。',
         'h1': '{city}のパデルコート専用カメラ:<br class="hidden sm:inline"> 試合自動録画、ハイライト生成<br class="hidden sm:inline"> ＆ AI詳細スタッツ',
-        'sub': 'USA Padel＆USTA公式採用カメラが{city}のクラブへ（+{courts}コート）。{hw}の機器購入、月額{rec}〜、工事不要で5分設置、解約ペナルティなし。',
+        'sub': 'USA Padel＆USTA公式採用カメラが{city}のクラブへ。{hw}の機器購入、月額{rec}〜、工事不要で5分設置、解約ペナルティなし。',
         'wa_msg': 'Javierさん、こんにちは。{city}（{country}）でパデルクラブを運営しており、Save My Playのデモを希望します。'
     },
     'ar': {
         'title': 'كاميرات ملاعب البادل في {city} ({country}) | Save My Play',
         'meta_desc': 'كاميرات Save My Play في {city} ({country}): أجهزة ملك للنادي بـ {hw}، تسجيل تلقائي بـ {rec} وإحصائيات ذكاء اصطناعي بـ {ai}. اطلب عرضاً تجريبياً مباشرة.',
         'h1': 'كاميرات ملاعب البادل في {city}:<br class="hidden sm:inline"> تسجيل المباريات، أبرز اللقطات<br class="hidden sm:inline"> وإحصائيات الذكاء الاصطناعي',
-        'sub': 'الكاميرا الرسمية لـ USA Padel و USTA متاحة لأندية {city} (+{courts} ملاعب). أجهزة ملك للنادي بـ {hw}، باقات تبدأ من {rec}، تركيب خلال 5 دقائق دون أعمال بناء.',
+        'sub': 'الكاميرا الرسمية لـ USA Padel و USTA متاحة لأندية {city}. أجهزة ملك للنادي بـ {hw}، باقات تبدأ من {rec}، تركيب خلال 5 دقائق دون أعمال بناء.',
         'wa_msg': 'مرحباً خافيير، أدير نادي بادل في {city} ({country}) وأرغب في مشاهدة عرض تجريبي لكاميرات Save My Play.'
     },
     'cs': {
         'title': 'Kamery pro Padelové Kurty v {city} ({country}) | Save My Play',
         'meta_desc': 'Kamery Save My Play v {city} ({country}): {hw} hardware ve vlastnictví, nahrávání za {rec} a AI statistiky za {ai}. Vyžádejte si online demo.',
         'h1': 'Kamery pro Padelové Kurty v {city}:<br class="hidden sm:inline"> Záznam Zápasů, Highlights<br class="hidden sm:inline"> a Statistiky s AI',
-        'sub': 'Oficiální kamera USA Padel a USTA pro kluby v {city} (+{courts} kurtů). Investice {hw} do vlastního hardwaru, plány od {rec}, instalace do 5 minut bez stavebních úprav.',
+        'sub': 'Oficiální kamera USA Padel a USTA pro kluby v {city}. Investice {hw} do vlastního hardwaru, plány od {rec}, instalace do 5 minut bez stavebních úprav.',
         'wa_msg': 'Ahoj Javier, vedu padelový klub v {city} ({country}) a rád bych viděl demo kamer Save My Play.'
     },
     'ro': {
         'title': 'Camere pentru Terenuri de Padel în {city} ({country}) | Save My Play',
         'meta_desc': 'Camere Save My Play în {city} ({country}): {hw} hardware în proprietate, înregistrare pentru {rec} și statistici AI pentru {ai}. Solicită un demo live.',
         'h1': 'Camere pentru Terenuri de Padel în {city}:<br class="hidden sm:inline"> Înregistrare Meciuri, Highlights<br class="hidden sm:inline"> și Statistici cu IA',
-        'sub': 'Camera oficială a USA Padel și USTA pentru cluburile din {city} (+{courts} terenuri). {hw} investiție hardware în proprietate, abonamente de la {rec}, montaj în 5 minute fără lucrări.',
+        'sub': 'Camera oficială a USA Padel și USTA pentru cluburile din {city}. {hw} investiție hardware în proprietate, abonamente de la {rec}, montaj în 5 minute fără lucrări.',
         'wa_msg': 'Bună Javier, administrez un club de padel în {city} ({country}) și aș dori să văd o demonstrație Save My Play.'
     }
 }
