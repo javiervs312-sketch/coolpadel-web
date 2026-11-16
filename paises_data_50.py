@@ -244,7 +244,7 @@ COUNTRIES_50 = [
     {
         "rank": 48, "country_es": "India", "country_local": "India", "lang": "en",
         "courts": 100, "curr_code": "INR", "curr_symbol": "₹", "slug": "india", "slug_local": "india",
-        "hw": "₹15,000 ($180)", "rec": "₹3,800/mo ($45)", "ai": "₹11,500/mo ($136)"
+        "hw": "₹18.641 ($199)", "rec": "₹4.660/mo ($49)", "ai": "₹14.084/mo ($150)"
     },
     {
         "rank": 49, "country_es": "República Checa", "country_local": "Česká republika", "lang": "cs",

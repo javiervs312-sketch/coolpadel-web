@@ -279,10 +279,10 @@ def generate_country_page(item, slug_to_use, canonical_slug=None):
     </div>
   </header>
 
-  <main class="flex-1 pt-20">
+  <main class="flex-1 pt-14">
 
     <!-- 1. HERO SECTION -->
-    <section class="py-12 sm:py-20 bg-gradient-to-b from-white via-slate-50 to-[#f8fafc] border-b border-slate-200">
+    <section class="pt-4 pb-12 sm:pt-6 sm:pb-16 bg-gradient-to-b from-white via-slate-50 to-[#f8fafc] border-b border-slate-200">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <!-- Breadcrumbs Navigation -->
@@ -294,9 +294,9 @@ def generate_country_page(item, slug_to_use, canonical_slug=None):
           <span class="text-[#f2920b] font-black">{country_display} ({item['courts']} {courts_word})</span>
         </nav>
 
-        <div class="grid lg:grid-cols-12 gap-8 sm:gap-12 items-center">
+        <div class="grid lg:grid-cols-12 gap-6 sm:gap-10 items-center">
           
-          <div class="lg:col-span-7 space-y-6">
+          <div class="lg:col-span-7 space-y-4">
             <div class="inline-flex items-center gap-2 text-[#f2920b] font-heading font-black text-xs uppercase tracking-wider">
               <i data-lucide="award" class="w-4 h-4"></i>
               <span>{t["badge"]}</span>
