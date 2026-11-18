@@ -590,9 +590,16 @@ def generate_single_page(f, lang="es"):
         "fr": f"{nombre} ({pais_loc}) | Réseau & Franchise de Padel",
         "it": f"{nombre} ({pais_loc}) | Rete & Franchigia di Padel"
     }
+    loc_suffixes = {
+        "es": "Pádel",
+        "en": "Padel Network",
+        "fr": "Padel Réseau",
+        "it": "Padel Rete"
+    }
     localized_title = loc_titles.get(lang, loc_titles["es"])
     if len(escape_txt(localized_title)) > 60:
-        localized_title = f"{nombre[:30]} ({pais_loc}) | Padel"
+        suffix = loc_suffixes.get(lang, "Padel")
+        localized_title = f"{nombre[:26]} ({pais_loc}) | {suffix}"
 
     loc_descs = {
         "es": f"{nombre} ({pais_loc}): {num_clubs}, {num_pistas}, reservas en {software_display}, modelo {modelo_loc} e inversión para clubes de pádel.",

@@ -49,7 +49,7 @@ NAV_PREFIX_MAP = {
     'en': '/en/',
     'fr': '/fr/',
     'it': '/it/',
-    'de': '/de/',
+    'de': '/en/',
 }
 
 # Monedas con código ISO oficial de 3 letras para Schema.org y displays

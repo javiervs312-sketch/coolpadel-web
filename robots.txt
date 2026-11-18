@@ -57,6 +57,15 @@ Allow: /
 User-agent: Bytespider
 Allow: /
 
+User-agent: Google-CloudVertexBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot-User
+Allow: /
+
 # Sitemap
 Sitemap: https://coolpadelstudios.com/sitemap.xml
 
