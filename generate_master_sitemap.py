@@ -250,7 +250,10 @@ def generate_sitemap():
             if not c_item:
                 continue
             s_local = c_item.get("slug_local") or c_item.get("slug")
+            SPAIN_CANONICAL_DEDICATED = {"madrid", "barcelona", "valencia", "malaga"}
             for city in cities:
+                if s_local == "espana" and city['slug'] in SPAIN_CANONICAL_DEDICATED:
+                    continue  # Ya se añade canónicamente en GEO_LOCAL_LANDINGS (/camaras-padel-{city}/)
                 c_path = f"/camaras/{s_local}/{city['slug']}/"
                 if c_path not in seen_city_paths:
                     seen_city_paths.add(c_path)
@@ -264,6 +267,8 @@ def generate_sitemap():
         from new_clusters_articles_data import NEW_ARTICLES_CONTENT
         seen_cluster_arts = set()
         for art_slug in NEW_ARTICLES_CONTENT.keys():
+            if art_slug == "cuanto-cuesta-poner-camaras-pistas-padel":
+                continue  # Su URL canónica es /camaras/articulos/cuanto-cuesta-poner-camaras/
             a_path = f"/camaras/{art_slug}/"
             if a_path not in seen_cluster_arts:
                 seen_cluster_arts.add(a_path)

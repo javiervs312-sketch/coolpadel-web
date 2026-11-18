@@ -50,11 +50,22 @@ def generate_city_page(country_item, city, slug_country_used, canonical_country_
     encoded_wa = urllib.parse.quote(wa_msg)
     wa_url = f"https://api.whatsapp.com/send?phone=34680317486&text={encoded_wa}"
     target_country = canonical_country_slug if canonical_country_slug else slug_country_used
-    canonical_url = f"https://coolpadelstudios.com/camaras/{target_country}/{city_slug}/"
+    # Mapeo canónico a Landings Hub locales dedicadas en España para evitar canibalización
+    SPAIN_DEDICATED_LANDINGS = {
+        "madrid": "https://coolpadelstudios.com/camaras-padel-madrid/",
+        "barcelona": "https://coolpadelstudios.com/camaras-padel-barcelona/",
+        "valencia": "https://coolpadelstudios.com/camaras-padel-valencia/",
+        "malaga": "https://coolpadelstudios.com/camaras-padel-malaga/",
+    }
+    if target_country == "espana" and city_slug in SPAIN_DEDICATED_LANDINGS:
+        canonical_url = SPAIN_DEDICATED_LANDINGS[city_slug]
+        robots_content = "noindex, follow"
+    else:
+        canonical_url = f"https://coolpadelstudios.com/camaras/{target_country}/{city_slug}/"
+        robots_content = "index, follow"
     country_url = f"/camaras/{target_country}/"
 
     redirect_js = ""
-    robots_content = "index, follow"
 
     # ISO y Hreflang Regional de la Ciudad
     iso_code = ISO_MAP.get(target_country, ISO_MAP.get(country_item["slug"], "ES"))

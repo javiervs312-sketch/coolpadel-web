@@ -241,7 +241,7 @@ def run_seo_post_build():
     html_lang_re = re.compile(r'<html[^>]*\blang=["\']([^"\']+)["\']', re.I)
 
     for r, d, files in os.walk(web_dir):
-        d[:] = [x for x in d if x not in (".git", "assets", "__pycache__")]
+        d[:] = [x for x in d if x not in (".git", "assets", "__pycache__", "node_modules", "scratch", "brain", "backup")]
         for f in files:
             if not f.endswith(".html") or f.startswith("google"):
                 continue

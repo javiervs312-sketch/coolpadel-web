@@ -636,7 +636,7 @@ def generate_blog_index():
             La newsletter de moda en la industria del padel
           </span>
           <h1 class="text-3xl sm:text-5xl font-black font-heading text-slate-950 uppercase tracking-tight">
-            Highlights by CoolPadel
+            Blog de Gestión de Clubs de Pádel: Cámaras, Merchandising y Negocio
           </h1>
           <p class="text-slate-600 text-sm sm:text-base font-medium">
             Estudios del sector, guías prácticas de rentabilidad, organización de americanas y tecnología B2B para pistas de pádel

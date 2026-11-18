@@ -101,10 +101,8 @@ LANDINGS = [
     {
 
         "slug": "llaveros-padel-personalizados",
-
-        "title": "Llaveros Pádel Personalizados 3D [Desde 1,50€] | CoolPadel",
-
-        "meta_desc": "Fabricante de llaveros de pádel personalizados en goma 3D con forma de pala y logo oficial. Pedidos desde 100 uds y muestra física real por 15€.",
+        "title": "Llaveros de Pádel Personalizados con Logo · Desde 1,50€ | CoolPadel",
+        "meta_desc": "Fabricante directo de llaveros de pádel personalizados en goma 3D con forma de pala y logo oficial. Pedidos desde 100 uds y muestra física real por 15€.",
 
         "badge": "",
 
@@ -357,8 +355,8 @@ LANDINGS = [
     {
 
                 "slug": "camaras-grabacion-pistas-padel",
-        "title": "Cámaras para Pistas de Pádel: Grabación Partidos, Highlights y Estadísticas con IA",
-        "meta_desc": "Cámaras para pistas de pádel: 180 € hardware en propiedad, grabación automática por 45 €/mes y estadísticas con IA por 136 €/mes con análisis de juego. Solicita demo.",
+        "title": "Grabación Automática de Partidos en Pistas de Pádel sin Obras | Save My Play",
+        "meta_desc": "Grabación de partidos en pistas de pádel sin obras ni cables: 180 € hardware en propiedad, cuota de 45 €/mes, repetición instantánea por QR y retransmisión.",
         "badge": "CÁMARA OFICIAL USA PADEL Y USTA · +1500 PISTAS",
         "breadcrumb_leaf": "Grabación y Estadísticas con IA",
         "h1": "Cámaras para Pistas de Pádel: Grabación Partidos, Highlights y Estadísticas con IA",
@@ -1687,7 +1685,7 @@ def render_landing(landing, lang="es"):
             {"Paso a Paso" if lang=="es" else "Step by Step" if lang=="en" else "Étape par Étape" if lang=="fr" else "Passo dopo Passo"}
           </span>
           <h2 class="font-heading font-black text-2xl sm:text-4xl uppercase tracking-tight">
-            {"¿Cómo pedir para tu club?" if lang=="es" else "How to order for your club?"}
+            {"¿Cómo pedir para tu club?" if lang=="es" else "Comment commander pour votre club ?" if lang=="fr" else "Come ordinare per il tuo circolo?" if lang=="it" else "How to order for your club?"}
           </h2>
         </div>
 

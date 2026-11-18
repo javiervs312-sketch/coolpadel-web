@@ -46,7 +46,7 @@ AEO_FAQS_AND_DESCS = {
             "answer": "La forma más rápida de detectarlo es mirar las líneas de la pista en el vídeo: si se ven curvas o con distorsión ojo de pez, son cámaras de videovigilancia baratas adaptadas. Las cámaras deportivas de pádel tienen óptica rectilínea de alta definición que muestra líneas rectas y nítidas de pared a pared."
         },
         "cuanto-cuesta-poner-camaras": {
-            "seo_title": "¿Cuánto Cuesta Poner Cámaras en un Club de Pádel? Precios | CoolPadel",
+            "seo_title": "Precios Cámaras Pádel: 180€ Hardware y Cuotas por Pista | Save My Play",
             "desc": "¿Cuánto cuesta poner cámaras en tu club de pádel? Hardware en propiedad por 180 € y cuota de software desde 27 a 45 €/mes por pista sin permanencia.",
             "answer": "En Save My Play el coste es de 180 € de pago único por pista por la cámara en propiedad, y una cuota de software de 45 € al mes por pista (rebajada a 41 €, 36 € o 27 € según el número de pistas), sin obras y con cancelación mes a mes sin permanencia."
         },
