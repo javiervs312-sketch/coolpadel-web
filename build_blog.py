@@ -3293,6 +3293,25 @@ def generate_all():
     <p>
       Cada vídeo compartido lleva integrada la marca de agua del club. Un club con 4 pistas genera de media más de <strong>180 vídeos al mes</strong> circulando por redes sociales, alcanzando a miles de potenciales nuevos abonados de la misma localidad sin gastar un solo euro en agencias de publicidad.
     </p>
+
+    <div class="bg-slate-50 border border-slate-200 rounded-2xl p-5 my-6 text-xs text-slate-700">
+      <span class="text-slate-900 font-bold block mb-2 text-sm">Instalación y presupuesto de cámaras Save My Play en tu ciudad:</span>
+      <p class="mb-3 text-slate-600">Consulta los precios oficiales, plazos de entrega de 4 semanas y condiciones para clubes en tu ubicación:</p>
+      <div class="flex flex-wrap gap-2 text-[11px]">
+        <a href="/camaras-padel-madrid/" class="px-2.5 py-1 rounded-md bg-white border border-slate-200 hover:border-[#f2920b] hover:bg-[#f2920b] hover:text-slate-950 text-slate-800 transition font-medium">Madrid</a>
+        <a href="/camaras-padel-barcelona/" class="px-2.5 py-1 rounded-md bg-white border border-slate-200 hover:border-[#f2920b] hover:bg-[#f2920b] hover:text-slate-950 text-slate-800 transition font-medium">Barcelona</a>
+        <a href="/camaras-padel-valencia/" class="px-2.5 py-1 rounded-md bg-white border border-slate-200 hover:border-[#f2920b] hover:bg-[#f2920b] hover:text-slate-950 text-slate-800 transition font-medium">Valencia</a>
+        <a href="/camaras-padel-malaga/" class="px-2.5 py-1 rounded-md bg-white border border-slate-200 hover:border-[#f2920b] hover:bg-[#f2920b] hover:text-slate-950 text-slate-800 transition font-medium">Málaga</a>
+        <a href="/camaras/espana/sevilla/" class="px-2.5 py-1 rounded-md bg-white border border-slate-200 hover:border-[#f2920b] hover:bg-[#f2920b] hover:text-slate-950 text-slate-800 transition font-medium">Sevilla</a>
+        <a href="/camaras/italia/milano/" class="px-2.5 py-1 rounded-md bg-white border border-slate-200 hover:border-[#f2920b] hover:bg-[#f2920b] hover:text-slate-950 text-slate-800 transition font-medium">Milano</a>
+        <a href="/camaras/italia/roma/" class="px-2.5 py-1 rounded-md bg-white border border-slate-200 hover:border-[#f2920b] hover:bg-[#f2920b] hover:text-slate-950 text-slate-800 transition font-medium">Roma</a>
+        <a href="/camaras/france/paris/" class="px-2.5 py-1 rounded-md bg-white border border-slate-200 hover:border-[#f2920b] hover:bg-[#f2920b] hover:text-slate-950 text-slate-800 transition font-medium">Paris</a>
+        <a href="/camaras/sverige/stockholm/" class="px-2.5 py-1 rounded-md bg-white border border-slate-200 hover:border-[#f2920b] hover:bg-[#f2920b] hover:text-slate-950 text-slate-800 transition font-medium">Stockholm</a>
+        <a href="/camaras/united-kingdom/london/" class="px-2.5 py-1 rounded-md bg-white border border-slate-200 hover:border-[#f2920b] hover:bg-[#f2920b] hover:text-slate-950 text-slate-800 transition font-medium">London</a>
+        <a href="/camaras/united-states/miami/" class="px-2.5 py-1 rounded-md bg-white border border-slate-200 hover:border-[#f2920b] hover:bg-[#f2920b] hover:text-slate-950 text-slate-800 transition font-medium">Miami</a>
+        <a href="/camaras/argentina/buenos-aires/" class="px-2.5 py-1 rounded-md bg-white border border-slate-200 hover:border-[#f2920b] hover:bg-[#f2920b] hover:text-slate-950 text-slate-800 transition font-medium">Buenos Aires</a>
+      </div>
+    </div>
     """
     faqs_camaras_rentabilidad = [
         {
@@ -3709,11 +3728,28 @@ def generate_all():
           Los jugadores eligen tu club antes que el de la nave contigua porque en tu pista se llevan su mejor punto grabado al móvil.
         </div>
       </div>
-      <div class="pt-4 border-t border-slate-700">
+      <div class="pt-4 border-t border-slate-700 flex flex-wrap items-center gap-3">
         <a href="../../herramientas/calculadora-roi-camaras-padel/" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#f2920b] hover:bg-white text-slate-950 font-heading font-black text-xs uppercase tracking-wider transition">
           <i data-lucide="calculator" class="w-4 h-4"></i>
           <span>Calcular Rentabilidad Exacta de mi Club en Vivo</span>
         </a>
+      </div>
+      <div class="pt-4 border-t border-slate-800 text-xs text-slate-300">
+        <span class="text-white font-bold block mb-2">Instalación y presupuesto de cámaras Save My Play disponible para clubes en:</span>
+        <div class="flex flex-wrap gap-2 text-[11px]">
+          <a href="/camaras-padel-madrid/" class="px-2.5 py-1 rounded-md bg-slate-800 hover:bg-[#f2920b] hover:text-slate-950 text-slate-200 transition">Madrid</a>
+          <a href="/camaras-padel-barcelona/" class="px-2.5 py-1 rounded-md bg-slate-800 hover:bg-[#f2920b] hover:text-slate-950 text-slate-200 transition">Barcelona</a>
+          <a href="/camaras-padel-valencia/" class="px-2.5 py-1 rounded-md bg-slate-800 hover:bg-[#f2920b] hover:text-slate-950 text-slate-200 transition">Valencia</a>
+          <a href="/camaras-padel-malaga/" class="px-2.5 py-1 rounded-md bg-slate-800 hover:bg-[#f2920b] hover:text-slate-950 text-slate-200 transition">Málaga</a>
+          <a href="/camaras/espana/sevilla/" class="px-2.5 py-1 rounded-md bg-slate-800 hover:bg-[#f2920b] hover:text-slate-950 text-slate-200 transition">Sevilla</a>
+          <a href="/camaras/italia/milano/" class="px-2.5 py-1 rounded-md bg-slate-800 hover:bg-[#f2920b] hover:text-slate-950 text-slate-200 transition">Milán</a>
+          <a href="/camaras/italia/roma/" class="px-2.5 py-1 rounded-md bg-slate-800 hover:bg-[#f2920b] hover:text-slate-950 text-slate-200 transition">Roma</a>
+          <a href="/camaras/france/paris/" class="px-2.5 py-1 rounded-md bg-slate-800 hover:bg-[#f2920b] hover:text-slate-950 text-slate-200 transition">París</a>
+          <a href="/camaras/sverige/stockholm/" class="px-2.5 py-1 rounded-md bg-slate-800 hover:bg-[#f2920b] hover:text-slate-950 text-slate-200 transition">Estocolmo</a>
+          <a href="/camaras/united-kingdom/london/" class="px-2.5 py-1 rounded-md bg-slate-800 hover:bg-[#f2920b] hover:text-slate-950 text-slate-200 transition">Londres</a>
+          <a href="/camaras/united-states/miami/" class="px-2.5 py-1 rounded-md bg-slate-800 hover:bg-[#f2920b] hover:text-slate-950 text-slate-200 transition">Miami</a>
+          <a href="/camaras/argentina/buenos-aires/" class="px-2.5 py-1 rounded-md bg-slate-800 hover:bg-[#f2920b] hover:text-slate-950 text-slate-200 transition">Buenos Aires</a>
+        </div>
       </div>
     </div>
     """
