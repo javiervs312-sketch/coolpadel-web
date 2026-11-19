@@ -873,9 +873,19 @@ def build_all():
 </main>'''
 
         hub_file = base_dir / "index.html"
-        hub_meta_desc = HUB_SEO_META.get(lang, {}).get("desc") or (hub_eyebrow + ". " + hub_title)
-        hub_file.write_text(render_page(hub_title, hub_content, lang, prefix="../../" if lang != "es" else "../", slug=None, meta_desc=hub_meta_desc), encoding="utf-8")
-        print(f"  [OK] Hub generado: {hub_file}")
+        # PROTECCIÓN: si el hub tiene <!-- MANUAL_EDIT --> lo saltamos
+        if hub_file.exists():
+            _hub_first = hub_file.read_text(encoding="utf-8", errors="ignore")[:500]
+            if "<!-- MANUAL_EDIT -->" in _hub_first:
+                print(f"  [SKIP] Hub {lang.upper()} - edición manual protegida, no se sobreescribe.")
+            else:
+                hub_meta_desc = HUB_SEO_META.get(lang, {}).get("desc") or (hub_eyebrow + ". " + hub_title)
+                hub_file.write_text(render_page(hub_title, hub_content, lang, prefix="../../" if lang != "es" else "../", slug=None, meta_desc=hub_meta_desc), encoding="utf-8")
+                print(f"  [OK] Hub generado: {hub_file}")
+        else:
+            hub_meta_desc = HUB_SEO_META.get(lang, {}).get("desc") or (hub_eyebrow + ". " + hub_title)
+            hub_file.write_text(render_page(hub_title, hub_content, lang, prefix="../../" if lang != "es" else "../", slug=None, meta_desc=hub_meta_desc), encoding="utf-8")
+            print(f"  [OK] Hub generado: {hub_file}")
 
         # 2. Construir 20 Artículos
         for i, slug in enumerate(ARTICLE_ORDER):
@@ -1101,6 +1111,14 @@ def build_all():
             slug_dir = art_dir / slug
             slug_dir.mkdir(parents=True, exist_ok=True)
             art_file = slug_dir / "index.html"
+
+            # PROTECCIÓN: si el HTML tiene <!-- MANUAL_EDIT --> lo saltamos
+            if art_file.exists():
+                first_bytes = art_file.read_text(encoding="utf-8", errors="ignore")[:500]
+                if "<!-- MANUAL_EDIT -->" in first_bytes:
+                    print(f"  [SKIP] {slug} ({lang.upper()}) - edición manual protegida, no se sobreescribe.")
+                    continue
+
             all_paras = []
             for b in blocks:
                 if isinstance(b, list):
