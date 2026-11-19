@@ -16,6 +16,7 @@ from paises_data_50 import COUNTRIES_50
 from country_i18n_master import ALL_LANGS_MASTER
 from ciudades_data_250 import CITIES_50
 from country_i18n_extras import ISO_MAP, COURTS_TERM, NAV_PREFIX_MAP, FOOTER_I18N, CITY_TEMPLATES
+from ciudades_faqs_i18n import EXTRA_FAQS_22
 
 OUTPUT_ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'camaras')
 
@@ -98,11 +99,21 @@ def generate_city_page(country_item, city, slug_country_used, canonical_country_
             schema_curr = country_item.get("curr_code", "EUR")
 
     faq2_a_fmt = t["faq2_a"].format(hw=hw, rec=rec, ai=ai)
+    
+    # FAQs adicionales de logística y propiedad con cero alucinaciones (4 semanas de entrega oficial)
+    lang_extra_faq = EXTRA_FAQS_22.get(lang, EXTRA_FAQS_22["en"])
+    faq5_q_fmt = lang_extra_faq["faq5_q"].format(city=city_name)
+    faq5_a_fmt = lang_extra_faq["faq5_a"].format(city=city_name, hw=hw, rec=rec, ai=ai)
+    faq6_q_fmt = lang_extra_faq["faq6_q"].format(city=city_name)
+    faq6_a_fmt = lang_extra_faq["faq6_a"].format(city=city_name, hw=hw, rec=rec, ai=ai)
+
     faq_pairs = [
         (t["faq1_q"], t["faq1_a"].format(hw=hw, rec=rec, ai=ai)),
         (t["faq2_q"], faq2_a_fmt),
         (t["faq3_q"], t["faq3_a"].format(hw=hw, rec=rec, ai=ai)),
         (t["faq4_q"], t["faq4_a"].format(hw=hw, rec=rec, ai=ai)),
+        (faq5_q_fmt, faq5_a_fmt),
+        (faq6_q_fmt, faq6_a_fmt),
     ]
     schema_obj = {
         "@context": "https://schema.org",
@@ -610,6 +621,22 @@ def generate_city_page(country_item, city, slug_country_used, canonical_country_
               <span class="w-6 h-6 rounded-full bg-slate-100 text-slate-700 group-open:rotate-180 group-open:bg-[#f2920b] group-open:text-slate-950 flex items-center justify-center transition-transform text-xs shrink-0 ml-3">▼</span>
             </summary>
             <p class="mt-3 text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">{t["faq4_a"]}</p>
+          </details>
+
+          <details class="group bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/90 shadow-2xs transition hover:border-[#f2920b]">
+            <summary class="flex items-center justify-between font-heading font-black text-sm sm:text-base text-slate-950 cursor-pointer list-none select-none">
+              <span>{faq5_q_fmt}</span>
+              <span class="w-6 h-6 rounded-full bg-slate-100 text-slate-700 group-open:rotate-180 group-open:bg-[#f2920b] group-open:text-slate-950 flex items-center justify-center transition-transform text-xs shrink-0 ml-3">▼</span>
+            </summary>
+            <p class="mt-3 text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">{faq5_a_fmt}</p>
+          </details>
+
+          <details class="group bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/90 shadow-2xs transition hover:border-[#f2920b]">
+            <summary class="flex items-center justify-between font-heading font-black text-sm sm:text-base text-slate-950 cursor-pointer list-none select-none">
+              <span>{faq6_q_fmt}</span>
+              <span class="w-6 h-6 rounded-full bg-slate-100 text-slate-700 group-open:rotate-180 group-open:bg-[#f2920b] group-open:text-slate-950 flex items-center justify-center transition-transform text-xs shrink-0 ml-3">▼</span>
+            </summary>
+            <p class="mt-3 text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">{faq6_a_fmt}</p>
           </details>
         </div>
       </div>
