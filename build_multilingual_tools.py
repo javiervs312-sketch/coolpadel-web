@@ -219,6 +219,45 @@ def build_roi_page(lang):
     pista_sing = {"es": "pista", "en": "court", "fr": "piste", "it": "campo"}[lang]
     mes_word = {"es": "mes", "en": "mo", "fr": "mois", "it": "mese"}[lang]
 
+    # Enlaces a Ciudades Principales
+    cities_section_title = {
+        "es": "Instalación y Precios de Cámaras por Ciudad",
+        "en": "Camera Installation & Pricing by City",
+        "fr": "Installation et Prix des Caméras par Ville",
+        "it": "Installazione e Prezzi Telecamere per Città"
+    }[lang]
+    cities_section_sub = {
+        "es": "Consulta condiciones de instalación, plazo de entrega (4 semanas) y presupuesto oficial para clubs de pádel en tu ciudad:",
+        "en": "Check installation terms, 4-week delivery time, and official quotes for padel clubs in your city:",
+        "fr": "Consultez les conditions d'installation, délai de livraison (4 semaines) et devis officiel pour clubs de padel dans votre ville :",
+        "it": "Consulta condizioni di installazione, tempi di consegna (4 settimane) e preventivo ufficiale per i club di padel della tua città:"
+    }[lang]
+
+    top_cities = [
+        {"city": "Madrid", "country": "España", "url": "/camaras/espana/madrid/"},
+        {"city": "Barcelona", "country": "España", "url": "/camaras/espana/barcelona/"},
+        {"city": "Valencia", "country": "España", "url": "/camaras/espana/valencia/"},
+        {"city": "Sevilla", "country": "España", "url": "/camaras/espana/sevilla/"},
+        {"city": "Málaga", "country": "España", "url": "/camaras/espana/malaga/"},
+        {"city": "Milano", "country": "Italia", "url": "/camaras/italia/milano/"},
+        {"city": "Roma", "country": "Italia", "url": "/camaras/italia/roma/"},
+        {"city": "Paris", "country": "Francia", "url": "/camaras/france/paris/"},
+        {"city": "London", "country": "Reino Unido", "url": "/camaras/united-kingdom/london/"},
+        {"city": "Miami", "country": "Estados Unidos", "url": "/camaras/united-states/miami/"},
+        {"city": "Houston", "country": "Estados Unidos", "url": "/camaras/united-states/houston/"},
+        {"city": "Torino", "country": "Italia", "url": "/camaras/italia/torino/"},
+        {"city": "Lyon", "country": "Francia", "url": "/camaras/france/lyon/"},
+        {"city": "Manchester", "country": "Reino Unido", "url": "/camaras/united-kingdom/manchester/"},
+        {"city": "Marseille", "country": "Francia", "url": "/camaras/france/marseille/"},
+    ]
+
+    city_chips_html = "\n".join([
+        f'''          <a href="{c['url']}" class="flex items-center justify-between p-3.5 rounded-xl border border-slate-200/90 bg-white hover:border-[#f2920b] hover:bg-amber-50/40 text-slate-800 transition duration-150 group shadow-xs">
+            <span class="text-xs font-bold text-slate-900 group-hover:text-amber-700">{c['city']}</span>
+            <span class="text-[10px] text-slate-500 font-semibold">{c['country']} &rarr;</span>
+          </a>''' for c in top_cities
+    ])
+
     return f"""<!DOCTYPE html>
 <html lang="{lang}" class="scroll-smooth">
 <head>
@@ -486,6 +525,17 @@ def build_roi_page(lang):
         <h2 class="text-2xl font-black font-heading text-slate-950">{d['faq_title']}</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
 {faqs_cards_joined}
+        </div>
+      </section>
+
+      <!-- LOCAL CITIES SECTION -->
+      <section class="mt-16 border-t border-slate-200 pt-12 space-y-5">
+        <div class="space-y-1">
+          <h2 class="text-2xl font-black font-heading text-slate-950">{cities_section_title}</h2>
+          <p class="text-xs sm:text-sm text-slate-600 font-medium">{cities_section_sub}</p>
+        </div>
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3 pt-2">
+{city_chips_html}
         </div>
       </section>
 

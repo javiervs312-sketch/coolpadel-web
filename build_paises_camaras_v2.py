@@ -28,6 +28,7 @@ from ciudades_data_250 import CITIES_50
 from country_i18n_native_all import NATIVE_TRANSLATIONS_21
 from country_i18n_native_part2 import REMAINING_13_LANGS
 from country_i18n_extras import ISO_MAP, COURTS_TERM, NAV_PREFIX_MAP, FOOTER_I18N
+from paises_titles_h1_i18n import COUNTRY_TITLES_H1_22
 
 ALL_LANGS_MASTER = dict(NATIVE_TRANSLATIONS_21)
 ALL_LANGS_MASTER.update(REMAINING_13_LANGS)
@@ -47,9 +48,12 @@ def generate_country_page(item, slug_to_use, canonical_slug=None):
     rec = item["rec"]
     ai = item["ai"]
 
-    title = t["title"].format(country=country_display, hw=hw, rec=rec, ai=ai)
+    # Título y H1 optimizados B2B aprobados por Javier
+    country_seo = COUNTRY_TITLES_H1_22.get(lang, COUNTRY_TITLES_H1_22["en"])
+    title = country_seo["title"].format(country=country_display)
+    h1 = country_seo["h1"].format(country=country_display)
+
     meta_desc = t["meta_desc"].format(country=country_display, hw=hw, rec=rec, ai=ai)
-    h1 = t["h1"]
     sub = t["sub"].format(country=country_display, hw=hw, rec=rec, ai=ai)
     
     wa_msg = t["wa_msg"].format(country=country_display)

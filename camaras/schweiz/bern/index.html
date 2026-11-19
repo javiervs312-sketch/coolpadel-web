@@ -301,7 +301,7 @@
 
             <!-- H1 FORMATTED IN 3 LINES -->
             <h1 class="font-heading font-black text-2xl sm:text-3xl lg:text-[2rem] text-slate-950 uppercase tracking-tight leading-[1.15]">
-              Padel-Kameras in Bern:<br class="hidden sm:inline"> Spielaufnahme, Highlights<br class="hidden sm:inline"> & KI-Analysen
+              Padel-Kameras für Clubs in Bern:<br class="hidden sm:inline"> Spielaufnahme, Highlights<br class="hidden sm:inline"> & KI-Analysen
             </h1>
 
             <p class="text-base sm:text-lg text-slate-600 leading-relaxed font-normal">
@@ -748,91 +748,4 @@
 
     // Mantener el MISMO boton en la misma posicion de la pantalla al hacer scroll
     (function() {
-      var heroBtn = document.getElementById('hero-wa-btn');
-      var placeholder = document.getElementById('hero-btn-placeholder');
-      if (!heroBtn || !placeholder) return;
-
-      var initialLeft = null;
-      var initialTop = null;
-      var initialWidth = null;
-      var initialHeight = null;
-      var isFixed = false;
-      var ticking = false;
-
-      function updateInitialMetrics() {
-        if (!isFixed) {
-          var rect = heroBtn.getBoundingClientRect();
-          initialLeft = rect.left;
-          initialTop = rect.top;
-          initialWidth = rect.width;
-          initialHeight = rect.height;
-        }
-      }
-
-      window.addEventListener('resize', function() {
-        if (isFixed) {
-          heroBtn.style.position = '';
-          heroBtn.style.top = '';
-          heroBtn.style.left = '';
-          heroBtn.style.width = '';
-          heroBtn.style.maxWidth = '';
-          placeholder.style.display = 'none';
-          isFixed = false;
-        }
-        updateInitialMetrics();
-        onScroll();
-      });
-
-      function onScroll() {
-        if (initialTop === null) {
-          updateInitialMetrics();
-        }
-
-        var anchor = isFixed ? placeholder : heroBtn;
-        var anchorRect = anchor.getBoundingClientRect();
-
-        if (anchorRect.top <= initialTop) {
-          if (!isFixed) {
-            isFixed = true;
-            placeholder.style.width = initialWidth + 'px';
-            placeholder.style.height = initialHeight + 'px';
-            placeholder.style.display = 'block';
-
-            heroBtn.style.position = 'fixed';
-            heroBtn.style.top = initialTop + 'px';
-            heroBtn.style.left = initialLeft + 'px';
-            heroBtn.style.width = initialWidth + 'px';
-            heroBtn.style.margin = '0';
-            heroBtn.classList.add('shadow-xl');
-          }
-        } else {
-          if (isFixed) {
-            isFixed = false;
-            heroBtn.style.position = '';
-            heroBtn.style.top = '';
-            heroBtn.style.left = '';
-            heroBtn.style.width = '';
-            heroBtn.style.margin = '';
-            heroBtn.classList.remove('shadow-xl');
-            placeholder.style.display = 'none';
-          }
-        }
-        ticking = false;
-      }
-
-      window.addEventListener('scroll', function() {
-        if (!ticking) {
-          window.requestAnimationFrame(onScroll);
-          ticking = true;
-        }
-      }, { passive: true });
-
-      setTimeout(function() {
-        updateInitialMetrics();
-        onScroll();
-      }, 100);
-    })();
-  </script>
-  <script src="/assets/js/cp-analytics.js?v=20261114b" defer></script>
-</body>
-</html>
+      var h

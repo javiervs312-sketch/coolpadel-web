@@ -736,63 +736,63 @@ CITY_TEMPLATES = {
     'es': {
         'title': 'Cámaras para Pistas de Pádel en {city} ({country}) | Instalación y Precios | Save My Play',
         'meta_desc': 'Cámaras Save My Play en {city} ({country}): {hw} hardware en propiedad, grabación automática por {rec} y estadísticas con IA por {ai}. Solicita demo en directo.',
-        'h1': 'Cámaras para Pistas de Pádel en {city}:<br class="hidden sm:inline"> Grabación, Highlights<br class="hidden sm:inline"> y Estadísticas con IA',
+        'h1': 'Cámaras para clubs de Pádel en {city}:<br class="hidden sm:inline"> Grabación, Highlights<br class="hidden sm:inline"> y Estadísticas con IA',
         'sub': 'La cámara oficial de USA Padel y USTA, disponible para clubes en {city} y área metropolitana. Inversión de {hw} en propiedad, planes desde {rec}, montaje en 5 minutos sin obras y sin permanencias.',
         'wa_msg': 'Hola Javier, dirijo un club de pádel en {city} ({country}) y quiero ver una demo de las cámaras Save My Play.'
     },
     'en': {
         'title': 'Padel Court Cameras in {city} ({country}) | Installation & Pricing | Save My Play',
         'meta_desc': 'Save My Play cameras in {city} ({country}): {hw} hardware, automatic recording for {rec} and AI analytics for {ai}. Book a live demo.',
-        'h1': 'Padel Court Cameras in {city}:<br class="hidden sm:inline"> Match Recording, Highlights<br class="hidden sm:inline"> & AI Analytics',
+        'h1': 'Padel Club Cameras in {city}:<br class="hidden sm:inline"> Match Recording, Highlights<br class="hidden sm:inline"> & AI Analytics',
         'sub': 'The official camera of USA Padel & USTA, available for padel clubs across {city}. {hw} hardware ownership, subscriptions from {rec}, 5-min installation with no civil works and no lock-in.',
         'wa_msg': 'Hi Javier, I run a padel club in {city} ({country}) and would like to see a demo of Save My Play cameras.'
     },
     'it': {
         'title': 'Telecamere per Campi da Padel a {city} ({country}) | Installazione e Prezzi | Save My Play',
         'meta_desc': 'Telecamere Save My Play a {city} ({country}): {hw} hardware proprio, registrazione per {rec} e statistiche AI per {ai}. Richiedi una demo.',
-        'h1': 'Telecamere per Campi da Padel a {city}:<br class="hidden sm:inline"> Registrazione Partite, Highlights<br class="hidden sm:inline"> e Statistiche IA',
+        'h1': 'Telecamere per Club di Padel a {city}:<br class="hidden sm:inline"> Registrazione Partite, Highlights<br class="hidden sm:inline"> e Statistiche IA',
         'sub': 'La telecamera ufficiale di USA Padel e USTA per i circoli di {city}. Investimento di {hw} in proprietà, piani da {rec}, montaggio in 5 minuti senza opere e senza vincoli.',
         'wa_msg': 'Ciao Javier, gestisco un circolo padel a {city} ({country}) e vorrei vedere una demo di Save My Play.'
     },
     'fr': {
         'title': 'Caméras pour Pistes de Padel à {city} ({country}) | Installation et Tarifs | Save My Play',
         'meta_desc': 'Caméras Save My Play à {city} ({country}) : {hw} matériel en propriété, enregistrement pour {rec} et IA pour {ai}. Réservez une démo.',
-        'h1': 'Caméras pour Pistes de Padel à {city} :<br class="hidden sm:inline"> Enregistrement Matchs, Highlights<br class="hidden sm:inline"> et Statistiques IA',
+        'h1': 'Caméras pour Clubs de Padel à {city} :<br class="hidden sm:inline"> Enregistrement Matchs, Highlights<br class="hidden sm:inline"> et Statistiques IA',
         'sub': 'La caméra officielle d\'USA Padel et de l\'USTA pour les clubs de {city}. Matériel en pleine propriété {hw}, abonnements dès {rec}, installation en 5 minutes sans travaux.',
         'wa_msg': 'Bonjour Javier, je gère un club de padel à {city} ({country}) et j\'aimerais voir une démo de Save My Play.'
     },
     'de': {
         'title': 'Kameras für Padel-Plätze in {city} ({country}) | Installation & Preise | Save My Play',
         'meta_desc': 'Save My Play Kameras in {city} ({country}): {hw} Hardware-Eigentum, Aufnahme für {rec} und KI-Statistiken für {ai}. Demo buchen.',
-        'h1': 'Padel-Kameras in {city}:<br class="hidden sm:inline"> Spielaufnahme, Highlights<br class="hidden sm:inline"> & KI-Analysen',
+        'h1': 'Padel-Kameras für Clubs in {city}:<br class="hidden sm:inline"> Spielaufnahme, Highlights<br class="hidden sm:inline"> & KI-Analysen',
         'sub': 'Die offizielle Kamera von USA Padel und USTA für Clubs in {city}. Hardware-Eigentum für {hw}, Monatspläne ab {rec}, 5-Minuten-Montage ohne Bauarbeiten.',
         'wa_msg': 'Hallo Javier, ich leite einen Padel-Club in {city} ({country}) und möchte eine Demo der Save My Play Kameras sehen.'
     },
     'sv': {
         'title': 'Kameror för padelbanor i {city} ({country}) | Installation & Priser | Save My Play',
         'meta_desc': 'Save My Play kameror i {city} ({country}): {hw} hårdvara i ägo, automatisk inspelning för {rec} och AI-statistik för {ai}. Boka demo.',
-        'h1': 'Kameror för padelbanor i {city}:<br class="hidden sm:inline"> Matchinspelning, Höjdpunkter<br class="hidden sm:inline"> & AI-Statistik',
+        'h1': 'Padelkameror för klubbar i {city}:<br class="hidden sm:inline"> Matchinspelning, Höjdpunkter<br class="hidden sm:inline"> & AI-Statistik',
         'sub': 'Den officiella kameran för USA Padel och USTA för klubbar i {city}. {hw} hårdvara i ägo, månadsplaner från {rec}, 5 minuters installation utan ingrepp.',
         'wa_msg': 'Hej Javier, jag driver en padelklubb i {city} ({country}) och vill se en demo av Save My Play.'
     },
     'pt': {
         'title': 'Câmaras para Campos de Padel em {city} ({country}) | Instalação e Preços | Save My Play',
         'meta_desc': 'Câmaras Save My Play em {city} ({country}): {hw} hardware em propriedade, gravação por {rec} e estatísticas IA por {ai}. Peça uma demonstração.',
-        'h1': 'Câmaras para Campos de Padel em {city}:<br class="hidden sm:inline"> Gravação de Jogos, Highlights<br class="hidden sm:inline"> e Estatísticas com IA',
+        'h1': 'Câmaras para Clubes de Padel em {city}:<br class="hidden sm:inline"> Gravação de Jogos, Highlights<br class="hidden sm:inline"> e Estatísticas com IA',
         'sub': 'A câmara oficial da USA Padel e USTA para clubes em {city}. {hw} hardware próprio, planos a partir de {rec}, montagem em 5 minutos sem obras nem fidelização.',
         'wa_msg': 'Olá Javier, dirijo um clube de padel em {city} ({country}) e gostaria de ver uma demonstração de Save My Play.'
     },
     'pt-br': {
         'title': 'Câmeras para Quadras de Padel em {city} ({country}) | Instalação e Preços | Save My Play',
         'meta_desc': 'Câmeras Save My Play em {city} ({country}): {hw} hardware próprio, gravação automática por {rec} e estatísticas com IA por {ai}. Agende uma demonstração ao vivo.',
-        'h1': 'Câmeras para Quadras de Padel em {city}:<br class="hidden sm:inline"> Gravação de Partidas, Highlights<br class="hidden sm:inline"> e Estatísticas com IA',
+        'h1': 'Câmeras para Clubes de Padel em {city}:<br class="hidden sm:inline"> Gravação de Partidas, Highlights<br class="hidden sm:inline"> e Estatísticas com IA',
         'sub': 'A câmera oficial da USA Padel e USTA, disponível para clubes em {city}. {hw} hardware em propriedade, planos a partir de {rec}, instalação em 5 minutos sem reformas.',
         'wa_msg': 'Olá Javier, administro um clube de padel em {city} ({country}) e quero ver uma demonstração das câmeras Save My Play.'
     },
     'nl': {
         'title': 'Padelbaan Camera\'s in {city} ({country}) | Installatie & Prijzen | Save My Play',
         'meta_desc': 'Save My Play camera\'s in {city} ({country}): {hw} hardware in eigendom, automatische opname voor {rec} en AI-statistieken voor {ai}. Vraag een demo aan.',
-        'h1': 'Padelbaan Camera\'s in {city}:<br class="hidden sm:inline"> Wedstrijdopname, Highlights<br class="hidden sm:inline"> & AI-Statistieken',
+        'h1': 'Padelcamera\'s voor Clubs in {city}:<br class="hidden sm:inline"> Wedstrijdopname, Highlights<br class="hidden sm:inline"> & AI-Statistieken',
         'sub': 'De officiële camera van USA Padel en USTA voor clubs in {city}. {hw} hardware-investering, maandplannen vanaf {rec}, installatie in 5 minuten zonder werkzaamheden.',
         'wa_msg': 'Hallo Javier, ik beheer een padelclub in {city} ({country}) en wil graag een demo van Save My Play zien.'
     },
