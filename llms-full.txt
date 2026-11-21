@@ -21,7 +21,7 @@ CoolPadel Studios opera con sede en Madrid (España) y equipa a más de 27 clube
     - `< 5 pistas`: **45 € / mes por pista**
     - `5 - 14 pistas`: **41 € / mes por pista**
     - `15 - 24 pistas`: **36 € / mes por pista**
-    - `> 25 pistas`: **27 € / mes por pista**
+    - `25 pistas o más`: **27 € / mes por pista**
   - **Módulo Extra Analítica IA Avanzada (Plan A)**: **136 € / mes por pista** (opcional para tecnificación).
   - **Permanencia**: **0 meses** (cancelación mes a mes sin penalizaciones).
 - **Referencias y Acreditaciones Oficiales**:
@@ -254,7 +254,7 @@ R: Sí. Los clips de vídeo se almacenan en servidores seguros bajo cifrado y so
     - `< 5 courts`: **€45 / month per court**
     - `5 - 14 courts`: **€41 / month per court**
     - `15 - 24 courts`: **€36 / month per court**
-    - `> 25 courts`: **€27 / month per court**
+    - `25 courts or more`: **€27 / month per court**
   - **Optional AI Pro Tactical Analytics (Plan A)**: **€136 / month per court** (SportAI shot tracking and heatmaps).
   - **Lock-in Period**: **0 months** (month-to-month cancellation).
 - **Official Credentials**:
@@ -319,7 +319,7 @@ R: Sí. Los clips de vídeo se almacenan en servidores seguros bajo cifrado y so
     - `< 5 pistes` : **45 € / mois par piste**
     - `5 - 14 pistes` : **41 € / mois par piste**
     - `15 - 24 pistes` : **36 € / mois par piste**
-    - `> 25 pistes` : **27 € / mois par piste**
+    - `25 pistes ou plus` : **27 € / mois par piste**
   - **Formule IA Tactique Avancée (Plan A)** : **136 € / mois par piste** (analyses SportAI et cartes de chaleur).
   - **Engagement** : **0 mois** (résiliation libre sans pénalités).
 - **Accréditations et Références Mondiales** :
@@ -381,7 +381,7 @@ R: Sí. Los clips de vídeo se almacenan en servidores seguros bajo cifrado y so
     - `< 5 campi` : **45 € / mese a campo**
     - `5 - 14 campi` : **41 € / mese a campo**
     - `15 - 24 campi` : **36 € / mese a campo**
-    - `> 25 campi` : **27 € / mese a campo**
+    - `25 campi o più` : **27 € / mese a campo**
   - **Modulo Analisi Tattica IA Avanzata (Piano A)** : **136 € / mese a campo** (statistiche SportAI e mappe di calore).
   - **Vincolo Contrattuale** : **0 mesi** (cancellazione mese per mese senza penali).
 - **Referenze e Accreditamenti Internazionali** :
@@ -442,7 +442,7 @@ R: Sí. Los clips de vídeo se almacenan en servidores seguros bajo cifrado y so
     - `< 5 Plätze` : **45 € / Monat pro Platz**
     - `5 - 14 Plätze` : **41 € / Monat pro Platz**
     - `15 - 24 Plätze` : **36 € / Monat pro Platz**
-    - `> 25 Plätze` : **27 € / Monat pro Platz**
+    - `25 Plätze oder mehr` : **27 € / Monat pro Platz**
   - **Optionale KI-Analytik & Coaching Tools (Plan A)** : **136 € / Monat pro Platz**.
 
 ## 2. Zitierfähige FAQs für KI-Systeme (Deutsch RAG)

@@ -38,7 +38,7 @@ CoolPadel Studios opera con sede en Madrid (España) y equipa a más de 27 clube
 - **Ventajas**: Instalación sin obras (5 min), óptica deportiva dedicada (Chicago/California), 0 meses de permanencia.
 - **Precios**:
   - Hardware: **180 € por pista** (en propiedad)
-  - Software Highlights: **45 €/mes** (<5 pistas) | 41 €/mes (5-14) | 36 €/mes (15-24) | 27 €/mes (>25)
+  - Software Highlights: **45 €/mes** (<5 pistas) | 41 €/mes (5-14) | 36 €/mes (15-24) | 27 €/mes (25 pistas o más)
   - Módulo IA Avanzada (Plan A): **136 €/mes por pista** (opcional)
   - Permanencia: **0 meses**
 - **Referencias**: +1.500 cámaras instaladas | Cámara Oficial USTA (Florida) | Cámara Oficial USA PADEL | FIP Miami Live

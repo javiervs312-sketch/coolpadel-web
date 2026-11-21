@@ -803,7 +803,7 @@ LANDINGS = [
 
             ("Sin Apps ni Registros Obligatorios (Cero Fricción)", "Los jugadores no necesitan descargar apps pesadas ni crearse cuentas: pulsan el botón en red y escanean el código QR para tener sus jugadas en 25 segundos en su móvil."),
 
-            ("Tarifas Transparentes por Volumen sin Permanencia", "De 180 € de hardware único a cuotas escalonadas de 45 € (<5 pistas), 41 € (5-14), 36 € (15-24) y 27 € (>25 pistas). Cancelación libre mes a mes.")
+            ("Tarifas Transparentes por Volumen sin Permanencia", "De 180 € de hardware único a cuotas escalonadas de 45 € (<5 pistas), 41 € (5-14), 36 € (15-24) y 27 € (25 pistas o más). Cancelación libre mes a mes.")
 
         ],
 
@@ -990,7 +990,7 @@ def render_landing(landing, lang="es"):
                   <td class="py-4 px-3 text-slate-600 text-xs font-medium">{"Tarifa club grande: mayor margen por pista para complejos y academias" if lang=="es" else "Large club rate: higher margin per court for academies and large complexes" if lang=="en" else "Tarif grand club: marge supérieure par piste pour complexes et académies" if lang=="fr" else "Tariffa grandi circoli: maggiore margine per campo per complessi e scuole"}</td>
                 </tr>
                 <tr>
-                  <td class="py-4 px-3 text-slate-900">{"Software Highlights & Streaming (> 25 pistas)" if lang=="es" else "Software Highlights & Streaming (> 25 courts)" if lang=="en" else "Logiciel Highlights & Streaming (> 25 pistes)" if lang=="fr" else "Software Highlights & Streaming (> 25 campi)"}</td>
+                  <td class="py-4 px-3 text-slate-900">{"Software Highlights & Streaming (25 pistas o más)" if lang=="es" else "Software Highlights & Streaming (25 courts or more)" if lang=="en" else "Logiciel Highlights & Streaming (25 pistes ou plus)" if lang=="fr" else "Software Highlights & Streaming (25 campi o più)"}</td>
                   <td class="py-4 px-3 text-[#f2920b]">27 € / {"mes / pista" if lang=="es" else "month / court" if lang=="en" else "mois / piste" if lang=="fr" else "mese / campo"}</td>
                   <td class="py-4 px-3 text-emerald-600">{"0 permanencia · Tarifa Franquicia" if lang=="es" else "0 lock-in · Franchise rate" if lang=="en" else "0 engagement · Tarif Franchise" if lang=="fr" else "0 vincoli · Tariffa Franchigia"}</td>
                   <td class="py-4 px-3 text-slate-600 text-xs font-medium">{"Tarifa especial para cadenas, federaciones y franquicias (+1.500 cámaras activas)" if lang=="es" else "Special rate for chains, federations, and franchises (+1,500 active cameras)" if lang=="en" else "Tarif spécial chaînes, fédérations et franchises (+1 500 caméras actives)" if lang=="fr" else "Tariffa speciale per catene, federazioni e franchigie (+1.500 telecamere attive)"}</td>

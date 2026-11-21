@@ -102,7 +102,7 @@ NEW_ARTICLES_CONTENT = {
   <li><strong>Menos de 5 pistas:</strong> 45 €/mes por pista.</li>
   <li><strong>De 5 a 14 pistas:</strong> 41 €/mes por pista.</li>
   <li><strong>De 15 a 24 pistas:</strong> 36 €/mes por pista.</li>
-  <li><strong>Más de 25 pistas:</strong> 27 €/mes por pista.</li>
+  <li><strong>25 pistas o más:</strong> 27 €/mes por pista.</li>
 </ul>
 <p><strong>Cero permanencia:</strong> Si un mes no estás satisfecho, cancelas y listo. Aún así, el 97% de los clubes siguen con nosotros.</p>
 </div>""",
