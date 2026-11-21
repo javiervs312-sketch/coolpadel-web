@@ -234,11 +234,11 @@ def build_roi_page(lang):
     }[lang]
 
     top_cities = [
-        {"city": "Madrid", "country": "España", "url": "/camaras/espana/madrid/"},
-        {"city": "Barcelona", "country": "España", "url": "/camaras/espana/barcelona/"},
-        {"city": "Valencia", "country": "España", "url": "/camaras/espana/valencia/"},
+        {"city": "Madrid", "country": "España", "url": "/camaras-padel-madrid/"},
+        {"city": "Barcelona", "country": "España", "url": "/camaras-padel-barcelona/"},
+        {"city": "Valencia", "country": "España", "url": "/camaras-padel-valencia/"},
         {"city": "Sevilla", "country": "España", "url": "/camaras/espana/sevilla/"},
-        {"city": "Málaga", "country": "España", "url": "/camaras/espana/malaga/"},
+        {"city": "Málaga", "country": "España", "url": "/camaras-padel-malaga/"},
         {"city": "Milano", "country": "Italia", "url": "/camaras/italia/milano/"},
         {"city": "Roma", "country": "Italia", "url": "/camaras/italia/roma/"},
         {"city": "Paris", "country": "Francia", "url": "/camaras/france/paris/"},

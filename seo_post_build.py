@@ -299,6 +299,14 @@ def run_seo_post_build():
                     c = c.replace("<footer", build_blog_silo_mesh(blog_slug) + "\n  <footer", 1)
                     changed = True
 
+            # Replace any remaining internal links to noindex Spain city pages with their canonical landings
+            for sp_city in ("madrid", "barcelona", "valencia", "malaga"):
+                old_href = f'href="/camaras/espana/{sp_city}/"'
+                new_href = f'href="/camaras-padel-{sp_city}/"'
+                if old_href in c:
+                    c = c.replace(old_href, new_href)
+                    changed = True
+
             if changed:
                 open(full, "w", encoding="utf-8").write(c)
 
