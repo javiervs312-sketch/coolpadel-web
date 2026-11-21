@@ -109,7 +109,7 @@ NEW_ARTICLES_CONTENT = {
             """<div class="article-block">
 <h2 class="article-subheading"><span class="subheading-title">Cálculo del Retorno de Inversión (ROI)</span></h2>
 <p>A 45 € al mes por pista, ¿cuánto tardas en amortizarlo?</p>
-<p>Con solo <strong>subir 1 € el alquiler de la pista</strong> por hora en las pistas con cámara (o vendiendo el partido completo por 2 € o 3 €), con 2 partidos al mes ya tienes la cuota cubierta. Todo lo que grabes a partir de ahí es margen limpio para el club.</p>
+<p>Para cubrir la <strong>cuota mensual de 45 € por pista</strong>, necesitas vender 15 partidos a 3 € o 23 partidos a 2 €. Si aplicas un suplemento de 1 € por hora reservada, necesitas 45 horas. El cálculo cubre la cuota de software y no incluye el hardware, el IVA ni las comisiones.</p>
 <p>Además, clubs que retransmiten torneos con patrocinadores locales cobran entre 150 € y 500 € por poner el logo de una marca en pantalla durante los directos.</p>
 </div>"""
         ]

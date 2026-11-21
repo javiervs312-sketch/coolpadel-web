@@ -77,14 +77,32 @@
           "identifier": "SE"
         }
       },
-      "offers": {
-        "@type": "AggregateOffer",
-        "priceCurrency": "SEK",
-        "lowPrice": "515",
-        "highPrice": "2050",
-        "offerCount": "2",
-        "availability": "https://schema.org/InStock"
-      }
+      "offers": [
+        {
+          "@type": "Offer",
+          "url": "https://coolpadelstudios.com/camaras/sverige/vasteras/",
+          "itemOffered": {
+            "@type": "Product",
+            "name": "Save My Play · 2.050 kr"
+          },
+          "price": "2050",
+          "priceCurrency": "SEK"
+        },
+        {
+          "@type": "Offer",
+          "url": "https://coolpadelstudios.com/camaras/sverige/vasteras/",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Save My Play · 515 kr/mån"
+          },
+          "priceSpecification": {
+            "@type": "UnitPriceSpecification",
+            "price": "515",
+            "priceCurrency": "SEK",
+            "billingDuration": "P1M"
+          }
+        }
+      ]
     },
     {
       "@type": "BreadcrumbList",

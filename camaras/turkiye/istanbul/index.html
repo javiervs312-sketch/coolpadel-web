@@ -77,14 +77,32 @@
           "identifier": "TR"
         }
       },
-      "offers": {
-        "@type": "AggregateOffer",
-        "priceCurrency": "TRY",
-        "lowPrice": "2500",
-        "highPrice": "10000",
-        "offerCount": "2",
-        "availability": "https://schema.org/InStock"
-      }
+      "offers": [
+        {
+          "@type": "Offer",
+          "url": "https://coolpadelstudios.com/camaras/turkiye/istanbul/",
+          "itemOffered": {
+            "@type": "Product",
+            "name": "Save My Play · 10.000 ₺"
+          },
+          "price": "10000",
+          "priceCurrency": "TRY"
+        },
+        {
+          "@type": "Offer",
+          "url": "https://coolpadelstudios.com/camaras/turkiye/istanbul/",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Save My Play · 2.500 ₺/ay"
+          },
+          "priceSpecification": {
+            "@type": "UnitPriceSpecification",
+            "price": "2500",
+            "priceCurrency": "TRY",
+            "billingDuration": "P1M"
+          }
+        }
+      ]
     },
     {
       "@type": "BreadcrumbList",

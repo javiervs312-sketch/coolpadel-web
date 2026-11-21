@@ -129,8 +129,8 @@ def get_hub_footer(lang):
           <ul class="space-y-2 text-white/80 font-normal">
             <li><a href="{root_url}/franquicias-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Directorio Franquicias (+167)</a></li>
             <li><a href="{root_url}/blog/barometro-camaras-padel-2026/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Barómetro Pádel 2026</a></li>
-            <li><a href="{root_url}/camaras-padel-madrid/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Clubes Madrid</a></li>
-            <li><a href="{root_url}/camaras-padel-barcelona/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Clubes Barcelona</a></li>
+            <li><a href="/camaras-padel-madrid/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Clubes Madrid</a></li>
+            <li><a href="/camaras-padel-barcelona/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Clubes Barcelona</a></li>
           </ul>
         </div>
 

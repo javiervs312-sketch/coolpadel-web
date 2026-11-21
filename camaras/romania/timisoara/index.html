@@ -77,14 +77,32 @@
           "identifier": "RO"
         }
       },
-      "offers": {
-        "@type": "AggregateOffer",
-        "priceCurrency": "RON",
-        "lowPrice": "225",
-        "highPrice": "900",
-        "offerCount": "2",
-        "availability": "https://schema.org/InStock"
-      }
+      "offers": [
+        {
+          "@type": "Offer",
+          "url": "https://coolpadelstudios.com/camaras/romania/timisoara/",
+          "itemOffered": {
+            "@type": "Product",
+            "name": "Save My Play · 900 lei"
+          },
+          "price": "900",
+          "priceCurrency": "RON"
+        },
+        {
+          "@type": "Offer",
+          "url": "https://coolpadelstudios.com/camaras/romania/timisoara/",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Save My Play · 225 lei/lună"
+          },
+          "priceSpecification": {
+            "@type": "UnitPriceSpecification",
+            "price": "225",
+            "priceCurrency": "RON",
+            "billingDuration": "P1M"
+          }
+        }
+      ]
     },
     {
       "@type": "BreadcrumbList",

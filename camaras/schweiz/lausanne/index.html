@@ -77,14 +77,32 @@
           "identifier": "CH"
         }
       },
-      "offers": {
-        "@type": "AggregateOffer",
-        "priceCurrency": "CHF",
-        "lowPrice": "44",
-        "highPrice": "175",
-        "offerCount": "2",
-        "availability": "https://schema.org/InStock"
-      }
+      "offers": [
+        {
+          "@type": "Offer",
+          "url": "https://coolpadelstudios.com/camaras/schweiz/lausanne/",
+          "itemOffered": {
+            "@type": "Product",
+            "name": "Save My Play · 175 CHF"
+          },
+          "price": "175",
+          "priceCurrency": "CHF"
+        },
+        {
+          "@type": "Offer",
+          "url": "https://coolpadelstudios.com/camaras/schweiz/lausanne/",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Save My Play · 44 CHF/Monat"
+          },
+          "priceSpecification": {
+            "@type": "UnitPriceSpecification",
+            "price": "44",
+            "priceCurrency": "CHF",
+            "billingDuration": "P1M"
+          }
+        }
+      ]
     },
     {
       "@type": "BreadcrumbList",

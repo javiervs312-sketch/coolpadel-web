@@ -77,14 +77,32 @@
           "identifier": "BR"
         }
       },
-      "offers": {
-        "@type": "AggregateOffer",
-        "priceCurrency": "BRL",
-        "lowPrice": "290",
-        "highPrice": "1150",
-        "offerCount": "2",
-        "availability": "https://schema.org/InStock"
-      }
+      "offers": [
+        {
+          "@type": "Offer",
+          "url": "https://coolpadelstudios.com/camaras/brasil/rio-de-janeiro/",
+          "itemOffered": {
+            "@type": "Product",
+            "name": "Save My Play · R$ 1.150"
+          },
+          "price": "1150",
+          "priceCurrency": "BRL"
+        },
+        {
+          "@type": "Offer",
+          "url": "https://coolpadelstudios.com/camaras/brasil/rio-de-janeiro/",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Save My Play · R$ 290/mês"
+          },
+          "priceSpecification": {
+            "@type": "UnitPriceSpecification",
+            "price": "290",
+            "priceCurrency": "BRL",
+            "billingDuration": "P1M"
+          }
+        }
+      ]
     },
     {
       "@type": "BreadcrumbList",

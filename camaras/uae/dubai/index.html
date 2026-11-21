@@ -77,14 +77,32 @@
           "identifier": "AE"
         }
       },
-      "offers": {
-        "@type": "AggregateOffer",
-        "priceCurrency": "AED",
-        "lowPrice": "180",
-        "highPrice": "730",
-        "offerCount": "2",
-        "availability": "https://schema.org/InStock"
-      }
+      "offers": [
+        {
+          "@type": "Offer",
+          "url": "https://coolpadelstudios.com/camaras/uae/dubai/",
+          "itemOffered": {
+            "@type": "Product",
+            "name": "Save My Play · 730 AED"
+          },
+          "price": "730",
+          "priceCurrency": "AED"
+        },
+        {
+          "@type": "Offer",
+          "url": "https://coolpadelstudios.com/camaras/uae/dubai/",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Save My Play · 180 AED/شهرياً"
+          },
+          "priceSpecification": {
+            "@type": "UnitPriceSpecification",
+            "price": "180",
+            "priceCurrency": "AED",
+            "billingDuration": "P1M"
+          }
+        }
+      ]
     },
     {
       "@type": "BreadcrumbList",

@@ -77,14 +77,32 @@
           "identifier": "DK"
         }
       },
-      "offers": {
-        "@type": "AggregateOffer",
-        "priceCurrency": "DKK",
-        "lowPrice": "340",
-        "highPrice": "1350",
-        "offerCount": "2",
-        "availability": "https://schema.org/InStock"
-      }
+      "offers": [
+        {
+          "@type": "Offer",
+          "url": "https://coolpadelstudios.com/camaras/danmark/aarhus/",
+          "itemOffered": {
+            "@type": "Product",
+            "name": "Save My Play · 1.350 kr"
+          },
+          "price": "1350",
+          "priceCurrency": "DKK"
+        },
+        {
+          "@type": "Offer",
+          "url": "https://coolpadelstudios.com/camaras/danmark/aarhus/",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Save My Play · 340 kr/md"
+          },
+          "priceSpecification": {
+            "@type": "UnitPriceSpecification",
+            "price": "340",
+            "priceCurrency": "DKK",
+            "billingDuration": "P1M"
+          }
+        }
+      ]
     },
     {
       "@type": "BreadcrumbList",

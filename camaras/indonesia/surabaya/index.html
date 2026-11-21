@@ -77,14 +77,32 @@
           "identifier": "ID"
         }
       },
-      "offers": {
-        "@type": "AggregateOffer",
-        "priceCurrency": "IDR",
-        "lowPrice": "900000",
-        "highPrice": "3600000",
-        "offerCount": "2",
-        "availability": "https://schema.org/InStock"
-      }
+      "offers": [
+        {
+          "@type": "Offer",
+          "url": "https://coolpadelstudios.com/camaras/indonesia/surabaya/",
+          "itemOffered": {
+            "@type": "Product",
+            "name": "Save My Play · Rp 3.6jt"
+          },
+          "price": "3600000",
+          "priceCurrency": "IDR"
+        },
+        {
+          "@type": "Offer",
+          "url": "https://coolpadelstudios.com/camaras/indonesia/surabaya/",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Save My Play · Rp 900rb/bln"
+          },
+          "priceSpecification": {
+            "@type": "UnitPriceSpecification",
+            "price": "900000",
+            "priceCurrency": "IDR",
+            "billingDuration": "P1M"
+          }
+        }
+      ]
     },
     {
       "@type": "BreadcrumbList",

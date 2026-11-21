@@ -7,7 +7,10 @@ eliminando URLs fantasma (404) y duplicados.
 """
 import os
 import sys
-from datetime import datetime
+import re
+import subprocess
+from pathlib import Path
+from xml.sax.saxutils import escape
 
 cur_dir = os.path.dirname(os.path.abspath(__file__))
 if cur_dir not in sys.path:
@@ -51,7 +54,6 @@ GEO_LOCAL_LANDINGS = [
     ("/it/telecamere-padel-milano/", "0.90"),
 ]
 DOMAIN = "https://coolpadelstudios.com"
-TODAY = datetime.utcnow().strftime("%Y-%m-%d")
 
 # 20 articulos de camaras
 CAMARAS_SLUGS = [
@@ -125,7 +127,6 @@ def get_cluster_xml(es_path, en_path, fr_path, it_path, priority="0.85", changef
     for url, prio in variants:
         block = f"""  <url>
     <loc>{url}</loc>
-    <lastmod>{TODAY}</lastmod>
     <changefreq>{changefreq}</changefreq>
     <priority>{prio}</priority>
 {hreflang_links}
@@ -178,7 +179,6 @@ def get_camaras_cluster_xml(slug=None, priority="0.90", changefreq="weekly"):
     for url, prio in variants:
         block = f"""  <url>
     <loc>{url}</loc>
-    <lastmod>{TODAY}</lastmod>
     <changefreq>{changefreq}</changefreq>
     <priority>{prio}</priority>
 {hreflang_links}
@@ -192,14 +192,73 @@ def get_single_xml(path, priority="0.80", changefreq="weekly"):
     url = f"{DOMAIN}{path}"
     return f"""  <url>
     <loc>{url}</loc>
-    <lastmod>{TODAY}</lastmod>
     <changefreq>{changefreq}</changefreq>
     <priority>{priority}</priority>
   </url>"""
 
 
+def synchronize_sitemap_metadata(blocks):
+    """Usa las alternativas reales del HTML y fechas de contenido de Git."""
+    root = Path(cur_dir)
+    origin = "https://coolpadelstudios.com/"
+    alternate_pattern = re.compile(r'[ \t]*<link\s+rel="alternate"\s+hreflang="([^"]+)"\s+href="([^"]+)"[^>]*>[ \t]*\n?', re.I)
+
+    def git_output(*args):
+        result = subprocess.run(
+            ["git", "-c", "core.quotepath=false", *args], cwd=root,
+            capture_output=True, encoding="utf-8", check=False, timeout=45,
+        )
+        return result.stdout if result.returncode == 0 else ""
+
+    dates = {}
+    current_date = ""
+    for line in git_output("log", "-n", "30", "--format=@%cs", "--name-only", "--", "*.html").splitlines():
+        if line.startswith("@"):
+            current_date = line[1:]
+        elif line and current_date:
+            dates.setdefault(line, current_date)
+
+    pending = set(git_output("diff", "--name-only", "HEAD", "--", "*.html").splitlines())
+    urls = [re.search(r"<loc>([^<]+)</loc>", block)[1] for block in blocks]
+    paths = {}
+    contents = {}
+    alternatives = {}
+    for url in urls:
+        relative = url.removeprefix(origin)
+        file = relative + "index.html" if not relative or relative.endswith("/") else relative
+        paths[url] = file
+        contents[url] = (root / file).read_text(encoding="utf-8")
+        alternatives[url] = dict(alternate_pattern.findall(contents[url]))
+
+    result = []
+    for url, block in zip(urls, blocks):
+        file = paths[url]
+        valid = {
+            language: target
+            for language, target in alternatives[url].items()
+            if url in alternatives.get(target, {}).values()
+        }
+        if valid != alternatives[url]:
+            cleaned = alternate_pattern.sub(
+                lambda match: match[0] if valid.get(match[1]) == match[2] else "",
+                contents[url],
+            )
+            (root / file).write_text(cleaned, encoding="utf-8")
+            pending.add(file)
+        lines = block.splitlines()
+        lines = [line for line in lines if "<xhtml:link" not in line]
+        if file in dates and file not in pending:
+            lines.insert(2, f"    <lastmod>{dates[file]}</lastmod>")
+        lines[-1:-1] = [
+            f'    <xhtml:link rel="alternate" hreflang="{escape(language)}" href="{escape(target)}"/>'
+            for language, target in valid.items()
+        ]
+        result.append("\n".join(lines))
+    return result
+
+
 def generate_sitemap():
-    print(f">> Generando Sitemap Maestro Optimizado (fecha: {TODAY})...")
+    print(">> Generando Sitemap Maestro Optimizado...")
     all_blocks = []
 
     # 1. Home (4 idiomas 100% traducidos)
@@ -360,6 +419,7 @@ def generate_sitemap():
     # 12. Páginas estáticas secundarias
     all_blocks.append(get_single_xml("/politica-de-devoluciones.html", priority="0.30", changefreq="yearly"))
 
+    all_blocks = synchronize_sitemap_metadata(all_blocks)
     xml_content = f"""<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">

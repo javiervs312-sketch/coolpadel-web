@@ -77,14 +77,32 @@
           "identifier": "CZ"
         }
       },
-      "offers": {
-        "@type": "AggregateOffer",
-        "priceCurrency": "CZK",
-        "lowPrice": "1130",
-        "highPrice": "4500",
-        "offerCount": "2",
-        "availability": "https://schema.org/InStock"
-      }
+      "offers": [
+        {
+          "@type": "Offer",
+          "url": "https://coolpadelstudios.com/camaras/ceska-republika/olomouc/",
+          "itemOffered": {
+            "@type": "Product",
+            "name": "Save My Play · 4.500 Kč"
+          },
+          "price": "4500",
+          "priceCurrency": "CZK"
+        },
+        {
+          "@type": "Offer",
+          "url": "https://coolpadelstudios.com/camaras/ceska-republika/olomouc/",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Save My Play · 1.130 Kč/měs"
+          },
+          "priceSpecification": {
+            "@type": "UnitPriceSpecification",
+            "price": "1130",
+            "priceCurrency": "CZK",
+            "billingDuration": "P1M"
+          }
+        }
+      ]
     },
     {
       "@type": "BreadcrumbList",

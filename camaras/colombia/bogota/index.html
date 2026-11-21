@@ -77,14 +77,32 @@
           "identifier": "CO"
         }
       },
-      "offers": {
-        "@type": "AggregateOffer",
-        "priceCurrency": "COP",
-        "lowPrice": "198000",
-        "highPrice": "790000",
-        "offerCount": "2",
-        "availability": "https://schema.org/InStock"
-      }
+      "offers": [
+        {
+          "@type": "Offer",
+          "url": "https://coolpadelstudios.com/camaras/colombia/bogota/",
+          "itemOffered": {
+            "@type": "Product",
+            "name": "Save My Play · $790.000 COP"
+          },
+          "price": "790000",
+          "priceCurrency": "COP"
+        },
+        {
+          "@type": "Offer",
+          "url": "https://coolpadelstudios.com/camaras/colombia/bogota/",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Save My Play · $198.000 COP/mes"
+          },
+          "priceSpecification": {
+            "@type": "UnitPriceSpecification",
+            "price": "198000",
+            "priceCurrency": "COP",
+            "billingDuration": "P1M"
+          }
+        }
+      ]
     },
     {
       "@type": "BreadcrumbList",

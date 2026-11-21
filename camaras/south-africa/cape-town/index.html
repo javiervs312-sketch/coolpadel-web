@@ -77,14 +77,32 @@
           "identifier": "ZA"
         }
       },
-      "offers": {
-        "@type": "AggregateOffer",
-        "priceCurrency": "ZAR",
-        "lowPrice": "900",
-        "highPrice": "3600",
-        "offerCount": "2",
-        "availability": "https://schema.org/InStock"
-      }
+      "offers": [
+        {
+          "@type": "Offer",
+          "url": "https://coolpadelstudios.com/camaras/south-africa/cape-town/",
+          "itemOffered": {
+            "@type": "Product",
+            "name": "Save My Play · R3,600"
+          },
+          "price": "3600",
+          "priceCurrency": "ZAR"
+        },
+        {
+          "@type": "Offer",
+          "url": "https://coolpadelstudios.com/camaras/south-africa/cape-town/",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Save My Play · R900/mo"
+          },
+          "priceSpecification": {
+            "@type": "UnitPriceSpecification",
+            "price": "900",
+            "priceCurrency": "ZAR",
+            "billingDuration": "P1M"
+          }
+        }
+      ]
     },
     {
       "@type": "BreadcrumbList",

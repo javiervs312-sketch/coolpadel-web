@@ -87,7 +87,11 @@ def generate_city_page(country_item, city, slug_country_used, canonical_country_
         robots_content = "index, follow"
     country_url = f"/camaras/{target_country}/"
 
-    redirect_js = ""
+    redirect_js = (
+        f'<meta http-equiv="refresh" content="0; url={canonical_url}">'
+        if target_country == "espana" and city_slug in {"madrid", "barcelona"}
+        else ""
+    )
 
     # ISO y Hreflang Regional de la Ciudad
     iso_code = ISO_MAP.get(target_country, ISO_MAP.get(country_item["slug"], "ES"))
@@ -98,6 +102,9 @@ def generate_city_page(country_item, city, slug_country_used, canonical_country_
         f'  <link rel="alternate" hreflang="{regional_hreflang}" href="{canonical_url}"/>\n'
         f'  <link rel="alternate" hreflang="x-default" href="{canonical_url}"/>\n'
     )
+
+    if robots_content.startswith("noindex"):
+        hreflang_tags = ""
 
     # Prefijo de navegación según hub nativo
     nav_prefix = NAV_PREFIX_MAP.get(lang, "/en/")
@@ -115,8 +122,8 @@ def generate_city_page(country_item, city, slug_country_used, canonical_country_
         schema_curr = "EUR"
     elif "£" in hw:
         schema_curr = "GBP"
-    schema_low_price = extract_numeric_price(rec, "45")
-    schema_high_price = extract_numeric_price(hw, "180")
+    schema_monthly_price = extract_numeric_price(rec, "45")
+    schema_hardware_price = extract_numeric_price(hw, "180")
 
     faq2_a_fmt = t["faq2_a"].format(hw=hw, rec=rec, ai=ai)
     
@@ -154,14 +161,26 @@ def generate_city_page(country_item, city, slug_country_used, canonical_country_
                         "identifier": iso_code
                     }
                 },
-                "offers": {
-                    "@type": "AggregateOffer",
-                    "priceCurrency": schema_curr,
-                    "lowPrice": schema_low_price,
-                    "highPrice": schema_high_price,
-                    "offerCount": "2",
-                    "availability": "https://schema.org/InStock",
-                },
+                "offers": [
+                    {
+                        "@type": "Offer",
+                        "url": canonical_url,
+                        "itemOffered": {"@type": "Product", "name": f"Save My Play · {hw}"},
+                        "price": schema_hardware_price,
+                        "priceCurrency": schema_curr,
+                    },
+                    {
+                        "@type": "Offer",
+                        "url": canonical_url,
+                        "itemOffered": {"@type": "Service", "name": f"Save My Play · {rec}"},
+                        "priceSpecification": {
+                            "@type": "UnitPriceSpecification",
+                            "price": schema_monthly_price,
+                            "priceCurrency": schema_curr,
+                            "billingDuration": "P1M",
+                        },
+                    },
+                ],
             },
             {
                 "@type": "BreadcrumbList",

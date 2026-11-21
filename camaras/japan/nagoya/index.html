@@ -77,14 +77,32 @@
           "identifier": "JP"
         }
       },
-      "offers": {
-        "@type": "AggregateOffer",
-        "priceCurrency": "JPY",
-        "lowPrice": "7900",
-        "highPrice": "31700",
-        "offerCount": "2",
-        "availability": "https://schema.org/InStock"
-      }
+      "offers": [
+        {
+          "@type": "Offer",
+          "url": "https://coolpadelstudios.com/camaras/japan/nagoya/",
+          "itemOffered": {
+            "@type": "Product",
+            "name": "Save My Play · ¥31.700"
+          },
+          "price": "31700",
+          "priceCurrency": "JPY"
+        },
+        {
+          "@type": "Offer",
+          "url": "https://coolpadelstudios.com/camaras/japan/nagoya/",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Save My Play · ¥7.900/月"
+          },
+          "priceSpecification": {
+            "@type": "UnitPriceSpecification",
+            "price": "7900",
+            "priceCurrency": "JPY",
+            "billingDuration": "P1M"
+          }
+        }
+      ]
     },
     {
       "@type": "BreadcrumbList",

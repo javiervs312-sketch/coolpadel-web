@@ -77,14 +77,32 @@
           "identifier": "DO"
         }
       },
-      "offers": {
-        "@type": "AggregateOffer",
-        "priceCurrency": "DOP",
-        "lowPrice": "3000",
-        "highPrice": "12000",
-        "offerCount": "2",
-        "availability": "https://schema.org/InStock"
-      }
+      "offers": [
+        {
+          "@type": "Offer",
+          "url": "https://coolpadelstudios.com/camaras/republica-dominicana/puerto-plata/",
+          "itemOffered": {
+            "@type": "Product",
+            "name": "Save My Play · RD$ 12.000"
+          },
+          "price": "12000",
+          "priceCurrency": "DOP"
+        },
+        {
+          "@type": "Offer",
+          "url": "https://coolpadelstudios.com/camaras/republica-dominicana/puerto-plata/",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Save My Play · RD$ 3.000/mes"
+          },
+          "priceSpecification": {
+            "@type": "UnitPriceSpecification",
+            "price": "3000",
+            "priceCurrency": "DOP",
+            "billingDuration": "P1M"
+          }
+        }
+      ]
     },
     {
       "@type": "BreadcrumbList",

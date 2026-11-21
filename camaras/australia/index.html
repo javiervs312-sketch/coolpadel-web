@@ -70,14 +70,32 @@
         "name": "Australia",
         "identifier": "AU"
       },
-      "offers": {
-        "@type": "AggregateOffer",
-        "priceCurrency": "AUD",
-        "lowPrice": "74",
-        "highPrice": "295",
-        "offerCount": "2",
-        "availability": "https://schema.org/InStock"
-      }
+      "offers": [
+        {
+          "@type": "Offer",
+          "url": "https://coolpadelstudios.com/camaras/australia/",
+          "itemOffered": {
+            "@type": "Product",
+            "name": "Save My Play · A$295"
+          },
+          "price": "295",
+          "priceCurrency": "AUD"
+        },
+        {
+          "@type": "Offer",
+          "url": "https://coolpadelstudios.com/camaras/australia/",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Save My Play · A$74/mo"
+          },
+          "priceSpecification": {
+            "@type": "UnitPriceSpecification",
+            "price": "74",
+            "priceCurrency": "AUD",
+            "billingDuration": "P1M"
+          }
+        }
+      ]
     },
     {
       "@type": "BreadcrumbList",
@@ -178,7 +196,6 @@
   </style>
   <link rel="alternate" hreflang="en" href="https://coolpadelstudios.com/camaras/australia/"/>
   <link rel="alternate" hreflang="en-AU" href="https://coolpadelstudios.com/camaras/australia/"/>
-  <link rel="alternate" hreflang="x-default" href="https://coolpadelstudios.com/camaras/"/>
   <link rel="alternate" hreflang="es-ES" href="https://coolpadelstudios.com/camaras/espana/"/>
   <link rel="alternate" hreflang="it-IT" href="https://coolpadelstudios.com/camaras/italia/"/>
   <link rel="alternate" hreflang="es-AR" href="https://coolpadelstudios.com/camaras/argentina/"/>

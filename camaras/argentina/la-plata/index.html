@@ -77,14 +77,32 @@
           "identifier": "AR"
         }
       },
-      "offers": {
-        "@type": "AggregateOffer",
-        "priceCurrency": "USD",
-        "lowPrice": "49",
-        "highPrice": "199",
-        "offerCount": "2",
-        "availability": "https://schema.org/InStock"
-      }
+      "offers": [
+        {
+          "@type": "Offer",
+          "url": "https://coolpadelstudios.com/camaras/argentina/la-plata/",
+          "itemOffered": {
+            "@type": "Product",
+            "name": "Save My Play · $199 USD"
+          },
+          "price": "199",
+          "priceCurrency": "USD"
+        },
+        {
+          "@type": "Offer",
+          "url": "https://coolpadelstudios.com/camaras/argentina/la-plata/",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Save My Play · $49 USD/mes"
+          },
+          "priceSpecification": {
+            "@type": "UnitPriceSpecification",
+            "price": "49",
+            "priceCurrency": "USD",
+            "billingDuration": "P1M"
+          }
+        }
+      ]
     },
     {
       "@type": "BreadcrumbList",

@@ -77,14 +77,32 @@
           "identifier": "AU"
         }
       },
-      "offers": {
-        "@type": "AggregateOffer",
-        "priceCurrency": "AUD",
-        "lowPrice": "74",
-        "highPrice": "295",
-        "offerCount": "2",
-        "availability": "https://schema.org/InStock"
-      }
+      "offers": [
+        {
+          "@type": "Offer",
+          "url": "https://coolpadelstudios.com/camaras/australia/melbourne/",
+          "itemOffered": {
+            "@type": "Product",
+            "name": "Save My Play · A$295"
+          },
+          "price": "295",
+          "priceCurrency": "AUD"
+        },
+        {
+          "@type": "Offer",
+          "url": "https://coolpadelstudios.com/camaras/australia/melbourne/",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Save My Play · A$74/mo"
+          },
+          "priceSpecification": {
+            "@type": "UnitPriceSpecification",
+            "price": "74",
+            "priceCurrency": "AUD",
+            "billingDuration": "P1M"
+          }
+        }
+      ]
     },
     {
       "@type": "BreadcrumbList",

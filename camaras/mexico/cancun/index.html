@@ -77,14 +77,32 @@
           "identifier": "MX"
         }
       },
-      "offers": {
-        "@type": "AggregateOffer",
-        "priceCurrency": "MXN",
-        "lowPrice": "990",
-        "highPrice": "3950",
-        "offerCount": "2",
-        "availability": "https://schema.org/InStock"
-      }
+      "offers": [
+        {
+          "@type": "Offer",
+          "url": "https://coolpadelstudios.com/camaras/mexico/cancun/",
+          "itemOffered": {
+            "@type": "Product",
+            "name": "Save My Play · $3.950 MXN"
+          },
+          "price": "3950",
+          "priceCurrency": "MXN"
+        },
+        {
+          "@type": "Offer",
+          "url": "https://coolpadelstudios.com/camaras/mexico/cancun/",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Save My Play · $990 MXN/mes"
+          },
+          "priceSpecification": {
+            "@type": "UnitPriceSpecification",
+            "price": "990",
+            "priceCurrency": "MXN",
+            "billingDuration": "P1M"
+          }
+        }
+      ]
     },
     {
       "@type": "BreadcrumbList",

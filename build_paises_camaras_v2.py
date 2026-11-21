@@ -76,11 +76,10 @@ def generate_country_page(item, slug_to_use, canonical_slug=None):
     iso_code = ISO_MAP.get(target_slug, ISO_MAP.get(item["slug"], "ES"))
     regional_hreflang = f"{lang}-{iso_code}" if lang != "pt-br" else "pt-BR"
     
-    # Hreflangs: propio idioma, regional exacto, x-default y enlaces a los 50 países hermanos
+    # Hreflangs: propio idioma, regional exacto y enlaces a los 50 países hermanos
     hreflang_list = [
         f'  <link rel="alternate" hreflang="{lang}" href="{canonical_url}"/>',
         f'  <link rel="alternate" hreflang="{regional_hreflang}" href="{canonical_url}"/>',
-        f'  <link rel="alternate" hreflang="x-default" href="https://coolpadelstudios.com/camaras/"/>',
     ]
     for other_c in COUNTRIES_50:
         other_slug = other_c["slug_local"]
@@ -103,8 +102,8 @@ def generate_country_page(item, slug_to_use, canonical_slug=None):
         schema_curr = "EUR"
     elif "£" in hw:
         schema_curr = "GBP"
-    schema_low_price = extract_numeric_price(rec, "45")
-    schema_high_price = extract_numeric_price(hw, "180")
+    schema_monthly_price = extract_numeric_price(rec, "45")
+    schema_hardware_price = extract_numeric_price(hw, "180")
 
     # Vocabulario de footer y pistas localizado
     f_i18n = FOOTER_I18N.get(lang, FOOTER_I18N["en"])
@@ -140,14 +139,26 @@ def generate_country_page(item, slug_to_use, canonical_slug=None):
                     "name": country_display,
                     "identifier": iso_code
                 },
-                "offers": {
-                    "@type": "AggregateOffer",
-                    "priceCurrency": schema_curr,
-                    "lowPrice": schema_low_price,
-                    "highPrice": schema_high_price,
-                    "offerCount": "2",
-                    "availability": "https://schema.org/InStock",
-                },
+                "offers": [
+                    {
+                        "@type": "Offer",
+                        "url": canonical_url,
+                        "itemOffered": {"@type": "Product", "name": f"Save My Play · {hw}"},
+                        "price": schema_hardware_price,
+                        "priceCurrency": schema_curr,
+                    },
+                    {
+                        "@type": "Offer",
+                        "url": canonical_url,
+                        "itemOffered": {"@type": "Service", "name": f"Save My Play · {rec}"},
+                        "priceSpecification": {
+                            "@type": "UnitPriceSpecification",
+                            "price": schema_monthly_price,
+                            "priceCurrency": schema_curr,
+                            "billingDuration": "P1M",
+                        },
+                    },
+                ],
             },
             {
                 "@type": "BreadcrumbList",

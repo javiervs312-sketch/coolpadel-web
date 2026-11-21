@@ -77,14 +77,32 @@
           "identifier": "EG"
         }
       },
-      "offers": {
-        "@type": "AggregateOffer",
-        "priceCurrency": "EGP",
-        "lowPrice": "2300",
-        "highPrice": "9200",
-        "offerCount": "2",
-        "availability": "https://schema.org/InStock"
-      }
+      "offers": [
+        {
+          "@type": "Offer",
+          "url": "https://coolpadelstudios.com/camaras/egypt/giza/",
+          "itemOffered": {
+            "@type": "Product",
+            "name": "Save My Play · 9.200 ج.م"
+          },
+          "price": "9200",
+          "priceCurrency": "EGP"
+        },
+        {
+          "@type": "Offer",
+          "url": "https://coolpadelstudios.com/camaras/egypt/giza/",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Save My Play · 2.300 ج.م/شهرياً"
+          },
+          "priceSpecification": {
+            "@type": "UnitPriceSpecification",
+            "price": "2300",
+            "priceCurrency": "EGP",
+            "billingDuration": "P1M"
+          }
+        }
+      ]
     },
     {
       "@type": "BreadcrumbList",

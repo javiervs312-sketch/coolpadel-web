@@ -77,14 +77,32 @@
           "identifier": "CL"
         }
       },
-      "offers": {
-        "@type": "AggregateOffer",
-        "priceCurrency": "CLP",
-        "lowPrice": "47500",
-        "highPrice": "190000",
-        "offerCount": "2",
-        "availability": "https://schema.org/InStock"
-      }
+      "offers": [
+        {
+          "@type": "Offer",
+          "url": "https://coolpadelstudios.com/camaras/chile/santiago/",
+          "itemOffered": {
+            "@type": "Product",
+            "name": "Save My Play · $190.000 CLP"
+          },
+          "price": "190000",
+          "priceCurrency": "CLP"
+        },
+        {
+          "@type": "Offer",
+          "url": "https://coolpadelstudios.com/camaras/chile/santiago/",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Save My Play · $47.500 CLP/mes"
+          },
+          "priceSpecification": {
+            "@type": "UnitPriceSpecification",
+            "price": "47500",
+            "priceCurrency": "CLP",
+            "billingDuration": "P1M"
+          }
+        }
+      ]
     },
     {
       "@type": "BreadcrumbList",

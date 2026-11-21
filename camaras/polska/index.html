@@ -70,14 +70,32 @@
         "name": "Polska",
         "identifier": "PL"
       },
-      "offers": {
-        "@type": "AggregateOffer",
-        "priceCurrency": "PLN",
-        "lowPrice": "195",
-        "highPrice": "780",
-        "offerCount": "2",
-        "availability": "https://schema.org/InStock"
-      }
+      "offers": [
+        {
+          "@type": "Offer",
+          "url": "https://coolpadelstudios.com/camaras/polska/",
+          "itemOffered": {
+            "@type": "Product",
+            "name": "Save My Play · 780 zł"
+          },
+          "price": "780",
+          "priceCurrency": "PLN"
+        },
+        {
+          "@type": "Offer",
+          "url": "https://coolpadelstudios.com/camaras/polska/",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Save My Play · 195 zł/mies."
+          },
+          "priceSpecification": {
+            "@type": "UnitPriceSpecification",
+            "price": "195",
+            "priceCurrency": "PLN",
+            "billingDuration": "P1M"
+          }
+        }
+      ]
     },
     {
       "@type": "BreadcrumbList",
@@ -178,7 +196,6 @@
   </style>
   <link rel="alternate" hreflang="pl" href="https://coolpadelstudios.com/camaras/polska/"/>
   <link rel="alternate" hreflang="pl-PL" href="https://coolpadelstudios.com/camaras/polska/"/>
-  <link rel="alternate" hreflang="x-default" href="https://coolpadelstudios.com/camaras/"/>
   <link rel="alternate" hreflang="es-ES" href="https://coolpadelstudios.com/camaras/espana/"/>
   <link rel="alternate" hreflang="it-IT" href="https://coolpadelstudios.com/camaras/italia/"/>
   <link rel="alternate" hreflang="es-AR" href="https://coolpadelstudios.com/camaras/argentina/"/>

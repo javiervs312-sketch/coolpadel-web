@@ -77,14 +77,32 @@
           "identifier": "SA"
         }
       },
-      "offers": {
-        "@type": "AggregateOffer",
-        "priceCurrency": "SAR",
-        "lowPrice": "185",
-        "highPrice": "750",
-        "offerCount": "2",
-        "availability": "https://schema.org/InStock"
-      }
+      "offers": [
+        {
+          "@type": "Offer",
+          "url": "https://coolpadelstudios.com/camaras/saudi-arabia/jeddah/",
+          "itemOffered": {
+            "@type": "Product",
+            "name": "Save My Play · 750 ر.س"
+          },
+          "price": "750",
+          "priceCurrency": "SAR"
+        },
+        {
+          "@type": "Offer",
+          "url": "https://coolpadelstudios.com/camaras/saudi-arabia/jeddah/",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Save My Play · 185 ر.س/شهرياً"
+          },
+          "priceSpecification": {
+            "@type": "UnitPriceSpecification",
+            "price": "185",
+            "priceCurrency": "SAR",
+            "billingDuration": "P1M"
+          }
+        }
+      ]
     },
     {
       "@type": "BreadcrumbList",

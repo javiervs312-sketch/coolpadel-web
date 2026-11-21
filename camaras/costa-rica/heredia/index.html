@@ -77,14 +77,32 @@
           "identifier": "CR"
         }
       },
-      "offers": {
-        "@type": "AggregateOffer",
-        "priceCurrency": "CRC",
-        "lowPrice": "25500",
-        "highPrice": "102000",
-        "offerCount": "2",
-        "availability": "https://schema.org/InStock"
-      }
+      "offers": [
+        {
+          "@type": "Offer",
+          "url": "https://coolpadelstudios.com/camaras/costa-rica/heredia/",
+          "itemOffered": {
+            "@type": "Product",
+            "name": "Save My Play · ₡102.000"
+          },
+          "price": "102000",
+          "priceCurrency": "CRC"
+        },
+        {
+          "@type": "Offer",
+          "url": "https://coolpadelstudios.com/camaras/costa-rica/heredia/",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Save My Play · ₡25.500/mes"
+          },
+          "priceSpecification": {
+            "@type": "UnitPriceSpecification",
+            "price": "25500",
+            "priceCurrency": "CRC",
+            "billingDuration": "P1M"
+          }
+        }
+      ]
     },
     {
       "@type": "BreadcrumbList",

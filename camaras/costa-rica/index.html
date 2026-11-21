@@ -70,14 +70,32 @@
         "name": "Costa Rica",
         "identifier": "CR"
       },
-      "offers": {
-        "@type": "AggregateOffer",
-        "priceCurrency": "CRC",
-        "lowPrice": "25500",
-        "highPrice": "102000",
-        "offerCount": "2",
-        "availability": "https://schema.org/InStock"
-      }
+      "offers": [
+        {
+          "@type": "Offer",
+          "url": "https://coolpadelstudios.com/camaras/costa-rica/",
+          "itemOffered": {
+            "@type": "Product",
+            "name": "Save My Play · ₡102.000"
+          },
+          "price": "102000",
+          "priceCurrency": "CRC"
+        },
+        {
+          "@type": "Offer",
+          "url": "https://coolpadelstudios.com/camaras/costa-rica/",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Save My Play · ₡25.500/mes"
+          },
+          "priceSpecification": {
+            "@type": "UnitPriceSpecification",
+            "price": "25500",
+            "priceCurrency": "CRC",
+            "billingDuration": "P1M"
+          }
+        }
+      ]
     },
     {
       "@type": "BreadcrumbList",
@@ -178,7 +196,6 @@
   </style>
   <link rel="alternate" hreflang="es" href="https://coolpadelstudios.com/camaras/costa-rica/"/>
   <link rel="alternate" hreflang="es-CR" href="https://coolpadelstudios.com/camaras/costa-rica/"/>
-  <link rel="alternate" hreflang="x-default" href="https://coolpadelstudios.com/camaras/"/>
   <link rel="alternate" hreflang="es-ES" href="https://coolpadelstudios.com/camaras/espana/"/>
   <link rel="alternate" hreflang="it-IT" href="https://coolpadelstudios.com/camaras/italia/"/>
   <link rel="alternate" hreflang="es-AR" href="https://coolpadelstudios.com/camaras/argentina/"/>

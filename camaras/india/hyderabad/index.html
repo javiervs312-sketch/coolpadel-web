@@ -77,14 +77,32 @@
           "identifier": "IN"
         }
       },
-      "offers": {
-        "@type": "AggregateOffer",
-        "priceCurrency": "INR",
-        "lowPrice": "4660",
-        "highPrice": "18641",
-        "offerCount": "2",
-        "availability": "https://schema.org/InStock"
-      }
+      "offers": [
+        {
+          "@type": "Offer",
+          "url": "https://coolpadelstudios.com/camaras/india/hyderabad/",
+          "itemOffered": {
+            "@type": "Product",
+            "name": "Save My Play · ₹18.641"
+          },
+          "price": "18641",
+          "priceCurrency": "INR"
+        },
+        {
+          "@type": "Offer",
+          "url": "https://coolpadelstudios.com/camaras/india/hyderabad/",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Save My Play · ₹4.660/mo"
+          },
+          "priceSpecification": {
+            "@type": "UnitPriceSpecification",
+            "price": "4660",
+            "priceCurrency": "INR",
+            "billingDuration": "P1M"
+          }
+        }
+      ]
     },
     {
       "@type": "BreadcrumbList",

@@ -77,14 +77,32 @@
           "identifier": "QA"
         }
       },
-      "offers": {
-        "@type": "AggregateOffer",
-        "priceCurrency": "QAR",
-        "lowPrice": "180",
-        "highPrice": "725",
-        "offerCount": "2",
-        "availability": "https://schema.org/InStock"
-      }
+      "offers": [
+        {
+          "@type": "Offer",
+          "url": "https://coolpadelstudios.com/camaras/qatar/doha/",
+          "itemOffered": {
+            "@type": "Product",
+            "name": "Save My Play · 725 QAR"
+          },
+          "price": "725",
+          "priceCurrency": "QAR"
+        },
+        {
+          "@type": "Offer",
+          "url": "https://coolpadelstudios.com/camaras/qatar/doha/",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Save My Play · 180 QAR/شهرياً"
+          },
+          "priceSpecification": {
+            "@type": "UnitPriceSpecification",
+            "price": "180",
+            "priceCurrency": "QAR",
+            "billingDuration": "P1M"
+          }
+        }
+      ]
     },
     {
       "@type": "BreadcrumbList",
