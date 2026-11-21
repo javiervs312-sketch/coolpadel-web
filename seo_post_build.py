@@ -251,6 +251,8 @@ def run_seo_post_build():
                 c = open(full, encoding="utf-8", errors="ignore").read()
             except OSError:
                 continue
+            if '<meta http-equiv="refresh" content="0;' in c:
+                continue
             changed = False
             if "</head>" in c and GA4_ID not in c:
                 c = GA4_OLD_RE.sub("", c)
@@ -259,12 +261,12 @@ def run_seo_post_build():
             if "clarity.ms" not in c and "</head>" in c:
                 c = c.replace("</head>", CLARITY_SNIPPET + "</head>", 1)
                 changed = True
-            new_c = re.sub(r'/assets/js/cp-analytics\.js(?:\?v=[^"\']*)?', '/assets/js/cp-analytics.js?v=20261121-lead', c)
+            new_c = re.sub(r'/assets/js/cp-analytics\.js(?:\?v=[^"\']*)?', '/assets/js/cp-analytics.js?v=20261121-b2b', c)
             if new_c != c:
                 c = new_c
                 changed = True
             elif "cp-analytics.js" not in c and "</body>" in c:
-                c = c.replace("</body>", '  <script src="/assets/js/cp-analytics.js?v=20261121-lead" defer></script>\n</body>', 1)
+                c = c.replace("</body>", '  <script src="/assets/js/cp-analytics.js?v=20261121-b2b" defer></script>\n</body>', 1)
                 changed = True
 
             # Inject self-referencing + x-default hreflang on any indexable page missing hreflang

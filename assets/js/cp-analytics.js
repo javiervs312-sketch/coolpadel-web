@@ -624,13 +624,14 @@
       const lead = intent ? {
         event_category: 'lead',
         intent,
+        product: a.dataset.product || '',
         button_position: a.dataset.buttonPosition || 'content',
         page_path: window.location.pathname,
         evento_desc: 'Intención: ' + intent + ' · ' + (a.dataset.buttonPosition || 'content')
       } : {};
       if (intent && !isAdmin && typeof window.gtag === 'function') {
-        const { event_category, button_position, page_path } = lead;
-        window.gtag('event', 'lead_intent', { event_category, intent, button_position, page_path });
+        const { event_category, button_position, page_path, product } = lead;
+        window.gtag('event', 'lead_intent', { event_category, intent, button_position, page_path, product });
       }
       if (isWhatsApp) {
         sendToWebhook('click_whatsapp', {

@@ -913,3 +913,37 @@ BADGE_RECOMMENDED_22 = {
     'cs': 'Doporučeno',
     'ro': 'Recomandat'
 }
+
+# Copy comercial para el piloto en los cinco mercados. Los precios vienen del país.
+CAMERA_PURCHASE_MARKETS = {
+    "espana": {
+        "title": "Cámaras para clubes de pádel en España | Precio y presupuesto",
+        "summary": "Hardware en propiedad por {hw} por pista. Tarifa base de grabación y streaming: {rec} por pista. Indícanos tu ciudad y cuántas pistas quieres equipar para preparar el presupuesto.",
+        "cta": "Pedir presupuesto para mi club",
+        "message": "Hola Javier, quiero presupuesto de cámaras Save my Play para mi club en {country}. Ciudad: __. Pistas a equipar: __.",
+    },
+    "france": {
+        "title": "Caméras pour clubs de padel en France | Prix et devis",
+        "summary": "Caméra en propriété : {hw} par terrain. Tarif de base pour l’enregistrement et le streaming : {rec} par terrain. Indiquez votre ville et le nombre de terrains à équiper pour recevoir un devis.",
+        "cta": "Demander un devis pour mon club",
+        "message": "Bonjour Javier, je souhaite un devis Save my Play pour mon club en {country}. Ville : __. Terrains à équiper : __.",
+    },
+    "italia": {
+        "title": "Telecamere per club di padel in Italia | Prezzi e preventivo",
+        "summary": "Telecamera di proprietà a {hw} per campo. Tariffa base per registrazione e streaming: {rec} per campo. Indica la città e il numero di campi da attrezzare per ricevere un preventivo.",
+        "cta": "Richiedi un preventivo per il club",
+        "message": "Ciao Javier, vorrei un preventivo Save my Play per il mio club in {country}. Città: __. Campi da attrezzare: __.",
+    },
+    "united-kingdom": {
+        "title": "Padel court cameras for UK clubs | Pricing and quotes",
+        "summary": "Club-owned hardware at {hw} per court. Base recording and streaming plan: {rec} per court. Tell us your town and how many courts you want to equip for a club quote.",
+        "cta": "Request a quote for my club",
+        "message": "Hi Javier, I’d like a Save my Play quote for my club in the {country}. Town or city: __. Courts to equip: __.",
+    },
+    "deutschland": {
+        "title": "Padel-Kameras für Clubs in Deutschland | Preise und Angebot",
+        "summary": "Kamera im Eigentum des Clubs für {hw} pro Platz. Basistarif für Aufnahmen und Streaming: {rec} pro Platz. Nennen Sie uns Ihre Stadt und die Anzahl der Plätze für ein Angebot.",
+        "cta": "Angebot für meinen Club anfragen",
+        "message": "Hallo Javier, ich möchte ein Save-my-Play-Angebot für meinen Club in {country}. Stadt: __. Anzahl der Plätze: __.",
+    },
+}

@@ -825,6 +825,40 @@ LANDINGS = [
 
 
 
+KEYRING_PURCHASE_COPY = {'es': ('Llaveros de pádel con logo para clubes | Pedidos desde 100',
+        'Llaveros de pádel de goma en relieve 3D con el escudo de tu club. Pedido mínimo de '
+        '100 unidades por 300 € sin IVA. Muestra física de 15 € descontable.',
+        'Hola Javier, quiero pedir llaveros de goma 3D con el logo de mi club de pádel. '
+        'Cantidad: __. País de entrega: __. Fecha del evento: __.'),
+ 'en': ('Custom Padel Keyrings for Clubs | Bulk Orders from 100',
+        'Custom 3D rubber padel keyrings with your club logo. Orders from 100 units and a €15 '
+        'physical sample credited against the final order. Ask for delivery terms and a club '
+        'quote.',
+        'Hi Javier, I’d like a quote for custom rubber padel keyrings with my club logo. '
+        'Quantity: __. Delivery country: __. Event date: __.'),
+ 'fr': ('Porte-clés padel personnalisés pour clubs | Dès 100 pièces',
+        'Porte-clés de padel en gomme 3D avec le logo du club. Commande dès 100 pièces et '
+        'échantillon physique à 15 € déduit de la commande finale. Demandez un devis.',
+        'Bonjour Javier, je souhaite un devis pour des porte-clés de padel en gomme 3D avec le '
+        'logo du club. Quantité : __. Pays de livraison : __. Date de l’événement : __.'),
+ 'it': ('Portachiavi padel per club con logo | Ordini da 100 pezzi',
+        'Portachiavi padel in gomma 3D con il logo del club. Ordine minimo 100 pezzi e '
+        'campione fisico da 15 € detraibile dall’ordine finale. Richiedi un preventivo.',
+        'Ciao Javier, vorrei un preventivo per portachiavi padel in gomma 3D con il logo del '
+        'club. Quantità: __. Paese di consegna: __. Data dell’evento: __.')}
+
+
+KEYRING_QUOTE_LABELS = {'en': 'Get a bulk quote for my club',
+ 'es': 'Pedir presupuesto para mi club',
+ 'fr': 'Demander un devis pour mon club',
+ 'it': 'Richiedi un preventivo per il club'}
+
+CAMERA_MARKET_LINKS = {'en': ('united-kingdom', 'See UK club pricing and local coverage'),
+ 'es': ('espana', 'Ver precios y cobertura por ciudad en España'),
+ 'fr': ('france', 'Voir les tarifs et les villes desservies en France'),
+ 'it': ('italia', 'Vedi prezzi e città servite in Italia')}
+
+
 def render_landing(landing, lang="es"):
     is_camaras = landing["slug"].startswith("camaras-") or landing["slug"] in ["camaras-grabacion-pistas-padel", "save-my-play"]
 
@@ -856,6 +890,9 @@ def render_landing(landing, lang="es"):
     l_benefits = trans.get("benefits", landing["benefits"])
     l_faqs = trans.get("faqs", landing["faqs"])
 
+    if landing["slug"] == "llaveros-padel-personalizados":
+        l_title, l_meta_desc, l_wa_msg = KEYRING_PURCHASE_COPY[lang]
+        l_subtitle = l_meta_desc
     wa_encoded = urllib.parse.quote(l_wa_msg)
     hero_img_encoded = urllib.parse.quote(landing["hero_img"])
 
@@ -931,7 +968,18 @@ def render_landing(landing, lang="es"):
     faq_sub = ui["faq_camaras_sub"] if is_camaras else ui["faq_llaveros_sub"]
     cta_sub = ui["cta_camaras_sub"] if is_camaras else ui["cta_llaveros_sub"]
     footer_tagline = ui["footer_camaras"] if is_camaras else ui["footer_llaveros"]
+    is_keyring_product = landing["slug"] == "llaveros-padel-personalizados"
     cta_btn_text = ui["btn_demo_wa"] if is_camaras else ui["btn_calc_wa"]
+    if is_keyring_product:
+        cta_btn_text = KEYRING_QUOTE_LABELS[lang]
+
+    market_slug, market_label = CAMERA_MARKET_LINKS[lang]
+    market_link = ""
+    if landing["slug"] == "camaras-grabacion-pistas-padel":
+        market_link = (
+            f'<p class="text-sm font-bold text-slate-700">'
+            f'<a class="underline" href="/camaras/{market_slug}/">{market_label}</a></p>'
+        )
 
     if is_camaras:
         badge_badges = {
@@ -1602,7 +1650,7 @@ def render_landing(landing, lang="es"):
             </div>
 
             <div class="pt-4 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4">
-              <a href="https://api.whatsapp.com/send?phone=34680317486&text={wa_encoded}" data-lead-intent="{'demo' if is_camaras else 'muestra_llaveros'}" data-button-position="hero" target="_blank" rel="noopener" class="inline-flex items-center justify-center gap-2.5 px-7 py-4 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] text-slate-950 font-heading font-black text-sm uppercase tracking-wider transition shadow-md hover:scale-105 active:scale-95 group">
+              <a href="https://api.whatsapp.com/send?phone=34680317486&text={wa_encoded}" data-product="{'camaras' if is_camaras else 'llaveros'}" data-lead-intent="{'demo' if is_camaras else 'presupuesto' if is_keyring_product else 'muestra_llaveros'}" data-button-position="hero" target="_blank" rel="noopener" class="inline-flex items-center justify-center gap-2.5 px-7 py-4 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] text-slate-950 font-heading font-black text-sm uppercase tracking-wider transition shadow-md hover:scale-105 active:scale-95 group">
                 <i data-lucide="message-circle" class="w-5 h-5 text-slate-950"></i>
                 <span>{cta_btn_text}</span>
               </a>
@@ -1757,7 +1805,7 @@ def render_landing(landing, lang="es"):
 
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 max-w-2xl mx-auto text-left">
           <!-- WhatsApp Card -->
-          <a id="landing-contact-wa" data-lead-intent="{'demo' if is_camaras else 'muestra_llaveros'}" data-button-position="contact" href="https://api.whatsapp.com/send?phone=34680317486&text={wa_encoded}" target="_blank" rel="noopener noreferrer"
+          <a id="landing-contact-wa" data-product="{'camaras' if is_camaras else 'llaveros'}" data-lead-intent="{'demo' if is_camaras else 'presupuesto' if is_keyring_product else 'muestra_llaveros'}" data-button-position="contact" href="https://api.whatsapp.com/send?phone=34680317486&text={wa_encoded}" target="_blank" rel="noopener noreferrer"
              class="bg-white border border-slate-200 hover:border-[#25D366] rounded-2xl p-5 shadow-xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between items-center text-center group cursor-pointer block no-underline text-inherit">
             <div class="flex flex-col items-center space-y-2 w-full">
               <div class="w-11 h-11 rounded-xl bg-emerald-50 text-[#25D366] flex items-center justify-center shadow-inner group-hover:scale-105 group-hover:bg-[#25D366] group-hover:text-white transition-all duration-300">

@@ -26,7 +26,7 @@ import urllib.parse
 from paises_data_50 import COUNTRIES_50
 from ciudades_data_250 import CITIES_50
 from country_i18n_master import ALL_LANGS_MASTER
-from country_i18n_extras import ISO_MAP, COURTS_TERM, NAV_PREFIX_MAP, FOOTER_I18N, BADGE_RECOMMENDED_22
+from country_i18n_extras import ISO_MAP, COURTS_TERM, NAV_PREFIX_MAP, FOOTER_I18N, BADGE_RECOMMENDED_22, CAMERA_PURCHASE_MARKETS
 from paises_titles_h1_i18n import COUNTRY_TITLES_H1_22
 from ciudades_faqs_i18n import EXTRA_FAQS_22
 from build_ciudades_camaras import extract_numeric_price
@@ -65,6 +65,17 @@ def generate_country_page(item, slug_to_use, canonical_slug=None):
         title = title.replace("em Brasil", "no Brasil")
         meta_desc = meta_desc.replace("em Brasil", "no Brasil")
         wa_msg = wa_msg.replace("em Brasil", "no Brasil")
+    demo_url = f"https://api.whatsapp.com/send?phone=34680317486&text={urllib.parse.quote(wa_msg)}"
+    purchase = CAMERA_PURCHASE_MARKETS.get(slug_to_use)
+    hero_cta = t["demo_btn"]
+    hero_intent = "demo"
+    if purchase:
+        title = purchase["title"]
+        sub = purchase["summary"].format(hw=hw, rec=rec)
+        meta_desc = sub
+        hero_cta = purchase["cta"]
+        hero_intent = "presupuesto"
+        wa_msg = purchase["message"].format(country=country_display)
     encoded_wa = urllib.parse.quote(wa_msg)
     wa_url = f"https://api.whatsapp.com/send?phone=34680317486&text={encoded_wa}"
     target_slug = slug_to_use
@@ -296,7 +307,7 @@ def generate_country_page(item, slug_to_use, canonical_slug=None):
         <a href="{nav_prefix}blog/" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition">{t["nav_blog"]}</a>
         <a href="{nav_prefix}franquicias-padel/" class="hidden sm:inline-block font-heading font-black text-xs uppercase tracking-wider text-slate-700 hover:text-[#f2920b] transition">{t.get("nav_franquicias", "Cadenas de clubs")}</a>
 
-        <a href="{wa_url}" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-4 py-2 sm:px-5 sm:py-2.5 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] text-slate-950 font-heading font-black text-xs sm:text-sm uppercase tracking-wider transition shadow-sm hover:scale-105 active:scale-95">
+        <a href="{demo_url}" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-4 py-2 sm:px-5 sm:py-2.5 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] text-slate-950 font-heading font-black text-xs sm:text-sm uppercase tracking-wider transition shadow-sm hover:scale-105 active:scale-95">
           <i data-lucide="message-circle" class="w-4 h-4 text-slate-950"></i>
           <span>WhatsApp Demo</span>
         </a>
@@ -343,9 +354,9 @@ def generate_country_page(item, slug_to_use, canonical_slug=None):
 
             <div class="pt-4 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 relative" style="min-height: 58px;">
               <div id="hero-btn-placeholder" style="display: none; height: 54px;" class="w-full sm:w-[350px]"></div>
-              <a id="hero-wa-btn" href="{wa_url}" target="_blank" rel="noopener" class="inline-flex items-center justify-center gap-2.5 px-7 py-4 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] text-slate-950 font-heading font-black text-sm uppercase tracking-wider transition-all duration-200 shadow-md hover:scale-105 active:scale-95 group z-40">
+              <a id="hero-wa-btn" data-product="camaras" data-lead-intent="{hero_intent}" data-button-position="hero" href="{wa_url}" target="_blank" rel="noopener" class="inline-flex items-center justify-center gap-2.5 px-7 py-4 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] text-slate-950 font-heading font-black text-sm uppercase tracking-wider transition-all duration-200 shadow-md hover:scale-105 active:scale-95 group z-40">
                 <i data-lucide="message-circle" class="w-5 h-5 text-slate-950"></i>
-                <span>{t["demo_btn"]}</span>
+                <span>{hero_cta}</span>
               </a>
 
               <a href="#precios" class="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-full bg-white hover:bg-slate-100 text-slate-900 border border-slate-200 font-heading font-black text-sm uppercase tracking-wider transition">
@@ -505,7 +516,7 @@ def generate_country_page(item, slug_to_use, canonical_slug=None):
         </div>
 
         <div class="mt-8 text-center">
-          <a href="{wa_url}" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] text-slate-950 font-heading font-black text-sm uppercase tracking-wider transition shadow-md hover:scale-105 active:scale-95">
+          <a href="{demo_url}" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] text-slate-950 font-heading font-black text-sm uppercase tracking-wider transition shadow-md hover:scale-105 active:scale-95">
             <i data-lucide="message-circle" class="w-4 h-4 text-slate-950"></i>
             <span>{t["demo_btn"]}</span>
           </a>
@@ -683,7 +694,7 @@ def generate_country_page(item, slug_to_use, canonical_slug=None):
 
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 max-w-2xl mx-auto text-left">
           <!-- WhatsApp Card -->
-          <a id="landing-contact-wa" href="{wa_url}" target="_blank" rel="noopener noreferrer"
+          <a id="landing-contact-wa" data-product="camaras" data-lead-intent="{hero_intent}" data-button-position="contact" href="{wa_url}" target="_blank" rel="noopener noreferrer"
              class="bg-white border border-slate-200 hover:border-[#25D366] rounded-2xl p-5 shadow-xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between items-center text-center group cursor-pointer block no-underline text-inherit">
             <div class="flex flex-col items-center space-y-2 w-full">
               <div class="w-11 h-11 rounded-xl bg-emerald-50 text-[#25D366] flex items-center justify-center shadow-inner group-hover:scale-105 group-hover:bg-[#25D366] group-hover:text-white transition-all duration-300">

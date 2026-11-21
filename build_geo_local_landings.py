@@ -546,7 +546,19 @@ def render_local_landing(l):
   }}"""
 
     # Button label & localized section titles
-    btn_wa_text = "Solicitar información por WhatsApp" if lang == "es" else ("Request Info on WhatsApp" if lang == "en" else ("Demander des infos sur WhatsApp" if lang == "fr" else "Richiedi informazioni su WhatsApp"))
+    btn_wa_text = {
+        "es": "Pedir presupuesto para mi club",
+        "en": "Request a quote for my club",
+        "fr": "Demander un devis pour mon club",
+        "it": "Richiedi un preventivo per il club",
+    }[lang]
+    court_count_prompt = {
+        "es": "Pistas a equipar: __.",
+        "en": "Courts to equip: __.",
+        "fr": "Terrains à équiper : __.",
+        "it": "Campi da attrezzare: __.",
+    }[lang]
+    quote_message = f"{l['wa_msg'].rstrip('.')}. {court_count_prompt}"
     btn_demo_text = "Ver Demo Online" if lang == "es" else ("Watch Online Demo" if lang == "en" else ("Voir la démo en ligne" if lang == "fr" else "Guarda la demo online"))
 
     sec_benefits_h2 = "Ventajas para tu Club" if lang == "es" else ("Key Benefits for Your Club" if lang == "en" else ("Avantages Clés pour Votre Club" if lang == "fr" else "Vantaggi Chiave per il Tuo Circolo"))
@@ -629,7 +641,7 @@ def render_local_landing(l):
         <span class="font-heading font-black text-lg text-slate-950 tracking-tight">Cool<span class="text-[#f2920b]">Padel</span></span>
       </a>
       <div class="flex items-center gap-3">
-        <a href="https://wa.me/34680317486?text={urllib.parse.quote(l['wa_msg'])}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-[#25D366] hover:bg-[#20ba59] text-white text-xs sm:text-sm font-bold shadow-sm transition">
+        <a href="https://wa.me/34680317486?text={urllib.parse.quote(quote_message)}" data-product="camaras" data-lead-intent="presupuesto" data-button-position="header" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-[#25D366] hover:bg-[#20ba59] text-white text-xs sm:text-sm font-bold shadow-sm transition">
           <i data-lucide="message-circle" class="w-4 h-4"></i>
           <span>WhatsApp</span>
         </a>
@@ -668,7 +680,7 @@ def render_local_landing(l):
             <span>{l['price_anchor']}</span>
           </div>
           <div class="flex flex-wrap gap-3 pt-2">
-            <a href="https://wa.me/34680317486?text={urllib.parse.quote(l['wa_msg'])}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-6 py-3.5 rounded-2xl bg-[#f2920b] hover:bg-[#d98006] text-slate-950 font-black font-heading text-sm shadow-lg shadow-amber-500/20 transition hover:scale-105">
+            <a href="https://wa.me/34680317486?text={urllib.parse.quote(quote_message)}" data-product="camaras" data-lead-intent="presupuesto" data-button-position="hero" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-6 py-3.5 rounded-2xl bg-[#f2920b] hover:bg-[#d98006] text-slate-950 font-black font-heading text-sm shadow-lg shadow-amber-500/20 transition hover:scale-105">
               <i data-lucide="message-circle" class="w-4 h-4"></i>
               <span>{btn_wa_text}</span>
             </a>

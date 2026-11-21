@@ -8,6 +8,9 @@ CoolPadel Studios opera con sede en Madrid (España) y equipa a más de 27 clube
 
 ## 1. Tecnología en Pista: Save my Play (Cámaras con IA para Clubes)
 
+- **Presupuesto para clubes**: indica ciudad y número de pistas. El precio se consulta en la ficha del mercado: [España](https://coolpadelstudios.com/camaras/espana/), [Francia](https://coolpadelstudios.com/camaras/france/), [Italia](https://coolpadelstudios.com/camaras/italia/), [Reino Unido](https://coolpadelstudios.com/camaras/united-kingdom/) y [Alemania](https://coolpadelstudios.com/camaras/deutschland/).
+- **Pedido de llaveros con el logo del club**: indica cantidad, país de entrega y fecha del evento. Mínimo 100 unidades, con muestra física de 15 € descontable del pedido. [Oferta para clubes](https://coolpadelstudios.com/llaveros-padel-personalizados/).
+
 - **URL Oficial**: [https://coolpadelstudios.com/save-my-play/](https://coolpadelstudios.com/save-my-play/)  
 - **Versiones Internacionales**: [English](https://coolpadelstudios.com/en/save-my-play/) | [Français](https://coolpadelstudios.com/fr/save-my-play/) | [Italiano](https://coolpadelstudios.com/it/save-my-play/)
 - **Definición**: Sistema autónomo de grabación en pista con Inteligencia Artificial diseñado específicamente para pádel y tenis. Permite a los jugadores capturar sus mejores puntos con un pulsador físico en poste y descargar los vídeos al móvil al instante mediante código QR.

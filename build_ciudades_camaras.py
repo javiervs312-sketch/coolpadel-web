@@ -10,6 +10,7 @@ import re
 import json
 import urllib.parse
 import sys
+from pathlib import Path
 
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 from paises_data_50 import COUNTRIES_50
@@ -368,7 +369,7 @@ def generate_city_page(country_item, city, slug_country_used, canonical_country_
 
             <div class="pt-4 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 relative" style="min-height: 58px;">
               <div id="hero-btn-placeholder" style="display: none; height: 54px;" class="w-full sm:w-[350px]"></div>
-              <a id="hero-wa-btn" href="{wa_url}" target="_blank" rel="noopener" class="inline-flex items-center justify-center gap-2.5 px-7 py-4 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] text-slate-950 font-heading font-black text-sm uppercase tracking-wider transition-all duration-200 shadow-md hover:scale-105 active:scale-95 group z-40">
+              <a id="hero-wa-btn" data-product="camaras" data-lead-intent="demo" data-button-position="hero" href="{wa_url}" target="_blank" rel="noopener" class="inline-flex items-center justify-center gap-2.5 px-7 py-4 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] text-slate-950 font-heading font-black text-sm uppercase tracking-wider transition-all duration-200 shadow-md hover:scale-105 active:scale-95 group z-40">
                 <i data-lucide="message-circle" class="w-5 h-5 text-slate-950"></i>
                 <span>{t["demo_btn"]}</span>
               </a>
@@ -702,7 +703,7 @@ def generate_city_page(country_item, city, slug_country_used, canonical_country_
 
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 max-w-2xl mx-auto text-left">
           <!-- WhatsApp Card -->
-          <a id="landing-contact-wa" href="{wa_url}" target="_blank" rel="noopener noreferrer"
+          <a id="landing-contact-wa" data-product="camaras" data-lead-intent="demo" data-button-position="contact" href="{wa_url}" target="_blank" rel="noopener noreferrer"
              class="bg-white border border-slate-200 hover:border-[#25D366] rounded-2xl p-5 shadow-xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between items-center text-center group cursor-pointer">
             <div class="flex flex-col items-center">
               <div class="w-12 h-12 rounded-xl bg-emerald-50 text-[#25D366] flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
@@ -904,6 +905,52 @@ def generate_city_page(country_item, city, slug_country_used, canonical_country_
 """
     return html
 
+# Rutas históricas que Google seleccionó en lugar de las canónicas publicadas.
+LEGACY_CAMERA_REDIRECTS = {
+    "bahrein": "bahrain",
+    "grecia": "ellada",
+    "japon": "japan",
+    "austria": "oesterreich",
+    "bahrein/a-ali": "bahrain/a-ali",
+    "belgica/liege": "belgique/liege",
+    "libano/saida": "lebanon/saida",
+    "austria/linz": "oesterreich/linz",
+    "suiza/geneve": "schweiz/geneve",
+    "sudafrica/gqeberha": "south-africa/gqeberha",
+    "sudafrica/johannesburg": "south-africa/johannesburg",
+    "suecia/goteborg": "sverige/goteborg",
+    "suecia/malmo": "sverige/malmo",
+    "suecia/stockholm": "sverige/stockholm",
+    "tunez/djerba": "tunisie/djerba",
+    "tunez/sousse": "tunisie/sousse",
+    "tunez/tunis": "tunisie/tunis",
+    "turquia/bursa": "turkiye/bursa",
+}
+
+
+def build_legacy_camera_redirects():
+    root = Path(OUTPUT_ROOT)
+    for legacy, destination in LEGACY_CAMERA_REDIRECTS.items():
+        if not (root / destination / "index.html").is_file():
+            raise FileNotFoundError(f"Destino canónico ausente: {destination}")
+        alias = root / legacy / "index.html"
+        target = f"https://coolpadelstudios.com/camaras/{destination}/"
+        alias.parent.mkdir(parents=True, exist_ok=True)
+        alias.write_text(f"""<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="refresh" content="0; url={target}">
+  <link rel="canonical" href="{target}">
+  <title>CoolPadel Studios</title>
+</head>
+<body>
+  <a href="{target}">Continuar a la página de cámaras de pádel</a>
+</body>
+</html>
+""", encoding="utf-8")
+
+
 def build_all_cities():
     built = 0
     generated_city_urls = []
@@ -931,6 +978,7 @@ def build_all_cities():
         print(f"OK [5 Ciudades] -> {country_slug} ({slug_local})")
 
     print(f"\n¡Éxito! Generadas {built} páginas de ciudades B2B para los 50 países.")
+    build_legacy_camera_redirects()
     return generated_city_urls
 
 if __name__ == '__main__':
