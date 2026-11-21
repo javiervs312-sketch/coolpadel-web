@@ -9,7 +9,7 @@ EXTRA_ARTICLES_I18N = {
         "es": {
             "title": "Highlights #01: Startups Padel World Summit 2026 | CoolPadel",
             "desc": "Highlights #01: Padel World Summit 2026: Startup Recap. Reflexiones sobre la industria del pádel por Javier Villoria.",
-            "h1": "Padel World Summit 2026: Startup Recap",
+            "h1": "Padel World Summit 2026: Resumen de Startups",
             "subtitle": "Conversaciones con las 20 startups del Innovation Arena y lecciones para clubes.",
             "badge": "Newsletter · Startups"
         },
@@ -30,7 +30,7 @@ EXTRA_ARTICLES_I18N = {
         "it": {
             "title": "Highlights #01: Startups Padel World Summit 2026 | CoolPadel Studios",
             "desc": "Highlights #01: Padel World Summit 2026: Startup Recap. Riflessioni sul settore padel di Javier Villoria.",
-            "h1": "Padel World Summit 2026: Startup Recap",
+            "h1": "Padel World Summit 2026: Bilancio Startup",
             "subtitle": "Interviste con le 20 startup dell'Innovation Arena e lezioni strategiche per i club.",
             "badge": "Newsletter · Startup"
         }

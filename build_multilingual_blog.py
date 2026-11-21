@@ -177,6 +177,7 @@ def build_blog_hub(lang):
     # Traducción de títulos hero
     html = html.replace('Blog & Newsletter de la Industria del Pádel', d['title'].split(' | ')[0])
     html = html.replace('Blog & Newsletter de la <span class="text-[#f2920b]">Industria del Pádel</span>', d['h1'])
+    html = re.sub(r'<h1([^>]*)>\s*Blog de Gestión de Clubs de Pádel: Cámaras, Merchandising y Negocio\s*</h1>', f'<h1\\1>\n              {d["h1"]}\n            </h1>', html)
     html = html.replace('Análisis estratégico y noticias del ecosistema de raqueta por Javier Villoria.', d['lead'])
 
     # Filtros de categorías
@@ -231,6 +232,7 @@ def build_article_page(slug, lang):
             "cuanto-cuesta-montar-pista-padel-presupuesto-rentabilidad",
             "sistemas-grabacion-pistas-padel-comparativa",
             "regalos-padel-originales-baratos-ideas-detalles-torneos",
+            "highlights-01",
         ):
             es_t = es_d["title"]
             es_desc = es_d["desc"]
@@ -240,6 +242,8 @@ def build_article_page(slug, lang):
             html = re.sub(r'<meta property="og:description" content="[^"]*">', f'<meta property="og:description" content="{es_desc}">', html)
             html = re.sub(r'<meta name="twitter:title" content="[^"]*">', f'<meta name="twitter:title" content="{es_t}">', html)
             html = re.sub(r'<meta name="twitter:description" content="[^"]*">', f'<meta name="twitter:description" content="{es_desc}">', html)
+            if es_d.get("h1"):
+                html = re.sub(r'<h1([^>]*)>[\s\S]*?</h1>', f'<h1\\1>\n            {es_d["h1"]}\n          </h1>', html, count=1)
         return html
 
     d = ALL_ARTICLES_I18N[slug][lang]

@@ -20,6 +20,11 @@ from ciudades_faqs_i18n import EXTRA_FAQS_22
 
 OUTPUT_ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'camaras')
 
+INTL_COUNTRIES_LINKS_HTML = " · ".join(
+    f'<a href="/camaras/{c["slug_local"]}/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">{c["country_local"]}</a>'
+    for c in COUNTRIES_50
+)
+
 def extract_numeric_price(price_str, fallback="45"):
     s = price_str
     if "jt" in s:
@@ -764,6 +769,16 @@ def generate_city_page(country_item, city, slug_country_used, canonical_country_
           </ul>
         </div>
       </nav>
+
+      <!-- DIRECTORIO INTERNACIONAL 50 PAÍSES SAVE MY PLAY -->
+      <div class="pt-6 border-t border-white/15 text-left space-y-2">
+        <div class="font-heading font-black text-[11px] uppercase tracking-wider text-white/90">
+          Save My Play · International Network (50 Countries &amp; 250+ Cities):
+        </div>
+        <p class="text-[11px] text-white/75 leading-relaxed font-normal">
+          {INTL_COUNTRIES_LINKS_HTML}
+        </p>
+      </div>
 
       <div class="pt-8 border-t border-white/20 flex flex-col sm:flex-row items-center justify-between gap-4 text-white/70">
         <p>© 2026 CoolPadel Studios · {f_i18n["distribuidor_oficial"].format(city=city_name, country=country_display)}</p>

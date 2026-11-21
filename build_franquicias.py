@@ -89,8 +89,22 @@ def render_html(lang="es"):
         "fr": f"Annuaire et comparateur de {total_franquicias} réseaux et franchises de padel: critères d'implantation, investissement, royalties et logiciels de réservation.",
         "it": f"Directory e confronto di {total_franquicias} catene e franchigie di padel: requisiti delle strutture, investimenti, royalties e software gestionali."
     }
+    h1_titles = {
+        "es": "Directorio y Comparador de Franquicias de Pádel",
+        "en": "Padel Club Networks & Franchises Directory",
+        "fr": "Annuaire et Comparateur des Franchises de Padel",
+        "it": "Directory e Confronto delle Franchigie di Padel"
+    }
+    hero_leads = {
+        "es": "El directorio para operadores y clubes que quieren franquiciarse",
+        "en": "The official directory for multi-club operators and investors looking to franchise",
+        "fr": "L'annuaire officiel pour les opérateurs multi-clubs et investisseurs en franchise",
+        "it": "La directory ufficiale per operatori multi-club e investitori in franchising"
+    }
     page_title = meta_titles.get(lang, meta_titles["es"])
     page_desc = meta_descs.get(lang, meta_descs["es"])
+    page_h1 = h1_titles.get(lang, h1_titles["es"])
+    page_lead = hero_leads.get(lang, hero_leads["es"])
 
     # Generación dinámica de opciones para el desplegable moderno de región
     region_dropdown_items_html = ""
@@ -545,11 +559,11 @@ def render_html(lang="es"):
         <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
           <div class="max-w-3xl space-y-2.5">
             <h1 class="font-heading font-black text-2xl sm:text-3xl lg:text-4xl text-slate-950 uppercase tracking-tight leading-tight">
-              Directorio y Comparador de Franquicias de Pádel
+              {page_h1}
             </h1>
 
             <p class="text-base sm:text-lg text-slate-700 font-semibold leading-relaxed">
-              El directorio para operadores y clubes que quieren franquiciarse
+              {page_lead}
             </p>
           </div>
 

@@ -25,19 +25,19 @@ import json
 import urllib.parse
 from paises_data_50 import COUNTRIES_50
 from ciudades_data_250 import CITIES_50
-from country_i18n_native_all import NATIVE_TRANSLATIONS_21
-from country_i18n_native_part2 import REMAINING_13_LANGS
-from country_i18n_extras import ISO_MAP, COURTS_TERM, NAV_PREFIX_MAP, FOOTER_I18N
+from country_i18n_master import ALL_LANGS_MASTER
+from country_i18n_extras import ISO_MAP, COURTS_TERM, NAV_PREFIX_MAP, FOOTER_I18N, BADGE_RECOMMENDED_22
 from paises_titles_h1_i18n import COUNTRY_TITLES_H1_22
 from ciudades_faqs_i18n import EXTRA_FAQS_22
 from build_ciudades_camaras import extract_numeric_price
 
-ALL_LANGS_MASTER = dict(NATIVE_TRANSLATIONS_21)
-ALL_LANGS_MASTER.update(REMAINING_13_LANGS)
-
 # Precomputar mapa de país a su URL canónica y regional hreflangs
 COUNTRY_CANONICAL_MAP = {c["slug_local"]: f"https://coolpadelstudios.com/camaras/{c['slug_local']}/" for c in COUNTRIES_50}
 SPAIN_CANONICAL_CITIES = {"madrid", "barcelona", "valencia", "malaga"}
+INTL_COUNTRIES_LINKS_HTML = " · ".join(
+    f'<a href="/camaras/{c["slug_local"]}/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">{c["country_local"]}</a>'
+    for c in COUNTRIES_50
+)
 
 OUTPUT_ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'camaras')
 os.makedirs(OUTPUT_ROOT, exist_ok=True)
@@ -50,6 +50,7 @@ def generate_country_page(item, slug_to_use, canonical_slug=None):
     hw = item["hw"]
     rec = item["rec"]
     ai = item["ai"]
+    badge_plan_rec = BADGE_RECOMMENDED_22.get(lang, "Recommended")
 
     # Título y H1 optimizados B2B aprobados por Javier
     country_seo = COUNTRY_TITLES_H1_22.get(lang, COUNTRY_TITLES_H1_22["en"])
@@ -427,44 +428,75 @@ def generate_country_page(item, slug_to_use, canonical_slug=None):
     <!-- 3. TABLA DE PRECIOS EXACTA EN 3 FILAS (PUESTA INMEDIATAMENTE DESPUÉS DE POR QUÉ ELEGIR) -->
     <section id="precios" class="py-14 sm:py-20 bg-slate-50 border-b border-slate-200 scroll-mt-20">
       <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        <div class="overflow-x-auto">
-          <table class="w-full text-left text-sm sm:text-base">
-            <thead>
-              <tr class="border-b border-slate-200 text-xs uppercase tracking-wider text-slate-500">
-                <th class="py-3 px-3">{t["pricing_th_plan"]}</th>
-                <th class="py-3 px-3">{t["pricing_th_invest"]}</th>
-                <th class="py-3 px-3">{t["pricing_th_mod"]}</th>
-                <th class="py-3 px-3">{t["pricing_th_serv"]}</th>
-              </tr>
-            </thead>
-            <tbody class="divide-y divide-slate-100 font-bold">
-              <tr>
-                <td class="py-4 px-3 text-slate-900">{t["tbl_hw_title"]}</td>
-                <td class="py-4 px-3 text-[#f2920b]">{hw}</td>
-                <td class="py-4 px-3 text-slate-700">{t["tbl_hw_mod"]}</td>
-                <td class="py-4 px-3 text-slate-600 text-xs font-medium">{t["tbl_hw_desc"]}</td>
-              </tr>
-              <tr>
-                <td class="py-4 px-3 text-slate-900">{t["tbl_rec_title"]}</td>
-                <td class="py-4 px-3 text-[#f2920b]">{rec}</td>
-                <td class="py-4 px-3 text-emerald-600">{t["tbl_rec_mod"]}</td>
-                <td class="py-4 px-3 text-slate-600 text-xs font-medium">{t["tbl_rec_desc"]}</td>
-              </tr>
-              <tr class="bg-amber-50/50">
-                <td class="py-4 px-3 text-slate-900">{t["tbl_ai_title"]}</td>
-                <td class="py-4 px-3 text-[#f2920b]">{ai}</td>
-                <td class="py-4 px-3 text-slate-700">{t["tbl_ai_mod"]}</td>
-                <td class="py-4 px-3 text-slate-600 text-xs font-medium">{t["tbl_ai_desc"]}</td>
-              </tr>
-            </tbody>
-          </table>
+        <div class="text-center max-w-2xl mx-auto mb-10 sm:mb-14 space-y-2">
+          <h2 class="font-heading font-black text-2xl sm:text-4xl text-slate-950 uppercase tracking-tight">
+            {t["pricing_h2"]}
+          </h2>
+          <p class="text-sm sm:text-base text-slate-600 font-medium">
+            {t["pricing_footnote"]}
+          </p>
         </div>
 
-        <div class="mt-6 pt-5 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <span class="text-xs text-slate-500">{t["pricing_footnote"]}</span>
-          <a href="{wa_url}" target="_blank" rel="noopener" class="px-6 py-3 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] text-slate-950 font-heading font-black text-xs uppercase tracking-wider transition">
-            {t["demo_btn"]}
+        <div class="bg-white rounded-3xl border border-slate-200/90 shadow-sm overflow-hidden">
+          <div class="overflow-x-auto">
+            <table class="w-full text-left border-collapse">
+              <thead>
+                <tr class="bg-slate-100/80 border-b border-slate-200 text-[11px] sm:text-xs font-heading font-black uppercase text-slate-600 tracking-wider">
+                  <th class="p-4 sm:p-5">{t["pricing_th_plan"]}</th>
+                  <th class="p-4 sm:p-5">{t["pricing_th_invest"]}</th>
+                  <th class="p-4 sm:p-5">{t["pricing_th_mod"]}</th>
+                  <th class="p-4 sm:p-5">{t["pricing_th_serv"]}</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-slate-100 text-xs sm:text-sm">
+                <!-- Fila 1: Hardware en Propiedad -->
+                <tr class="hover:bg-slate-50/60 transition">
+                  <td class="p-4 sm:p-5 font-bold text-slate-900">
+                    <div class="flex items-center gap-2">
+                      <i data-lucide="hard-drive" class="w-4 h-4 text-[#f2920b]"></i>
+                      <span>{t["tbl_hw_title"]}</span>
+                    </div>
+                  </td>
+                  <td class="p-4 sm:p-5 font-heading font-black text-base text-slate-950">{hw}</td>
+                  <td class="p-4 sm:p-5 text-slate-600">{t["tbl_hw_mod"]}</td>
+                  <td class="p-4 sm:p-5 text-slate-600">{t["tbl_hw_desc"]}</td>
+                </tr>
+
+                <!-- Fila 2: Grabación y Highlights (Recomendado) -->
+                <tr class="bg-amber-500/5 hover:bg-amber-500/10 transition border-y-2 border-[#f2920b]/30">
+                  <td class="p-4 sm:p-5 font-bold text-slate-900">
+                    <div class="flex items-center gap-2">
+                      <i data-lucide="video" class="w-4 h-4 text-[#f2920b]"></i>
+                      <span>{t["tbl_rec_title"]}</span>
+                    </div>
+                    <span class="inline-block mt-1 px-2 py-0.5 rounded text-[10px] font-heading font-black uppercase bg-[#f2920b] text-slate-950">{badge_plan_rec}</span>
+                  </td>
+                  <td class="p-4 sm:p-5 font-heading font-black text-base text-[#f2920b]">{rec}</td>
+                  <td class="p-4 sm:p-5 text-slate-600">{t["tbl_rec_mod"]}</td>
+                  <td class="p-4 sm:p-5 text-slate-600">{t["tbl_rec_desc"]}</td>
+                </tr>
+
+                <!-- Fila 3: Estadísticas con IA -->
+                <tr class="hover:bg-slate-50/60 transition">
+                  <td class="p-4 sm:p-5 font-bold text-slate-900">
+                    <div class="flex items-center gap-2">
+                      <i data-lucide="sparkles" class="w-4 h-4 text-sky-600"></i>
+                      <span>{t["tbl_ai_title"]}</span>
+                    </div>
+                  </td>
+                  <td class="p-4 sm:p-5 font-heading font-black text-base text-slate-950">{ai}</td>
+                  <td class="p-4 sm:p-5 text-slate-600">{t["tbl_ai_mod"]}</td>
+                  <td class="p-4 sm:p-5 text-slate-600">{t["tbl_ai_desc"]}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="mt-8 text-center">
+          <a href="{wa_url}" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] text-slate-950 font-heading font-black text-sm uppercase tracking-wider transition shadow-md hover:scale-105 active:scale-95">
+            <i data-lucide="message-circle" class="w-4 h-4 text-slate-950"></i>
+            <span>{t["demo_btn"]}</span>
           </a>
         </div>
 
@@ -472,7 +504,7 @@ def generate_country_page(item, slug_to_use, canonical_slug=None):
     </section>
 
     <!-- 4. DEMOSTRACIÓN EN PISTA REAL (4 VÍDEOS) -->
-    <section class="py-14 sm:py-20 bg-slate-50 border-b border-slate-200">
+    <section class="py-14 sm:py-20 bg-white border-b border-slate-200">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center max-w-2xl mx-auto mb-10 sm:mb-14 space-y-2">
           <span class="inline-block text-[#f2920b] font-heading font-black text-xs uppercase tracking-wider">
@@ -731,6 +763,16 @@ def generate_country_page(item, slug_to_use, canonical_slug=None):
           </ul>
         </div>
       </nav>
+
+      <!-- DIRECTORIO INTERNACIONAL 50 PAÍSES SAVE MY PLAY -->
+      <div class="pt-6 border-t border-white/15 text-left space-y-2">
+        <div class="font-heading font-black text-[11px] uppercase tracking-wider text-white/90">
+          Save My Play · International Network (50 Countries &amp; 250+ Cities):
+        </div>
+        <p class="text-[11px] text-white/75 leading-relaxed font-normal">
+          {INTL_COUNTRIES_LINKS_HTML}
+        </p>
+      </div>
 
       <div class="pt-8 border-t border-white/20 text-center space-y-2">
         <p class="text-white/70">

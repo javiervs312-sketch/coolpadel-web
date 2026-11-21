@@ -442,44 +442,75 @@
     <!-- 3. TABLA DE PRECIOS EXACTA EN 3 FILAS (PUESTA INMEDIATAMENTE DESPUÉS DE POR QUÉ ELEGIR) -->
     <section id="precios" class="py-14 sm:py-20 bg-slate-50 border-b border-slate-200 scroll-mt-20">
       <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        <div class="overflow-x-auto">
-          <table class="w-full text-left text-sm sm:text-base">
-            <thead>
-              <tr class="border-b border-slate-200 text-xs uppercase tracking-wider text-slate-500">
-                <th class="py-3 px-3">Concepte / Pla</th>
-                <th class="py-3 px-3">Inversió / Quota</th>
-                <th class="py-3 px-3">Modalitat</th>
-                <th class="py-3 px-3">Serveis Inclosos</th>
-              </tr>
-            </thead>
-            <tbody class="divide-y divide-slate-100 font-bold">
-              <tr>
-                <td class="py-4 px-3 text-slate-900">Inversió Maquinari en Propietat</td>
-                <td class="py-4 px-3 text-[#f2920b]">180 €</td>
-                <td class="py-4 px-3 text-slate-700">Pagament únic</td>
-                <td class="py-4 px-3 text-slate-600 text-xs font-medium">1 càmera esportiva per pista (lent rectilínia sense efecte ull de peix) + fixació de seguretat a pal</td>
-              </tr>
-              <tr>
-                <td class="py-4 px-3 text-slate-900">Gravació, Highlights & Streaming</td>
-                <td class="py-4 px-3 text-[#f2920b]">45 €/mes</td>
-                <td class="py-4 px-3 text-emerald-600">0 permanència • Cancel·lació lliure</td>
-                <td class="py-4 px-3 text-slate-600 text-xs font-medium">Gravació de partits en núvol privat, generació automàtica de millors jugades i retransmissió a YouTube</td>
-              </tr>
-              <tr class="bg-amber-50/50">
-                <td class="py-4 px-3 text-slate-900">Estadístiques amb IA i Anàlisi Tàctica</td>
-                <td class="py-4 px-3 text-[#f2920b]">136 €/mes</td>
-                <td class="py-4 px-3 text-slate-700">0 permanència • Opcional</td>
-                <td class="py-4 px-3 text-slate-600 text-xs font-medium">Anàlisi de cops, mapes de calor, velocitat de bola i estadístiques individuals per jugador</td>
-              </tr>
-            </tbody>
-          </table>
+        <div class="text-center max-w-2xl mx-auto mb-10 sm:mb-14 space-y-2">
+          <h2 class="font-heading font-black text-2xl sm:text-4xl text-slate-950 uppercase tracking-tight">
+            Pla / Concepte
+          </h2>
+          <p class="text-sm sm:text-base text-slate-600 font-medium">
+            * Preus sense IVA. Sense permanència ni penalitzacions. Instal·lació en 5 min.
+          </p>
         </div>
 
-        <div class="mt-6 pt-5 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <span class="text-xs text-slate-500">* Preus sense IVA. Sense permanència ni penalitzacions. Instal·lació en 5 min.</span>
-          <a href="https://api.whatsapp.com/send?phone=34680317486&text=Hola%20Javier%2C%20m%27agradaria%20veure%20una%20demo%20de%20Save%20My%20Play%20per%20a%20pistes%20de%20p%C3%A0del%20a%20Andorra" target="_blank" rel="noopener" class="px-6 py-3 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] text-slate-950 font-heading font-black text-xs uppercase tracking-wider transition">
-            Demanar Demo 15 min per WhatsApp
+        <div class="bg-white rounded-3xl border border-slate-200/90 shadow-sm overflow-hidden">
+          <div class="overflow-x-auto">
+            <table class="w-full text-left border-collapse">
+              <thead>
+                <tr class="bg-slate-100/80 border-b border-slate-200 text-[11px] sm:text-xs font-heading font-black uppercase text-slate-600 tracking-wider">
+                  <th class="p-4 sm:p-5">Concepte / Pla</th>
+                  <th class="p-4 sm:p-5">Inversió / Quota</th>
+                  <th class="p-4 sm:p-5">Modalitat</th>
+                  <th class="p-4 sm:p-5">Serveis Inclosos</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-slate-100 text-xs sm:text-sm">
+                <!-- Fila 1: Hardware en Propiedad -->
+                <tr class="hover:bg-slate-50/60 transition">
+                  <td class="p-4 sm:p-5 font-bold text-slate-900">
+                    <div class="flex items-center gap-2">
+                      <i data-lucide="hard-drive" class="w-4 h-4 text-[#f2920b]"></i>
+                      <span>Inversió Maquinari en Propietat</span>
+                    </div>
+                  </td>
+                  <td class="p-4 sm:p-5 font-heading font-black text-base text-slate-950">180 €</td>
+                  <td class="p-4 sm:p-5 text-slate-600">Pagament únic</td>
+                  <td class="p-4 sm:p-5 text-slate-600">1 càmera esportiva per pista (lent rectilínia sense efecte ull de peix) + fixació de seguretat a pal</td>
+                </tr>
+
+                <!-- Fila 2: Grabación y Highlights (Recomendado) -->
+                <tr class="bg-amber-500/5 hover:bg-amber-500/10 transition border-y-2 border-[#f2920b]/30">
+                  <td class="p-4 sm:p-5 font-bold text-slate-900">
+                    <div class="flex items-center gap-2">
+                      <i data-lucide="video" class="w-4 h-4 text-[#f2920b]"></i>
+                      <span>Gravació, Highlights & Streaming</span>
+                    </div>
+                    <span class="inline-block mt-1 px-2 py-0.5 rounded text-[10px] font-heading font-black uppercase bg-[#f2920b] text-slate-950">Recomanat</span>
+                  </td>
+                  <td class="p-4 sm:p-5 font-heading font-black text-base text-[#f2920b]">45 €/mes</td>
+                  <td class="p-4 sm:p-5 text-slate-600">0 permanència • Cancel·lació lliure</td>
+                  <td class="p-4 sm:p-5 text-slate-600">Gravació de partits en núvol privat, generació automàtica de millors jugades i retransmissió a YouTube</td>
+                </tr>
+
+                <!-- Fila 3: Estadísticas con IA -->
+                <tr class="hover:bg-slate-50/60 transition">
+                  <td class="p-4 sm:p-5 font-bold text-slate-900">
+                    <div class="flex items-center gap-2">
+                      <i data-lucide="sparkles" class="w-4 h-4 text-sky-600"></i>
+                      <span>Estadístiques amb IA i Anàlisi Tàctica</span>
+                    </div>
+                  </td>
+                  <td class="p-4 sm:p-5 font-heading font-black text-base text-slate-950">136 €/mes</td>
+                  <td class="p-4 sm:p-5 text-slate-600">0 permanència • Opcional</td>
+                  <td class="p-4 sm:p-5 text-slate-600">Anàlisi de cops, mapes de calor, velocitat de bola i estadístiques individuals per jugador</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="mt-8 text-center">
+          <a href="https://api.whatsapp.com/send?phone=34680317486&text=Hola%20Javier%2C%20m%27agradaria%20veure%20una%20demo%20de%20Save%20My%20Play%20per%20a%20pistes%20de%20p%C3%A0del%20a%20Andorra" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] text-slate-950 font-heading font-black text-sm uppercase tracking-wider transition shadow-md hover:scale-105 active:scale-95">
+            <i data-lucide="message-circle" class="w-4 h-4 text-slate-950"></i>
+            <span>Demanar Demo 15 min per WhatsApp</span>
           </a>
         </div>
 
@@ -487,7 +518,7 @@
     </section>
 
     <!-- 4. DEMOSTRACIÓN EN PISTA REAL (4 VÍDEOS) -->
-    <section class="py-14 sm:py-20 bg-slate-50 border-b border-slate-200">
+    <section class="py-14 sm:py-20 bg-white border-b border-slate-200">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center max-w-2xl mx-auto mb-10 sm:mb-14 space-y-2">
           <span class="inline-block text-[#f2920b] font-heading font-black text-xs uppercase tracking-wider">
@@ -749,6 +780,16 @@
           </ul>
         </div>
       </nav>
+
+      <!-- DIRECTORIO INTERNACIONAL 50 PAÍSES SAVE MY PLAY -->
+      <div class="pt-6 border-t border-white/15 text-left space-y-2">
+        <div class="font-heading font-black text-[11px] uppercase tracking-wider text-white/90">
+          Save My Play · International Network (50 Countries &amp; 250+ Cities):
+        </div>
+        <p class="text-[11px] text-white/75 leading-relaxed font-normal">
+          <a href="/camaras/espana/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">España</a> · <a href="/camaras/italia/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Italia</a> · <a href="/camaras/argentina/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Argentina</a> · <a href="/camaras/sverige/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Sverige</a> · <a href="/camaras/france/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">France</a> · <a href="/camaras/nederland/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Nederland</a> · <a href="/camaras/mexico/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">México</a> · <a href="/camaras/chile/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Chile</a> · <a href="/camaras/belgique/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Belgique</a> · <a href="/camaras/paraguay/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Paraguay</a> · <a href="/camaras/danmark/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Danmark</a> · <a href="/camaras/portugal/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Portugal</a> · <a href="/camaras/egypt/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">مصر</a> · <a href="/camaras/south-africa/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">South Africa</a> · <a href="/camaras/saudi-arabia/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">المملكة العربية السعودية</a> · <a href="/camaras/suomi/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Suomi</a> · <a href="/camaras/united-kingdom/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">United Kingdom</a> · <a href="/camaras/brasil/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Brasil</a> · <a href="/camaras/uae/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">الإمارات العربية المتحدة</a> · <a href="/camaras/deutschland/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Deutschland</a> · <a href="/camaras/united-states/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">United States</a> · <a href="/camaras/norge/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Norge</a> · <a href="/camaras/oesterreich/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Österreich</a> · <a href="/camaras/schweiz/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Schweiz</a> · <a href="/camaras/polska/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Polska</a> · <a href="/camaras/andorra/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Andorra</a> · <a href="/camaras/ellada/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Ελλάδα</a> · <a href="/camaras/qatar/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">قطر</a> · <a href="/camaras/colombia/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Colombia</a> · <a href="/camaras/kuwait/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">الكويت</a> · <a href="/camaras/hrvatska/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Hrvatska</a> · <a href="/camaras/indonesia/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Indonesia</a> · <a href="/camaras/maroc/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Maroc</a> · <a href="/camaras/ireland/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Ireland</a> · <a href="/camaras/turkiye/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Türkiye</a> · <a href="/camaras/tunisie/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Tunisie</a> · <a href="/camaras/uruguay/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Uruguay</a> · <a href="/camaras/venezuela/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Venezuela</a> · <a href="/camaras/costa-rica/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Costa Rica</a> · <a href="/camaras/republica-dominicana/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">República Dominicana</a> · <a href="/camaras/panama/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Panamá</a> · <a href="/camaras/ecuador/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Ecuador</a> · <a href="/camaras/australia/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Australia</a> · <a href="/camaras/japan/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">日本</a> · <a href="/camaras/lebanon/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">لبنان</a> · <a href="/camaras/bahrain/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">البحرين</a> · <a href="/camaras/oman/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">عُمان</a> · <a href="/camaras/india/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">India</a> · <a href="/camaras/ceska-republika/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Česká republika</a> · <a href="/camaras/romania/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">România</a>
+        </p>
+      </div>
 
       <div class="pt-8 border-t border-white/20 text-center space-y-2">
         <p class="text-white/70">
