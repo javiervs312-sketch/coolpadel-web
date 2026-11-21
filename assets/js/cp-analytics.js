@@ -576,26 +576,6 @@
       }
     }, 2000);
 
-    // Detectar clics en enlaces de WhatsApp y botones de herramientas
-    document.addEventListener('click', (e) => {
-      try {
-        const a = e.target.closest ? e.target.closest('a, button') : null;
-        if (!a) return;
-        const href = (a.getAttribute('href') || '').toLowerCase();
-        const txt = (a.innerText || '').replace(/\s+/g, ' ').trim().slice(0, 35);
-        if (href.includes('wa.me') || href.includes('whatsapp.com')) {
-          sendToWebhook('click_whatsapp', {
-            ubicacion: txt || 'Botón WhatsApp',
-            evento_desc: '🎯 Clic WhatsApp (' + (txt || 'Web') + ')'
-          });
-        } else if (a.tagName === 'BUTTON' && (txt.includes('Generar') || txt.includes('Copiar') || txt.includes('Imprimir') || txt.includes('Calcular'))) {
-          sendToWebhook('herramienta_uso', {
-            evento_desc: '🛠️ Usó Herramienta: ' + txt
-          });
-        }
-      } catch (err) {}
-    }, { passive: true });
-
     // Detectar copia de teléfono o email
     document.addEventListener('copy', () => {
       try {
@@ -631,6 +611,42 @@
     });
     window.addEventListener('pagehide', reportSessionExit);
   }
+
+  // Detectar clics en enlaces de WhatsApp y botones de herramientas
+  document.addEventListener('click', (e) => {
+    try {
+      const a = e.target.closest ? e.target.closest('a, button') : null;
+      if (!a) return;
+      const href = (a.getAttribute('href') || '').toLowerCase();
+      const txt = (a.innerText || '').replace(/\s+/g, ' ').trim().slice(0, 35);
+      const isWhatsApp = href.includes('wa.me') || href.includes('whatsapp.com');
+      const intent = a.dataset.leadIntent;
+      const lead = intent ? {
+        event_category: 'lead',
+        intent,
+        button_position: a.dataset.buttonPosition || 'content',
+        page_path: window.location.pathname,
+        evento_desc: 'Intención: ' + intent + ' · ' + (a.dataset.buttonPosition || 'content')
+      } : {};
+      if (intent && !isAdmin && typeof window.gtag === 'function') {
+        const { event_category, button_position, page_path } = lead;
+        window.gtag('event', 'lead_intent', { event_category, intent, button_position, page_path });
+      }
+      if (isWhatsApp) {
+        sendToWebhook('click_whatsapp', {
+          ...lead,
+          ubicacion: intent ? intent + ' · ' + lead.button_position : (txt || 'Botón WhatsApp'),
+          evento_desc: '🎯 Clic WhatsApp (' + (txt || 'Web') + ')'
+        });
+      } else if (intent) {
+        sendToWebhook('lead_intent', lead);
+      } else if (a.tagName === 'BUTTON' && (txt.includes('Generar') || txt.includes('Copiar') || txt.includes('Imprimir') || txt.includes('Calcular'))) {
+        sendToWebhook('herramienta_uso', {
+          evento_desc: '🛠️ Usó Herramienta: ' + txt
+        });
+      }
+    } catch (err) {}
+  }, { passive: true });
 
   if (document.readyState === 'loading') {
     window.addEventListener('load', () => {

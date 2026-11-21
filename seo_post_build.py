@@ -259,12 +259,12 @@ def run_seo_post_build():
             if "clarity.ms" not in c and "</head>" in c:
                 c = c.replace("</head>", CLARITY_SNIPPET + "</head>", 1)
                 changed = True
-            new_c = re.sub(r'/assets/js/cp-analytics\.js(?:\?v=[^"\']*)?', '/assets/js/cp-analytics.js?v=20261114b', c)
+            new_c = re.sub(r'/assets/js/cp-analytics\.js(?:\?v=[^"\']*)?', '/assets/js/cp-analytics.js?v=20261121-lead', c)
             if new_c != c:
                 c = new_c
                 changed = True
             elif "cp-analytics.js" not in c and "</body>" in c:
-                c = c.replace("</body>", '  <script src="/assets/js/cp-analytics.js?v=20261114b" defer></script>\n</body>', 1)
+                c = c.replace("</body>", '  <script src="/assets/js/cp-analytics.js?v=20261121-lead" defer></script>\n</body>', 1)
                 changed = True
 
             # Inject self-referencing + x-default hreflang on any indexable page missing hreflang

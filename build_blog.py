@@ -336,7 +336,8 @@ def generate_toc_and_anchor_content(content_html, has_faqs=True, has_related=Tru
         attrs = match.group(1)
         inner = match.group(2)
         clean_title = re.sub(r'<[^>]+>', '', inner).strip()
-        sec_id = f"seccion-{counter}"
+        existing_id = re.search(r'\bid="([^"]+)"', attrs)
+        sec_id = existing_id[1] if existing_id else f"seccion-{counter}"
         counter += 1
         toc_items.append((sec_id, clean_title))
         
@@ -2685,6 +2686,12 @@ SHORT_SEO_TITLES = {
 }
 
 def generate_guide_page(slug, category_badge, title, subtitle, meta_desc, date_str, date_iso, read_time, cover_img, content_html, faqs, cta_type="camaras"):
+    if slug == "normativa-rgpd-camaras-pistas-padel":
+        content_html = content_html.replace("</ul>", '</ul><p class="my-6"><a href="https://wa.me/34680317486?text=Hola%20Javier%2C%20quiero%20consultar%20el%20protocolo%20RGPD%20y%20pedir%20presupuesto%20para%20mi%20club" data-lead-intent="presupuesto" data-button-position="content" class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] text-slate-950 font-heading font-black text-xs uppercase tracking-wider transition">Consultar protocolo RGPD y solicitar presupuesto adaptado</a></p>', 1)
+    elif slug in {"regalos-padel-originales-baratos-ideas-detalles-torneos", "welcome-pack-torneo-padel-ideas"}:
+        content_html = '<p>Llaveros de goma en relieve 3D con el logo del club. Pedido mínimo de 100 unidades por 300 € sin IVA. La muestra física cuesta 15 €, descontables del pedido final.</p><figure class="my-6"><img src="/assets/images/llaveros-padel-personalizados-clubs.webp" alt="Ejemplos de llaveros de pádel personalizados con el logo de clubes" loading="lazy" class="w-full rounded-2xl"><figcaption class="text-sm text-slate-600">Ejemplos de llaveros de clubes en relieve 3D.</figcaption></figure><p class="my-6"><a href="/llaveros-padel-personalizados/#precios" data-lead-intent="muestra_llaveros" data-button-position="content" class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] text-slate-950 font-heading font-black text-xs uppercase tracking-wider transition">Ver llaveros 3D con el logo de mi club</a></p>' + content_html
+    elif slug == "rentabilidad-camaras-pistas-padel":
+        content_html = '<h2 id="escenarios-por-pistas">Cuántos partidos necesita vender un club de 4, 8, 12 o 20 pistas</h2>\n<p>Ejemplo a 2,50 € por grabación vendida. La cuota se calcula por pista y el punto de equilibrio se redondea al siguiente partido entero.</p>\n<div class="overflow-x-auto"><table class="w-full text-left text-sm">\n<thead><tr><th scope="col">Pistas</th><th scope="col">Cuota mensual</th><th scope="col">Ventas para cubrir la cuota</th><th scope="col">Saldo con 25 ventas por pista</th></tr></thead>\n<tbody><tr><td>4</td><td>180 €</td><td>72</td><td>70 €</td></tr><tr><td>8</td><td>328 €</td><td>132</td><td>172 €</td></tr><tr><td>12</td><td>492 €</td><td>197</td><td>258 €</td></tr><tr><td>20</td><td>720 €</td><td>288</td><td>530 €</td></tr></tbody></table></div>\n<p>El saldo descuenta el software. El hardware cuesta 180 € por pista. El cálculo excluye envío, impuestos y comisiones. Consulta la <a href="/camaras/cuanto-cuesta-poner-camaras-pistas-padel/">guía oficial de precios de cámaras</a> para ver los tramos.</p>' + content_html
     root_prefix = "../../"
     
     floating_camera_btn_html = ""
@@ -2692,7 +2699,7 @@ def generate_guide_page(slug, category_badge, title, subtitle, meta_desc, date_s
         floating_camera_btn_html = """
   <!-- BOTÓN FLOTANTE PERMANENTE EN COLOR NARANJA -->
   <div class="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50">
-    <a href="https://wa.me/34680317486?text=Hola%20Javier%2C%20%C2%BFpuedo%20agendar%20una%20demo%20para%20las%20c%C3%A1maras%20de%20mi%20club%3F" target="_blank" rel="noopener noreferrer" style="background-color: #f2920b;" class="inline-flex items-center gap-2 px-4 py-3 sm:px-5 sm:py-3.5 rounded-full text-slate-950 font-heading font-black text-xs sm:text-sm uppercase tracking-wider transition-all duration-200 shadow-xl hover:shadow-2xl hover:scale-105 active:scale-95 group">
+    <a href="https://wa.me/34680317486?text=Hola%20Javier%2C%20%C2%BFpuedo%20agendar%20una%20demo%20para%20las%20c%C3%A1maras%20de%20mi%20club%3F" data-lead-intent="demo" data-button-position="floating" target="_blank" rel="noopener noreferrer" style="background-color: #f2920b;" class="inline-flex items-center gap-2 px-4 py-3 sm:px-5 sm:py-3.5 rounded-full text-slate-950 font-heading font-black text-xs sm:text-sm uppercase tracking-wider transition-all duration-200 shadow-xl hover:shadow-2xl hover:scale-105 active:scale-95 group">
       <i data-lucide="message-circle" class="w-4 h-4 sm:w-5 sm:h-5 text-slate-950 stroke-[2.5] shrink-0"></i>
       <span>Pedir demo WhatsApp</span>
     </a>
@@ -3474,7 +3481,8 @@ def generate_all():
         <i data-lucide="info" class="w-4 h-4"></i>
       </div>
       <div class="text-xs sm:text-sm text-sky-950 leading-relaxed">
-        <strong>Conclusión ejecutiva del estudio 2026:</strong> Para clubes que buscan simplicidad operativa, cero obras en pista, pulsador físico sin obligar al jugador a descargar una app obligatoria y 0% de comisiones sobre las reservas, <strong>Save My Play</strong> lidera en coste-beneficio (180 € hardware y 45 €/mes). Para clubes que buscan streaming continuo masivo en Suecia/Nórdicos ya integrados en MATCHi, <strong>MATCHi TV</strong> es la opción natural; y para academias de alto rendimiento que precisan terminal VAR de 24" a pie de pista, <strong>Wingfield</strong> o <strong>PlaySight</strong> ofrecen tracking avanzado a un coste significativamente mayor.
+              <p><strong>Nota de transparencia.</strong> CoolPadel Studios es integrador y distribuidor oficial de Save my Play. Esta comparativa recoge especificaciones públicas de fabricantes y requisitos de instalación. Los costes orientativos dependen del país y de las condiciones de cada presupuesto.</p>
+        <strong>Conclusión de la comparativa:</strong> Para clubes que buscan simplicidad operativa, cero obras en pista, pulsador físico sin obligar al jugador a descargar una app obligatoria y 0% de comisiones sobre las reservas, <strong>Save My Play</strong> lidera en coste-beneficio (180 € hardware y 45 €/mes). Para clubes que buscan streaming continuo masivo en Suecia/Nórdicos ya integrados en MATCHi, <strong>MATCHi TV</strong> es la opción natural; y para academias de alto rendimiento que precisan terminal VAR de 24" a pie de pista, <strong>Wingfield</strong> o <strong>PlaySight</strong> ofrecen tracking avanzado a un coste significativamente mayor.
       </div>
     </div>
 
@@ -3482,7 +3490,7 @@ def generate_all():
       1. Tabla Comparativa Maestra 2026: Los 9 Sistemas de Cámaras Cara a Cara
     </h2>
     <p>
-      Esta tabla resume los datos oficiales públicos de los principales proveedores activos en Europa y Estados Unidos en 2026:
+      La tabla compara precios por pista. Las tarifas públicas enlazadas se comprobaron el 21 de noviembre de 2026. Si el fabricante requiere una cotización, confirma el hardware, la instalación y la permanencia con el proveedor.
     </p>
 
     <div class="overflow-x-auto my-6">
@@ -3509,20 +3517,20 @@ def generate_all():
             <td class="p-3 sm:p-4 text-emerald-700 font-bold">0 permanencia (Mes a mes)</td>
           </tr>
           <tr class="hover:bg-slate-50">
-            <td class="p-3 sm:p-4 font-bold text-slate-950">MATCHi TV</td>
-            <td class="p-3 sm:p-4">Hardware propio o start-up fee ~50 £</td>
-            <td class="p-3 sm:p-4">Desde 25 £ (~30 €) a 45 € / mes</td>
+            <td class="p-3 sm:p-4 font-bold text-slate-950"><a class="underline" href="https://matchi.tv/venues">MATCHi TV</a></td>
+            <td class="p-3 sm:p-4">Compra de cámara o uso de una existente. Alta desde 500 SEK para Connect</td>
+            <td class="p-3 sm:p-4">Desde 25 € / mes</td>
             <td class="p-3 sm:p-4">Cable Ethernet PoE a switch del club</td>
             <td class="p-3 sm:p-4">App MATCHi / enlace por email</td>
-            <td class="p-3 sm:p-4">12 a 24 meses</td>
+            <td class="p-3 sm:p-4">12 o 24 meses, con opción flexible</td>
           </tr>
           <tr class="hover:bg-slate-50">
-            <td class="p-3 sm:p-4 font-bold text-slate-950">PUSHIT Replays (Spash)</td>
+            <td class="p-3 sm:p-4 font-bold text-slate-950"><a class="underline" href="https://www.pushitreplays.com/">PUSHIT Replays (Spash)</a></td>
             <td class="p-3 sm:p-4">Pantalla táctil o botón (Variable)</td>
             <td class="p-3 sm:p-4">89 € – 199 € / mes</td>
             <td class="p-3 sm:p-4">Requiere conexión y montaje de pantallas</td>
             <td class="p-3 sm:p-4">Terminal en pista / App móvil</td>
-            <td class="p-3 sm:p-4">Contratos plurianuales habituales</td>
+            <td class="p-3 sm:p-4">Consultar condiciones</td>
           </tr>
           <tr class="hover:bg-slate-50">
             <td class="p-3 sm:p-4 font-bold text-slate-950">Wingfield (AI Pro)</td>
@@ -3541,12 +3549,12 @@ def generate_all():
             <td class="p-3 sm:p-4">Contrato institucional 3+ años</td>
           </tr>
           <tr class="hover:bg-slate-50">
-            <td class="p-3 sm:p-4 font-bold text-slate-950">Clutch</td>
+            <td class="p-3 sm:p-4 font-bold text-slate-950"><a class="underline" href="https://www.clutchapp.io/">Clutch</a></td>
             <td class="p-3 sm:p-4">Kit de cámaras dedicado</td>
-            <td class="p-3 sm:p-4">149 $ – 199 $ / mes</td>
+            <td class="p-3 sm:p-4">149–199 USD / mes en tarifa mensual, según volumen</td>
             <td class="p-3 sm:p-4">Alimentación eléctrica en pista</td>
             <td class="p-3 sm:p-4">App móvil Clutch</td>
-            <td class="p-3 sm:p-4">Anual</td>
+            <td class="p-3 sm:p-4">Plan mensual o anual</td>
           </tr>
           <tr class="hover:bg-slate-50">
             <td class="p-3 sm:p-4 font-bold text-slate-950">GameCam (GAMETRAQ 6)</td>
@@ -3575,6 +3583,7 @@ def generate_all():
         </tbody>
       </table>
     </div>
+    <p class="my-6"><a href="/camaras-grabacion-pistas-padel/#precios" data-lead-intent="presupuesto" data-button-position="table" class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] text-slate-950 font-heading font-black text-xs uppercase tracking-wider transition">Ver requisitos de instalación y tarifas por pista</a></p>
 
     <h2 class="text-xl sm:text-2xl font-black font-heading text-slate-950 pt-6">
       2. Análisis Detallado de los Sistemas Principales
@@ -3779,7 +3788,7 @@ def generate_all():
         slug="sistemas-grabacion-pistas-padel-comparativa",
         category_badge="Tecnología & Comparativa · Cámaras",
         title="Los 9 Mejores Sistemas de Cámaras con IA para Pistas de Pádel en 2026: Comparativa de Precios, Grabación y ROI",
-        subtitle="Análisis técnico independiente y comparativa de mercado: Save My Play, PUSHIT, MATCHi TV, Wingfield, PlaySight, Clutch, GameCam y PadX. Costes reales de instalación, cuotas mensuales públicas, fricción para el jugador y cumplimiento RGPD.",
+        subtitle="Comparativa técnica de mercado: Save My Play, PUSHIT, MATCHi TV, Wingfield, PlaySight, Clutch, GameCam y PadX. Costes reales de instalación, cuotas mensuales públicas, fricción para el jugador y cumplimiento RGPD.",
         meta_desc="Comparativa real de precios, hardware y RGPD: Save My Play (180€ + 45€/mes sin obras) vs PlaySight, Wingfield, Matchi TV y trípodes.",
         date_str="Noviembre 2025",
         date_iso="2025-11-22",

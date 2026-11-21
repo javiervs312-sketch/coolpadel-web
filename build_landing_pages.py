@@ -1070,7 +1070,7 @@ def render_landing(landing, lang="es"):
               <div>
                 <span class="text-· 10px font-heading font-black uppercase text-[#d97706] tracking-wider">Streaming Live</span>
                 <h3 class="font-heading font-bold text-sm text-slate-900 mt-1">FIP Miami YouTube Live</h3>
-                <p class="text-xs text-slate-600 mt-1">{"Retransmisión en directo en 1080p sin cortes con imagen rectilínea." if lang=="es" else "Live 1080p broadcast with crisp rectilinear court view." if lang=="en" else "Diffusion 1080p en direct sans déformation fisheye." if lang=="fr" else "Diretta streaming 1080p nitida senza distorsioni ottiche."}</p>
+                <p class="text-xs text-slate-600 mt-1">{"Ejemplo de retransmisión de un partido del FIP Miami grabado con Save my Play en 1080p." if lang=="es" else "Live 1080p broadcast with crisp rectilinear court view." if lang=="en" else "Diffusion 1080p en direct sans déformation fisheye." if lang=="fr" else "Diretta streaming 1080p nitida senza distorsioni ottiche."}</p>
               </div>
               <a href="https://www.youtube.com/live/4xwrrveDZxg?si=Tw56yNEB9KWwlkbr&t=5623" target="_blank" rel="noopener" class="mt-3 inline-flex items-center gap-1 text-xs font-bold text-[#f2920b] hover:underline">
                 <span>{vid_headers[3]}</span>
@@ -1351,7 +1351,7 @@ def render_landing(landing, lang="es"):
     for l_code, l_label in [("es", "ES"), ("en", "EN"), ("fr", "FR"), ("it", "IT")]:
         target_url = f"/{landing['slug']}/" if l_code == "es" else f"/{l_code}/{landing['slug']}/"
         active_cls = "lang-opt-active bg-[#f2920b] text-slate-950 font-black" if l_code == lang else "text-slate-700 hover:bg-[#f2920b] hover:text-slate-950 font-bold"
-        lang_opts.append(f'<a href="{target_url}" class="lang-opt block {active_cls} w-full text-center px-4 py-2 text-xs transition duration-150">{l_label}</a>')
+        lang_opts.append(f'<a href="{target_url}" hreflang="{l_code}" lang="{l_code}" class="lang-opt block {active_cls} w-full text-center px-4 py-2 text-xs transition duration-150">{l_label}</a>')
     lang_switcher_html = f'''
         <div class="relative inline-block text-left" id="lang-dropdown-container">
           <button type="button" onclick="toggleLangDropdown(event)" id="lang-dropdown-btn" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-100 hover:bg-slate-200 border border-slate-200 text-xs font-black text-slate-900 shadow-xs transition cursor-pointer" aria-expanded="false" aria-haspopup="true">
@@ -1362,6 +1362,13 @@ def render_landing(landing, lang="es"):
             {"".join(lang_opts)}
           </div>
         </div>'''
+
+    static_css_pilot = lang == "es" and landing["slug"] == "camaras-grabacion-pistas-padel"
+    tailwind_markup = (
+        '<link rel="stylesheet" href="/assets/css/cameras-pilot.min.css">'
+        if static_css_pilot else '<script src="https://cdn.tailwindcss.com"></script>'
+    )
+    installation_requirements = '<div class="max-w-4xl mx-auto px-5 mb-8">\n        <h2 class="font-heading font-black text-2xl text-slate-950 mb-3">Qué necesita tu club para instalar las cámaras</h2>\n        <ul class="space-y-2 text-slate-700">\n          <li><strong>Corriente y conexión.</strong> Toma de 220 V o PoE según equipo. Conexión por 4G, WiFi o Ethernet según la pista.</li>\n          <li><strong>Montaje en 5 minutos.</strong> Es el tiempo de fijar el soporte preajustado al poste y conectar la corriente. La puesta en marcha incluye comprobar la red y configurar el sistema.</li>\n          <li><strong>Entrega.</strong> El plazo habitual es de 4 semanas.</li>\n          <li><strong>Cuota por pista.</strong> 45 €/mes para menos de 5 pistas, 41 € para 5–14, 36 € para 15–24 y 27 € desde 25 pistas.</li>\n          <li><strong>Software de reservas.</strong> El pulsador y la descarga por QR funcionan de forma autónoma en clubes que usan Playtomic, MATCHi o Resasports. El club puede mantener su software de reservas.</li>\n        </ul>\n      </div>' if lang == "es" and landing["slug"] == "camaras-grabacion-pistas-padel" else ""
 
     html = f"""<!DOCTYPE html>
 <html lang="{lang}" class="scroll-smooth">
@@ -1389,7 +1396,7 @@ def render_landing(landing, lang="es"):
   <!-- Resource Hints & Core Web Vitals -->
   <link rel="dns-prefetch" href="https://fonts.googleapis.com">
   <link rel="dns-prefetch" href="https://fonts.gstatic.com">
-  <link rel="dns-prefetch" href="https://cdn.tailwindcss.com">
+  {'<link rel="dns-prefetch" href="https://cdn.tailwindcss.com">' if not static_css_pilot else ""}
   <link rel="dns-prefetch" href="https://unpkg.com">
   <link rel="dns-prefetch" href="https://www.clarity.ms">
 
@@ -1498,7 +1505,7 @@ def render_landing(landing, lang="es"):
   </script>
 
   <!-- Tailwind CSS & Lucide Icons -->
-  <script src="https://cdn.tailwindcss.com"></script>
+  {tailwind_markup}
   <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"></script>
 
   <!-- Google Fonts: Plus Jakarta Sans & Outfit -->
@@ -1595,13 +1602,13 @@ def render_landing(landing, lang="es"):
             </div>
 
             <div class="pt-4 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4">
-              <a href="https://api.whatsapp.com/send?phone=34680317486&text={wa_encoded}" target="_blank" rel="noopener" class="inline-flex items-center justify-center gap-2.5 px-7 py-4 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] text-slate-950 font-heading font-black text-sm uppercase tracking-wider transition shadow-md hover:scale-105 active:scale-95 group">
+              <a href="https://api.whatsapp.com/send?phone=34680317486&text={wa_encoded}" data-lead-intent="{'demo' if is_camaras else 'muestra_llaveros'}" data-button-position="hero" target="_blank" rel="noopener" class="inline-flex items-center justify-center gap-2.5 px-7 py-4 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] text-slate-950 font-heading font-black text-sm uppercase tracking-wider transition shadow-md hover:scale-105 active:scale-95 group">
                 <i data-lucide="message-circle" class="w-5 h-5 text-slate-950"></i>
                 <span>{cta_btn_text}</span>
               </a>
 
-              <a href="#precios" class="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-full bg-white hover:bg-slate-100 text-slate-900 border border-slate-200 font-heading font-black text-sm uppercase tracking-wider transition">
-                <span>{"Ver Tarifas y Muestra" if lang=="es" else "View Rates & Samples" if lang=="en" else "Voir Tarifs & Échantillons" if lang=="fr" else "Vedi Tariffe e Campioni"}</span>
+              <a href="#precios" data-lead-intent="{'presupuesto' if is_camaras else 'muestra_llaveros'}" data-button-position="hero" class="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-full bg-white hover:bg-slate-100 text-slate-900 border border-slate-200 font-heading font-black text-sm uppercase tracking-wider transition">
+                <span>{("Ver tarifas por pista" if is_camaras else "Ver Tarifas y Muestra") if lang=="es" else "View Rates & Samples" if lang=="en" else "Voir Tarifs & Échantillons" if lang=="fr" else "Vedi Tariffe e Campioni"}</span>
                 <i data-lucide="arrow-down" class="w-4 h-4 text-slate-500"></i>
               </a>
             </div>
@@ -1671,6 +1678,7 @@ def render_landing(landing, lang="es"):
 
     <!-- TABLA DE PRECIOS O CALCULADORA INTERACTIVA -->
     <section id="precios" class="py-14 sm:py-20 bg-slate-50 border-b border-slate-200 scroll-mt-20">
+      {installation_requirements}
       <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         {table_html if is_camaras else get_llaveros_calculator_html(lang, asset_prefix)}
       </div>
@@ -1749,7 +1757,7 @@ def render_landing(landing, lang="es"):
 
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 max-w-2xl mx-auto text-left">
           <!-- WhatsApp Card -->
-          <a id="landing-contact-wa" href="https://api.whatsapp.com/send?phone=34680317486&text={wa_encoded}" target="_blank" rel="noopener noreferrer"
+          <a id="landing-contact-wa" data-lead-intent="{'demo' if is_camaras else 'muestra_llaveros'}" data-button-position="contact" href="https://api.whatsapp.com/send?phone=34680317486&text={wa_encoded}" target="_blank" rel="noopener noreferrer"
              class="bg-white border border-slate-200 hover:border-[#25D366] rounded-2xl p-5 shadow-xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between items-center text-center group cursor-pointer block no-underline text-inherit">
             <div class="flex flex-col items-center space-y-2 w-full">
               <div class="w-11 h-11 rounded-xl bg-emerald-50 text-[#25D366] flex items-center justify-center shadow-inner group-hover:scale-105 group-hover:bg-[#25D366] group-hover:text-white transition-all duration-300">
@@ -1831,6 +1839,7 @@ def render_landing(landing, lang="es"):
       </nav>
       <div class="border-t border-white/20 pt-6 text-center text-white/60">
         <p>© 2026 CoolPadel. Todos los derechos reservados.</p>
+        {"<nav aria-label='Language' class='flex justify-center gap-4 mt-4'>" + "".join(lang_opts) + "</nav>" if landing["slug"] == "llaveros-padel-personalizados" else ""}
       </div>
     </div>
   </footer>
