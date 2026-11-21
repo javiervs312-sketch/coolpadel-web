@@ -298,8 +298,10 @@ def generate_city_page(country_item, city, slug_country_used, canonical_country_
   <style>
     .bg-textured-blue {{
       background-color: #3478a6;
-      background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 0);
-      background-size: 20px 20px;
+      background-image: linear-gradient(rgba(52, 120, 166, 0.40), rgba(52, 120, 166, 0.40)), url('/assets/images/branding/textura_editorial_coolpadel.webp');
+      background-blend-mode: normal, soft-light;
+      background-size: cover;
+      background-position: center;
     }}
   </style>
 </head>
