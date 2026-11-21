@@ -545,9 +545,15 @@ def render_local_landing(l):
     ]
   }}"""
 
-    # Button label
+    # Button label & localized section titles
     btn_wa_text = "Solicitar información por WhatsApp" if lang == "es" else ("Request Info on WhatsApp" if lang == "en" else ("Demander des infos sur WhatsApp" if lang == "fr" else "Richiedi informazioni su WhatsApp"))
     btn_demo_text = "Ver Demo Online" if lang == "es" else ("Watch Online Demo" if lang == "en" else ("Voir la démo en ligne" if lang == "fr" else "Guarda la demo online"))
+
+    sec_benefits_h2 = "Ventajas para tu Club" if lang == "es" else ("Key Benefits for Your Club" if lang == "en" else ("Avantages Clés pour Votre Club" if lang == "fr" else "Vantaggi Chiave per il Tuo Circolo"))
+    sec_benefits_sub = "La tecnología que llena horas valle y fideliza a tus jugadores." if lang == "es" else ("The on-court technology that boosts player retention and off-peak bookings." if lang == "en" else ("La technologie sur piste qui fidélise vos joueurs et remplit vos heures creuses." if lang == "fr" else "La tecnologia in campo che fidelizza i giocatori e riempie le ore di punta e morbida."))
+    sec_faq_h2 = "Preguntas Frecuentes" if lang == "es" else ("Frequently Asked Questions" if lang == "en" else ("Questions Fréquentes" if lang == "fr" else "Domande Frequenti"))
+    sec_faq_sub = "Todo lo que necesitas saber sobre la instalación y el funcionamiento del sistema." if lang == "es" else ("Everything you need to know about installation and how the system works." if lang == "en" else ("Tout ce qu'il faut savoir sur l'installation et le fonctionnement du système." if lang == "fr" else "Tutto quello che devi sapere sull'installazione e sul funzionamento del sistema."))
+    footer_copy = "© 2026 CoolPadel Studios · Distribuidor Partner Oficial Save my Play. Todos los derechos reservados." if lang == "es" else ("© 2026 CoolPadel Studios · Official Save my Play Partner. All rights reserved." if lang == "en" else ("© 2026 CoolPadel Studios · Partenaire Officiel Save my Play. Tous droits réservés." if lang == "fr" else "© 2026 CoolPadel Studios · Partner Ufficiale Save my Play. Tutti i diritti riservati."))
 
     html = f"""<!DOCTYPE html>
 <html lang="{lang}" class="scroll-smooth">
@@ -687,19 +693,19 @@ def render_local_landing(l):
     <section class="max-w-6xl mx-auto px-4 sm:px-6 -mt-8 relative z-20">
       <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
         <div class="bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/90 shadow-md">
-          <span class="text-· 11px font-bold text-slate-500 uppercase tracking-wider block">{l['quick_summary']['label_1']}</span>
+          <span class="text-[11px] font-bold text-slate-500 uppercase tracking-wider block">{l['quick_summary']['label_1']}</span>
           <span class="text-sm sm:text-base font-black font-heading text-slate-950 mt-1 block">{l['quick_summary']['val_1']}</span>
         </div>
         <div class="bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/90 shadow-md">
-          <span class="text-· 11px font-bold text-slate-500 uppercase tracking-wider block">{l['quick_summary']['label_2']}</span>
+          <span class="text-[11px] font-bold text-slate-500 uppercase tracking-wider block">{l['quick_summary']['label_2']}</span>
           <span class="text-sm sm:text-base font-black font-heading text-slate-950 mt-1 block">{l['quick_summary']['val_2']}</span>
         </div>
         <div class="bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/90 shadow-md">
-          <span class="text-· 11px font-bold text-slate-500 uppercase tracking-wider block">{l['quick_summary']['label_3']}</span>
+          <span class="text-[11px] font-bold text-slate-500 uppercase tracking-wider block">{l['quick_summary']['label_3']}</span>
           <span class="text-sm sm:text-base font-black font-heading text-slate-950 mt-1 block">{l['quick_summary']['val_3']}</span>
         </div>
         <div class="bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/90 shadow-md">
-          <span class="text-· 11px font-bold text-slate-500 uppercase tracking-wider block">{l['quick_summary']['label_4']}</span>
+          <span class="text-[11px] font-bold text-slate-500 uppercase tracking-wider block">{l['quick_summary']['label_4']}</span>
           <span class="text-sm sm:text-base font-black font-heading text-slate-950 mt-1 block">{l['quick_summary']['val_4']}</span>
         </div>
       </div>
@@ -709,10 +715,10 @@ def render_local_landing(l):
     <section class="py-14 sm:py-20 px-4 sm:px-6 max-w-6xl mx-auto">
       <div class="text-center max-w-2xl mx-auto mb-10 space-y-2">
         <h2 class="text-xl sm:text-3xl font-black font-heading text-slate-950 uppercase tracking-tight">
-          Ventajas para tu Club
+          {sec_benefits_h2}
         </h2>
         <p class="text-xs sm:text-sm text-slate-500">
-          La tecnología que llena horas valle y fideliza a tus jugadores.
+          {sec_benefits_sub}
         </p>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -724,10 +730,10 @@ def render_local_landing(l):
     <section class="py-12 px-4 sm:px-6 max-w-4xl mx-auto">
       <div class="text-center max-w-2xl mx-auto mb-8 space-y-2">
         <h2 class="text-xl sm:text-3xl font-black font-heading text-slate-950 uppercase tracking-tight">
-          Preguntas Frecuentes
+          {sec_faq_h2}
         </h2>
         <p class="text-xs sm:text-sm text-slate-500">
-          Respuestas directas sobre la instalación y el funcionamiento del sistema.
+          {sec_faq_sub}
         </p>
       </div>
       <div class="space-y-3">
@@ -747,7 +753,7 @@ def render_local_landing(l):
         <p class="text-slate-400">Madrid · Javier Villoria Soleto · WhatsApp: +34 680 31 74 86</p>
       </div>
       <div class="text-center text-slate-500 text-[11px]">
-        © 2026 CoolPadel Studios · Distribuidor Partner Oficial Save my Play. Todos los derechos reservados.
+        {footer_copy}
       </div>
     </div>
   </footer>

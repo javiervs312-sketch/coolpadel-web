@@ -15,10 +15,26 @@ sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 from paises_data_50 import COUNTRIES_50
 from country_i18n_master import ALL_LANGS_MASTER
 from ciudades_data_250 import CITIES_50
-from country_i18n_extras import ISO_MAP, COURTS_TERM, NAV_PREFIX_MAP, FOOTER_I18N, CITY_TEMPLATES
+from country_i18n_extras import ISO_MAP, COURTS_TERM, NAV_PREFIX_MAP, FOOTER_I18N, CITY_TEMPLATES, BADGE_RECOMMENDED_22
 from ciudades_faqs_i18n import EXTRA_FAQS_22
 
 OUTPUT_ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'camaras')
+
+def extract_numeric_price(price_str, fallback="45"):
+    s = price_str
+    if "jt" in s:
+        m = re.search(r"(\d+(?:\.\d+)?)\s*jt", s)
+        if m:
+            return str(int(float(m.group(1)) * 1000000))
+    if "rb" in s:
+        m = re.search(r"(\d+(?:\.\d+)?)\s*rb", s)
+        if m:
+            return str(int(float(m.group(1)) * 1000))
+    m_dec = re.search(r"(\d+\.\d+)\s*(?:BHD|OMR|KWD)", s)
+    if m_dec:
+        return m_dec.group(1)
+    digits = re.sub(r"[^\d]", "", s)
+    return digits if digits else fallback
 
 def generate_city_page(country_item, city, slug_country_used, canonical_country_slug=None):
     lang = country_item["lang"]
@@ -32,7 +48,7 @@ def generate_city_page(country_item, city, slug_country_used, canonical_country_
     rec = country_item["rec"]
     ai = country_item["ai"]
 
-    badge_plan_rec = "Consigliato" if lang == "it" else ("Recommandé" if lang == "fr" else ("Empfohlen" if lang == "de" else ("Rekommenderad" if lang == "sv" else ("Recommended" if lang == "en" else "Recomendado"))))
+    badge_plan_rec = BADGE_RECOMMENDED_22.get(lang, "Recommended")
 
     # Localized City Title, Meta, H1, Sub & WA Message para los 22 idiomas
     c_tmpl = CITY_TEMPLATES.get(lang, CITY_TEMPLATES["en"])
@@ -86,17 +102,16 @@ def generate_city_page(country_item, city, slug_country_used, canonical_country_
     f_i18n = FOOTER_I18N.get(lang, FOOTER_I18N["en"])
     courts_word = COURTS_TERM.get(lang, "Courts")
 
-    # Detección determinista de divisa
-    schema_curr = country_item.get("curr_code")
-    if not schema_curr or schema_curr in ("ARS", "CLP", "COP", "PYG", "UYU", "VES", "CRC", "DOP", "PAB"):
-        if "USD" in hw or "$" in hw:
-            schema_curr = "USD"
-        elif "€" in hw:
-            schema_curr = "EUR"
-        elif "£" in hw:
-            schema_curr = "GBP"
-        else:
-            schema_curr = country_item.get("curr_code", "EUR")
+    # Detección determinista de divisa y precios numéricos reales en la moneda declarada
+    schema_curr = country_item.get("curr_code", "EUR")
+    if "USD" in hw:
+        schema_curr = "USD"
+    elif "€" in hw:
+        schema_curr = "EUR"
+    elif "£" in hw:
+        schema_curr = "GBP"
+    schema_low_price = extract_numeric_price(rec, "45")
+    schema_high_price = extract_numeric_price(hw, "180")
 
     faq2_a_fmt = t["faq2_a"].format(hw=hw, rec=rec, ai=ai)
     
@@ -137,8 +152,8 @@ def generate_city_page(country_item, city, slug_country_used, canonical_country_
                 "offers": {
                     "@type": "AggregateOffer",
                     "priceCurrency": schema_curr,
-                    "lowPrice": "45",
-                    "highPrice": "180",
+                    "lowPrice": schema_low_price,
+                    "highPrice": schema_high_price,
                     "offerCount": "2",
                     "availability": "https://schema.org/InStock",
                 },
@@ -154,8 +169,8 @@ def generate_city_page(country_item, city, slug_country_used, canonical_country_
             },
             {
                 "@type": "VideoObject",
-                "name": f"Save My Play Demonstration - {city_name} ({country_display})",
-                "description": f"Demostración en pista real de grabación Save My Play para clubes en {city_name}",
+                "name": f"{t['vid_badge']} - Save My Play {city_name} ({country_display})",
+                "description": f"{t['vid_title']} - {t['vid_sub']}",
                 "thumbnailUrl": "https://img.youtube.com/vi/4xwrrveDZxg/hqdefault.jpg",
                 "uploadDate": "2026-01-15T12:00:00+01:00",
                 "contentUrl": "https://www.youtube.com/watch?v=4xwrrveDZxg",
@@ -187,7 +202,10 @@ def generate_city_page(country_item, city, slug_country_used, canonical_country_
             f'</a>'
         ]
         for s_city in sibling_cities:
-            s_url = f"/camaras/{target_country}/{s_city['slug']}/"
+            if target_country == "espana" and s_city['slug'] in SPAIN_DEDICATED_LANDINGS:
+                s_url = f"/camaras-padel-{s_city['slug']}/"
+            else:
+                s_url = f"/camaras/{target_country}/{s_city['slug']}/"
             pills.append(
                 f'<a href="{s_url}" class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-white hover:bg-[#f2920b] text-slate-700 hover:text-slate-950 border border-slate-200 hover:border-[#f2920b] font-heading font-bold text-[11px] uppercase tracking-wider transition shadow-2xs">'
                 f'<i data-lucide="map-pin" class="w-3 h-3 text-[#f2920b]"></i>'
@@ -197,7 +215,7 @@ def generate_city_page(country_item, city, slug_country_used, canonical_country_
         sibling_pills_html = f'<div class="pt-2 flex flex-wrap items-center gap-1.5">{"".join(pills)}</div>'
 
     sibling_footer_links = "\n".join(
-        f'            <li><a href="/camaras/{target_country}/{s_city["slug"]}/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Save My Play {s_city["name"]}</a></li>'
+        f'            <li><a href="{"/camaras-padel-" + s_city["slug"] + "/" if (target_country == "espana" and s_city["slug"] in SPAIN_DEDICATED_LANDINGS) else "/camaras/" + target_country + "/" + s_city["slug"] + "/"}" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Save My Play {s_city["name"]}</a></li>'
         for s_city in sibling_cities[:4]
     )
 
@@ -541,7 +559,7 @@ def generate_city_page(country_item, city, slug_country_used, canonical_country_
 
           <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-xs hover:shadow-md transition flex flex-col">
             <div class="aspect-video bg-slate-900 relative">
-              <iframe class="w-full h-full" src="https://www.youtube-nocookie.com/embed/H21vG3a6u14" title="{t['vid2_t']}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+              <iframe class="w-full h-full" src="https://www.youtube-nocookie.com/embed/LuzDvB5Umfs" title="{t['vid2_t']}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
             </div>
             <div class="p-4 flex-1 flex flex-col justify-between">
               <div>
@@ -553,7 +571,7 @@ def generate_city_page(country_item, city, slug_country_used, canonical_country_
 
           <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-xs hover:shadow-md transition flex flex-col">
             <div class="aspect-video bg-slate-900 relative">
-              <iframe class="w-full h-full" src="https://www.youtube-nocookie.com/embed/5aC4Vj9XwG0" title="{t['vid3_t']}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+              <iframe class="w-full h-full" src="https://www.youtube-nocookie.com/embed/Z0vnvyrUbPQ" title="{t['vid3_t']}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
             </div>
             <div class="p-4 flex-1 flex flex-col justify-between">
               <div>
@@ -565,7 +583,7 @@ def generate_city_page(country_item, city, slug_country_used, canonical_country_
 
           <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-xs hover:shadow-md transition flex flex-col">
             <div class="aspect-video bg-slate-900 relative">
-              <iframe class="w-full h-full" src="https://www.youtube-nocookie.com/embed/m6gW5QvK8_8" title="{t['vid4_t']}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+              <iframe class="w-full h-full" src="https://www.youtube-nocookie.com/embed/FcnCWaYahP8" title="{t['vid4_t']}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
             </div>
             <div class="p-4 flex-1 flex flex-col justify-between">
               <div>
@@ -706,7 +724,7 @@ def generate_city_page(country_item, city, slug_country_used, canonical_country_
         </div>
       </div>
 
-      <nav aria-label="Estructura y Silos SEO de CoolPadel" class="grid grid-cols-2 lg:grid-cols-4 gap-8 text-left">
+      <nav aria-label="CoolPadel Navigation" class="grid grid-cols-2 lg:grid-cols-4 gap-8 text-left">
         <div class="space-y-3">
           <div class="font-heading font-black text-sm uppercase tracking-wider text-white">{t["footer_b2b"]}</div>
           <ul class="space-y-2 text-white/80 font-normal">

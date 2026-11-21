@@ -29,12 +29,15 @@ from country_i18n_native_all import NATIVE_TRANSLATIONS_21
 from country_i18n_native_part2 import REMAINING_13_LANGS
 from country_i18n_extras import ISO_MAP, COURTS_TERM, NAV_PREFIX_MAP, FOOTER_I18N
 from paises_titles_h1_i18n import COUNTRY_TITLES_H1_22
+from ciudades_faqs_i18n import EXTRA_FAQS_22
+from build_ciudades_camaras import extract_numeric_price
 
 ALL_LANGS_MASTER = dict(NATIVE_TRANSLATIONS_21)
 ALL_LANGS_MASTER.update(REMAINING_13_LANGS)
 
 # Precomputar mapa de país a su URL canónica y regional hreflangs
 COUNTRY_CANONICAL_MAP = {c["slug_local"]: f"https://coolpadelstudios.com/camaras/{c['slug_local']}/" for c in COUNTRIES_50}
+SPAIN_CANONICAL_CITIES = {"madrid", "barcelona", "valencia", "malaga"}
 
 OUTPUT_ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'camaras')
 os.makedirs(OUTPUT_ROOT, exist_ok=True)
@@ -91,27 +94,35 @@ def generate_country_page(item, slug_to_use, canonical_slug=None):
     # Enrutamiento canónico de navegación por idioma
     nav_prefix = NAV_PREFIX_MAP.get(lang, "/en/")
 
-    # Detección determinista de divisa
-    schema_curr = item.get("curr_code")
-    if not schema_curr or schema_curr in ("ARS", "CLP", "COP", "PYG", "UYU", "VES", "CRC", "DOP", "PAB"):
-        if "USD" in hw or "$" in hw:
-            schema_curr = "USD"
-        elif "€" in hw:
-            schema_curr = "EUR"
-        elif "£" in hw:
-            schema_curr = "GBP"
-        else:
-            schema_curr = item.get("curr_code", "EUR")
+    # Detección determinista de divisa y precios reales en moneda local
+    schema_curr = item.get("curr_code", "EUR")
+    if "USD" in hw:
+        schema_curr = "USD"
+    elif "€" in hw:
+        schema_curr = "EUR"
+    elif "£" in hw:
+        schema_curr = "GBP"
+    schema_low_price = extract_numeric_price(rec, "45")
+    schema_high_price = extract_numeric_price(hw, "180")
 
     # Vocabulario de footer y pistas localizado
     f_i18n = FOOTER_I18N.get(lang, FOOTER_I18N["en"])
     courts_word = COURTS_TERM.get(lang, "Courts")
+
+    # FAQs adicionales de logística (4 semanas) y propiedad 100% para las páginas de país
+    lang_extra_faq = EXTRA_FAQS_22.get(lang, EXTRA_FAQS_22["en"])
+    faq5_q_fmt = lang_extra_faq["faq5_q"].format(city=country_display)
+    faq5_a_fmt = lang_extra_faq["faq5_a"].format(city=country_display, hw=hw, rec=rec, ai=ai)
+    faq6_q_fmt = lang_extra_faq["faq6_q"].format(city=country_display)
+    faq6_a_fmt = lang_extra_faq["faq6_a"].format(city=country_display, hw=hw, rec=rec, ai=ai)
 
     faq_pairs = [
         (t["faq1_q"], t["faq1_a"].format(hw=hw, rec=rec, ai=ai)),
         (t["faq2_q"], t["faq2_a"].format(hw=hw, rec=rec, ai=ai)),
         (t["faq3_q"], t["faq3_a"].format(hw=hw, rec=rec, ai=ai)),
         (t["faq4_q"], t["faq4_a"].format(hw=hw, rec=rec, ai=ai)),
+        (faq5_q_fmt, faq5_a_fmt),
+        (faq6_q_fmt, faq6_a_fmt),
     ]
     schema_obj = {
         "@context": "https://schema.org",
@@ -131,8 +142,8 @@ def generate_country_page(item, slug_to_use, canonical_slug=None):
                 "offers": {
                     "@type": "AggregateOffer",
                     "priceCurrency": schema_curr,
-                    "lowPrice": "45",
-                    "highPrice": "180",
+                    "lowPrice": schema_low_price,
+                    "highPrice": schema_high_price,
                     "offerCount": "2",
                     "availability": "https://schema.org/InStock",
                 },
@@ -147,8 +158,8 @@ def generate_country_page(item, slug_to_use, canonical_slug=None):
             },
             {
                 "@type": "VideoObject",
-                "name": f"Save My Play Demonstration - {country_display}",
-                "description": f"Demostración en pista real del sistema de cámaras Save My Play en {country_display}",
+                "name": f"{t['vid_badge']} - Save My Play {country_display}",
+                "description": f"{t['vid_title']} - {t['vid_sub']}",
                 "thumbnailUrl": "https://img.youtube.com/vi/4xwrrveDZxg/hqdefault.jpg",
                 "uploadDate": "2026-01-15T12:00:00+01:00",
                 "contentUrl": "https://www.youtube.com/watch?v=4xwrrveDZxg",
@@ -177,7 +188,10 @@ def generate_country_page(item, slug_to_use, canonical_slug=None):
     if cities_for_country:
         pills = []
         for c_obj in cities_for_country:
-            c_url = f"/camaras/{target_slug}/{c_obj['slug']}/"
+            if target_slug == "espana" and c_obj["slug"] in SPAIN_CANONICAL_CITIES:
+                c_url = f"/camaras-padel-{c_obj['slug']}/"
+            else:
+                c_url = f"/camaras/{target_slug}/{c_obj['slug']}/"
             pills.append(
                 f'<a href="{c_url}" class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-white hover:bg-[#f2920b] text-slate-700 hover:text-slate-950 border border-slate-200 hover:border-[#f2920b] font-heading font-bold text-[11px] uppercase tracking-wider transition shadow-2xs">'
                 f'<i data-lucide="map-pin" class="w-3 h-3 text-[#f2920b] group-hover:text-slate-950"></i>'
@@ -187,7 +201,7 @@ def generate_country_page(item, slug_to_use, canonical_slug=None):
         city_pills_html = f'<div class="pt-2 flex flex-wrap items-center gap-1.5">{"".join(pills)}</div>'
     
     city_footer_links = "\n".join(
-        f'            <li><a href="/camaras/{target_slug}/{c_obj["slug"]}/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Save My Play {c_obj["name"]}</a></li>'
+        f'            <li><a href="{"/camaras-padel-" + c_obj["slug"] + "/" if (target_slug == "espana" and c_obj["slug"] in SPAIN_CANONICAL_CITIES) else "/camaras/" + target_slug + "/" + c_obj["slug"] + "/"}" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Save My Play {c_obj["name"]}</a></li>'
         for c_obj in cities_for_country[:4]
     )
     
@@ -588,6 +602,22 @@ def generate_country_page(item, slug_to_use, canonical_slug=None):
             </summary>
             <p class="mt-3 text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">{t["faq4_a"]}</p>
           </details>
+
+          <details class="group bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/90 shadow-2xs transition hover:border-[#f2920b]">
+            <summary class="flex items-center justify-between font-heading font-black text-sm sm:text-base text-slate-950 cursor-pointer list-none select-none">
+              <span>{faq5_q_fmt}</span>
+              <span class="w-6 h-6 rounded-full bg-slate-100 text-slate-700 group-open:rotate-180 group-open:bg-[#f2920b] group-open:text-slate-950 flex items-center justify-center transition-transform text-xs shrink-0 ml-3">▼</span>
+            </summary>
+            <p class="mt-3 text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">{faq5_a_fmt}</p>
+          </details>
+
+          <details class="group bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/90 shadow-2xs transition hover:border-[#f2920b]">
+            <summary class="flex items-center justify-between font-heading font-black text-sm sm:text-base text-slate-950 cursor-pointer list-none select-none">
+              <span>{faq6_q_fmt}</span>
+              <span class="w-6 h-6 rounded-full bg-slate-100 text-slate-700 group-open:rotate-180 group-open:bg-[#f2920b] group-open:text-slate-950 flex items-center justify-center transition-transform text-xs shrink-0 ml-3">▼</span>
+            </summary>
+            <p class="mt-3 text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">{faq6_a_fmt}</p>
+          </details>
         </div>
       </div>
     </section>
@@ -616,7 +646,7 @@ def generate_country_page(item, slug_to_use, canonical_slug=None):
               <div class="w-11 h-11 rounded-xl bg-emerald-50 text-[#25D366] flex items-center justify-center shadow-inner group-hover:scale-105 group-hover:bg-[#25D366] group-hover:text-white transition-all duration-300">
                 <i data-lucide="message-circle" class="w-6 h-6 stroke-[2.2]"></i>
               </div>
-              <h3 class="font-heading font-black text-base sm:text-lg text-slate-950">{t.get("contact_wa_title", "WhatsApp Directo")}</h3>
+              <h3 class="font-heading font-black text-base sm:text-lg text-slate-950">{t.get("contact_wa_title", f_i18n["wa_direct_title"])}</h3>
               <p class="font-mono font-bold text-xs sm:text-sm text-emerald-600 tracking-wide">+34 680 31 74 86</p>
             </div>
             <div class="w-full pt-3 border-t border-slate-100 mt-3">
@@ -627,13 +657,13 @@ def generate_country_page(item, slug_to_use, canonical_slug=None):
           </a>
 
           <!-- Email Card -->
-          <a id="landing-contact-mail" href="mailto:javier@coolpadelstudios.com?subject=Consulta%20CoolPadel%20/%20Save%20my%20Play"
+          <a id="landing-contact-mail" href="mailto:javier@coolpadelstudios.com?subject=Save%20My%20Play%20{country_display}"
              class="bg-white border border-slate-200 hover:border-[#3478a6] rounded-2xl p-5 shadow-xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between items-center text-center group cursor-pointer block no-underline text-inherit">
             <div class="flex flex-col items-center space-y-2 w-full">
               <div class="w-11 h-11 rounded-xl bg-sky-50 text-[#3478a6] flex items-center justify-center shadow-inner group-hover:scale-105 group-hover:bg-[#3478a6] group-hover:text-white transition-all duration-300">
                 <i data-lucide="mail" class="w-6 h-6 stroke-[2.2]"></i>
               </div>
-              <h3 class="font-heading font-black text-base sm:text-lg text-slate-950">{t.get("contact_mail_title", "Correo Electrónico")}</h3>
+              <h3 class="font-heading font-black text-base sm:text-lg text-slate-950">{t.get("contact_mail_title", f_i18n["email_dossier_title"])}</h3>
               <p class="font-sans font-bold text-xs sm:text-sm text-sky-800 tracking-normal break-all">javier@coolpadelstudios.com</p>
             </div>
             <div class="w-full pt-3 border-t border-slate-100 mt-3">
@@ -659,7 +689,7 @@ def generate_country_page(item, slug_to_use, canonical_slug=None):
         </div>
       </div>
 
-      <nav aria-label="Estructura y Silos SEO de CoolPadel" class="grid grid-cols-2 lg:grid-cols-4 gap-8 text-left">
+      <nav aria-label="CoolPadel Navigation" class="grid grid-cols-2 lg:grid-cols-4 gap-8 text-left">
         <div class="space-y-3">
           <div class="font-heading font-black text-sm uppercase tracking-wider text-white">{t["footer_b2b"]}</div>
           <ul class="space-y-2 text-white/80 font-normal">

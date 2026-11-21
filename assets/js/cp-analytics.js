@@ -14,7 +14,35 @@
 
   const WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbxnF9JmVrikeAW7PdLc02r_1kkuSJVz1Ncl71ZeVGT37H0ji5DQ3DVw60122pcuYnxCgA/exec';
 
-  // 1. Gestión de Exclusión de Administrador / Dueño (ignorar tus propias visitas)
+  // 1. Detección y Exclusión de Bots, Rastreadores y Automatizaciones (Googlebot, Lighthouse, Headless Chrome, etc.)
+  function isBotOrAutomation() {
+    try {
+      // Navegadores automatizados (Puppeteer, Selenium, Playwright, Lighthouse)
+      if (navigator.webdriver) return true;
+      if (window.__nightmare || window._phantom || window.callPhantom) return true;
+      if (document.visibilityState === 'prerender') return true;
+
+      const ua = (navigator.userAgent || '').toLowerCase();
+      // Firmas comunes de rastreadores conocidos
+      const botKeywords = [
+        'googlebot', 'google-inspectiontool', 'chrome-lighthouse', 'adsbot-google', 'feedfetcher-google',
+        'bingbot', 'msnbot', 'bingpreview', 'slurp', 'duckduckbot', 'baiduspider', 'yandexbot',
+        'bytespider', 'sogou', 'exabot', 'facebot', 'facebookexternalhit', 'ia_archiver',
+        'semrushbot', 'ahrefsbot', 'dotbot', 'mj12bot', 'screaming frog', 'headlesschrome',
+        'ptst/', 'pingdom', 'uptime', 'crawler', 'spider'
+      ];
+      if (botKeywords.some(function (k) { return ua.indexOf(k) !== -1; })) {
+        return true;
+      }
+    } catch (e) {}
+    return false;
+  }
+
+  if (isBotOrAutomation()) {
+    return;
+  }
+
+  // 2. Gestión de Exclusión de Administrador / Dueño (ignorar tus propias visitas)
   // Abrir https://coolpadelstudios.com/?yo=1 o ?admin=1 activa el bloqueo permanente en este navegador/dispositivo.
   // Abrir ?borrar_yo=1 o ?track_me=1 vuelve a activar el seguimiento para pruebas.
   const urlParams = new URLSearchParams(window.location.search);
