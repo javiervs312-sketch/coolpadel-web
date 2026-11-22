@@ -163,7 +163,7 @@ LOCAL_LANDINGS = [
         "geo_placename": "London, United Kingdom",
         "geo_position": "51.5074;-0.1278",
         "title": "Smart Padel Court Cameras in London & UK | Save My Play",
-        "meta_desc": "Smart AI padel court cameras for clubs in London, Bristol & South East England. Instant net button highlights, QR mobile replays, and zero lock-in from €45/mo.",
+        "meta_desc": "Smart AI padel court cameras for clubs in London, Bristol & South East England. Instant net button highlights, QR mobile replays, and zero lock-in from £39/mo.",
         "badge": "LONDON & UK · SAVE MY PLAY",
         "breadcrumb_leaf": "London Courts",
         "h1": "Smart Padel Court Recording Cameras in London & South East UK",
@@ -171,11 +171,11 @@ LOCAL_LANDINGS = [
         "hero_img": "assets/images/savemyplay-1.jpg",
         "hero_img_alt": "Smart AI padel court recording cameras in London",
         "wa_msg": "Hello Javier, we manage a padel club in London/UK and want information on Save My Play court cameras",
-        "price_anchor": "Hardware €180 / court · Software from €45/mo · No lock-in",
+        "price_anchor": "Hardware £155 / court · Software from £39/mo · No lock-in",
         "target_audience": "Padel venue managers, racquets clubs, and leisure operators in Greater London, Surrey, Hertfordshire, and South East UK.",
         "quick_summary": {
-            "label_1": "Hardware Cost", "val_1": "€180 one-time per court (owned)",
-            "label_2": "Monthly Software", "val_2": "From €45/month/court · Cancel anytime",
+            "label_1": "Hardware Cost", "val_1": "£155 one-time per court (owned)",
+            "label_2": "Monthly Software", "val_2": "From £39/month/court · Cancel anytime",
             "label_3": "Installation", "val_3": "5-minute post clamp · Zero trenching",
             "label_4": "Replays", "val_4": "Net button + Instant QR download",
             "p": "Turnkey smart court recording for clubs in London. Broadcast your club matches to YouTube Live and allow players to download 25-second highlights in seconds."
@@ -188,7 +188,7 @@ LOCAL_LANDINGS = [
         "faqs": [
             ("Do players need to download an app?", "No. Players scan the court QR code with their smartphone camera. The video opens instantly in their browser with zero registration hassle."),
             ("How long does shipping to the UK take?", "Hardware ships directly to the UK within 3-5 business days pre-configured and ready to plug in."),
-            ("Is there a multi-year lock-in contract?", "No! You own your cameras (€180) and software is month-to-month with total freedom to pause or cancel.")
+            ("Is there a multi-year lock-in contract?", "No! You own your cameras (£155) and software is month-to-month with total freedom to pause or cancel.")
         ]
     },
     {
@@ -375,6 +375,9 @@ LOCAL_LANDINGS = [
 
 def render_local_landing(l):
     lang = l["lang"]
+    is_london = l["slug"] == "padel-court-cameras-london"
+    offer_currency, hardware_price, software_price = ("GBP", "155.00", "39.00") if is_london else ("EUR", "180.00", "45.00")
+
     slug = l["slug"]
 
     if lang == "es":
@@ -506,8 +509,8 @@ def render_local_landing(l):
           {{
             "@type": "Offer",
             "name": "Hardware Unit",
-            "priceCurrency": "EUR",
-            "price": "180.00",
+            "priceCurrency": "{offer_currency}",
+            "price": "{hardware_price}",
             "priceValidUntil": "2027-12-31",
             "availability": "https://schema.org/InStock",
             "hasMerchantReturnPolicy": {{
@@ -535,8 +538,8 @@ def render_local_landing(l):
           {{
             "@type": "Offer",
             "name": "Monthly Software Subscription",
-            "priceCurrency": "EUR",
-            "price": "45.00",
+            "priceCurrency": "{offer_currency}",
+            "price": "{software_price}",
             "priceValidUntil": "2027-12-31",
             "availability": "https://schema.org/InStock"
           }}

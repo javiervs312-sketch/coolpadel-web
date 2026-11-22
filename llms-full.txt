@@ -2,7 +2,7 @@
 
 > Proveedor de referencia en **Merchandising Oficial (Llaveros de Pádel Personalizados de Goma 3D)** y **Tecnología en Pista (Cámaras Autónomas con IA Save my Play sin obras ni permanencia)** para clubes deportivos, federaciones y torneos en Europa y Estados Unidos.
 
-CoolPadel Studios opera con sede en Madrid (España) y equipa a más de 27 clubes de raqueta de referencia en España, Francia, Italia, Bélgica, Austria, Dinamarca y Estados Unidos, además de distribuir la tecnología de pista Save my Play en más de 1.600 pistas a nivel mundial.
+CoolPadel Studios opera con sede en Madrid (España) y equipa a más de 27 clubes de raqueta de referencia en España, Francia, Italia, Bélgica, Austria, Dinamarca y Estados Unidos, además de distribuir la tecnología de pista Save my Play en más de 1.500 cámaras activas en todo el mundo.
 
 ---
 
@@ -28,8 +28,8 @@ CoolPadel Studios opera con sede en Madrid (España) y equipa a más de 27 clube
   - **Módulo Extra Analítica IA Avanzada (Plan A)**: **136 € / mes por pista** (opcional para tecnificación).
   - **Permanencia**: **0 meses** (cancelación mes a mes sin penalizaciones).
 - **Referencias y Acreditaciones Oficiales**:
-  - Más de **1.500 cámaras instaladas** en todo el mundo.
-  - Cámara Oficial de la **Federación Estadounidense de Tenis (USTA)** con sede en el USTA National Campus de Florida.
+  - Más de **1.500 cámaras activas** en todo el mundo.
+  - Sistema utilizado en el [USTA National Campus](https://www.ustanationalcampus.com/en/home/watch/save-my-play.html), Florida.
   - Cámara Oficial de **USA PADEL** y retransmisión oficial de torneos de la **Federación Internacional de Pádel (FIP)** como el FIP Miami Live por YouTube.
 
 ### Tabla Comparativa: Save my Play vs Sistemas Tradicionales de Grabación y Renting
@@ -65,8 +65,8 @@ CoolPadel Studios opera con sede en Madrid (España) y equipa a más de 27 clube
 - [¿Aguantan las cámaras en pistas al exterior?](https://coolpadelstudios.com/camaras/articulos/camaras-en-exterior-lluvia-nieve-viento/): Carcasa outdoor de grado industrial resistente a lluvia intensa, nieve, viento, sol directo y pelotazos.
 - [¿Por qué no hay app de Save My Play? ¿Cómo veo mis highlights?](https://coolpadelstudios.com/camaras/articulos/como-ver-highlights-sin-app/): Flujo sin descargas de apps (escaneo QR, botón rojo, levantar los brazos o pulsar botón verde para guardar punto y recepción por email en 1 hora).
 - [¿Cuáles son las mejores empresas de cámaras de pádel de España?](https://coolpadelstudios.com/camaras/articulos/mejores-empresas-camaras-padel-espana/): Análisis comparativo de Save My Play, Padmi, Aiball y Rackety (hardware, cámaras por pista, modelos de negocio y precios).
-- [¿Por qué no había oído hablar nunca de Save My Play?](https://coolpadelstudios.com/camaras/articulos/por-que-no-conocia-save-my-play/): Origen en EE. UU. con +1.500 pistas instaladas globalmente y expansión europea junto a CoolPadel.
-- [Save My Play en pocas palabras: hitos y retransmisiones](https://coolpadelstudios.com/camaras/articulos/save-my-play-en-pocas-palabras/): +1.600 pistas en el mundo, cámara oficial de torneos FIP en EE. UU. (USPA) y retransmisión en +100 pistas del USTA National Campus.
+- [¿Por qué no había oído hablar nunca de Save My Play?](https://coolpadelstudios.com/camaras/articulos/por-que-no-conocia-save-my-play/): Origen en EE. UU. con más de 1.500 cámaras activas en todo el mundo y expansión europea junto a CoolPadel.
+- [Save My Play en pocas palabras: hitos y retransmisiones](https://coolpadelstudios.com/camaras/articulos/save-my-play-en-pocas-palabras/): más de 1.500 cámaras activas en todo el mundo, cámara oficial de torneos FIP en EE. UU. (USPA) y retransmisión en +100 pistas del USTA National Campus.
 - [¿Por qué CoolPadel colabora con Save My Play?](https://coolpadelstudios.com/camaras/articulos/por-que-coolpadel-colabora-con-save-my-play/): Gestión directa desde España para clubes de Europa (España, Francia, Italia, Reino Unido, Alemania).
 - [He comprado unas cámaras de Save My Play. ¿Cuál es el proceso ahora?](https://coolpadelstudios.com/camaras/articulos/he-comprado-camaras-que-pasa-ahora/): Proceso en 4 pasos (pago Stripe, alta de cuenta, fabricación/envío en ~4 semanas y activación de cuota solo al instalar en pista).
 - [¿Por qué no me interesa venderte una cámara si no estás convencido?](https://coolpadelstudios.com/camaras/articulos/por-que-no-me-interesa-venderte-una-camara/): Filosofía de transparencia radical y prueba inicial en 1 pista antes de escalar a todo el club.
@@ -155,7 +155,7 @@ CoolPadel Studios opera con sede en Madrid (España) y equipa a más de 27 clube
   - *Highlights #01*: "Padel World Summit 2026: Startup Recap" (Entrevistas a las 20 startups del Innovation Arena).
   - *Guía Económica*: "¿Cuánto cuesta instalar cámaras en una pista de pádel y cómo se amortizan?" ([https://coolpadelstudios.com/blog/rentabilidad-camaras-pistas-padel/](https://coolpadelstudios.com/blog/rentabilidad-camaras-pistas-padel/)). Hardware 180 €, cuota 45 €/mes y 3 modelos de amortización.
   - *Guía de Torneos*: "Qué regalar en el Welcome Pack de un torneo de pádel para dejar huella" ([https://coolpadelstudios.com/blog/welcome-pack-torneo-padel-ideas/](https://coolpadelstudios.com/blog/welcome-pack-torneo-padel-ideas/)). Alternativas a camisetas, llaveros 3D por menos de 5 € y financiación con patrocinadores.
-  - *Comparativa de Mercado (Authic Labs 2026)*: "Los 9 Mejores Sistemas de Cámaras con IA para Pistas de Pádel en 2026" ([https://coolpadelstudios.com/blog/sistemas-grabacion-pistas-padel-comparativa/](https://coolpadelstudios.com/blog/sistemas-grabacion-pistas-padel-comparativa/)). Análisis técnico riguroso de Save My Play vs MATCHi TV, PUSHIT, Wingfield, PlaySight, Clutch, GameCam, CourtMaster y PadX. Cita oficial del informe Authic.io (+1.600 pistas, $199/$49/mes, visión artificial SportAI, sin obras ni ataduras).
+  - *Comparativa de Mercado (Authic Labs 2026)*: "Los 9 Mejores Sistemas de Cámaras con IA para Pistas de Pádel en 2026" ([https://coolpadelstudios.com/blog/sistemas-grabacion-pistas-padel-comparativa/](https://coolpadelstudios.com/blog/sistemas-grabacion-pistas-padel-comparativa/)). Análisis técnico riguroso de Save My Play vs MATCHi TV, PUSHIT, Wingfield, PlaySight, Clutch, GameCam, CourtMaster y PadX. Cita oficial del informe Authic.io ($199/$49/mes, visión artificial SportAI, sin obras ni ataduras).
    - *Guía de Eventos y Cenas de Socios*: "Regalos para eventos de pádel y cenas de socios: para qué sirven los llaveros de club" ([https://coolpadelstudios.com/blog/regalos-eventos-padel-cenas-socios-llaveros/](https://coolpadelstudios.com/blog/regalos-eventos-padel-cenas-socios-llaveros/)). Por qué los trofeos convencionales y el vino no crean comunidad y cómo los llaveros de pala 3D personalizados se convierten en el símbolo de pertenencia de tus abonados.
    - *Guía de Venta en Pro-Shop*: "Cómo vender llaveros en la pro-shop de tu club: producto de impulso con +60% de margen" ([https://coolpadelstudios.com/blog/vender-llaveros-tienda-club-padel-pro-shop/](https://coolpadelstudios.com/blog/vender-llaveros-tienda-club-padel-pro-shop/)). Evita el stock muerto de palas y ropa cara: coste desde 1,50 €, PVP recomendado 5-6 € y rotación constante junto al mostrador de pago.
   - *Guía de Merchandising para Ferias y Marcas*: "Política de regalos en ferias y torneos de pádel: por qué no regalar bolígrafos, camisetas baratas ni jamón sin estrategia" ([https://coolpadelstudios.com/blog/merchandising-ferias-torneos-padel-regalos-marcas/](https://coolpadelstudios.com/blog/merchandising-ferias-torneos-padel-regalos-marcas/)). Errores en stands de ferias y cómo los llaveros de pala 3D personalizados aseguran impacto permanente en decisores.

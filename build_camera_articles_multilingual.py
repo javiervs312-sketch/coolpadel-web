@@ -936,8 +936,12 @@ def build_all():
                 else:
                     body_html_parts.append(example_img_block)
 
+            if slug == "cuanto-cuesta-poner-camaras" and lang == "es":
+                title = 'Hardware y montaje de cámaras Save my Play en pistas de pádel'
+                body_html_parts = ['<div class="article-block">\n<h2 class="article-subheading"><span class="subheading-title">Qué incluye el hardware</span></h2>\n<p>Se instala una cámara por pista. El equipo queda en propiedad del club. El hardware incluye la cámara deportiva, la fijación al poste y el pulsador para guardar jugadas.</p>\n</div>\n<div class="article-block">\n<h2 class="article-subheading"><span class="subheading-title">Cómo se monta la cámara</span></h2>\n<p>El soporte se fija directamente al poste. Los cinco minutos se refieren al montaje físico con el soporte preparado. Para completar la puesta en marcha hay que comprobar la corriente, la conexión de la pista y la configuración del equipo.</p>\n<p>La grabación y el streaming se contratan por separado. Consulta la <a href="/camaras/cuanto-cuesta-poner-camaras-pistas-padel/">guía oficial de tarifas Save my Play</a> para ver el pago único y las cuotas por volumen.</p>\n</div>']
+
             # Inyección de herramienta interactiva de ROI
-            if slug == "cuanto-cuesta-poner-camaras" or slug == "es-rentable-poner-camaras":
+            if slug == "es-rentable-poner-camaras" or (slug == "cuanto-cuesta-poner-camaras" and lang != "es"):
                 roi_card_title = {
                     "es": "Calcula el retorno de inversión exacto para tu club",
                     "en": "Calculate the exact court camera ROI for your club",

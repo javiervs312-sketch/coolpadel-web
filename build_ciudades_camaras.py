@@ -42,6 +42,38 @@ def extract_numeric_price(price_str, fallback="45"):
     digits = re.sub(r"[^\d]", "", s)
     return digits if digits else fallback
 
+CITY_NETWORK_ENTRIES = {('united-kingdom', 'london'): ('/en/padel-court-cameras-london/',
+                                'London in the Save my Play UK network',
+                                'Discover our UK padel court camera network and see the installation and '
+                                'quotes page for London.',
+                                'London in the Save my Play UK network',
+                                'See London installation and quotes'),
+ ('france', 'paris'): ('/fr/cameras-padel-paris/',
+                       'Paris dans le réseau Save my Play en France',
+                       'Découvrez le réseau Save my Play en France et la page installation et devis pour les '
+                       'clubs de Paris.',
+                       'Paris dans le réseau Save my Play en France',
+                       'Voir installation et devis à Paris'),
+ ('france', 'lyon'): ('/fr/cameras-padel-lyon/',
+                      'Lyon dans le réseau Save my Play en France',
+                      'Découvrez le réseau Save my Play en France et la page installation et devis pour les '
+                      'clubs de Lyon.',
+                      'Lyon dans le réseau Save my Play en France',
+                      'Voir installation et devis à Lyon'),
+ ('italia', 'roma'): ('/it/telecamere-padel-roma/',
+                      'Roma nella rete Save my Play in Italia',
+                      'Scopri la rete Save my Play in Italia e la pagina dedicata a installazione e '
+                      'preventivi per i circoli di Roma.',
+                      'Roma nella rete Save my Play in Italia',
+                      'Installazione e preventivi a Roma'),
+ ('italia', 'milano'): ('/it/telecamere-padel-milano/',
+                        'Milano nella rete Save my Play in Italia',
+                        'Scopri la rete Save my Play in Italia e la pagina dedicata a installazione e '
+                        'preventivi per i circoli di Milano.',
+                        'Milano nella rete Save my Play in Italia',
+                        'Installazione e preventivi a Milano')}
+
+
 def generate_city_page(country_item, city, slug_country_used, canonical_country_slug=None):
     lang = country_item["lang"]
     t = ALL_LANGS_MASTER.get(lang, ALL_LANGS_MASTER["en"])
@@ -62,6 +94,12 @@ def generate_city_page(country_item, city, slug_country_used, canonical_country_
     meta_desc = c_tmpl["meta_desc"].format(city=city_name, country=country_display, hw=hw, rec=rec, ai=ai)
     h1 = c_tmpl["h1"].format(city=city_name)
     sub = c_tmpl["sub"].format(city=city_name, country=country_display, courts=city_courts, hw=hw, rec=rec, ai=ai)
+    network = CITY_NETWORK_ENTRIES.get((slug_country_used, city_slug))
+    network_link = ""
+    if network:
+        destination, title, meta_desc, h1, label = network
+        sub = meta_desc
+        network_link = f'<p class="text-sm font-bold text-slate-700"><a class="underline" href="{destination}">{label}</a></p>'
     wa_msg = c_tmpl["wa_msg"].format(city=city_name, country=country_display)
 
     if lang in ("pt", "pt-br") and country_display == "Brasil":
@@ -368,6 +406,7 @@ def generate_city_page(country_item, city, slug_country_used, canonical_country_
             <p class="text-base sm:text-lg text-slate-600 leading-relaxed font-normal">
               {sub}
             </p>
+            {network_link}
 
             <div class="pt-4 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 relative" style="min-height: 58px;">
               <div id="hero-btn-placeholder" style="display: none; height: 54px;" class="w-full sm:w-[350px]"></div>

@@ -457,65 +457,63 @@
     <section id="precios" class="py-14 sm:py-20 bg-slate-50 border-b border-slate-200 scroll-mt-20">
       <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         
-    <div class="max-w-4xl mx-auto w-full bg-white rounded-3xl p-5 sm:p-8 border border-slate-200/90 shadow-xl text-slate-950">
+    <div data-keyring-calculator data-locale="it-IT" data-units="pezzi" data-per-unit="pezzo" data-message="Ciao Javier, vorrei un preventivo per {qty} portachiavi con il logo del club. Paese di consegna: __. Data dell’evento: __." data-tiers="[[100,3],[250,2.5],[500,2],[1500,1.5]]" class="max-w-4xl mx-auto w-full bg-white rounded-3xl p-5 sm:p-8 border border-slate-200/90 shadow-xl text-slate-950">
       <div class="text-center mb-6 space-y-1">
         <h3 class="text-xl sm:text-3xl font-black font-heading text-slate-950 uppercase tracking-tight">
-          Calcula tu pedido
+          Calcola il tuo ordine
         </h3>
         <p class="text-xs sm:text-sm text-slate-500 font-medium">
-          Muestra 15€ reembolsable · Tarifa directa de fábrica
+          Campione da 15 € scalato dall’ordine · Prezzo diretto di fabbrica
         </p>
       </div>
 
       <div class="space-y-6">
         <div class="flex justify-between items-end pb-3 border-b border-slate-100">
           <div>
-            <span class="text-[11px] font-bold text-slate-500 uppercase tracking-wider block">Nº de llaveros:</span>
-            <span id="landing-calc-qty" class="text-xl sm:text-3xl font-black font-heading text-slate-950">100 unidades</span>
+            <span class="text-[11px] font-bold text-slate-500 uppercase tracking-wider block">Numero di portachiavi</span>
+            <span id="landing-calc-qty" class="text-xl sm:text-3xl font-black font-heading text-slate-950">100 pezzi</span>
           </div>
           <div class="text-right">
-            <span class="text-[11px] font-bold text-slate-500 uppercase tracking-wider block">Importe estimado:</span>
+            <span class="text-[11px] font-bold text-slate-500 uppercase tracking-wider block">Totale stimato</span>
             <div class="flex items-baseline justify-end gap-1.5">
               <span id="landing-calc-price" class="text-xl sm:text-3xl font-black font-heading text-[#f2920b]">300 €</span>
-              <span id="landing-calc-unit" class="text-xs font-bold text-slate-500">(3,00 €/ud)</span>
+              <span id="landing-calc-unit" class="text-xs font-bold text-slate-500">(3,00 €/pezzo)</span>
             </div>
           </div>
         </div>
 
         <!-- Slider -->
         <div class="py-2">
-          <div class="relative w-full h-3 bg-slate-200 rounded-full cursor-pointer" id="landing-slider-track" onclick="handleLandingSliderClick(event)">
+          <div class="relative w-full h-3 bg-slate-200 rounded-full cursor-pointer" id="landing-slider-track" role="slider" tabindex="0" aria-label="Numero di portachiavi" aria-valuemin="0" aria-valuemax="3" aria-valuenow="0" aria-valuetext="100 pezzi">
             <div id="landing-slider-prog" class="absolute top-0 left-0 h-full bg-[#f2920b] rounded-full" style="width: 0%;"></div>
             <div id="landing-slider-thumb" class="absolute top-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-4 flex items-center justify-center cursor-grab active:cursor-grabbing hover:scale-110 transition-transform" style="left: 0%;">
-              <img src="../../assets/images/eyes-thumb.png" alt="Selector" width="36" height="18" class="w-full h-full object-contain drop-shadow-sm select-none">
+              <img src="../../assets/images/eyes-thumb.png" alt="" width="36" height="18" class="w-full h-full object-contain drop-shadow-sm select-none">
             </div>
           </div>
           <div class="relative w-full text-[11px] font-extrabold text-slate-500 h-6 mt-3">
-            <button type="button" onclick="setLandingTier(0)" class="absolute left-0 hover:text-[#f2920b] transition">100 uds</button>
-            <button type="button" onclick="setLandingTier(1)" class="absolute left-[33.3%] -translate-x-1/2 hover:text-[#f2920b] transition">250 uds</button>
-            <button type="button" onclick="setLandingTier(2)" class="absolute left-[66.6%] -translate-x-1/2 hover:text-[#f2920b] transition">500 uds</button>
-            <button type="button" onclick="setLandingTier(3)" class="absolute right-0 hover:text-[#f2920b] transition">1.500 uds</button>
+            <button type="button" data-keyring-tier="0" class="absolute left-0 hover:text-[#f2920b] transition">100 pz</button><button type="button" data-keyring-tier="1" class="absolute left-[33.3%] -translate-x-1/2 hover:text-[#f2920b] transition">250 pz</button><button type="button" data-keyring-tier="2" class="absolute left-[66.6%] -translate-x-1/2 hover:text-[#f2920b] transition">500 pz</button><button type="button" data-keyring-tier="3" class="absolute right-0 hover:text-[#f2920b] transition">1 500 pz</button>
           </div>
         </div>
 
         <div class="flex flex-wrap items-center justify-center gap-3 pt-2 text-xs font-bold">
           <span class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-200/80">
             <i data-lucide="check-circle" class="w-4 h-4 text-emerald-600"></i>
-            Muestra 15€ reembolsable
+            Campione da 15 € scalato dall’ordine · Prezzo diretto di fabbrica
           </span>
           <span class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-slate-100 text-slate-700 border border-slate-200">
-            IVA no incluido
+            IVA esclusa
           </span>
         </div>
 
         <div class="pt-2">
-          <a href="#contacto" class="w-full py-3.5 rounded-2xl font-heading font-black text-sm uppercase tracking-wider bg-[#f2920b] hover:bg-[#76d3f6] text-slate-950 shadow-md hover:shadow-lg hover:scale-[1.01] active:scale-[0.98] flex items-center justify-center gap-2 transition-all">
-            <span>Contactar</span>
+          <a id="landing-calc-quote" href="https://wa.me/34680317486?text=Ciao%20Javier%2C%20vorrei%20un%20preventivo%20per%20100%20portachiavi%20con%20il%20logo%20del%20club.%20Paese%20di%20consegna%3A%20__.%20Data%20dell%E2%80%99evento%3A%20__." data-product="llaveros" data-lead-intent="presupuesto" data-button-position="calculator" target="_blank" rel="noopener noreferrer" class="w-full py-3.5 rounded-2xl font-heading font-black text-sm uppercase tracking-wider bg-[#f2920b] hover:bg-[#76d3f6] text-slate-950 shadow-md hover:shadow-lg hover:scale-[1.01] active:scale-[0.98] flex items-center justify-center gap-2 transition-all">
+            <span>Richiedi un preventivo su WhatsApp</span>
             <i data-lucide="arrow-down" class="w-4 h-4 stroke-[3]"></i>
           </a>
         </div>
       </div>
     </div>
+    <script src='/assets/js/keyring-calculator.js' defer></script>
       </div>
     </section>
 

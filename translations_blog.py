@@ -115,7 +115,7 @@ FLAGSHIP_GUIDES_DATA = {
     "normativa-rgpd-camaras-pistas-padel": {
         "es": {
             "title": "Normativa RGPD para Cámaras en Pistas de Pádel: Guía Legal 2026 para Clubes",
-            "desc": "Guía legal RGPD 2026 para instalar cámaras en pistas de pádel: cartelería homologada, menores, streaming y cómo evitar sanciones de la AEPD en tu club.",
+            "desc": "Guía legal RGPD 2026 para instalar cámaras en pistas de pádel: cartelería informativa, menores, streaming y cómo evitar sanciones de la AEPD en tu club.",
             "h1": "Normativa RGPD para Cámaras en Pistas de Pádel: Guía Legal 2026 para Clubes",
             "subtitle": "Cartelería obligatoria en pista, consentimiento informado, streaming y grabación de menores: cómo instalar cámaras de vídeo sin riesgo de multas de la AEPD.",
             "badge": "Legal & RGPD · Cámaras de Pádel"
@@ -144,9 +144,9 @@ FLAGSHIP_GUIDES_DATA = {
     },
     "rentabilidad-camaras-pistas-padel": {
         "es": {
-            "title": "¿Cuánto Cuesta Instalar Cámaras en una Pista de Pádel y Cómo se Amortizan? [ROI 2026]",
+            "title": "Amortización de cámaras de pádel | Cuántos partidos vender",
             "desc": "Precios reales de cámaras de pádel (Save my Play vs competidores), amortización en horas valle, patrocinios y calculadora de rentabilidad para clubes.",
-            "h1": "¿Cuánto Cuesta Instalar Cámaras en una Pista de Pádel y Cómo se Amortizan?",
+            "h1": "Cuántos partidos vender para amortizar las cámaras de tu club",
             "subtitle": "Comparativa de costes de hardware (180 €), cuotas mensuales (45 €) y simulación económica con ocupación extra en horas valle y sponsors locales.",
             "badge": "Finanzas & Tecnología · Clubes de Pádel"
         },

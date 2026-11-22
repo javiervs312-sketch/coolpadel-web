@@ -79,12 +79,12 @@ NEW_ARTICLES_CONTENT = {
     # 3. Cuánto Cuesta y ROI B2B
     "cuanto-cuesta-poner-camaras-pistas-padel": {
         "slug": "cuanto-cuesta-poner-camaras-pistas-padel",
-        "title": "¿Cuánto Cuesta Poner Cámaras en un Club de Pádel y Qué ROI Tiene?",
-        "meta_title": "¿Cuánto Cuesta Poner Cámaras de Pádel? Tarifas y ROI Real",
-        "meta_desc": "Desglose transparente de precios para cámaras de pádel: 180 € hardware en propiedad, cuota de 45 €/mes por pista y amortización en 2 reservas.",
-        "h1": "¿Cuánto Cuesta y Qué Rentabilidad Tienen las Cámaras de Pádel?",
+        "title": "Tarifas oficiales Save my Play para clubes de pádel",
+        "meta_title": "Precios de cámaras de pádel para clubes | Tarifas Save my Play",
+        "meta_desc": "180 € por cámara en propiedad y grabación desde 45 €/mes por pista en el tramo base. Consulta las tarifas por volumen desde 27 €/mes por pista.",
+        "h1": "Tarifas oficiales de cámaras Save my Play para clubes",
         "hero_img": "/assets/images/camaras/pista-moqueta-negra-indoor.png",
-        "intro_p": "Precios transparentes y sin letras pequeñas. Te explicamos exactamente cuánto cuesta equipar tus pistas y cómo amortizar cada cámara desde el primer mes.",
+        "intro_p": "Consulta el coste de la cámara en propiedad y las cuotas por pista según cuántas pistas equipes.",
         "blocks": [
             """<div class="article-block">
 <p>En el sector deportivo es habitual esconder los precios detrás de formularios infinitos o cuotas con 3 años de permanencia obligatoria. Nosotros lo ponemos claro desde el primer minuto.</p>
@@ -108,10 +108,9 @@ NEW_ARTICLES_CONTENT = {
 <p><strong>Cero permanencia:</strong> Si un mes no estás satisfecho, cancelas y listo. Aún así, el 97% de los clubes siguen con nosotros.</p>
 </div>""",
             """<div class="article-block">
-<h2 class="article-subheading"><span class="subheading-title">Cálculo del Retorno de Inversión (ROI)</span></h2>
-<p>A 45 € al mes por pista, ¿cuánto tardas en amortizarlo?</p>
-<p>Para cubrir la <strong>cuota mensual de 45 € por pista</strong>, necesitas vender 15 partidos a 3 € o 23 partidos a 2 €. Si aplicas un suplemento de 1 € por hora reservada, necesitas 45 horas. El cálculo cubre la cuota de software y no incluye el hardware, el IVA ni las comisiones.</p>
-<p>Además, clubs que retransmiten torneos con patrocinadores locales cobran entre 150 € y 500 € por poner el logo de una marca en pantalla durante los directos.</p>
+<h2 class="article-subheading"><span class="subheading-title">Presupuesto para equipar tu club</span></h2>
+<p>Indícanos tu ciudad y el número de pistas que quieres equipar para preparar el presupuesto.</p>
+<p>La <a href="/blog/rentabilidad-camaras-pistas-padel/#escenarios-por-pistas">guía de amortización</a> explica cuántas grabaciones vendidas necesita un club para cubrir la cuota.</p>
 </div>"""
         ]
     },

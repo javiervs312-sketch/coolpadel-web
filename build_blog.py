@@ -490,7 +490,7 @@ def generate_blog_index():
           {{
             "@type": "ListItem",
             "position": 5,
-            "name": "¿Cuánto cuesta instalar cámaras en una pista de pádel y cómo se amortizan? · Precios y ROI 2026",
+            "name": "Cuántos partidos vender para amortizar las cámaras de tu club",
             "url": "https://coolpadelstudios.com/blog/rentabilidad-camaras-pistas-padel/"
           }},
           {{
@@ -1936,7 +1936,7 @@ ALL_ARTICLES_CATALOG = {
         "desc": "Ideas y cosas de pádel por menos de 3€, 5€ y 10€: de llaveros 3D a accesorios de paletero."
     },
     "rentabilidad-camaras-pistas-padel": {
-        "title": "¿Cuánto cuesta instalar cámaras en una pista de pádel y cómo se amortizan? · Precios y ROI 2026",
+        "title": "Cuántos partidos vender para amortizar las cámaras de tu club",
         "badge": "Guía Económica · Cámaras",
         "url": "../rentabilidad-camaras-pistas-padel/",
         "img": "savemyplay-1.jpg",
@@ -2609,8 +2609,8 @@ DOWNLOAD_BOXES = {
         "wa_msg": "Hola Javier, tengo una marca/torneo y quiero presupuesto para llaveros personalizados de goma 3D"
     },
     "sistemas-grabacion-pistas-padel-comparativa": {
-        "badge": "Cartel Homologado RGPD PDF",
-        "title": "Cartel Oficial Homologado RGPD para Pistas de Pádel",
+        "badge": "Modelo de cartel informativo RGPD",
+        "title": "Modelo de aviso de grabación para pistas de pádel",
         "desc": "Modelo legal de zona deportiva videodocumentada conforme al RGPD (UE 2016/679) y LOPDGDD 3/2018 para colocar en poste o red, con recuadros para datos y sello de tu instalación.",
         "file_url": "../../assets/downloads/cartel-homologado-rgpd-pistas-padel.pdf",
         "btn_text": "Descargar Cartel RGPD (PDF)",
@@ -2641,12 +2641,12 @@ DOWNLOAD_BOXES = {
         "wa_msg": "Hola Javier, quiero encargar una tirada de llaveros personalizados para vender en la tienda de nuestro club"
     },
     "normativa-rgpd-camaras-pistas-padel": {
-        "badge": "Cartel Homologado RGPD PDF",
-        "title": "Cartel Oficial Homologado RGPD para Pistas de Pádel",
+        "badge": "Modelo de cartel informativo RGPD",
+        "title": "Modelo de aviso de grabación para pistas de pádel",
         "desc": "Plantilla legal en PDF de zona deportiva videodocumentada conforme al RGPD (UE 2016/679) y LOPDGDD 3/2018 para colocar en la reja de la pista, con recuadros para los datos de tu club y cláusula de consentimiento de menores.",
         "file_url": "../../assets/downloads/cartel-homologado-rgpd-pistas-padel.pdf",
         "btn_text": "Descargar Cartel RGPD (PDF)",
-        "wa_msg": "Hola Javier, he leído la guía de RGPD de cámaras de pádel y quiero el cartel homologado para mi club"
+        "wa_msg": "Hola Javier, he leído la guía de RGPD de cámaras de pádel y quiero el modelo de cartel informativo para mi club"
     },
 }
 
@@ -3341,9 +3341,9 @@ def generate_all():
     generate_guide_page(
         slug="rentabilidad-camaras-pistas-padel",
         category_badge="Guía Económica · Cámaras",
-        title="¿Cuánto cuesta instalar cámaras en una pista de pádel y cómo se amortizan? · Precios y ROI 2026",
+        title="Cuántos partidos vender para amortizar las cámaras de tu club",
         subtitle="Desglose real de inversión (hardware de 180 € y 45 €/mes) y los 3 modelos para generar ingresos con la grabación de partidos en tu club.",
-        meta_desc="Coste de cámaras en pistas de pádel (180 € hardware, 45 €/mes) y los 3 modelos probados para amortizar la inversión en menos de 90 días.",
+        meta_desc="Calcula cuántas ventas cubren la cuota de cámaras de tu club y cuánto tardas en recuperar el hardware. Ejemplos para 4, 8, 12 y 20 pistas.",
         date_str="Mayo 2026",
         date_iso="2026-10-22",
         read_time="Lectura 5 min",
@@ -3777,7 +3777,7 @@ def generate_all():
         },
         {
             "q": "¿Qué exige la normativa RGPD para grabar partidos de pádel en un club?",
-            "a": "La AEPD y el RGPD exigen delimitar el ángulo de la cámara estrictamente al perímetro interior de la pista para no captar zonas de paso ni pistas contiguas, colocar cartelería informativa visible y garantizar la supresión automática de los archivos tras un plazo prudencial (30 días), requisitos que Save My Play cumple de forma automatizada con cifrado SSL."
+            "a": "El club debe limitar el encuadre a lo necesario, informar antes de grabar y definir el plazo de conservación según la finalidad. Para videovigilancia de seguridad, el artículo 22.3 de la LOPDGDD establece un máximo de un mes, con la excepción prevista en ese artículo."
         },
         {
             "q": "¿Qué fuentes y estudios respaldan esta comparativa de cámaras de pádel?",
@@ -4723,7 +4723,7 @@ def generate_all():
           <li><strong>Finalidad:</strong> Prevención de delitos, robos o actos vandálicos.</li>
           <li><strong>Operativa:</strong> Grabación 24/7 ininterrumpida de pasillos, cajas, recepción o parkings.</li>
           <li><strong>Acceso:</strong> Personal de seguridad privada autorizado o gerencia.</li>
-          <li><strong>Retención:</strong> Plazo máximo obligatorio de borrado a los 30 días naturales.</li>
+          <li><strong>Retención:</strong> Para videovigilancia con fines de seguridad, el artículo 22.3 de la LOPDGDD fija un máximo de un mes desde la captación, con la excepción legal para conservar pruebas. Para grabación deportiva, fija el plazo según la finalidad y la necesidad del tratamiento.</li>
           <li><strong>Regulación:</strong> Ley de Seguridad Privada 5/2014 y Art. 22 LOPDGDD.</li>
         </ul>
       </div>
@@ -4737,7 +4737,7 @@ def generate_all():
           <li><strong>Finalidad:</strong> Análisis técnico, entretenimiento y entrega de vídeo al propio jugador.</li>
           <li><strong>Operativa:</strong> Memoria volátil continua (buffer de 25s) que <strong>solo almacena vídeo cuando un jugador pulsa voluntariamente el botón físico en la red</strong>. Si nadie pulsa, el clip se descarta en la RAM sin guardarse jamás en disco duro.</li>
           <li><strong>Acceso:</strong> Exclusivo del jugador en su móvil o panel privado tras identificarse.</li>
-          <li><strong>Retención:</strong> Almacenamiento en la nube cifrada y borrado automático configurable.</li>
+          <li><strong>Retención:</strong> Verifica con el proveedor el almacenamiento, las opciones de borrado y el plazo configurable.</li>
           <li><strong>Regulación:</strong> RGPD Art. 6.1 (ejecución de servicio/consentimiento del interesado).</li>
         </ul>
       </div>
@@ -4749,7 +4749,7 @@ def generate_all():
 
     <h2>2. Los 4 Pilares Obligatorios de la AEPD para Cámaras en Pistas</h2>
     <p class="text-slate-700 leading-relaxed">
-      Para que la AEPD no pueda poner ni un solo reparo a la instalación de cámaras fijas en tus pistas, el sistema debe cumplir estrictamente estos 4 principios recogidos en el RGPD (UE 2016/679):
+      Para evaluar la instalación, revisa estos cuatro aspectos del tratamiento de datos previstos en el RGPD (UE 2016/679):
     </p>
 
     <div class="space-y-4 my-6">
@@ -4759,7 +4759,7 @@ def generate_all():
           <h3 class="font-heading font-black text-base text-slate-950">Principio de Información Previa (El Cartel Oficial en la Pista)</h3>
         </div>
         <p class="text-xs sm:text-sm text-slate-600 pl-10 leading-relaxed">
-          Nadie puede ser grabado sin saberlo. El club está legalmente obligado (Art. 13 RGPD) a colocar un cartel informativo homologado en un lugar claramente visible <strong>antes de acceder a la pista</strong> (en la malla exterior o junto a la puerta de entrada). El cartel debe identificar al club como responsable, la finalidad deportiva de la grabación, los canales para ejercer los derechos ARSULIPO y un enlace o punto de contacto para consultar la política de privacidad completa.
+          Informa a jugadores y acompañantes <strong>antes de acceder a la zona de captación</strong>. Identifica al responsable, explica la finalidad y facilita cómo ejercer los derechos de acceso, supresión u oposición, según corresponda, y consultar la información completa del artículo 13 del RGPD. Para videovigilancia de seguridad se aplica además el artículo 22.4 de la LOPDGDD.
         </p>
       </div>
 
@@ -4786,10 +4786,10 @@ def generate_all():
       <div class="border border-slate-200 rounded-2xl p-5 bg-white shadow-2xs space-y-2">
         <div class="flex items-center gap-3">
           <span class="w-7 h-7 rounded-full bg-[#f2920b] text-slate-950 font-black text-xs flex items-center justify-center shrink-0">4</span>
-          <h3 class="font-heading font-black text-base text-slate-950">Seguridad, Cifrado y Servidores en la Unión Europea</h3>
+          <h3 class="font-heading font-black text-base text-slate-950">Seguridad, alojamiento y acceso</h3>
         </div>
         <p class="text-xs sm:text-sm text-slate-600 pl-10 leading-relaxed">
-          El material audiovisual jamás debe quedar guardado en un disco duro o pendrive desprotegido en el mostrador del club, al que cualquier recepcionista o empleado pueda acceder. Los vídeos deben transmitirse mediante protocolos seguros con cifrado TLS/SSL y almacenarse en centros de datos ubicados en territorio de la Unión Europea bajo estándares de seguridad ISO/IEC 27001.
+          El material audiovisual jamás debe quedar guardado en un disco duro o pendrive desprotegido en el mostrador del club, al que cualquier recepcionista o empleado pueda acceder. Comprueba con el proveedor dónde se alojan los vídeos, quién puede acceder, qué medidas de seguridad se aplican y si existen transferencias internacionales. Documenta las medidas adecuadas al riesgo.
         </p>
       </div>
     </div>
@@ -4836,7 +4836,7 @@ def generate_all():
         </thead>
         <tbody class="divide-y divide-slate-200 text-slate-700">
           <tr>
-            <td class="p-3 sm:p-4 font-bold text-slate-950">Cartelería homologada</td>
+            <td class="p-3 sm:p-4 font-bold text-slate-950">Cartelería informativa</td>
             <td class="p-3 sm:p-4 text-emerald-700 font-bold">Sí (incluida en el acceso)</td>
             <td class="p-3 sm:p-4 text-rose-700 font-bold">No (infracción Art. 13 RGPD)</td>
           </tr>
@@ -4893,7 +4893,7 @@ def generate_all():
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs sm:text-sm text-slate-700 pt-2">
         <div class="flex items-start gap-2">
           <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
-          <span><strong>Servidores 100% en la UE:</strong> Alojamiento cloud con cumplimiento íntegro del RGPD.</span>
+          <span><strong>Alojamiento y acceso:</strong> solicita al proveedor la documentación sobre alojamiento, medidas de seguridad, acceso y conservación.</span>
         </div>
         <div class="flex items-start gap-2">
           <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
@@ -4901,11 +4901,11 @@ def generate_all():
         </div>
         <div class="flex items-start gap-2">
           <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
-          <span><strong>Cifrado extremo a extremo:</strong> Transmisión mediante TLS y almacenamiento encriptado.</span>
+          <span><strong>Protección de los vídeos:</strong> verificar con el proveedor el cifrado en tránsito y almacenamiento.</span>
         </div>
         <div class="flex items-start gap-2">
           <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
-          <span><strong>Borrado y supresión:</strong> Protocolo automático para atender derechos de supresión de usuarios.</span>
+          <span><strong>Conservación y supresión:</strong> definir el plazo y un procedimiento para tramitar solicitudes.</span>
         </div>
       </div>
     </div>
@@ -4962,18 +4962,20 @@ def generate_all():
     </div>
     """
 
+    content_normativa_rgpd += '<p>Fuentes: <a href="https://www.aepd.es/guias/guia-videovigilancia.pdf">guía de la AEPD sobre videocámaras</a> y <a href="https://boe.es/buscar/act.php?id=BOE-A-2018-16673#a22">artículo 22 de la LOPDGDD</a>.</p>'
+
     faqs_normativa_rgpd = [
         {
             "q": "¿Es legal instalar cámaras de grabación en las pistas de pádel de un club privado o municipal?",
-            "a": "Sí, es totalmente legal. La grabación de partidos a solicitud de los propios jugadores para análisis técnico o entretenimiento deportivo está amparada por el RGPD (UE 2016/679) siempre que se coloque el cartel informativo oficial en el acceso a la pista, el ángulo enfoque exclusivamente el interior de la pista de juego y los vídeos se almacenen en servidores seguros de la Unión Europea."
+            "a": "Puede ser lícita si el club determina y documenta una base jurídica para cada finalidad, informa antes de la captación y limita el encuadre, el acceso y el plazo de conservación. Grabar para uso deportivo y publicar o retransmitir tienen finalidades distintas."
         },
         {
             "q": "¿Qué pasa si un jugador del partido no quiere ser grabado?",
-            "a": "En los sistemas inteligentes bajo demanda como Save my Play, si alguno de los cuatro jugadores manifiesta que no desea ser grabado, simplemente nadie pulsa el botón físico en la red durante el partido. Como el sistema trabaja con un buffer en memoria volátil de 25 segundos y no almacena nada en disco salvo que se presione el pulsador, no se genera ningún archivo de vídeo ni se recopila ningún dato personal."
+            "a": "En los sistemas inteligentes bajo demanda como Save my Play, si alguno de los cuatro jugadores manifiesta que no desea ser grabado, simplemente nadie pulsa el botón físico en la red durante el partido. Como el sistema trabaja con un buffer en memoria volátil de 25 segundos y no almacena nada en disco salvo que se presione el pulsador, no se guarda un clip por ese pulsador. Comprueba además si están activadas la grabación continua o la retransmisión."
         },
         {
             "q": "¿Qué requisitos legales deben cumplirse para grabar a menores de 14 años en la pista?",
-            "a": "En España, el Artículo 7 de la LOPDGDD 3/2018 exige el consentimiento expreso de los padres o tutores legales para el tratamiento de imágenes de menores de 14 años. En las escuelas de pádel infantiles, este consentimiento se recaba fácilmente mediante una casilla específica en la hoja de matrícula de inicio de temporada."
+            "a": "En España, si el tratamiento se basa en el consentimiento, el artículo 7 de la LOPDGDD exige el de quien ejerza la patria potestad o tutela para menores de 14 años. El club debe valorar por separado la grabación y la publicación o retransmisión."
         },
         {
             "q": "¿Necesita mi club dar de alta un fichero de grabación ante la AEPD?",
@@ -4990,7 +4992,7 @@ def generate_all():
         category_badge="Legal & RGPD · Cámaras de Pádel",
         title="Normativa RGPD para Cámaras en Pistas de Pádel: Guía Legal 2026 para Clubes",
         subtitle="Cartelería obligatoria en pista, consentimiento informado, streaming y grabación de menores: cómo instalar cámaras de vídeo sin riesgo de multas de la AEPD.",
-        meta_desc="Guía legal RGPD 2026 para instalar cámaras en pistas de pádel: cartelería homologada, menores, streaming y cómo evitar sanciones de la AEPD en tu club.",
+        meta_desc="Guía legal RGPD 2026 para instalar cámaras en pistas de pádel: cartelería informativa, menores, streaming y cómo evitar sanciones de la AEPD en tu club.",
         date_str="Septiembre 2026",
         date_iso="2026-09-10",
         read_time="Lectura 7 min",

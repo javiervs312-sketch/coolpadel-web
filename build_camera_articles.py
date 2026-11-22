@@ -43,7 +43,7 @@ ARTICLE_SPECS = [
     ("por-donde-empezar-si-estoy-pensando-en-poner-camaras", "Estoy pensando poner cámaras en mi club, ¿por dónde empiezo?", 83, 87),
     ("errores-clubs-se-arrepienten-de-poner-camaras", "Los 3 errores de los clubs que se arrepienten de poner cámaras", 26, 59),
     ("camaras-de-padel-o-videovigilancia", "¿Cómo saber si mis cámaras son de pádel o de videovigilancia?", 64, 65),
-    ("cuanto-cuesta-poner-camaras", "¿Cuánto cuesta poner cámaras en mi club?", 89, 95),
+    ("cuanto-cuesta-poner-camaras", "Hardware y montaje de cámaras Save my Play en pistas de pádel", 89, 95),
     ("inversion-inicial-camaras-180-euros", "¿Por qué hay una inversión inicial de 180 € por las cámaras?", 18, 24),
     ("es-caro-save-my-play", "¿Es caro Save My Play?", 67, 68),
     ("es-rentable-poner-camaras", "¿Es rentable poner cámaras en mis pistas?", 78, 82),

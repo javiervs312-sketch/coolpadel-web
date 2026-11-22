@@ -275,20 +275,20 @@ def generate_pdf_torneos():
 
 
 # ==========================================
-# 3. PDF: CARTEL HOMOLOGADO RGPD PARA PISTAS
+# 3. PDF: MODELO DE CARTEL INFORMATIVO PARA PISTAS
 # ==========================================
 def generate_pdf_cartel_rgpd():
     pdf = CoolPadelPDF()
     pdf.set_auto_page_break(auto=True, margin=15)
     pdf.add_page()
 
-    # Cabecera tipo cartel homologado
+    # Cabecera del modelo de cartel informativo
     pdf.set_fill_color(11, 22, 38)
     pdf.rect(10, 25, 190, 28, 'F')
     pdf.set_xy(10, 27)
     pdf.set_font('Helvetica', 'B', 16)
     pdf.set_text_color(242, 146, 11)
-    pdf.cell(190, 8, 'ZONA DEPORTIVA VIDEODOCUMENTADA', 0, 1, 'C')
+    pdf.cell(190, 8, 'MODELO DE AVISO DE GRABACIÓN DEPORTIVA', 0, 1, 'C')
     pdf.set_font('Helvetica', 'B', 10)
     pdf.set_text_color(255, 255, 255)
     pdf.cell(190, 6, 'INFORMACIÓN BÁSICA SOBRE PROTECCIÓN DE DATOS (RGPD UE 2016/679 - LOPDGDD 3/2018)', 0, 1, 'C')
@@ -296,25 +296,33 @@ def generate_pdf_cartel_rgpd():
 
     pdf.set_font('Helvetica', '', 9.5)
     pdf.set_text_color(30, 41, 59)
-    pdf.multi_cell(0, 5, 'En cumplimiento del Reglamento General de Protección de Datos (UE) 2016/679 y la Ley Orgánica 3/2018 de Protección de Datos Personales y garantía de los derechos digitales, se informa a los usuarios de las instalaciones de lo siguiente:')
+    pdf.multi_cell(0, 5, 'Modelo que el club debe completar antes de colocarlo. Indique los datos del responsable y las condiciones reales de la grabación y, si procede, de su difusión o retransmisión.')
     pdf.ln(5)
 
     def draw_rgpd_row(label, content):
+        x, y = pdf.l_margin, pdf.get_y()
+        pdf.set_font('Helvetica', '', 9)
+        lines = pdf.multi_cell(140, 5, content, dry_run=True, output="LINES")
+        height = max(10, 5 * len(lines) + 2)
+        pdf.set_xy(x, y)
         pdf.set_fill_color(241, 245, 249)
-        pdf.set_font('Helvetica', 'B', 9.5)
+        pdf.set_font('Helvetica', 'B', 9)
         pdf.set_text_color(11, 22, 38)
-        pdf.cell(50, 9, f' {label}', 1, 0, 'L', fill=True)
+        pdf.cell(50, height, label, 1, 0, 'L', fill=True)
+        pdf.rect(x + 50, y, 140, height)
+        pdf.set_xy(x + 51, y + 1)
         pdf.set_font('Helvetica', '', 9)
         pdf.set_text_color(51, 65, 85)
-        pdf.multi_cell(140, 9, f' {content}', 1, 'L')
+        pdf.multi_cell(138, 5, content)
+        pdf.set_xy(x, y + height)
 
-    draw_rgpd_row('Responsable del Tratamiento', 'Club Deportivo / Titular de la Instalación Deportiva (Ver datos en Recepción).')
-    draw_rgpd_row('Tecnología de Grabación', 'Sistema Save my Play (CoolPadel Studios). Cámara cenital de ámbito deportivo.')
-    draw_rgpd_row('Finalidad del Tratamiento', 'Captura de puntos deportivos destacados a solicitud voluntaria del propio jugador mediante pulsador físico en pista y retransmisión de eventos.')
-    draw_rgpd_row('Legitimación', 'Interés legítimo en la prestación de servicios deportivos y consentimiento explícito al activar el pulsador de grabación.')
-    draw_rgpd_row('Conservación de Imágenes', 'Buffer circular de 25 segundos en memoria temporal local. Los clips descargados se suprimen automáticamente según la política de caducidad del sistema (máx. 30 días).')
-    draw_rgpd_row('Destinatarios y Cesión', 'No se cederán datos a terceros salvo obligación legal. Las imágenes solicitadas solo son accesibles por los propios jugadores que escanean el código QR en pista.')
-    draw_rgpd_row('Derechos del Interesado', 'Acceso, rectificación, supresión y oposición dirigiendo escrito a la dirección postal del club o ante la Agencia Española de Protección de Datos (aepd.es).')
+    draw_rgpd_row('Responsable del Tratamiento', '[Nombre y contacto del responsable. Política de privacidad: URL o QR].')
+    draw_rgpd_row('Tecnología de Grabación', '[Sistema utilizado y zona donde se captan imágenes].')
+    draw_rgpd_row('Finalidad del Tratamiento', '[Indicar la finalidad deportiva. Añadir la difusión o retransmisión si procede].')
+    draw_rgpd_row('Legitimación', '[Indicar la base jurídica aplicable a cada finalidad].')
+    draw_rgpd_row('Conservación de Imágenes', '[Indicar cuánto tiempo se conservan los vídeos o cómo se determina el plazo].')
+    draw_rgpd_row('Destinatarios y Cesión', '[Indicar destinatarios y quién puede acceder. Añadir transferencias si proceden].')
+    draw_rgpd_row('Derechos del Interesado', '[Indicar cómo ejercer el acceso, supresión y otros derechos aplicables. Puede reclamar ante la AEPD: aepd.es].')
 
     pdf.ln(6)
     pdf.set_font('Helvetica', 'B', 10)
@@ -322,7 +330,7 @@ def generate_pdf_cartel_rgpd():
     pdf.cell(0, 6, 'AVISO PARA JUGADORES Y ACOMPAÑANTES:', 0, 1, 'L')
     pdf.set_font('Helvetica', '', 8.5)
     pdf.set_text_color(71, 85, 105)
-    pdf.multi_cell(0, 4.5, 'Este sistema NO constituye videovigilancia de seguridad. Su único propósito es la asistencia técnica deportiva y el entretenimiento de los jugadores en pista. Si no desea que sus jugadas queden registradas, basta con no accionar el pulsador de replay situado junto a la red.')
+    pdf.multi_cell(0, 4.5, 'Consulte la información completa antes de entrar en pista. Para dudas sobre la grabación o para ejercer sus derechos, contacte con el responsable indicado en el cartel.')
 
     pdf.ln(6)
     # Espacio para sello del club
