@@ -8,10 +8,18 @@ document.querySelectorAll('[data-keyring-calculator]').forEach((calculator) => {
   const price = calculator.querySelector('#landing-calc-price');
   const unit = calculator.querySelector('#landing-calc-unit');
   const quote = calculator.querySelector('#landing-calc-quote');
+  const delivery = calculator.querySelector('#keyring-delivery');
   const formatQuantity = new Intl.NumberFormat(locale);
   const formatTotal = new Intl.NumberFormat(locale, { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 });
   const formatUnit = new Intl.NumberFormat(locale, { style: 'currency', currency: 'EUR' });
   let selected = 0;
+  let calculationStarted = false;
+
+  function startCalculation() {
+    if (calculationStarted) return;
+    calculationStarted = true;
+    window.dispatchEvent(new CustomEvent("cp:keyring-calculation", { detail: { market: delivery?.value || "" } }));
+  }
 
   function selectTier(index) {
     selected = Math.max(0, Math.min(index, tiers.length - 1));
@@ -25,7 +33,12 @@ document.querySelectorAll('[data-keyring-calculator]').forEach((calculator) => {
     thumb.style.left = position;
     track.setAttribute('aria-valuenow', selected);
     track.setAttribute('aria-valuetext', quantityLabel);
-    quote.href = 'https://wa.me/34680317486?text=' + encodeURIComponent(message.replace('{qty}', count));
+    const market = delivery?.value || '';
+    const destination = market ? delivery.selectedOptions[0].textContent : '__';
+    const currency = market === 'UK' ? ' · GBP' : '';
+    const text = message.replace('{qty}', count).replace('__', destination + currency);
+    quote.dataset.deliveryMarket = market;
+    quote.href = 'https://wa.me/34680317486?text=' + encodeURIComponent(text + ' [CP-WEB-LLA]');
   }
 
   function selectFromPointer(event) {
@@ -35,6 +48,7 @@ document.querySelectorAll('[data-keyring-calculator]').forEach((calculator) => {
 
   track.style.touchAction = 'pan-y';
   track.addEventListener('pointerdown', (event) => {
+    startCalculation();
     track.setPointerCapture(event.pointerId);
     selectFromPointer(event);
   });
@@ -45,10 +59,18 @@ document.querySelectorAll('[data-keyring-calculator]').forEach((calculator) => {
     const steps = { ArrowLeft: selected - 1, ArrowDown: selected - 1, ArrowRight: selected + 1, ArrowUp: selected + 1, Home: 0, End: tiers.length - 1 };
     if (!Object.hasOwn(steps, event.key)) return;
     event.preventDefault();
+    startCalculation();
     selectTier(steps[event.key]);
   });
   calculator.querySelectorAll('[data-keyring-tier]').forEach((button) => {
-    button.addEventListener('click', () => selectTier(Number(button.dataset.keyringTier)));
+    button.addEventListener('click', () => {
+      startCalculation();
+      selectTier(Number(button.dataset.keyringTier));
+    });
+  });
+  delivery?.addEventListener('change', () => {
+    startCalculation();
+    selectTier(selected);
   });
   selectTier(0);
 });

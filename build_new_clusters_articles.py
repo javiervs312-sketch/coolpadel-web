@@ -7,6 +7,7 @@ Genera páginas bajo /camaras/{slug}/ y enlaza con el hub canónico.
 import json
 import os
 import re
+from b2b_buying import camera_cost_faq, camera_cost_table, camera_cost_questions, camera_quote, camera_demo_link
 import sys
 
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
@@ -105,6 +106,12 @@ def build_article_page(art):
             }
         ]
     }
+    is_tariffs_page = slug == "cuanto-cuesta-poner-camaras-pistas-padel"
+    if is_tariffs_page:
+        schema_obj["@graph"][-1]["mainEntity"].extend(
+            {"@type": "Question", "name": row["q"], "acceptedAnswer": {"@type": "Answer", "text": row["a"]}}
+            for row in camera_cost_faq()
+        )
     schema_script = f'<script type="application/ld+json">\n{json.dumps(schema_obj, ensure_ascii=False, indent=2)}\n</script>'
     h = re.sub(r'<script type="application/ld\+json">.*?</script>', lambda _: schema_script, h, count=1, flags=re.DOTALL)
     
@@ -125,6 +132,11 @@ def build_article_page(art):
 
     # Cuerpo del artículo
     body_blocks_html = "\n".join(art["blocks"])
+    if is_tariffs_page:
+        body_blocks_html = (
+            camera_cost_table() + camera_quote(position="table") + camera_demo_link()
+            + body_blocks_html + camera_cost_questions()
+        )
 
     # Artículos recomendados rotativos entre los 8 clústeres y artículos core
     all_cluster_items = list(NEW_ARTICLES_CONTENT.values())

@@ -51,6 +51,62 @@ KEYRING_CALCULATOR_COPY = {'es': ('Calcula tu pedido',
         'it-IT')}
 
 
+KEYRING_DELIVERY_COPY = {'es': ('País de entrega',
+        'Selecciona el país',
+        'España',
+        'Reino Unido',
+        'Francia',
+        'Italia',
+        'Alemania',
+        'Fabricación orientativa: 3–4 semanas tras aprobar la muestra. Confirma la fecha de '
+        'entrega para tu torneo. El cálculo es en euros. Podemos presupuestar Reino Unido en '
+        'libras.'),
+ 'en': ('Delivery country',
+        'Select destination',
+        'Spain',
+        'United Kingdom',
+        'France',
+        'Italy',
+        'Germany',
+        'Estimated production: 3–4 weeks after sample approval. Confirm delivery for your '
+        'tournament date. This estimate is in euros. Ask for a quote in pounds for UK delivery.'),
+ 'fr': ('Pays de livraison',
+        'Sélectionner le pays',
+        'Espagne',
+        'Royaume-Uni',
+        'France',
+        'Italie',
+        'Allemagne',
+        'Fabrication indicative : 3 à 4 semaines après validation de l’échantillon. Confirmez la '
+        'date de livraison pour votre tournoi. Estimation en euros. Pour le Royaume-Uni, demandez '
+        'un devis en livres.'),
+ 'it': ('Paese di consegna',
+        'Scegli il paese',
+        'Spagna',
+        'Regno Unito',
+        'Francia',
+        'Italia',
+        'Germania',
+        'Produzione indicativa: 3–4 settimane dopo l’approvazione del campione. Conferma la '
+        'consegna per la data del torneo. Stima in euro. Per il Regno Unito richiedi un preventivo '
+        'in sterline.')}
+
+
+def keyring_delivery_markup(lang):
+    label, placeholder, *rest = KEYRING_DELIVERY_COPY[lang]
+    note = rest.pop()
+    options = "".join(
+        f'<option value="{code}">{name}</option>'
+        for code, name in zip(("ES", "UK", "FR", "IT", "DE"), rest)
+    )
+    return (
+        f'<div class="my-4 space-y-2 rounded-2xl bg-slate-50 p-4 text-sm text-slate-700">'
+        f'<label class="block font-bold" for="keyring-delivery">{label}</label>'
+        f'<select id="keyring-delivery" class="w-full rounded-lg border border-slate-300 p-2 text-slate-900"><option value="">{placeholder}</option>{options}</select>'
+        f'<p>{note}</p></div>'
+    )
+
+
 def get_llaveros_calculator_html(lang="es", asset_prefix="../"):
     title, sample, quantity, estimate, units, short_units, per_unit, tax, cta, message, locale = KEYRING_CALCULATOR_COPY[lang]
     def money(value, decimals=0):
@@ -119,6 +175,7 @@ def get_llaveros_calculator_html(lang="es", asset_prefix="../"):
         </div>
 
         <div class="pt-2">
+          {keyring_delivery_markup(lang)}
           <a id="landing-calc-quote" href="{first_quote}" data-product="llaveros" data-lead-intent="presupuesto" data-button-position="calculator" target="_blank" rel="noopener noreferrer" class="w-full py-3.5 rounded-2xl font-heading font-black text-sm uppercase tracking-wider bg-[#f2920b] hover:bg-[#76d3f6] text-slate-950 shadow-md hover:shadow-lg hover:scale-[1.01] active:scale-[0.98] flex items-center justify-center gap-2 transition-all">
             <span>{cta}</span>
             <i data-lucide="arrow-down" class="w-4 h-4 stroke-[3]"></i>
@@ -126,7 +183,7 @@ def get_llaveros_calculator_html(lang="es", asset_prefix="../"):
         </div>
       </div>
     </div>
-    <script src='/assets/js/keyring-calculator.js' defer></script>'''
+    <script src='/assets/js/keyring-calculator.js?v=20261122-quoteflow' defer></script>'''
 
 
 #!/usr/bin/env python3
@@ -928,6 +985,9 @@ CAMERA_MARKET_LINKS = {'en': ('united-kingdom', 'See UK club pricing and local c
  'it': ('italia', 'Vedi prezzi e città servite in Italia')}
 
 
+from b2b_buying import camera_decision, camera_demo_link, keyring_decision, keyring_process
+
+
 def render_landing(landing, lang="es"):
     is_camaras = landing["slug"].startswith("camaras-") or landing["slug"] in ["camaras-grabacion-pistas-padel", "save-my-play"]
 
@@ -1487,6 +1547,11 @@ def render_landing(landing, lang="es"):
     )
     installation_requirements = '<div class="max-w-4xl mx-auto px-5 mb-8">\n        <h2 class="font-heading font-black text-2xl text-slate-950 mb-3">Qué necesita tu club para instalar las cámaras</h2>\n        <ul class="space-y-2 text-slate-700">\n          <li><strong>Corriente y conexión.</strong> Toma de 220 V o PoE según equipo. Conexión por 4G, WiFi o Ethernet según la pista.</li>\n          <li><strong>Montaje en 5 minutos.</strong> Es el tiempo de fijar el soporte preajustado al poste y conectar la corriente. La puesta en marcha incluye comprobar la red y configurar el sistema.</li>\n          <li><strong>Entrega.</strong> El plazo habitual es de 4 semanas.</li>\n          <li><strong>Cuota por pista.</strong> 45 €/mes para menos de 5 pistas, 41 € para 5–14, 36 € para 15–24 y 27 € desde 25 pistas.</li>\n          <li><strong>Software de reservas.</strong> El pulsador y la descarga por QR funcionan de forma autónoma en clubes que usan Playtomic, MATCHi o Resasports. El club puede mantener su software de reservas.</li>\n        </ul>\n      </div>' if lang == "es" and landing["slug"] == "camaras-grabacion-pistas-padel" else ""
 
+    is_camera_buying = lang == "es" and landing["slug"] == "camaras-grabacion-pistas-padel"
+    buying_summary = camera_decision() + camera_demo_link() if is_camera_buying else ""
+    if lang == "es" and is_keyring_product:
+        buying_summary = keyring_decision() + keyring_process()
+
     html = f"""<!DOCTYPE html>
 <html lang="{lang}" class="scroll-smooth">
 <head>
@@ -1713,6 +1778,8 @@ def render_landing(landing, lang="es"):
             <p class="text-base sm:text-lg text-slate-600 leading-relaxed font-normal">
               {l_subtitle}
             </p>
+            {market_link}
+            {buying_summary}
 
             <div class="flex flex-wrap items-center gap-3 pt-2 text-xs sm:text-sm font-bold text-slate-700">
               {hero_badges_html}

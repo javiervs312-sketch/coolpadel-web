@@ -249,13 +249,31 @@ h3 { font-size: 22px; margin: 0 0 12px; }
     <main class="!pb-0">
       <section class="hub-hero">
         <p class="hub-eyebrow">Merchandising oficial para clubes de pádel</p>
-        <h1 class="hub-title">Llaveros de Pádel Personalizados 3D</h1>
+        <h1 class="hub-title">Llaveros de Pádel Personalizados 3D</h1><div class="my-6 rounded-2xl border border-slate-200 bg-slate-50 p-4 sm:p-6 text-slate-900" id="pedido-clubes">
+      <h2 class="font-heading text-xl font-black">Llaveros personalizados con el logo de tu club</h2>
+      <p>Goma 3D microinyectada en relieve, con el logo que nos envíes.</p>
+      <h2 class="font-heading text-lg font-black">Pedido mínimo al por mayor desde 100 unidades</h2>
+      <p>100 unidades por 300 € sin IVA (3,00 €/ud). La muestra física cuesta 15 € y se descuenta del pedido final.</p>
+      <div class="flex flex-wrap items-center justify-center gap-3">
+        <a href="#precios" class="inline-flex items-center justify-center gap-2 rounded-full bg-[#f2920b] px-5 py-3 font-heading font-black text-sm text-slate-950 hover:bg-[#76d3f6] transition" data-product="llaveros" data-lead-intent="calculo_llaveros" data-button-position="hero">Calcular pedido</a>
+        <a class="inline-flex items-center justify-center gap-2 rounded-full bg-[#f2920b] px-5 py-3 font-heading font-black text-sm text-slate-950 hover:bg-[#76d3f6] transition" href="https://wa.me/34680317486?text=Hola%20Javier%2C%20quiero%20solicitar%20la%20muestra%20f%C3%ADsica%20de%2015%20%E2%82%AC%20con%20el%20logo%20de%20mi%20club.%20Pa%C3%ADs%20de%20entrega%3A%20__.%20Fecha%20del%20evento%3A%20__.%20%5BCP-WEB-LLA%5D" data-product="llaveros" data-lead-intent="muestra_llaveros" data-button-position="hero" data-delivery-market="ES" target="_blank" rel="noopener noreferrer">Solicitar muestra física con mi logo</a>
+      </div>
+    </div>
         <div class="intro">
           <p>Llaveros de pádel de goma en relieve 3D con el escudo de tu club. Pedido mínimo de 100 unidades por 300 € sin IVA. Muestra física de 15 € descontable.</p>
           <a href="https://api.whatsapp.com/send?phone=34680317486&amp;text=Hola%20Javier%2C%20quiero%20pedir%20llaveros%20de%20goma%203D%20con%20el%20logo%20de%20mi%20club%20de%20p%C3%A1del.%20Cantidad%3A%20__.%20Pa%C3%ADs%20de%20entrega%3A%20__.%20Fecha%20del%20evento%3A%20__." data-product="llaveros" data-lead-intent="presupuesto" data-button-position="hero" class="inline-flex items-center justify-center rounded-full bg-[#f2920b] px-6 py-3 font-black text-slate-950 hover:bg-[#76d3f6] transition">Pedir presupuesto con el logo de mi club</a>
         </div>
       </section>
-    </main>
+    <section class="my-6 rounded-2xl border border-slate-200 bg-slate-50 p-4 sm:p-6 text-slate-900" aria-labelledby="welcome-packs-llaveros">
+      <h2 id="welcome-packs-llaveros" class="font-heading text-xl font-black">Llaveros para welcome packs de torneos</h2>
+      <ol class="list-decimal pl-5">
+        <li>Envíanos el vector o una imagen del logo de tu club.</li>
+        <li>Revisa el diseño y solicita la muestra física de 15 €.</li>
+        <li>Confirma la tirada, el país de entrega y la fecha del torneo.</li>
+      </ol>
+      <figure class="my-4"><img src="/assets/images/llaveros-padel-personalizados-clubs.webp" alt="Ejemplos de llaveros en relieve con logos de clubes" loading="lazy" class="w-full rounded-2xl"><figcaption>Ejemplos de acabados 3D de CoolPadel.</figcaption></figure>
+      <a href="/welcome-packs-torneos-padel/#precios" class="underline" data-product="llaveros" data-lead-intent="calculo_llaveros" data-button-position="content">Calcular llaveros para un torneo</a>
+    </section></main>
 
     <!-- SECCIÓN CALCULADORA Y PASO A PASO CON FONDO COMPLETO DE TEXTURA #3478a6 -->
     <section class="w-full bg-[#3478a6] bg-textured-blue text-white py-10 sm:py-14 border-y border-sky-700/40">
@@ -319,7 +337,8 @@ h3 { font-size: 22px; margin: 0 0 12px; }
         </div>
 
         <div class="pt-3">
-          <a id="calc-wa-btn" href="https://api.whatsapp.com/send?phone=34680317486&text=Hola%20Javier%2C%20quiero%20pedir%20llaveros%20de%20goma%203D%20con%20el%20logo%20de%20mi%20club%20de%20p%C3%A1del.%20Cantidad%3A%20__.%20Pa%C3%ADs%20de%20entrega%3A%20__.%20Fecha%20del%20evento%3A%20__." target="_blank" rel="noopener noreferrer" class="w-full py-3.5 rounded-2xl font-heading font-black text-sm uppercase tracking-wider bg-[#f2920b] hover:bg-[#76d3f6] text-slate-950 shadow-md hover:shadow-lg hover:scale-[1.01] active:scale-[0.98] flex items-center justify-center gap-2 transition-all cursor-pointer">
+          <div class="my-4 space-y-2 rounded-2xl bg-slate-50 p-4 text-sm text-slate-700"><label class="block font-bold" for="keyring-delivery">País de entrega</label><select id="keyring-delivery" class="w-full rounded-lg border border-slate-300 p-2 text-slate-900"><option value="">Selecciona el país</option><option value="ES">España</option><option value="UK">Reino Unido</option><option value="FR">Francia</option><option value="IT">Italia</option><option value="DE">Alemania</option></select><p>Fabricación orientativa: 3–4 semanas tras aprobar la muestra. Confirma la fecha de entrega para tu torneo. El cálculo es en euros. Podemos presupuestar Reino Unido en libras.</p></div>
+          <a id="calc-wa-btn" data-product="llaveros" data-lead-intent="presupuesto" data-button-position="calculator" href="https://api.whatsapp.com/send?phone=34680317486&text=Hola%20Javier%2C%20quiero%20pedir%20llaveros%20de%20goma%203D%20con%20el%20logo%20de%20mi%20club%20de%20p%C3%A1del.%20Cantidad%3A%20__.%20Pa%C3%ADs%20de%20entrega%3A%20__.%20Fecha%20del%20evento%3A%20__." target="_blank" rel="noopener noreferrer" class="w-full py-3.5 rounded-2xl font-heading font-black text-sm uppercase tracking-wider bg-[#f2920b] hover:bg-[#76d3f6] text-slate-950 shadow-md hover:shadow-lg hover:scale-[1.01] active:scale-[0.98] flex items-center justify-center gap-2 transition-all cursor-pointer">
             <i data-lucide="message-circle" class="w-4 h-4 stroke-[2.5]"></i>
             <span>Contactar</span>
           </a>
@@ -395,6 +414,16 @@ h3 { font-size: 22px; margin: 0 0 12px; }
     ];
 
     let currentTierIdx = 0;
+    let calculationStarted = false;
+    function startCalculation() {
+      if (calculationStarted) return;
+      calculationStarted = true;
+      window.dispatchEvent(new CustomEvent('cp:keyring-calculation', { detail: { market: document.getElementById('keyring-delivery')?.value || '' } }));
+    }
+    document.getElementById('precios')?.addEventListener('pointerdown', (event) => {
+      if (event.target.closest('button, #landing-slider-track, #slider-track, #keyring-delivery')) startCalculation();
+    });
+
     const qtyBadge = document.getElementById('calc-qty-badge');
     const priceBadge = document.getElementById('calc-price-badge');
     const unitBadge = document.getElementById('calc-unit-badge');
@@ -403,6 +432,9 @@ h3 { font-size: 22px; margin: 0 0 12px; }
     const sliderProgress = document.getElementById('slider-progress');
     const sliderTrack = document.getElementById('slider-track');
     const sliderBox = document.getElementById('calc-slider-box');
+
+    const delivery = document.getElementById('keyring-delivery');
+    if (delivery) delivery.addEventListener('change', () => { startCalculation(); updateCalculator(currentTierIdx, false); });
 
     function updateCalculator(idx, isLiveDrag) {
       if (!qtyBadge) return;
@@ -425,7 +457,11 @@ h3 { font-size: 22px; margin: 0 0 12px; }
       }
 
       if (waBtn) {
-        const msg = encodeURIComponent('Hola Javier, me interesa solicitar presupuesto de ' + tier.qty + ' llaveros para mi club (' + tier.price + ' €, ' + tier.unit + ' €/ud).');
+        const market = delivery?.value || '';
+        const destination = market ? delivery.selectedOptions[0].textContent : '__';
+        const pounds = market === 'UK' ? ' ¿Podrías preparar el presupuesto en GBP?' : '';
+        const msg = encodeURIComponent('Hola Javier, quiero presupuesto para ' + tier.qty + ' llaveros con el logo de mi club. País de entrega: ' + destination + '. Fecha del evento: __.' + pounds + ' [CP-WEB-LLA]');
+        waBtn.dataset.deliveryMarket = market;
         waBtn.href = 'https://api.whatsapp.com/send?phone=34680317486&text=' + msg;
       }
     }
@@ -599,6 +635,6 @@ h3 { font-size: 22px; margin: 0 0 12px; }
     </div>
   </footer>
   <script>if (window.lucide) lucide.createIcons();</script>
-  <script src="../assets/js/cp-analytics.js?v=20261121-b2b" defer></script>
+  <script src="../assets/js/cp-analytics.js?v=20261122-quoteflow" defer></script>
 </body>
 </html>

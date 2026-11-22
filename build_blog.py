@@ -2685,13 +2685,22 @@ SHORT_SEO_TITLES = {
     "barometro-camaras-padel-2026": "Barómetro de Cámaras y Digitalización Pádel 2026 | CoolPadel",
 }
 
+from b2b_buying import camera_cost_faq, camera_cost_table, camera_quote
+
+
 def generate_guide_page(slug, category_badge, title, subtitle, meta_desc, date_str, date_iso, read_time, cover_img, content_html, faqs, cta_type="camaras"):
     if slug == "normativa-rgpd-camaras-pistas-padel":
         content_html = content_html.replace("</ul>", '</ul><p class="my-6"><a href="https://wa.me/34680317486?text=Hola%20Javier%2C%20quiero%20consultar%20el%20protocolo%20RGPD%20y%20pedir%20presupuesto%20para%20mi%20club" data-lead-intent="presupuesto" data-button-position="content" class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] text-slate-950 font-heading font-black text-xs uppercase tracking-wider transition">Consultar protocolo RGPD y solicitar presupuesto adaptado</a></p>', 1)
     elif slug in {"regalos-padel-originales-baratos-ideas-detalles-torneos", "welcome-pack-torneo-padel-ideas"}:
-        content_html = '<p>Llaveros de goma en relieve 3D con el logo del club. Pedido mínimo de 100 unidades por 300 € sin IVA. La muestra física cuesta 15 €, descontables del pedido final.</p><figure class="my-6"><img src="/assets/images/llaveros-padel-personalizados-clubs.webp" alt="Ejemplos de llaveros de pádel personalizados con el logo de clubes" loading="lazy" class="w-full rounded-2xl"><figcaption class="text-sm text-slate-600">Ejemplos de llaveros de clubes en relieve 3D.</figcaption></figure><p class="my-6"><a href="/llaveros-padel-personalizados/#precios" data-lead-intent="muestra_llaveros" data-button-position="content" class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] text-slate-950 font-heading font-black text-xs uppercase tracking-wider transition">Ver llaveros 3D con el logo de mi club</a></p>' + content_html
+        content_html = '<p>Llaveros de goma en relieve 3D con el logo del club. Pedido mínimo de 100 unidades por 300 € sin IVA. La muestra física cuesta 15 €, descontables del pedido final.</p><figure class="my-6"><img src="/assets/images/llaveros-padel-personalizados-clubs.webp" alt="Ejemplos de llaveros de pádel personalizados con el logo de clubes" loading="lazy" class="w-full rounded-2xl"><figcaption class="text-sm text-slate-600">Ejemplos de llaveros de clubes en relieve 3D.</figcaption></figure><p class="my-6"><a href="/welcome-packs-torneos-padel/#precios" data-product="llaveros" data-lead-intent="calculo_llaveros" data-button-position="content" class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] text-slate-950 font-heading font-black text-xs uppercase tracking-wider transition">Calcular llaveros para mi torneo</a></p>' + content_html
     elif slug == "rentabilidad-camaras-pistas-padel":
         content_html = '<h2 id="escenarios-por-pistas">Cuántos partidos necesita vender un club de 4, 8, 12 o 20 pistas</h2>\n<p>Ejemplo a 2,50 € por grabación vendida. La cuota se calcula por pista y el punto de equilibrio se redondea al siguiente partido entero.</p>\n<div class="overflow-x-auto"><table class="w-full text-left text-sm">\n<thead><tr><th scope="col">Pistas</th><th scope="col">Cuota mensual</th><th scope="col">Ventas para cubrir la cuota</th><th scope="col">Saldo con 25 ventas por pista</th></tr></thead>\n<tbody><tr><td>4</td><td>180 €</td><td>72</td><td>70 €</td></tr><tr><td>8</td><td>328 €</td><td>132</td><td>172 €</td></tr><tr><td>12</td><td>492 €</td><td>197</td><td>258 €</td></tr><tr><td>20</td><td>720 €</td><td>288</td><td>530 €</td></tr></tbody></table></div>\n<p>El saldo descuenta el software. El hardware cuesta 180 € por pista. El cálculo excluye envío, impuestos y comisiones. Consulta la <a href="/camaras/cuanto-cuesta-poner-camaras-pistas-padel/">guía oficial de precios de cámaras</a> para ver los tramos.</p>' + content_html
+    if slug == "sistemas-grabacion-pistas-padel-comparativa":
+        content_html = camera_cost_table() + content_html
+        faqs = [*faqs, *camera_cost_faq()]
+    elif slug == "rentabilidad-camaras-pistas-padel":
+        quotes = '<div class="my-5 flex flex-wrap gap-3">' + camera_quote(4, "table") + camera_quote(8, "table") + '</div>'
+        content_html = content_html.replace("</tbody></table></div>", "</tbody></table></div>" + quotes, 1)
     root_prefix = "../../"
     
     floating_camera_btn_html = ""
@@ -3508,7 +3517,7 @@ def generate_all():
         <tbody class="divide-y divide-slate-200 text-slate-700">
           <tr class="bg-amber-50/70 font-semibold border-l-4 border-[#f2920b]">
             <td class="p-3 sm:p-4 font-black text-slate-950">
-              Save My Play <span class="text-[10px] bg-[#f2920b] text-slate-950 px-2 py-0.5 rounded-full ml-1 font-black">Top ROI</span>
+              Save My Play <span class="text-[10px] bg-[#f2920b] text-slate-950 px-2 py-0.5 rounded-full ml-1 font-black">Top ROI</span><br><a class="underline" href="/camaras/cuanto-cuesta-poner-camaras-pistas-padel/">Ver tarifas por pista</a> · <a class="underline" href="/camaras-grabacion-pistas-padel/#precios">Requisitos de montaje</a>
             </td>
             <td class="p-3 sm:p-4 text-slate-900 font-bold">180 € / pista</td>
             <td class="p-3 sm:p-4 text-emerald-700 font-bold">45 € (Plan B) / 136 € (Plan A)</td>
@@ -3583,7 +3592,7 @@ def generate_all():
         </tbody>
       </table>
     </div>
-    <p class="my-6"><a href="/camaras-grabacion-pistas-padel/#precios" data-lead-intent="presupuesto" data-button-position="table" class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] text-slate-950 font-heading font-black text-xs uppercase tracking-wider transition">Ver requisitos de instalación y tarifas por pista</a></p>
+    <p class="my-6"><a href="/camaras-grabacion-pistas-padel/#precios" data-product="camaras" data-lead-intent="ver_tarifas_camaras" data-button-position="table" class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] text-slate-950 font-heading font-black text-xs uppercase tracking-wider transition">Ver requisitos de instalación y tarifas por pista</a></p>
 
     <h2 class="text-xl sm:text-2xl font-black font-heading text-slate-950 pt-6">
       2. Análisis Detallado de los Sistemas Principales
@@ -3787,8 +3796,8 @@ def generate_all():
     generate_guide_page(
         slug="sistemas-grabacion-pistas-padel-comparativa",
         category_badge="Tecnología & Comparativa · Cámaras",
-        title="Los 9 Mejores Sistemas de Cámaras con IA para Pistas de Pádel en 2026: Comparativa de Precios, Grabación y ROI",
-        subtitle="Comparativa técnica de mercado: Save My Play, PUSHIT, MATCHi TV, Wingfield, PlaySight, Clutch, GameCam y PadX. Costes reales de instalación, cuotas mensuales públicas, fricción para el jugador y cumplimiento RGPD.",
+        title="Comparativa y precios 2026: cámaras para pistas de pádel y presupuesto por pista",
+        subtitle="Compara cuánto cuesta equipar tu club con cámaras de grabación de pádel. El precio de Save my Play en España parte de 180 € de hardware por pista, con cuota de 45 €/mes por pista para menos de 5 pistas. Consulta la inversión para 4, 8 y 12 pistas.",
         meta_desc="Comparativa real de precios, hardware y RGPD: Save My Play (180€ + 45€/mes sin obras) vs PlaySight, Wingfield, Matchi TV y trípodes.",
         date_str="Noviembre 2025",
         date_iso="2025-11-22",

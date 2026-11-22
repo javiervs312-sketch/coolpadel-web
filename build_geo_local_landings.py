@@ -549,6 +549,9 @@ def render_local_landing(l):
   }}"""
 
     # Button label & localized section titles
+    buying_pilot = l["slug"] in {"camaras-padel-madrid", "padel-court-cameras-london", "cameras-padel-paris"}
+    demo_href = "https://www.youtube.com/watch?v=LuzDvB5Umfs" if buying_pilot else camaras_url
+    demo_target = 'target="_blank" rel="noopener noreferrer"' if buying_pilot else ""
     btn_wa_text = {
         "es": "Pedir presupuesto para mi club",
         "en": "Request a quote for my club",
@@ -561,7 +564,7 @@ def render_local_landing(l):
         "fr": "Terrains à équiper : __.",
         "it": "Campi da attrezzare: __.",
     }[lang]
-    quote_message = f"{l['wa_msg'].rstrip('.')}. {court_count_prompt}"
+    quote_message = f"{l['wa_msg'].rstrip('.')}. {court_count_prompt} [CP-WEB-CAM]"
     btn_demo_text = "Ver Demo Online" if lang == "es" else ("Watch Online Demo" if lang == "en" else ("Voir la démo en ligne" if lang == "fr" else "Guarda la demo online"))
 
     sec_benefits_h2 = "Ventajas para tu Club" if lang == "es" else ("Key Benefits for Your Club" if lang == "en" else ("Avantages Clés pour Votre Club" if lang == "fr" else "Vantaggi Chiave per il Tuo Circolo"))
@@ -687,7 +690,7 @@ def render_local_landing(l):
               <i data-lucide="message-circle" class="w-4 h-4"></i>
               <span>{btn_wa_text}</span>
             </a>
-            <a href="{camaras_url}" class="inline-flex items-center gap-2 px-6 py-3.5 rounded-2xl bg-white/10 hover:bg-white/20 text-white font-bold text-sm border border-white/20 transition">
+            <a href="{demo_href}" {demo_target} class="inline-flex items-center gap-2 px-6 py-3.5 rounded-2xl bg-white/10 hover:bg-white/20 text-white font-bold text-sm border border-white/20 transition">
               <i data-lucide="play" class="w-4 h-4"></i>
               <span>{btn_demo_text}</span>
             </a>

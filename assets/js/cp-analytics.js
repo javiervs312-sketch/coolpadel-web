@@ -612,6 +612,33 @@
     window.addEventListener('pagehide', reportSessionExit);
   }
 
+  const buyingFunnelEntries = {
+    '/blog/sistemas-grabacion-pistas-padel-comparativa/': ['camaras', 'comparativa_camaras'],
+    '/blog/regalos-padel-originales-baratos-ideas-detalles-torneos/': ['llaveros', 'regalos_padel'],
+    '/blog/welcome-pack-torneo-padel-ideas/': ['llaveros', 'ideas_welcome_packs']
+  };
+  try {
+    const entry = buyingFunnelEntries[window.location.pathname];
+    if (entry) sessionStorage.setItem('cp_buying_entry_' + entry[0], entry[1]);
+  } catch (err) {}
+
+  window.addEventListener('cp:keyring-calculation', (event) => {
+    if (isAdmin) return;
+    let funnel_entry = '';
+    try { funnel_entry = sessionStorage.getItem('cp_buying_entry_llaveros') || ''; } catch (err) {}
+    const payload = {
+      event_category: 'lead',
+      intent: 'calculo_llaveros',
+      product: 'llaveros',
+      funnel_entry,
+      delivery_market: event.detail.market,
+      page_path: window.location.pathname,
+      button_position: 'calculator'
+    };
+    if (typeof window.gtag === 'function') window.gtag('event', 'keyring_calculation_start', payload);
+    sendToWebhook('keyring_calculation_start', { ...payload, evento_desc: 'Inició cálculo de llaveros' });
+  });
+
   // Detectar clics en enlaces de WhatsApp y botones de herramientas
   document.addEventListener('click', (e) => {
     try {
@@ -621,17 +648,21 @@
       const txt = (a.innerText || '').replace(/\s+/g, ' ').trim().slice(0, 35);
       const isWhatsApp = href.includes('wa.me') || href.includes('whatsapp.com');
       const intent = a.dataset.leadIntent;
+      let funnelEntry = '';
+      try { funnelEntry = sessionStorage.getItem('cp_buying_entry_' + a.dataset.product) || ''; } catch (err) {}
       const lead = intent ? {
         event_category: 'lead',
         intent,
         product: a.dataset.product || '',
+        delivery_market: a.dataset.deliveryMarket || '',
+        funnel_entry: funnelEntry,
         button_position: a.dataset.buttonPosition || 'content',
         page_path: window.location.pathname,
         evento_desc: 'Intención: ' + intent + ' · ' + (a.dataset.buttonPosition || 'content')
       } : {};
       if (intent && !isAdmin && typeof window.gtag === 'function') {
-        const { event_category, button_position, page_path, product } = lead;
-        window.gtag('event', 'lead_intent', { event_category, intent, button_position, page_path, product });
+        const { event_category, button_position, page_path, product, delivery_market, funnel_entry } = lead;
+        window.gtag('event', 'lead_intent', { event_category, intent, button_position, page_path, product, delivery_market, funnel_entry });
       }
       if (isWhatsApp) {
         sendToWebhook('click_whatsapp', {
