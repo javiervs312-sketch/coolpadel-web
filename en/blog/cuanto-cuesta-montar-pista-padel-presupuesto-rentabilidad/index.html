@@ -193,31 +193,56 @@
     }, true);
   </script>
   <!-- /GA4 -->
-  <link rel="stylesheet" href="/assets/css/site-layout.css">
 </head>
-<body class="bg-white text-slate-900 min-h-screen flex flex-col selection:bg-[#f2920b] selection:text-slate-950 cp-editorial-cost">
+<body class="bg-white text-slate-900 min-h-screen flex flex-col selection:bg-[#f2920b] selection:text-slate-950">
 
   <!-- HEADER -->
-  <header class="cp-site-header">
-  <div class="cp-header-inner">
-    <a class="cp-header-brand" href="/en/" aria-label="CoolPadel">
-      <img src="/assets/images/coolpadel-mascot-hd.png" alt="" width="44" height="44">
-      <img src="/assets/images/coolpadel-typography-hd.png" alt="CoolPadel" width="140" height="28">
-    </a>
-    <nav class="cp-header-links" aria-label="Menu and language"><a href="/en/llaveros-padel-personalizados/">Keyrings</a><a href="/en/camaras/">Cameras</a><a href="/en/blog/">Blog</a><a href="/en/franquicias-padel/">Club chains</a></nav>
-    <div class="cp-header-actions">
-      <details class="cp-header-menu">
-        <summary aria-label="Menu and language"><span id="current-lang-code">EN</span></summary>
-        <div class="cp-header-panel"><div class="cp-header-mobile-links"><a href="/en/llaveros-padel-personalizados/">Keyrings</a><a href="/en/camaras/">Cameras</a><a href="/en/blog/">Blog</a><a href="/en/franquicias-padel/">Club chains</a><hr></div><a href="/blog/cuanto-cuesta-montar-pista-padel-presupuesto-rentabilidad/" lang="es">Español</a><a href="/en/blog/cuanto-cuesta-montar-pista-padel-presupuesto-rentabilidad/" lang="en" aria-current="page">English</a><a href="/fr/blog/cuanto-cuesta-montar-pista-padel-presupuesto-rentabilidad/" lang="fr">Français</a><a href="/it/blog/cuanto-cuesta-montar-pista-padel-presupuesto-rentabilidad/" lang="it">Italiano</a></div>
-      </details>
-      <a class="cp-header-contact" id="nav-contact-btn" href="/en/#contacto">Contact</a>
-      <a class="cp-header-eyes" href="/en/" aria-label="CoolPadel Eyes">
-        <img src="/assets/images/eyes-thumb.png?v=fixed_eyes" alt="" width="28" height="28">
+  <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between">
+      <a href="../../../" class="flex items-center gap-2.5">
+        <img src="../../../assets/images/coolpadel-mascot-hd.png" alt="CoolPadel Studios" class="h-9 sm:h-11 w-auto object-contain">
+        <span class="font-heading font-black text-lg sm:text-xl tracking-tight text-slate-950">CoolPadel <span class="text-[#f2920b]">Studios</span></span>
       </a>
+
+      <nav class="hidden md:flex items-center gap-6 text-xs sm:text-sm font-bold uppercase tracking-wider text-slate-700">
+        <a href="/en/camaras/" class="hover:text-[#f2920b] transition">CAMERAS</a>
+        <a href="/en/llaveros-padel-personalizados/" class="hover:text-[#f2920b] transition">KEYCHAINS</a>
+        <a href="../../../herramientas/" class="hover:text-[#f2920b] transition">Herramientas</a>
+        <a href="../../../herramientas/calculadora-coste-pistas-padel/" class="text-[#f2920b] font-black">Calculadora Pistas</a>
+        <a href="../../../en/blog/" class="hover:text-[#f2920b] transition">Blog</a>
+      </nav>
+
+      <div class="flex items-center gap-3">
+          <!-- SELECTOR DE IDIOMA EN DESPLEGABLE COMPACTO -->
+          <div class="relative inline-block text-left" id="lang-dropdown-container">
+            <button type="button" onclick="toggleLangDropdown(event)" id="lang-dropdown-btn" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-100 hover:bg-slate-200 border border-slate-200 text-xs font-black text-slate-900 shadow-xs transition cursor-pointer" aria-expanded="false" aria-haspopup="true">
+              <span id="current-lang-code" class="uppercase font-black">EN</span>
+              <i data-lucide="chevron-down" class="w-3.5 h-3.5 stroke-[2.5] text-slate-600 transition-transform duration-200" id="lang-dropdown-arrow"></i>
+            </button>
+
+            <!-- MENÚ DESPLEGABLE FLOTANTE -->
+            <div id="lang-dropdown-menu" class="hidden absolute right-0 mt-2 w-24 bg-white rounded-2xl shadow-[0_12px_30px_rgba(0,0,0,0.15)] border border-slate-200 py-1.5 z-50 transition-all overflow-hidden">
+              <a href="/blog/cuanto-cuesta-montar-pista-padel-presupuesto-rentabilidad/" data-lang-opt="es" class="lang-opt block text-slate-700 hover:bg-[#f2920b] hover:text-slate-950 font-bold w-full text-center px-4 py-2 text-xs transition duration-150">
+                ES
+              </a>
+              <a href="/en/blog/cuanto-cuesta-montar-pista-padel-presupuesto-rentabilidad/" data-lang-opt="en" class="lang-opt block lang-opt-active font-black w-full text-center px-4 py-2 text-xs transition duration-150">
+                EN
+              </a>
+              <a href="/fr/blog/cuanto-cuesta-montar-pista-padel-presupuesto-rentabilidad/" data-lang-opt="fr" class="lang-opt block text-slate-700 hover:bg-[#f2920b] hover:text-slate-950 font-bold w-full text-center px-4 py-2 text-xs transition duration-150">
+                FR
+              </a>
+              <a href="/it/blog/cuanto-cuesta-montar-pista-padel-presupuesto-rentabilidad/" data-lang-opt="it" class="lang-opt block text-slate-700 hover:bg-[#f2920b] hover:text-slate-950 font-bold w-full text-center px-4 py-2 text-xs transition duration-150">
+                IT
+              </a>
+            </div>
+          </div>
+        <a href="../../../herramientas/calculadora-coste-pistas-padel/" class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] text-slate-950 font-heading font-bold text-xs uppercase tracking-wider transition">
+        <i data-lucide="calculator" class="w-3.5 h-3.5 stroke-[2.5]"></i>
+        <span>Simular Inversión</span>
+      </a>
+      </div>
     </div>
-  </div>
-</header>
-<div class="cp-header-spacer" aria-hidden="true"></div>
+  </header>
 
   <!-- BREADCRUMBS -->
   <div class="max-w-4xl mx-auto px-4 sm:px-6 pt-6 pb-2 text-xs text-slate-500 flex items-center gap-2 w-full">

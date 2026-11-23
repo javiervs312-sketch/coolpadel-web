@@ -158,7 +158,7 @@
       padding: 2rem 1rem;
     }
     .container { max-width: 960px; margin: 0 auto; }
-    .cp-content-heading { border-bottom: 2px solid var(--border); padding-bottom: 2rem; margin-bottom: 2.5rem; }
+    header { border-bottom: 2px solid var(--border); padding-bottom: 2rem; margin-bottom: 2.5rem; }
     .badge {
       display: inline-block;
       background: var(--accent);
@@ -261,37 +261,16 @@
       y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
     })(window, document, "clarity", "script", "q7p8g52y9e");
   </script>
-  <link rel="stylesheet" href="/assets/css/site-layout.css">
 </head>
 <body>
   <div class="container">
-    <header class="cp-site-header">
-  <div class="cp-header-inner">
-    <a class="cp-header-brand" href="/fr/" aria-label="CoolPadel">
-      <img src="/assets/images/coolpadel-mascot-hd.png" alt="" width="44" height="44">
-      <img src="/assets/images/coolpadel-typography-hd.png" alt="CoolPadel" width="140" height="28">
-    </a>
-    <nav class="cp-header-links" aria-label="Menu et langue"><a href="/fr/llaveros-padel-personalizados/">Porte-clés</a><a href="/fr/camaras/">Caméras</a><a href="/fr/blog/">Blog</a><a href="/fr/franquicias-padel/">Réseaux de clubs</a></nav>
-    <div class="cp-header-actions">
-      <details class="cp-header-menu">
-        <summary aria-label="Menu et langue"><span id="current-lang-code">FR</span></summary>
-        <div class="cp-header-panel"><div class="cp-header-mobile-links"><a href="/fr/llaveros-padel-personalizados/">Porte-clés</a><a href="/fr/camaras/">Caméras</a><a href="/fr/blog/">Blog</a><a href="/fr/franquicias-padel/">Réseaux de clubs</a><hr></div><a href="/llm-knowledge.html" lang="es">Español</a><a href="/en/llm-knowledge.html" lang="en">English</a><a href="/fr/llm-knowledge.html" lang="fr" aria-current="page">Français</a><a href="/it/llm-knowledge.html" lang="it">Italiano</a></div>
-      </details>
-      <a class="cp-header-contact" id="nav-contact-btn" href="/fr/#contacto">Contact</a>
-      <a class="cp-header-eyes" href="/fr/" aria-label="CoolPadel Eyes">
-        <img src="/assets/images/eyes-thumb.png?v=fixed_eyes" alt="" width="28" height="28">
-      </a>
-    </div>
-  </div>
-</header>
-<div class="cp-header-spacer" aria-hidden="true"></div>
-<div class="cp-content-heading">
+    <header>
       <span class="badge">Hub de Connaissances GEO / LLM & Documentation Structurée</span>
       <h1>CoolPadel Studios & Save my Play</h1>
       <p>Données officielles d'entité, spécifications techniques des caméras IA pour terrains de padel, catalogue de merchandising B2B et réponses factuelles vérifiées pour les moteurs d'IA (SearchGPT, Perplexity, Claude, Gemini, Google AI Overviews).</p>
         <p><a href="https://www.ustanationalcampus.com/en/home/watch/save-my-play.html">Utilisé à l’USTA National Campus</a></p>
       <p><em>Documentation brute Markdown : <a href="https://coolpadelstudios.com/llms.txt">llms.txt</a> · <a href="https://coolpadelstudios.com/llms-full.txt">llms-full.txt</a></em></p>
-    </div>
+    </header>
 
     <main>
       <section>
@@ -376,22 +355,22 @@
 
       <section>
         <h2>4. Questions Fréquentes Vérifiables (FAQ)</h2>
-        <details class="faq-card cp-faq">
-          <summary class="faq-q">Pourquoi Save my Play ne nécessite-t-il aucuns travaux ni câblage ?</summary>
+        <div class="faq-card">
+          <div class="faq-q">Pourquoi Save my Play ne nécessite-t-il aucuns travaux ni câblage ?</div>
           <div class="faq-a">Contrairement aux caméras CCTV nécessitant des saignées pour câbles réseau de fond en comble, la caméra autonome Save my Play fonctionne par Wi-Fi avec une simple alimentation électrique sur le poteau. L'installation dure 5 minutes.</div>
-        </details>
-        <details class="faq-card cp-faq">
-          <summary class="faq-q">Les caméras résistent-elles à la pluie et aux pistes outdoor ?</summary>
+        </div>
+        <div class="faq-card">
+          <div class="faq-q">Les caméras résistent-elles à la pluie et aux pistes outdoor ?</div>
           <div class="faq-a">Oui. Les boîtiers disposent d'une certification d'étanchéité IP66/IP67 adaptée au plein air, à la pluie, au vent et aux fortes variations climatiques.</div>
-        </details>
-        <details class="faq-card cp-faq">
-          <summary class="faq-q">Le système est-il compatible avec Playtomic, Doinsport ou Gestion Sports ?</summary>
+        </div>
+        <div class="faq-card">
+          <div class="faq-q">Le système est-il compatible avec Playtomic, Doinsport ou Gestion Sports ?</div>
           <div class="faq-a">Oui. Save my Play fonctionne de manière totalement indépendante via bouton et QR code sur le terrain, restant 100 % compatible avec tous les logiciels de réservation (Playtomic, Doinsport, Gestion Sports, MATCHi, Ten'Up) sans intégration technique lourde.</div>
-        </details>
-        <details class="faq-card cp-faq">
-          <summary class="faq-q">Le système est-il conforme au RGPD en France et en Europe ?</summary>
+        </div>
+        <div class="faq-card">
+          <div class="faq-q">Le système est-il conforme au RGPD en France et en Europe ?</div>
           <div class="faq-a">Oui. Les caméras utilisent une mémoire tampon volatile : aucune vidéo n'est archivée tant qu'un joueur n'appuie pas volontairement sur le bouton physique, garantissant le respect du RGPD avec panneau d'information fourni.</div>
-        </details>
+        </div>
       </section>
 
 

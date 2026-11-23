@@ -103,7 +103,7 @@ def get_tool_header(lang, slug, active_title):
   <div class="h-16 sm:h-20 w-full shrink-0" aria-hidden="true"></div>
 
   <!-- BREADCRUMBS -->
-  <div class="cp-tool-breadcrumbs max-w-6xl mx-auto px-4 sm:px-6 pt-6 pb-2 text-xs text-slate-500 flex items-center gap-2">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 pt-6 pb-2 text-xs text-slate-500 flex items-center gap-2">
     <a href="{home_href}" class="hover:text-slate-950 transition font-medium">{bc_home}</a>
     <i data-lucide="chevron-right" class="w-3.5 h-3.5 text-slate-400"></i>
     <a href="{herramientas_href}" class="hover:text-slate-950 transition font-medium">{bc_tools}</a>
@@ -1070,35 +1070,6 @@ def build_costes_page(lang):
 </html>
 """
 
-def clean_tournament_breadcrumbs(html, keep_first=False):
-    import re
-
-    before, marker, content = html.partition("<main")
-    breadcrumbs = re.compile(r'<!-- BREADCRUMBS -->\s*<div\b[^>]*>[\s\S]*?</div>\s*')
-    first = breadcrumbs.search(before)
-    before = breadcrumbs.sub("", before)
-    before = re.sub(
-        r'\s*<!-- Espaciador para compensar cabecera fija que acompaña al scroll -->\s*'
-        r'<div class="h-16 sm:h-20 w-full shrink-0" aria-hidden="true"></div>',
-        "", before
-    )
-    before = re.sub(r'^[ \t]*<!-- HEADER OFICIAL COOLPADEL \(EXACTO A HOME\) -->\s*', "", before, flags=re.M)
-    if keep_first and first:
-        crumb = first[0]
-        if 'class="cp-tool-breadcrumbs ' not in crumb:
-            crumb = crumb.replace('<div class="', '<div class="cp-tool-breadcrumbs ', 1)
-        before = before.rstrip() + "\n\n  " + crumb.rstrip() + "\n\n  "
-    return before + marker + content
-
-
-def replace_tournament_header(html, header):
-    import re
-
-    html = clean_tournament_breadcrumbs(html)
-    return re.sub(r'<header\b[^>]*>[\s\S]*?</header>(?:\s*<div[^>]*aria-hidden="true"></div>)?',
-                  lambda _: header, html, count=1)
-
-
 def build_americana_page(lang):
     d = GENERADOR_AMERICANA_DATA[lang]
     slug = "generador-americana-padel"
@@ -1149,7 +1120,7 @@ def build_americana_page(lang):
 
     # Header & Breadcrumbs
     header_block = get_tool_header(lang, slug, bc_current)
-    html = replace_tournament_header(html, header_block)
+    html = re.sub(r"(?s)(?:<!-- CABECERA.*?-->\s*)?<header.*?</header>(?:\s*<div[^>]*aria-hidden=\"true\"></div>)?(?:\s*<!-- BREADCRUMBS -->.*?</div>)?", header_block, html)
 
     if not is_es:
         # Hero Badge, H1, Lead
@@ -1238,7 +1209,7 @@ def build_cuadros_page(lang):
 
     # Header & Breadcrumbs
     header_block = get_tool_header(lang, slug, bc_current)
-    html = replace_tournament_header(html, header_block)
+    html = re.sub(r"(?s)(?:<!-- CABECERA.*?-->\s*)?<header.*?</header>(?:\s*<div[^>]*aria-hidden=\"true\"></div>)?(?:\s*<!-- BREADCRUMBS -->.*?</div>)?", header_block, html)
 
     if not is_es:
         # Hero Badge, H1, Lead

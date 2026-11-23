@@ -4,7 +4,6 @@ import json
 
 import urllib.parse
 import subprocess
-import sys
 from pathlib import Path
 
 from translations_data import TRANSLATIONS
@@ -6429,6 +6428,5 @@ def build_all():
 if __name__ == "__main__":
 
     build_all()
-    subprocess.run([sys.executable, str(Path(__file__).with_name("normalize_site_layout.py"))], check=True)
     subprocess.run(["node", str(Path(__file__).with_name("build_static_styles.js"))], check=True)
 
