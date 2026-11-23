@@ -14,6 +14,8 @@ import os
 import re
 from pathlib import Path
 
+from b2b_buying import floating_keyring_quote
+
 ROOT = Path(__file__).resolve().parent
 PADEL_DIR = ROOT / "llaveros-padel-personalizados"
 TENIS_DIR = ROOT / "llaveros-tenis-personalizados"
@@ -221,15 +223,23 @@ h3 { font-size: 22px; margin: 0 0 12px; }
 .related a { display: block; padding: 16px; color: #0f172a; text-decoration: none; border: 1px solid #cbd5e1; border-radius: 12px; font-weight: 700; background: #fff; }
 .related a:hover { border-color: #f2920b; }
 @media (max-width: 900px) { .official-nav > a:not(.nav-contact), .lang-links { display: none; } }
-@media (max-width: 1050px) { .article-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-@media (max-width: 760px) { .logo-wordmark { height: 22px; } .logo-mascot { height: 34px; } .article-grid, .related-grid { grid-template-columns: 1fr; } main { padding-top: 24px; } .article p { font-size: 16px; } .article-hero { max-height: none; } }
-
 .hub-hero { max-width: 1200px; margin: 20px auto 40px; text-align: center; }
 .hub-eyebrow { margin: 0 0 12px; color: #f2920b; font-size: 13px; font-weight: 900; letter-spacing: .04em; text-transform: uppercase; }
 .hub-title { max-width: none !important; margin: 0 0 16px !important; font-size: clamp(38px, 4vw, 56px) !important; font-weight: 900 !important; line-height: 1.08 !important; color: #0f172a !important; text-transform: uppercase; letter-spacing: -.04em; }
-.intro { max-width: 820px; margin: 0 auto; color: #334155; font-size: 18px; line-height: 1.6; }
-.intro p { margin: 0 0 14px; }
 .article-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; margin: 34px 0 0; }
+@media (max-width: 1050px) {
+  .article-grid, .related-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 760px) {
+  main { padding: 24px 24px 56px; }
+  .hub-hero { margin: 12px auto 28px; text-align: left; }
+  .hub-title { font-size: clamp(28px, 7vw, 38px) !important; margin-bottom: 0 !important; }
+  .article-grid, .related-grid { grid-template-columns: minmax(0, 1fr); }
+  .article-grid { margin-top: 0; }
+  .article p { font-size: 16px; }
+  .article-hero { max-height: none; }
+  .next-step { padding: 20px; }
+}
 .article-card { color: #0f172a; text-decoration: none; }
 .article-card img { display: block; }
 .card-action:active { background: #76d3f6; transform: scale(.98); }
@@ -857,7 +867,8 @@ def render_page(title: str, content: str, prefix: str = "../", slug: str = None,
 <body>
   {header_html}
   {content}
-  {get_footer()}
+  {get_footer().replace("pb-10", "pb-24", 1)}
+  {floating_keyring_quote("es", "Hola Javier, quiero presupuesto para llaveros personalizados de " + ("pádel." if is_padel else "tenis."))}
   <script>if (window.lucide) lucide.createIcons();</script>
   <script src="{prefix}assets/js/cp-analytics.js" defer></script>
 </body>
@@ -871,12 +882,6 @@ def build_hub(hub_dir: Path, is_padel: bool, articles: list[dict]):
 
     eyebrow = "Merchandising oficial para clubes de pádel" if is_padel else "Llaveros y merchandising oficial para clubes de tenis"
     h1_text = "Llaveros de Pádel Personalizados 3D" if is_padel else "Llaveros de Tenis Personalizados con Escudo Oficial"
-    intro_p1 = (
-        "Fabricante directo de llaveros de pádel personalizados en relieve 3D de goma microinyectada.<br>Pedidos desde 100 unidades, muestra física real por 15 € deducible al 100% y tarifas directas de fábrica para clubes y torneos."
-        if is_padel else
-        "Diseñamos y fabricamos llaveros de tenis en relieve 3D para escuelas de tenis, clubes históricos y torneos sociales.<br>Material flexible de alta densidad que no raya raquetas ni fundas, pedidos desde 100 unidades y muestra física previa por 15 €."
-    )
-
     image_src = "../" + (PADEL_IMG_REL_ROOT if is_padel else TENIS_IMG_REL_ROOT)
 
     cards = "\n".join(
@@ -889,15 +894,12 @@ def build_hub(hub_dir: Path, is_padel: bool, articles: list[dict]):
       <section class="hub-hero">
         <p class="hub-eyebrow">{eyebrow}</p>
         <h1 class="hub-title">{h1_text}</h1>
-        <div class="intro">
-          <p>{intro_p1}</p>
-        </div>
       </section>
     </main>
 
     <!-- SECCIÓN CALCULADORA Y PASO A PASO CON FONDO COMPLETO DE TEXTURA #3478a6 -->
     <section class="w-full bg-[#3478a6] bg-textured-blue text-white py-10 sm:py-14 border-y border-sky-700/40">
-      <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <div class="max-w-4xl mx-auto px-6">
         {get_calculator_html(prefix="../")}
         {get_paso_a_paso_html()}
       </div>
@@ -920,7 +922,7 @@ def build_hub(hub_dir: Path, is_padel: bool, articles: list[dict]):
     {get_calculator_script()}
 '''
 
-    (hub_dir / "index.html").write_text(render_page(h1_text, hub_content, prefix="../", slug=None, meta_desc=intro_p1.replace("<br>", " "), is_padel=is_padel), encoding="utf-8")
+    (hub_dir / "index.html").write_text(render_page(h1_text, hub_content, is_padel=is_padel), encoding="utf-8")
     print(f"  [OK] Hub generado: {hub_dir / 'index.html'}")
 
     # Generar cada artículo individual

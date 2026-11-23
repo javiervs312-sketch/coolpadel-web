@@ -25,6 +25,17 @@ def quote_button(product, intent, label, message, position, market="ES"):
     )
 
 
+def floating_keyring_quote(lang, message):
+    label, market = {
+        "es": ("Presupuesto por WhatsApp", "ES"),
+        "en": ("WhatsApp for a quote", "UK"),
+        "fr": ("Devis par WhatsApp", "FR"),
+        "it": ("Preventivo su WhatsApp", "IT"),
+    }[lang]
+    button = quote_button("llaveros", "presupuesto", label, message, "floating", market)
+    return f'<div class="fixed bottom-4 right-4 z-50 shadow-xl rounded-full">{button}</div>'
+
+
 def camera_quote(courts=None, position="content", market="ES"):
     quantity = str(courts) if courts else "__"
     label = f"Pedir presupuesto para {courts} pistas" if courts else "Pedir presupuesto para mi club"

@@ -985,7 +985,7 @@ CAMERA_MARKET_LINKS = {'en': ('united-kingdom', 'See UK club pricing and local c
  'it': ('italia', 'Vedi prezzi e città servite in Italia')}
 
 
-from b2b_buying import camera_decision, camera_demo_link, keyring_decision, keyring_process
+from b2b_buying import camera_decision, camera_demo_link, floating_keyring_quote, keyring_decision, keyring_process
 
 
 def render_landing(landing, lang="es"):
@@ -1021,8 +1021,14 @@ def render_landing(landing, lang="es"):
 
     if landing["slug"] == "llaveros-padel-personalizados":
         l_title, l_meta_desc, l_wa_msg = KEYRING_PURCHASE_COPY[lang]
-        l_subtitle = l_meta_desc
     wa_encoded = urllib.parse.quote(l_wa_msg)
+    floating_quote = "" if is_camaras else floating_keyring_quote(lang, l_wa_msg)
+    content_padding = "px-4 sm:px-6" if is_camaras else "px-6"
+    feature_columns = "sm:grid-cols-3" if is_camaras else "md:grid-cols-2 lg:grid-cols-3"
+    subtitle_markup = (
+        f'<p class="text-base sm:text-lg text-slate-600 leading-relaxed font-normal">{l_subtitle}</p>'
+        if is_camaras else ""
+    )
     hero_img_encoded = urllib.parse.quote(landing["hero_img"])
 
     # Path & asset prefixes
@@ -1752,10 +1758,10 @@ def render_landing(landing, lang="es"):
   <!-- HERO SECTION -->
   <main class="flex-1">
     <section class="py-12 sm:py-20 bg-gradient-to-b from-white via-slate-50 to-[#f8fafc] border-b border-slate-200">
-      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-6xl mx-auto {content_padding} lg:px-8">
         
         <!-- Breadcrumbs Navigation -->
-        <nav aria-label="Ruta de navegación" class="flex items-center gap-2 text-xs font-bold text-slate-500 mb-6 uppercase tracking-wider">
+        <nav aria-label="Ruta de navegación" class="flex flex-wrap items-center gap-2 text-xs font-bold text-slate-500 mb-6 uppercase tracking-wider">
           <a href="{asset_prefix}" class="hover:text-slate-900 transition">{ui['nav_home']}</a>
           <span>/</span>
           <a href="{parent_breadcrumb_rel_url}" class="hover:text-slate-900 transition">{parent_breadcrumb_name}</a>
@@ -1775,9 +1781,7 @@ def render_landing(landing, lang="es"):
               {h1_formatted_html}
             </h1>
 
-            <p class="text-base sm:text-lg text-slate-600 leading-relaxed font-normal">
-              {l_subtitle}
-            </p>
+            {subtitle_markup}
             {market_link}
             {buying_summary}
 
@@ -1842,7 +1846,7 @@ def render_landing(landing, lang="es"):
 
     <!-- VENTAJAS / DIFERENCIALES -->
     <section class="py-14 sm:py-20 bg-white border-b border-slate-200">
-      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-6xl mx-auto {content_padding} lg:px-8">
         <div class="text-center max-w-2xl mx-auto mb-10 sm:mb-14 space-y-2">
           <h2 class="font-heading font-black text-2xl sm:text-4xl text-slate-950 uppercase tracking-tight">
             {why_title}
@@ -1852,7 +1856,7 @@ def render_landing(landing, lang="es"):
           </p>
         </div>
 
-        <div class="grid md:grid-cols-3 gap-6 sm:gap-8">
+        <div class="grid {"md:grid-cols-3" if is_camaras else feature_columns} gap-6 sm:gap-8">
           {benefits_html}
         </div>
       </div>
@@ -1863,7 +1867,7 @@ def render_landing(landing, lang="es"):
     <!-- TABLA DE PRECIOS O CALCULADORA INTERACTIVA -->
     <section id="precios" class="py-14 sm:py-20 bg-slate-50 border-b border-slate-200 scroll-mt-20">
       {installation_requirements}
-      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-5xl mx-auto {content_padding} lg:px-8">
         {table_html if is_camaras else get_llaveros_calculator_html(lang, asset_prefix)}
       </div>
     </section>
@@ -1871,7 +1875,7 @@ def render_landing(landing, lang="es"):
 {"" if is_camaras else f'''
     <!-- CÓMO FUNCIONA / PROCESO (FORMATO TEXTURA) -->
     <section class="py-14 sm:py-20 bg-[#3478a6] bg-textured-blue text-white border-b border-sky-700/40">
-      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-5xl mx-auto {content_padding} lg:px-8">
         <div class="text-center max-w-2xl mx-auto mb-10 space-y-2">
           <span class="inline-block px-3.5 py-1 rounded-full bg-white/20 text-white font-heading font-black text-xs uppercase tracking-wider">
             {"Paso a Paso" if lang=="es" else "Step by Step" if lang=="en" else "Étape par Étape" if lang=="fr" else "Passo dopo Passo"}
@@ -1882,7 +1886,7 @@ def render_landing(landing, lang="es"):
         </div>
 
         <!-- 3 PASOS CON TEXTURA Y TARJETAS BLANCAS DESTACADAS -->
-        <div class="grid sm:grid-cols-3 gap-6 text-left">
+        <div class="grid {feature_columns} gap-6 text-left">
           <div class="bg-white/95 rounded-2xl p-6 text-slate-900 shadow-md border border-white/40 space-y-2.5">
             <div class="w-9 h-9 rounded-full bg-[#f2920b] text-slate-950 font-heading font-black text-sm flex items-center justify-center">1</div>
             <h3 class="font-heading font-black text-lg text-slate-950">Envíanos tu logo</h3>
@@ -1907,7 +1911,7 @@ def render_landing(landing, lang="es"):
 
     <!-- PREGUNTAS FRECUENTES -->
     <section class="py-14 sm:py-20 bg-white border-b border-slate-200">
-      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-4xl mx-auto {content_padding} lg:px-8">
         <div class="text-center max-w-2xl mx-auto mb-10 space-y-2">
           <h2 class="font-heading font-black text-2xl sm:text-4xl text-slate-950 uppercase tracking-tight">
             {"Preguntas Frecuentes" if lang=="es" else "Frequently Asked Questions" if lang=="en" else "Questions Fréquentes" if lang=="fr" else "Domande Frequenti"}
@@ -1925,7 +1929,7 @@ def render_landing(landing, lang="es"):
 
         <!-- 6. SECCIÓN CONTACTO OFICIAL COOLPADEL (IDÉNTICA A LA HOME) -->
     <section id="contacto" class="py-10 sm:py-14 bg-slate-50 relative border-t border-slate-200 text-slate-900 overflow-hidden">
-      <div class="max-w-4xl mx-auto px-4 sm:px-6 relative z-10 text-center">
+      <div class="max-w-4xl mx-auto {content_padding} relative z-10 text-center">
         
         <div class="max-w-2xl mx-auto text-center mb-6">
           <span class="inline-block text-[#f2920b] text-xs font-bold uppercase tracking-wider mb-2">
@@ -1980,7 +1984,7 @@ def render_landing(landing, lang="es"):
   </main>
 
   <!-- FOOTER OFICIAL (FORMATO EXACTO HOME) -->
-  <footer class="relative z-20 bg-[#3478a6] bg-textured-blue text-white pt-14 pb-10 border-t border-sky-700/40 text-xs">
+<footer class="relative z-20 bg-[#3478a6] bg-textured-blue text-white pt-14 {'pb-10' if is_camaras else 'pb-24'} border-t border-sky-700/40 text-xs">
     <div class="max-w-[1700px] mx-auto px-4 sm:px-8 space-y-10">
       <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pb-8 border-b border-white/20">
         <div class="flex items-center gap-3.5">
@@ -2033,6 +2037,7 @@ def render_landing(landing, lang="es"):
       lucide.createIcons();
     }}
   </script>
+  {floating_quote}
   <script src="/assets/js/cp-analytics.js" defer></script>
 </body>
 </html>
