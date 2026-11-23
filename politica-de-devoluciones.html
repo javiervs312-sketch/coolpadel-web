@@ -129,21 +129,31 @@
   <!-- /GA4 -->
   <link rel="alternate" hreflang="es" href="https://coolpadelstudios.com/politica-de-devoluciones.html"/>
   <link rel="alternate" hreflang="x-default" href="https://coolpadelstudios.com/politica-de-devoluciones.html"/>
+  <link rel="stylesheet" href="/assets/css/site-layout.css">
 </head>
 <body class="bg-[#0b1220] text-slate-200 antialiased min-h-screen flex flex-col justify-between selection:bg-[#f2920b] selection:text-white">
 
   <!-- CABECERA DE NAVEGACIÓN -->
-  <header class="border-b border-white/10 bg-[#0b1220]/90 backdrop-blur sticky top-0 z-50">
-    <div class="max-w-5xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between">
-      <a href="/" class="flex items-center gap-2.5 group">
-        <img src="/assets/images/coolpadel-mascot-hd.png" alt="Mascota CoolPadel Studios" width="40" height="40" class="h-9 sm:h-10 w-auto transition transform group-hover:scale-105" />
-        <img src="/assets/images/coolpadel-typography-hd.png" alt="CoolPadel Studios" width="130" height="26" class="h-5 sm:h-6 w-auto" />
-      </a>
-      <a href="/" class="inline-flex items-center gap-2 text-xs sm:text-sm font-semibold text-slate-300 hover:text-[#f2920b] transition">
-        <i data-lucide="arrow-left" class="w-4 h-4"></i> Volver a la web
+  <header class="cp-site-header">
+  <div class="cp-header-inner">
+    <a class="cp-header-brand" href="/" aria-label="CoolPadel">
+      <img src="/assets/images/coolpadel-mascot-hd.png" alt="" width="44" height="44">
+      <img src="/assets/images/coolpadel-typography-hd.png" alt="CoolPadel" width="140" height="28">
+    </a>
+    <nav class="cp-header-links" aria-label="Menú e idioma"><a href="/llaveros-padel-personalizados/">Llaveros</a><a href="/camaras/">Cámaras</a><a href="/blog/">Blog</a><a href="/franquicias-padel/">Cadenas de clubs</a></nav>
+    <div class="cp-header-actions">
+      <details class="cp-header-menu">
+        <summary aria-label="Menú e idioma"><span id="current-lang-code">ES</span></summary>
+        <div class="cp-header-panel"><div class="cp-header-mobile-links"><a href="/llaveros-padel-personalizados/">Llaveros</a><a href="/camaras/">Cámaras</a><a href="/blog/">Blog</a><a href="/franquicias-padel/">Cadenas de clubs</a><hr></div><a href="/politica-de-devoluciones.html" lang="es" aria-current="page">Español</a><a href="/en/" lang="en">English</a><a href="/fr/" lang="fr">Français</a><a href="/it/" lang="it">Italiano</a></div>
+      </details>
+      <a class="cp-header-contact" id="nav-contact-btn" href="/#contacto">Contactar</a>
+      <a class="cp-header-eyes" href="/" aria-label="CoolPadel Eyes">
+        <img src="/assets/images/eyes-thumb.png?v=fixed_eyes" alt="" width="28" height="28">
       </a>
     </div>
-  </header>
+  </div>
+</header>
+<div class="cp-header-spacer" aria-hidden="true"></div>
 
   <!-- CONTENIDO PRINCIPAL -->
   <main class="flex-grow max-w-4xl mx-auto px-4 sm:px-6 py-12 sm:py-16">

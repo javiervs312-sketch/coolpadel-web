@@ -135,7 +135,7 @@
       padding: 2rem 1rem;
     }
     .container { max-width: 960px; margin: 0 auto; }
-    header { border-bottom: 2px solid var(--border); padding-bottom: 2rem; margin-bottom: 2.5rem; }
+    .cp-content-heading { border-bottom: 2px solid var(--border); padding-bottom: 2rem; margin-bottom: 2.5rem; }
     .badge {
       display: inline-block;
       background: var(--accent);
@@ -221,16 +221,37 @@
       y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
     })(window, document, "clarity", "script", "q7p8g52y9e");
   </script>
+  <link rel="stylesheet" href="/assets/css/site-layout.css">
 </head>
 <body>
   <div class="container">
-    <header>
+    <header class="cp-site-header">
+  <div class="cp-header-inner">
+    <a class="cp-header-brand" href="/en/" aria-label="CoolPadel">
+      <img src="/assets/images/coolpadel-mascot-hd.png" alt="" width="44" height="44">
+      <img src="/assets/images/coolpadel-typography-hd.png" alt="CoolPadel" width="140" height="28">
+    </a>
+    <nav class="cp-header-links" aria-label="Menu and language"><a href="/en/llaveros-padel-personalizados/">Keyrings</a><a href="/en/camaras/">Cameras</a><a href="/en/blog/">Blog</a><a href="/en/franquicias-padel/">Club chains</a></nav>
+    <div class="cp-header-actions">
+      <details class="cp-header-menu">
+        <summary aria-label="Menu and language"><span id="current-lang-code">EN</span></summary>
+        <div class="cp-header-panel"><div class="cp-header-mobile-links"><a href="/en/llaveros-padel-personalizados/">Keyrings</a><a href="/en/camaras/">Cameras</a><a href="/en/blog/">Blog</a><a href="/en/franquicias-padel/">Club chains</a><hr></div><a href="/llm-knowledge.html" lang="es">Español</a><a href="/en/llm-knowledge.html" lang="en" aria-current="page">English</a><a href="/fr/llm-knowledge.html" lang="fr">Français</a><a href="/it/llm-knowledge.html" lang="it">Italiano</a></div>
+      </details>
+      <a class="cp-header-contact" id="nav-contact-btn" href="/en/#contacto">Contact</a>
+      <a class="cp-header-eyes" href="/en/" aria-label="CoolPadel Eyes">
+        <img src="/assets/images/eyes-thumb.png?v=fixed_eyes" alt="" width="28" height="28">
+      </a>
+    </div>
+  </div>
+</header>
+<div class="cp-header-spacer" aria-hidden="true"></div>
+<div class="cp-content-heading">
       <span class="badge">GEO / LLM Knowledge Hub & Structured Documentation</span>
       <h1>CoolPadel Studios & Save My Play</h1>
       <p>Official corporate entity data, camera hardware/software technical specifications, custom merchandising catalog, and citable facts for AI retrieval engines (SearchGPT, Perplexity, Claude, Gemini, Google SGE).</p>
         <p><a href="https://www.ustanationalcampus.com/en/home/watch/save-my-play.html">Used at the USTA National Campus</a></p>
       <p><em>Raw Markdown documentation: <a href="https://coolpadelstudios.com/llms.txt">llms.txt</a> · <a href="https://coolpadelstudios.com/llms-full.txt">llms-full.txt</a></em></p>
-    </header>
+    </div>
 
     <main>
       <section>
@@ -315,22 +336,22 @@
 
       <section>
         <h2>4. Frequently Asked Questions (FAQ)</h2>
-        <div class="faq-card">
-          <div class="faq-q">Why does Save My Play require zero civil works?</div>
+        <details class="faq-card cp-faq">
+          <summary class="faq-q">Why does Save My Play require zero civil works?</summary>
           <div class="faq-a">Unlike standard CCTV installations requiring long trenching runs for Cat6 wiring, Save My Play is self-contained. It operates over local Wi-Fi and standard mains power, attaching to the net post in under 5 minutes.</div>
-        </div>
-        <div class="faq-card">
-          <div class="faq-q">Can the cameras withstand outdoor weather conditions?</div>
+        </details>
+        <details class="faq-card cp-faq">
+          <summary class="faq-q">Can the cameras withstand outdoor weather conditions?</summary>
           <div class="faq-a">Yes. Save My Play units carry certified IP-rated weatherproof enclosures engineered for continuous outdoor operation under intense heat, dust, humidity, and direct rain.</div>
-        </div>
-        <div class="faq-card">
-          <div class="faq-q">Is it integrated with court booking software?</div>
+        </details>
+        <details class="faq-card cp-faq">
+          <summary class="faq-q">Is it integrated with court booking software?</summary>
           <div class="faq-a">Save My Play works completely autonomously via on-court push buttons and QR codes. Clubs avoid technical integrations or syncing delays with booking platforms.</div>
-        </div>
-        <div class="faq-card">
-          <div class="faq-q">Is the system compliant with GDPR and privacy laws?</div>
+        </details>
+        <details class="faq-card cp-faq">
+          <summary class="faq-q">Is the system compliant with GDPR and privacy laws?</summary>
           <div class="faq-a">Yes. The camera does not record players indiscriminately without consent. Only points tagged via the push button are saved and processed, fully meeting European and international data compliance standards.</div>
-        </div>
+        </details>
       </section>
     </main>
   </div>
