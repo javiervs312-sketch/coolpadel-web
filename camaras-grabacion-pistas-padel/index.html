@@ -24,6 +24,7 @@
   <!-- Resource Hints & Core Web Vitals -->
   <link rel="dns-prefetch" href="https://fonts.googleapis.com">
   <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+  
   <link rel="dns-prefetch" href="https://unpkg.com">
   <link rel="dns-prefetch" href="https://www.clarity.ms">
 
@@ -317,7 +318,7 @@
             <i data-lucide="chevron-down" class="w-3.5 h-3.5 stroke-[2.5] text-slate-600 transition-transform duration-200" id="lang-dropdown-arrow"></i>
           </button>
           <div id="lang-dropdown-menu" class="hidden absolute right-0 mt-2 w-24 bg-white rounded-2xl shadow-[0_12px_30px_rgba(0,0,0,0.15)] border border-slate-200 py-1.5 z-50 transition-all overflow-hidden">
-            <a href="/camaras-grabacion-pistas-padel/" class="lang-opt block lang-opt-active bg-[#f2920b] text-slate-950 font-black w-full text-center px-4 py-2 text-xs transition duration-150">ES</a><a href="/en/camaras-grabacion-pistas-padel/" class="lang-opt block text-slate-700 hover:bg-[#f2920b] hover:text-slate-950 font-bold w-full text-center px-4 py-2 text-xs transition duration-150">EN</a><a href="/fr/camaras-grabacion-pistas-padel/" class="lang-opt block text-slate-700 hover:bg-[#f2920b] hover:text-slate-950 font-bold w-full text-center px-4 py-2 text-xs transition duration-150">FR</a><a href="/it/camaras-grabacion-pistas-padel/" class="lang-opt block text-slate-700 hover:bg-[#f2920b] hover:text-slate-950 font-bold w-full text-center px-4 py-2 text-xs transition duration-150">IT</a>
+            <a href="/camaras-grabacion-pistas-padel/" hreflang="es" lang="es" class="lang-opt block lang-opt-active bg-[#f2920b] text-slate-950 font-black w-full text-center px-4 py-2 text-xs transition duration-150">ES</a><a href="/en/camaras-grabacion-pistas-padel/" hreflang="en" lang="en" class="lang-opt block text-slate-700 hover:bg-[#f2920b] hover:text-slate-950 font-bold w-full text-center px-4 py-2 text-xs transition duration-150">EN</a><a href="/fr/camaras-grabacion-pistas-padel/" hreflang="fr" lang="fr" class="lang-opt block text-slate-700 hover:bg-[#f2920b] hover:text-slate-950 font-bold w-full text-center px-4 py-2 text-xs transition duration-150">FR</a><a href="/it/camaras-grabacion-pistas-padel/" hreflang="it" lang="it" class="lang-opt block text-slate-700 hover:bg-[#f2920b] hover:text-slate-950 font-bold w-full text-center px-4 py-2 text-xs transition duration-150">IT</a>
           </div>
         </div>
 
@@ -366,7 +367,6 @@
               La cámara oficial de USA Padel y USTA, ya en más de 1.500 pistas. Inversión de 180 € en propiedad, planes desde 45 €/mes, montaje en 5 minutos sin obras y sin permanencias.
             </p>
             <p class="text-sm font-bold text-slate-700"><a class="underline" href="/camaras/espana/">Ver precios y cobertura por ciudad en España</a></p>
-
             <aside class="my-6 rounded-2xl border border-slate-200 bg-slate-50 p-4 sm:p-6 text-slate-900" aria-label="Resumen para pedir presupuesto">
       <p><strong>Hardware:</strong> 180 € por pista, en propiedad.</p>
       <p><strong>Cuota:</strong> 45 €/mes por pista en clubes de menos de 5 pistas. Incluye grabación, pulsador, highlights y streaming, sin permanencia. La analítica avanzada con IA tiene su propia tarifa.</p>
@@ -380,6 +380,7 @@
       </div>
       <a href="https://www.youtube.com/watch?v=LuzDvB5Umfs" target="_blank" rel="noopener noreferrer">Abrir en YouTube</a>
     </details>
+
             <div class="flex flex-wrap items-center gap-3 pt-2 text-xs sm:text-sm font-bold text-slate-700">
               
               <span class="flex items-center gap-1.5"><i data-lucide="check-circle" class="w-4 h-4 text-[#f2920b]"></i> 0 obras · Montaje 5 min</span>
@@ -388,7 +389,7 @@
             </div>
 
             <div class="pt-4 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4">
-              <a href="https://api.whatsapp.com/send?phone=34680317486&text=Hola%20Javier%2C%20quiero%20informaci%C3%B3n%20y%20demo%20de%20Save%20My%20Play%20para%20las%20pistas%20de%20mi%20club" target="_blank" rel="noopener" class="inline-flex items-center justify-center gap-2.5 px-7 py-4 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] text-slate-950 font-heading font-black text-sm uppercase tracking-wider transition shadow-md hover:scale-105 active:scale-95 group" data-lead-intent="demo" data-button-position="hero">
+              <a href="https://api.whatsapp.com/send?phone=34680317486&text=Hola%20Javier%2C%20quiero%20informaci%C3%B3n%20y%20demo%20de%20Save%20My%20Play%20para%20las%20pistas%20de%20mi%20club" data-product="camaras" data-lead-intent="demo" data-button-position="hero" target="_blank" rel="noopener" class="inline-flex items-center justify-center gap-2.5 px-7 py-4 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] text-slate-950 font-heading font-black text-sm uppercase tracking-wider transition shadow-md hover:scale-105 active:scale-95 group">
                 <i data-lucide="message-circle" class="w-5 h-5 text-slate-950"></i>
                 <span>Agendar Demo 15 min por WhatsApp</span>
               </a>
@@ -710,7 +711,7 @@
 
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 max-w-2xl mx-auto text-left">
           <!-- WhatsApp Card -->
-          <a id="landing-contact-wa" data-lead-intent="demo" data-button-position="contact" href="https://api.whatsapp.com/send?phone=34680317486&text=Hola%20Javier%2C%20quiero%20informaci%C3%B3n%20y%20demo%20de%20Save%20My%20Play%20para%20las%20pistas%20de%20mi%20club" target="_blank" rel="noopener noreferrer"
+          <a id="landing-contact-wa" data-product="camaras" data-lead-intent="demo" data-button-position="contact" href="https://api.whatsapp.com/send?phone=34680317486&text=Hola%20Javier%2C%20quiero%20informaci%C3%B3n%20y%20demo%20de%20Save%20My%20Play%20para%20las%20pistas%20de%20mi%20club" target="_blank" rel="noopener noreferrer"
              class="bg-white border border-slate-200 hover:border-[#25D366] rounded-2xl p-5 shadow-xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between items-center text-center group cursor-pointer block no-underline text-inherit">
             <div class="flex flex-col items-center space-y-2 w-full">
               <div class="w-11 h-11 rounded-xl bg-emerald-50 text-[#25D366] flex items-center justify-center shadow-inner group-hover:scale-105 group-hover:bg-[#25D366] group-hover:text-white transition-all duration-300">
@@ -792,6 +793,7 @@
       </nav>
       <div class="border-t border-white/20 pt-6 text-center text-white/60">
         <p>© 2026 CoolPadel. Todos los derechos reservados.</p>
+        
       </div>
     </div>
   </footer>

@@ -9,6 +9,48 @@
       if (!clean) return;
       var parts = clean.split('/');
       var langs = ['en', 'fr', 'it', 'de', 'nl', 'pt', 'sv'];
+
+      var langAliases = {
+        'eng': 'en',
+        'english': 'en',
+        'esp': 'es',
+        'spa': 'es',
+        'espanol': 'es',
+        'fra': 'fr',
+        'fre': 'fr',
+        'francais': 'fr',
+        'ita': 'it',
+        'italiano': 'it',
+        'deu': 'de',
+        'ger': 'de',
+        'deutsch': 'de'
+      };
+
+      var search = window.location.search || '';
+      var hash = window.location.hash || '';
+
+      // Redirección directa para alias de idioma (/eng, /english, /esp, etc.)
+      var rootKey = parts[0].toLowerCase();
+      if (langAliases[rootKey]) {
+        var canonicalLang = langAliases[rootKey];
+        if (parts.length === 1) {
+          var dest = (canonicalLang === 'es') ? '/' : ('/' + canonicalLang + '/');
+          window.location.replace(dest + search + hash);
+          return;
+        } else {
+          parts[0] = canonicalLang;
+          var newPath = (canonicalLang === 'es' ? '' : '/' + canonicalLang) + '/' + parts.slice(1).join('/') + (path.endsWith('/') ? '/' : '');
+          window.location.replace(newPath + search + hash);
+          return;
+        }
+      }
+
+      // Si la URL es simplemente el código de idioma sin barra final (ej. /en, /fr, /it)
+      if (parts.length === 1 && langs.indexOf(rootKey) > -1) {
+        window.location.replace('/' + rootKey + '/' + search + hash);
+        return;
+      }
+
       var lang = langs.indexOf(parts[0]) > -1 ? parts[0] : 'es';
       var last = parts[parts.length - 1].replace(/\.html$/i, '');
       
@@ -249,6 +291,6 @@
       ¿Buscabas información directa? <a href="/#contacto">Contáctanos por WhatsApp o Email</a>.
     </div>
   </div>
-  <script src="/assets/js/cp-analytics.js?v=20261114b" defer></script>
+  <script src="/assets/js/cp-analytics.js?v=20261122-quoteflow" defer></script>
 </body>
 </html>
