@@ -1460,6 +1460,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
   </noscript>
 
   <link rel="stylesheet" href="{asset_prefix}assets/css/styles.min.css?v=20261114">
+  <link rel="stylesheet" href="{asset_prefix}assets/css/responsive.css">
 
   <script defer src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"></script>
 
@@ -2004,7 +2005,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
               <img src="{asset_prefix}assets/images/llaveros-tenis-personalizados-clubs.webp" alt="Llaveros de tenis y pádel personalizados con relieve 3D para clubs y torneos" width="500" height="312" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
             </div>
           </div>
-          <div class="mt-2 pt-1.5 sm:mt-3 sm:pt-3 border-t border-slate-100 flex items-center justify-between gap-1">
+          <div class="product-card-caption mt-2 pt-1.5 sm:mt-3 sm:pt-3 border-t border-slate-100 flex items-center justify-between gap-1">
             <h3 data-i18n="card_tenis" class="font-heading font-black text-xs sm:text-base lg:text-lg uppercase tracking-tight text-slate-950 group-hover:text-[#f2920b] transition truncate">
               {t['card_tenis']}
             </h3>
@@ -2022,7 +2023,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
               <img src="{asset_prefix}assets/images/llaveros-padel-personalizados-clubs.webp" alt="Llaveros de pádel de goma 3D personalizados con logo para clubes de pádel" width="500" height="359" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
             </div>
           </div>
-          <div class="mt-2 pt-1.5 sm:mt-3 sm:pt-3 border-t border-slate-100 flex items-center justify-between gap-1">
+          <div class="product-card-caption mt-2 pt-1.5 sm:mt-3 sm:pt-3 border-t border-slate-100 flex items-center justify-between gap-1">
             <h3 data-i18n="card_padel" class="font-heading font-black text-xs sm:text-base lg:text-lg uppercase tracking-tight text-slate-950 group-hover:text-[#f2920b] transition truncate">
               {t['card_padel']}
             </h3>

@@ -7,7 +7,9 @@
   main .grid > * {
     min-width: 0;
   }
+}
 
+@media (max-width: 79.99rem) {
   body > header > .flex > nav,
   body > header > .flex > div {
     min-width: 0;
@@ -23,7 +25,7 @@
   }
 }
 
-@media (min-width: 40rem) and (max-width: 63.99rem) {
+@media (min-width: 40rem) and (max-width: 79.99rem) {
   body > header > .flex {
     gap: .75rem;
   }
@@ -40,8 +42,22 @@
 }
 
 @media (max-width: 39.99rem) {
+  .product-card-caption {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .product-card-caption h3 {
+    overflow: visible;
+    white-space: normal;
+  }
+
   body > header > .flex {
     gap: .25rem;
+  }
+
+  body > header > .flex > div {
+    flex-shrink: 0;
   }
 
   body > header > .flex > a:first-child {
@@ -54,13 +70,20 @@
     min-width: 0;
   }
 
-  body > header > .flex > a:first-child > span,
   body > header > .flex > div > a > span {
-    overflow-wrap: anywhere;
+    overflow-wrap: normal;
+  }
+
+  body > header > .flex > div > #nav-contact-btn {
+    flex-shrink: 0;
   }
 
   body > header > .flex > div > a:not([aria-label]) {
     padding-inline: .5rem;
+  }
+
+  body > header > .flex a[aria-label="CoolPadel Eyes"] > img {
+    max-width: 1.75rem;
   }
 
   .cp-americana div:has(> div > input[id^="score-"]) {
