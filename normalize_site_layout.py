@@ -414,8 +414,6 @@ def normalize(only=None):
             revised = re.sub(r'<body\b[^>]*>', lambda m: add_body_class(m[0], layout), revised, count=1)
         if name == "camaras/espana/index.html":
             revised = spain_camera_pilot(revised)
-        if name == "camaras/paraguay/asuncion/index.html":
-            revised = asuncion_camera_layout(revised)
         if name in HOME:
             revised = logo_carousel(revised)
             if "cp-home-faq-tracking" not in revised:
