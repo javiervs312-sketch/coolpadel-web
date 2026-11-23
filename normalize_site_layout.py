@@ -310,9 +310,30 @@ def spain_camera_pilot(html):
     return html.replace("</body>", floating + "</body>", 1)
 
 
+def asuncion_camera_copy(html):
+    start = html.index('<section class="cp-asuncion-hero">')
+    end = html.index("</section>", start)
+    hero = html[start:end]
+    if 'class="cp-asuncion-subtitle"' in hero:
+        return html
+    hero = re.sub(r'(<div class="[^"]*cp-asuncion-kicker[^"]*">[\s\S]*?<span>)[^<]*(</span>)',
+                  r'\1La Cámara N.º 1 de Tenis, Pádel y Pickleball en Estados Unidos - +1500 PISTAS\2',
+                  hero, count=1)
+    hero = re.sub(r'<h1 class="([^"]+)">[\s\S]*?</h1>', lambda m:
+                  '<h1 class="' + m[1].replace(" uppercase", "") + '">Cámaras para clubs de Pádel en Asunción:</h1>\n'
+                  '            <p class="cp-asuncion-subtitle">Grabación, Highlights y Estadísticas con IA</p>',
+                  hero, count=1)
+    hero = re.sub(r'(<p class="cp-asuncion-copy[^"]*">)[\s\S]*?(</p>)',
+                  r'\1Grabá los partidos de tu club en Asunción, compartí los mejores puntos y transmití tus torneos en directo.\2',
+                  hero, count=1)
+    hero = hero.replace("cp-asuncion-kicker font-heading font-black text-xs uppercase",
+                        "cp-asuncion-kicker font-heading font-black text-xs", 1)
+    return html[:start] + hero + html[end:]
+
+
 def asuncion_camera_layout(html):
     if 'class="cp-asuncion-hero"' in html:
-        return html
+        return asuncion_camera_copy(html)
     start = html.index("<!-- 1. HERO SECTION -->")
     end = html.index("<!-- 2. ", start)
     hero = html[start:end]
@@ -336,16 +357,14 @@ def asuncion_camera_layout(html):
                         'cp-asuncion-kicker font-heading font-black text-xs uppercase tracking-wider', 1)
     hero = hero.replace('text-base sm:text-lg text-slate-600 leading-relaxed font-normal',
                         'cp-asuncion-copy text-base sm:text-lg leading-relaxed font-normal', 1)
-    hero = re.sub(r'(<p class="cp-asuncion-copy[^"]*">)[\s\S]*?(</p>)',
-                  r'\1Grabá los partidos de tu club en Asunción, compartí los mejores puntos por QR y transmití tus torneos en directo. La cámara se instala en el poste de la cancha, sin obras.\2',
-                  hero, count=1)
     hero = hero.replace("Solicitar Demo 15 min por WhatsApp", "Pedí una demo de 15 min por WhatsApp")
     hero = hero.replace("Ver Tarifas", "Mirá los precios")
     hero = re.sub(r'[^\r\n]*<div id="hero-btn-placeholder"[^\n]*\n', "", hero, count=1)
     facts = f'<section class="cp-asuncion-facts" aria-label="Equipamiento y servicio"><dl>{cards}</dl></section>\n\n    '
     html = html[:start] + hero + facts + html[end:]
     html = re.sub(r'(?s)    // Mantener el MISMO boton.*?(?=  </script>)', '', html, count=1)
-    return html.replace("</head>", '  <link rel="stylesheet" href="/assets/css/camera-asuncion.css">\n</head>', 1)
+    html = html.replace("</head>", '  <link rel="stylesheet" href="/assets/css/camera-asuncion.css">\n</head>', 1)
+    return asuncion_camera_copy(html)
 
 
 def normalize(only=None):

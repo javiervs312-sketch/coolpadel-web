@@ -8,6 +8,7 @@
   padding-block: clamp(2rem, 6vw, 5rem);
 }
 .cp-asuncion-hero :is(h1, .cp-asuncion-copy) { color: #f8fafc; }
+.cp-asuncion-subtitle { color: #f8fafc; font-weight: 750; font-size: clamp(1.125rem, 2.2vw, 1.4rem); line-height: 1.35; }
 .cp-asuncion-hero nav a { color: #e2e8f0; }
 .cp-asuncion-hero nav span:last-child, .cp-asuncion-hero .cp-asuncion-kicker { color: #ffbf62; }
 .cp-asuncion-hero #hero-wa-btn { text-align: center; }
