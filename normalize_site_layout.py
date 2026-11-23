@@ -310,6 +310,44 @@ def spain_camera_pilot(html):
     return html.replace("</body>", floating + "</body>", 1)
 
 
+def asuncion_camera_layout(html):
+    if 'class="cp-asuncion-hero"' in html:
+        return html
+    start = html.index("<!-- 1. HERO SECTION -->")
+    end = html.index("<!-- 2. ", start)
+    hero = html[start:end]
+    right = next(node for node in Markup(hero).nodes if node.classes == ["lg:col-span-5"])
+    fields = re.findall(r"<span\b[^>]*>([^<]+)</span>", hero[right.inner:right.close])
+    if len(fields) != 8:
+        raise ValueError("Se esperaban cuatro datos en la ficha de Asunción")
+    labels = ("Cámara por cancha", "Planes mensuales", "Permanencia", "Instalación")
+    cards = "".join(
+        f"<div><dt>{label}</dt><dd>{value}</dd></div>"
+        for label, value in zip(labels, fields[1::2])
+    )
+    photo = '''<figure class="lg:col-span-5 cp-asuncion-photo">
+            <img src="/assets/images/savemyplay-1.jpg" alt="Vista de una cancha desde una cámara Save my Play"
+                 width="800" height="450" fetchpriority="high">
+            <figcaption>Save my Play · Chicago &amp; California Tech</figcaption>
+          </figure>'''
+    hero = hero[:right.start] + photo + hero[right.end:]
+    hero = re.sub(r'<section class="[^"]*">', '<section class="cp-asuncion-hero">', hero, count=1)
+    hero = hero.replace('text-[#f2920b] font-heading font-black text-xs uppercase tracking-wider',
+                        'cp-asuncion-kicker font-heading font-black text-xs uppercase tracking-wider', 1)
+    hero = hero.replace('text-base sm:text-lg text-slate-600 leading-relaxed font-normal',
+                        'cp-asuncion-copy text-base sm:text-lg leading-relaxed font-normal', 1)
+    hero = re.sub(r'(<p class="cp-asuncion-copy[^"]*">)[\s\S]*?(</p>)',
+                  r'\1Grabá los partidos de tu club en Asunción, compartí los mejores puntos por QR y transmití tus torneos en directo. La cámara se instala en el poste de la cancha, sin obras.\2',
+                  hero, count=1)
+    hero = hero.replace("Solicitar Demo 15 min por WhatsApp", "Pedí una demo de 15 min por WhatsApp")
+    hero = hero.replace("Ver Tarifas", "Mirá los precios")
+    hero = re.sub(r'[^\r\n]*<div id="hero-btn-placeholder"[^\n]*\n', "", hero, count=1)
+    facts = f'<section class="cp-asuncion-facts" aria-label="Equipamiento y servicio"><dl>{cards}</dl></section>\n\n    '
+    html = html[:start] + hero + facts + html[end:]
+    html = re.sub(r'(?s)    // Mantener el MISMO boton.*?(?=  </script>)', '', html, count=1)
+    return html.replace("</head>", '  <link rel="stylesheet" href="/assets/css/camera-asuncion.css">\n</head>', 1)
+
+
 def normalize(only=None):
     names = subprocess.check_output(
         ["git", "ls-files", "-z", "--cached", "--others", "--exclude-standard", "--", "*.html"],
@@ -357,6 +395,8 @@ def normalize(only=None):
             revised = re.sub(r'<body\b[^>]*>', lambda m: add_body_class(m[0], layout), revised, count=1)
         if name == "camaras/espana/index.html":
             revised = spain_camera_pilot(revised)
+        if name == "camaras/paraguay/asuncion/index.html":
+            revised = asuncion_camera_layout(revised)
         if name in HOME:
             revised = logo_carousel(revised)
             if "cp-home-faq-tracking" not in revised:
