@@ -1,3 +1,72 @@
+.camera-local-hero {
+  background-color: #0b1626;
+  background-image: linear-gradient(rgba(9, 19, 34, .62), rgba(9, 19, 34, .84)),
+    url('/assets/images/branding/textura_editorial_coolpadel.webp');
+  background-position: center;
+  background-size: cover;
+}
+
+@media (max-width: 47.99rem) {
+  body.font-body main > section > div {
+    padding-inline: 1.5rem;
+  }
+
+  body.font-body main > section:first-child .grid.grid-cols-2 {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
+  }
+
+  body.font-body main > section:first-child .grid.grid-cols-2 > div {
+    padding-block: .625rem;
+  }
+
+  body.font-body main > section:first-child .grid.grid-cols-2 > div + div {
+    border-top: 1px solid #e2e8f0;
+  }
+
+  body.font-body main > section:first-child .grid.grid-cols-2 span {
+    color: #334155;
+    font-size: .875rem;
+    line-height: 1.5;
+  }
+
+  body.font-body main > section:first-child .grid.grid-cols-2 span:first-child {
+    color: #475569;
+    font-size: .75rem;
+  }
+
+  .camera-pricing[role="table"],
+  .camera-pricing tbody,
+  .camera-pricing tbody tr,
+  .camera-pricing tbody td {
+    display: block;
+  }
+
+  .camera-pricing thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
+  .camera-pricing tbody tr {
+    padding: 1rem;
+  }
+
+  .camera-pricing tbody td {
+    padding: .25rem 0;
+    font-size: .875rem;
+    line-height: 1.5;
+  }
+
+  .camera-pricing tbody td:nth-child(2) {
+    color: #0f172a;
+    font-size: 1.125rem;
+  }
+}
+
 @media (max-width: 63.99rem) {
   main, article, footer {
     overflow-wrap: anywhere;

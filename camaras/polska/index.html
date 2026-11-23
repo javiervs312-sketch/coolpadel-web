@@ -459,54 +459,54 @@
 
         <div class="bg-white rounded-3xl border border-slate-200/90 shadow-sm overflow-hidden">
           <div class="overflow-x-auto">
-            <table class="w-full text-left border-collapse">
-              <thead>
-                <tr class="bg-slate-100/80 border-b border-slate-200 text-[11px] sm:text-xs font-heading font-black uppercase text-slate-600 tracking-wider">
-                  <th class="p-4 sm:p-5">Pakiet / Specyfikacja</th>
-                  <th class="p-4 sm:p-5">Inwestycja / Stawka</th>
-                  <th class="p-4 sm:p-5">Warunki</th>
-                  <th class="p-4 sm:p-5">Usługi w Pakiecie</th>
+            <table role="table" class="camera-pricing w-full text-left border-collapse">
+              <thead role="rowgroup">
+                <tr role="row" class="bg-slate-100/80 border-b border-slate-200 text-[11px] sm:text-xs font-heading font-black uppercase text-slate-600 tracking-wider">
+                  <th role="columnheader" scope="col" class="p-4 sm:p-5">Pakiet / Specyfikacja</th>
+                  <th role="columnheader" scope="col" class="p-4 sm:p-5">Inwestycja / Stawka</th>
+                  <th role="columnheader" scope="col" class="p-4 sm:p-5">Warunki</th>
+                  <th role="columnheader" scope="col" class="p-4 sm:p-5">Usługi w Pakiecie</th>
                 </tr>
               </thead>
-              <tbody class="divide-y divide-slate-100 text-xs sm:text-sm">
+              <tbody role="rowgroup" class="divide-y divide-slate-100 text-xs sm:text-sm">
                 <!-- Fila 1: Hardware en Propiedad -->
-                <tr class="hover:bg-slate-50/60 transition">
-                  <td class="p-4 sm:p-5 font-bold text-slate-900">
+                <tr role="row" class="hover:bg-slate-50/60 transition">
+                  <td role="cell" class="p-4 sm:p-5 font-bold text-slate-900">
                     <div class="flex items-center gap-2">
                       <i data-lucide="hard-drive" class="w-4 h-4 text-[#f2920b]"></i>
                       <span>Inwestycja w Sprzęt na Własność</span>
                     </div>
                   </td>
-                  <td class="p-4 sm:p-5 font-heading font-black text-base text-slate-950">780 zł</td>
-                  <td class="p-4 sm:p-5 text-slate-600">Jednorazowa opłata</td>
-                  <td class="p-4 sm:p-5 text-slate-600">1 kamera sportowa na kort (obiektyw prostoliniowy bez efektu rybiego oka) + mocowanie</td>
+                  <td role="cell" class="p-4 sm:p-5 font-heading font-black text-base text-slate-950">780 zł</td>
+                  <td role="cell" class="p-4 sm:p-5 text-slate-600">Jednorazowa opłata</td>
+                  <td role="cell" class="p-4 sm:p-5 text-slate-600">1 kamera sportowa na kort (obiektyw prostoliniowy bez efektu rybiego oka) + mocowanie</td>
                 </tr>
 
                 <!-- Fila 2: Grabación y Highlights (Recomendado) -->
-                <tr class="bg-amber-500/5 hover:bg-amber-500/10 transition border-y-2 border-[#f2920b]/30">
-                  <td class="p-4 sm:p-5 font-bold text-slate-900">
+                <tr role="row" class="bg-amber-500/5 hover:bg-amber-500/10 transition border-y-2 border-[#f2920b]/30">
+                  <td role="cell" class="p-4 sm:p-5 font-bold text-slate-900">
                     <div class="flex items-center gap-2">
                       <i data-lucide="video" class="w-4 h-4 text-[#f2920b]"></i>
                       <span>Nagrania, Skróty Akcji & Streaming</span>
                     </div>
                     <span class="inline-block mt-1 px-2 py-0.5 rounded text-[10px] font-heading font-black uppercase bg-[#f2920b] text-slate-950">Polecany</span>
                   </td>
-                  <td class="p-4 sm:p-5 font-heading font-black text-base text-[#f2920b]">195 zł/mies.</td>
-                  <td class="p-4 sm:p-5 text-slate-600">0 zobowiązań • Rezygnacja co miesiąc</td>
-                  <td class="p-4 sm:p-5 text-slate-600">Zapis meczów w prywatnej chmurze, automatyczne klipy najlepszych akcji i streaming na YouTube</td>
+                  <td role="cell" class="p-4 sm:p-5 font-heading font-black text-base text-[#f2920b]">195 zł/mies.</td>
+                  <td role="cell" class="p-4 sm:p-5 text-slate-600">0 zobowiązań • Rezygnacja co miesiąc</td>
+                  <td role="cell" class="p-4 sm:p-5 text-slate-600">Zapis meczów w prywatnej chmurze, automatyczne klipy najlepszych akcji i streaming na YouTube</td>
                 </tr>
 
                 <!-- Fila 3: Estadísticas con IA -->
-                <tr class="hover:bg-slate-50/60 transition">
-                  <td class="p-4 sm:p-5 font-bold text-slate-900">
+                <tr role="row" class="hover:bg-slate-50/60 transition">
+                  <td role="cell" class="p-4 sm:p-5 font-bold text-slate-900">
                     <div class="flex items-center gap-2">
                       <i data-lucide="sparkles" class="w-4 h-4 text-sky-600"></i>
                       <span>Statystyki z AI i Analiza Taktyczna</span>
                     </div>
                   </td>
-                  <td class="p-4 sm:p-5 font-heading font-black text-base text-slate-950">590 zł/mies.</td>
-                  <td class="p-4 sm:p-5 text-slate-600">0 zobowiązań • Opcjonalnie</td>
-                  <td class="p-4 sm:p-5 text-slate-600">Analiza uderzeń, mapy ciepła na korcie, pomiar prędkości piłki i statystyki graczy</td>
+                  <td role="cell" class="p-4 sm:p-5 font-heading font-black text-base text-slate-950">590 zł/mies.</td>
+                  <td role="cell" class="p-4 sm:p-5 text-slate-600">0 zobowiązań • Opcjonalnie</td>
+                  <td role="cell" class="p-4 sm:p-5 text-slate-600">Analiza uderzeń, mapy ciepła na korcie, pomiar prędkości piłki i statystyki graczy</td>
                 </tr>
               </tbody>
             </table>
@@ -848,6 +848,10 @@
       });
 
       function onScroll() {
+        if (window.matchMedia('(max-width: 767px)').matches) {
+          ticking = false;
+          return;
+        }
         if (initialTop === null) {
           updateInitialMetrics();
         }

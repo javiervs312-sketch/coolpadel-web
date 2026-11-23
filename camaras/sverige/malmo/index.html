@@ -440,54 +440,54 @@
 
         <div class="bg-white rounded-3xl border border-slate-200/90 shadow-sm overflow-hidden">
           <div class="overflow-x-auto">
-            <table class="w-full text-left border-collapse">
-              <thead>
-                <tr class="bg-slate-100/80 border-b border-slate-200 text-[11px] sm:text-xs font-heading font-black uppercase text-slate-600 tracking-wider">
-                  <th class="p-4 sm:p-5">Plan / Koncept</th>
-                  <th class="p-4 sm:p-5">Investering / Avgift</th>
-                  <th class="p-4 sm:p-5">Avtalsform</th>
-                  <th class="p-4 sm:p-5">Ingående tjänster</th>
+            <table role="table" class="camera-pricing w-full text-left border-collapse">
+              <thead role="rowgroup">
+                <tr role="row" class="bg-slate-100/80 border-b border-slate-200 text-[11px] sm:text-xs font-heading font-black uppercase text-slate-600 tracking-wider">
+                  <th role="columnheader" scope="col" class="p-4 sm:p-5">Plan / Koncept</th>
+                  <th role="columnheader" scope="col" class="p-4 sm:p-5">Investering / Avgift</th>
+                  <th role="columnheader" scope="col" class="p-4 sm:p-5">Avtalsform</th>
+                  <th role="columnheader" scope="col" class="p-4 sm:p-5">Ingående tjänster</th>
                 </tr>
               </thead>
-              <tbody class="divide-y divide-slate-100 text-xs sm:text-sm">
+              <tbody role="rowgroup" class="divide-y divide-slate-100 text-xs sm:text-sm">
                 <!-- Fila 1: Hardware en Propiedad -->
-                <tr class="hover:bg-slate-50/60 transition">
-                  <td class="p-4 sm:p-5 font-bold text-slate-900">
+                <tr role="row" class="hover:bg-slate-50/60 transition">
+                  <td role="cell" class="p-4 sm:p-5 font-bold text-slate-900">
                     <div class="flex items-center gap-2">
                       <i data-lucide="hard-drive" class="w-4 h-4 text-[#f2920b]"></i>
                       <span>Hårdvaruinvestering i Ägo</span>
                     </div>
                   </td>
-                  <td class="p-4 sm:p-5 font-heading font-black text-base text-slate-950">2.050 kr</td>
-                  <td class="p-4 sm:p-5 text-slate-600">Engångsbetalning</td>
-                  <td class="p-4 sm:p-5 text-slate-600">1 sportkamera per bana (rak lins utan fisheye) + säkerhetsfäste för stolpe</td>
+                  <td role="cell" class="p-4 sm:p-5 font-heading font-black text-base text-slate-950">2.050 kr</td>
+                  <td role="cell" class="p-4 sm:p-5 text-slate-600">Engångsbetalning</td>
+                  <td role="cell" class="p-4 sm:p-5 text-slate-600">1 sportkamera per bana (rak lins utan fisheye) + säkerhetsfäste för stolpe</td>
                 </tr>
 
                 <!-- Fila 2: Grabación y Highlights -->
-                <tr class="bg-amber-500/5 hover:bg-amber-500/10 transition border-y-2 border-[#f2920b]/30">
-                  <td class="p-4 sm:p-5 font-bold text-slate-900">
+                <tr role="row" class="bg-amber-500/5 hover:bg-amber-500/10 transition border-y-2 border-[#f2920b]/30">
+                  <td role="cell" class="p-4 sm:p-5 font-bold text-slate-900">
                     <div class="flex items-center gap-2">
                       <i data-lucide="video" class="w-4 h-4 text-[#f2920b]"></i>
                       <span>Inspelning, Höjdpunkter & Streaming</span>
                     </div>
                     <span class="inline-block mt-1 px-2 py-0.5 rounded text-[10px] font-heading font-black uppercase bg-[#f2920b] text-slate-950">Rekommenderad</span>
                   </td>
-                  <td class="p-4 sm:p-5 font-heading font-black text-base text-[#f2920b]">515 kr/mån</td>
-                  <td class="p-4 sm:p-5 text-slate-600">0 bindningstid • Månad för månad</td>
-                  <td class="p-4 sm:p-5 text-slate-600">Inspelning i privat moln, automatiska höjdpunkter och direktsändning på YouTube med klubbens logotyp</td>
+                  <td role="cell" class="p-4 sm:p-5 font-heading font-black text-base text-[#f2920b]">515 kr/mån</td>
+                  <td role="cell" class="p-4 sm:p-5 text-slate-600">0 bindningstid • Månad för månad</td>
+                  <td role="cell" class="p-4 sm:p-5 text-slate-600">Inspelning i privat moln, automatiska höjdpunkter och direktsändning på YouTube med klubbens logotyp</td>
                 </tr>
 
                 <!-- Fila 3: Estadísticas con IA -->
-                <tr class="hover:bg-slate-50/60 transition">
-                  <td class="p-4 sm:p-5 font-bold text-slate-900">
+                <tr role="row" class="hover:bg-slate-50/60 transition">
+                  <td role="cell" class="p-4 sm:p-5 font-bold text-slate-900">
                     <div class="flex items-center gap-2">
                       <i data-lucide="sparkles" class="w-4 h-4 text-sky-600"></i>
                       <span>AI-Statistik och Taktisk Spelaranalys</span>
                     </div>
                   </td>
-                  <td class="p-4 sm:p-5 font-heading font-black text-base text-slate-950">1.550 kr/mån</td>
-                  <td class="p-4 sm:p-5 text-slate-600">0 bindningstid • Valfri</td>
-                  <td class="p-4 sm:p-5 text-slate-600">Slaganalys, värmekartor, bollhastighet och individuell statistik per spelare</td>
+                  <td role="cell" class="p-4 sm:p-5 font-heading font-black text-base text-slate-950">1.550 kr/mån</td>
+                  <td role="cell" class="p-4 sm:p-5 text-slate-600">0 bindningstid • Valfri</td>
+                  <td role="cell" class="p-4 sm:p-5 text-slate-600">Slaganalys, värmekartor, bollhastighet och individuell statistik per spelare</td>
                 </tr>
               </tbody>
             </table>
@@ -802,6 +802,10 @@
       });
 
       function onScroll() {
+        if (window.matchMedia('(max-width: 767px)').matches) {
+          ticking = false;
+          return;
+        }
         if (initialTop === null) {
           updateInitialMetrics();
         }

@@ -20,33 +20,33 @@ LOCAL_LANDINGS = [
         "geo_region": "ES-MD",
         "geo_placename": "Madrid, España",
         "geo_position": "40.4168;-3.7038",
-        "title": "Cámaras Pádel Madrid · Hub Oficial · 45€/mes | Save My Play",
-        "meta_desc": "Cámaras Save my Play en Madrid y zona centro (+1.500 pistas). Grabación en 5 min sin obras, repeticiones por QR, cuota desde 45€/mes y soporte directo.",
-        "badge": "MADRID HUB · SAVE MY PLAY ESPAÑA",
-        "breadcrumb_leaf": "Pistas Madrid",
-        "h1": "Cámaras Inteligentes para Pistas de Pádel en Madrid",
-        "subtitle": "Equipa tus pistas en la Comunidad de Madrid con la tecnología en pista líder: grabación Full HD con pulsador en red, descarga de highlights por QR y retransmisión de torneos sin obras.",
+        "title": "Cámaras para pistas de pádel en Madrid | Save My Play",
+        "meta_desc": "Cámaras Save my Play para clubes de pádel en Madrid. Graba partidos, comparte puntos por QR y emite torneos en directo. Consulta precios y pide una demo.",
+        "badge": "MADRID · SAVE MY PLAY",
+        "breadcrumb_leaf": "Madrid",
+        "h1": "Cámaras para pistas de pádel en Madrid",
+        "subtitle": "Graba partidos, guarda los mejores puntos con el pulsador de la red y comparte los vídeos por QR, sin que los jugadores tengan que instalar una app.",
         "hero_img": "assets/images/savemyplay-1.jpg",
         "hero_img_alt": "Cámaras Save my Play para pistas de pádel en Madrid",
         "wa_msg": "Hola Javier, tenemos un club de pádel en Madrid y queremos información y demo de Save My Play",
-        "price_anchor": "Hardware 180 € / pista · Software 45 €/mes · Soporte local en Madrid",
+        "price_anchor": "Cámara en propiedad desde 180 € por pista",
         "target_audience": "Directores de clubes de pádel, complejos municipales y academias en Madrid, Alcobendas, Pozuelo, Las Rozas, Alcalá y Getafe.",
         "quick_summary": {
-            "label_1": "Hardware Pista", "val_1": "180 € en propiedad por pista",
-            "label_2": "Cuota Software", "val_2": "45 € / mes por pista · Sin permanencia",
-            "label_3": "Soporte Central", "val_3": "Equipo técnico directo en Madrid",
-            "label_4": "Instalación", "val_4": "Montaje en 5 min sin cables ni rozas",
+            "label_1": "Cámara en propiedad", "val_1": "180 € por pista",
+            "label_2": "Plan de grabación", "val_2": "45 €/mes por pista en clubes de menos de 5 pistas",
+            "label_3": "Permanencia", "val_3": "Cuota mensual sin permanencia",
+            "label_4": "Instalación", "val_4": "Montaje en el poste sin obras",
             "p": "Instalación oficial de cámaras Save My Play en Madrid. Retransmisión de torneos y descarga inmediata de clips de 25 segundos para tus jugadores sin necesidad de registrarse en apps."
         },
         "benefits": [
-            ("Soporte Directo y Demos en Madrid", "Atención directa con Javier Villoria y demos online en 15 minutos para gerentes y directores de escuela."),
-            ("Envío Inmediato en 24-48h", "Stock disponible en España sin esperas transatlánticas ni trámites de aduana."),
-            ("Autonomía 100% Digital en Pista", "Los jugadores escanean el código QR en el poste y descargan sus mejores jugadas al instante.")
+            ("Guarda los mejores puntos", "Pulsa el botón de la red tras una jugada y recupera el vídeo desde el móvil con el código QR."),
+            ("Retransmite torneos", "Emite los partidos en directo en YouTube desde la cámara de la pista."),
+            ("Pide una demo para tu club", "Javier te enseña cómo funciona el sistema y te prepara un presupuesto según el número de pistas.")
         ],
         "faqs": [
             ("¿Dais cobertura en toda la Comunidad de Madrid?", "Sí, atendemos Madrid capital, Pozuelo, Majadahonda, Las Rozas, Alcobendas, San Sebastián de los Reyes, Alcorcón, Getafe, Alcalá de Henares y alrededores."),
-            ("¿Requiere obras o cables por la pista?", "Cero obras. El hardware se fija al poste en 5 minutos y se alimenta de la corriente de la pista."),
-            ("¿Hay contrato de permanencia?", "No. Pagas mes a mes (45€/mes) y cancelas cuando quieras sin penalización.")
+            ("¿Cómo se instala la cámara?", "Se fija al poste sin obras y necesita una toma de corriente."),
+            ("¿Hay contrato de permanencia?", "La cuota se paga mes a mes y puedes cancelarla cuando quieras. El precio por pista depende del número de pistas.")
         ]
     },
     {
@@ -668,8 +668,8 @@ def render_local_landing(l):
 
   <!-- Hero Section -->
   <main class="flex-grow">
-    <section class="relative bg-gradient-to-b from-[#0b1626] to-[#08101a] text-white py-14 sm:py-20 px-4 sm:px-6 overflow-hidden">
-      <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+    <section class="camera-local-hero relative text-white py-8 sm:py-20 px-6 overflow-hidden">
+      <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-10 items-center">
         <div class="lg:col-span-7 space-y-6">
           <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/10 border border-white/20 text-[#f2920b] text-xs font-black tracking-wide uppercase">
             <i data-lucide="map-pin" class="w-3.5 h-3.5"></i>
@@ -678,14 +678,14 @@ def render_local_landing(l):
           <h1 class="text-2xl sm:text-4xl lg:text-5xl font-black font-heading tracking-tight leading-tight">
             {l['h1']}
           </h1>
-          <p class="text-sm sm:text-base text-slate-300 leading-relaxed">
+          <p class="text-base text-slate-100 leading-relaxed">
             {l['subtitle']}
           </p>
           <div class="inline-flex items-center gap-2 px-4 py-2 rounded-2xl bg-amber-500/10 border border-[#f2920b]/30 text-[#f2920b] font-bold text-xs sm:text-sm">
             <i data-lucide="tag" class="w-4 h-4"></i>
             <span>{l['price_anchor']}</span>
           </div>
-          <div class="flex flex-wrap gap-3 pt-2">
+          <div class="flex flex-col sm:flex-row sm:flex-wrap gap-3 pt-2">
             <a href="https://wa.me/34680317486?text={urllib.parse.quote(quote_message)}" data-product="camaras" data-lead-intent="presupuesto" data-button-position="hero" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-6 py-3.5 rounded-2xl bg-[#f2920b] hover:bg-[#d98006] text-slate-950 font-black font-heading text-sm shadow-lg shadow-amber-500/20 transition hover:scale-105">
               <i data-lucide="message-circle" class="w-4 h-4"></i>
               <span>{btn_wa_text}</span>
@@ -708,8 +708,8 @@ def render_local_landing(l):
     </section>
 
     <!-- Resumen Clave -->
-    <section class="max-w-6xl mx-auto px-4 sm:px-6 -mt-8 relative z-20">
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+    <section class="max-w-6xl mx-auto px-6 mt-4 sm:-mt-8 relative z-20">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         <div class="bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/90 shadow-md">
           <span class="text-[11px] font-bold text-slate-500 uppercase tracking-wider block">{l['quick_summary']['label_1']}</span>
           <span class="text-sm sm:text-base font-black font-heading text-slate-950 mt-1 block">{l['quick_summary']['val_1']}</span>
@@ -761,7 +761,7 @@ def render_local_landing(l):
   </main>
 
   <!-- Footer Oficial -->
-  <footer class="bg-[#0b1626] text-white py-12 px-4 sm:px-6 border-t border-slate-800 text-xs mt-16">
+  <footer class="camera-local-hero text-white py-12 px-6 border-t border-slate-800 text-xs mt-16">
     <div class="max-w-6xl mx-auto space-y-8">
       <div class="flex flex-col sm:flex-row items-center justify-between gap-4 border-b border-white/10 pb-6">
         <a href="{DOMAIN}/{path_prefix}" class="flex items-center gap-2">

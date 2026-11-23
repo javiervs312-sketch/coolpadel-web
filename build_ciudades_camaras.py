@@ -534,54 +534,54 @@ def generate_city_page(country_item, city, slug_country_used, canonical_country_
 
         <div class="bg-white rounded-3xl border border-slate-200/90 shadow-sm overflow-hidden">
           <div class="overflow-x-auto">
-            <table class="w-full text-left border-collapse">
-              <thead>
-                <tr class="bg-slate-100/80 border-b border-slate-200 text-[11px] sm:text-xs font-heading font-black uppercase text-slate-600 tracking-wider">
-                  <th class="p-4 sm:p-5">{t["pricing_th_plan"]}</th>
-                  <th class="p-4 sm:p-5">{t["pricing_th_invest"]}</th>
-                  <th class="p-4 sm:p-5">{t["pricing_th_mod"]}</th>
-                  <th class="p-4 sm:p-5">{t["pricing_th_serv"]}</th>
+            <table role="table" class="camera-pricing w-full text-left border-collapse">
+              <thead role="rowgroup">
+                <tr role="row" class="bg-slate-100/80 border-b border-slate-200 text-[11px] sm:text-xs font-heading font-black uppercase text-slate-600 tracking-wider">
+                  <th role="columnheader" scope="col" class="p-4 sm:p-5">{t["pricing_th_plan"]}</th>
+                  <th role="columnheader" scope="col" class="p-4 sm:p-5">{t["pricing_th_invest"]}</th>
+                  <th role="columnheader" scope="col" class="p-4 sm:p-5">{t["pricing_th_mod"]}</th>
+                  <th role="columnheader" scope="col" class="p-4 sm:p-5">{t["pricing_th_serv"]}</th>
                 </tr>
               </thead>
-              <tbody class="divide-y divide-slate-100 text-xs sm:text-sm">
+              <tbody role="rowgroup" class="divide-y divide-slate-100 text-xs sm:text-sm">
                 <!-- Fila 1: Hardware en Propiedad -->
-                <tr class="hover:bg-slate-50/60 transition">
-                  <td class="p-4 sm:p-5 font-bold text-slate-900">
+                <tr role="row" class="hover:bg-slate-50/60 transition">
+                  <td role="cell" class="p-4 sm:p-5 font-bold text-slate-900">
                     <div class="flex items-center gap-2">
                       <i data-lucide="hard-drive" class="w-4 h-4 text-[#f2920b]"></i>
                       <span>{t["tbl_hw_title"]}</span>
                     </div>
                   </td>
-                  <td class="p-4 sm:p-5 font-heading font-black text-base text-slate-950">{hw}</td>
-                  <td class="p-4 sm:p-5 text-slate-600">{t["tbl_hw_mod"]}</td>
-                  <td class="p-4 sm:p-5 text-slate-600">{t["tbl_hw_desc"]}</td>
+                  <td role="cell" class="p-4 sm:p-5 font-heading font-black text-base text-slate-950">{hw}</td>
+                  <td role="cell" class="p-4 sm:p-5 text-slate-600">{t["tbl_hw_mod"]}</td>
+                  <td role="cell" class="p-4 sm:p-5 text-slate-600">{t["tbl_hw_desc"]}</td>
                 </tr>
 
                 <!-- Fila 2: Grabación y Highlights -->
-                <tr class="bg-amber-500/5 hover:bg-amber-500/10 transition border-y-2 border-[#f2920b]/30">
-                  <td class="p-4 sm:p-5 font-bold text-slate-900">
+                <tr role="row" class="bg-amber-500/5 hover:bg-amber-500/10 transition border-y-2 border-[#f2920b]/30">
+                  <td role="cell" class="p-4 sm:p-5 font-bold text-slate-900">
                     <div class="flex items-center gap-2">
                       <i data-lucide="video" class="w-4 h-4 text-[#f2920b]"></i>
                       <span>{t["tbl_rec_title"]}</span>
                     </div>
                     <span class="inline-block mt-1 px-2 py-0.5 rounded text-[10px] font-heading font-black uppercase bg-[#f2920b] text-slate-950">{badge_plan_rec}</span>
                   </td>
-                  <td class="p-4 sm:p-5 font-heading font-black text-base text-[#f2920b]">{rec}</td>
-                  <td class="p-4 sm:p-5 text-slate-600">{t["tbl_rec_mod"]}</td>
-                  <td class="p-4 sm:p-5 text-slate-600">{t["tbl_rec_desc"]}</td>
+                  <td role="cell" class="p-4 sm:p-5 font-heading font-black text-base text-[#f2920b]">{rec}</td>
+                  <td role="cell" class="p-4 sm:p-5 text-slate-600">{t["tbl_rec_mod"]}</td>
+                  <td role="cell" class="p-4 sm:p-5 text-slate-600">{t["tbl_rec_desc"]}</td>
                 </tr>
 
                 <!-- Fila 3: Estadísticas con IA -->
-                <tr class="hover:bg-slate-50/60 transition">
-                  <td class="p-4 sm:p-5 font-bold text-slate-900">
+                <tr role="row" class="hover:bg-slate-50/60 transition">
+                  <td role="cell" class="p-4 sm:p-5 font-bold text-slate-900">
                     <div class="flex items-center gap-2">
                       <i data-lucide="sparkles" class="w-4 h-4 text-sky-600"></i>
                       <span>{t["tbl_ai_title"]}</span>
                     </div>
                   </td>
-                  <td class="p-4 sm:p-5 font-heading font-black text-base text-slate-950">{ai}</td>
-                  <td class="p-4 sm:p-5 text-slate-600">{t["tbl_ai_mod"]}</td>
-                  <td class="p-4 sm:p-5 text-slate-600">{t["tbl_ai_desc"]}</td>
+                  <td role="cell" class="p-4 sm:p-5 font-heading font-black text-base text-slate-950">{ai}</td>
+                  <td role="cell" class="p-4 sm:p-5 text-slate-600">{t["tbl_ai_mod"]}</td>
+                  <td role="cell" class="p-4 sm:p-5 text-slate-600">{t["tbl_ai_desc"]}</td>
                 </tr>
               </tbody>
             </table>
@@ -893,6 +893,10 @@ def generate_city_page(country_item, city, slug_country_used, canonical_country_
       }});
 
       function onScroll() {{
+        if (window.matchMedia('(max-width: 767px)').matches) {{
+          ticking = false;
+          return;
+        }}
         if (initialTop === null) {{
           updateInitialMetrics();
         }}

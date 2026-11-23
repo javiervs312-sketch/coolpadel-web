@@ -440,54 +440,54 @@
 
         <div class="bg-white rounded-3xl border border-slate-200/90 shadow-sm overflow-hidden">
           <div class="overflow-x-auto">
-            <table class="w-full text-left border-collapse">
-              <thead>
-                <tr class="bg-slate-100/80 border-b border-slate-200 text-[11px] sm:text-xs font-heading font-black uppercase text-slate-600 tracking-wider">
-                  <th class="p-4 sm:p-5">プラン / 仕様</th>
-                  <th class="p-4 sm:p-5">費用 / 料金</th>
-                  <th class="p-4 sm:p-5">契約条件</th>
-                  <th class="p-4 sm:p-5">含まれるサービス</th>
+            <table role="table" class="camera-pricing w-full text-left border-collapse">
+              <thead role="rowgroup">
+                <tr role="row" class="bg-slate-100/80 border-b border-slate-200 text-[11px] sm:text-xs font-heading font-black uppercase text-slate-600 tracking-wider">
+                  <th role="columnheader" scope="col" class="p-4 sm:p-5">プラン / 仕様</th>
+                  <th role="columnheader" scope="col" class="p-4 sm:p-5">費用 / 料金</th>
+                  <th role="columnheader" scope="col" class="p-4 sm:p-5">契約条件</th>
+                  <th role="columnheader" scope="col" class="p-4 sm:p-5">含まれるサービス</th>
                 </tr>
               </thead>
-              <tbody class="divide-y divide-slate-100 text-xs sm:text-sm">
+              <tbody role="rowgroup" class="divide-y divide-slate-100 text-xs sm:text-sm">
                 <!-- Fila 1: Hardware en Propiedad -->
-                <tr class="hover:bg-slate-50/60 transition">
-                  <td class="p-4 sm:p-5 font-bold text-slate-900">
+                <tr role="row" class="hover:bg-slate-50/60 transition">
+                  <td role="cell" class="p-4 sm:p-5 font-bold text-slate-900">
                     <div class="flex items-center gap-2">
                       <i data-lucide="hard-drive" class="w-4 h-4 text-[#f2920b]"></i>
                       <span>ハードウェア本体（買い切り）</span>
                     </div>
                   </td>
-                  <td class="p-4 sm:p-5 font-heading font-black text-base text-slate-950">¥31.700</td>
-                  <td class="p-4 sm:p-5 text-slate-600">一括払い</td>
-                  <td class="p-4 sm:p-5 text-slate-600">コート1面につき専用スポーツカメラ1台（魚眼歪みのない直線レンズ）＋専用ポール固定具</td>
+                  <td role="cell" class="p-4 sm:p-5 font-heading font-black text-base text-slate-950">¥31.700</td>
+                  <td role="cell" class="p-4 sm:p-5 text-slate-600">一括払い</td>
+                  <td role="cell" class="p-4 sm:p-5 text-slate-600">コート1面につき専用スポーツカメラ1台（魚眼歪みのない直線レンズ）＋専用ポール固定具</td>
                 </tr>
 
                 <!-- Fila 2: Grabación y Highlights -->
-                <tr class="bg-amber-500/5 hover:bg-amber-500/10 transition border-y-2 border-[#f2920b]/30">
-                  <td class="p-4 sm:p-5 font-bold text-slate-900">
+                <tr role="row" class="bg-amber-500/5 hover:bg-amber-500/10 transition border-y-2 border-[#f2920b]/30">
+                  <td role="cell" class="p-4 sm:p-5 font-bold text-slate-900">
                     <div class="flex items-center gap-2">
                       <i data-lucide="video" class="w-4 h-4 text-[#f2920b]"></i>
                       <span>試合録画・ハイライト・ライブ配信</span>
                     </div>
                     <span class="inline-block mt-1 px-2 py-0.5 rounded text-[10px] font-heading font-black uppercase bg-[#f2920b] text-slate-950">おすすめ</span>
                   </td>
-                  <td class="p-4 sm:p-5 font-heading font-black text-base text-[#f2920b]">¥7.900/月</td>
-                  <td class="p-4 sm:p-5 text-slate-600">縛りなし • 毎月解約可能</td>
-                  <td class="p-4 sm:p-5 text-slate-600">セキュアクラウドへの録画、ベストラリーの自動抽出、クラブロゴ入りYouTube配信</td>
+                  <td role="cell" class="p-4 sm:p-5 font-heading font-black text-base text-[#f2920b]">¥7.900/月</td>
+                  <td role="cell" class="p-4 sm:p-5 text-slate-600">縛りなし • 毎月解約可能</td>
+                  <td role="cell" class="p-4 sm:p-5 text-slate-600">セキュアクラウドへの録画、ベストラリーの自動抽出、クラブロゴ入りYouTube配信</td>
                 </tr>
 
                 <!-- Fila 3: Estadísticas con IA -->
-                <tr class="hover:bg-slate-50/60 transition">
-                  <td class="p-4 sm:p-5 font-bold text-slate-900">
+                <tr role="row" class="hover:bg-slate-50/60 transition">
+                  <td role="cell" class="p-4 sm:p-5 font-bold text-slate-900">
                     <div class="flex items-center gap-2">
                       <i data-lucide="sparkles" class="w-4 h-4 text-sky-600"></i>
                       <span>AI戦術分析およびプレイヤー統計</span>
                     </div>
                   </td>
-                  <td class="p-4 sm:p-5 font-heading font-black text-base text-slate-950">¥23.900/月</td>
-                  <td class="p-4 sm:p-5 text-slate-600">縛りなし • オプション</td>
-                  <td class="p-4 sm:p-5 text-slate-600">ショット種別分析、コートヒートマップ、ボール初速測定、個人別パフォーマンスデータ</td>
+                  <td role="cell" class="p-4 sm:p-5 font-heading font-black text-base text-slate-950">¥23.900/月</td>
+                  <td role="cell" class="p-4 sm:p-5 text-slate-600">縛りなし • オプション</td>
+                  <td role="cell" class="p-4 sm:p-5 text-slate-600">ショット種別分析、コートヒートマップ、ボール初速測定、個人別パフォーマンスデータ</td>
                 </tr>
               </tbody>
             </table>
@@ -802,6 +802,10 @@
       });
 
       function onScroll() {
+        if (window.matchMedia('(max-width: 767px)').matches) {
+          ticking = false;
+          return;
+        }
         if (initialTop === null) {
           updateInitialMetrics();
         }
