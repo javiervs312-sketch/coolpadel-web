@@ -154,13 +154,15 @@ def generate_country_page(item, slug_to_use, canonical_slug=None):
                     {
                         "@type": "Offer",
                         "url": canonical_url,
-                        "itemOffered": {"@type": "Product", "name": f"Save My Play · {hw}"},
+                        "availability": "https://schema.org/InStock",
+                        "name": f"Save My Play · {hw}",
                         "price": schema_hardware_price,
                         "priceCurrency": schema_curr,
                     },
                     {
                         "@type": "Offer",
                         "url": canonical_url,
+                        "availability": "https://schema.org/InStock",
                         "itemOffered": {"@type": "Service", "name": f"Save My Play · {rec}"},
                         "priceSpecification": {
                             "@type": "UnitPriceSpecification",
