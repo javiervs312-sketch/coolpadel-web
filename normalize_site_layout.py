@@ -7,7 +7,7 @@ from html.parser import HTMLParser
 from pathlib import Path
 import re
 import subprocess
-from urllib.parse import urlsplit
+from urllib.parse import quote, urlsplit
 
 
 ROOT = Path(__file__).resolve().parent
@@ -238,6 +238,78 @@ def add_body_class(tag, name):
     return tag[:classes.end(1)] + " " + name + tag[classes.end(1):]
 
 
+def spain_camera_pilot(html):
+    if 'class="cp-spain-hero"' in html:
+        return html
+    message = "Hola Javier, me gustaría pedir una demo de 15 minutos de Save my Play para mi club en España."
+    demo_url = "https://wa.me/34680317486?text=" + quote(message)
+    label = "Pedir demo de 15 min por WhatsApp"
+    demo = f'<a href="{demo_url}" target="_blank" rel="noopener noreferrer" data-product="camaras" data-lead-intent="demo"'
+    hero = f'''<nav class="cp-spain-breadcrumb" aria-label="Ruta de navegación">
+      <div class="cp-spain-wrap"><a href="/">Inicio</a> / <a href="/camaras/">Cámaras</a> / España</div>
+    </nav>
+    <section class="cp-spain-hero">
+      <div class="cp-spain-wrap cp-spain-hero-grid">
+        <div>
+          <p class="cp-spain-kicker">La cámara n.º 1 de tenis, pádel y pickleball en Estados Unidos</p>
+          <h1>Cámaras para clubs de Pádel en España</h1>
+          <p class="cp-spain-subtitle">Retransmite Partidos, Comparte Highlights y Estadísticas con IA</p>
+          <p class="cp-spain-description">Save my Play es la cámara oficial de USA Padel y USTA. Graba partidos, recupera tus mejores puntos por QR y monta la cámara en el poste sin obras.</p>
+          <div class="cp-spain-actions">
+            {demo} id="spain-demo" data-button-position="hero" class="cp-spain-button">{label}</a>
+            <a class="cp-spain-button cp-spain-price-link" href="#precios">Ver precios ↓</a>
+          </div>
+        </div>
+        <img class="cp-spain-photo" src="/assets/images/savemyplay-1.jpg" width="800" height="450"
+             alt="Vista de una pista de pádel desde una cámara Save my Play" fetchpriority="high">
+      </div>
+    </section>
+    <section class="cp-spain-facts" aria-label="Equipamiento y servicio">
+      <div class="cp-spain-wrap">
+        <dl>
+          <div><dt>Cámara en propiedad</dt><dd>180 € por pista</dd></div>
+          <div><dt>Plan de grabación</dt><dd>Desde 45 €/mes por pista</dd></div>
+          <div><dt>Modalidad del plan</dt><dd>Suscripción mensual</dd></div>
+          <div><dt>Instalación</dt><dd>Montaje en el poste sin obras</dd></div>
+        </dl>
+        <nav class="cp-spain-city-links" aria-label="Cámaras por ciudad">
+          <a href="/camaras-padel-madrid/">Madrid</a>
+          <a href="/camaras-padel-barcelona/">Barcelona</a>
+          <a href="/camaras-padel-valencia/">Valencia</a>
+          <a href="/camaras/espana/sevilla/">Sevilla</a>
+          <a href="/camaras-padel-malaga/">Málaga</a>
+        </nav>
+      </div>
+    </section>
+
+    '''
+    start, benefits_start, prices_start, video_start = (
+        html.index(f"<!-- {number}. ") for number in range(1, 5)
+    )
+    benefits = html[benefits_start:prices_start].replace('<section class="', '<section class="cp-spain-benefits ', 1)
+    benefits = re.sub(r"(?m)^[ \t]+(?=\r?$)", "", benefits)
+    html = html[:start] + hero + html[prices_start:video_start] + benefits + html[video_start:]
+    html = html.replace("0 permanencia • Cancelación libre", "Cuota mensual sin permanencia")
+    html = html.replace("Ninguna permanencia. Cancelación libre mes a mes sin penalizaciones.",
+                        "El plan se contrata mes a mes, sin compromiso de permanencia.")
+    html = re.sub(r'(?s)    // Mantener el MISMO boton.*?(?=  </script>)', '', html, count=1)
+    html = re.sub(r'<body\b[^>]*>', lambda m: add_body_class(m[0], "cp-spain-pilot"), html, count=1)
+    html = html.replace("</head>", '  <link rel="stylesheet" href="/assets/css/camera-spain-pilot.css">\n</head>', 1)
+    floating = f'''{demo} id="spain-demo-floating" data-button-position="floating"
+   class="cp-spain-button cp-spain-floating">{label}</a>
+<script>
+  if ('IntersectionObserver' in window) {{
+    const heroDemo = document.getElementById('spain-demo');
+    const floatingDemo = document.getElementById('spain-demo-floating');
+    new IntersectionObserver(([entry]) => {{
+      floatingDemo.hidden = entry.isIntersecting;
+    }}).observe(heroDemo);
+  }}
+</script>
+'''
+    return html.replace("</body>", floating + "</body>", 1)
+
+
 def normalize(only=None):
     names = subprocess.check_output(
         ["git", "ls-files", "-z", "--cached", "--others", "--exclude-standard", "--", "*.html"],
@@ -283,6 +355,8 @@ def normalize(only=None):
         layout = EDITORIAL_LAYOUTS.get(Path(name).parent.name)
         if layout:
             revised = re.sub(r'<body\b[^>]*>', lambda m: add_body_class(m[0], layout), revised, count=1)
+        if name == "camaras/espana/index.html":
+            revised = spain_camera_pilot(revised)
         if name in HOME:
             revised = logo_carousel(revised)
             if "cp-home-faq-tracking" not in revised:
