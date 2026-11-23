@@ -12,6 +12,12 @@ from urllib.parse import urlsplit
 
 ROOT = Path(__file__).resolve().parent
 HOME = {"index.html", "en/index.html", "fr/index.html", "it/index.html"}
+EDITORIAL_LAYOUTS = {
+    "barometro-camaras-padel-2026": "cp-editorial-report",
+    "cuanto-cuesta-montar-pista-padel-presupuesto-rentabilidad": "cp-editorial-cost",
+    "generador-americana-padel": "cp-tournament",
+    "generador-cuadros-torneo-padel": "cp-tournament",
+}
 UI = {
     "es": ("Llaveros", "Cámaras", "Blog", "Cadenas de clubs", "Contactar", "Menú e idioma"),
     "en": ("Keyrings", "Cameras", "Blog", "Club chains", "Contact", "Menu and language"),
@@ -223,6 +229,15 @@ def logo_carousel(html):
     return html[:match.start()] + ticker + html[match.end():]
 
 
+def add_body_class(tag, name):
+    classes = re.search(r'\bclass="([^"]*)"', tag)
+    if not classes:
+        return tag[:-1] + f' class="{name}">'
+    if name in classes[1].split():
+        return tag
+    return tag[:classes.end(1)] + " " + name + tag[classes.end(1):]
+
+
 def normalize(only=None):
     names = subprocess.check_output(
         ["git", "ls-files", "-z", "--cached", "--others", "--exclude-standard", "--", "*.html"],
@@ -265,6 +280,9 @@ def normalize(only=None):
             revised = re.sub(r"(?m)^(\s*)header(\s*\{)", r"\1.cp-content-heading\2", revised)
         if 'href="/assets/css/site-layout.css"' not in revised:
             revised = revised.replace("</head>", '  <link rel="stylesheet" href="/assets/css/site-layout.css">\n</head>', 1)
+        layout = EDITORIAL_LAYOUTS.get(Path(name).parent.name)
+        if layout:
+            revised = re.sub(r'<body\b[^>]*>', lambda m: add_body_class(m[0], layout), revised, count=1)
         if name in HOME:
             revised = logo_carousel(revised)
             if "cp-home-faq-tracking" not in revised:
