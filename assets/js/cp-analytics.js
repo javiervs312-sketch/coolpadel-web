@@ -42,18 +42,158 @@
     return;
   }
 
-  // 2. Gestión de Exclusión de Administrador / Dueño (ignorar tus propias visitas)
-  // Abrir https://coolpadelstudios.com/?yo=1 o ?admin=1 activa el bloqueo permanente en este navegador/dispositivo.
-  // Abrir ?borrar_yo=1 o ?track_me=1 vuelve a activar el seguimiento para pruebas.
-  const urlParams = new URLSearchParams(window.location.search);
-  if (urlParams.get('yo') === '1' || urlParams.get('admin') === '1' || urlParams.get('no_track') === '1') {
-    try { localStorage.setItem('cp_ignore_owner', '1'); } catch (e) {}
-  } else if (urlParams.get('borrar_yo') === '1' || urlParams.get('track_me') === '1') {
-    try { localStorage.removeItem('cp_ignore_owner'); } catch (e) {}
+  // 2. Gestión Robusta de Exclusión de Administrador / Dueño (ignorar tus propias visitas)
+  // Métodos de activación:
+  // - Abrir https://coolpadelstudios.com/yo/ o /admin/
+  // - Añadir a cualquier URL: ?yo, ?admin, ?javier, ?soyyo, #yo, #admin
+  // - Pulsar 5 veces seguidas en el footer de cualquier página
+  // - Detección automática por IP conocida del dueño (85.60.187.52)
+  function showAdminToast(msg) {
+    try {
+      let t = document.getElementById('cp-admin-toast');
+      if (!t) {
+        t = document.createElement('div');
+        t.id = 'cp-admin-toast';
+        t.style.cssText = 'position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#0b1626;color:#10b981;border:1px solid #10b981;padding:12px 20px;border-radius:12px;font-size:14px;font-weight:600;z-index:999999;box-shadow:0 10px 25px rgba(0,0,0,0.5);text-align:center;max-width:90%;font-family:system-ui,-apple-system,sans-serif;transition:opacity 0.3s;pointer-events:none;';
+        document.body.appendChild(t);
+      }
+      t.innerText = msg;
+      t.style.opacity = '1';
+      setTimeout(function () {
+        if (t) {
+          t.style.opacity = '0';
+          setTimeout(function () { if (t && t.parentNode) t.parentNode.removeChild(t); }, 400);
+        }
+      }, 4000);
+    } catch (e) {}
   }
+
+  function hasOwnerCookie() {
+    try {
+      return document.cookie.split(';').some(function (c) {
+        return c.trim().indexOf('cp_ignore_owner=1') === 0;
+      });
+    } catch (e) {
+      return false;
+    }
+  }
+
+  function setOwnerCookie(val) {
+    try {
+      if (val) {
+        document.cookie = 'cp_ignore_owner=1; path=/; max-age=315360000; SameSite=Lax';
+      } else {
+        document.cookie = 'cp_ignore_owner=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT; SameSite=Lax';
+      }
+    } catch (e) {}
+  }
+
+  const urlParams = new URLSearchParams(window.location.search);
+  const rawHash = (window.location.hash || '').toLowerCase();
+
+  const hasAdminQuery = (
+    urlParams.has('yo') ||
+    urlParams.has('admin') ||
+    urlParams.has('no_track') ||
+    urlParams.has('javier') ||
+    urlParams.has('soyyo') ||
+    urlParams.has('owner') ||
+    rawHash === '#yo' ||
+    rawHash === '#admin' ||
+    rawHash === '#javier' ||
+    rawHash === '#soyyo'
+  );
+
+  const hasResetQuery = (
+    urlParams.has('borrar_yo') ||
+    urlParams.has('track_me') ||
+    rawHash === '#track_me' ||
+    rawHash === '#borrar_yo'
+  );
+
+  if (hasAdminQuery) {
+    try {
+      localStorage.setItem('cp_ignore_owner', '1');
+      localStorage.setItem('cp_admin', '1');
+      sessionStorage.setItem('cp_ignore_owner', '1');
+      setOwnerCookie(true);
+    } catch (e) {}
+    showAdminToast('🛡️ Modo Administrador ACTIVADO (Tus visitas no se registrarán)');
+  } else if (hasResetQuery) {
+    try {
+      localStorage.removeItem('cp_ignore_owner');
+      localStorage.removeItem('cp_admin');
+      sessionStorage.removeItem('cp_ignore_owner');
+      setOwnerCookie(false);
+    } catch (e) {}
+    showAdminToast('⚠️ Modo Administrador DESACTIVADO (Rastreo reactivado para pruebas)');
+  }
+
   let isOwner = false;
-  try { isOwner = localStorage.getItem('cp_ignore_owner') === '1'; } catch (e) {}
-  const isAdmin = isOwner;
+  try {
+    isOwner = (
+      localStorage.getItem('cp_ignore_owner') === '1' ||
+      localStorage.getItem('cp_admin') === '1' ||
+      sessionStorage.getItem('cp_ignore_owner') === '1' ||
+      hasOwnerCookie()
+    );
+  } catch (e) {}
+
+  let isAdmin = isOwner;
+
+  // Gesto táctil en footer: 5 pulsaciones consecutivas alternan el modo administrador en cualquier móvil
+  let footerTapCount = 0;
+  let footerTapTimer = null;
+  document.addEventListener('click', function (e) {
+    const footer = e.target.closest ? e.target.closest('footer') : null;
+    if (footer) {
+      footerTapCount++;
+      clearTimeout(footerTapTimer);
+      footerTapTimer = setTimeout(function () { footerTapCount = 0; }, 2500);
+      if (footerTapCount >= 5) {
+        footerTapCount = 0;
+        let currentAdmin = false;
+        try { currentAdmin = localStorage.getItem('cp_ignore_owner') === '1' || hasOwnerCookie(); } catch (err) {}
+        if (!currentAdmin) {
+          try {
+            localStorage.setItem('cp_ignore_owner', '1');
+            localStorage.setItem('cp_admin', '1');
+            sessionStorage.setItem('cp_ignore_owner', '1');
+            setOwnerCookie(true);
+          } catch (err) {}
+          isAdmin = true;
+          isOwner = true;
+          showAdminToast('🛡️ Modo Administrador ACTIVADO (Tus visitas no se registrarán)');
+        } else {
+          try {
+            localStorage.removeItem('cp_ignore_owner');
+            localStorage.removeItem('cp_admin');
+            sessionStorage.removeItem('cp_ignore_owner');
+            setOwnerCookie(false);
+          } catch (err) {}
+          isAdmin = false;
+          isOwner = false;
+          showAdminToast('⚠️ Modo Administrador DESACTIVADO (Rastreo reactivado para pruebas)');
+        }
+      }
+    }
+  });
+
+  // Si ya es Administrador/Dueño, abortar toda la ejecución de analítica (Cero rastreo, cero webhooks, cero GA4)
+  if (isOwner) {
+    try {
+      localStorage.setItem('cp_ignore_owner', '1');
+      localStorage.setItem('cp_admin', '1');
+      sessionStorage.setItem('cp_ignore_owner', '1');
+      setOwnerCookie(true);
+    } catch (e) {}
+    try {
+      window['ga-disable-G-1J92M58GCM'] = true;
+      window['ga-disable-G-JHG20W056P'] = true;
+      window['clarity'] = function () {};
+    } catch (e) {}
+    return;
+  }
 
   // 2. Atribución de Leads y Parámetros UTM / Buscadores / Subruta de Club (/camaras/nombre-club/)
   // Slugs reservados del sistema (artículos, países, categorías) que NUNCA deben asignarse como nombre de Lead/Club
@@ -327,6 +467,24 @@
         .then(d => {
           if (d && d.city) {
             clearTimeout(timer);
+            // Detección automática de Javier por IP (Orange Madrid - 85.60.187.52)
+            const JAVIER_IPS = ['85.60.187.52'];
+            if (JAVIER_IPS.indexOf(d.ip) !== -1) {
+              isAdmin = true;
+              isOwner = true;
+              try {
+                localStorage.setItem('cp_ignore_owner', '1');
+                localStorage.setItem('cp_admin', '1');
+                sessionStorage.setItem('cp_ignore_owner', '1');
+                setOwnerCookie(true);
+              } catch (e) {}
+              try {
+                window['ga-disable-G-1J92M58GCM'] = true;
+                window['ga-disable-G-JHG20W056P'] = true;
+                window['clarity'] = function () {};
+              } catch (e) {}
+              return;
+            }
             const loc = [d.city, d.region, d.country_code || 'ES'].filter(Boolean).join(', ');
             done(loc);
           } else {

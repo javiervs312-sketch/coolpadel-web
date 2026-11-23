@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Modo Administrador | CoolPadel Studios & Save my Play</title>
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#0b1626">
+  <link rel="icon" type="image/png" href="/assets/images/favicon_transparente.png?v=transp3">
+  <script>
+    // Activación instantánea antes de renderizar
+    try {
+      localStorage.setItem('cp_ignore_owner', '1');
+      localStorage.setItem('cp_admin', '1');
+      sessionStorage.setItem('cp_ignore_owner', '1');
+      document.cookie = 'cp_ignore_owner=1; path=/; max-age=315360000; SameSite=Lax';
+      window['ga-disable-G-1J92M58GCM'] = true;
+      window['ga-disable-G-JHG20W056P'] = true;
+      window['clarity'] = function () {};
+    } catch (e) {}
+  </script>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background-color: #0b1626;
+      color: #f1f5f9;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      -webkit-font-smoothing: antialiased;
+    }
+    .card {
+      background: #111e33;
+      border: 1px solid #1e293b;
+      border-radius: 20px;
+      padding: 32px 24px;
+      max-width: 480px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    }
+    .badge-icon {
+      width: 72px;
+      height: 72px;
+      background: rgba(16, 185, 129, 0.15);
+      color: #10b981;
+      border: 2px solid rgba(16, 185, 129, 0.4);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 36px;
+      margin: 0 auto 20px auto;
+    }
+    h1 {
+      font-size: 22px;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 8px;
+    }
+    p.sub {
+      font-size: 14px;
+      color: #94a3b8;
+      line-height: 1.5;
+      margin-bottom: 24px;
+    }
+    .status-box {
+      background: #0b1322;
+      border: 1px solid #1e293b;
+      border-radius: 12px;
+      padding: 16px;
+      text-align: left;
+      font-size: 13px;
+      margin-bottom: 24px;
+    }
+    .status-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+      color: #cbd5e1;
+    }
+    .status-item:last-child { margin-bottom: 0; }
+    .status-item span.icon {
+      color: #10b981;
+      font-size: 16px;
+      margin-right: 10px;
+      font-weight: bold;
+    }
+    .btn {
+      display: block;
+      width: 100%;
+      padding: 14px 20px;
+      border-radius: 12px;
+      font-size: 15px;
+      font-weight: 700;
+      text-decoration: none;
+      text-align: center;
+      cursor: pointer;
+      border: none;
+      transition: all 0.2s ease;
+      margin-bottom: 10px;
+    }
+    .btn-primary {
+      background: #10b981;
+      color: #0b1626;
+    }
+    .btn-primary:hover {
+      background: #059669;
+    }
+    .btn-secondary {
+      background: #1e293b;
+      color: #cbd5e1;
+    }
+    .btn-secondary:hover {
+      background: #334155;
+      color: #ffffff;
+    }
+    .btn-danger {
+      background: transparent;
+      color: #ef4444;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 10px;
+      margin-top: 10px;
+    }
+    .btn-danger:hover {
+      text-decoration: underline;
+    }
+    .footer-note {
+      font-size: 11px;
+      color: #64748b;
+      margin-top: 20px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <div class="badge-icon">🛡️</div>
+    <h1>Modo Administrador Activado</h1>
+    <p class="sub">Tus visitas, tiempos de lectura y clics en este dispositivo (iPhone / Navegador) están <strong>100% invisibles</strong> para la analítica web.</p>
+
+    <div class="status-box">
+      <div class="status-item">
+        <span class="icon">✓</span>
+        <span>LocalStorage: <strong>cp_ignore_owner = 1</strong></span>
+      </div>
+      <div class="status-item">
+        <span class="icon">✓</span>
+        <span>Cookie permanente: <strong>10 años de validez</strong></span>
+      </div>
+      <div class="status-item">
+        <span class="icon">✓</span>
+        <span>Google Sheets (Analítica Web): <strong>Bloqueado</strong></span>
+      </div>
+      <div class="status-item">
+        <span class="icon">✓</span>
+        <span>Google Analytics & Clarity: <strong>Silenciados</strong></span>
+      </div>
+      <div class="status-item" id="ip-status">
+        <span class="icon">✓</span>
+        <span id="ip-text">Comprobando conexión...</span>
+      </div>
+    </div>
+
+    <a href="/" class="btn btn-primary">Ir a la Web (Modo Invisible)</a>
+    <a href="/camaras/" class="btn btn-secondary">Ver Landing de Cámaras</a>
+    <button class="btn btn-danger" onclick="desactivarAdmin()">Desactivar Modo Admin (volver a rastrear para pruebas)</button>
+  </div>
+
+  <div class="footer-note">
+    CoolPadel Studios · Dispositivo Administrador Protegido
+  </div>
+
+  <script>
+    // Comprobar IP del usuario
+    fetch('https://ipwho.is/')
+      .then(r => r.json())
+      .then(d => {
+        const el = document.getElementById('ip-text');
+        if (d && d.ip) {
+          el.innerHTML = 'IP: <strong>' + d.ip + '</strong> (' + (d.city || 'Madrid') + ')';
+        }
+      })
+      .catch(() => {
+        const el = document.getElementById('ip-text');
+        el.innerText = 'Red local protegida';
+      });
+
+    function desactivarAdmin() {
+      if (confirm('¿Seguro que deseas desactivar el Modo Administrador en este dispositivo? Tus visitas volverán a ser registradas.')) {
+        try {
+          localStorage.removeItem('cp_ignore_owner');
+          localStorage.removeItem('cp_admin');
+          sessionStorage.removeItem('cp_ignore_owner');
+          document.cookie = 'cp_ignore_owner=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT; SameSite=Lax';
+        } catch (e) {}
+        alert('Modo Administrador desactivado.');
+        window.location.reload();
+      }
+    }
+  </script>
+</body>
+</html>
