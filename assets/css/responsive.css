@@ -1,0 +1,73 @@
+@media (max-width: 63.99rem) {
+  main, article, footer {
+    overflow-wrap: anywhere;
+  }
+
+  main :is(.grid, .overflow-x-auto),
+  main .grid > * {
+    min-width: 0;
+  }
+
+  body > header > .flex > nav,
+  body > header > .flex > div {
+    min-width: 0;
+  }
+
+  body > header > .flex > nav {
+    flex-wrap: wrap;
+    gap: .25rem .75rem;
+  }
+
+  body > header > .flex > div > a[class*="sm:inline-block"] {
+    white-space: normal;
+  }
+}
+
+@media (min-width: 40rem) and (max-width: 63.99rem) {
+  body > header > .flex {
+    gap: .75rem;
+  }
+
+  body > header > .flex > div {
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: .25rem .75rem;
+  }
+
+  body > header > .flex > nav + div {
+    flex-shrink: 0;
+  }
+}
+
+@media (max-width: 39.99rem) {
+  body > header > .flex {
+    gap: .25rem;
+  }
+
+  body > header > .flex > a:first-child {
+    flex-shrink: 1;
+    min-width: 0;
+  }
+
+  body > header > .flex > a:first-child > img {
+    object-fit: contain;
+    min-width: 0;
+  }
+
+  body > header > .flex > a:first-child > span,
+  body > header > .flex > div > a > span {
+    overflow-wrap: anywhere;
+  }
+
+  body > header > .flex > div > a:not([aria-label]) {
+    padding-inline: .5rem;
+  }
+
+  .cp-americana div:has(> div > input[id^="score-"]) {
+    flex-wrap: wrap;
+  }
+
+  .cp-americana div:has(> div > input[id^="score-"]) > .flex-1 {
+    flex-basis: 8rem;
+  }
+}
