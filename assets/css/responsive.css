@@ -7,6 +7,10 @@
   main .grid > * {
     min-width: 0;
   }
+
+  #hero-btn-placeholder {
+    max-width: 100%;
+  }
 }
 
 @media (max-width: 79.99rem) {
