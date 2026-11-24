@@ -271,6 +271,7 @@
       grid-template-columns: 1fr !important;
       gap: 1.25rem !important;
       width: 100% !important;
+      box-sizing: border-box !important;
     }
     @media (min-width: 768px) {
       .hero-featured-articles {
@@ -291,6 +292,8 @@
       color: #0f172a !important;
       transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
       cursor: pointer !important;
+      width: 100% !important;
+      box-sizing: border-box !important;
     }
     .article-card:hover {
       border-color: #f2920b !important;
@@ -300,7 +303,6 @@
     .article-thumb-wrap {
       width: 100% !important;
       aspect-ratio: 16 / 9 !important;
-      min-height: 170px !important;
       border-radius: 0.75rem !important;
       overflow: hidden !important;
       background-color: #0f172a !important;
