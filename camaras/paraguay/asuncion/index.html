@@ -251,19 +251,37 @@
       margin-top: 3.5rem !important;
       position: relative !important;
       z-index: 20 !important;
-      margin-bottom: 3.5rem !important;
+      margin-bottom: 2rem !important;
     }
     @media (min-width: 640px) {
       .hero-stats-section {
         margin-top: 4.5rem !important;
-        margin-bottom: 4.5rem !important;
+        margin-bottom: 2.5rem !important;
       }
     }
     @media (min-width: 1024px) {
       .hero-stats-section {
         margin-top: 5rem !important;
-        margin-bottom: 5rem !important;
+        margin-bottom: 3rem !important;
       }
+    }
+    .hero-featured-articles {
+      display: grid !important;
+      grid-template-columns: 1fr !important;
+      gap: 1.25rem !important;
+    }
+    @media (min-width: 768px) {
+      .hero-featured-articles {
+        grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+        gap: 1.5rem !important;
+      }
+    }
+    .article-card {
+      color: #0f172a !important;
+      text-decoration: none !important;
+    }
+    .article-card img {
+      display: block !important;
     }
     .hero-stat-card {
       border: none !important;
@@ -531,6 +549,79 @@
       </div>
     </section>
 
+    <!-- 3 Artículos Destacados de Cámaras para Clubs -->
+    <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mb-12 sm:mb-16">
+      <div class="hero-featured-articles">
+        
+        <!-- Artículo 1 -->
+        <a href="/camaras/articulos/por-donde-empezar-si-estoy-pensando-en-poner-camaras/" class="article-card bg-white border-2 border-slate-200/90 hover:border-[#f2920b] rounded-2xl p-4 sm:p-5 shadow-2xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between group hover:-translate-y-0.5 cursor-pointer block">
+          <div class="space-y-3">
+            <div class="aspect-[16/9] rounded-xl overflow-hidden bg-slate-900 border border-slate-200/90 shadow-sm relative">
+              <img src="/assets/images/camaras/camera-01.jpg" alt="Estoy pensando poner cámaras en mi club, ¿por dónde empiezo?" width="800" height="450" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
+            </div>
+            <div>
+              <h3 class="font-sans font-extrabold text-sm sm:text-base lg:text-lg text-slate-900 leading-snug tracking-tight transition-colors m-0 group-hover:text-[#f2920b]">
+                Estoy pensando poner cámaras en mi club, ¿por dónde empiezo?
+              </h3>
+            </div>
+          </div>
+          <div class="pt-3.5 border-t border-slate-100 mt-4">
+            <div class="card-action group relative w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-full bg-[#f2920b] group-hover:bg-[#76d3f6] text-slate-950 font-heading font-black text-xs uppercase tracking-wider transition-all duration-300 shadow-xs group-hover:shadow-md group-hover:scale-[1.01] overflow-hidden active:scale-[.98]">
+              <span class="font-black">Leer artículo</span>
+              <div class="w-4 h-4 rounded-full bg-slate-950/10 group-hover:bg-slate-950 group-hover:text-white flex items-center justify-center transition-all duration-300">
+                <i data-lucide="arrow-right" class="w-3.5 h-3.5 stroke-[3] group-hover:translate-x-0.5 transition-transform duration-300"></i>
+              </div>
+            </div>
+          </div>
+        </a>
+
+        <!-- Artículo 2 -->
+        <a href="/camaras/articulos/errores-clubs-se-arrepienten-de-poner-camaras/" class="article-card bg-white border-2 border-slate-200/90 hover:border-[#f2920b] rounded-2xl p-4 sm:p-5 shadow-2xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between group hover:-translate-y-0.5 cursor-pointer block">
+          <div class="space-y-3">
+            <div class="aspect-[16/9] rounded-xl overflow-hidden bg-slate-900 border border-slate-200/90 shadow-sm relative">
+              <img src="/assets/images/camaras/retransmision-directo-marcador-youtube.png" alt="Los 3 errores de los clubs que se arrepienten de poner cámaras" width="800" height="450" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
+            </div>
+            <div>
+              <h3 class="font-sans font-extrabold text-sm sm:text-base lg:text-lg text-slate-900 leading-snug tracking-tight transition-colors m-0 group-hover:text-[#f2920b]">
+                Los 3 errores de los clubs que se arrepienten de poner cámaras
+              </h3>
+            </div>
+          </div>
+          <div class="pt-3.5 border-t border-slate-100 mt-4">
+            <div class="card-action group relative w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-full bg-[#f2920b] group-hover:bg-[#76d3f6] text-slate-950 font-heading font-black text-xs uppercase tracking-wider transition-all duration-300 shadow-xs group-hover:shadow-md group-hover:scale-[1.01] overflow-hidden active:scale-[.98]">
+              <span class="font-black">Leer artículo</span>
+              <div class="w-4 h-4 rounded-full bg-slate-950/10 group-hover:bg-slate-950 group-hover:text-white flex items-center justify-center transition-all duration-300">
+                <i data-lucide="arrow-right" class="w-3.5 h-3.5 stroke-[3] group-hover:translate-x-0.5 transition-transform duration-300"></i>
+              </div>
+            </div>
+          </div>
+        </a>
+
+        <!-- Artículo 3 -->
+        <a href="/camaras/articulos/por-que-no-recomiendo-plan-analytics/" class="article-card bg-white border-2 border-slate-200/90 hover:border-[#f2920b] rounded-2xl p-4 sm:p-5 shadow-2xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between group hover:-translate-y-0.5 cursor-pointer block">
+          <div class="space-y-3">
+            <div class="aspect-[16/9] rounded-xl overflow-hidden bg-slate-900 border border-slate-200/90 shadow-sm relative">
+              <img src="/assets/images/camaras/portada-mapa-calor-analytics.png" alt="¿Por qué no recomiendo el plan caro de estadísticas con IA al 95 % de los clubs?" width="800" height="450" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
+            </div>
+            <div>
+              <h3 class="font-sans font-extrabold text-sm sm:text-base lg:text-lg text-slate-900 leading-snug tracking-tight transition-colors m-0 group-hover:text-[#f2920b]">
+                ¿Por qué no recomiendo el plan caro de estadísticas con IA al 95 % de los clubs?
+              </h3>
+            </div>
+          </div>
+          <div class="pt-3.5 border-t border-slate-100 mt-4">
+            <div class="card-action group relative w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-full bg-[#f2920b] group-hover:bg-[#76d3f6] text-slate-950 font-heading font-black text-xs uppercase tracking-wider transition-all duration-300 shadow-xs group-hover:shadow-md group-hover:scale-[1.01] overflow-hidden active:scale-[.98]">
+              <span class="font-black">Leer artículo</span>
+              <div class="w-4 h-4 rounded-full bg-slate-950/10 group-hover:bg-slate-950 group-hover:text-white flex items-center justify-center transition-all duration-300">
+                <i data-lucide="arrow-right" class="w-3.5 h-3.5 stroke-[3] group-hover:translate-x-0.5 transition-transform duration-300"></i>
+              </div>
+            </div>
+          </div>
+        </a>
+
+      </div>
+    </section>
+
     <!-- 2. POR QUÉ ELEGIR SAVE MY PLAY (EXACTAMENTE 3 RAZONES) -->
     <section class="pt-8 pb-14 sm:pt-10 sm:pb-20 bg-white border-b border-slate-200">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -606,7 +697,7 @@
                     </div>
                   </td>
                   <td role="cell" class="p-4 sm:p-5 font-heading font-black text-base text-slate-950">Gs. 1.500.000</td>
-                  <td role="cell" class="p-4 sm:p-5 text-slate-600">Pago único (+20€ envío int.)</td>
+                  <td role="cell" class="p-4 sm:p-5 text-slate-600">Pago único (+Gs. 170.000 envío int.)</td>
                   <td role="cell" class="p-4 sm:p-5 text-slate-600">1 cámara deportiva rectilínea por pista (sin efecto pez) + fijación de seguridad a poste</td>
                 </tr>
 
