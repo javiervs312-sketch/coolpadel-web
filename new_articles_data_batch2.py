@@ -248,7 +248,7 @@ CONTENT_WELCOME_PACK_ESCUELAS = """
         <i data-lucide="award" class="w-5 h-5 text-[#f2920b] shrink-0 mt-0.5"></i>
         <div class="text-xs sm:text-sm leading-relaxed space-y-1">
           <p class="font-bold text-slate-950">El Valor de la Identidad en Cantera:</p>
-          <p>Un alumno que se siente parte de un equipo renueva su cuota trimestre tras trimestre. Según directores de escuelas, entregar un detalle de calidad artesanal en el pack de matrícula reduce el abandono escolar en más de un 25% frente a academias que no cuidan la bienvenida.</p>
+          <p>Un alumno que se siente parte de un equipo renueva su cuota trimestre tras trimestre. Según directores de escuelas, entregar un detalle de calidad personalizada en el pack de matrícula reduce el abandono escolar en más de un 25% frente a academias que no cuidan la bienvenida.</p>
         </div>
       </div>
     </div>
@@ -263,7 +263,7 @@ CONTENT_WELCOME_PACK_ESCUELAS = """
       Por el contrario, los accesorios funcionales de uso diario no dependen de tallas y acompañan al deportista dentro y fuera del club:
     </p>
     <ul class="list-disc pl-6 space-y-2 text-slate-700 mb-6 text-sm sm:text-base">
-      <li><strong>Llaveros de goma 3D personalizados:</strong> Con el escudo del club y la forma exacta de la pala de competición. Los alumnos infantiles lo cuelgan en la cremallera de su mochila escolar y los adultos en su paletero o llavero personal.</li>
+      <li><strong>Llaveros de pádel con logo de goma en material blando:</strong> Con el logo del club y la forma exacta de la pala de competición. Los alumnos infantiles lo cuelgan en la cremallera de su mochila escolar y los adultos en su paletero o llavero personal.</li>
       <li><strong>Protectores de marco texturizados:</strong> Con el nombre de la academia para proteger la pala de los roces con el cristal y la reja.</li>
       <li><strong>Muñequeras técnicas absorbentes:</strong> Un detalle de bajo coste y alta utilidad en entrenamientos de alta intensidad.</li>
     </ul>

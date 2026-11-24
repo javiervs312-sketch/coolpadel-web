@@ -482,54 +482,21 @@ def render_page(title: str, content: str, lang: str, prefix: str = "/", slug: st
       ]
     }}""")
         schema_parts.append(f"""    {{
-      "@type": "Product",
+      "@type": "Service",
       "name": {json.dumps(title + " - Save my Play")},
       "description": {json.dumps(clean_desc)},
-      "image": "https://coolpadelstudios.com/assets/images/savemyplay-1.jpg",
-      "sku": "SMP-CAM-180",
-      "brand": {{
-        "@type": "Brand",
-        "name": "Save my Play"
+      "provider": {{
+        "@type": "Organization",
+        "name": "Save my Play",
+        "url": "https://coolpadelstudios.com/camaras/"
       }},
-      "offers": [
-        {{
-          "@type": "Offer",
-          "name": "Save my Play Court Camera Hardware",
-          "priceCurrency": "EUR",
-          "price": "180.00",
-          "priceValidUntil": "2027-12-31",
-          "availability": "https://schema.org/InStock",
-          "hasMerchantReturnPolicy": {{
-            "@type": "MerchantReturnPolicy",
-            "applicableCountry": "ES",
-            "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
-            "merchantReturnDays": 14,
-            "returnMethod": "https://schema.org/ReturnByMail",
-            "returnFees": "https://schema.org/FreeReturn",
-            "merchantReturnLink": "https://coolpadelstudios.com/politica-de-devoluciones.html"
-          }},
-          "shippingDetails": {{
-            "@type": "OfferShippingDetails",
-            "shippingRate": {{
-              "@type": "MonetaryAmount",
-              "value": "0.00",
-              "currency": "EUR"
-            }},
-            "shippingDestination": {{
-              "@type": "DefinedRegion",
-              "addressCountry": ["ES", "FR", "IT", "PT", "DE", "BE", "GB", "US"]
-            }}
-          }}
-        }},
-        {{
-          "@type": "Offer",
-          "name": "Monthly Software Subscription (from 27 EUR/month)",
-          "priceCurrency": "EUR",
-          "price": "45.00",
-          "priceValidUntil": "2027-12-31",
-          "availability": "https://schema.org/InStock"
-        }}
-      ]
+      "serviceType": "Instalación y Grabación Autónoma de Pistas de Pádel",
+      "offers": {{
+        "@type": "Offer",
+        "priceCurrency": "EUR",
+        "price": "180.00",
+        "description": "Hardware de 180 € por cámara en propiedad del club y suscripción de software sin permanencia desde 27 € a 45 €/mes por pista."
+      }}
     }}""")
         hub_faqs_i18n = {
             "es": [

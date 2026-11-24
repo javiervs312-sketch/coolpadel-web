@@ -367,32 +367,32 @@ EXTRA_ARTICLES_I18N = {
     },
     "proceso-artesanal-fabricacion-llaveros-3d-personalizados-clubs": {
         "es": {
-            "title": "Fabricación Artesanal de Llaveros de Pádel 3D | CoolPadel",
-            "desc": "Frente al producto plano de catálogo importado: molde a medida, colores Pantone reales y relieve táctil que une a tu comunidad.",
-            "h1": "Por Qué Huir del Merchandising Plano: El Proceso Artesanal del Siglo XXI en Goma 3D",
-            "subtitle": "Frente al producto plano de catálogo importado: molde a medida, colores Pantone reales y relieve táctil que une a tu comunidad.",
-            "badge": "Artesanía 3D & Identidad"
+            "title": "Llaveros de Pádel con Logo de Goma: Material Blando | CoolPadel",
+            "desc": "Llaveros de pádel con logo de goma en material blando y duradero con el logotipo de tu club para torneos y socios.",
+            "h1": "Llaveros de Pádel con Logo de Goma: Material Blando y Personalizado",
+            "subtitle": "Llaveros de pádel con logo de goma en material blando y duradero con el logotipo de tu club para torneos y socios.",
+            "badge": "Llaveros con Logo de Goma"
         },
         "en": {
-            "title": "Custom 3D Rubber Keychain Crafting for Padel & Tennis Clubs | CoolPadel Studios",
-            "desc": "Why flat cheap promotional merch fails: custom micro-injection molds, exact Pantone matching, and tactile textured identity.",
-            "h1": "Why Avoid Flat Promotional Merch: Modern 3D Rubber Keychain Manufacturing",
-            "subtitle": "Precision mold injection, authentic Pantone tones, and tactile club pride members actually keep on their racquets.",
-            "badge": "3D Craft & Club Identity"
+            "title": "Custom Rubber Logo Padel Keychains for Clubs | CoolPadel Studios",
+            "desc": "Custom rubber logo padel keychains in soft flexible material for clubs, tournaments and pro shops.",
+            "h1": "Custom Rubber Logo Padel Keychains: Soft and Durable Material",
+            "subtitle": "Custom rubber logo keychains in soft flexible material with your club logo.",
+            "badge": "Custom Rubber Keychains"
         },
         "fr": {
-            "title": "Fabrication de Porte-Clés Padel 3D Sur Mesure | CoolPadel Studios",
-            "desc": "Fini les goodies plats sans charme : moules exclusifs en relief, teintes Pantone exactes et texture caoutchouc haut de gamme.",
-            "h1": "Pourquoi Éviter les Goodies Plats : Fabrication Artisanale de Porte-Clés 3D",
-            "subtitle": "Du croquis vectoriel à l'injection micro-caoutchouc : créer un souvenir tactile que vos membres gardent des années.",
-            "badge": "Artisanat 3D & Identité"
+            "title": "Porte-Clés Padel avec Logo en Gomme pour Clubs | CoolPadel Studios",
+            "desc": "Porte-clés de padel avec logo en gomme et matière souple pour clubs, tournois et pro-shops.",
+            "h1": "Porte-Clés de Padel avec Logo en Gomme : Matière Souple et Résistante",
+            "subtitle": "Porte-clés avec logo en gomme et matière souple pour valoriser votre club.",
+            "badge": "Porte-Clés en Gomme"
         },
         "it": {
-            "title": "Produzione Artigianale Portachiavi Padel 3D per Circoli | CoolPadel Studios",
-            "desc": "Basta con i gadget piatti da catalogo: stampi personalizzati, colori Pantone fedeli e rilievo in gomma di alta qualità.",
-            "h1": "Perché Evitare il Merchandising Piatto: Il Processo Artigianale dei Portachiavi 3D",
-            "subtitle": "Dalla grafica al rilievo tridimensionale: il dettaglio che valorizza lo stemma ufficiale del tuo club.",
-            "badge": "Artigianato 3D & Identità"
+            "title": "Portachiavi Padel con Logo in Gomma per Club | CoolPadel Studios",
+            "desc": "Portachiavi da padel con logo in gomma morbida per circoli, tornei e soci.",
+            "h1": "Portachiavi da Padel con Logo in Gomma: Materiale Morbido e Resistente",
+            "subtitle": "Portachiavi con logo in gomma morbida e durevole con lo stemma del tuo club.",
+            "badge": "Portachiavi in Gomma"
         }
     },
     "regalos-eventos-padel-cenas-socios-llaveros": {

@@ -625,7 +625,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
 
         "height": 1000,
 
-        "caption": "Llaveros de pádel personalizados de goma relieve 3D oficiales CoolPadel para clubes de pádel",
+        "caption": "Llaveros de pádel personalizados con logo de goma en material blando CoolPadel para clubes de pádel",
 
         "representativeOfPage": true,
 
@@ -757,9 +757,9 @@ def get_base_html(active_lang="es", is_subfolder=False):
 
               "@type": "Offer",
 
-              "name": "Llaveros de pádel personalizados 3D de goma microinyectada",
+              "name": "Llaveros de pádel con logo de goma en material blando",
 
-              "description": "Fabricación directa de llaveros en relieve 3D con muestra física real previa por 15€.",
+              "description": "Fabricación de llaveros de pádel con logo de goma en material blando con muestra física real previa por 15€.",
 
               "url": "https://coolpadelstudios.com/#llaveros"
 
@@ -841,9 +841,9 @@ def get_base_html(active_lang="es", is_subfolder=False):
 
       {{
 
-        "@type": "Product",
+        "@type": "Service",
 
-        "@id": "https://coolpadelstudios.com/#product-llaveros-padel",
+        "@id": "https://coolpadelstudios.com/#service-llaveros-padel",
 
         "inLanguage": "{active_lang}",
 
@@ -1059,109 +1059,13 @@ def get_base_html(active_lang="es", is_subfolder=False):
 
         "offers": {{
 
-          "@type": "AggregateOffer",
+          "@type": "Offer",
 
           "priceCurrency": "EUR",
 
-          "lowPrice": "1.50",
-
-          "highPrice": "3.00",
-
           "price": "1.50",
 
-          "offerCount": "4",
-
-          "availability": "https://schema.org/InStock",
-
-          "itemCondition": "https://schema.org/NewCondition",
-
-          "priceValidUntil": "2027-12-31",
-
-          "seller": {{
-
-            "@type": "Organization",
-
-            "name": "CoolPadel"
-
-          }},
-
-          "hasMerchantReturnPolicy": {{
-
-            "@type": "MerchantReturnPolicy",
-
-            "applicableCountry": "ES",
-
-            "returnPolicyCategory": "https://schema.org/MerchantReturnNotPermitted",
-
-            "merchantReturnLink": "https://coolpadelstudios.com/politica-de-devoluciones.html",
-
-            "description": "Productos B2B fabricados a medida tras validación de muestra física previa; reposición sin coste ante defectos de fabricación."
-
-          }},
-
-          "shippingDetails": {{
-
-            "@type": "OfferShippingDetails",
-
-            "shippingRate": {{
-
-              "@type": "MonetaryAmount",
-
-              "value": "0.00",
-
-              "currency": "EUR"
-
-            }},
-
-            "shippingDestination": {{
-
-              "@type": "DefinedRegion",
-
-              "addressCountry": ["ES", "FR", "IT", "PT", "DE", "BE", "GB", "US"]
-
-            }},
-
-            "deliveryTime": {{
-
-              "@type": "ShippingDeliveryTime",
-
-              "businessDays": {{
-
-                "@type": "OpeningHoursSpecification",
-
-                "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
-
-              }},
-
-              "cutoffTime": "14:00:00Z",
-
-              "handlingTime": {{
-
-                "@type": "QuantitativeValue",
-
-                "minValue": 10,
-
-                "maxValue": 15,
-
-                "unitCode": "d"
-
-              }},
-
-              "transitTime": {{
-
-                "@type": "QuantitativeValue",
-
-                "minValue": 10,
-
-                "maxValue": 15,
-
-                "unitCode": "d"
-
-              }}
-
-            }}
-
-          }}
+          "description": "Tarifas B2B para clubes desde 1,50 €/ud según volumen y muestra física previa por 15 € deducible."
 
         }}
 
@@ -1257,7 +1161,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
 
           "Cámaras de pádel Save my Play sin obras ni permanencia",
 
-          "Llaveros de pádel personalizados de goma 3D",
+          "Llaveros de pádel con logo de goma en material blando",
 
           "Welcome packs y merchandising para torneos de pádel",
 
@@ -2002,7 +1906,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
         <a href="llaveros-tenis-personalizados/" class="relative overflow-hidden cursor-pointer bg-slate-50/90 hover:bg-white border-2 border-slate-200/90 hover:border-[#f2920b] hover:ring-4 hover:ring-[#f2920b]/25 hover:shadow-[0_16px_40px_rgba(0,0,0,0.2)] hover:scale-[1.015] active:scale-[0.98] transition-all duration-300 rounded-2xl sm:rounded-3xl p-2.5 sm:p-5 flex flex-col justify-between group">
           <div class="flex-1 flex flex-col justify-center">
             <div class="rounded-xl sm:rounded-2xl overflow-hidden shadow-sm border border-slate-200/90 bg-slate-100 my-auto aspect-[16/11] sm:aspect-[16/10]">
-              <img src="{asset_prefix}assets/images/llaveros-tenis-personalizados-clubs.webp" alt="Llaveros de tenis y pádel personalizados con relieve 3D para clubs y torneos" width="500" height="312" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
+              <img src="{asset_prefix}assets/images/llaveros-tenis-personalizados-clubs.webp" alt="Llaveros de tenis y pádel con logo de goma en material blando para clubs y torneos" width="500" height="312" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
             </div>
           </div>
           <div class="product-card-caption mt-2 pt-1.5 sm:mt-3 sm:pt-3 border-t border-slate-100 flex items-center justify-between gap-1">
@@ -2020,7 +1924,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
         <a href="llaveros-padel-personalizados/" class="relative overflow-hidden cursor-pointer bg-slate-50/90 hover:bg-white border-2 border-slate-200/90 hover:border-[#f2920b] hover:ring-4 hover:ring-[#f2920b]/25 hover:shadow-[0_16px_40px_rgba(0,0,0,0.2)] hover:scale-[1.015] active:scale-[0.98] transition-all duration-300 rounded-2xl sm:rounded-3xl p-2.5 sm:p-5 flex flex-col justify-between group">
           <div class="flex-1 flex flex-col justify-center">
             <div class="rounded-xl sm:rounded-2xl overflow-hidden shadow-sm border border-slate-200/90 bg-slate-100 my-auto aspect-[16/11] sm:aspect-[16/10]">
-              <img src="{asset_prefix}assets/images/llaveros-padel-personalizados-clubs.webp" alt="Llaveros de pádel de goma 3D personalizados con logo para clubes de pádel" width="500" height="359" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
+              <img src="{asset_prefix}assets/images/llaveros-padel-personalizados-clubs.webp" alt="Llaveros de pádel con logo de goma en material blando para clubes de pádel" width="500" height="359" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
             </div>
           </div>
           <div class="product-card-caption mt-2 pt-1.5 sm:mt-3 sm:pt-3 border-t border-slate-100 flex items-center justify-between gap-1">
@@ -6179,47 +6083,11 @@ def build_all():
 
   <channel>
 
-    <title>CoolPadel - Catálogo Oficial de Llaveros de Pádel</title>
+    <title>CoolPadel - Catálogo Oficial</title>
 
     <link>https://coolpadelstudios.com</link>
 
-    <description>Catálogo B2B de llaveros de pádel y tenis personalizados con logo de goma en material blando</description>
-
-    <item>
-
-      <g:id>LLAVERO-PADEL-MUESTRA</g:id>
-
-      <g:title>Muestra Física Real Llavero de Pádel con Logo de Goma (100% Descontable)</g:title>
-
-      <g:description>Muestra física real de llaveros de pádel con logo de goma en material blando con el logotipo de tu club entregada en ~15 días laborables (100% descontable del pedido final).</g:description>
-
-      <g:link>https://coolpadelstudios.com/llaveros-padel-personalizados/</g:link>
-
-      <g:image_link>https://coolpadelstudios.com/assets/images/llaveros-padel-personalizados-3d.jpg</g:image_link>
-
-      <g:availability>in_stock</g:availability>
-
-      <g:price>15.00 EUR</g:price>
-
-      <g:brand>CoolPadel</g:brand>
-
-      <g:condition>new</g:condition>
-
-      <g:identifier_exists>no</g:identifier_exists>
-
-      <g:google_product_category>Sporting Goods &gt; Racquet Sports &gt; Padel</g:google_product_category>
-
-      <g:shipping>
-
-        <g:country>ES</g:country>
-
-        <g:service>Envío Estándar Península</g:service>
-
-        <g:price>0.00 EUR</g:price>
-
-      </g:shipping>
-
-    </item>
+    <description>Catálogo de tecnología y servicios deportivos CoolPadel</description>
 
     <item>
 

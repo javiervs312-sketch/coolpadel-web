@@ -255,22 +255,6 @@ def get_silo_footer_html(root_prefix="../../"):
             <li><a href="/camaras/camaras-para-pistas-outdoor-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Cámaras Pistas Pádel Outdoor</a></li>
             <li><a href="/camaras/camaras-padel-urbanizaciones-comunidades/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Cámaras Urbanizaciones y Vecinos</a></li>
             <li><a href="/camaras/camaras-retransmision-torneos-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Streaming Torneos Pádel Directo</a></li>
-            <li><a href="/camaras/scoreboard-padel-marcador-directo/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Scoreboard Pádel y Marcadores</a></li>
-            <li><a href="/camaras/patrocinios-virtuales-pista-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Patrocinios y Sponsors en Pista</a></li>
-            <li><a href="/camaras/live-streaming-torneos-padel-multipista/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Live Streaming Multipista</a></li>
-            <li><a href="/camaras/eventos-monetizacion-pases-torneo-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Monetización y Pases de Eventos</a></li>
-            <li><a href="/camaras/var-ojo-halcon-instant-replay-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">VAR y Ojo de Halcón Pistas</a></li>
-            <li><a href="/camaras/video-analisis-coaching-clases-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Vídeo Análisis y Coaching Tools</a></li>
-            <li><a href="/camaras/reels-highlights-verticales-redes-club-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Reels con IA para Redes Sociales</a></li>
-            <li><a href="/camaras/torneos-americanas-pozo-pantallas-directo/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Americanas y Pozos con Pantallas</a></li>
-            <li><a href="/camaras/clubs-padel-autonomos-sin-personal-24-7/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Clubs Autónomos 24/7 sin Personal</a></li>
-            <li><a href="/camaras/grabar-padel-apple-watch-wearables/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Control con Apple Watch en Pista</a></li>
-            <li><a href="/camaras/smart-tv-court-tv-cafeteria-club-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Court TV y Smart TV Cafetería</a></li>
-            <li><a href="/camaras/torneos-empresas-team-building-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Torneos de Empresas y Team Building</a></li>
-            <li><a href="/camaras/diferenciacion-club-padel-frente-a-competencia/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Diferenciación Frente a Competencia</a></li>
-            <li><a href="/camaras/como-justificar-subir-precios-pista-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Subir Precios Pistas Pádel</a></li>
-            <li><a href="/camaras/atraer-jugadores-nivel-avanzado-competicion-club-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Atraer Jugadores de Competición</a></li>
-            <li><a href="/camaras/fidelizar-socios-evitar-fuga-nuevos-clubes-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Fidelización y Evitar Fuga de Socios</a></li>
           </ul>
         </div>
 
@@ -719,7 +703,7 @@ def generate_blog_index():
                     Llaveros de Pádel Personalizados 3D: Precios y Muestra Real
                   </h3>
                   <p class="text-xs text-slate-600 font-medium leading-relaxed line-clamp-2">
-                    Fabricante directo en goma 3D microinyectada con el logo oficial del club. Pedidos desde 100 uds, muestra física por 15€ deducible y calculadora interactiva.
+                    Fabricante de llaveros de pádel con logo de goma en material blando con el logo del club. Pedidos desde 100 uds, muestra física por 15€ deducible y calculadora interactiva.
                   </p>
                 </div>
               </div>
@@ -1038,7 +1022,7 @@ def generate_blog_index():
                     15 Regalos de Pádel Originales y Baratos para Jugadores, Clubs y Torneos
                   </h3>
                   <p class="text-xs text-slate-600 font-medium leading-relaxed line-clamp-2">
-                    Ideas y cosas de pádel por menos de 3€, 5€ y 10€: de llaveros de pala en goma 3D a accesorios útiles que no acaban en la basura.
+                    Ideas y cosas de pádel por menos de 3€, 5€ y 10€: de llaveros de pala con logo de goma en material blando a accesorios útiles que no acaban en la basura.
                   </p>
                 </div>
               </div>
@@ -1406,7 +1390,7 @@ def generate_blog_index():
             <a href="./proceso-artesanal-fabricacion-llaveros-3d-personalizados-clubs/" class="bg-white border-2 border-slate-200/90 hover:border-[#f2920b] rounded-2xl p-4 sm:p-5 shadow-2xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between group hover:-translate-y-0.5 cursor-pointer block">
               <div class="space-y-3">
                 <div class="aspect-[16/10] rounded-xl overflow-hidden bg-slate-900 border border-slate-200/90 shadow-2xs relative">
-                  <img src="../assets/images/llaveros-corazon-pista.jpg" alt="Proceso Artesanal de Fabricación de Llaveros 3D de Pádel" width="600" height="375" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
+                  <img src="../assets/images/llaveros-corazon-pista.jpg" alt="Llaveros de Pádel con Logo de Goma en Material Blando" width="600" height="375" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
                   <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
                   <span class="absolute bottom-2 left-2 text-[9px] font-black uppercase tracking-wider px-2 py-0.5 rounded-full bg-[#f2920b] text-slate-950 shadow-xs">
                     Artesanía 3D &amp; Identidad
@@ -1420,7 +1404,7 @@ def generate_blog_index():
                     <span>Lectura 6 min</span>
                   </div>
                   <h3 class="font-heading font-black text-sm sm:text-base text-slate-950 leading-snug group-hover:text-[#f2920b] transition">
-                    Por Qué Huir del Merchandising Plano: El Proceso Artesanal del Siglo XXI en Goma 3D
+                    Llaveros de Pádel con Logo de Goma: Material Blando y Duradero
                   </h3>
                   <p class="text-xs text-slate-600 font-medium leading-relaxed line-clamp-2">
                     Frente al producto plano de catálogo: cómo creamos un llavero en relieve, con colores Pantone reales y detalles que unen a tu comunidad.
@@ -2322,7 +2306,7 @@ def generate_article_page(slug, edition_num, title, date_str, read_time, cover_i
           "knowsAbout": [
             "Grabación automática de partidos de pádel con IA",
             "Sistemas de cámaras fijas para pistas de pádel sin obras",
-            "Llaveros de pádel personalizados de goma 3D",
+            "Llaveros de pádel con logo de goma en material blando",
             "Welcome packs y merchandising para torneos de pádel",
             "Directorio de franquicias y cadenas de clubes de pádel",
             "Normativa RGPD para cámaras en instalaciones deportivas",
@@ -2561,7 +2545,7 @@ DOWNLOAD_BOXES = {
     },
     "proceso-artesanal-fabricacion-llaveros-3d-personalizados-clubs": {
         "badge": "Muestra Digital y Dossier PDF",
-        "title": "Guía de Fabricación Artesanal 3D y Muestra Digital para tu Club",
+        "title": "Guía de Llaveros con Logo de Goma en Material Blando",
         "desc": "Descubre cómo recreamos tu pala, tu escudo y tus colores Pantone oficiales en relieve de goma 3D inyectada. Solicita un boceto 3D gratuito en 24h.",
         "file_url": "../../assets/downloads/checklist-organizacion-torneos-padel.pdf",
         "btn_text": "Descargar Guía y Dossier",
@@ -2622,7 +2606,7 @@ DOWNLOAD_BOXES = {
         "desc": "Cómo calcular la tirada exacta, evitar stock muerto de bolígrafos y camisetas y conseguir que tu marca quede fijada a diario en los paleteros y llaves de decisores B2B.",
         "file_url": "../../assets/downloads/checklist-organizacion-torneos-padel.pdf",
         "btn_text": "Descargar Checklist PDF",
-        "wa_msg": "Hola Javier, tengo una marca/torneo y quiero presupuesto para llaveros personalizados de goma 3D"
+        "wa_msg": "Hola Javier, tengo una marca/torneo y quiero presupuesto para llaveros con logo de goma en material blando"
     },
     "sistemas-grabacion-pistas-padel-comparativa": {
         "badge": "Modelo de cartel informativo RGPD",
@@ -2708,7 +2692,7 @@ def generate_guide_page(slug, category_badge, title, subtitle, meta_desc, date_s
     if slug == "normativa-rgpd-camaras-pistas-padel":
         content_html = content_html.replace("</ul>", '</ul><p class="my-6"><a href="https://wa.me/34680317486?text=Hola%20Javier%2C%20quiero%20consultar%20el%20protocolo%20RGPD%20y%20pedir%20presupuesto%20para%20mi%20club" data-lead-intent="presupuesto" data-button-position="content" class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] text-slate-950 font-heading font-black text-xs uppercase tracking-wider transition">Consultar protocolo RGPD y solicitar presupuesto adaptado</a></p>', 1)
     elif slug in {"regalos-padel-originales-baratos-ideas-detalles-torneos", "welcome-pack-torneo-padel-ideas"}:
-        content_html = '<p>Llaveros de goma en relieve 3D con el logo del club. Pedido mínimo de 100 unidades por 300 € sin IVA. La muestra física cuesta 15 €, descontables del pedido final.</p><figure class="my-6"><img src="/assets/images/llaveros-padel-personalizados-clubs.webp" alt="Ejemplos de llaveros de pádel personalizados con el logo de clubes" loading="lazy" class="w-full rounded-2xl"><figcaption class="text-sm text-slate-600">Ejemplos de llaveros de clubes en relieve 3D.</figcaption></figure><p class="my-6"><a href="/welcome-packs-torneos-padel/#precios" data-product="llaveros" data-lead-intent="calculo_llaveros" data-button-position="content" class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] text-slate-950 font-heading font-black text-xs uppercase tracking-wider transition">Calcular llaveros para mi torneo</a></p>' + content_html
+        content_html = '<p>Llaveros de pádel con logo de goma en material blando con el logo del club. Pedido mínimo de 100 unidades por 300 € sin IVA. La muestra física cuesta 15 €, descontables del pedido final.</p><figure class="my-6"><img src="/assets/images/llaveros-padel-personalizados-clubs.webp" alt="Ejemplos de llaveros de pádel personalizados con el logo de clubes" loading="lazy" class="w-full rounded-2xl"><figcaption class="text-sm text-slate-600">Ejemplos de llaveros de clubes en relieve 3D.</figcaption></figure><p class="my-6"><a href="/welcome-packs-torneos-padel/#precios" data-product="llaveros" data-lead-intent="calculo_llaveros" data-button-position="content" class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] text-slate-950 font-heading font-black text-xs uppercase tracking-wider transition">Calcular llaveros para mi torneo</a></p>' + content_html
     elif slug == "rentabilidad-camaras-pistas-padel":
         content_html = '<h2 id="escenarios-por-pistas">Cuántos partidos necesita vender un club de 4, 8, 12 o 20 pistas</h2>\n<p>Ejemplo a 2,50 € por grabación vendida. La cuota se calcula por pista y el punto de equilibrio se redondea al siguiente partido entero.</p>\n<div class="overflow-x-auto"><table class="w-full text-left text-sm">\n<thead><tr><th scope="col">Pistas</th><th scope="col">Cuota mensual</th><th scope="col">Ventas para cubrir la cuota</th><th scope="col">Saldo con 25 ventas por pista</th></tr></thead>\n<tbody><tr><td>4</td><td>180 €</td><td>72</td><td>70 €</td></tr><tr><td>8</td><td>328 €</td><td>132</td><td>172 €</td></tr><tr><td>12</td><td>492 €</td><td>197</td><td>258 €</td></tr><tr><td>20</td><td>720 €</td><td>288</td><td>530 €</td></tr></tbody></table></div>\n<p>El saldo descuenta el software. El hardware cuesta 180 € por pista. El cálculo excluye envío, impuestos y comisiones. Consulta la <a href="/camaras/cuanto-cuesta-poner-camaras-pistas-padel/">guía oficial de precios de cámaras</a> para ver los tramos.</p>' + content_html
     if slug == "sistemas-grabacion-pistas-padel-comparativa":
@@ -2837,7 +2821,7 @@ def generate_guide_page(slug, category_badge, title, subtitle, meta_desc, date_s
               Pide tu muestra física con tu logo real por 15€
             </h2>
             <p class="text-white/90 text-sm leading-relaxed">
-              Fabricamos una muestra real personalizada previa (100% reembolsable al confirmar el pedido) para que evalúes el relieve 3D antes de decidir la tirada completa.
+              Fabricamos una muestra real personalizada previa (100% reembolsable al confirmar el pedido) para que evalúes el acabado y material blando antes de decidir la tirada completa.
             </p>
           </div>
           <div class="flex flex-col sm:flex-row items-center gap-3 pt-2">
@@ -2910,7 +2894,7 @@ def generate_guide_page(slug, category_badge, title, subtitle, meta_desc, date_s
           "knowsAbout": [
             "Grabación automática de partidos de pádel con IA",
             "Sistemas de cámaras fijas para pistas de pádel sin obras",
-            "Llaveros de pádel personalizados de goma 3D",
+            "Llaveros de pádel con logo de goma en material blando",
             "Welcome packs y merchandising para torneos de pádel",
             "Directorio de franquicias y cadenas de clubes de pádel",
             "Normativa RGPD para cámaras en instalaciones deportivas",
@@ -4398,7 +4382,7 @@ def generate_all():
       <div class="bg-white rounded-2xl p-5 border border-slate-200 shadow-xs">
         <div class="flex items-center justify-between gap-3 mb-2">
           <h3 class="font-heading font-black text-base sm:text-lg text-slate-950">
-            1. Llaveros de Pádel Personalizados en Goma 3D (Forma de Pala con Logo)
+            1. Llaveros de Pádel con Logo de Goma (Material Blando y Duradero)
           </h3>
           <span class="text-xs font-black px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-800 shrink-0">1,50 € - 3,00 €</span>
         </div>
@@ -4690,7 +4674,7 @@ def generate_all():
     faqs_regalos_padel = [
         {
             "q": "¿Cuál es el regalo de pádel más barato y original para los participantes de un torneo?",
-            "a": "El regalo con mejor relación coste-valor son los llaveros de pádel personalizados en goma 3D con forma de pala y el logo del torneo. Con un coste de fabricación desde 1,50 € a 3,00 € por unidad, los jugadores los conservan durante años colgados de la cremallera de su paletero, evitando el desperdicio de camisetas baratas de tallas erróneas."
+            "a": "El regalo con mejor relación coste-valor son los llaveros de pádel con logo de goma en material blando con el logo del torneo. Con un coste de fabricación desde 1,50 € a 3,00 € por unidad, los jugadores los conservan durante años colgados de la cremallera de su paletero, evitando el desperdicio de camisetas baratas de tallas erróneas."
         },
         {
             "q": "¿Qué se puede regalar a un jugador de pádel que ya tiene de todo?",

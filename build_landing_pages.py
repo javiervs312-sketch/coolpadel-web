@@ -952,25 +952,25 @@ LANDINGS = [
 
 
 KEYRING_PURCHASE_COPY = {'es': ('Llaveros de pádel con logo para clubes | Pedidos desde 100',
-        'Llaveros de pádel de goma en relieve 3D con el escudo de tu club. Pedido mínimo de '
+        'Llaveros de pádel con logo de goma en material blando para clubes. Pedido mínimo de '
         '100 unidades por 300 € sin IVA. Muestra física de 15 € descontable.',
-        'Hola Javier, quiero pedir llaveros de goma 3D con el logo de mi club de pádel. '
+        'Hola Javier, quiero pedir llaveros con logo de goma en material blando para mi club de pádel. '
         'Cantidad: __. País de entrega: __. Fecha del evento: __.'),
  'en': ('Custom Padel Keyrings for Clubs | Bulk Orders from 100',
-        'Custom 3D rubber padel keyrings with your club logo. Orders from 100 units and a €15 '
+        'Custom rubber logo padel keyrings in soft flexible material with your club logo. Orders from 100 units and a €15 '
         'physical sample credited against the final order. Ask for delivery terms and a club '
         'quote.',
-        'Hi Javier, I’d like a quote for custom rubber padel keyrings with my club logo. '
+        'Hi Javier, I’d like a quote for custom rubber logo padel keyrings in soft material with my club logo. '
         'Quantity: __. Delivery country: __. Event date: __.'),
  'fr': ('Porte-clés padel personnalisés pour clubs | Dès 100 pièces',
-        'Porte-clés de padel en gomme 3D avec le logo du club. Commande dès 100 pièces et '
+        'Porte-clés de padel avec logo en gomme et matière souple pour clubs. Commande dès 100 pièces et '
         'échantillon physique à 15 € déduit de la commande finale. Demandez un devis.',
-        'Bonjour Javier, je souhaite un devis pour des porte-clés de padel en gomme 3D avec le '
-        'logo du club. Quantité : __. Pays de livraison : __. Date de l’événement : __.'),
+        'Bonjour Javier, je souhaite un devis pour des porte-clés de padel avec logo en gomme pour le '
+        'club. Quantité : __. Pays de livraison : __. Date de l’événement : __.'),
  'it': ('Portachiavi padel per club con logo | Ordini da 100 pezzi',
-        'Portachiavi padel in gomma 3D con il logo del club. Ordine minimo 100 pezzi e '
+        'Portachiavi padel con logo in gomma morbida per club. Ordine minimo 100 pezzi e '
         'campione fisico da 15 € detraibile dall’ordine finale. Richiedi un preventivo.',
-        'Ciao Javier, vorrei un preventivo per portachiavi padel in gomma 3D con il logo del '
+        'Ciao Javier, vorrei un preventivo per portachiavi padel con logo in gomma per il '
         'club. Quantità: __. Paese di consegna: __. Data dell’evento: __.')}
 
 

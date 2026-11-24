@@ -54,7 +54,7 @@ PADEL_ARTICLES = [
         "title": "¿Se puede personalizar el reverso del llavero con patrocinadores o redes sociales?",
         "paragraphs": [
             "La respuesta corta es sí, por supuesto. De hecho, es una de las opciones más utilizadas por los clubes que quieren rentabilizar al máximo su merchandising o incluso financiar la totalidad del pedido.",
-            "La cara delantera del llavero siempre lleva la forma de la pala de pádel en relieve 3D con el escudo y colores principales del club. Pero el reverso ofrece una superficie trasera perfecta para personalizar:",
+            "La cara delantera del llavero siempre lleva la forma de la pala de pádel con logo de goma en material blando y colores del club. Pero el reverso ofrece una superficie trasera perfecta para personalizar:",
             "• Logotipo del patrocinador principal del club (por ejemplo, el concesionario, la aseguradora o el restaurante colaborador).",
             "• El usuario oficial de Instagram del club (@nombreclub) o la dirección de la página web oficial.",
             "• El claim del club, fecha de aniversario o el hashtag oficial del circuito o torneo.",
@@ -145,7 +145,7 @@ TENIS_ARTICLES = [
         "paragraphs": [
             "Muchos de los clubes con los que trabajamos son entidades con una larga trayectoria polideportiva: cuentan con pistas de tenis tradicionales de tierra batida o resina, y también con pistas de pádel cubiertas o descubiertas.",
             "En CoolPadel diseñamos y fabricamos modelos específicos adaptados a cada disciplina:",
-            "• Llaveros de Tenis: siluetas en relieve 3D con forma de raqueta tradicional, encordado detallado o directamente el escudo heráldico y la tipografía clásica del club de tenis.",
+            "• Llaveros de Tenis: siluetas con logo de goma en material blando con forma de raqueta tradicional, encordado detallado o directamente el escudo heráldico y la tipografía clásica del club de tenis.",
             "• Llaveros de Pádel: siluetas con la morfología de pala moderna de pádel, perforaciones en relieve y relieve perimetral del marco.",
             "Si tu club tiene ambas secciones, puedes encargar pedidos combinados o crear una línea de merchandising unificada que respete la identidad de socios de tenis y de pádel por igual."
         ]
@@ -165,7 +165,7 @@ TENIS_ARTICLES = [
         "slug": "vender-llaveros-tenis-pro-shop-escuelas-rentabilidad",
         "title": "¿Sirven para vender en la pro-shop o escuela del club de tenis? Margen comercial",
         "paragraphs": [
-            "En los clubes de tenis el merchandising con escudo oficial tiene una acogida extraordinaria entre los alumnos de la escuela infantil, veteranos y socios de fin de semana.",
+            "En los clubes de tenis el merchandising con el logo o escudo del club tiene una acogida extraordinaria entre los alumnos de la escuela infantil, veteranos y socios de fin de semana.",
             "Al fabricarse en goma PVC 3D microinyectada, el llavero tiene una gran ventaja frente a los llaveros de metal: no raya las raquetas ni estropea las fundas térmicas cuando se guarda dentro del raquetero.",
             "Desde el punto de vista comercial, el margen para el club es muy atractivo:",
             "• Con una tirada de 100 a 250 unidades el coste se sitúa entre 2,50 € y 3,00 € por unidad.",
@@ -178,7 +178,7 @@ TENIS_ARTICLES = [
         "title": "Llaveros de tenis para torneos sociales, circuitos juveniles y welcome packs",
         "paragraphs": [
             "Organizar un torneo de tenis federado o un torneo social de socios implica buscar detalles de bienvenida que realmente agraden a los participantes sin disparar el presupuesto del evento.",
-            "Un llavero de tenis en relieve 3D personalizado con el nombre del torneo y el logo del patrocinador:",
+            "Un llavero de tenis con logo de goma en material blando con el nombre del torneo y el logo del patrocinador:",
             "• Ocupa poco espacio y se entrega cómodamente en el welcome pack junto a las bolas y la botella de agua.",
             "• Permite incluir en el reverso la marca del patrocinador que financia el torneo, ofreciéndole una visibilidad que dura años y no solo el fin de semana de partidos.",
             "• Es un recuerdo duradero que los jugadores conservan colgado de sus raqueteros."
@@ -496,7 +496,7 @@ LLAVEROS_AEO_DATA = {
         "answer": "Las tarifas por volumen (3,00 €/ud para 100 uds, 2,50 €/ud para 250 uds, 2,00 €/ud para 500 uds y 1,50 €/ud para 1.500 uds) son base imponible sin IVA. Emitimos factura fiscal oficial a nombre del club o empresa gestora y el pago se realiza por transferencia bancaria o tarjeta."
     },
     "tamano-peso-material-goma-3d-microinyectada": {
-        "desc": "Llaveros de pádel fabricados en goma PVC flexible de alta densidad con relieve 3D de ~70 mm: impermeables, resistentes y no rayan las palas.",
+        "desc": "Llaveros de pádel fabricados en goma PVC flexible de alta densidad en material blando de ~70 mm: flexibles, resistentes y no rayan las palas.",
         "answer": "Los llaveros miden aproximadamente 70 mm de largo y se fabrican en goma PVC flexible de alta densidad microinyectada en relieve 3D con anilla metálica reforzada. Al ser flexibles e impermeables, soportan el sudor y el roce diario sin rayar el marco de las palas ni las pantallas de los móviles."
     },
     "vender-llaveros-tienda-recepcion-club": {
@@ -517,7 +517,7 @@ LLAVEROS_AEO_DATA = {
     },
     "llaveros-de-tenis-vs-padel-diferencias-materiales": {
         "desc": "Fabricamos llaveros 3D tanto con silueta de raqueta y escudo clásico para clubes de tenis como con forma de pala moderna para clubes de pádel.",
-        "answer": "Fabricamos ambos modelos en goma 3D de alta densidad: llaveros de tenis con forma de raqueta clásica o silueta troquelada del escudo heráldico del club, y llaveros de pádel con forma de pala perforada en relieve. Los clubes polideportivos pueden combinar ambos diseños."
+        "answer": "Fabricamos ambos modelos en goma de material blando y duradero: llaveros de tenis con forma de raqueta clásica o silueta troquelada del escudo heráldico del club, y llaveros de pádel con forma de pala perforada en relieve. Los clubes polideportivos pueden combinar ambos diseños."
     },
     "formatos-logotipo-escudo-para-llaveros-tenis": {
         "desc": "Aceptamos tu escudo o logo en cualquier formato (PDF, PNG, JPG, AI o foto): nuestro equipo lo vectoriza y modela en 3D gratis antes de fabricar.",
@@ -525,11 +525,11 @@ LLAVEROS_AEO_DATA = {
     },
     "vender-llaveros-tenis-pro-shop-escuelas-rentabilidad": {
         "desc": "Merchandising oficial para escuelas y tiendas de clubes de tenis: coste de 1,50 € a 3,00 €/ud y venta en recepción a 5 €–6 € con +60% de margen.",
-        "answer": "Los llaveros de goma 3D con el escudo del club de tenis tienen un coste de entre 1,50 € y 3,00 €/ud según volumen y se venden en recepción o escuela a 5 €–6 €, generando entre un 50% y un 100% de beneficio neto sin rayar las raquetas ni las fundas térmicas."
+        "answer": "Los llaveros con logo de goma en material blando con el escudo del club de tenis tienen un coste de entre 1,50 € y 3,00 €/ud según volumen y se venden en recepción o escuela a 5 €–6 €, generando entre un 50% y un 100% de beneficio neto sin rayar las raquetas ni las fundas térmicas."
     },
     "llaveros-tenis-regalos-torneos-welcome-packs": {
         "desc": "El regalo ideal para welcome packs de torneos de tenis y circuitos juveniles: llavero 3D con el escudo del club y logo del patrocinador en el reverso.",
-        "answer": "Un llavero de tenis en relieve 3D cuesta entre 1,50 € y 3,00 €/ud, no tiene problemas de tallas como las camisetas, cabe en el bote o bolsa de bienvenida y permite estampar el logo del patrocinador en el reverso para autofinanciar el welcome pack del torneo."
+        "answer": "Un llavero de tenis con logo de goma en material blando cuesta entre 1,50 € y 3,00 €/ud, no tiene problemas de tallas como las camisetas, cabe en el bote o bolsa de bienvenida y permite estampar el logo del patrocinador en el reverso para autofinanciar el welcome pack del torneo."
     }
 }
 
@@ -893,7 +893,7 @@ def build_hub(hub_dir: Path, is_padel: bool, articles: list[dict]):
 
       <section class="next-step max-w-4xl mx-auto">
         <h2>Siguiente paso</h2>
-        <p>¿Quieres ver cómo quedaría el logo de tu club en relieve 3D? Preparamos tu diseño digital y te enviamos la muestra física real.</p>
+        <p>¿Quieres ver cómo quedaría el logo de tu club con logo de goma en material blando? Preparamos tu diseño digital y te enviamos la muestra física real.</p>
         <div class="pt-3">
           <a href="https://api.whatsapp.com/send?phone=34680317486&text=Hola%20Javier%2C%20quiero%20ver%20el%20dise%C3%B1o%203D%20y%20pedir%20presupuesto%20de%20llaveros" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] text-slate-950 font-heading font-black text-xs uppercase tracking-wider transition shadow-md hover:scale-105 active:scale-95 cursor-pointer">
             <i data-lucide="message-circle" class="w-4 h-4 stroke-[2.5]"></i>
