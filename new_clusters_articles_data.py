@@ -613,6 +613,126 @@ NEW_ARTICLES_CONTENT = {
 <p>El director del club no tiene que contratar cámaras ni operadores externos: la infraestructura fija de Save My Play se programa en 5 minutos y se encarga de todo el proceso de grabación y entrega.</p>
 </div>"""
         ]
+    },
+
+    # 21. Cómo Diferenciar tu Club de Pádel Frente a la Competencia Local
+    "diferenciacion-club-padel-frente-a-competencia": {
+        "slug": "diferenciacion-club-padel-frente-a-competencia",
+        "title": "Cómo Diferenciar tu Club de Pádel Frente a la Competencia Local",
+        "meta_title": "Cómo Diferenciar tu Club de Pádel Frente a la Competencia",
+        "meta_desc": "Estrategias reales para que tu club de pádel no compita solo por precio: tecnología en pista, experiencia premium y valor añadido para los jugadores.",
+        "h1": "Cómo Diferenciar tu Club de Pádel Frente a la Competencia Local",
+        "hero_img": "/assets/images/camaras/camera-01.jpg",
+        "intro_p": "Cuando en tu misma zona abren dos naves nuevas con pistas idénticas, competir bajando precios es una carrera hacia la quiebra: necesitas valor percibido.",
+        "blocks": [
+            """<div class="article-block">
+<p>La saturación de clubes en muchas ciudades es una realidad: en un radio de 10 kilómetros un jugador suele tener 4 o 5 clubes donde la pista, el cristal y la moqueta son exactamente iguales.</p>
+<p>Si la única diferencia entre tu club y el de al lado son 2 euros de alquiler, el jugador reservará donde pille hueco en Playtomic. Para crear una <strong>marca de club sólida y fidelizada</strong> necesitas ofrecer algo que la nave de enfrente no tenga.</p>
+</div>""",
+            """<div class="article-block">
+<h2 class="article-subheading"><span class="subheading-title">La tecnología como factor de decisión inmediato</span></h2>
+<p>Cuando un grupo de amigos tiene que decidir dónde jugar su partido de las 19:30, tener pistas equipadas con cámaras inteligentes inclina la balanza:</p>
+<ul class="list-disc pl-5 space-y-2 text-slate-700 my-4 text-sm sm:text-base">
+  <li>Saben que en tu club se llevan sus mejores jugadas al móvil con solo pulsar un botón.</li>
+  <li>Pueden ver el resumen del partido mientras se toman la cerveza en tu terraza.</li>
+  <li>Comparten los vídeos en sus grupos de WhatsApp y redes sociales mencionando las instalaciones de tu club.</li>
+</ul>
+</div>""",
+            """<div class="article-block">
+<h2 class="article-subheading"><span class="subheading-title">Salir de la guerra de precios sin obras</span></h2>
+<p>Diferenciar un club no exige reformar vestuarios ni cambiar moquetas cada año. Instalar Save My Play cuesta solo 180 € de hardware por pista y desde 27 € a 45 €/mes, transformando una pista estándar en una experiencia interactiva de primer nivel.</p>
+</div>"""
+        ]
+    },
+
+    # 22. Cómo Subir el Precio del Alquiler de Pistas sin Perder Clientes
+    "como-justificar-subir-precios-pista-padel": {
+        "slug": "como-justificar-subir-precios-pista-padel",
+        "title": "Cómo Subir el Precio de la Pista de Pádel sin Perder Clientes",
+        "meta_title": "Cómo Subir el Precio de la Pista de Pádel sin Perder Clientes",
+        "meta_desc": "Estrategias para incrementar la tarifa por hora de pista de pádel: paquetizar grabación, highlights automáticos y percepción de club premium.",
+        "h1": "Cómo Subir el Precio de la Pista de Pádel sin Perder Clientes",
+        "hero_img": "/assets/images/camaras/pista-indoor-blue-zone-clean.png",
+        "intro_p": "Subir 1 o 2 euros por jugador y hora sin dar nada a cambio genera quejas; vincularlo a pistas inteligentes y vídeo en directo genera aplausos.",
+        "blocks": [
+            """<div class="article-block">
+<p>La subida de la luz, el personal y los suministros ahoga los márgenes de muchos gestores de pádel. Sin embargo, subir la hora de 24 € a 28 € 'porque sí' suele provocar fugas a otros clubes cercanos.</p>
+<p>La clave comercial para incrementar tus tarifas es <strong>elevar el valor percibido por encima del incremento de precio</strong>.</p>
+</div>""",
+            """<div class="article-block">
+<h2 class="article-subheading"><span class="subheading-title">Pistas Pro / Premium con grabación incluida</span></h2>
+<p>Muchos clubes adoptan con enorme éxito el modelo de pistas diferenciadas:</p>
+<ul class="list-disc pl-5 space-y-2 text-slate-700 my-4 text-sm sm:text-base">
+  <li>Mantienen las pistas normales a la tarifa base habitual.</li>
+  <li>Nombran a las pistas centrales equipadas con cámaras como <strong>'Pistas Pro Save My Play'</strong> con un suplemento de 4 € a 8 € por hora de reserva (1 a 2 € por jugador).</li>
+  <li>Los jugadores pagan encantados ese extra porque incluye la grabación íntegra y los highlights de su partido directos al móvil.</li>
+</ul>
+</div>""",
+            """<div class="article-block">
+<h2 class="article-subheading"><span class="subheading-title">Impacto directo en la cuenta de resultados</span></h2>
+<p>Con solo 4 horas de reserva diaria en una pista premium con un suplemento de 6 € por hora, el club ingresa 720 € extra al mes por pista. Descontando la cuota mensual de Save My Play, el beneficio neto supera los 650 € al mes por cada pista equipada.</p>
+</div>"""
+        ]
+    },
+
+    # 23. Cómo Atraer Jugadores de Nivel Avanzado y Competición a tu Club
+    "atraer-jugadores-nivel-avanzado-competicion-club-padel": {
+        "slug": "atraer-jugadores-nivel-avanzado-competicion-club-padel",
+        "title": "Cómo Atraer Jugadores de Nivel Avanzado y Competición a tu Club de Pádel",
+        "meta_title": "Cómo Atraer Jugadores Avanzados y Competición a tu Club de Pádel",
+        "meta_desc": "Convierte tu club en la sede de referencia para jugadores de primera y segunda categoría: VAR en pista, repetición de jugadas y tecnificación.",
+        "h1": "Cómo Atraer Jugadores de Alto Nivel y Competición a tu Club",
+        "hero_img": "/assets/images/camaras/portada-coaching-tools-tablet.png",
+        "intro_p": "Los jugadores de nivel alto no van al club más barato: van al club que les ofrece las mejores condiciones para entrenar, competir y analizar su juego.",
+        "blocks": [
+            """<div class="article-block">
+<p>Tener en tus pistas a los mejores jugadores de la provincia crea un efecto llamada brutal: los aficionados van a verlos jugar, consumen en la terraza y las escuelas de menores se llenan buscando ese referente.</p>
+<p>Sin embargo, los jugadores de competición son muy exigentes con la calidad de las instalaciones y el rigor en sus partidos.</p>
+</div>""",
+            """<div class="article-block">
+<h2 class="article-subheading"><span class="subheading-title">Lo que busca un jugador de primera y segunda categoría</span></h2>
+<p>Para atraer a los jugadores que compiten en ligas federadas o torneos autonómicos necesitas darles herramientas profesionales:</p>
+<ul class="list-disc pl-5 space-y-2 text-slate-700 my-4 text-sm sm:text-base">
+  <li><strong>Revisión de jugadas y VAR en tablet:</strong> Quieren poder revisar bolas dudosas y analizar cómo gestionaron los puntos de oro.</li>
+  <li><strong>Grabación de entrenamientos tácticos:</strong> Poder llevarse la sesión completa para revisar su posicionamiento con su entrenador.</li>
+  <li><strong>Streaming de sus partidos:</strong> La posibilidad de que sus patrocinadores personales o seguidores sigan sus finales en directo.</li>
+</ul>
+</div>""",
+            """<div class="article-block">
+<h2 class="article-subheading"><span class="subheading-title">El imán de los torneos de categoría oro</span></h2>
+<p>Equipar tus pistas centrales te permite optar a acoger pruebas federadas de alto nivel, porque los árbitros y la federación cuentan con respaldo audiovisual profesional sin coste de despliegue externo.</p>
+</div>"""
+        ]
+    },
+
+    # 24. Fidelización de Socios: Cómo Evitar que se Vayan a Nuevos Clubes
+    "fidelizar-socios-evitar-fuga-nuevos-clubes-padel": {
+        "slug": "fidelizar-socios-evitar-fuga-nuevos-clubes-padel",
+        "title": "Fidelización de Socios en Pádel: Cómo Evitar que se Vayan a Clubes Nuevos",
+        "meta_title": "Fidelización de Socios en Pádel | Cómo Evitar Fuga a Nuevos Clubes",
+        "meta_desc": "Estrategias de retención y fidelización de socios en clubes de pádel: crea comunidad y anclaje digital para que la apertura de nuevas pistas no te quite clientes.",
+        "h1": "Fidelización de Socios: Cómo Evitar Fuga ante Nuevos Clubes",
+        "hero_img": "/assets/images/camaras/pista-indoor-passion-padel.png",
+        "intro_p": "La novedad de un club recién inaugurado dura dos meses: el anclaje digital y el sentido de comunidad retienen a tus clientes toda la vida.",
+        "blocks": [
+            """<div class="article-block">
+<p>El mayor temor de cualquier gestor de club es el rumor de que van a abrir 8 pistas de pádel cubiertas a diez minutos de sus instalaciones.</p>
+<p>Cuando un club nuevo abre, la curiosidad hace que muchos socios prueben las nuevas instalaciones. Si en tu club solo encontraban 'cuatro cristales y una red', el riesgo de que no vuelvan es altísimo.</p>
+</div>""",
+            """<div class="article-block">
+<h2 class="article-subheading"><span class="subheading-title">El valor del anclaje digital y el recuerdo</span></h2>
+<p>El club que entrega a sus socios el vídeo de sus mejores golpes crea un vínculo emocional imposible de replicar por una pista vacía recién pintada:</p>
+<ul class="list-disc pl-5 space-y-2 text-slate-700 my-4 text-sm sm:text-base">
+  <li>El jugador tiene en su móvil un historial de partidos y highlights jugados en tu club.</li>
+  <li>Sabe que si juega en el club nuevo no tendrá la grabación de sus remates ni el resumen de sus jugadas.</li>
+  <li>Se siente parte de una comunidad activa que premia sus mejores momentos y los comparte en las televisiones del club.</li>
+</ul>
+</div>""",
+            """<div class="article-block">
+<h2 class="article-subheading"><span class="subheading-title">Retener a tus 100 mejores clientes fidelizados</span></h2>
+<p>El 80% de los ingresos de un club proviene del 20% de sus jugadores habituales (los que juegan 2 o 3 veces por semana). Proteger a ese núcleo con tecnología exclusiva es la mejor póliza de seguro contra cualquier apertura de la competencia.</p>
+</div>"""
+        ]
     }
 
 }

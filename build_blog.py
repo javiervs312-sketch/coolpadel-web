@@ -267,6 +267,10 @@ def get_silo_footer_html(root_prefix="../../"):
             <li><a href="/camaras/grabar-padel-apple-watch-wearables/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Control con Apple Watch en Pista</a></li>
             <li><a href="/camaras/smart-tv-court-tv-cafeteria-club-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Court TV y Smart TV Cafetería</a></li>
             <li><a href="/camaras/torneos-empresas-team-building-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Torneos de Empresas y Team Building</a></li>
+            <li><a href="/camaras/diferenciacion-club-padel-frente-a-competencia/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Diferenciación Frente a Competencia</a></li>
+            <li><a href="/camaras/como-justificar-subir-precios-pista-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Subir Precios Pistas Pádel</a></li>
+            <li><a href="/camaras/atraer-jugadores-nivel-avanzado-competicion-club-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Atraer Jugadores de Competición</a></li>
+            <li><a href="/camaras/fidelizar-socios-evitar-fuga-nuevos-clubes-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Fidelización y Evitar Fuga de Socios</a></li>
           </ul>
         </div>
 
