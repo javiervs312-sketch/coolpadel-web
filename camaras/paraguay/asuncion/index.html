@@ -34,6 +34,19 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../../../assets/css/tailwind-markets.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            heading: ['Outfit', 'sans-serif'],
+            body: ['Plus Jakarta Sans', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
   <script src="https://unpkg.com/lucide@latest"></script>
 
   <!-- Schema.org Microdata -->
@@ -195,6 +208,52 @@
       background-size: cover !important;
       background-position: center !important;
     }
+    .hero-btn-row {
+      display: flex !important;
+      flex-direction: row !important;
+      align-items: center !important;
+      gap: 16px !important;
+      flex-wrap: wrap !important;
+    }
+    .hero-cities-row {
+      display: flex !important;
+      flex-direction: row !important;
+      flex-wrap: nowrap !important;
+      align-items: center !important;
+      gap: 8px !important;
+      overflow-x: auto !important;
+      white-space: nowrap !important;
+      -ms-overflow-style: none !important;
+      scrollbar-width: none !important;
+    }
+    .hero-cities-row::-webkit-scrollbar {
+      display: none !important;
+    }
+    .hero-city-pill {
+      display: inline-flex !important;
+      flex-direction: row !important;
+      align-items: center !important;
+      gap: 6px !important;
+      white-space: nowrap !important;
+      flex-shrink: 0 !important;
+    }
+    .hero-stats-section {
+      margin-top: -44px !important;
+      position: relative !important;
+      z-index: 20 !important;
+      margin-bottom: 32px !important;
+    }
+    .hero-stat-card {
+      border: 2px solid #f2920b !important;
+      height: 88px !important;
+      display: flex !important;
+      flex-direction: column !important;
+      justify-content: center !important;
+      background-color: #ffffff !important;
+      border-radius: 1rem !important;
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1) !important;
+      padding: 1rem 1.25rem !important;
+    }
   </style>
   <!-- Google Analytics 4 -->
   <script>
@@ -315,7 +374,7 @@
               Comparte Highlights, Retransmite Partidos, y Estadísticas con IA con la Cámara Oficial de USA Padel y USTA. Ya en +1500 pistas
             </p>
             
-            <div class="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 relative" style="min-height: 54px;">
+            <div class="pt-2 flex flex-row items-center gap-3 sm:gap-4 hero-btn-row relative" style="min-height: 54px;">
               <div id="hero-btn-placeholder" style="display: none; height: 50px;" class="w-full sm:w-[320px]"></div>
               <a id="hero-wa-btn" data-product="camaras" data-lead-intent="demo" data-button-position="hero" href="https://api.whatsapp.com/send?phone=34680317486&text=Hola%20Javier%2C%20dirijo%20un%20club%20de%20p%C3%A1del%20en%20Asunci%C3%B3n%20%28Paraguay%29%20y%20quiero%20ver%20una%20demo%20de%20las%20c%C3%A1maras%20Save%20My%20Play." target="_blank" rel="noopener" class="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 sm:px-7 sm:py-3.5 rounded-full bg-[#f2920b] hover:bg-[#e08508] text-slate-950 font-heading font-black text-xs sm:text-sm uppercase tracking-wider transition-all duration-200 shadow-xl hover:scale-105 active:scale-95 group z-40">
                 <i data-lucide="message-circle" class="w-4 h-4 sm:w-5 sm:h-5 text-slate-950"></i>
@@ -328,24 +387,24 @@
               </a>
             </div>
 
-            <div class="pt-2 flex items-center gap-1.5 sm:gap-2 flex-wrap lg:flex-nowrap">
-              <a href="/camaras/paraguay/" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-white/95 hover:bg-[#f2920b] text-slate-800 hover:text-slate-950 border border-white/80 font-heading font-bold text-[11px] sm:text-xs uppercase tracking-wider transition shadow-sm shrink-0 whitespace-nowrap">
+            <div class="pt-2 flex flex-row items-center gap-1.5 sm:gap-2 flex-nowrap hero-cities-row">
+              <a href="/camaras/paraguay/" class="hero-city-pill inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-white/95 hover:bg-[#f2920b] text-slate-800 hover:text-slate-950 border border-white/80 font-heading font-bold text-[11px] sm:text-xs uppercase tracking-wider transition shadow-sm shrink-0 whitespace-nowrap">
                 <i data-lucide="map-pin" class="w-3.5 h-3.5 text-[#f2920b]"></i>
                 <span>Paraguay</span>
               </a>
-              <a href="/camaras/paraguay/ciudad-del-este/" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-white/95 hover:bg-[#f2920b] text-slate-800 hover:text-slate-950 border border-white/80 hover:border-[#f2920b] font-heading font-bold text-[11px] sm:text-xs uppercase tracking-wider transition shadow-sm shrink-0 whitespace-nowrap">
+              <a href="/camaras/paraguay/ciudad-del-este/" class="hero-city-pill inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-white/95 hover:bg-[#f2920b] text-slate-800 hover:text-slate-950 border border-white/80 hover:border-[#f2920b] font-heading font-bold text-[11px] sm:text-xs uppercase tracking-wider transition shadow-sm shrink-0 whitespace-nowrap">
                 <i data-lucide="map-pin" class="w-3.5 h-3.5 text-[#f2920b]"></i>
                 <span>Ciudad del Este</span>
               </a>
-              <a href="/camaras/paraguay/san-lorenzo/" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-white/95 hover:bg-[#f2920b] text-slate-800 hover:text-slate-950 border border-white/80 hover:border-[#f2920b] font-heading font-bold text-[11px] sm:text-xs uppercase tracking-wider transition shadow-sm shrink-0 whitespace-nowrap">
+              <a href="/camaras/paraguay/san-lorenzo/" class="hero-city-pill inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-white/95 hover:bg-[#f2920b] text-slate-800 hover:text-slate-950 border border-white/80 hover:border-[#f2920b] font-heading font-bold text-[11px] sm:text-xs uppercase tracking-wider transition shadow-sm shrink-0 whitespace-nowrap">
                 <i data-lucide="map-pin" class="w-3.5 h-3.5 text-[#f2920b]"></i>
                 <span>San Lorenzo</span>
               </a>
-              <a href="/camaras/paraguay/luque/" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-white/95 hover:bg-[#f2920b] text-slate-800 hover:text-slate-950 border border-white/80 hover:border-[#f2920b] font-heading font-bold text-[11px] sm:text-xs uppercase tracking-wider transition shadow-sm shrink-0 whitespace-nowrap">
+              <a href="/camaras/paraguay/luque/" class="hero-city-pill inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-white/95 hover:bg-[#f2920b] text-slate-800 hover:text-slate-950 border border-white/80 hover:border-[#f2920b] font-heading font-bold text-[11px] sm:text-xs uppercase tracking-wider transition shadow-sm shrink-0 whitespace-nowrap">
                 <i data-lucide="map-pin" class="w-3.5 h-3.5 text-[#f2920b]"></i>
                 <span>Luque</span>
               </a>
-              <a href="/camaras/paraguay/encarnacion/" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-white/95 hover:bg-[#f2920b] text-slate-800 hover:text-slate-950 border border-white/80 hover:border-[#f2920b] font-heading font-bold text-[11px] sm:text-xs uppercase tracking-wider transition shadow-sm shrink-0 whitespace-nowrap">
+              <a href="/camaras/paraguay/encarnacion/" class="hero-city-pill inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-white/95 hover:bg-[#f2920b] text-slate-800 hover:text-slate-950 border border-white/80 hover:border-[#f2920b] font-heading font-bold text-[11px] sm:text-xs uppercase tracking-wider transition shadow-sm shrink-0 whitespace-nowrap">
                 <i data-lucide="map-pin" class="w-3.5 h-3.5 text-[#f2920b]"></i>
                 <span>Encarnación</span>
               </a>
@@ -363,21 +422,21 @@
     </section>
 
     <!-- Resumen Clave (4 Tarjetas sobrepuestas en la frontera: exactamente el 50% sobre la textura azul) -->
-    <section class="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 -mt-10 sm:-mt-11 lg:-mt-[44px] relative z-20 mb-8 sm:mb-12">
+    <section class="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 hero-stats-section -mt-10 sm:-mt-11 lg:-mt-[44px] relative z-20 mb-8 sm:mb-12">
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-        <div class="bg-white rounded-2xl p-4 sm:p-5 border-2 border-[#f2920b] shadow-xl flex flex-col justify-center h-[88px]">
+        <div class="hero-stat-card bg-white rounded-2xl p-4 sm:p-5 border-2 border-[#f2920b] shadow-xl flex flex-col justify-center h-[88px]">
           <span class="text-[11px] font-bold text-slate-500 uppercase tracking-wider block leading-tight">Cámara en propiedad</span>
           <span class="text-sm sm:text-base font-black font-heading text-slate-950 mt-1 block leading-tight">Gs. 1.500.000 por pista</span>
         </div>
-        <div class="bg-white rounded-2xl p-4 sm:p-5 border-2 border-[#f2920b] shadow-xl flex flex-col justify-center h-[88px]">
+        <div class="hero-stat-card bg-white rounded-2xl p-4 sm:p-5 border-2 border-[#f2920b] shadow-xl flex flex-col justify-center h-[88px]">
           <span class="text-[11px] font-bold text-slate-500 uppercase tracking-wider block leading-tight">Plan de grabación</span>
           <span class="text-sm sm:text-base font-black font-heading text-slate-950 mt-1 block leading-tight">Gs. 375.000/mes por pista</span>
         </div>
-        <div class="bg-white rounded-2xl p-4 sm:p-5 border-2 border-[#f2920b] shadow-xl flex flex-col justify-center h-[88px]">
+        <div class="hero-stat-card bg-white rounded-2xl p-4 sm:p-5 border-2 border-[#f2920b] shadow-xl flex flex-col justify-center h-[88px]">
           <span class="text-[11px] font-bold text-slate-500 uppercase tracking-wider block leading-tight">Permanencia</span>
           <span class="text-sm sm:text-base font-black font-heading text-slate-950 mt-1 block leading-tight">0 permanencia</span>
         </div>
-        <div class="bg-white rounded-2xl p-4 sm:p-5 border-2 border-[#f2920b] shadow-xl flex flex-col justify-center h-[88px]">
+        <div class="hero-stat-card bg-white rounded-2xl p-4 sm:p-5 border-2 border-[#f2920b] shadow-xl flex flex-col justify-center h-[88px]">
           <span class="text-[11px] font-bold text-slate-500 uppercase tracking-wider block leading-tight">Instalación</span>
           <span class="text-sm sm:text-base font-black font-heading text-slate-950 mt-1 block leading-tight">Montaje en 5 minutos</span>
         </div>
