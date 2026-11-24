@@ -555,10 +555,150 @@ def apply_all_variants():
     print(f" - Variante B (Asunción Nueva): {split['count_b']} páginas ({modified_b} actualizadas/verificadas)")
     return split
 
+def audit_all_pages():
+    """Ejecuta una auditoría estructural y técnica exhaustiva sobre las 300 páginas (Variante A y B)."""
+    pages = scan_all_market_pages()
+    split = generate_or_load_ab_split(pages)
+    variant_map = split["pages"]
+
+    errors_by_page = {}
+    count_b = 0
+    count_a = 0
+
+    for p in pages:
+        rel = p["rel_path"]
+        variant = variant_map.get(rel, "A")
+        if variant == "B":
+            count_b += 1
+        else:
+            count_a += 1
+
+        fpath = os.path.join(OUTPUT_ROOT, rel)
+        with open(fpath, "r", encoding="utf-8") as f:
+            html = f.read()
+
+        errs = []
+
+        # 1. Chequeos transversales
+        if "G-3FY3DTNN21" not in html:
+            errs.append("Falta GA4")
+        if "q7p8g52y9e" not in html:
+            errs.append("Falta Clarity")
+        if "application/ld+json" not in html:
+            errs.append("Falta Schema.org JSON-LD")
+        if "phone=34680317486" not in html:
+            errs.append("Falta o teléfono erróneo en WhatsApp (+34 680 31 74 86)")
+
+        if variant == "B":
+            # 2. Header
+            if "max-w-7xl" in html[:html.find("</header>")]:
+                errs.append("Header tiene max-w-7xl en lugar de max-w-6xl")
+            if "max-w-6xl" not in html[:html.find("</header>")]:
+                errs.append("Header no tiene max-w-6xl")
+
+            # 3. Hero
+            if "camera-local-hero" not in html:
+                errs.append("Hero sin textura azul .camera-local-hero")
+            if "hero-breadcrumb" not in html:
+                errs.append("Hero sin hero-breadcrumb")
+            if "hero-main-title" not in html:
+                errs.append("Hero sin hero-main-title")
+            if "hero-main-subtitle" not in html:
+                errs.append("Hero sin hero-main-subtitle")
+            if "hero-btn-row" not in html:
+                errs.append("Hero sin hero-btn-row")
+            if "hero-city-pill" not in html:
+                errs.append("Hero sin hero-city-pill")
+            if "hero-award-badge" not in html:
+                errs.append("Hero sin hero-award-badge")
+            if "margin-top: 28px !important;" not in html:
+                errs.append("hero-award-badge sin margen 28px")
+
+            # 4. Rectángulos de estadísticas
+            if "hero-stats-section" not in html:
+                errs.append("Falta sección hero-stats-section")
+            if html.count("hero-stat-card") < 4:
+                errs.append(f"Se esperaban 4 hero-stat-card, hay {html.count('hero-stat-card')}")
+
+            # 5. Artículos destacados
+            if "hero-featured-articles" not in html:
+                errs.append("Falta sección hero-featured-articles")
+            if html.count('class="article-card') < 3:
+                errs.append(f"Se esperaban 3 article-card, hay {html.count('class=\"article-card')}")
+
+            # 6. Sección 2: 3 tarjetas blancas con ✓ naranja
+            if "pt-8 pb-14 sm:pt-10 sm:pb-20 bg-white border-b border-slate-200" not in html:
+                errs.append("Sección 2 sin padding canónico pt-8 pb-14...")
+            sec2_m = re.search(r'<!--\s*2\.[^>]*?-->\s*<section[^>]*>([\s\S]*?)</section>', html)
+            if sec2_m:
+                sec2_content = sec2_m.group(1)
+                for bad_icon in ['data-lucide="zap"', 'data-lucide="smartphone"', 'data-lucide="shield-check"']:
+                    if bad_icon in sec2_content:
+                        errs.append(f"Sección 2 contiene icono obsoleto {bad_icon}")
+                if "bg-slate-50" in sec2_content:
+                    errs.append("Sección 2 contiene tarjetas grises bg-slate-50")
+            if html.count("text-[#f2920b] flex items-center justify-start mb-4 font-black text-2xl") < 3:
+                errs.append("Sección 2 sin los 3 checks naranjas ✓")
+
+            # 7. Sección 3 (Precios)
+            precios_m = re.search(r'<section id="precios"[^>]*>([\s\S]*?)</section>', html)
+            if not precios_m:
+                errs.append("Falta sección precios")
+            else:
+                p_content = precios_m.group(0)
+                if "scroll-mt-20" not in p_content:
+                    errs.append("Precios sin scroll-mt-20")
+                if "* Precios sin IVA" in p_content:
+                    errs.append("Precios contiene texto antiguo '* Precios sin IVA'")
+                if 'data-button-position="pricing"' not in p_content:
+                    errs.append("Botón precios sin data-button-position='pricing'")
+                if "Pedir presupuesto" in p_content:
+                    errs.append("Botón precios con texto antiguo 'Pedir presupuesto'")
+
+            # 8. Sección 5 (FAQs)
+            faq_m = re.search(r'<!--\s*5\.\s*PREGUNTAS FRECUENTES[^\n]*\s*<section class="([^"]*)"', html)
+            if faq_m:
+                faq_class = faq_m.group(1)
+                if "bg-slate-50" in faq_class:
+                    errs.append(f"FAQs con fondo gris bg-slate-50 en vez de bg-white")
+
+            # 9. Placeholders sin resolver
+            if "{rec}" in html or "{hw}" in html or "{ai}" in html:
+                errs.append("Variables sin formatear {rec}, {hw} o {ai}")
+
+        else: # Variante A (Control)
+            if "hero-stats-section" in html:
+                errs.append("Variante A contiene hero-stats-section")
+            if "hero-featured-articles" in html:
+                errs.append("Variante A contiene hero-featured-articles")
+            if "camera-local-hero" in html:
+                errs.append("Variante A contiene camera-local-hero")
+
+        if errs:
+            errors_by_page[rel] = errs
+
+    print(f"\n==========================================")
+    print(f"       AUDITORÍA MAESTRA A/B LANDINGS      ")
+    print(f"==========================================")
+    print(f"Total páginas auditadas: {len(pages)}")
+    print(f" - Variante B (Asunción): {count_b}")
+    print(f" - Variante A (Control):  {count_a}")
+    print(f"Páginas con discrepancias: {len(errors_by_page)}")
+    
+    if errors_by_page:
+        print("\n[FALLO] Discrepancias encontradas:")
+        for rel, errs in list(errors_by_page.items())[:15]:
+            print(f"  ❌ {rel}: {errs}")
+        return False
+    else:
+        print("\n✅ [ÉXITO TOTAL] Las 300 páginas cumplen al 100% el contrato estructural y técnico.")
+        return True
+
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description="Gestor de Test A/B de Landings de Cámaras")
     parser.add_argument("--status", action="store_true", help="Mostrar distribución actual")
     parser.add_argument("--apply", action="store_true", help="Aplicar división A/B a todas las landings")
+    parser.add_argument("--audit", action="store_true", help="Auditar al 100% todas las 300 landings contra el contrato")
     args = parser.parse_args()
     
     pages = scan_all_market_pages()
@@ -570,5 +710,8 @@ if __name__ == '__main__':
         print(f"Variante B (Asunción): {split['count_b']}")
         sample_b = [k for k, v in split["pages"].items() if v == "B"][:10]
         print("Muestra Variante B:", sample_b)
+    elif args.audit:
+        success = audit_all_pages()
+        sys.exit(0 if success else 1)
     elif args.apply or len(sys.argv) == 1:
         apply_all_variants()
