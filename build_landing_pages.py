@@ -228,19 +228,19 @@ LANDINGS = [
 
         "slug": "llaveros-padel-personalizados",
         "title": "Llaveros de Pádel Personalizados con Logo · Desde 1,50€ | CoolPadel",
-        "meta_desc": "Fabricante directo de llaveros de pádel personalizados en goma 3D con forma de pala y logo oficial. Pedidos desde 100 uds y muestra física real por 15€.",
+        "meta_desc": "Llaveros de pádel con logo de goma. Material blando y duradero con la forma de tu pala o club. Pedidos desde 100 uds y muestra física por 15€.",
 
         "badge": "",
 
-        "breadcrumb_leaf": "Llaveros Pádel 3D",
+        "breadcrumb_leaf": "Llaveros Pádel",
 
-        "h1": "Llaveros de Pádel Personalizados con Forma de Pala y Logo Oficial",
+        "h1": "Llaveros de Pádel Personalizados con Logo de Goma",
 
-        "subtitle": "El detalle que tus jugadores llevan siempre en su paletero.",
+        "subtitle": "Llaveros de pádel con logo de goma. Material blando para que tus socios y jugadores lleven siempre su pala favorita en el paletero.",
 
         "hero_img": "assets/images/llaveros-padel-personalizados-clubs.jpg",
 
-        "hero_img_alt": "Llaveros de pádel personalizados con forma de pala de goma 3D con logo oficial para clubes",
+        "hero_img_alt": "Llaveros de pádel con logo de goma en material blando para clubes",
 
         "wa_msg": "Hola Javier, quiero información y presupuesto para llaveros de pádel personalizados para mi club",
 
@@ -258,13 +258,13 @@ LANDINGS = [
 
             "label_4": "Plazo Entrega", "val_4": "~1 mes con envíos incluidos a España, Europa y USA",
 
-            "p": "CoolPadel es fabricante directo B2B de llaveros de pádel personalizados en goma PVC 3D microinyectada con relieve y logo oficial para clubes y torneos. Pedidos desde 100 unidades con tarifa directa de fábrica, muestra física real previa y envíos incluidos."
+            "p": "Llaveros de pádel con logo de goma. Material blando y duradero para clubes, torneos y escuelas. Pedidos desde 100 unidades con tarifa de fábrica, muestra física real por 15 € y envíos incluidos."
 
         },
 
         "benefits": [
 
-            ("Relieve 3D Microinyectado", "Goma PVC flexible de alta densidad, resistente a caídas, agua y rozaduras dentro del paletero."),
+            ("Goma Flexible en Material Blando", "Llaveros de pádel con logo de goma. Material blando resistente a caídas, agua y rozaduras dentro del paletero sin romperse ni rayar palas."),
 
             ("Muestra Física Previa 15€", "Fabricamos una muestra real con tu logo antes de confirmar la tirada completa. Reembolsable 100% con el pedido."),
 
@@ -296,21 +296,21 @@ LANDINGS = [
 
         "slug": "llaveros-tenis-personalizados",
 
-        "title": "Llaveros Tenis Personalizados 3D [Desde 1,50€] | CoolPadel",
+        "title": "Llaveros Tenis Personalizados con Logo · Desde 1,50€ | CoolPadel",
 
-        "meta_desc": "Llaveros de tenis personalizados en relieve 3D con el escudo de tu club o torneo. Goma flexible de calidad, pedidos desde 100 uds y muestra física por 15€.",
+        "meta_desc": "Llaveros de tenis con logo de goma. Material blando y ligero con los colores de tu club o torneo. Pedidos desde 100 uds y muestra física por 15€.",
 
         "badge": "",
 
         "breadcrumb_leaf": "Llaveros de Tenis",
 
-        "h1": "Llaveros de Tenis Personalizados con tu Escudo Oficial",
+        "h1": "Llaveros de Tenis Personalizados con el Logo de tu Club",
 
-        "subtitle": "Diseñamos y fabricamos llaveros de tenis en relieve 3D para escuelas de tenis, torneos sociales, clubes históricos y welcome packs. Un obsequio elegante y duradero.",
+        "subtitle": "Llaveros de tenis con logo de goma. Material blando para escuelas de tenis, torneos sociales y socios del club. Un detalle elegante, ligero y duradero.",
 
         "hero_img": "assets/images/llaveros-tenis-personalizados-clubs.jpg",
 
-        "hero_img_alt": "Llaveros de tenis personalizados con relieve 3D para clubs y escuelas deportivas",
+        "hero_img_alt": "Llaveros de tenis con logo de goma en material blando para clubs y escuelas deportivas",
 
         "wa_msg": "Hola Javier, quiero presupuesto para llaveros de tenis personalizados para nuestro club/academia",
 
@@ -324,19 +324,19 @@ LANDINGS = [
 
             "label_2": "Pedido Mínimo", "val_2": "100 unidades (Escuelas y torneos)",
 
-            "label_3": "Muestra Física", "val_3": "15 € con escudo oficial (100% deducible)",
+            "label_3": "Muestra Física", "val_3": "15 € con el logo del club (100% deducible)",
 
             "label_4": "Plazo Entrega", "val_4": "~15 días muestra · ~1 mes pedido final",
 
-            "p": "Fabricación oficial de llaveros de tenis personalizados en relieve 3D de PVC microinyectado flexible. No raya raquetas ni fundas, pedidos desde 100 unidades para academias y clubes tradicionales con muestra física previa por 15€."
+            "p": "Llaveros de tenis con logo de goma. Material blando que no raya raquetas ni fundas. Pedidos desde 100 unidades para academias y clubes con muestra física previa por 15€."
 
         },
 
         "benefits": [
 
-            ("Diseño Fiel a tu Escudo", "Reproducimos con fidelidad los detalles, tipografías y colores tradicionales de tu club de tenis."),
+            ("Diseño Fiel al Logo de tu Club", "Reproducimos con fidelidad los detalles, tipografías y colores tradicionales de tu club de tenis."),
 
-            ("Material Duradero y Flexible", "Goma 3D ligera que no raya las raquetas, mochilas ni bolsillos. Anilla metálica reforzada."),
+            ("Goma Ligera en Material Blando", "Material blando y flexible que no raya raquetas, paleteros ni bolsillos. Anilla metálica resistente."),
 
             ("Sin Gastos Ocultos", "Diseño digital sin coste, muestra previa enviada en ~15 días laborables por 15€ (100% descontable) y envíos incluidos en el pedido final.")
 
@@ -358,21 +358,21 @@ LANDINGS = [
 
         "slug": "welcome-packs-torneos-padel",
 
-        "title": "Welcome Packs Torneos Pádel · Desde 1,50€ | CoolPadel",
+        "title": "Welcome Packs Torneos Pádel · Regalos con Logo | CoolPadel",
 
-        "meta_desc": "Regalos originales y detalles para welcome packs de torneos de pádel. Llaveros de goma 3D personalizados con logo. Tiradas desde 100 uds y muestra por 15€.",
+        "meta_desc": "Regalos y detalles para welcome packs de torneos de pádel. Llaveros de pádel con logo de goma. Material blando, tiradas desde 100 uds y muestra previa por 15€.",
 
         "badge": "TORNEOS, CIRCUITOS & WELCOME PACKS",
 
         "breadcrumb_leaf": "Welcome Packs Torneos",
 
-        "h1": "Welcome Packs y Regalos de Pádel para Torneos y Eventos",
+        "h1": "Welcome Packs y Regalos con Logo para Torneos de Pádel",
 
-        "subtitle": "Olvídate de las camisetas o toallas genéricas que acaban olvidadas en un cajón. Un llavero 3D personalizado con forma de pala y el logo del torneo es el regalo y detalle de pádel que los participantes lucen todo el año en su paletero.",
+        "subtitle": "Llaveros de pádel con logo de goma. Material blando para torneos y eventos: el detalle que los participantes lucen todo el año en su paletero.",
 
         "hero_img": "assets/images/slide-1.jpg",
 
-        "hero_img_alt": "Welcome packs y llaveros 3D para torneos de pádel oficiales",
+        "hero_img_alt": "Welcome packs y llaveros con logo de goma para torneos de pádel",
 
         "wa_msg": "Hola Javier, estoy organizando un torneo de pádel y busco regalos/welcome packs para los jugadores",
 
@@ -390,7 +390,7 @@ LANDINGS = [
 
             "label_4": "Planificación", "val_4": "Muestra ~15 días · Pedido completo en ~1 mes",
 
-            "p": "Regalos y detalles de bienvenida para torneos y circuitos de pádel. Llaveros en relieve 3D con forma de pala personalizada con el logo del torneo en el anverso y patrocinador en el reverso. Factura desglosada con IVA deducible para organizaciones."
+            "p": "Regalos y detalles de bienvenida para torneos y circuitos de pádel. Llaveros de pádel con logo de goma. Material blando con el logo del torneo en el anverso y patrocinador en el reverso."
 
         },
 
@@ -398,7 +398,7 @@ LANDINGS = [
 
             ("Máxima Visibilidad para Patrocinadores", "Posibilidad de personalizar anverso con el torneo y reverso con la marca o patrocinador principal."),
 
-            ("Alto Valor Percibido y Bajo Coste", "Desde 1,50€ por jugador, ofreciendo un regalo que se percibe como producto premium de tienda oficial."),
+            ("Alto Valor Percibido y Bajo Coste", "Desde 1,50€ por jugador, ofreciendo un regalo útil que los jugadores conservan en su paletero."),
 
             ("Planificación Segura para tu Torneo", "Muestra física real en ~15 días laborables y entrega del pedido completo en torno a un mes según volumen.")
 
@@ -420,21 +420,21 @@ LANDINGS = [
 
         "slug": "llaveros-personalizados-clubs-padel",
 
-        "title": "Llaveros Personalizados Clubs Pádel · Muestra 15€",
+        "title": "Llaveros Personalizados Clubs Pádel · Muestra 15€ | CoolPadel",
 
-        "meta_desc": "Llaveros oficiales y merchandising para clubes de pádel. Detalles de goma 3D para socios, escuelas y venta en pro-shop con +60% de margen. Más de 30 clubes.",
+        "meta_desc": "Llaveros de pádel con logo de goma. Material blando para socios, escuelas y venta en pro-shop con +60% de margen. Muestra física por 15€.",
 
         "badge": "MERCHANDISING OFICIAL DE CLUB",
 
         "breadcrumb_leaf": "Llaveros Clubs Pádel",
 
-        "h1": "Merchandising Oficial y Llaveros para Clubs de Pádel",
+        "h1": "Llaveros Personalizados para Clubs de Pádel",
 
-        "subtitle": "Refuerza la identidad y el sentido de pertenencia de tu comunidad. Más de 30 clubes en España, Europa y EE. UU. ya equipan a sus socios y pro-shops con llaveros y merchandising CoolPadel.",
+        "subtitle": "Llaveros de pádel con logo de goma. Material blando para socios, escuelas y tiendas de club. Más de 30 clubes en España y Europa ya equipan a sus jugadores con CoolPadel.",
 
         "hero_img": "assets/images/llaveros-padel-personalizados-clubs.jpg",
 
-        "hero_img_alt": "Llaveros oficiales personalizados para clubes de pádel y escuelas",
+        "hero_img_alt": "Llaveros de pádel con logo de goma para clubes y escuelas",
 
         "wa_msg": "Hola Javier, soy responsable de un club de pádel y quiero información para hacer los llaveros de nuestros socios",
 
@@ -448,21 +448,21 @@ LANDINGS = [
 
             "label_2": "Margen Tienda", "val_2": "+60% de rentabilidad en recepción",
 
-            "label_3": "Muestra Física", "val_3": "15 € con el escudo del club (100% deducible)",
+            "label_3": "Muestra Física", "val_3": "15 € con el logo del club (100% deducible)",
 
             "label_4": "Reposiciones", "val_4": "Molde guardado sin coste para pedidos futuros",
 
-            "p": "Merchandising oficial de fidelización para socios y venta en pro-shop de clubes de pádel. Fabricación en goma 3D con relieve de escudo oficial, tiradas desde 100 unidades y entrega en ~1 mes con soporte de Javier Villoria."
+            "p": "Llaveros de pádel con logo de goma. Material blando para socios, escuelas y eventos. Muestra física real por 15 € antes de fabricar y pedidos desde 100 unidades."
 
         },
 
         "benefits": [
 
-            ("Fidelización de Socios y Alumnos", "El regalo perfecto para la cuota anual, bienvenida a la escuela de menores o cenas de fin de temporada."),
+            ("Fidelización de Socios y Alumnos", "El detalle perfecto para la cuota anual, bienvenida a la escuela de menores o cenas de fin de temporada."),
 
             ("Margen de Venta en Recepción", "Con un coste de fabricación de 1,50€-3,00€ y un PVP recomendado de 5€-6€, el club rentabiliza la inversión en pocas semanas."),
 
-            ("Experiencia Demostrada en +30 Clubs", "Trabajamos con clubes referentes en España, Europa y EE. UU. con acabados profesionales y soporte personalizado.")
+            ("Experiencia Demostrada en +30 Clubs", "Trabajamos con clubes referentes en España y Europa con acabados profesionales y trato directo.")
 
         ],
 
@@ -1470,51 +1470,23 @@ def render_landing(landing, lang="es"):
       }}"""
     else:
         product_schema_json = f"""{{
-        "@type": "Product",
+        "@type": "Service",
         "name": "{l_h1} - CoolPadel",
+        "serviceType": "Fabricación B2B de llaveros personalizados",
         "description": "{l_meta_desc}",
         "image": "https://coolpadelstudios.com/{hero_img_encoded}",
-        "sku": "CP-{landing['slug'].upper()[:18]}",
-        "brand": {{
-          "@type": "Brand",
-          "name": "CoolPadel"
+        "provider": {{
+          "@type": "Organization",
+          "name": "CoolPadel",
+          "url": "https://coolpadelstudios.com"
         }},
-        "offers": [
-          {{
-            "@type": "Offer",
-            "name": "100 units batch",
-            "priceCurrency": "EUR",
-            "price": "3.00",
-            "priceValidUntil": "2027-12-31",
-            "availability": "https://schema.org/InStock",
-            "hasMerchantReturnPolicy": {{
-              "@type": "MerchantReturnPolicy",
-              "applicableCountry": "ES",
-              "returnPolicyCategory": "https://schema.org/MerchantReturnNotPermitted",
-              "merchantReturnLink": "https://coolpadelstudios.com/politica-de-devoluciones.html"
-            }},
-            "shippingDetails": {{
-              "@type": "OfferShippingDetails",
-              "shippingRate": {{
-                "@type": "MonetaryAmount",
-                "value": "0.00",
-                "currency": "EUR"
-              }},
-              "shippingDestination": {{
-                "@type": "DefinedRegion",
-                "addressCountry": ["ES", "FR", "IT", "PT", "DE", "BE", "GB", "US"]
-              }}
-            }}
-          }},
-          {{
-            "@type": "Offer",
-            "name": "500 units batch",
-            "priceCurrency": "EUR",
-            "price": "2.00",
-            "priceValidUntil": "2027-12-31",
-            "availability": "https://schema.org/InStock"
-          }}
-        ]
+        "offers": {{
+          "@type": "Offer",
+          "priceCurrency": "EUR",
+          "price": "1.50",
+          "priceValidUntil": "2027-12-31",
+          "description": "Tarifa B2B desde 1,50 € / unidad para clubes y eventos deportivos tras muestra previa de 15 €."
+        }}
       }}"""
 
     # FAQ HTML (Desplegable y compacto)

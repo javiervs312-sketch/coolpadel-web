@@ -110,7 +110,7 @@ CONTENT_ARTESANIA_LLAVEROS = """
         <i data-lucide="sparkles" class="w-5 h-5 text-[#f2920b] shrink-0 mt-0.5"></i>
         <div class="text-xs sm:text-sm leading-relaxed space-y-1">
           <p class="font-bold text-slate-950">El Compromiso CoolPadel:</p>
-          <p>CoolPadel nació con el propósito de aportar alegría, humor y diversión al mundo del pádel, el tenis y el pickleball. Creemos firmemente que cada club merece un producto exclusivo que honre sus colores oficiales, su escudo y la pasión de sus jugadores, combinando tecnología de modelado con un minucioso proceso artesanal del siglo XXI.</p>
+          <p>CoolPadel nació con el propósito de aportar alegría, humor y diversión al mundo del pádel, el tenis y el pickleball. Creemos firmemente que cada club merece un detalle exclusivo que refleje sus colores y la pasión de sus jugadores: llaveros de pádel con logo de goma en material blando y resistente.</p>
         </div>
       </div>
     </div>
@@ -122,21 +122,21 @@ CONTENT_ARTESANIA_LLAVEROS = """
       Basta darse una vuelta por la carpa de entrega de premios de cualquier torneo amateur: bolígrafos de plástico baratos que dejan de escribir al tercer día, camisetas de poliéster áspero con logotipos mal impresos y llaveros metálicos planos sin personalidad alguna. Más del 70% de esos regalos acaban en el fondo de un cajón o directamente en la papelera del club.
     </p>
     <p class="text-slate-700 leading-relaxed mb-4">
-      Cuando un club regala un objeto plano e impersonal, transmite involuntariamente que su marca tiene exactamente el mismo valor. Por contra, cuando el jugador recibe un detalle tridimensional con relieve táctil, textura suave y sus colores corporativos exactos, la percepción cambia al instante: se convierte en un talismán que acompaña a sus llaves y a la cremallera de su paletero durante años.
+      Cuando un club regala un objeto plano e impersonal, transmite involuntariamente que su marca tiene exactamente el mismo valor. Por contra, cuando el jugador recibe llaveros de pádel con logo de goma en material blando y sus colores corporativos exactos, la percepción cambia al instante: se convierte en un accesorio que acompaña a sus llaves y a la cremallera de su paletero durante años.
     </p>
 
     <div class="my-8 rounded-2xl overflow-hidden border border-slate-200 shadow-md">
-      <img src="../../assets/images/llaveros-corazon-pista.jpg" alt="Llaveros de pádel personalizados artesanales en forma de pala sobre césped de pista" class="w-full h-auto object-cover max-h-[500px]" loading="lazy">
+      <img src="../../assets/images/llaveros-corazon-pista.jpg" alt="Llaveros de pádel con logo de goma en material blando sobre césped de pista" class="w-full h-auto object-cover max-h-[500px]" loading="lazy">
       <div class="p-3 bg-slate-50 text-[11px] text-slate-500 text-center font-medium">
         Cada llavero se moldea con los detalles técnicos, perforaciones reales y colores corporativos de cada club o marca.
       </div>
     </div>
 
     <h2 class="text-xl sm:text-2xl font-black font-heading text-slate-950 mt-10 mb-4">
-      2. Paso a Paso: El Proceso Artesanal del Siglo XXI en Goma de Inyección 3D
+      2. Paso a Paso: Cómo Fabricamos los Llaveros de Pádel con Logo de Goma
     </h2>
     <p class="text-slate-700 leading-relaxed mb-4">
-      Frente a la fabricación industrial masiva donde todo sale idéntico y sin supervisión, en CoolPadel tratamos cada encargo como una pieza de orfebrería moderna. Podría pegarse una foto impresa sobre una pieza prefabricada y parecer 'perfecta' a vista de pájaro, pero no transmitiría en absoluto la misma calidez ni el mismo volumen táctil:
+      Frente al merchandising genérico que se rompe o borra al poco tiempo, en CoolPadel fabricamos cada encargo con molde a medida y goma flexible de material blando:
     </p>
     
     <div class="space-y-6 my-6">
@@ -145,7 +145,7 @@ CONTENT_ARTESANIA_LLAVEROS = """
         <div>
           <h3 class="font-heading font-black text-base text-slate-950 mb-1">Vectorización y Adaptación del Diseño a Escala Micro</h3>
           <p class="text-xs sm:text-sm text-slate-700 leading-relaxed">
-            Analizamos la pala, escudo o isotipo del club. Separamos las capas volumétricas para definir qué elementos irán en relieve alto, cuáles en bajorrelieve y cómo se integrarán los taladros y los cantos para que mantengan la silueta fiel de una pala de pádel o pickleball real.
+            Analizamos la pala o logo del club. Separamos las capas para definir cómo se integrarán los colores, los taladros y los cantos para que mantengan la silueta fiel de una pala de pádel real.
           </p>
         </div>
       </div>
@@ -155,7 +155,7 @@ CONTENT_ARTESANIA_LLAVEROS = """
         <div>
           <h3 class="font-heading font-black text-base text-slate-950 mb-1">Fabricación del Molde Matricial en Acero/Cobre</h3>
           <p class="text-xs sm:text-sm text-slate-700 leading-relaxed">
-            Se mecaniza una matriz física única mediante fresado CNC de precisión milimétrica. Este molde es exclusivo del cliente y reproduce cada ranura, texto y relieve volumétrico del diseño acordado.
+            Se mecaniza una matriz física única mediante fresado CNC de precisión milimétrica. Este molde es exclusivo del cliente y reproduce cada ranura, texto y detalle del diseño acordado.
           </p>
         </div>
       </div>
@@ -173,9 +173,9 @@ CONTENT_ARTESANIA_LLAVEROS = """
       <div class="flex items-start gap-4 p-4 rounded-xl bg-slate-50 border border-slate-200">
         <div class="w-8 h-8 rounded-full bg-[#f2920b] text-slate-950 font-black flex items-center justify-center shrink-0">4</div>
         <div>
-          <h3 class="font-heading font-black text-base text-slate-950 mb-1">Ensamblado de Herrajes Reforzados y Control de Acabado</h3>
+          <h3 class="font-heading font-black text-base text-slate-950 mb-1">Ensamblado de Herrajes y Control de Acabado</h3>
           <p class="text-xs sm:text-sm text-slate-700 leading-relaxed">
-            Cada llavero se remata a mano con argolla metálica reforzada y cadena niquelada antidesgaste, capaz de soportar el peso de las llaves, el roce de paleteros y los cambios de temperatura de la pista sin quebrarse ni decolorarse.
+            Llaveros de pádel con logo de goma. Material blando, flexible y duradero: no se deforma, no raya la pala dentro del paletero y aguanta perfectamente el uso diario con las llaves.
           </p>
         </div>
       </div>
@@ -194,12 +194,12 @@ CONTENT_ARTESANIA_LLAVEROS = """
 
 FAQS_ARTESANIA_LLAVEROS = [
     {
-        "q": "¿Qué diferencia hay entre un llavero 3D de goma y uno de metacrilato o metal plano?",
-        "a": "El llavero de goma 3D inyectada posee relieve tridimensional real, volumen táctil y tacto gomoso agradable que no raya el móvil ni las llaves al llevarlo en el bolsillo. Además, los colores no son una pegatina pegada, sino goma tintada en masa que no se desgasta con el sudor ni el uso continuo."
+        "q": "¿Qué diferencia hay entre un llavero con logo de goma y uno de metacrilato o metal plano?",
+        "a": "Son llaveros de pádel con logo de goma. Material blando y agradable al tacto que no pesa, no se rompe y no raya el móvil ni la pala al llevarlo en el bolsillo o en el paletero. Además, los colores no son una pegatina pegada, sino goma tintada en masa que no se desgasta con el uso continuo."
     },
     {
-        "q": "¿Se puede fabricar con el diseño exacto de la pala de nuestro club o marca?",
-        "a": "Sí. Replicamos la silueta exterior, el patrón de taladros, la distribución de colores y los logotipos de tu pala o escudo oficial, respetando los códigos cromáticos Pantone de tu imagen corporativa."
+        "q": "¿Se puede fabricar con el diseño exacto de la pala o el logo de nuestro club?",
+        "a": "Sí. Replicamos la silueta exterior, el patrón de taladros, la distribución de colores y los logotipos de tu pala o el logo de tu club, respetando los códigos de color de tu imagen corporativa."
     },
     {
         "q": "¿Cuál es el pedido mínimo y los tiempos de fabricación?",

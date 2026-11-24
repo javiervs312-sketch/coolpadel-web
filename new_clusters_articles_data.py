@@ -493,6 +493,126 @@ NEW_ARTICLES_CONTENT = {
 <p>Al finalizar la americana, la cámara ya ha procesado los mejores puntos de la jornada. El club puede proyectar un reel resumen en la televisión de la entrega de premios o enviárselo al grupo de WhatsApp de los participantes antes de que salgan del club.</p>
 </div>"""
         ]
+    },
+
+    # 17. Clubs de Pádel Autónomos y Sin Personal 24/7
+    "clubs-padel-autonomos-sin-personal-24-7": {
+        "slug": "clubs-padel-autonomos-sin-personal-24-7",
+        "title": "Cámaras para Clubs de Pádel Autónomos y Sin Personal 24/7",
+        "meta_title": "Cámaras para Clubs de Pádel Autónomos y Sin Personal 24/7",
+        "meta_desc": "Grabación y streaming 100% automático para clubes de pádel desatendidos: sincronización con reservas Playtomic, entrega por QR y cero personal.",
+        "h1": "Cámaras para Clubs de Pádel Autónomos y Desatendidos 24/7",
+        "hero_img": "/assets/images/camaras/camera-02.jpg",
+        "intro_p": "El modelo de club de pádel automatizado sin recepción necesita tecnología que funcione sola: arranque por reserva y entrega directa al móvil por QR.",
+        "blocks": [
+            """<div class="article-block">
+<p>Cada vez más operadores abren clubes de pádel 100% automatizados con accesos por código PIN o apertura desde Playtomic y domótica de luces inteligente.</p>
+<p>En este modelo no hay recepcionista que entregue pulseras, venda fichas ni configure grabaciones. El servicio de cámaras tiene que ser <strong>completamente desatendido y a prueba de fallos</strong>.</p>
+</div>""",
+            """<div class="article-block">
+<h2 class="article-subheading"><span class="subheading-title">Funcionamiento autónomo vinculado a la reserva</span></h2>
+<p>Save My Play se integra de forma transparente con el horario de apertura y las reservas del club:</p>
+<ul class="list-disc pl-5 space-y-2 text-slate-700 my-4 text-sm sm:text-base">
+  <li>La cámara se activa y apaga automáticamente según los tramos de reserva de cada pista.</li>
+  <li>Los jugadores no tienen que descargar aplicaciones pesadas antes de entrar: pulsan el botón en red para marcar sus jugadas destacadas.</li>
+  <li>Al terminar la hora, escanean el <strong>código QR permanente de la pista</strong> y descargan sus vídeos en segundos en su móvil.</li>
+</ul>
+</div>""",
+            """<div class="article-block">
+<h2 class="article-subheading"><span class="subheading-title">Monitorización remota y mantenimiento cero</span></h2>
+<p>El gestor del club supervisa el estado de todas las cámaras en tiempo real desde un único panel web centralizado, recibiendo alertas automáticas si alguna pista pierde conexión o corriente.</p>
+</div>"""
+        ]
+    },
+
+    # 18. Control con Apple Watch y Wearables en Pista
+    "grabar-padel-apple-watch-wearables": {
+        "slug": "grabar-padel-apple-watch-wearables",
+        "title": "Control de Cámaras de Pádel con Apple Watch y Relojes Inteligentes",
+        "meta_title": "Grabar Pádel con Apple Watch | Control y Highlights desde la Muñeca",
+        "meta_desc": "Controla la grabación de tu partido y guarda highlights con un toque en tu Apple Watch: app nativa Save My Play para jugadores y entrenadores.",
+        "h1": "Control de Cámaras de Pádel con Apple Watch y Wearables",
+        "hero_img": "/assets/images/camaras/portada-coaching-tools-tablet.png",
+        "intro_p": "Guarda tus mejores jugadas y controla el marcador directamente desde tu muñeca con la app oficial para Apple Watch de Save My Play.",
+        "blocks": [
+            """<div class="article-block">
+<p>Durante un partido intenso de pádel, acercarse a la red a pulsar el botón físico después de un punto largo o una salida de pista rompe el ritmo del juego.</p>
+<p>Save My Play cuenta con una <strong>aplicación oficial nativa para Apple Watch</strong> diseñada específicamente para dar control total al jugador desde la muñeca.</p>
+</div>""",
+            """<div class="article-block">
+<h2 class="article-subheading"><span class="subheading-title">Botón 'Save Play' táctil en tu muñeca</span></h2>
+<p>Al saltar a pista, el jugador abre la app en su reloj inteligente:</p>
+<ul class="list-disc pl-5 space-y-2 text-slate-700 my-4 text-sm sm:text-base">
+  <li>Un botón gigante en pantalla permite guardar al instante el último punto jugado con un solo toque.</li>
+  <li>Respuesta háptica con vibración que confirma que el clip de vídeo ha quedado registrado en la nube.</li>
+  <li>Visualización del tanteo del partido y tiempo de juego en la esfera del reloj.</li>
+</ul>
+</div>""",
+            """<div class="article-block">
+<h2 class="article-subheading"><span class="subheading-title">La herramienta favorita de los monitores de pádel</span></h2>
+<p>Los entrenadores pueden etiquetar ejercicios, saques y errores no forzados de sus alumnos desde el reloj mientras siguen lanzando bolas con la pala en la otra mano, sin soltar el cesto ni mirar una pantalla.</p>
+</div>"""
+        ]
+    },
+
+    # 19. Smart TV en Cafetería y Pro Shop (Court TV)
+    "smart-tv-court-tv-cafeteria-club-padel": {
+        "slug": "smart-tv-court-tv-cafeteria-club-padel",
+        "title": "Smart TV y Court TV en Cafetería de Club de Pádel: Streaming en Directo",
+        "meta_title": "Court TV y Pantallas en Cafetería de Club de Pádel | Save My Play",
+        "meta_desc": "Retransmite los partidos de la pista central en las pantallas de la cafetería y pro shop de tu club: scoreboard en vivo y ambiente de club profesional.",
+        "h1": "Smart TV y Court TV en Cafetería y Recepción del Club",
+        "hero_img": "/assets/images/camaras/retransmision-directo-marcador-youtube.png",
+        "intro_p": "Convierte las televisiones apagadas de tu bar o terraza en canales en directo de las pistas centrales con marcador y repeticiones al instante.",
+        "blocks": [
+            """<div class="article-block">
+<p>Casi todos los clubes de pádel tienen pantallas de televisión en la cafetería, terraza o recepción, pero la mayoría las tienen apagadas o con canales generalistas que nadie mira.</p>
+<p>Conectar esas pantallas a la señal de las pistas con <strong>Court TV</strong> multiplica el ambiente social del club y dispara el consumo en barra durante las tardes y fines de semana.</p>
+</div>""",
+            """<div class="article-block">
+<h2 class="article-subheading"><span class="subheading-title">Retransmisión en vivo sin cables ni decodificadores</span></h2>
+<p>No hace falta pasar cables HDMI desde la pista hasta el bar ni comprar costosos sintonizadores:</p>
+<ul class="list-disc pl-5 space-y-2 text-slate-700 my-4 text-sm sm:text-base">
+  <li>Cualquier Smart TV conectada a la red WiFi del club abre la señal en directo a través de un navegador web o un Chromecast.</li>
+  <li>Muestra el partido en directo con <strong>marcador digital estilo televisión superpuesto en tiempo real</strong>.</li>
+  <li>Permite rotar entre distintas pistas durante torneos para mostrar el partido más igualado en cada momento.</li>
+</ul>
+</div>""",
+            """<div class="article-block">
+<h2 class="article-subheading"><span class="subheading-title">Espacio publicitario para patrocinadores del club</span></h2>
+<p>La pantalla del bar es el escaparate con más tiempo de exposición del club. Puedes incluir faldones y banners de negocios locales o promociones de la tienda del club mientras los socios toman algo.</p>
+</div>"""
+        ]
+    },
+
+    # 20. Torneos de Empresas, Team Building y Ligas Interempresas
+    "torneos-empresas-team-building-padel": {
+        "slug": "torneos-empresas-team-building-padel",
+        "title": "Torneos de Empresas y Team Building de Pádel: Retransmisión y Vídeos Corporativos",
+        "meta_title": "Torneos de Empresas y Team Building de Pádel con Cámaras e IA",
+        "meta_desc": "Organiza torneos corporativos y team building de pádel con streaming privado para empresas, logos de marca en pista y vídeos de recuerdo para empleados.",
+        "h1": "Torneos de Empresas y Eventos Corporativos de Pádel",
+        "hero_img": "/assets/images/camaras/partido-directo-patrocinador-harbor.png",
+        "intro_p": "Multiplica la facturación de eventos corporativos ofreciendo streaming privado, logos de la empresa en la pista y clips en el móvil de cada empleado.",
+        "blocks": [
+            """<div class="article-block">
+<p>Los torneos de empresas y jornadas de team building son los eventos que más margen dejan a un club de pádel: las compañías pagan tarifas premium por alquilar instalaciones completas un viernes por la tarde.</p>
+<p>Ofrecer una experiencia audiovisual profesional con cámaras e inteligencia artificial justifica cobrar el doble por el paquete del evento.</p>
+</div>""",
+            """<div class="article-block">
+<h2 class="article-subheading"><span class="subheading-title">Branding corporativo en el vídeo y en la pista</span></h2>
+<p>Las empresas quieren visibilidad y contenido para su comunicación interna y redes sociales:</p>
+<ul class="list-disc pl-5 space-y-2 text-slate-700 my-4 text-sm sm:text-base">
+  <li>Inserción virtual del <strong>logotipo de la empresa patrocinadora sobre la moqueta o cristal</strong> de todas las pistas.</li>
+  <li>Streaming con contraseña o enlace privado para que los compañeros que siguen en la oficina puedan ver las finales en directo.</li>
+  <li>Cada empleado se lleva al terminar un pack con sus mejores puntos en formato vertical para compartir en LinkedIn o Instagram.</li>
+</ul>
+</div>""",
+            """<div class="article-block">
+<h2 class="article-subheading"><span class="subheading-title">Un servicio llave en mano sin trabajo extra para el club</span></h2>
+<p>El director del club no tiene que contratar cámaras ni operadores externos: la infraestructura fija de Save My Play se programa en 5 minutos y se encarga de todo el proceso de grabación y entrega.</p>
+</div>"""
+        ]
     }
 
 }

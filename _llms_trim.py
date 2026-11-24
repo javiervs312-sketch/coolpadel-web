@@ -62,11 +62,11 @@ CoolPadel Studios opera con sede en Madrid (España) y equipa a más de 27 clube
 ## 2. Merchandising: Llaveros de Pádel Personalizados
 
 - **URL**: <https://coolpadelstudios.com/#llaveros>
-- **Producto**: Llaveros de goma 3D microinyectada con escudo oficial, pantones exactos y relieve multicapa.
+- **Producto**: Llaveros de pádel con logo de goma en material blando y flexible con los colores del club.
 - **Precios por volumen**:
   - 100 ud: **300 € (3,00 €/ud)** · 250 ud: **625 € (2,50 €/ud)** · 500 ud: **1.000 € (2,00 €/ud)** · 1.500 ud: **2.250 € (1,50 €/ud)**
-- **Proceso**: Render 3D gratuito → Muestra física real 15 € (~15 días, reembolsable) → Producción en serie ~1 mes
-- **Características**: ~70 mm, argolla cromada, embalaje termosellado, PVP recomendado 5-6 €
+- **Proceso**: Diseño previo gratuito → Muestra física real 15 € (~15 días, reembolsable) → Producción final ~3-4 semanas
+- **Características**: ~70 mm, goma de material blando, anilla metálica resistente, embalaje individual, PVP recomendado en tienda 5-6 €
 
 ---
 

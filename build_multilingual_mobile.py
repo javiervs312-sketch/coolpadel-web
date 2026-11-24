@@ -147,27 +147,27 @@ def get_base_html(active_lang="es", is_subfolder=False):
 
         "es": {
 
-            "og_img_alt": "Llaveros de pádel personalizados en relieve 3D CoolPadel",
+            "og_img_alt": "Llaveros de pádel con logo de goma en material blando CoolPadel",
 
-            "org_desc": "Fabricante y distribuidor directo de llaveros de pádel personalizados de goma 3D para clubes deportivos y marcas, y partner oficial de cámaras en pista Save my Play.",
+            "org_desc": "Fabricante de llaveros de pádel con logo de goma en material blando para clubes deportivos y marcas, y partner oficial de cámaras en pista Save my Play.",
 
             "bc_home": "Inicio",
 
             "bc_llaveros": "Llaveros de Pádel",
 
-            "prod_name": "Llaveros de Pádel Personalizados 3D - CoolPadel",
+            "prod_name": "Llaveros de Pádel con Logo de Goma - CoolPadel",
 
-            "prod_desc": "Llaveros de pádel personalizados de goma 3D de alta densidad con el logotipo oficial del club o comunidad. Muestra física real por 15€ (~15 días laborables, 100% deducible) y pedidos desde 100 unidades con entrega en torno a un mes y envíos incluidos.",
+            "prod_desc": "Llaveros de pádel con logo de goma. Material blando y duradero con el logotipo de tu club. Muestra física real por 15€ (~15 días laborables, 100% deducible) y pedidos desde 100 unidades con entrega en unas 3-4 semanas y envíos incluidos.",
 
-            "prod_material": "Goma y Silicona PVC 3D de alta densidad con anilla metálica reforzada",
+            "prod_material": "Goma flexible de material blando y duradero con anilla metálica",
 
-            "howto_name": "Cómo encargar llaveros de pádel personalizados para tu club",
+            "howto_name": "Cómo encargar llaveros de pádel con logo de goma para tu club",
 
-            "howto_desc": "Proceso oficial en 3 pasos para diseñar y fabricar llaveros de pádel en relieve 3D con muestra física real previa.",
+            "howto_desc": "Proceso en 3 pasos para diseñar y fabricar llaveros de pádel con logo de goma en material blando con muestra física real previa.",
 
-            "step1_name": "Envío de logotipo y diseño 3D",
+            "step1_name": "Envío de logotipo y diseño previo",
 
-            "step1_text": "Envíanos el logo de tu club en cualquier formato para preparar el render digital 3D a ordenador sin coste.",
+            "step1_text": "Envíanos el logo de tu club en cualquier formato para preparar el diseño previo sin coste.",
 
             "step2_name": "Muestra física real por 15€",
 
@@ -175,11 +175,11 @@ def get_base_html(active_lang="es", is_subfolder=False):
 
             "step3_name": "Confirmación y fabricación del pedido",
 
-            "step3_text": "Producción en serie desde 100 unidades (1,50€ a 3,00€/ud) y entrega en torno a un mes según volumen con envíos incluidos.",
+            "step3_text": "Producción desde 100 unidades (1,50€ a 3,00€/ud) y entrega en unas 3-4 semanas con envíos incluidos.",
 
-            "sr_h2": "Llaveros de Pádel Personalizados 3D CoolPadel",
+            "sr_h2": "Llaveros de Pádel con Logo de Goma · Material Blando CoolPadel",
 
-            "sr_p": "Fabricante B2B especializado en llaveros de pádel y tenis personalizados en relieve 3D de goma microinyectada de alta densidad para clubes, torneos y federaciones. Pedidos al por mayor desde 100 unidades con tarifa directa de fábrica de 1,50€ a 3,00€ por unidad (100 uds: 300€ | 250 uds: 625€ | 500 uds: 1.000€ | 1.500 uds: 2.250€). Muestra física real personalizada previa por 15€ en ~15 días laborables (100% reembolsable con el pedido final). Entrega del pedido en torno a un mes según volumen en España, Europa y EE. UU.",
+            "sr_p": "Fabricante B2B especializado en llaveros de pádel y tenis con logo de goma en material blando para clubes, torneos y federaciones. Pedidos desde 100 unidades con tarifa directa de fábrica desde 1,50€ a 3,00€ por unidad. Muestra física real personalizada previa por 15€ en ~15 días laborables (100% deducible con el pedido final). Entrega del pedido en unas 3-4 semanas según volumen con envíos incluidos a España, Europa y EE. UU.",
 
             "sr_caption": "Tarifas oficiales de fabricación al por mayor de llaveros de pádel personalizados 3D CoolPadel",
 
@@ -259,7 +259,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
 
             "sr_h2": "Custom 3D Padel Keychains CoolPadel",
 
-            "sr_p": "B2B manufacturer specializing in custom 3D micro-injected rubber padel and tennis keychains for clubs, tournaments and federations. Wholesale orders from 100 units at direct factory pricing from 1.50€ to 3.00€ per unit (100 units: 300€ | 250 units: 625€ | 500 units: 1,000€ | 1,500 units: 2,250€). Real custom physical sample for 15€ delivered in ~15 business days (100% deducted from the final order). Full order delivery in about one month across Spain, Europe and the USA.",
+            "sr_p": "B2B manufacturer specializing in custom rubber padel and tennis keychains in soft material for clubs, tournaments and federations. Wholesale orders from 100 units at direct factory pricing from 1.50€ to 3.00€ per unit. Real custom physical sample for 15€ delivered in ~15 business days (100% deducted from the final order). Full order delivery in about 3-4 weeks across Spain, Europe and the USA.",
 
             "sr_caption": "Official wholesale manufacturing prices for custom 3D padel keychains by CoolPadel",
 
@@ -339,7 +339,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
 
             "sr_h2": "Porte-clés de Padel Personnalisés 3D CoolPadel",
 
-            "sr_p": "Fabricant B2B spécialisé dans les porte-clés de padel et tennis personnalisés en relief 3D pour clubs, tournois et fédérations. Commandes dès 100 unités au tarif direct usine de 1,50€ à 3,00€ par unité (100 u. : 300€ | 250 u. : 625€ | 500 u. : 1 000€ | 1 500 u. : 2 250€). Échantillon physique réel préalable pour 15€ sous ~15 jours ouvrés (100% remboursé sur la commande finale). Livraison de la commande en environ un mois en France, Europe et USA.",
+            "sr_p": "Fabricant B2B spécialisé dans les porte-clés de padel et tennis avec logo en caoutchouc souple pour clubs, tournois et fédérations. Commandes dès 100 unités au tarif direct usine de 1,50€ à 3,00€ par unité. Échantillon physique réel préalable pour 15€ sous ~15 jours ouvrés (100% remboursé sur la commande finale). Livraison de la commande en environ 3-4 semaines en France, Europe et USA.",
 
             "sr_caption": "Tarifs officiels de fabrication en gros de porte-clés de padel personnalisés 3D CoolPadel",
 
@@ -419,7 +419,7 @@ def get_base_html(active_lang="es", is_subfolder=False):
 
             "sr_h2": "Portachiavi Padel Personalizzati 3D CoolPadel",
 
-            "sr_p": "Produttore B2B specializzato in portachiavi da padel e tennis personalizzati in rilievo 3D per club, tornei e federazioni. Ordini all'ingrosso da 100 unità a prezzo diretto di fabbrica da 1,50€ a 3,00€ per unità (100 u.: 300€ | 250 u.: 625€ | 500 u.: 1.000€ | 1.500 u.: 2.250€). Campione fisico reale personalizzato a 15€ in ~15 giorni lavorativi (100% rimborsabile con l'ordine finale). Consegna dell'ordine in circa un mese in Italia, Europa e USA.",
+            "sr_p": "Produttore B2B specializzato in portachiavi da padel e tennis con logo in gomma morbida per club, tornei e federazioni. Ordini da 100 unità a prezzo diretto di fabbrica da 1,50€ a 3,00€ per unità. Campione fisico reale personalizzato a 15€ in ~15 giorni lavorativi (100% rimborsabile con l'ordine finale). Consegna dell'ordine in circa 3-4 settimane in Italia, Europa e USA.",
 
             "sr_caption": "Tariffe ufficiali di produzione all'ingrosso di portachiavi da padel personalizzati 3D CoolPadel",
 
@@ -6142,10 +6142,10 @@ def build_all():
     </item>
 
     <item>
-      <title>Pedido mínimo y plazos de entrega de llaveros de pádel personalizados 3D</title>
+      <title>Pedido mínimo y plazos de entrega de llaveros de pádel personalizados</title>
       <link>https://coolpadelstudios.com/llaveros-padel-personalizados/articulos/pedido-minimo-plazos-entrega-llaveros-padel/</link>
       <guid>https://coolpadelstudios.com/llaveros-padel-personalizados/articulos/pedido-minimo-plazos-entrega-llaveros-padel/</guid>
-      <description>Tiradas desde 100 unidades, muestra física real por 15 € deducible en 15 días laborables y entrega en ~1 mes con envíos incluidos.</description>
+      <description>Tiradas desde 100 unidades, muestra física real por 15 € deducible en 15 días laborables y entrega en ~3-4 semanas con envíos incluidos.</description>
       <pubDate>Mon, 02 Nov 2026 10:00:00 +0100</pubDate>
     </item>
 
@@ -6153,7 +6153,7 @@ def build_all():
       <title>Cómo pedir la muestra física de llavero de club por 15 € reembolsable</title>
       <link>https://coolpadelstudios.com/llaveros-padel-personalizados/articulos/como-pedir-muestra-fisica-15-euros/</link>
       <guid>https://coolpadelstudios.com/llaveros-padel-personalizados/articulos/como-pedir-muestra-fisica-15-euros/</guid>
-      <description>Protocolo sin riesgo para directores: recibe una muestra real de tu pala con tu escudo para validar relieve y rigidez antes de fabricar la tirada.</description>
+      <description>Protocolo sin riesgo para directores: recibe una muestra real de tu pala con tu escudo para validar acabado y material antes de fabricar la tirada.</description>
       <pubDate>Mon, 02 Nov 2026 10:00:00 +0100</pubDate>
     </item>
 
@@ -6183,167 +6183,15 @@ def build_all():
 
     <link>https://coolpadelstudios.com</link>
 
-    <description>Catálogo B2B de llaveros de pádel y tenis personalizados en goma 3D para Google Shopping y Google Merchant</description>
-
-    <item>
-
-      <g:id>LLAVERO-PADEL-100</g:id>
-
-      <g:title>Llaveros de Pádel Personalizados 3D (Pack 100 unidades - 3,00 €/ud)</g:title>
-
-      <g:description>Pack de 100 llaveros de pádel personalizados de goma 3D con logo oficial para clubes y torneos. Muestra física previa en ~15 días laborables y entrega en ~1 mes.</g:description>
-
-      <g:link>https://coolpadelstudios.com/llaveros-padel-personalizados/</g:link>
-
-      <g:image_link>https://coolpadelstudios.com/assets/images/llaveros-padel-personalizados-clubs.jpg</g:image_link>
-
-      <g:additional_image_link>https://coolpadelstudios.com/assets/images/slide-1.jpg</g:additional_image_link>
-
-      <g:availability>in_stock</g:availability>
-
-      <g:price>300.00 EUR</g:price>
-
-      <g:brand>CoolPadel</g:brand>
-
-      <g:condition>new</g:condition>
-
-      <g:identifier_exists>no</g:identifier_exists>
-
-      <g:google_product_category>Sporting Goods &gt; Racquet Sports &gt; Padel</g:google_product_category>
-
-      <g:shipping>
-
-        <g:country>ES</g:country>
-
-        <g:service>Envío Estándar Península</g:service>
-
-        <g:price>0.00 EUR</g:price>
-
-      </g:shipping>
-
-    </item>
-
-    <item>
-
-      <g:id>LLAVERO-PADEL-250</g:id>
-
-      <g:title>Llaveros de Pádel Personalizados 3D (Pack 250 unidades - 2,50 €/ud)</g:title>
-
-      <g:description>Pack de 250 llaveros de pádel personalizados de goma 3D con logo oficial para clubes y torneos (2,50 €/ud). Muestra física previa deducible y envíos incluidos.</g:description>
-
-      <g:link>https://coolpadelstudios.com/llaveros-padel-personalizados/</g:link>
-
-      <g:image_link>https://coolpadelstudios.com/assets/images/llaveros-padel-personalizados-clubs.jpg</g:image_link>
-
-      <g:additional_image_link>https://coolpadelstudios.com/assets/images/slide-1.jpg</g:additional_image_link>
-
-      <g:availability>in_stock</g:availability>
-
-      <g:price>625.00 EUR</g:price>
-
-      <g:brand>CoolPadel</g:brand>
-
-      <g:condition>new</g:condition>
-
-      <g:identifier_exists>no</g:identifier_exists>
-
-      <g:google_product_category>Sporting Goods &gt; Racquet Sports &gt; Padel</g:google_product_category>
-
-      <g:shipping>
-
-        <g:country>ES</g:country>
-
-        <g:service>Envío Estándar Península</g:service>
-
-        <g:price>0.00 EUR</g:price>
-
-      </g:shipping>
-
-    </item>
-
-    <item>
-
-      <g:id>LLAVERO-PADEL-500</g:id>
-
-      <g:title>Llaveros de Pádel Personalizados 3D (Pack 500 unidades - 2,00 €/ud)</g:title>
-
-      <g:description>Pack de 500 llaveros de pádel personalizados de goma 3D con logo oficial para clubes y welcome packs de torneos (2,00 €/ud). Muestra física previa deducible.</g:description>
-
-      <g:link>https://coolpadelstudios.com/welcome-packs-torneos-padel/</g:link>
-
-      <g:image_link>https://coolpadelstudios.com/assets/images/llaveros-padel-personalizados-clubs.jpg</g:image_link>
-
-      <g:additional_image_link>https://coolpadelstudios.com/assets/images/slide-1.jpg</g:additional_image_link>
-
-      <g:availability>in_stock</g:availability>
-
-      <g:price>1000.00 EUR</g:price>
-
-      <g:brand>CoolPadel</g:brand>
-
-      <g:condition>new</g:condition>
-
-      <g:identifier_exists>no</g:identifier_exists>
-
-      <g:google_product_category>Sporting Goods &gt; Racquet Sports &gt; Padel</g:google_product_category>
-
-      <g:shipping>
-
-        <g:country>ES</g:country>
-
-        <g:service>Envío Estándar Península</g:service>
-
-        <g:price>0.00 EUR</g:price>
-
-      </g:shipping>
-
-    </item>
-
-    <item>
-
-      <g:id>LLAVERO-PADEL-1500</g:id>
-
-      <g:title>Llaveros de Pádel Personalizados 3D (Pack 1.500 unidades - 1,50 €/ud)</g:title>
-
-      <g:description>Pack mayorista de 1.500 llaveros de pádel personalizados de goma 3D con logo oficial para grandes clubes, cadenas y circuitos (1,50 €/ud).</g:description>
-
-      <g:link>https://coolpadelstudios.com/llaveros-personalizados-clubs-padel/</g:link>
-
-      <g:image_link>https://coolpadelstudios.com/assets/images/llaveros-padel-personalizados-clubs.jpg</g:image_link>
-
-      <g:additional_image_link>https://coolpadelstudios.com/assets/images/slide-1.jpg</g:additional_image_link>
-
-      <g:availability>in_stock</g:availability>
-
-      <g:price>2250.00 EUR</g:price>
-
-      <g:brand>CoolPadel</g:brand>
-
-      <g:condition>new</g:condition>
-
-      <g:identifier_exists>no</g:identifier_exists>
-
-      <g:google_product_category>Sporting Goods &gt; Racquet Sports &gt; Padel</g:google_product_category>
-
-      <g:shipping>
-
-        <g:country>ES</g:country>
-
-        <g:service>Envío Estándar Península</g:service>
-
-        <g:price>0.00 EUR</g:price>
-
-      </g:shipping>
-
-    </item>
+    <description>Catálogo B2B de llaveros de pádel y tenis personalizados con logo de goma en material blando</description>
 
     <item>
 
       <g:id>LLAVERO-PADEL-MUESTRA</g:id>
 
-      <g:title>Muestra Física Real Llavero de Pádel Personalizado (100% Descontable)</g:title>
+      <g:title>Muestra Física Real Llavero de Pádel con Logo de Goma (100% Descontable)</g:title>
 
-      <g:description>Muestra física real de llavero de pádel en relieve 3D con el logotipo de tu club entregada en ~15 días laborables (100% descontable del pedido final).</g:description>
+      <g:description>Muestra física real de llaveros de pádel con logo de goma en material blando con el logotipo de tu club entregada en ~15 días laborables (100% descontable del pedido final).</g:description>
 
       <g:link>https://coolpadelstudios.com/llaveros-padel-personalizados/</g:link>
 

@@ -659,9 +659,9 @@ def render_page(title: str, content: str, prefix: str = "../", slug: str = None,
         meta_desc = aeo_entry["desc"]
     elif not meta_desc:
         if is_padel:
-            meta_desc = "Fabricante de llaveros de pádel personalizados en goma 3D con forma de pala y logo oficial. Pedidos desde 100 uds y muestra física real por 15€."
+            meta_desc = "Llaveros de pádel con logo de goma. Material blando y duradero con la forma de tu pala o club. Pedidos desde 100 uds y muestra física por 15€."
         else:
-            meta_desc = "Llaveros de tenis personalizados en relieve 3D con el escudo oficial del club. Diseñados para escuelas, torneos y tiendas oficiales. Pedidos desde 100 uds."
+            meta_desc = "Llaveros de tenis con logo de goma. Material blando y ligero con los colores de tu club o torneo. Pedidos desde 100 uds y muestra física por 15€."
 
     clean_desc = re.sub(r'\s+', ' ', meta_desc).strip()
     safe_desc = html.escape(clean_desc)[:160]
@@ -735,39 +735,22 @@ def render_page(title: str, content: str, prefix: str = "../", slug: str = None,
     }}""")
     else:
         schema_parts.append(f"""    {{
-      "@type": "Product",
+      "@type": "Service",
       "name": {json.dumps(title)},
+      "serviceType": "Fabricación B2B de llaveros personalizados",
       "description": {json.dumps(safe_desc)},
       "image": "{og_image}",
-      "brand": {{
-        "@type": "Brand",
-        "name": "CoolPadel"
+      "provider": {{
+        "@type": "Organization",
+        "name": "CoolPadel",
+        "url": "https://coolpadelstudios.com"
       }},
       "offers": {{
-        "@type": "AggregateOffer",
+        "@type": "Offer",
         "priceCurrency": "EUR",
-        "lowPrice": "1.50",
-        "highPrice": "3.00",
-        "offerCount": "4",
-        "availability": "https://schema.org/InStock",
-        "hasMerchantReturnPolicy": {{
-          "@type": "MerchantReturnPolicy",
-          "applicableCountry": "ES",
-          "returnPolicyCategory": "https://schema.org/MerchantReturnNotPermitted",
-          "merchantReturnLink": "https://coolpadelstudios.com/politica-de-devoluciones.html"
-        }},
-        "shippingDetails": {{
-          "@type": "OfferShippingDetails",
-          "shippingRate": {{
-            "@type": "MonetaryAmount",
-            "value": "0.00",
-            "currency": "EUR"
-          }},
-          "shippingDestination": {{
-            "@type": "DefinedRegion",
-            "addressCountry": ["ES", "FR", "IT", "PT", "DE", "BE", "GB", "US"]
-          }}
-        }}
+        "price": "1.50",
+        "priceValidUntil": "2027-12-31",
+        "description": "Tarifa B2B desde 1,50 € / unidad para clubes y torneos tras muestra previa de 15 €."
       }}
     }}""")
         schema_parts.append(f"""    {{
@@ -880,8 +863,8 @@ def build_hub(hub_dir: Path, is_padel: bool, articles: list[dict]):
     articulos_dir = hub_dir / "articulos"
     articulos_dir.mkdir(parents=True, exist_ok=True)
 
-    eyebrow = "Merchandising oficial para clubes de pádel" if is_padel else "Llaveros y merchandising oficial para clubes de tenis"
-    h1_text = "Llaveros de Pádel Personalizados 3D" if is_padel else "Llaveros de Tenis Personalizados con Escudo Oficial"
+    eyebrow = "Llaveros de pádel con logo de goma" if is_padel else "Llaveros de tenis con logo de goma"
+    h1_text = "Llaveros de Pádel con Logo de Goma" if is_padel else "Llaveros de Tenis Personalizados con el Logo de tu Club"
     image_src = "../" + (PADEL_IMG_REL_ROOT if is_padel else TENIS_IMG_REL_ROOT)
 
     cards = "\n".join(

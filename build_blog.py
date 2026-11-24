@@ -263,6 +263,10 @@ def get_silo_footer_html(root_prefix="../../"):
             <li><a href="/camaras/video-analisis-coaching-clases-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Vídeo Análisis y Coaching Tools</a></li>
             <li><a href="/camaras/reels-highlights-verticales-redes-club-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Reels con IA para Redes Sociales</a></li>
             <li><a href="/camaras/torneos-americanas-pozo-pantallas-directo/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Americanas y Pozos con Pantallas</a></li>
+            <li><a href="/camaras/clubs-padel-autonomos-sin-personal-24-7/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Clubs Autónomos 24/7 sin Personal</a></li>
+            <li><a href="/camaras/grabar-padel-apple-watch-wearables/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Control con Apple Watch en Pista</a></li>
+            <li><a href="/camaras/smart-tv-court-tv-cafeteria-club-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Court TV y Smart TV Cafetería</a></li>
+            <li><a href="/camaras/torneos-empresas-team-building-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Torneos de Empresas y Team Building</a></li>
           </ul>
         </div>
 
@@ -1869,7 +1873,7 @@ ALL_ARTICLES_CATALOG = {
         "badge": "Escuelas & Fidelización",
         "url": "../welcome-pack-escuelas-padel-tenis-fidelizacion-alumnos/",
         "img": "llaveros-2.jpg",
-        "desc": "Por qué evitar camisetas de talla única: cómo los detalles en relieve 3D con el escudo oficial forjan la cantera del club."
+        "desc": "Por qué evitar camisetas de talla única: cómo los llaveros de pádel con logo de goma en material blando fidelizan a la cantera del club."
     },
     "como-monetizar-grabaciones-ia-torneos-ligas-club-padel": {
         "title": "Cómo Monetizar las Grabaciones con IA en Torneos y Ligas Sociales del Club",
@@ -1887,11 +1891,11 @@ ALL_ARTICLES_CATALOG = {
         "desc": "Análisis del mercado estadounidense (+1.112 pistas en 38 estados): modelo premium, costes de alquiler y desembarco europeo."
     },
     "proceso-artesanal-fabricacion-llaveros-3d-personalizados-clubs": {
-        "title": "Por Qué Huir del Merchandising Plano: El Proceso Artesanal del Siglo XXI en Goma 3D",
-        "badge": "Artesanía 3D & Identidad",
+        "title": "Llaveros de Pádel con Logo de Goma: Material Blando y Personalizado",
+        "badge": "Llaveros & Merchandising",
         "url": "../proceso-artesanal-fabricacion-llaveros-3d-personalizados-clubs/",
         "img": "llaveros-corazon-pista.jpg",
-        "desc": "Frente al producto plano de catálogo importado: molde a medida, colores Pantone reales y relieve táctil que une a tu comunidad."
+        "desc": "Llaveros de pádel con logo de goma. Material blando con molde exclusivo para tu club, colores exactos y muestra previa."
     },
     "pickleball-vs-padel-oportunidad-o-amenaza-clubs": {
         "title": "Pickleball vs Pádel en Clubes de Raqueta: ¿Enemigos o Aliados Estratégicos?",
@@ -1990,7 +1994,7 @@ ALL_ARTICLES_CATALOG = {
         "badge": "Eventos & Socios",
         "url": "../regalos-eventos-padel-cenas-socios-llaveros/",
         "img": "llaveros-2.jpg",
-        "desc": "Trofeos útiles y recuerdos con escudo oficial para fidelizar abonados."
+        "desc": "Regalos útiles y llaveros de pádel con el logo del club para fidelizar abonados."
     },
     "merchandising-ferias-torneos-padel-regalos-marcas": {
         "title": "Política de regalos en ferias y torneos de pádel: Qué regalar y errores costosos · Guía B2B",
@@ -2670,7 +2674,7 @@ SHORT_SEO_TITLES = {
 
     "informe-tendencias-industria-padel-2026": "Informe de Tendencias de la Industria del Pádel 2026 | CoolPadel",
     "expansion-padel-estados-unidos-oportunidad-clubes-marcas": "Expansión del Pádel en Estados Unidos 2026 | CoolPadel",
-    "proceso-artesanal-fabricacion-llaveros-3d-personalizados-clubs": "Fabricación Artesanal de Llaveros de Pádel 3D | CoolPadel",
+    "proceso-artesanal-fabricacion-llaveros-3d-personalizados-clubs": "Llaveros de Pádel con Logo de Goma | CoolPadel",
     "pickleball-vs-padel-oportunidad-o-amenaza-clubs": "Pickleball vs Pádel en Clubes de Raqueta | CoolPadel",
     "modelos-club-padel-americano-lifestyle-servicios-adicionales": "Padel Lifestyle y Modelo de Club Americano | CoolPadel",
     "como-acertar-stand-feria-padel-pws-racquetx-roi": "Guía de Stands en Ferias de Pádel (PWS, RacquetX) | CoolPadel",
@@ -3934,7 +3938,7 @@ def generate_all():
     faqs_eventos_cenas = [
         {
             "q": "¿Qué se suele regalar en una cena de socios o fiesta de club de pádel?",
-            "a": "Lo más efectivo para crear comunidad y agradecer la fidelidad es entregar un detalle exclusivo personalizado con el escudo oficial del club para el 100% de los asistentes, como llaveros de pala a escala 3D de alta densidad, en lugar de gastar el presupuesto solo en trofeos para los ganadores."
+            "a": "Lo más efectivo para crear comunidad y agradecer la fidelidad es entregar un detalle exclusivo personalizado con el logo del club para el 100% de los asistentes, como llaveros de pádel con logo de goma en material blando, en lugar de gastar el presupuesto solo en trofeos para los ganadores."
         },
         {
             "q": "¿Para qué sirven los llaveros de pádel personalizados en un club deportivo?",
@@ -3946,7 +3950,7 @@ def generate_all():
         },
         {
             "q": "¿Se puede personalizar el llavero con la fecha o el nombre del evento?",
-            "a": "Sí. Al ser moldes tridimensionales personalizados, podemos incluir el escudo oficial del club en el anverso y la edición o fecha conmemorativa (ej. 'Cena Anual 2026') o el logo del patrocinador del evento en el reverso."
+            "a": "Sí. Al fabricar con molde exclusivo, podemos incluir el logo del club en el anverso y la fecha conmemorativa (ej. 'Cena Anual 2026') o el logo del patrocinador del evento en el reverso."
         }
     ]
     generate_guide_page(
@@ -5065,10 +5069,10 @@ def generate_all():
 
     generate_guide_page(
         slug="proceso-artesanal-fabricacion-llaveros-3d-personalizados-clubs",
-        category_badge="Artesanía 3D & Identidad",
-        title="Por Qué Huir del Merchandising Plano: El Proceso Artesanal del Siglo XXI en Goma 3D",
-        subtitle="Frente al regalo plano e impersonal: molde CNC a medida, inyección manual por capas con colores Pantone oficiales y un detalle duradero que une a tu comunidad.",
-        meta_desc="Por qué no regalar merchandising plano: proceso de fabricación de llaveros de pádel 3D en goma inyectada con colores y logo oficial para clubes.",
+        category_badge="Llaveros & Merchandising",
+        title="Llaveros de Pádel con Logo de Goma: Material Blando y Resistente",
+        subtitle="Llaveros de pádel con logo de goma. Material blando y flexible con molde a medida que no raya palas ni se rompe en el paletero.",
+        meta_desc="Llaveros de pádel con logo de goma. Material blando para clubes y torneos con molde a medida y muestra física previa por 15€.",
         date_str="Noviembre 2024",
         date_iso="2024-11-12",
         read_time="Lectura 6 min",
@@ -5184,8 +5188,8 @@ def generate_all():
         slug="welcome-pack-escuelas-padel-tenis-fidelizacion-alumnos",
         category_badge="Escuelas & Fidelización",
         title="Welcome Pack para Escuelas de Pádel y Tenis: Cómo Subir la Tasa de Renovación",
-        subtitle="Por qué huir de camisetas promocionales genéricas: cómo los detalles en relieve 3D con el escudo oficial forjan la cantera del club y cómo financiarlo con patrocinadores.",
-        meta_desc="Welcome pack y merchandising para escuelas de pádel y tenis: ideas útiles, llaveros 3D personalizados y cómo financiar el 100% con sponsors locales.",
+        subtitle="Por qué huir de camisetas promocionales genéricas: cómo los llaveros de pádel con logo de goma en material blando fidelizan a la cantera del club.",
+        meta_desc="Welcome pack y merchandising para escuelas de pádel y tenis: ideas útiles, llaveros con logo de goma y cómo financiar el 100% con sponsors locales.",
         date_str="Septiembre 2025",
         date_iso="2025-09-04",
         read_time="Lectura 6 min",

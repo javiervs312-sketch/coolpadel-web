@@ -127,7 +127,26 @@
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   
   <!-- Tailwind CSS CDN -->
-  <link rel="stylesheet" href="../../assets/css/tailwind-directory.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            heading: ['Outfit', 'sans-serif'],
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              orange: '#f2920b',
+              blue: '#76d3f6',
+              dark: '#0b1626',
+            }
+          }
+        }
+      }
+    }
+  </script>
 
   <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
@@ -19075,71 +19094,4 @@
       if (tagEl) tagEl.textContent = t.tag;
       if (msgEl) msgEl.textContent = t.msg;
 
-      banner.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-8');
-      banner.classList.add('opacity-100', 'translate-y-0');
-
-      try {
-        if (window.lucide) lucide.createIcons();
-      } catch (e) {}
-    }
-
-    function dismissDataGuard() {
-      const banner = document.getElementById('dataGuardBanner');
-      if (banner) {
-        banner.classList.add('opacity-0', 'pointer-events-none', 'translate-y-8');
-        banner.classList.remove('opacity-100', 'translate-y-0');
-      }
-    }
-
-    function registerUserInteraction() {
-      const now = Date.now();
-      queryTimestamps.push(now);
-      queryTimestamps = queryTimestamps.filter(t => now - t < 10000);
-      if (queryTimestamps.length > MAX_QUERIES_PER_10S) {
-        triggerDataGuard('rate_limit');
-      }
-    }
-
-    // Detección 1: Atajos de teclado de scraping / DevTools (F12, Ctrl+U, Ctrl+Shift+I, etc.)
-    document.addEventListener('keydown', function(e) {
-      const k = e.key;
-      const isDevTools = (
-        k === 'F12' ||
-        (e.ctrlKey && e.shiftKey && (k === 'I' || k === 'i' || k === 'J' || k === 'j' || k === 'C' || k === 'c')) ||
-        (e.ctrlKey && (k === 'U' || k === 'u' || k === 'S' || k === 's'))
-      );
-      if (isDevTools) {
-        triggerDataGuard('devtools_shortcut');
-      }
-    });
-
-    // Detección 2: Apertura de consola / DevTools mediante timing loop
-    (function detectDevTools() {
-      let devtoolsOpen = false;
-      const threshold = 160;
-      setInterval(function() {
-        const widthThreshold = window.outerWidth - window.innerWidth > threshold;
-        const heightThreshold = window.outerHeight - window.innerHeight > threshold;
-        if ((widthThreshold || heightThreshold) && !devtoolsOpen) {
-          devtoolsOpen = true;
-          triggerDataGuard('devtools_docked');
-        }
-      }, 1000);
-    })();
-
-    // Detección 3: Copia masiva de texto en el directorio
-    document.addEventListener('copy', function(e) {
-      const selection = window.getSelection().toString();
-      if (selection && selection.length > 350) {
-        triggerDataGuard('mass_copy');
-      }
-    });
-
-    // Inicializar mapa al cargar
-    document.addEventListener('DOMContentLoaded', function() {
-      initMap();
-    });
-  </script>
-  <script src="/assets/js/cp-analytics.js?v=20261122-quoteflow" defer></script>
-</body>
-</html>
+      banner.classList.remove('opacity-0', 'pointer-events-none', 'transl

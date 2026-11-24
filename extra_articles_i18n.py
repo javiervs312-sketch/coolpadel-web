@@ -398,9 +398,9 @@ EXTRA_ARTICLES_I18N = {
     "regalos-eventos-padel-cenas-socios-llaveros": {
         "es": {
             "title": "Regalos para Eventos de Pádel y Cenas de Socios | CoolPadel",
-            "desc": "Trofeos útiles y recuerdos con escudo oficial para fidelizar abonados.",
+            "desc": "Regalos útiles y llaveros de pádel con el logo del club para fidelizar abonados.",
             "h1": "Regalos para eventos de pádel, torneos sociales y cenas de socios · Detalles de Club",
-            "subtitle": "Trofeos útiles y recuerdos con escudo oficial para fidelizar abonados.",
+            "subtitle": "Regalos útiles y llaveros de pádel con el logo del club para fidelizar abonados.",
             "badge": "Eventos & Socios"
         },
         "en": {
@@ -608,9 +608,9 @@ EXTRA_ARTICLES_I18N = {
     "welcome-pack-escuelas-padel-tenis-fidelizacion-alumnos": {
         "es": {
             "title": "Welcome Pack para Escuelas de Pádel y Tenis | CoolPadel",
-            "desc": "Por qué evitar camisetas de talla única: cómo los detalles en relieve 3D con el escudo oficial forjan la cantera del club.",
+            "desc": "Por qué evitar camisetas de talla única: cómo los llaveros de pádel con logo de goma en material blando fidelizan a la cantera del club.",
             "h1": "Welcome Pack para Escuelas de Pádel y Tenis: Cómo Subir la Tasa de Renovación",
-            "subtitle": "Por qué evitar camisetas de talla única: cómo los detalles en relieve 3D con el escudo oficial forjan la cantera del club.",
+            "subtitle": "Por qué evitar camisetas de talla única: cómo los llaveros de pádel con logo de goma en material blando fidelizan a la cantera del club.",
             "badge": "Escuelas & Fidelización"
         },
         "en": {
