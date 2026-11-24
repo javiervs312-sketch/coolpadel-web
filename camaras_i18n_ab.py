@@ -383,8 +383,229 @@ DEMO_BTN_TEXT = {
     "ca": "Demanar Demo 15 min per WhatsApp"
 }
 
+TARIFS_BTN_TEXT = {
+    "es": "Ver Tarifas",
+    "en": "View Pricing",
+    "fr": "Voir les tarifs",
+    "it": "Vedi Tariffe",
+    "de": "Preise ansehen",
+    "pt": "Ver Tarifas",
+    "pt-br": "Ver Tarifas",
+    "nl": "Bekijk Tarieven",
+    "sv": "Se Priser",
+    "no": "Se Priser",
+    "da": "Se Priser",
+    "fi": "Katso Hinnat",
+    "pl": "Zobacz Ceny",
+    "cs": "Zobrazit Ceník",
+    "ro": "Vezi Tarife",
+    "hr": "Pogledajte Cijene",
+    "el": "Δείτε Τιμές",
+    "tr": "Fiyatları Gör",
+    "ar": "عرض الأسعار",
+    "ja": "料金プランを見る",
+    "id": "Lihat Tarif",
+    "ca": "Veure Tarifes"
+}
+
+SUBTITLE_I18N = {
+    "es": {
+        "l1": "La Cámara Nº1 de Tenis y Pádel en Estados Unidos.",
+        "l2": "Presente en +600 clubs y +1500 pistas.",
+        "l3": "Retransmite partidos, comparte los mejores puntos y analiza estadísticas con IA."
+    },
+    "en": {
+        "l1": "The #1 Tennis & Padel Camera in the United States.",
+        "l2": "Live in +600 clubs and +1,500 courts.",
+        "l3": "Stream matches, share the best highlights and analyze AI game statistics."
+    },
+    "fr": {
+        "l1": "La Caméra N°1 de Tennis et Padel aux États-Unis.",
+        "l2": "Présente dans +600 clubs et +1500 terrains.",
+        "l3": "Diffusez les matchs, partagez les meilleurs points et analysez les statistiques avec l'IA."
+    },
+    "it": {
+        "l1": "La Telecamera N°1 di Tennis e Padel negli Stati Uniti.",
+        "l2": "Presente in +600 club e +1500 campi.",
+        "l3": "Trasmetti partite, condividi i punti migliori e analizza statistiche con IA."
+    },
+    "de": {
+        "l1": "Die Nr. 1 Tennis- und Padel-Kamera in den USA.",
+        "l2": "Aktiv in +600 Clubs und +1500 Plätzen.",
+        "l3": "Spiele streamen, beste Highlights teilen und KI-Spielstatistiken analysieren."
+    },
+    "pt": {
+        "l1": "A Câmera Nº1 de Tênis e Padel nos Estados Unidos.",
+        "l2": "Presente em +600 clubes e +1500 campos.",
+        "l3": "Transmita partidas, compartilhe os melhores pontos e analise estatísticas com IA."
+    },
+    "pt-br": {
+        "l1": "A Câmera Nº1 de Tênis e Padel nos Estados Unidos.",
+        "l2": "Presente em +600 clubes e +1500 quadras.",
+        "l3": "Transmita partidas, compartilhe os melhores pontos e analise estatísticas com IA."
+    },
+    "nl": {
+        "l1": "De #1 Tennis- & Padelcamera in de Verenigde Staten.",
+        "l2": "Actief in +600 clubs en +1500 banen.",
+        "l3": "Wedstrijden streamen, beste punten delen en AI-statistieken analyseren."
+    },
+    "sv": {
+        "l1": "Den ledande tennis- och padelkameran i USA.",
+        "l2": "Aktiv i +600 klubbar och +1500 banor.",
+        "l3": "Streama matcher, dela bästa höjdpunkterna och analysera AI-statistik."
+    },
+    "no": {
+        "l1": "Den ledende tennis- og padelkameraet i USA.",
+        "l2": "Aktiv i +600 klubber og +1500 baner.",
+        "l3": "Strøm kamper, del beste høydepunkter og analyser AI-statistikk."
+    },
+    "da": {
+        "l1": "Det førende tennis- og padelkamera i USA.",
+        "l2": "Aktiv i +600 klubber og +1500 baner.",
+        "l3": "Stream kampe, del bedste højdepunkter og analysér AI-statistik."
+    },
+    "fi": {
+        "l1": "Yhdysvaltain johtava tennis- ja padelkamera.",
+        "l2": "Käytössä yli 600 klubilla ja 1500 kentällä.",
+        "l3": "Lähetä otteluita, jaa parhaat kohokohdat ja analysoi tekoälytilastoja."
+    },
+    "pl": {
+        "l1": "Kamera nr 1 do tenisa i padla w Stanach Zjednoczonych.",
+        "l2": "Obecna w ponad 600 klubach i na 1500 kortach.",
+        "l3": "Transmituj mecze, udostępniaj najlepsze zagrania i analizuj statystyki AI."
+    },
+    "cs": {
+        "l1": "Kamera č. 1 pro tenis a padel ve Spojených státech.",
+        "l2": "Aktivní ve více než 600 klubech a na 1500 kurtech.",
+        "l3": "Vysílejte zápasy, sdílejte nejlepší body a analyzujte statistiky s AI."
+    },
+    "ro": {
+        "l1": "Camera nr. 1 de tenis și padel din Statele Unite.",
+        "l2": "Prezentă în +600 de cluburi și pe +1500 de terenuri.",
+        "l3": "Transmite meciuri, partajează cele mai bune puncte și analizează statistici AI."
+    },
+    "hr": {
+        "l1": "Vodeća kamera za tenis i padel u Sjedinjenim Državama.",
+        "l2": "Aktivna u više od 600 klubova i na 1500 terena.",
+        "l3": "Prenosite mečeve, dijelite najbolje trenutke i analizirajte AI statistiku."
+    },
+    "el": {
+        "l1": "Η Νο1 κάμερα τένις και πάντελ στις Ηνωμένες Πολιτείες.",
+        "l2": "Σε περισσότερα από 600 club και 1500 γήπεδα.",
+        "l3": "Μεταδώστε αγώνες, μοιραστείτε κορυφαίες φάσεις και αναλύστε στατιστικά με AI."
+    },
+    "tr": {
+        "l1": "Amerika Birleşik Devletleri'nin 1 Numaralı Tenis ve Padel Kamerası.",
+        "l2": "+600 kulüpte ve +1500 kortta aktif.",
+        "l3": "Maçları yayınlayın, en iyi anları paylaşın ve yapay zeka analizlerini inceleyin."
+    },
+    "ar": {
+        "l1": "الكاميرا الأولى للتنس والبادل في الولايات المتحدة.",
+        "l2": "موجودة في أكثر من 600 نادٍ و 1500 ملعب.",
+        "l3": "بث المباريات ومشاركة أفضل اللقطات وتحليل الإحصائيات بالذكاء الاصطناعي."
+    },
+    "ja": {
+        "l1": "米国で実績No.1のテニス＆パデル専用カメラシステム。",
+        "l2": "+600以上のクラブ、+1500以上のコートで稼働中。",
+        "l3": "試合配信、ハイライト共有、AI戦術分析をこれ1台で。"
+    },
+    "id": {
+        "l1": "Kamera Tenis & Padel No. 1 di Amerika Serikat.",
+        "l2": "Hadir di +600 klub dan +1500 lapangan.",
+        "l3": "Siarkan pertandingan, bagikan momen terbaik, dan analisis statistik AI."
+    },
+    "ca": {
+        "l1": "La Càmera Nº1 de Tennis i Pàdel als Estats Units.",
+        "l2": "Present a +600 clubs i +1500 pistes.",
+        "l3": "Retransmet partits, comparteix els millors punts i analitza estadístiques amb IA."
+    }
+}
+
+H1_TEMPLATES_I18N = {
+    "es": "Cámaras para clubs de Pádel<br>en {target}:<br>Grabación, Highlights<br>y Estadísticas con IA",
+    "en": "Padel Club Cameras<br>in {target}:<br>Match Recording, Highlights<br>& AI Game Statistics",
+    "fr": "Caméras pour Clubs de Padel<br>en {target} :<br>Enregistrement Matchs, Highlights<br>et Statistiques avec IA",
+    "it": "Telecamere per Club di Padel<br>a {target}:<br>Registrazione Partite, Highlights<br>e Statistiche con IA",
+    "de": "Padel-Kameras für Clubs<br>in {target}:<br>Spielaufzeichnung, Highlights<br>und KI-Statistiken",
+    "pt": "Câmaras para Clubes de Padel<br>em {target}:<br>Gravação de Jogos, Highlights<br>e Estatísticas com IA",
+    "pt-br": "Câmeras para Clubes de Padel<br>no {target}:<br>Gravação de Partidas, Highlights<br>e Estatísticas com IA",
+    "nl": "Padelcamera's voor Clubs<br>in {target}:<br>Wedstrijdopname, Highlights<br>en AI-Statistieken",
+    "sv": "Padelkameror för klubbar<br>i {target}:<br>Matchinspelning, Höjdpunkter<br>och AI-Statistik",
+    "no": "Padelkameraer for klubber<br>i {target}:<br>Kampopptak, Høydepunkter<br>og AI-Statistikk",
+    "da": "Padelkameraer til klubber<br>i {target}:<br>Kampoptagelse, Højdepunkter<br>og AI-Statistik",
+    "fi": "Padelkamerat klubeille<br>alueella {target}:<br>Ottelutallennus, Kohokohdat<br>ja Tekoälytilastot",
+    "pl": "Kamery dla Klubów Padla<br>w {target}:<br>Nagrywanie Meczów, Highlights<br>i Statystyki AI",
+    "cs": "Kamery pro padelové kluby<br>v {target}:<br>Záznam zápasů, Highlights<br>a AI statistiky",
+    "ro": "Camere pentru Cluburi de Padel<br>în {target}:<br>Înregistrare Meciuri, Highlights<br>și Statistici AI",
+    "hr": "Kamere za padel klubove<br>u {target}:<br>Snimanje mečeva, Highlights<br>i AI statistika",
+    "el": "Κάμερες για Padel Clubs<br>σε {target}:<br>Καταγραφή Αγώνων, Highlights<br>και Στατιστικά AI",
+    "tr": "Padel Kulüpleri İçin Kameralar<br>{target} bölgesinde:<br>Maç Kaydı, Öne Çıkanlar<br>ve Yapay Zeka İstatistikleri",
+    "ar": "كاميرات أندية البادل<br>في {target}:<br>تسجيل المباريات واللقطات<br>وإحصائيات الذكاء الاصطناعي",
+    "ja": "パデルクラブ専用カメラ<br>{target}:<br>試合録画・ハイライト<br>AI戦術分析システム",
+    "id": "Kamera untuk Klub Padel<br>di {target}:<br>Rekaman Pertandingan, Highlights<br>dan Statistik AI",
+    "ca": "Càmeres per a clubs de Pàdel<br>a {target}:<br>Gravació, Highlights<br>i Estadístiques amb IA"
+}
+
 ASUNCION_CSS_BLOCK = """
     /* --- REGLAS ASUNCIÓN (VARIANTE B) --- */
+    .camera-local-hero, .bg-textured-blue {
+      background-color: #3478a6 !important;
+      background-image: linear-gradient(rgba(52, 120, 166, 0.40), rgba(52, 120, 166, 0.40)), url('/assets/images/branding/textura_editorial_coolpadel.webp') !important;
+      background-blend-mode: normal, soft-light !important;
+      background-size: cover !important;
+      background-position: center !important;
+    }
+    .hero-btn-row {
+      display: flex !important;
+      flex-direction: row !important;
+      align-items: center !important;
+      gap: 16px !important;
+      flex-wrap: wrap !important;
+      padding-top: 14px !important;
+    }
+    @media (min-width: 640px) {
+      .hero-btn-row {
+        padding-top: 21px !important;
+      }
+    }
+    @media (min-width: 1024px) {
+      .hero-btn-row {
+        padding-top: 25px !important;
+      }
+    }
+    .hero-cities-row {
+      display: flex !important;
+      flex-direction: row !important;
+      flex-wrap: nowrap !important;
+      align-items: center !important;
+      gap: 8px !important;
+      overflow-x: auto !important;
+      white-space: nowrap !important;
+      -ms-overflow-style: none !important;
+      scrollbar-width: none !important;
+      padding-top: 14px !important;
+    }
+    @media (min-width: 640px) {
+      .hero-cities-row {
+        padding-top: 21px !important;
+      }
+    }
+    @media (min-width: 1024px) {
+      .hero-cities-row {
+        padding-top: 25px !important;
+      }
+    }
+    .hero-cities-row::-webkit-scrollbar {
+      display: none !important;
+    }
+    .hero-city-pill {
+      display: inline-flex !important;
+      flex-direction: row !important;
+      align-items: center !important;
+      gap: 6px !important;
+      white-space: nowrap !important;
+      flex-shrink: 0 !important;
+    }
     .hero-stats-section {
       margin-top: 3.5rem !important;
       position: relative !important;

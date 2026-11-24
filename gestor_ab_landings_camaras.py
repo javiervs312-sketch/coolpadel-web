@@ -2,8 +2,8 @@
 """
 Gestor Maestro y Automatizado de Test A/B para las 300 Landings B2B de Cámaras (50 Países y 250 Ciudades).
 
-Variante A: Control clásico (Hero estándar con tarjeta 2x2 en columna derecha, sin rectángulos ni artículos en cabecera).
-Variante B: Variante Asunción (Foto limpia con badge oficial + 4 Rectángulos azules de estadísticas + 3 Artículos destacados 16:9 + Moneda local en envío + CTAs WhatsApp "Solicitar Demo 15 min").
+Variante A: Control clásico (Hero estándar blanco/gris con tarjeta 2x2 en columna derecha, sin rectángulos ni artículos en cabecera).
+Variante B: Variante Asunción (Hero con textura azul y texto blanco + Subtítulo Cámara Nº1 USA + Botón WhatsApp Demo + Pills estilizadas + Foto limpia con ribbon badge oficial + 4 Rectángulos azules de estadísticas + 3 Artículos destacados 16:9 + Moneda local en envío + CTAs WhatsApp "Solicitar Demo 15 min").
 """
 
 import os
@@ -25,7 +25,8 @@ from ciudades_data_250 import CITIES_50
 from country_i18n_extras import ISO_MAP
 from camaras_i18n_ab import (
     SHIPPING_MAP, STAT_CARDS_I18N, AWARD_BADGE_I18N, ARTICLES_I18N,
-    DEMO_BTN_TEXT, ASUNCION_CSS_BLOCK
+    DEMO_BTN_TEXT, TARIFS_BTN_TEXT, SUBTITLE_I18N, H1_TEMPLATES_I18N,
+    ASUNCION_CSS_BLOCK
 )
 
 def get_country_lookup():
@@ -265,44 +266,120 @@ def build_variant_b_sections(p):
 
     shipping_str = SHIPPING_MAP.get(iso, "+20 € envío int.")
     demo_btn_str = DEMO_BTN_TEXT.get(lang, DEMO_BTN_TEXT["en"])
+    tarifs_btn_str = TARIFS_BTN_TEXT.get(lang, TARIFS_BTN_TEXT["en"])
+    sub_data = SUBTITLE_I18N.get(lang, SUBTITLE_I18N["en"])
+    h1_template = H1_TEMPLATES_I18N.get(lang, H1_TEMPLATES_I18N["en"])
+    h1_formatted = h1_template.format(target=target_name)
 
     return {
         "stats_html": stats_html,
         "articles_html": articles_html,
         "hero_right_col": hero_right_col,
         "shipping_str": shipping_str,
-        "demo_btn_str": demo_btn_str
+        "demo_btn_str": demo_btn_str,
+        "tarifs_btn_str": tarifs_btn_str,
+        "sub_data": sub_data,
+        "h1_formatted": h1_formatted
     }
 
 def apply_variant_b_to_html(html, p):
-    """Inyecta los bloques de la Variante Asunción adaptados a la página respetando estructura e idempotencia."""
+    """Inyecta todos los componentes visuales y textuales de la Variante Asunción adaptados al mercado."""
     b_data = build_variant_b_sections(p)
     body_idx = html.find("<body")
     if body_idx == -1:
         body_idx = 0
 
-    # 1. Inyectar CSS en <style> si no existe
+    # 1. Inyectar / actualizar CSS en <style>
     if "/* --- REGLAS ASUNCIÓN (VARIANTE B) --- */" not in html:
         style_idx = html.find("</style>")
         if style_idx != -1:
             html = html[:style_idx] + ASUNCION_CSS_BLOCK + "\n  " + html[style_idx:]
+    else:
+        if ".camera-local-hero" not in html:
+            html = re.sub(r'/\* --- REGLAS ASUNCIÓN \(VARIANTE B\) --- \*/[\s\S]*?(?=</style>)', ASUNCION_CSS_BLOCK.strip(), html)
 
-    # 2. Reemplazar la columna derecha del hero por la estructura limpia (foto + ribbon badge)
-    # Detectamos <div class="lg:col-span-5">... y reemplazamos hasta el cierre de esa columna
+    # 2. Hero Section tag (fondo azul texturado)
+    html = re.sub(
+        r'<section class="pt-5 pb-12 sm:pt-6 sm:pb-16 bg-gradient-to-b from-white via-slate-50 to-\[#f8fafc\] border-b border-slate-200">',
+        '<section class="camera-local-hero relative text-white pt-6 pb-10 sm:pt-8 sm:pb-12 lg:pt-8 lg:pb-14">',
+        html
+    )
+
+    # 3. Breadcrumb navigation
+    html = re.sub(
+        r'<nav aria-label="Breadcrumb" class="[^"]*">',
+        '<nav aria-label="Breadcrumb" class="hero-breadcrumb flex items-center gap-2 text-xs font-bold text-white/70 mb-8 sm:mb-12 lg:mb-14 uppercase tracking-wider flex-wrap">',
+        html
+    )
+    breadcrumb_m = re.search(r'<nav aria-label="Breadcrumb"[\s\S]*?</nav>', html)
+    if breadcrumb_m:
+        bc_old = breadcrumb_m.group(0)
+        bc_new = bc_old.replace('hover:text-slate-900', 'hover:text-white').replace('text-slate-500', 'text-white/70')
+        html = html[:breadcrumb_m.start()] + bc_new + html[breadcrumb_m.end():]
+
+    # 4. H1 Formatted en 4 líneas
+    h1_new = f'<h1 class="hero-main-title font-heading font-black text-xl sm:text-2xl lg:text-3xl text-white uppercase tracking-tight leading-snug">\n              {b_data["h1_formatted"]}\n            </h1>'
+    html = re.sub(r'<h1 class="[^"]*">[\s\S]*?</h1>', h1_new, html, count=1)
+
+    # 5. Subtítulo en 3 líneas (Cámara Nº1 USA)
+    sub = b_data["sub_data"]
+    sub_new = f'<p class="hero-main-subtitle text-slate-100/95 leading-relaxed font-normal max-w-2xl">\n              {sub["l1"]}<br class="hidden sm:inline">\n              {sub["l2"]}<br class="hidden sm:inline">\n              {sub["l3"]}\n            </p>'
+    html = re.sub(r'(</h1>\s*)<p class="[^"]*leading-relaxed[^"]*">[\s\S]*?</p>', rf'\g<1>{sub_new}', html, count=1)
+
+    # 6. Botones de cabecera (Solicitar Demo WhatsApp + Ver Tarifas)
+    hero_btn_m = re.search(r'<div class="pt-4 flex flex-col sm:flex-row[^"]*" style="min-height: 58px;">[\s\S]*?</a>\s*</div>', html)
+    if hero_btn_m:
+        demo_btn_str = b_data["demo_btn_str"]
+        tarifs_btn_str = b_data["tarifs_btn_str"]
+        wa_href_m = re.search(r'href="(https://api\.whatsapp\.com/send\?[^"]*)"', hero_btn_m.group(0))
+        wa_href = wa_href_m.group(1) if wa_href_m else "https://api.whatsapp.com/send?phone=34680317486"
+        btn_new = f'''<div class="flex flex-row items-center gap-3 sm:gap-4 hero-btn-row relative" style="min-height: 54px;">
+              <div id="hero-btn-placeholder" style="display: none; height: 50px;" class="w-full sm:w-[320px]"></div>
+              <a id="hero-wa-btn" data-product="camaras" data-lead-intent="demo" data-button-position="hero" href="{wa_href}" target="_blank" rel="noopener" class="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 sm:px-7 sm:py-3.5 rounded-full bg-[#f2920b] hover:bg-[#e08508] text-slate-950 font-heading font-black text-xs sm:text-sm uppercase tracking-wider transition-all duration-200 shadow-xl hover:scale-105 active:scale-95 group z-40">
+                <i data-lucide="message-circle" class="w-4 h-4 sm:w-5 sm:h-5 text-slate-950"></i>
+                <span>{demo_btn_str}</span>
+              </a>
+
+              <a href="#precios" class="inline-flex items-center justify-center gap-2 px-5 py-3.5 sm:px-6 sm:py-3.5 rounded-full bg-white hover:bg-slate-100 text-slate-900 border border-slate-200 font-heading font-black text-xs sm:text-sm uppercase tracking-wider transition shadow-md hover:scale-105">
+                <span>{tarifs_btn_str}</span>
+                <i data-lucide="arrow-down" class="w-4 h-4 text-slate-600"></i>
+              </a>
+            </div>'''
+        html = html[:hero_btn_m.start()] + btn_new + html[hero_btn_m.end():]
+    else:
+        # Asegurar textos y atributos si ya fue transformado
+        html = re.sub(
+            r'(<a id="hero-wa-btn"[^>]*>[\s\S]*?<span>).*?(</span>)',
+            rf'\g<1>{b_data["demo_btn_str"]}\g<2>',
+            html
+        )
+
+    # 7. Pills de ciudades
+    html = re.sub(
+        r'<div class="pt-2 flex flex-wrap items-center gap-1.5">',
+        '<div class="flex flex-row items-center gap-1.5 sm:gap-2 flex-nowrap hero-cities-row">',
+        html
+    )
+    pills_m = re.search(r'<div class="[^"]*hero-cities-row">[\s\S]*?</div>', html)
+    if pills_m:
+        pills_old = pills_m.group(0)
+        pills_new = re.sub(
+            r'class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full[^"]*"',
+            'class="hero-city-pill inline-flex items-center gap-1 px-2.5 py-1.5 rounded-full bg-white/95 hover:bg-[#f2920b] text-slate-800 hover:text-slate-950 border border-white/80 font-heading font-bold text-[10px] sm:text-[11px] uppercase tracking-wider transition shadow-sm shrink-0 whitespace-nowrap"',
+            pills_old
+        )
+        html = html[:pills_m.start()] + pills_new + html[pills_m.end():]
+
+    # 8. Columna derecha limpia (foto + ribbon badge con 28px de holgura)
     if "grid grid-cols-2 gap-3 text-left" in html:
-        # Columna clásica con caja de 4 precios duplicada
-        pattern = r'(<div class="lg:col-span-5">[\s\S]*?</div>\s*</div>\s*</div>)'
-        # Reemplazamos la columna completa
         col_match = re.search(r'<div class="lg:col-span-5">[\s\S]*?</div>\s*</div>\s*</div>\s*</div>', html)
         if col_match:
             html = html[:col_match.start()] + b_data["hero_right_col"] + html[col_match.end():]
         else:
-            # Búsqueda más flexible del bloque lg:col-span-5
             col_match_flex = re.search(r'<div class="lg:col-span-5">[\s\S]*?</div>\s*</div>\s*</div>', html)
             if col_match_flex:
                 html = html[:col_match_flex.start()] + b_data["hero_right_col"] + html[col_match_flex.end():]
 
-    # Asegurar que el hero-award-badge tiene el margen superior de 28px si ya estuviera
     if "hero-award-badge" in html:
         html = re.sub(
             r'class="hero-award-badge[^"]*"(?:\s*style="[^"]*")?',
@@ -310,7 +387,7 @@ def apply_variant_b_to_html(html, p):
             html
         )
 
-    # 3. Inyectar los 4 rectángulos y los 3 artículos entre Hero y Sección 2 (inspeccionando dentro de <body>)
+    # 9. Inyectar los 4 rectángulos y los 3 artículos entre Hero y Sección 2
     body_content = html[body_idx:]
     if 'class="hero-stat-card' not in body_content:
         sec2_match = re.search(r'(</section>\s*)(<!--\s*2\.)', html)
@@ -318,7 +395,7 @@ def apply_variant_b_to_html(html, p):
             insert_content = f"\n\n{b_data['stats_html']}\n\n{b_data['articles_html']}\n\n    "
             html = html[:sec2_match.start(1)] + "</section>" + insert_content + html[sec2_match.start(2):]
 
-    # 4. Sustituir el envío internacional genérico en euros por la divisa local exacta
+    # 10. Envío internacional en divisa local
     html = re.sub(
         r'\(\+[^)]*?(?:envío|shipping|livr|sped|versand|livrare|dostawa|frakt|fragt|toimitus|verzending|envio|kargo|pos|送料)[^)]*?\)',
         f"({b_data['shipping_str']})",
@@ -326,7 +403,7 @@ def apply_variant_b_to_html(html, p):
         flags=re.IGNORECASE
     )
 
-    # 5. Botón de demostración bajo tabla de precios ("pricing") y en cabecera si procede
+    # 11. Botón demo en pricing
     html = re.sub(
         r'(data-button-position="pricing"[^>]*>[\s\S]*?<span>).*?(</span>)',
         rf'\g<1>{b_data["demo_btn_str"]}\g<2>',
@@ -337,9 +414,7 @@ def apply_variant_b_to_html(html, p):
 
 def remove_variant_b_from_html(html):
     """Restaura la estructura limpia de Variante A (Control)."""
-    # Eliminar bloque de 4 rectangulitos
     html = re.sub(r'<!-- Resumen Clave[\s\S]*?hero-stats-section[\s\S]*?</section>\s*', '', html)
-    # Eliminar bloque de 3 artículos
     html = re.sub(r'<!-- 3 Artículos Destacados[\s\S]*?hero-featured-articles[\s\S]*?</section>\s*', '', html)
     return html
 
@@ -360,7 +435,6 @@ def apply_all_variants():
             original = f.read()
             
         if variant == "B":
-            # Asunción es el modelo canónico de referencia
             if rel == "paraguay/asuncion/index.html":
                 continue
             updated = apply_variant_b_to_html(original, p)
@@ -369,7 +443,6 @@ def apply_all_variants():
                     f.write(updated)
                 modified_b += 1
         else:
-            # Variante A: asegurar que no tiene bloques residuales de B
             body_idx = original.find("<body")
             body_content = original[body_idx:] if body_idx != -1 else original
             if "hero-stats-section" in body_content or "hero-featured-articles" in body_content:

@@ -197,6 +197,64 @@
     }
   
     /* --- REGLAS ASUNCIÓN (VARIANTE B) --- */
+    .camera-local-hero, .bg-textured-blue {
+      background-color: #3478a6 !important;
+      background-image: linear-gradient(rgba(52, 120, 166, 0.40), rgba(52, 120, 166, 0.40)), url('/assets/images/branding/textura_editorial_coolpadel.webp') !important;
+      background-blend-mode: normal, soft-light !important;
+      background-size: cover !important;
+      background-position: center !important;
+    }
+    .hero-btn-row {
+      display: flex !important;
+      flex-direction: row !important;
+      align-items: center !important;
+      gap: 16px !important;
+      flex-wrap: wrap !important;
+      padding-top: 14px !important;
+    }
+    @media (min-width: 640px) {
+      .hero-btn-row {
+        padding-top: 21px !important;
+      }
+    }
+    @media (min-width: 1024px) {
+      .hero-btn-row {
+        padding-top: 25px !important;
+      }
+    }
+    .hero-cities-row {
+      display: flex !important;
+      flex-direction: row !important;
+      flex-wrap: nowrap !important;
+      align-items: center !important;
+      gap: 8px !important;
+      overflow-x: auto !important;
+      white-space: nowrap !important;
+      -ms-overflow-style: none !important;
+      scrollbar-width: none !important;
+      padding-top: 14px !important;
+    }
+    @media (min-width: 640px) {
+      .hero-cities-row {
+        padding-top: 21px !important;
+      }
+    }
+    @media (min-width: 1024px) {
+      .hero-cities-row {
+        padding-top: 25px !important;
+      }
+    }
+    .hero-cities-row::-webkit-scrollbar {
+      display: none !important;
+    }
+    .hero-city-pill {
+      display: inline-flex !important;
+      flex-direction: row !important;
+      align-items: center !important;
+      gap: 6px !important;
+      white-space: nowrap !important;
+      flex-shrink: 0 !important;
+    }
     .hero-stats-section {
       margin-top: 3.5rem !important;
       position: relative !important;
@@ -349,9 +407,7 @@
     .article-card:hover .card-action .action-icon svg,
     .article-card:hover .card-action .action-icon i {
       transform: translateX(2px) !important;
-    }
-
-  </style>
+    }</style>
   <!-- Google Analytics 4 -->
   <script>
     (function() {
@@ -440,16 +496,16 @@
   <main class="flex-1 pt-16 sm:pt-20">
 
     <!-- 1. HERO SECTION -->
-    <section class="pt-5 pb-12 sm:pt-6 sm:pb-16 bg-gradient-to-b from-white via-slate-50 to-[#f8fafc] border-b border-slate-200">
+    <section class="camera-local-hero relative text-white pt-6 pb-10 sm:pt-8 sm:pb-12 lg:pt-8 lg:pb-14">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <!-- Breadcrumbs Navigation -->
-        <nav aria-label="Breadcrumb" class="flex items-center gap-2 text-xs font-bold text-slate-500 mb-3 sm:mb-4 uppercase tracking-wider flex-wrap">
-          <a href="/en/" class="hover:text-slate-900 transition">Beranda</a>
+        <nav aria-label="Breadcrumb" class="hero-breadcrumb flex items-center gap-2 text-xs font-bold text-white/70 mb-8 sm:mb-12 lg:mb-14 uppercase tracking-wider flex-wrap">
+          <a href="/en/" class="hover:text-white transition">Beranda</a>
           <span>/</span>
-          <a href="/en/camaras/" class="hover:text-slate-900 transition">KAMERA</a>
+          <a href="/en/camaras/" class="hover:text-white transition">KAMERA</a>
           <span>/</span>
-          <a href="/camaras/indonesia/" class="hover:text-slate-900 transition">Indonesia</a>
+          <a href="/camaras/indonesia/" class="hover:text-white transition">Indonesia</a>
           <span>/</span>
           <span class="text-[#f2920b] font-black">Jakarta</span>
         </nav>
@@ -463,28 +519,30 @@
             </div>
 
             <!-- H1 FORMATTED IN 3 LINES -->
-            <h1 class="font-heading font-black text-2xl sm:text-3xl lg:text-[2rem] text-slate-950 uppercase tracking-tight leading-[1.15]">
-              Kamera untuk Klub Padel di Jakarta:<br class="hidden sm:inline"> Perekaman Pertandingan, Sorotan<br class="hidden sm:inline"> & Statistik AI
+            <h1 class="hero-main-title font-heading font-black text-xl sm:text-2xl lg:text-3xl text-white uppercase tracking-tight leading-snug">
+              Kamera untuk Klub Padel<br>di Jakarta:<br>Rekaman Pertandingan, Highlights<br>dan Statistik AI
             </h1>
 
-            <p class="text-base sm:text-lg text-slate-600 leading-relaxed font-normal">
-              Kamera resmi USA Padel & USTA untuk klub di Jakarta. Investasi Rp 3.6jt milik sendiri, langganan mulai dari Rp 900rb/bln, pemasangan 5 menit tanpa renovasi.
+            <p class="hero-main-subtitle text-slate-100/95 leading-relaxed font-normal max-w-2xl">
+              Kamera Tenis & Padel No. 1 di Amerika Serikat.<br class="hidden sm:inline">
+              Hadir di +600 klub dan +1500 lapangan.<br class="hidden sm:inline">
+              Siarkan pertandingan, bagikan momen terbaik, dan analisis statistik AI.
             </p>
             
 
-            <div class="pt-4 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 relative" style="min-height: 58px;">
-              <div id="hero-btn-placeholder" style="display: none; height: 54px;" class="w-full sm:w-[350px]"></div>
-              <a id="hero-wa-btn" data-product="camaras" data-lead-intent="demo" data-button-position="hero" href="https://api.whatsapp.com/send?phone=34680317486&text=Halo%20Javier%2C%20saya%20mengelola%20klub%20padel%20di%20Jakarta%20%28Indonesia%29%20dan%20ingin%20melihat%20demo%20Save%20My%20Play." target="_blank" rel="noopener" class="inline-flex items-center justify-center gap-2.5 px-7 py-4 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] text-slate-950 font-heading font-black text-sm uppercase tracking-wider transition-all duration-200 shadow-md hover:scale-105 active:scale-95 group z-40">
-                <i data-lucide="message-circle" class="w-5 h-5 text-slate-950"></i>
-                <span>Minta Demo 15 Menit via WhatsApp</span>
+            <div class="flex flex-row items-center gap-3 sm:gap-4 hero-btn-row relative" style="min-height: 54px;">
+              <div id="hero-btn-placeholder" style="display: none; height: 50px;" class="w-full sm:w-[320px]"></div>
+              <a id="hero-wa-btn" data-product="camaras" data-lead-intent="demo" data-button-position="hero" href="https://api.whatsapp.com/send?phone=34680317486&text=Halo%20Javier%2C%20saya%20mengelola%20klub%20padel%20di%20Jakarta%20%28Indonesia%29%20dan%20ingin%20melihat%20demo%20Save%20My%20Play." target="_blank" rel="noopener" class="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 sm:px-7 sm:py-3.5 rounded-full bg-[#f2920b] hover:bg-[#e08508] text-slate-950 font-heading font-black text-xs sm:text-sm uppercase tracking-wider transition-all duration-200 shadow-xl hover:scale-105 active:scale-95 group z-40">
+                <i data-lucide="message-circle" class="w-4 h-4 sm:w-5 sm:h-5 text-slate-950"></i>
+                <span>Minta Demo 15 menit via WhatsApp</span>
               </a>
 
-              <a href="#precios" class="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-full bg-white hover:bg-slate-100 text-slate-900 border border-slate-200 font-heading font-black text-sm uppercase tracking-wider transition">
-                <span>Lihat Biaya</span>
-                <i data-lucide="arrow-down" class="w-4 h-4 text-slate-500"></i>
+              <a href="#precios" class="inline-flex items-center justify-center gap-2 px-5 py-3.5 sm:px-6 sm:py-3.5 rounded-full bg-white hover:bg-slate-100 text-slate-900 border border-slate-200 font-heading font-black text-xs sm:text-sm uppercase tracking-wider transition shadow-md hover:scale-105">
+                <span>Lihat Tarif</span>
+                <i data-lucide="arrow-down" class="w-4 h-4 text-slate-600"></i>
               </a>
             </div>
-            <div class="pt-2 flex flex-wrap items-center gap-1.5"><a href="/camaras/indonesia/" class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-slate-100 hover:bg-[#f2920b] text-slate-800 hover:text-slate-950 border border-slate-200 font-heading font-bold text-[11px] uppercase tracking-wider transition"><span>Indonesia</span></a><a href="/camaras/indonesia/bali/" class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-white hover:bg-[#f2920b] text-slate-700 hover:text-slate-950 border border-slate-200 hover:border-[#f2920b] font-heading font-bold text-[11px] uppercase tracking-wider transition shadow-2xs"><i data-lucide="map-pin" class="w-3 h-3 text-[#f2920b]"></i><span>Bali</span></a><a href="/camaras/indonesia/surabaya/" class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-white hover:bg-[#f2920b] text-slate-700 hover:text-slate-950 border border-slate-200 hover:border-[#f2920b] font-heading font-bold text-[11px] uppercase tracking-wider transition shadow-2xs"><i data-lucide="map-pin" class="w-3 h-3 text-[#f2920b]"></i><span>Surabaya</span></a><a href="/camaras/indonesia/bandung/" class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-white hover:bg-[#f2920b] text-slate-700 hover:text-slate-950 border border-slate-200 hover:border-[#f2920b] font-heading font-bold text-[11px] uppercase tracking-wider transition shadow-2xs"><i data-lucide="map-pin" class="w-3 h-3 text-[#f2920b]"></i><span>Bandung</span></a><a href="/camaras/indonesia/medan/" class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-white hover:bg-[#f2920b] text-slate-700 hover:text-slate-950 border border-slate-200 hover:border-[#f2920b] font-heading font-bold text-[11px] uppercase tracking-wider transition shadow-2xs"><i data-lucide="map-pin" class="w-3 h-3 text-[#f2920b]"></i><span>Medan</span></a></div>
+            <div class="flex flex-row items-center gap-1.5 sm:gap-2 flex-nowrap hero-cities-row"><a href="/camaras/indonesia/" class="hero-city-pill inline-flex items-center gap-1 px-2.5 py-1.5 rounded-full bg-white/95 hover:bg-[#f2920b] text-slate-800 hover:text-slate-950 border border-white/80 font-heading font-bold text-[10px] sm:text-[11px] uppercase tracking-wider transition shadow-sm shrink-0 whitespace-nowrap"><span>Indonesia</span></a><a href="/camaras/indonesia/bali/" class="hero-city-pill inline-flex items-center gap-1 px-2.5 py-1.5 rounded-full bg-white/95 hover:bg-[#f2920b] text-slate-800 hover:text-slate-950 border border-white/80 font-heading font-bold text-[10px] sm:text-[11px] uppercase tracking-wider transition shadow-sm shrink-0 whitespace-nowrap"><i data-lucide="map-pin" class="w-3 h-3 text-[#f2920b]"></i><span>Bali</span></a><a href="/camaras/indonesia/surabaya/" class="hero-city-pill inline-flex items-center gap-1 px-2.5 py-1.5 rounded-full bg-white/95 hover:bg-[#f2920b] text-slate-800 hover:text-slate-950 border border-white/80 font-heading font-bold text-[10px] sm:text-[11px] uppercase tracking-wider transition shadow-sm shrink-0 whitespace-nowrap"><i data-lucide="map-pin" class="w-3 h-3 text-[#f2920b]"></i><span>Surabaya</span></a><a href="/camaras/indonesia/bandung/" class="hero-city-pill inline-flex items-center gap-1 px-2.5 py-1.5 rounded-full bg-white/95 hover:bg-[#f2920b] text-slate-800 hover:text-slate-950 border border-white/80 font-heading font-bold text-[10px] sm:text-[11px] uppercase tracking-wider transition shadow-sm shrink-0 whitespace-nowrap"><i data-lucide="map-pin" class="w-3 h-3 text-[#f2920b]"></i><span>Bandung</span></a><a href="/camaras/indonesia/medan/" class="hero-city-pill inline-flex items-center gap-1 px-2.5 py-1.5 rounded-full bg-white/95 hover:bg-[#f2920b] text-slate-800 hover:text-slate-950 border border-white/80 font-heading font-bold text-[10px] sm:text-[11px] uppercase tracking-wider transition shadow-sm shrink-0 whitespace-nowrap"><i data-lucide="map-pin" class="w-3 h-3 text-[#f2920b]"></i><span>Medan</span></a></div>
           </div>
 
                     <div class="lg:col-span-5">
