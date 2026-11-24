@@ -265,10 +265,12 @@
         margin-bottom: 3rem !important;
       }
     }
+    /* 3 Artículos Destacados debajo de los 4 rectangulitos */
     .hero-featured-articles {
       display: grid !important;
       grid-template-columns: 1fr !important;
       gap: 1.25rem !important;
+      width: 100% !important;
     }
     @media (min-width: 768px) {
       .hero-featured-articles {
@@ -277,11 +279,109 @@
       }
     }
     .article-card {
-      color: #0f172a !important;
+      display: flex !important;
+      flex-direction: column !important;
+      justify-content: space-between !important;
+      background: #ffffff !important;
+      border: 2px solid #e2e8f0 !important;
+      border-radius: 1rem !important;
+      padding: 1.25rem !important;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05) !important;
       text-decoration: none !important;
+      color: #0f172a !important;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+      cursor: pointer !important;
     }
-    .article-card img {
+    .article-card:hover {
+      border-color: #f2920b !important;
+      transform: translateY(-2px) !important;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1) !important;
+    }
+    .article-thumb-wrap {
+      width: 100% !important;
+      aspect-ratio: 16 / 9 !important;
+      min-height: 170px !important;
+      border-radius: 0.75rem !important;
+      overflow: hidden !important;
+      background-color: #0f172a !important;
+      border: 1px solid #e2e8f0 !important;
+      position: relative !important;
+    }
+    .article-thumb-wrap img {
+      width: 100% !important;
+      height: 100% !important;
+      object-fit: cover !important;
       display: block !important;
+      transition: transform 0.5s ease !important;
+    }
+    .article-card:hover .article-thumb-wrap img {
+      transform: scale(1.05) !important;
+    }
+    .article-card-title {
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif !important;
+      font-weight: 800 !important;
+      font-size: 1.05rem !important;
+      line-height: 1.35 !important;
+      color: #0f172a !important;
+      margin: 0.75rem 0 0 0 !important;
+      transition: color 0.2s ease !important;
+    }
+    .article-card:hover .article-card-title {
+      color: #f2920b !important;
+    }
+    .article-card-footer {
+      padding-top: 0.875rem !important;
+      border-top: 1px solid #f1f5f9 !important;
+      margin-top: 1.25rem !important;
+    }
+    .article-card .card-action {
+      position: relative !important;
+      width: 100% !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      gap: 0.5rem !important;
+      padding: 0.625rem 1rem !important;
+      border-radius: 9999px !important;
+      background-color: #f2920b !important;
+      color: #020617 !important;
+      font-family: 'Outfit', sans-serif !important;
+      font-weight: 900 !important;
+      font-size: 0.75rem !important;
+      text-transform: uppercase !important;
+      letter-spacing: 0.05em !important;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05) !important;
+      transition: all 0.3s ease !important;
+    }
+    .article-card:hover .card-action {
+      background-color: #76d3f6 !important;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1) !important;
+      transform: scale(1.01) !important;
+    }
+    .article-card .card-action .action-icon {
+      width: 1rem !important;
+      height: 1rem !important;
+      border-radius: 9999px !important;
+      background-color: rgba(2, 6, 23, 0.1) !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      transition: all 0.3s ease !important;
+    }
+    .article-card:hover .card-action .action-icon {
+      background-color: #020617 !important;
+      color: #ffffff !important;
+    }
+    .article-card .card-action .action-icon svg,
+    .article-card .card-action .action-icon i {
+      width: 0.75rem !important;
+      height: 0.75rem !important;
+      stroke-width: 3 !important;
+      transition: transform 0.3s ease !important;
+    }
+    .article-card:hover .card-action .action-icon svg,
+    .article-card:hover .card-action .action-icon i {
+      transform: translateX(2px) !important;
     }
     .hero-stat-card {
       border: none !important;
@@ -517,7 +617,7 @@
                 <img src="/assets/images/savemyplay_photos/1.jpg" alt="Cámaras Save my Play para pistas de pádel en Asunción" width="1920" height="1080" class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500 shadow-inner" loading="eager" decoding="async">
               </picture>
             </div>
-            <div class="hero-award-badge flex flex-row items-center justify-center gap-1.5 sm:gap-2 text-[#f2920b] font-heading font-black text-xs sm:text-sm uppercase tracking-wider text-center flex-nowrap whitespace-nowrap" style="margin-top: 24px !important;">
+            <div class="hero-award-badge flex flex-row items-center justify-center gap-1.5 sm:gap-2 text-[#f2920b] font-heading font-black text-xs sm:text-sm uppercase tracking-wider text-center flex-nowrap whitespace-nowrap" style="margin-top: 28px !important;">
               <i data-lucide="award" class="w-4 h-4 text-[#f2920b] shrink-0"></i>
               <span class="whitespace-nowrap">Cámara Oficial USA Padel y USTA</span>
             </div>
@@ -554,66 +654,60 @@
       <div class="hero-featured-articles">
         
         <!-- Artículo 1 -->
-        <a href="/camaras/articulos/por-donde-empezar-si-estoy-pensando-en-poner-camaras/" class="article-card bg-white border-2 border-slate-200/90 hover:border-[#f2920b] rounded-2xl p-4 sm:p-5 shadow-2xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between group hover:-translate-y-0.5 cursor-pointer block">
-          <div class="space-y-3">
-            <div class="aspect-[16/9] rounded-xl overflow-hidden bg-slate-900 border border-slate-200/90 shadow-sm relative">
-              <img src="/assets/images/camaras/camera-01.jpg" alt="Estoy pensando poner cámaras en mi club, ¿por dónde empiezo?" width="800" height="450" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
+        <a href="/camaras/articulos/por-donde-empezar-si-estoy-pensando-en-poner-camaras/" class="article-card group">
+          <div>
+            <div class="article-thumb-wrap">
+              <img src="/assets/images/camaras/camera-01.jpg" alt="Estoy pensando poner cámaras en mi club, ¿por dónde empiezo?" width="800" height="450" loading="lazy" decoding="async">
             </div>
-            <div>
-              <h3 class="font-sans font-extrabold text-sm sm:text-base lg:text-lg text-slate-900 leading-snug tracking-tight transition-colors m-0 group-hover:text-[#f2920b]">
-                Estoy pensando poner cámaras en mi club, ¿por dónde empiezo?
-              </h3>
-            </div>
+            <h3 class="article-card-title">
+              Estoy pensando poner cámaras en mi club, ¿por dónde empiezo?
+            </h3>
           </div>
-          <div class="pt-3.5 border-t border-slate-100 mt-4">
-            <div class="card-action group relative w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-full bg-[#f2920b] group-hover:bg-[#76d3f6] text-slate-950 font-heading font-black text-xs uppercase tracking-wider transition-all duration-300 shadow-xs group-hover:shadow-md group-hover:scale-[1.01] overflow-hidden active:scale-[.98]">
-              <span class="font-black">Leer artículo</span>
-              <div class="w-4 h-4 rounded-full bg-slate-950/10 group-hover:bg-slate-950 group-hover:text-white flex items-center justify-center transition-all duration-300">
-                <i data-lucide="arrow-right" class="w-3.5 h-3.5 stroke-[3] group-hover:translate-x-0.5 transition-transform duration-300"></i>
+          <div class="article-card-footer">
+            <div class="card-action">
+              <span>Leer artículo</span>
+              <div class="action-icon">
+                <i data-lucide="arrow-right"></i>
               </div>
             </div>
           </div>
         </a>
 
         <!-- Artículo 2 -->
-        <a href="/camaras/articulos/errores-clubs-se-arrepienten-de-poner-camaras/" class="article-card bg-white border-2 border-slate-200/90 hover:border-[#f2920b] rounded-2xl p-4 sm:p-5 shadow-2xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between group hover:-translate-y-0.5 cursor-pointer block">
-          <div class="space-y-3">
-            <div class="aspect-[16/9] rounded-xl overflow-hidden bg-slate-900 border border-slate-200/90 shadow-sm relative">
-              <img src="/assets/images/camaras/retransmision-directo-marcador-youtube.png" alt="Los 3 errores de los clubs que se arrepienten de poner cámaras" width="800" height="450" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
+        <a href="/camaras/articulos/errores-clubs-se-arrepienten-de-poner-camaras/" class="article-card group">
+          <div>
+            <div class="article-thumb-wrap">
+              <img src="/assets/images/camaras/retransmision-directo-marcador-youtube.png" alt="Los 3 errores de los clubs que se arrepienten de poner cámaras" width="800" height="450" loading="lazy" decoding="async">
             </div>
-            <div>
-              <h3 class="font-sans font-extrabold text-sm sm:text-base lg:text-lg text-slate-900 leading-snug tracking-tight transition-colors m-0 group-hover:text-[#f2920b]">
-                Los 3 errores de los clubs que se arrepienten de poner cámaras
-              </h3>
-            </div>
+            <h3 class="article-card-title">
+              Los 3 errores de los clubs que se arrepienten de poner cámaras
+            </h3>
           </div>
-          <div class="pt-3.5 border-t border-slate-100 mt-4">
-            <div class="card-action group relative w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-full bg-[#f2920b] group-hover:bg-[#76d3f6] text-slate-950 font-heading font-black text-xs uppercase tracking-wider transition-all duration-300 shadow-xs group-hover:shadow-md group-hover:scale-[1.01] overflow-hidden active:scale-[.98]">
-              <span class="font-black">Leer artículo</span>
-              <div class="w-4 h-4 rounded-full bg-slate-950/10 group-hover:bg-slate-950 group-hover:text-white flex items-center justify-center transition-all duration-300">
-                <i data-lucide="arrow-right" class="w-3.5 h-3.5 stroke-[3] group-hover:translate-x-0.5 transition-transform duration-300"></i>
+          <div class="article-card-footer">
+            <div class="card-action">
+              <span>Leer artículo</span>
+              <div class="action-icon">
+                <i data-lucide="arrow-right"></i>
               </div>
             </div>
           </div>
         </a>
 
         <!-- Artículo 3 -->
-        <a href="/camaras/articulos/por-que-no-recomiendo-plan-analytics/" class="article-card bg-white border-2 border-slate-200/90 hover:border-[#f2920b] rounded-2xl p-4 sm:p-5 shadow-2xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between group hover:-translate-y-0.5 cursor-pointer block">
-          <div class="space-y-3">
-            <div class="aspect-[16/9] rounded-xl overflow-hidden bg-slate-900 border border-slate-200/90 shadow-sm relative">
-              <img src="/assets/images/camaras/portada-mapa-calor-analytics.png" alt="¿Por qué no recomiendo el plan caro de estadísticas con IA al 95 % de los clubs?" width="800" height="450" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
+        <a href="/camaras/articulos/por-que-no-recomiendo-plan-analytics/" class="article-card group">
+          <div>
+            <div class="article-thumb-wrap">
+              <img src="/assets/images/camaras/portada-mapa-calor-analytics.png" alt="¿Por qué no recomiendo el plan caro de estadísticas con IA al 95 % de los clubs?" width="800" height="450" loading="lazy" decoding="async">
             </div>
-            <div>
-              <h3 class="font-sans font-extrabold text-sm sm:text-base lg:text-lg text-slate-900 leading-snug tracking-tight transition-colors m-0 group-hover:text-[#f2920b]">
-                ¿Por qué no recomiendo el plan caro de estadísticas con IA al 95 % de los clubs?
-              </h3>
-            </div>
+            <h3 class="article-card-title">
+              ¿Por qué no recomiendo el plan caro de estadísticas con IA al 95 % de los clubs?
+            </h3>
           </div>
-          <div class="pt-3.5 border-t border-slate-100 mt-4">
-            <div class="card-action group relative w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-full bg-[#f2920b] group-hover:bg-[#76d3f6] text-slate-950 font-heading font-black text-xs uppercase tracking-wider transition-all duration-300 shadow-xs group-hover:shadow-md group-hover:scale-[1.01] overflow-hidden active:scale-[.98]">
-              <span class="font-black">Leer artículo</span>
-              <div class="w-4 h-4 rounded-full bg-slate-950/10 group-hover:bg-slate-950 group-hover:text-white flex items-center justify-center transition-all duration-300">
-                <i data-lucide="arrow-right" class="w-3.5 h-3.5 stroke-[3] group-hover:translate-x-0.5 transition-transform duration-300"></i>
+          <div class="article-card-footer">
+            <div class="card-action">
+              <span>Leer artículo</span>
+              <div class="action-icon">
+                <i data-lucide="arrow-right"></i>
               </div>
             </div>
           </div>
