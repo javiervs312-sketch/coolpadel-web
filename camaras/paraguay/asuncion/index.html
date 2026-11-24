@@ -226,10 +226,16 @@
       flex-shrink: 0 !important;
     }
     .hero-stats-section {
-      margin-top: -44px !important;
+      margin-top: 2rem !important;
       position: relative !important;
       z-index: 20 !important;
-      margin-bottom: 32px !important;
+      margin-bottom: 2rem !important;
+    }
+    @media (min-width: 640px) {
+      .hero-stats-section {
+        margin-top: 2.5rem !important;
+        margin-bottom: 2.5rem !important;
+      }
     }
     .hero-stat-card {
       border: 2px solid #f2920b !important;
@@ -237,10 +243,15 @@
       display: flex !important;
       flex-direction: column !important;
       justify-content: center !important;
-      background-color: #ffffff !important;
+      background-color: #3478a6 !important;
+      background-image: linear-gradient(rgba(52, 120, 166, 0.40), rgba(52, 120, 166, 0.40)), url('/assets/images/branding/textura_editorial_coolpadel.webp') !important;
+      background-blend-mode: normal, soft-light !important;
+      background-size: cover !important;
+      background-position: center !important;
       border-radius: 1rem !important;
-      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1) !important;
+      box-shadow: 0 10px 20px -3px rgba(52, 120, 166, 0.25), 0 4px 6px -4px rgba(0, 0, 0, 0.1) !important;
       padding: 1rem 1.25rem !important;
+      overflow: hidden !important;
     }
     .hero-breadcrumb {
       margin-bottom: 2rem !important;
@@ -350,7 +361,7 @@
   <main class="flex-1 pt-16 sm:pt-20">
 
     <!-- 1. HERO SECTION -->
-    <section class="camera-local-hero relative text-white pt-6 pb-20 sm:pt-8 sm:pb-24 lg:pt-10 lg:pb-[124px] overflow-visible">
+    <section class="camera-local-hero relative text-white pt-6 pb-10 sm:pt-8 sm:pb-12 lg:pt-8 lg:pb-14">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <!-- Breadcrumbs Navigation -->
@@ -435,30 +446,30 @@
       </div>
     </section>
 
-    <!-- Resumen Clave (4 Tarjetas sobrepuestas en la frontera: exactamente el 50% sobre la textura azul) -->
-    <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 hero-stats-section -mt-10 sm:-mt-11 lg:-mt-[44px] relative z-20 mb-8 sm:mb-12">
+    <!-- Resumen Clave (4 Tarjetas con textura azul sobre fondo blanco) -->
+    <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 hero-stats-section relative z-20">
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-        <div class="hero-stat-card bg-white rounded-2xl p-3.5 sm:p-4 border-2 border-[#f2920b] shadow-xl flex flex-col justify-center h-[88px]">
-          <span class="text-[10px] sm:text-[11px] font-bold text-slate-500 uppercase tracking-wider block leading-tight">Cuota software</span>
-          <span class="text-xs sm:text-sm font-black font-heading text-slate-950 mt-1 block leading-tight">Gs. 375.000/mes</span>
+        <div class="hero-stat-card rounded-2xl p-3.5 sm:p-4 border-2 border-[#f2920b] shadow-xl flex flex-col justify-center h-[88px] overflow-hidden">
+          <span class="text-[10px] sm:text-[11px] font-bold text-slate-100/90 uppercase tracking-wider block leading-tight">Cuota software</span>
+          <span class="text-xs sm:text-sm font-black font-heading text-white mt-1 block leading-tight">Gs. 375.000/mes</span>
         </div>
-        <div class="hero-stat-card bg-white rounded-2xl p-3.5 sm:p-4 border-2 border-[#f2920b] shadow-xl flex flex-col justify-center h-[88px]">
-          <span class="text-[10px] sm:text-[11px] font-bold text-slate-500 uppercase tracking-wider block leading-tight">Inversión Inicial Hardware</span>
-          <span class="text-xs sm:text-sm font-black font-heading text-slate-950 mt-1 block leading-tight">Gs. 1.500.000</span>
+        <div class="hero-stat-card rounded-2xl p-3.5 sm:p-4 border-2 border-[#f2920b] shadow-xl flex flex-col justify-center h-[88px] overflow-hidden">
+          <span class="text-[10px] sm:text-[11px] font-bold text-slate-100/90 uppercase tracking-wider block leading-tight">Inversión Inicial Hardware</span>
+          <span class="text-xs sm:text-sm font-black font-heading text-white mt-1 block leading-tight">Gs. 1.500.000</span>
         </div>
-        <div class="hero-stat-card bg-white rounded-2xl p-3.5 sm:p-4 border-2 border-[#f2920b] shadow-xl flex flex-col justify-center h-[88px]">
-          <span class="text-[10px] sm:text-[11px] font-bold text-slate-500 uppercase tracking-wider block leading-tight">Permanencia</span>
-          <span class="text-xs sm:text-sm font-black font-heading text-slate-950 mt-1 block leading-tight">0 permanencia</span>
+        <div class="hero-stat-card rounded-2xl p-3.5 sm:p-4 border-2 border-[#f2920b] shadow-xl flex flex-col justify-center h-[88px] overflow-hidden">
+          <span class="text-[10px] sm:text-[11px] font-bold text-slate-100/90 uppercase tracking-wider block leading-tight">Permanencia</span>
+          <span class="text-xs sm:text-sm font-black font-heading text-white mt-1 block leading-tight">0 permanencia</span>
         </div>
-        <div class="hero-stat-card bg-white rounded-2xl p-3.5 sm:p-4 border-2 border-[#f2920b] shadow-xl flex flex-col justify-center h-[88px]">
-          <span class="text-[10px] sm:text-[11px] font-bold text-slate-500 uppercase tracking-wider block leading-tight">Instalación</span>
-          <span class="text-xs sm:text-sm font-black font-heading text-slate-950 mt-1 block leading-tight">Montaje en 5 minutos</span>
+        <div class="hero-stat-card rounded-2xl p-3.5 sm:p-4 border-2 border-[#f2920b] shadow-xl flex flex-col justify-center h-[88px] overflow-hidden">
+          <span class="text-[10px] sm:text-[11px] font-bold text-slate-100/90 uppercase tracking-wider block leading-tight">Instalación</span>
+          <span class="text-xs sm:text-sm font-black font-heading text-white mt-1 block leading-tight">Montaje en 5 minutos</span>
         </div>
       </div>
     </section>
 
     <!-- 2. POR QUÉ ELEGIR SAVE MY PLAY (EXACTAMENTE 3 RAZONES) -->
-    <section class="py-14 sm:py-20 bg-white border-b border-slate-200">
+    <section class="pt-8 pb-14 sm:pt-10 sm:pb-20 bg-white border-b border-slate-200">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center max-w-2xl mx-auto mb-10 sm:mb-14 space-y-2">
           <h2 class="font-heading font-black text-2xl sm:text-4xl text-slate-950 uppercase tracking-tight">
