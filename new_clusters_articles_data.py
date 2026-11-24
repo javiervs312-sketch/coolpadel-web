@@ -254,5 +254,124 @@ NEW_ARTICLES_CONTENT = {
 <p>Los clubes utilizan esta función para vender paquetes de patrocinio premium: el sponsor local paga por aparecer en la esquina superior del streaming durante todo el fin de semana del torneo.</p>
 </div>"""
         ]
+    },
+
+    # 9. Marcadores Digitales y Scoreboard en Vivo
+    "scoreboard-padel-marcador-directo": {
+        "slug": "scoreboard-padel-marcador-directo",
+        "title": "Marcadores Digitales y Scoreboard en Vivo para Pistas de Pádel",
+        "meta_title": "Scoreboard Pádel y Marcadores Digitales en Vivo para Clubs",
+        "meta_desc": "Sistema de marcador digital y scoreboard en directo para pádel: overlay sincronizado en streaming, visualización en tablet y pantallas de club.",
+        "h1": "Scoreboard Pádel y Marcadores Digitales en Directo",
+        "hero_img": "/assets/images/camaras/retransmision-directo-marcador-youtube.png",
+        "intro_p": "Mostrar los puntos en directo en pantalla o en streaming ya no requiere montar cables ni comprar consolas de tanteo de miles de euros.",
+        "blocks": [
+            """<div class="article-block">
+<p>Muchos directores de club nos preguntan cómo resolver el tema del tanteo durante torneos y partidos clave sin tener que instalar aparatosos marcadores de tenis de 4.000 €.</p>
+<p>Con la tecnología de Save My Play, el <strong>scoreboard digital</strong> se integra de forma nativa en la retransmisión y en las pantallas del club sin cables ni infraestructura adicional.</p>
+</div>""",
+            """<div class="article-block">
+<h2 class="article-subheading"><span class="subheading-title">Overlay de TV profesional en tiempo real</span></h2>
+<p>Durante cualquier partido, los puntos pueden actualizarse al instante desde una tablet en pie de pista, desde un smartwatch o directamente vinculados al sistema del torneo.</p>
+<p>El espectador que sigue el partido en directo desde su casa ve una <strong>gráfica de tanteo estilo World Padel Tour / Premier Padel</strong>: sets, juegos, tanteo actual, punto de oro y tiempo de juego sincronizados al milisegundo.</p>
+</div>""",
+            """<div class="article-block">
+<h2 class="article-subheading"><span class="subheading-title">Visualización en la cafetería y recepción</span></h2>
+<p>Además de la retransmisión online, la señal del scoreboard con el vídeo en directo puede enviarse a cualquier Smart TV de la terraza, cafetería o pro shop del club con solo abrir un enlace en el navegador.</p>
+<p>Los socios que están tomando algo pueden seguir el resultado de la pista central en tiempo real con un acabado broadcast impecable.</p>
+</div>"""
+        ]
+    },
+
+    # 10. Patrocinios Virtuales y Publicidad en Pista (Sponsors)
+    "patrocinios-virtuales-pista-padel": {
+        "slug": "patrocinios-virtuales-pista-padel",
+        "title": "Patrocinios Virtuales en Pista de Pádel: Añade Logos de Sponsors en tu Streaming",
+        "meta_title": "Patrocinios y Logos Virtuales en Pistas de Pádel | Save My Play",
+        "meta_desc": "Monetiza las pistas de tu club añadiendo logos virtuales de patrocinadores en la moqueta, cristales y overlays de retransmisión sin vinilos físicos.",
+        "h1": "Patrocinios Virtuales y Logos en Pista de Pádel",
+        "hero_img": "/assets/images/camaras/partido-directo-patrocinador-harbor.png",
+        "intro_p": "Añade logotipos de patrocinadores proyectados por IA en la moqueta de la pista o en el streaming sin gastar en vinilos físicos ni obras.",
+        "blocks": [
+            """<div class="article-block">
+<p>Hasta ahora, para que una empresa patrocinara una pista de pádel en tu club tenías que encargar vinilos para los cristales, pintar la moqueta o pegar lonas en la malla metálica.</p>
+<p>Eso implica costes de imprenta, sustitución cuando expira el contrato y desgaste continuo por el paso de los jugadores y las bolas.</p>
+</div>""",
+            """<div class="article-block">
+<h2 class="article-subheading"><span class="subheading-title">Patrocinios virtuales en moqueta y cristales con IA</span></h2>
+<p>Save My Play introduce la tecnología de <strong>Court Sponsorships por software</strong>: la cámara inserta de manera virtual el logo del patrocinador directamente sobre la pista en el vídeo y en el directo.</p>
+<p>Para quien ve el partido o descarga sus highlights, el logo parece pintado de forma hiperrealista sobre la moqueta o rotulado en el cristal de fondo, con la perspectiva geométrica ajustada a la perfección.</p>
+</div>""",
+            """<div class="article-block">
+<h2 class="article-subheading"><span class="subheading-title">Monetización mensual y rotación de sponsors sin coste</span></h2>
+<p>Al ser 100% digital, el club puede cambiar de patrocinador en 3 clics desde el panel de control:</p>
+<ul class="list-disc pl-5 space-y-2 text-slate-700 my-4 text-sm sm:text-base">
+  <li>Vender la pista 1 al concesionario local durante 3 meses por 400 €/mes.</li>
+  <li>Rotar el sponsor durante un torneo de fin de semana para la cerveza o marca de ropa que financia los premios.</li>
+  <li>Superponer además un faldón publicitario con el código de descuento del patrocinador en la retransmisión en directo.</li>
+</ul>
+<p>El coste para el club es cero y todo lo ingresado por los sponsors va directamente a la cuenta del club, amortizando de sobra la cuota de la cámara desde el primer mes.</p>
+</div>"""
+        ]
+    },
+
+    # 11. Live Streaming y Organización de Torneos Multipista
+    "live-streaming-torneos-padel-multipista": {
+        "slug": "live-streaming-torneos-padel-multipista",
+        "title": "Live Streaming de Torneos de Pádel Multipista Automatizado",
+        "meta_title": "Live Streaming de Torneos de Pádel Multipista y Eventos",
+        "meta_desc": "Retransmisión multipista automatizada para torneos y ligas de pádel: enlace único de evento, inicio automático por horario y sin cámaras móviles.",
+        "h1": "Live Streaming para Torneos y Eventos de Pádel Multipista",
+        "hero_img": "/assets/images/camaras/retransmision-usta-national-campus.png",
+        "intro_p": "Retransmite hasta 10 pistas a la vez en un solo enlace de evento, con arranque automático programado y rebobinado en vivo para los espectadores.",
+        "blocks": [
+            """<div class="article-block">
+<p>Organizar el streaming de un torneo con 4, 8 o 12 pistas solía ser una pesadilla técnica imposible de costear salvo para el circuito profesional.</p>
+<p>Save My Play fue diseñado precisamente para la <strong>USTA (United States Tennis Association)</strong> y <strong>USA Padel</strong> para resolver este problema a escala: retransmitir torneos de cientos de partidos simultáneos sin personal de televisión.</p>
+</div>""",
+            """<div class="article-block">
+<h2 class="article-subheading"><span class="subheading-title">Programación horaria y enlace único de torneo</span></h2>
+<p>El director del torneo solo tiene que programar los horarios de los partidos en el calendario:</p>
+<ul class="list-disc pl-5 space-y-2 text-slate-700 my-4 text-sm sm:text-base">
+  <li>Las cámaras inician y detienen el streaming automáticamente a la hora fijada para cada pista.</li>
+  <li>Se genera <strong>un único enlace web público para todo el evento</strong> donde los espectadores pueden saltar entre pistas, ver qué partido está en juego y consultar el marcador.</li>
+  <li>Los espectadores pueden pausar, rebobinar en directo y volver a ver puntos épicos mientras el partido sigue en juego.</li>
+</ul>
+</div>""",
+            """<div class="article-block">
+<h2 class="article-subheading"><span class="subheading-title">Integración con YouTube, Twitch o Portal Privado</span></h2>
+<p>La retransmisión puede emitirse en abierto en los canales oficiales de YouTube y Twitch del club para ganar miles de seguidores y suscriptores, o bien incrustarse en la propia web del club con acceso libre o mediante pase de evento.</p>
+</div>"""
+        ]
+    },
+
+    # 12. Eventos y Monetización: Pases de Torneo y Tienda
+    "eventos-monetizacion-pases-torneo-padel": {
+        "slug": "eventos-monetizacion-pases-torneo-padel",
+        "title": "Monetización de Torneos y Eventos de Pádel: Pases de Acceso y Patrocinios",
+        "meta_title": "Cómo Monetizar Eventos y Torneos de Pádel con Cámaras e IA",
+        "meta_desc": "Estrategias reales para monetizar torneos de pádel con streaming: venta de pases de acceso, sponsors en vídeo y monetización por pista.",
+        "h1": "Cómo Rentabilizar Torneos y Eventos de Pádel con Streaming e IA",
+        "hero_img": "/assets/images/camaras/portada-email-highlights.png",
+        "intro_p": "El streaming no es solo un gasto de imagen: con el modelo adecuado genera entre 600 € y 2.500 € netos por fin de semana de torneo.",
+        "blocks": [
+            """<div class="article-block">
+<p>Casi todos los clubes ven la retransmisión de sus torneos como un coste: 'si pongo cámaras en el torneo, tengo que pagarle a un técnico o perder tiempo yo'.</p>
+<p>Con Save My Play la ecuación se invierte por completo: la infraestructura fija te permite monetizar tres líneas de ingresos independientes en cada campeonato.</p>
+</div>""",
+            """<div class="article-block">
+<h2 class="article-subheading"><span class="subheading-title">Las 3 vías de ingresos en cada torneo</span></h2>
+<ul class="list-disc pl-5 space-y-2 text-slate-700 my-4 text-sm sm:text-base">
+  <li><strong>Venta de Patrocinios en Pantalla:</strong> Paquete de sponsor oficial del torneo por 300-600 € por pista con logo fijo en el streaming y proyecciones en moqueta.</li>
+  <li><strong>Pack de Recuerdo para Jugadores:</strong> Incluir en la inscripción o vender por 5-10 € el acceso a la grabación íntegra del partido y los mejores highlights generados con IA para que los jugadores los compartan en Instagram y TikTok.</li>
+  <li><strong>Pases de Acceso o Retransmisión Abierta:</strong> Opción de monetizar vía publicidad en YouTube o pases de pago para eventos corporativos cerrados y ligas interempresas.</li>
+</ul>
+</div>""",
+            """<div class="article-block">
+<h2 class="article-subheading"><span class="subheading-title">Retorno de inversión garantizado</span></h2>
+<p>Con un coste mensual de Save My Play de solo 27 a 45 € por pista y sin permanencia, un solo torneo con 2 patrocinadores locales cubre el coste anual de la suscripción de cámaras de varias pistas.</p>
+</div>"""
+        ]
     }
+
 }
