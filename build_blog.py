@@ -259,6 +259,10 @@ def get_silo_footer_html(root_prefix="../../"):
             <li><a href="/camaras/patrocinios-virtuales-pista-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Patrocinios y Sponsors en Pista</a></li>
             <li><a href="/camaras/live-streaming-torneos-padel-multipista/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Live Streaming Multipista</a></li>
             <li><a href="/camaras/eventos-monetizacion-pases-torneo-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Monetización y Pases de Eventos</a></li>
+            <li><a href="/camaras/var-ojo-halcon-instant-replay-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">VAR y Ojo de Halcón Pistas</a></li>
+            <li><a href="/camaras/video-analisis-coaching-clases-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Vídeo Análisis y Coaching Tools</a></li>
+            <li><a href="/camaras/reels-highlights-verticales-redes-club-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Reels con IA para Redes Sociales</a></li>
+            <li><a href="/camaras/torneos-americanas-pozo-pantallas-directo/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Americanas y Pozos con Pantallas</a></li>
           </ul>
         </div>
 

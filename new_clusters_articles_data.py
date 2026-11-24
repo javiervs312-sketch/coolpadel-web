@@ -372,6 +372,127 @@ NEW_ARTICLES_CONTENT = {
 <p>Con un coste mensual de Save My Play de solo 27 a 45 € por pista y sin permanencia, un solo torneo con 2 patrocinadores locales cubre el coste anual de la suscripción de cámaras de varias pistas.</p>
 </div>"""
         ]
+    },
+
+    # 13. VAR y Ojo de Halcón / Instant Replay a Pie de Pista
+    "var-ojo-halcon-instant-replay-padel": {
+        "slug": "var-ojo-halcon-instant-replay-padel",
+        "title": "VAR y Ojo de Halcón para Pádel: Instant Replay a Pie de Pista en Tablet",
+        "meta_title": "VAR y Ojo de Halcón para Padel | Instant Replay a Pie de Pista",
+        "meta_desc": "Sistema de VAR y videoarbitraje para pádel: repetición instantánea en tablet a pie de pista, cámara lenta y revisión de bolas dudosas.",
+        "h1": "VAR y Ojo de Halcón para Pádel: Instant Replay a Pie de Pista",
+        "hero_img": "/assets/images/camaras/portada-coaching-tools-tablet.png",
+        "intro_p": "Resuelve bolas dudosas, toques de red y fueras de cristal en segundos con repetición instantánea en cámara lenta a pie de pista.",
+        "blocks": [
+            """<div class="article-block">
+<p>En cualquier partido competitivo o final de torneo, una bola que roza la línea o toca la malla antes del cristal puede generar diez minutos de discusión y estropear el ambiente del campeonato.</p>
+<p>Con las cámaras Save My Play instaladas en pista, el club dispone de un <strong>sistema de VAR e Instant Replay instantáneo</strong> accesible desde cualquier tablet o pantalla en el banquillo.</p>
+</div>""",
+            """<div class="article-block">
+<h2 class="article-subheading"><span class="subheading-title">Revisión en cámara lenta y zoom táctil</span></h2>
+<p>Cuando ocurre un punto polémico, el jugador o el juez árbitro solo tiene que tocar la pantalla de la tablet situada a pie de pista (o pulsar el botón en red / smartwatch):</p>
+<ul class="list-disc pl-5 space-y-2 text-slate-700 my-4 text-sm sm:text-base">
+  <li>El sistema muestra automáticamente los últimos 30 segundos de jugada sin esperas.</li>
+  <li>Permite reproducir en <strong>slow-motion (cámara lenta)</strong>, avanzar fotograma a fotograma y hacer zoom táctil con los dedos sobre la línea o el cristal.</li>
+  <li>La resolución Full HD de gran angular ofrece una vista panorámica limpia de toda la pista sin ángulos muertos.</li>
+</ul>
+</div>""",
+            """<div class="article-block">
+<h2 class="article-subheading"><span class="subheading-title">Prestigio arbitral para torneos federados</span></h2>
+<p>Ofrecer VAR en las pistas centrales de tu club diferencia por completo tus torneos frente a otros clubes de la zona. Los jugadores federados valoran competir con la misma tecnología que ven en los circuitos profesionales.</p>
+</div>"""
+        ]
+    },
+
+    # 14. Vídeo Análisis y Herramientas para Entrenadores (Coaching Tools)
+    "video-analisis-coaching-clases-padel": {
+        "slug": "video-analisis-coaching-clases-padel",
+        "title": "Vídeo Análisis para Clases de Pádel: Coaching Tools y Telestration",
+        "meta_title": "Vídeo Análisis y Coaching Tools para Entrenadores de Pádel",
+        "meta_desc": "Herramientas de vídeo análisis para escuelas de pádel: dibujo en pantalla (telestration), correcciones de voz con picture-in-picture y envío al móvil del alumno.",
+        "h1": "Vídeo Análisis y Coaching Tools para Escuelas de Pádel",
+        "hero_img": "/assets/images/camaras/portada-coaching-tools-tablet.png",
+        "intro_p": "Permite a los monitores de tu escuela dibujar trayectorias en vídeo, grabar lecciones con voz y enviarlas directamente al móvil del alumno en 2 minutos.",
+        "blocks": [
+            """<div class="article-block">
+<p>Los métodos tradicionales de enseñanza basados únicamente en corregir de palabra tienen un límite: el alumno no ve sus propios fallos de colocación, flexión o punto de impacto.</p>
+<p>Hasta ahora, grabar a los alumnos implicaba que el monitor tuviera el móvil en la mano en vez de tirar bolas o pasarse horas editando vídeos por la tarde en el ordenador.</p>
+</div>""",
+            """<div class="article-block">
+<h2 class="article-subheading"><span class="subheading-title">Telestration: dibujo de líneas y ángulos en pantalla</span></h2>
+<p>Save My Play incorpora un paquete completo de <strong>herramientas de telestration táctiles</strong> para tablet a pie de pista:</p>
+<ul class="list-disc pl-5 space-y-2 text-slate-700 my-4 text-sm sm:text-base">
+  <li>Trazar líneas de trayectoria de la bola y zonas de bote recomendadas.</li>
+  <li>Medir ángulos de flexión de rodilla, armado de pala y punto de impacto en la bandeja o víbora.</li>
+  <li>Insertar formas, flechas tácticas y comparativas de pantalla partida entre dos golpes consecutivos.</li>
+</ul>
+</div>""",
+            """<div class="article-block">
+<h2 class="article-subheading"><span class="subheading-title">Lecciones con voz (Voiceover) enviadas por WhatsApp</span></h2>
+<p>El entrenador puede grabar un clip de voz de 1 a 3 minutos explicando el error mientras señala en la pantalla, con su propia imagen en miniatura (picture-in-picture).</p>
+<p>Al terminar la clase, el sistema genera un enlace directo que el alumno recibe en su WhatsApp para revisarlo en casa, multiplicando el valor percibido y la retención en la escuela del club.</p>
+</div>"""
+        ]
+    },
+
+    # 15. Reels y Highlights Verticales Automáticos para Redes Sociales
+    "reels-highlights-verticales-redes-club-padel": {
+        "slug": "reels-highlights-verticales-redes-club-padel",
+        "title": "Reels y Highlights Verticales Automáticos para Redes del Club de Pádel",
+        "meta_title": "Reels y Highlights Verticales Automáticos para Clubes de Pádel",
+        "meta_desc": "Genera contenido diario para Instagram Reels y TikTok con IA: puntos espectaculares en formato vertical 9:16 con el logo de tu club sin editar vídeo.",
+        "h1": "Reels y Highlights Verticales Automáticos con IA para Clubes",
+        "hero_img": "/assets/images/camaras/portada-bandido-highlight.jpg",
+        "intro_p": "Consigue contenido diario para Instagram y TikTok sin contratar editores de vídeo: la IA corta los mejores puntos y los formatea en vertical 9:16.",
+        "blocks": [
+            """<div class="article-block">
+<p>Tener unas redes sociales activas con jugadas espectaculares es la forma número uno de llenar pistas en horas valle y atraer nuevos socios al club.</p>
+<p>Sin embargo, casi ningún director de club tiene tiempo de revisar horas de partido en un ordenador para encontrar la salida por cuatro o la dormilona de la tarde.</p>
+</div>""",
+            """<div class="article-block">
+<h2 class="article-subheading"><span class="subheading-title">Detección de jugadas épicas y formato 9:16 automático</span></h2>
+<p>La inteligencia artificial de Save My Play analiza continuamente el juego para extraer automáticamente los momentos más virales:</p>
+<ul class="list-disc pl-5 space-y-2 text-slate-700 my-4 text-sm sm:text-base">
+  <li>Elimina los tiempos muertos entre punto y punto (recogida de bolas, saques fallidos).</li>
+  <li>Detecta peloteos largos, remates por tres, salvadas imposibles y celebraciones en la red.</li>
+  <li>Encuadra y convierte la toma panorámica a <strong>formato vertical 9:16 (Reels, TikTok, Shorts)</strong> siguiendo el centro de la acción con encuadre inteligente.</li>
+</ul>
+</div>""",
+            """<div class="article-block">
+<h2 class="article-subheading"><span class="subheading-title">Branding automático con el escudo de tu club</span></h2>
+<p>Cada highlight generado incluye el logotipo y los colores de tu club en la cabecera. Cuando los jugadores comparten sus mejores puntos en Instagram etiquetando a sus amigos, el club consigue miles de impresiones orgánicas a coste cero.</p>
+</div>"""
+        ]
+    },
+
+    # 16. Torneos Americanas y Pozo con Pantallas en Directo
+    "torneos-americanas-pozo-pantallas-directo": {
+        "slug": "torneos-americanas-pozo-pantallas-directo",
+        "title": "Torneos Americanas y Pozo de Pádel con Pantallas y Marcadores en Directo",
+        "meta_title": "Torneos Americanas y Pozo de Pádel con Pantallas en Directo",
+        "meta_desc": "Organiza americanas y pozos de pádel con tanteo en pantallas de televisión: rotación automática de pistas, clasificación en vivo y streaming de la pista central.",
+        "h1": "Organización de Americanas y Pozos con Pantallas en Directo",
+        "hero_img": "/assets/images/camaras/pista-indoor-passion-padel.png",
+        "intro_p": "Elimina las pizarras de papel: proyecta clasificaciones en vivo, rotación de parejas y marcadores en las pantallas de la cafetería durante tus eventos sociales.",
+        "blocks": [
+            """<div class="article-block">
+<p>Las noches de americana y los pozos de fin de semana son el motor de facturación social de cualquier club: llenan todas las pistas a la vez y generan un consumo masivo en terraza y bar.</p>
+<p>Sin embargo, gestionarlos con hojas de papel, pizarras blancas o gritos por megafonía da una imagen anticuada y genera retrasos entre ronda y ronda.</p>
+</div>""",
+            """<div class="article-block">
+<h2 class="article-subheading"><span class="subheading-title">Clasificación en tiempo real en las Smart TV del club</span></h2>
+<p>Al conectar la gestión del evento con las pantallas del club y el sistema de pista:</p>
+<ul class="list-disc pl-5 space-y-2 text-slate-700 my-4 text-sm sm:text-base">
+  <li>Los jugadores consultan su posición y la asignación de pista en las pantallas de la cafetería con gráficos limpios y actualizados al instante.</li>
+  <li>El tanteo de los partidos decisivos de la pista 1 se proyecta con <strong>scoreboard digital en vivo</strong> para los que esperan su turno tomando algo.</li>
+  <li>Se reducen a cero los tiempos muertos entre rondas: los jugadores saben exactamente a qué pista dirigirse en cuanto suena el bocinazo.</li>
+</ul>
+</div>""",
+            """<div class="article-block">
+<h2 class="article-subheading"><span class="subheading-title">Highlights del evento listos al terminar la entrega de premios</span></h2>
+<p>Al finalizar la americana, la cámara ya ha procesado los mejores puntos de la jornada. El club puede proyectar un reel resumen en la televisión de la entrega de premios o enviárselo al grupo de WhatsApp de los participantes antes de que salgan del club.</p>
+</div>"""
+        ]
     }
 
 }
