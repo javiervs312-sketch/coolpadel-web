@@ -408,6 +408,31 @@ TARIFS_BTN_TEXT = {
     "ca": "Veure Tarifes"
 }
 
+PRICING_SUBTITLE_I18N = {
+    "es": "Precio final, sin permanencia.",
+    "en": "Final price, no lock-in contract.",
+    "fr": "Prix final, sans engagement.",
+    "it": "Prezzo finale, nessun vincolo.",
+    "de": "Endpreis, ohne Mindestvertragslaufzeit.",
+    "pt": "Preço final, sem fidelização.",
+    "pt-br": "Preço final, sem fidelização.",
+    "nl": "Uiteindelijke prijs, geen contractuele verplichtingen.",
+    "sv": "Slutpris, ingen bindningstid.",
+    "da": "Endelig pris, ingen bindingsperiode.",
+    "fi": "Lopullinen hinta, ei sitoutumispakkoa.",
+    "no": "Sluttpris, ingen bindingstid.",
+    "pl": "Cena ostateczna, bez umowy terminowej.",
+    "cs": "Konečná cena, bez závazků.",
+    "ro": "Preț final, fără perioadă minimă contractuală.",
+    "hr": "Konačna cijena, bez ugovorne obveze.",
+    "ca": "Preu final, sense permanència.",
+    "el": "Τελική τιμή, χωρίς δέσμευση συμβολαίου.",
+    "tr": "Nihai fiyat, taahhüt yok.",
+    "ar": "السعر النهائي، بدون أي التزام أو عقد.",
+    "ja": "最終価格、契約期間の縛りなし。",
+    "id": "Harga final, tanpa ikatan kontrak."
+}
+
 SUBTITLE_I18N = {
     "es": {
         "l1": "La Cámara Nº1 de Tenis y Pádel en Estados Unidos.",

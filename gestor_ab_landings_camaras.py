@@ -23,10 +23,11 @@ sys.path.append(BASE_DIR)
 from paises_data_50 import COUNTRIES_50
 from ciudades_data_250 import CITIES_50
 from country_i18n_extras import ISO_MAP
+from country_i18n_dict_full import ALL_LANGS_I18N
 from camaras_i18n_ab import (
     SHIPPING_MAP, STAT_CARDS_I18N, AWARD_BADGE_I18N, ARTICLES_I18N,
     DEMO_BTN_TEXT, TARIFS_BTN_TEXT, SUBTITLE_I18N, H1_TEMPLATES_I18N,
-    ASUNCION_CSS_BLOCK
+    PRICING_SUBTITLE_I18N, ASUNCION_CSS_BLOCK
 )
 
 def get_country_lookup():
@@ -270,16 +271,79 @@ def build_variant_b_sections(p):
     sub_data = SUBTITLE_I18N.get(lang, SUBTITLE_I18N["en"])
     h1_template = H1_TEMPLATES_I18N.get(lang, H1_TEMPLATES_I18N["en"])
     h1_formatted = h1_template.format(target=target_name)
+    pricing_sub_str = PRICING_SUBTITLE_I18N.get(lang, PRICING_SUBTITLE_I18N["en"])
+
+    # 4. Sección 2: ¿Por qué elegir Save My Play? (3 tarjetas blancas con ✓ naranja, adaptado a idioma y moneda)
+    lang_data = ALL_LANGS_I18N.get(lang)
+    if not lang_data and lang == "pt-br":
+        lang_data = ALL_LANGS_I18N.get("pt")
+    if not lang_data:
+        lang_data = ALL_LANGS_I18N.get("en", ALL_LANGS_I18N["es"])
+
+    why_title = lang_data.get("why_title", "¿Por qué elegir Save My Play para tu club?")
+    why_sub = lang_data.get("why_sub", "La tecnología de grabación y analítica en pista más ágil, sin obras ni costes ocultos")
+    f1_title = lang_data.get("f1_title", "No son cámaras de vigilancia: máxima calidad de imagen")
+    f1_desc = lang_data.get("f1_desc", "Diseñadas exclusivamente para pádel y tenis. Grabación nítida deportiva, gran angular sin deformar la pista y retransmisión directa sin cortes.")
+    f2_title = lang_data.get("f2_title", "Planes mensuales por pista")
+    f2_desc = lang_data.get("f2_desc", "Grabación de partidos, highlights y directos por {rec}. Estadísticas con IA por {ai} que incluyen análisis completo de tu juego.")
+    f2_desc = f2_desc.replace("{rec}", rec).replace("{ai}", ai)
+    f3_title = lang_data.get("f3_title", "Fácil de usar y sin obras")
+    f3_desc = lang_data.get("f3_desc", "Inversión hardware de {hw} en propiedad. Se instala en 5 minutos en el poste de la red o iluminación, y sin permanencias.")
+    f3_desc = f3_desc.replace("{hw}", hw)
+
+    sec2_html = f"""    <!-- 2. POR QUÉ ELEGIR SAVE MY PLAY (EXACTAMENTE 3 RAZONES) -->
+    <section class="pt-8 pb-14 sm:pt-10 sm:pb-20 bg-white border-b border-slate-200">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-2xl mx-auto mb-10 sm:mb-14 space-y-2">
+          <h2 class="font-heading font-black text-2xl sm:text-4xl text-slate-950 uppercase tracking-tight">
+            {why_title}
+          </h2>
+          <p class="text-sm sm:text-base text-slate-600 font-medium">
+            {why_sub}
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6 sm:gap-8">
+          
+          <div class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/90 shadow-sm hover:shadow-md transition">
+            <div class="text-[#f2920b] flex items-center justify-start mb-4 font-black text-2xl">
+              ✓
+            </div>
+            <h3 class="font-heading font-black text-xl sm:text-2xl text-slate-950 mb-2">{f1_title}</h3>
+            <p class="text-slate-600 text-sm sm:text-base leading-relaxed">{f1_desc}</p>
+          </div>
+
+          <div class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/90 shadow-sm hover:shadow-md transition">
+            <div class="text-[#f2920b] flex items-center justify-start mb-4 font-black text-2xl">
+              ✓
+            </div>
+            <h3 class="font-heading font-black text-xl sm:text-2xl text-slate-950 mb-2">{f2_title}</h3>
+            <p class="text-slate-600 text-sm sm:text-base leading-relaxed">{f2_desc}</p>
+          </div>
+
+          <div class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/90 shadow-sm hover:shadow-md transition">
+            <div class="text-[#f2920b] flex items-center justify-start mb-4 font-black text-2xl">
+              ✓
+            </div>
+            <h3 class="font-heading font-black text-xl sm:text-2xl text-slate-950 mb-2">{f3_title}</h3>
+            <p class="text-slate-600 text-sm sm:text-base leading-relaxed">{f3_desc}</p>
+          </div>
+
+        </div>
+      </div>
+    </section>"""
 
     return {
         "stats_html": stats_html,
         "articles_html": articles_html,
         "hero_right_col": hero_right_col,
+        "sec2_html": sec2_html,
         "shipping_str": shipping_str,
         "demo_btn_str": demo_btn_str,
         "tarifs_btn_str": tarifs_btn_str,
         "sub_data": sub_data,
-        "h1_formatted": h1_formatted
+        "h1_formatted": h1_formatted,
+        "pricing_sub_str": pricing_sub_str
     }
 
 def apply_variant_b_to_html(html, p):
@@ -288,6 +352,13 @@ def apply_variant_b_to_html(html, p):
     body_idx = html.find("<body")
     if body_idx == -1:
         body_idx = 0
+
+    # 0. Header Container max-w-6xl (idéntico a Asunción)
+    html = re.sub(
+        r'(<header[^>]*>\s*<div class=")[^"]*max-w-7xl([^"]*")',
+        r'\g<1>max-w-6xl\g<2>',
+        html
+    )
 
     # 1. Inyectar / actualizar CSS en <style>
     if "/* --- REGLAS ASUNCIÓN (VARIANTE B) --- */" not in html:
@@ -395,7 +466,24 @@ def apply_variant_b_to_html(html, p):
             insert_content = f"\n\n{b_data['stats_html']}\n\n{b_data['articles_html']}\n\n    "
             html = html[:sec2_match.start(1)] + "</section>" + insert_content + html[sec2_match.start(2):]
 
-    # 10. Envío internacional en divisa local
+    # 10. Reemplazar Sección 2 antigua por la de Asunción (3 tarjetas blancas con ✓ naranja)
+    sec2_regex = r'[ \t]*<!--\s*2\.[^>]*?-->\s*<section[^>]*>[\s\S]*?</section>\s*(?=<!--\s*3\.\s*TABLA DE PRECIOS)'
+    html = re.sub(sec2_regex, f'{b_data["sec2_html"]}\n\n    ', html)
+
+    # 11. Sección 3 (Precios): scroll-mt-20, subtítulo limpio, divisa de envío y botón Demo
+    html = re.sub(
+        r'<section id="precios" class="py-14 sm:py-20 bg-slate-50 border-b border-slate-200(?:\s+scroll-mt-20)?"',
+        '<section id="precios" class="py-14 sm:py-20 bg-slate-50 border-b border-slate-200 scroll-mt-20"',
+        html
+    )
+    html = re.sub(
+        r'(<section id="precios"[\s\S]*?<h2[^>]*>[\s\S]*?</h2>\s*)<p class="text-sm[^"]*">[\s\S]*?</p>',
+        rf'\g<1><p class="text-sm sm:text-base text-slate-600 font-medium">\n            {b_data["pricing_sub_str"]}\n          </p>',
+        html,
+        count=1
+    )
+
+    # Envío internacional en divisa local
     html = re.sub(
         r'\(\+[^)]*?(?:envío|shipping|livr|sped|versand|livrare|dostawa|frakt|fragt|toimitus|verzending|envio|kargo|pos|送料)[^)]*?\)',
         f"({b_data['shipping_str']})",
@@ -403,10 +491,20 @@ def apply_variant_b_to_html(html, p):
         flags=re.IGNORECASE
     )
 
-    # 11. Botón demo en pricing
+    # Botón demo en pricing bajo la tabla
+    btn_m = re.search(r'(<section id="precios"[\s\S]*?<div class="mt-8 text-center">\s*)<a [^>]*href="([^"]+)"[^>]*>[\s\S]*?</a>(\s*</div>)', html)
+    if btn_m:
+        wa_price_url = btn_m.group(2)
+        btn_replacement = f'''{btn_m.group(1)}<a data-product="camaras" data-lead-intent="demo" data-button-position="pricing" href="{wa_price_url}" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] text-slate-950 font-heading font-black text-sm uppercase tracking-wider transition shadow-md hover:scale-105 active:scale-95">
+            <i data-lucide="message-circle" class="w-4 h-4 text-slate-950"></i>
+            <span>{b_data["demo_btn_str"]}</span>
+          </a>{btn_m.group(3)}'''
+        html = html[:btn_m.start()] + btn_replacement + html[btn_m.end():]
+
+    # 12. Sección 5 (FAQs): fondo blanco bg-white idéntico a Asunción
     html = re.sub(
-        r'(data-button-position="pricing"[^>]*>[\s\S]*?<span>).*?(</span>)',
-        rf'\g<1>{b_data["demo_btn_str"]}\g<2>',
+        r'(<!--\s*5\.\s*PREGUNTAS FRECUENTES[^\n]*\s*)<section class="py-14 sm:py-20 bg-slate-50 border-b border-slate-200">',
+        r'\g<1><section class="py-14 sm:py-20 bg-white border-b border-slate-200">',
         html
     )
 
