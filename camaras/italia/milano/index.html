@@ -195,6 +195,162 @@
       background-size: cover;
       background-position: center;
     }
+  
+    /* --- REGLAS ASUNCIÓN (VARIANTE B) --- */
+    .hero-stats-section {
+      margin-top: 3.5rem !important;
+      position: relative !important;
+      z-index: 20 !important;
+      margin-bottom: 3.25rem !important;
+    }
+    @media (min-width: 640px) {
+      .hero-stats-section {
+        margin-top: 4.5rem !important;
+        margin-bottom: 4rem !important;
+      }
+    }
+    @media (min-width: 1024px) {
+      .hero-stats-section {
+        margin-top: 5rem !important;
+        margin-bottom: 4.75rem !important;
+      }
+    }
+    .hero-stat-card {
+      border: none !important;
+      height: 88px !important;
+      display: flex !important;
+      flex-direction: column !important;
+      justify-content: center !important;
+      background-color: #3478a6 !important;
+      background-image: linear-gradient(rgba(52, 120, 166, 0.40), rgba(52, 120, 166, 0.40)), url('/assets/images/branding/textura_editorial_coolpadel.webp') !important;
+      background-blend-mode: normal, soft-light !important;
+      background-size: cover !important;
+      background-position: center !important;
+      border-radius: 1rem !important;
+      box-shadow: 0 10px 20px -3px rgba(52, 120, 166, 0.25), 0 4px 6px -4px rgba(0, 0, 0, 0.1) !important;
+      padding: 1rem 1.25rem !important;
+      overflow: hidden !important;
+    }
+    .hero-featured-articles {
+      display: grid !important;
+      grid-template-columns: 1fr !important;
+      gap: 1.25rem !important;
+      width: 100% !important;
+      box-sizing: border-box !important;
+    }
+    @media (min-width: 768px) {
+      .hero-featured-articles {
+        grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+        gap: 1.5rem !important;
+      }
+    }
+    .article-card {
+      display: flex !important;
+      flex-direction: column !important;
+      justify-content: space-between !important;
+      background: #ffffff !important;
+      border: 2px solid #e2e8f0 !important;
+      border-radius: 1rem !important;
+      padding: 1.25rem !important;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05) !important;
+      text-decoration: none !important;
+      color: #0f172a !important;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+      cursor: pointer !important;
+      width: 100% !important;
+      box-sizing: border-box !important;
+    }
+    .article-card:hover {
+      border-color: #f2920b !important;
+      transform: translateY(-2px) !important;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1) !important;
+    }
+    .article-thumb-wrap {
+      width: 100% !important;
+      aspect-ratio: 16 / 9 !important;
+      border-radius: 0.75rem !important;
+      overflow: hidden !important;
+      background-color: #0f172a !important;
+      border: 1px solid #e2e8f0 !important;
+      position: relative !important;
+    }
+    .article-thumb-wrap img {
+      width: 100% !important;
+      height: 100% !important;
+      object-fit: cover !important;
+      display: block !important;
+      transition: transform 0.5s ease !important;
+    }
+    .article-card:hover .article-thumb-wrap img {
+      transform: scale(1.05) !important;
+    }
+    .article-card-title {
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif !important;
+      font-weight: 800 !important;
+      font-size: 1.05rem !important;
+      line-height: 1.35 !important;
+      color: #0f172a !important;
+      margin: 0.75rem 0 0 0 !important;
+      transition: color 0.2s ease !important;
+    }
+    .article-card:hover .article-card-title {
+      color: #f2920b !important;
+    }
+    .article-card-footer {
+      padding-top: 0.875rem !important;
+      border-top: 1px solid #f1f5f9 !important;
+      margin-top: 1.25rem !important;
+    }
+    .article-card .card-action {
+      position: relative !important;
+      width: 100% !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      gap: 0.5rem !important;
+      padding: 0.625rem 1rem !important;
+      border-radius: 9999px !important;
+      background-color: #f2920b !important;
+      color: #020617 !important;
+      font-family: 'Outfit', sans-serif !important;
+      font-weight: 900 !important;
+      font-size: 0.75rem !important;
+      text-transform: uppercase !important;
+      letter-spacing: 0.05em !important;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05) !important;
+      transition: all 0.3s ease !important;
+    }
+    .article-card:hover .card-action {
+      background-color: #76d3f6 !important;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1) !important;
+      transform: scale(1.01) !important;
+    }
+    .article-card .card-action .action-icon {
+      width: 1rem !important;
+      height: 1rem !important;
+      border-radius: 9999px !important;
+      background-color: rgba(2, 6, 23, 0.1) !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      transition: all 0.3s ease !important;
+    }
+    .article-card:hover .card-action .action-icon {
+      background-color: #020617 !important;
+      color: #ffffff !important;
+    }
+    .article-card .card-action .action-icon svg,
+    .article-card .card-action .action-icon i {
+      width: 0.75rem !important;
+      height: 0.75rem !important;
+      stroke-width: 3 !important;
+      transition: transform 0.3s ease !important;
+    }
+    .article-card:hover .card-action .action-icon svg,
+    .article-card:hover .card-action .action-icon i {
+      transform: translateX(2px) !important;
+    }
+
   </style>
   <!-- Google Analytics 4 -->
   <script>
@@ -331,40 +487,109 @@
             <div class="pt-2 flex flex-wrap items-center gap-1.5"><a href="/camaras/italia/" class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-slate-100 hover:bg-[#f2920b] text-slate-800 hover:text-slate-950 border border-slate-200 font-heading font-bold text-[11px] uppercase tracking-wider transition"><span>Italia</span></a><a href="/camaras/italia/roma/" class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-white hover:bg-[#f2920b] text-slate-700 hover:text-slate-950 border border-slate-200 hover:border-[#f2920b] font-heading font-bold text-[11px] uppercase tracking-wider transition shadow-2xs"><i data-lucide="map-pin" class="w-3 h-3 text-[#f2920b]"></i><span>Roma</span></a><a href="/camaras/italia/torino/" class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-white hover:bg-[#f2920b] text-slate-700 hover:text-slate-950 border border-slate-200 hover:border-[#f2920b] font-heading font-bold text-[11px] uppercase tracking-wider transition shadow-2xs"><i data-lucide="map-pin" class="w-3 h-3 text-[#f2920b]"></i><span>Torino</span></a><a href="/camaras/italia/napoli/" class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-white hover:bg-[#f2920b] text-slate-700 hover:text-slate-950 border border-slate-200 hover:border-[#f2920b] font-heading font-bold text-[11px] uppercase tracking-wider transition shadow-2xs"><i data-lucide="map-pin" class="w-3 h-3 text-[#f2920b]"></i><span>Napoli</span></a><a href="/camaras/italia/palermo/" class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-white hover:bg-[#f2920b] text-slate-700 hover:text-slate-950 border border-slate-200 hover:border-[#f2920b] font-heading font-bold text-[11px] uppercase tracking-wider transition shadow-2xs"><i data-lucide="map-pin" class="w-3 h-3 text-[#f2920b]"></i><span>Palermo</span></a></div>
           </div>
 
-          <div class="lg:col-span-5">
-            <div class="relative mx-auto max-w-md lg:max-w-none">
-              <div class="absolute -inset-1 bg-gradient-to-r from-[#f2920b] to-[#76d3f6] rounded-3xl blur-xl opacity-30"></div>
-              <div class="relative bg-white p-3 sm:p-4 rounded-3xl border border-slate-200/90 shadow-xl overflow-hidden group">
-                <img src="../../../assets/images/savemyplay-1.jpg" alt="Save My Play Milano Italia" width="800" height="800" class="w-full h-auto rounded-2xl object-cover group-hover:scale-105 transition duration-500" loading="eager" decoding="async">
-                
-                <div class="mt-4 p-4 rounded-2xl bg-slate-50 border border-slate-200/80">
-                  <div class="grid grid-cols-2 gap-3 text-left">
-                    <div>
-                      <span class="text-[10px] font-heading font-black uppercase text-slate-400 tracking-wider block">Hardware Campo</span>
-                      <span class="text-xs sm:text-sm font-bold text-slate-900">180 € di proprietà (acquisto unico)</span>
-                    </div>
-                    <div>
-                      <span class="text-[10px] font-heading font-black uppercase text-slate-400 tracking-wider block">Quota Software</span>
-                      <span class="text-xs sm:text-sm font-bold text-slate-900">45 €/mese (Registrazione) • 136 €/mese (Statistiche IA)</span>
-                    </div>
-                    <div>
-                      <span class="text-[10px] font-heading font-black uppercase text-slate-400 tracking-wider block">Vincolo contrattuale</span>
-                      <span class="text-xs sm:text-sm font-bold text-[#f2920b]">0 mesi (Cancellazione libera)</span>
-                    </div>
-                    <div>
-                      <span class="text-[10px] font-heading font-black uppercase text-slate-400 tracking-wider block">Installazione</span>
-                      <span class="text-xs sm:text-sm font-bold text-emerald-700">5 minuti senza opere edili</span>
-                    </div>
-                  </div>
-                  <p class="mt-3 text-xs text-slate-500 border-t border-slate-200/60 pt-2.5 font-medium">
-                    Save My Play è il sistema ufficiale di registrazione partite e statistiche con intelligenza artificiale per campi da padel e tennis. Qualità ottica sportiva, installazione rapida in 5 minuti e rinnovo mensile libero.
-                  </p>
-                </div>
-              </div>
+                    <div class="lg:col-span-5">
+            <div class="relative rounded-3xl overflow-hidden border border-white/20 shadow-2xl bg-slate-900/40 group max-w-md mx-auto lg:max-w-none">
+              <picture>
+                <source srcset="/assets/images/savemyplay_photos/1.webp" type="image/webp">
+                <img src="/assets/images/savemyplay_photos/1.jpg" alt="Save My Play Milano" width="1920" height="1080" class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500 shadow-inner" loading="eager" decoding="async">
+              </picture>
+            </div>
+            <div class="hero-award-badge flex flex-row items-center justify-center gap-1.5 sm:gap-2 text-[#f2920b] font-heading font-black text-xs sm:text-sm uppercase tracking-wider text-center flex-nowrap whitespace-nowrap" style="margin-top: 28px !important;">
+              <i data-lucide="award" class="w-4 h-4 text-[#f2920b] shrink-0"></i>
+              <span class="whitespace-nowrap">Telecamera Ufficiale USA Padel e USTA</span>
             </div>
           </div>
 
         </div>
+      </div>
+    </section>
+
+    <!-- Resumen Clave (4 Tarjetas con textura azul sobre fondo blanco sin reborde naranja - Variante Asunción) -->
+    <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 hero-stats-section relative z-20">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+        <div class="hero-stat-card rounded-2xl p-3.5 sm:p-4 shadow-xl flex flex-col justify-center h-[88px] overflow-hidden">
+          <span class="text-[10px] sm:text-[11px] font-bold text-slate-100/90 uppercase tracking-wider block leading-tight">Canone software</span>
+          <span class="text-xs sm:text-sm font-black font-heading text-white mt-1 block leading-tight">45 €/mese</span>
+        </div>
+        <div class="hero-stat-card rounded-2xl p-3.5 sm:p-4 shadow-xl flex flex-col justify-center h-[88px] overflow-hidden">
+          <span class="text-[10px] sm:text-[11px] font-bold text-slate-100/90 uppercase tracking-wider block leading-tight">Investimento hardware</span>
+          <span class="text-xs sm:text-sm font-black font-heading text-white mt-1 block leading-tight">180 €</span>
+        </div>
+        <div class="hero-stat-card rounded-2xl p-3.5 sm:p-4 shadow-xl flex flex-col justify-center h-[88px] overflow-hidden">
+          <span class="text-[10px] sm:text-[11px] font-bold text-slate-100/90 uppercase tracking-wider block leading-tight">Permanenza</span>
+          <span class="text-xs sm:text-sm font-black font-heading text-white mt-1 block leading-tight">0 vincoli</span>
+        </div>
+        <div class="hero-stat-card rounded-2xl p-3.5 sm:p-4 shadow-xl flex flex-col justify-center h-[88px] overflow-hidden">
+          <span class="text-[10px] sm:text-[11px] font-bold text-slate-100/90 uppercase tracking-wider block leading-tight">Installazione</span>
+          <span class="text-xs sm:text-sm font-black font-heading text-white mt-1 block leading-tight">Montaggio in 5 minuti</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3 Artículos Destacados de Cámaras para Clubs (Variante Asunción) -->
+    <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mb-12 sm:mb-16">
+      <div class="hero-featured-articles">
+        
+        <!-- Artículo 1 -->
+        <a href="/camaras/articulos/por-donde-empezar-si-estoy-pensando-en-poner-camaras/" class="article-card group">
+          <div>
+            <div class="article-thumb-wrap">
+              <img src="/assets/images/camaras/camera-01.jpg" alt="Stai pensando di installare telecamere nel tuo club? Da dove iniziare" width="800" height="450" loading="lazy" decoding="async">
+            </div>
+            <h3 class="article-card-title">
+              Stai pensando di installare telecamere nel tuo club? Da dove iniziare
+            </h3>
+          </div>
+          <div class="article-card-footer">
+            <div class="card-action">
+              <span>Leggi l'articolo</span>
+              <div class="action-icon">
+                <i data-lucide="arrow-right"></i>
+              </div>
+            </div>
+          </div>
+        </a>
+
+        <!-- Artículo 2 -->
+        <a href="/camaras/articulos/errores-clubs-se-arrepienten-de-poner-camaras/" class="article-card group">
+          <div>
+            <div class="article-thumb-wrap">
+              <img src="/assets/images/camaras/retransmision-directo-marcador-youtube.png" alt="I 3 errori dei club che si pentono di aver installato telecamere" width="800" height="450" loading="lazy" decoding="async">
+            </div>
+            <h3 class="article-card-title">
+              I 3 errori dei club che si pentono di aver installato telecamere
+            </h3>
+          </div>
+          <div class="article-card-footer">
+            <div class="card-action">
+              <span>Leggi l'articolo</span>
+              <div class="action-icon">
+                <i data-lucide="arrow-right"></i>
+              </div>
+            </div>
+          </div>
+        </a>
+
+        <!-- Artículo 3 -->
+        <a href="/camaras/articulos/por-que-no-recomiendo-plan-analytics/" class="article-card group">
+          <div>
+            <div class="article-thumb-wrap">
+              <img src="/assets/images/camaras/portada-mapa-calor-analytics.png" alt="Perché non consiglio il piano avanzato di statistiche IA al 95% dei club" width="800" height="450" loading="lazy" decoding="async">
+            </div>
+            <h3 class="article-card-title">
+              Perché non consiglio il piano avanzato di statistiche IA al 95% dei club
+            </h3>
+          </div>
+          <div class="article-card-footer">
+            <div class="card-action">
+              <span>Leggi l'articolo</span>
+              <div class="action-icon">
+                <i data-lucide="arrow-right"></i>
+              </div>
+            </div>
+          </div>
+        </a>
+
       </div>
     </section>
 
