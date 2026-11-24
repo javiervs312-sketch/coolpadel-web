@@ -1013,6 +1013,8 @@ def build_all_cities():
         slug_es = country_item["slug"]
         
         for city in cities:
+            if slug_local == "paraguay" and city["slug"] == "asuncion":
+                continue  # Preservar landing personalizada de Asunción
             # Generar EXCLUSIVAMENTE en el slug local nativo del país: /camaras/{slug_local}/{city_slug}/
             dir_city_local = os.path.join(OUTPUT_ROOT, slug_local, city["slug"])
             os.makedirs(dir_city_local, exist_ok=True)
