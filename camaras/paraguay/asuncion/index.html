@@ -242,6 +242,19 @@
       box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1) !important;
       padding: 1rem 1.25rem !important;
     }
+    .hero-breadcrumb {
+      margin-bottom: 2rem !important;
+    }
+    @media (min-width: 640px) {
+      .hero-breadcrumb {
+        margin-bottom: 3rem !important;
+      }
+    }
+    @media (min-width: 1024px) {
+      .hero-breadcrumb {
+        margin-bottom: 3.5rem !important;
+      }
+    }
     @media (min-width: 1024px) {
       .hero-split-grid {
         display: grid !important;
@@ -341,7 +354,7 @@
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <!-- Breadcrumbs Navigation -->
-        <nav aria-label="Breadcrumb" class="flex items-center gap-2 text-xs font-bold text-white/70 mb-6 sm:mb-8 lg:mb-10 uppercase tracking-wider flex-wrap">
+        <nav aria-label="Breadcrumb" class="hero-breadcrumb flex items-center gap-2 text-xs font-bold text-white/70 mb-8 sm:mb-12 lg:mb-14 uppercase tracking-wider flex-wrap">
           <a href="/" class="hover:text-white transition">Inicio</a>
           <span>/</span>
           <a href="/camaras/" class="hover:text-white transition">CÁMARAS</a>
