@@ -379,7 +379,7 @@ def render_html(lang="es"):
             "name": "¿Qué soluciones B2B ofrece CoolPadel Studios para cadenas y franquicias de pádel?",
             "acceptedAnswer": {{
               "@type": "Answer",
-              "text": "CoolPadel Studios equipa a cadenas y clubes con llaveros personalizados en goma 3D (desde 100 uds, muestra física en ~15 días laborables por 15€ descontables y entrega del pedido en ~1 mes) y cámaras de grabación en pista Save My Play sin obras (180 €/pista hardware y desde 45 €/mes software sin permanencia)."
+              "text": "CoolPadel Studios equipa a cadenas y clubes con llaveros con logo de goma en material blando (desde 100 uds, muestra física en ~15 días laborables por 15€ descontables y entrega del pedido en ~1 mes) y cámaras de grabación en pista Save My Play sin obras (180 €/pista hardware y desde 45 €/mes software sin permanencia)."
             }}
           }}
         ]
@@ -798,20 +798,20 @@ def render_html(lang="es"):
                 <i data-lucide="sparkles" class="w-6 h-6 stroke-[2.5]"></i>
               </div>
               <h3 class="font-heading font-black text-2xl text-white uppercase mb-3">
-                Merchandising Oficial Personalizado en 3D
+                Llaveros con Logo de Goma Personalizados
               </h3>
               <p class="text-slate-300 text-sm leading-relaxed mb-6">
-                Fabricamos llaveros de goma 3D con relieve exacto de tu logotipo o pala corporativa. El producto de bienvenida perfecto para torneos, welcome packs de socios y venta en el mostrador pro-shop con un margen superior al 250%.
+                Fabricamos llaveros con logo de goma en material blando y duradero con la forma de tu pala o logotipo. El producto de bienvenida perfecto para torneos, welcome packs de socios y venta en el mostrador pro-shop con un margen superior al 250%.
               </p>
               <ul class="space-y-2.5 text-xs text-slate-300 font-medium mb-6">
-                <li class="flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-emerald-400"></i> Diseño 3D digital gratuito antes de producir</li>
+                <li class="flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-emerald-400"></i> Diseño digital gratuito antes de producir</li>
                 <li class="flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-emerald-400"></i> Pedido mínimo desde solo 100 unidades</li>
                 <li class="flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-emerald-400"></i> Muestra física real disponible para cadenas</li>
               </ul>
             </div>
 
             <a href="../#llaveros" class="inline-flex items-center justify-between px-6 py-3.5 rounded-2xl bg-[#f2920b] hover:bg-[#76d3f6] text-slate-950 font-heading font-black text-xs uppercase tracking-wider transition group">
-              <span>Descubrir Llaveros de Pádel 3D</span>
+              <span>Descubrir Llaveros de Pádel con Logo de Goma</span>
               <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
             </a>
           </div>

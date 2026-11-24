@@ -4,47 +4,11 @@
 
   <channel>
 
-    <title>CoolPadel - Catálogo Oficial de Llaveros de Pádel</title>
+    <title>CoolPadel - Catálogo Oficial</title>
 
     <link>https://coolpadelstudios.com</link>
 
-    <description>Catálogo B2B de llaveros de pádel y tenis personalizados con logo de goma en material blando</description>
-
-    <item>
-
-      <g:id>LLAVERO-PADEL-MUESTRA</g:id>
-
-      <g:title>Muestra Física Real Llavero de Pádel con Logo de Goma (100% Descontable)</g:title>
-
-      <g:description>Muestra física real de llaveros de pádel con logo de goma en material blando con el logotipo de tu club entregada en ~15 días laborables (100% descontable del pedido final).</g:description>
-
-      <g:link>https://coolpadelstudios.com/llaveros-padel-personalizados/</g:link>
-
-      <g:image_link>https://coolpadelstudios.com/assets/images/llaveros-padel-personalizados-3d.jpg</g:image_link>
-
-      <g:availability>in_stock</g:availability>
-
-      <g:price>15.00 EUR</g:price>
-
-      <g:brand>CoolPadel</g:brand>
-
-      <g:condition>new</g:condition>
-
-      <g:identifier_exists>no</g:identifier_exists>
-
-      <g:google_product_category>Sporting Goods &gt; Racquet Sports &gt; Padel</g:google_product_category>
-
-      <g:shipping>
-
-        <g:country>ES</g:country>
-
-        <g:service>Envío Estándar Península</g:service>
-
-        <g:price>0.00 EUR</g:price>
-
-      </g:shipping>
-
-    </item>
+    <description>Catálogo de tecnología y servicios deportivos CoolPadel</description>
 
     <item>
 
