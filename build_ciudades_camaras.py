@@ -126,12 +126,6 @@ def generate_city_page(country_item, city, slug_country_used, canonical_country_
         robots_content = "index, follow"
     country_url = f"/camaras/{target_country}/"
 
-    redirect_js = (
-        f'<meta http-equiv="refresh" content="0; url={canonical_url}">'
-        if target_country == "espana" and city_slug in {"madrid", "barcelona"}
-        else ""
-    )
-
     # ISO y Hreflang Regional de la Ciudad
     iso_code = ISO_MAP.get(target_country, ISO_MAP.get(country_item["slug"], "ES"))
     regional_hreflang = f"{lang}-{iso_code}" if lang != "pt-br" else "pt-BR"
@@ -346,7 +340,6 @@ def generate_city_page(country_item, city, slug_country_used, canonical_country_
   </style>
 </head>
 <body class="bg-white text-slate-800 font-body antialiased flex flex-col min-h-screen">
-{redirect_js}
 
   <!-- HEADER -->
   <header class="fixed top-0 left-0 w-full z-50 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-xs">

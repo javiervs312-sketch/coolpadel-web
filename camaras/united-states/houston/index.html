@@ -195,6 +195,220 @@
       background-size: cover;
       background-position: center;
     }
+  
+    /* --- REGLAS ASUNCIÓN (VARIANTE B) --- */
+    .camera-local-hero, .bg-textured-blue {
+      background-color: #3478a6 !important;
+      background-image: linear-gradient(rgba(52, 120, 166, 0.40), rgba(52, 120, 166, 0.40)), url('/assets/images/branding/textura_editorial_coolpadel.webp') !important;
+      background-blend-mode: normal, soft-light !important;
+      background-size: cover !important;
+      background-position: center !important;
+    }
+    .hero-btn-row {
+      display: flex !important;
+      flex-direction: row !important;
+      align-items: center !important;
+      gap: 16px !important;
+      flex-wrap: wrap !important;
+      padding-top: 14px !important;
+    }
+    @media (min-width: 640px) {
+      .hero-btn-row {
+        padding-top: 21px !important;
+      }
+    }
+    @media (min-width: 1024px) {
+      .hero-btn-row {
+        padding-top: 25px !important;
+      }
+    }
+    .hero-cities-row {
+      display: flex !important;
+      flex-direction: row !important;
+      flex-wrap: nowrap !important;
+      align-items: center !important;
+      gap: 8px !important;
+      overflow-x: auto !important;
+      white-space: nowrap !important;
+      -ms-overflow-style: none !important;
+      scrollbar-width: none !important;
+      padding-top: 14px !important;
+    }
+    @media (min-width: 640px) {
+      .hero-cities-row {
+        padding-top: 21px !important;
+      }
+    }
+    @media (min-width: 1024px) {
+      .hero-cities-row {
+        padding-top: 25px !important;
+      }
+    }
+    .hero-cities-row::-webkit-scrollbar {
+      display: none !important;
+    }
+    .hero-city-pill {
+      display: inline-flex !important;
+      flex-direction: row !important;
+      align-items: center !important;
+      gap: 6px !important;
+      white-space: nowrap !important;
+      flex-shrink: 0 !important;
+    }
+    .hero-stats-section {
+      margin-top: 3.5rem !important;
+      position: relative !important;
+      z-index: 20 !important;
+      margin-bottom: 3.25rem !important;
+    }
+    @media (min-width: 640px) {
+      .hero-stats-section {
+        margin-top: 4.5rem !important;
+        margin-bottom: 4rem !important;
+      }
+    }
+    @media (min-width: 1024px) {
+      .hero-stats-section {
+        margin-top: 5rem !important;
+        margin-bottom: 4.75rem !important;
+      }
+    }
+    .hero-stat-card {
+      border: none !important;
+      height: 88px !important;
+      display: flex !important;
+      flex-direction: column !important;
+      justify-content: center !important;
+      background-color: #3478a6 !important;
+      background-image: linear-gradient(rgba(52, 120, 166, 0.40), rgba(52, 120, 166, 0.40)), url('/assets/images/branding/textura_editorial_coolpadel.webp') !important;
+      background-blend-mode: normal, soft-light !important;
+      background-size: cover !important;
+      background-position: center !important;
+      border-radius: 1rem !important;
+      box-shadow: 0 10px 20px -3px rgba(52, 120, 166, 0.25), 0 4px 6px -4px rgba(0, 0, 0, 0.1) !important;
+      padding: 1rem 1.25rem !important;
+      overflow: hidden !important;
+    }
+    .hero-featured-articles {
+      display: grid !important;
+      grid-template-columns: 1fr !important;
+      gap: 1.25rem !important;
+      width: 100% !important;
+      box-sizing: border-box !important;
+    }
+    @media (min-width: 768px) {
+      .hero-featured-articles {
+        grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+        gap: 1.5rem !important;
+      }
+    }
+    .article-card {
+      display: flex !important;
+      flex-direction: column !important;
+      justify-content: space-between !important;
+      background: #ffffff !important;
+      border: 2px solid #e2e8f0 !important;
+      border-radius: 1rem !important;
+      padding: 1.25rem !important;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05) !important;
+      text-decoration: none !important;
+      color: #0f172a !important;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+      cursor: pointer !important;
+      width: 100% !important;
+      box-sizing: border-box !important;
+    }
+    .article-card:hover {
+      border-color: #f2920b !important;
+      transform: translateY(-2px) !important;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1) !important;
+    }
+    .article-thumb-wrap {
+      width: 100% !important;
+      aspect-ratio: 16 / 9 !important;
+      border-radius: 0.75rem !important;
+      overflow: hidden !important;
+      background-color: #0f172a !important;
+      border: 1px solid #e2e8f0 !important;
+      position: relative !important;
+    }
+    .article-thumb-wrap img {
+      width: 100% !important;
+      height: 100% !important;
+      object-fit: cover !important;
+      display: block !important;
+      transition: transform 0.5s ease !important;
+    }
+    .article-card:hover .article-thumb-wrap img {
+      transform: scale(1.05) !important;
+    }
+    .article-card-title {
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif !important;
+      font-weight: 800 !important;
+      font-size: 1.05rem !important;
+      line-height: 1.35 !important;
+      color: #0f172a !important;
+      margin: 0.75rem 0 0 0 !important;
+      transition: color 0.2s ease !important;
+    }
+    .article-card:hover .article-card-title {
+      color: #f2920b !important;
+    }
+    .article-card-footer {
+      padding-top: 0.875rem !important;
+      border-top: 1px solid #f1f5f9 !important;
+      margin-top: 1.25rem !important;
+    }
+    .article-card .card-action {
+      position: relative !important;
+      width: 100% !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      gap: 0.5rem !important;
+      padding: 0.625rem 1rem !important;
+      border-radius: 9999px !important;
+      background-color: #f2920b !important;
+      color: #020617 !important;
+      font-family: 'Outfit', sans-serif !important;
+      font-weight: 900 !important;
+      font-size: 0.75rem !important;
+      text-transform: uppercase !important;
+      letter-spacing: 0.05em !important;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05) !important;
+      transition: all 0.3s ease !important;
+    }
+    .article-card:hover .card-action {
+      background-color: #76d3f6 !important;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1) !important;
+      transform: scale(1.01) !important;
+    }
+    .article-card .card-action .action-icon {
+      width: 1rem !important;
+      height: 1rem !important;
+      border-radius: 9999px !important;
+      background-color: rgba(2, 6, 23, 0.1) !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      transition: all 0.3s ease !important;
+    }
+    .article-card:hover .card-action .action-icon {
+      background-color: #020617 !important;
+      color: #ffffff !important;
+    }
+    .article-card .card-action .action-icon svg,
+    .article-card .card-action .action-icon i {
+      width: 0.75rem !important;
+      height: 0.75rem !important;
+      stroke-width: 3 !important;
+      transition: transform 0.3s ease !important;
+    }
+    .article-card:hover .card-action .action-icon svg,
+    .article-card:hover .card-action .action-icon i {
+      transform: translateX(2px) !important;
+    }
+
   </style>
   <!-- Google Analytics 4 -->
   <script>
@@ -256,7 +470,7 @@
 
   <!-- HEADER -->
   <header class="fixed top-0 left-0 w-full z-50 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-xs">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between">
       <a href="/en/" class="flex items-center gap-2 group">
         <img src="../../../assets/images/coolpadel-mascot-hd.png" alt="CoolPadel Mascot" width="44" height="44" class="h-8 sm:h-11 w-auto object-contain">
         <img src="../../../assets/images/coolpadel-typography-hd.png" alt="CoolPadel" width="140" height="28" class="h-5 sm:h-7 w-auto object-contain">
@@ -284,16 +498,16 @@
   <main class="flex-1 pt-16 sm:pt-20">
 
     <!-- 1. HERO SECTION -->
-    <section class="pt-5 pb-12 sm:pt-6 sm:pb-16 bg-gradient-to-b from-white via-slate-50 to-[#f8fafc] border-b border-slate-200">
+    <section class="camera-local-hero relative text-white pt-6 pb-10 sm:pt-8 sm:pb-12 lg:pt-8 lg:pb-14">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <!-- Breadcrumbs Navigation -->
-        <nav aria-label="Breadcrumb" class="flex items-center gap-2 text-xs font-bold text-slate-500 mb-3 sm:mb-4 uppercase tracking-wider flex-wrap">
-          <a href="/en/" class="hover:text-slate-900 transition">Home</a>
+        <nav aria-label="Breadcrumb" class="hero-breadcrumb flex items-center gap-2 text-xs font-bold text-white/70 mb-8 sm:mb-12 lg:mb-14 uppercase tracking-wider flex-wrap">
+          <a href="/en/" class="hover:text-white transition">Home</a>
           <span>/</span>
-          <a href="/en/camaras/" class="hover:text-slate-900 transition">CAMERAS</a>
+          <a href="/en/camaras/" class="hover:text-white transition">CAMERAS</a>
           <span>/</span>
-          <a href="/camaras/united-states/" class="hover:text-slate-900 transition">United States</a>
+          <a href="/camaras/united-states/" class="hover:text-white transition">United States</a>
           <span>/</span>
           <span class="text-[#f2920b] font-black">Houston</span>
         </nav>
@@ -307,60 +521,42 @@
             </div>
 
             <!-- H1 FORMATTED IN 3 LINES -->
-            <h1 class="font-heading font-black text-2xl sm:text-3xl lg:text-[2rem] text-slate-950 uppercase tracking-tight leading-[1.15]">
-              Padel Club Cameras in Houston:<br class="hidden sm:inline"> Match Recording, Highlights<br class="hidden sm:inline"> & AI Analytics
+            <h1 class="hero-main-title font-heading font-black text-xl sm:text-2xl lg:text-3xl text-white uppercase tracking-tight leading-snug">
+              Padel Club Cameras<br>in Houston:<br>Match Recording, Highlights<br>& AI Game Statistics
             </h1>
 
-            <p class="text-base sm:text-lg text-slate-600 leading-relaxed font-normal">
-              The official camera of USA Padel & USTA, available for padel clubs across Houston. $199 hardware ownership, subscriptions from $49/mo, 5-min installation with no civil works and no lock-in.
+            <p class="hero-main-subtitle text-slate-100/95 leading-relaxed font-normal max-w-2xl">
+              The #1 Tennis & Padel Camera in the United States.<br class="hidden sm:inline">
+              Live in +600 clubs and +1,500 courts.<br class="hidden sm:inline">
+              Stream matches, share the best highlights and analyze AI game statistics.
             </p>
             
 
-            <div class="pt-4 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 relative" style="min-height: 58px;">
-              <div id="hero-btn-placeholder" style="display: none; height: 54px;" class="w-full sm:w-[350px]"></div>
-              <a id="hero-wa-btn" data-product="camaras" data-lead-intent="demo" data-button-position="hero" href="https://api.whatsapp.com/send?phone=34680317486&text=Hi%20Javier%2C%20I%20run%20a%20padel%20club%20in%20Houston%20%28United%20States%29%20and%20would%20like%20to%20see%20a%20demo%20of%20Save%20My%20Play%20cameras." target="_blank" rel="noopener" class="inline-flex items-center justify-center gap-2.5 px-7 py-4 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] text-slate-950 font-heading font-black text-sm uppercase tracking-wider transition-all duration-200 shadow-md hover:scale-105 active:scale-95 group z-40">
-                <i data-lucide="message-circle" class="w-5 h-5 text-slate-950"></i>
-                <span>Request 15-Min Demo via WhatsApp</span>
+            <div class="flex flex-row items-center gap-3 sm:gap-4 hero-btn-row relative" style="min-height: 54px;">
+              <div id="hero-btn-placeholder" style="display: none; height: 50px;" class="w-full sm:w-[320px]"></div>
+              <a id="hero-wa-btn" data-product="camaras" data-lead-intent="demo" data-button-position="hero" href="https://api.whatsapp.com/send?phone=34680317486&text=Hi%20Javier%2C%20I%20run%20a%20padel%20club%20in%20Houston%20%28United%20States%29%20and%20would%20like%20to%20see%20a%20demo%20of%20Save%20My%20Play%20cameras." target="_blank" rel="noopener" class="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 sm:px-7 sm:py-3.5 rounded-full bg-[#f2920b] hover:bg-[#e08508] text-slate-950 font-heading font-black text-xs sm:text-sm uppercase tracking-wider transition-all duration-200 shadow-xl hover:scale-105 active:scale-95 group z-40">
+                <i data-lucide="message-circle" class="w-4 h-4 sm:w-5 sm:h-5 text-slate-950"></i>
+                <span>Request 15-min WhatsApp Demo</span>
               </a>
 
-              <a href="#precios" class="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-full bg-white hover:bg-slate-100 text-slate-900 border border-slate-200 font-heading font-black text-sm uppercase tracking-wider transition">
+              <a href="#precios" class="inline-flex items-center justify-center gap-2 px-5 py-3.5 sm:px-6 sm:py-3.5 rounded-full bg-white hover:bg-slate-100 text-slate-900 border border-slate-200 font-heading font-black text-xs sm:text-sm uppercase tracking-wider transition shadow-md hover:scale-105">
                 <span>View Pricing</span>
-                <i data-lucide="arrow-down" class="w-4 h-4 text-slate-500"></i>
+                <i data-lucide="arrow-down" class="w-4 h-4 text-slate-600"></i>
               </a>
             </div>
-            <div class="pt-2 flex flex-wrap items-center gap-1.5"><a href="/camaras/united-states/" class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-slate-100 hover:bg-[#f2920b] text-slate-800 hover:text-slate-950 border border-slate-200 font-heading font-bold text-[11px] uppercase tracking-wider transition"><span>United States</span></a><a href="/camaras/united-states/miami/" class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-white hover:bg-[#f2920b] text-slate-700 hover:text-slate-950 border border-slate-200 hover:border-[#f2920b] font-heading font-bold text-[11px] uppercase tracking-wider transition shadow-2xs"><i data-lucide="map-pin" class="w-3 h-3 text-[#f2920b]"></i><span>Miami</span></a><a href="/camaras/united-states/austin/" class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-white hover:bg-[#f2920b] text-slate-700 hover:text-slate-950 border border-slate-200 hover:border-[#f2920b] font-heading font-bold text-[11px] uppercase tracking-wider transition shadow-2xs"><i data-lucide="map-pin" class="w-3 h-3 text-[#f2920b]"></i><span>Austin</span></a><a href="/camaras/united-states/los-angeles/" class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-white hover:bg-[#f2920b] text-slate-700 hover:text-slate-950 border border-slate-200 hover:border-[#f2920b] font-heading font-bold text-[11px] uppercase tracking-wider transition shadow-2xs"><i data-lucide="map-pin" class="w-3 h-3 text-[#f2920b]"></i><span>Los Angeles</span></a><a href="/camaras/united-states/new-york/" class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-white hover:bg-[#f2920b] text-slate-700 hover:text-slate-950 border border-slate-200 hover:border-[#f2920b] font-heading font-bold text-[11px] uppercase tracking-wider transition shadow-2xs"><i data-lucide="map-pin" class="w-3 h-3 text-[#f2920b]"></i><span>New York</span></a></div>
+            <div class="flex flex-row items-center gap-1.5 sm:gap-2 flex-nowrap hero-cities-row"><a href="/camaras/united-states/" class="hero-city-pill inline-flex items-center gap-1 px-2.5 py-1.5 rounded-full bg-white/95 hover:bg-[#f2920b] text-slate-800 hover:text-slate-950 border border-white/80 font-heading font-bold text-[10px] sm:text-[11px] uppercase tracking-wider transition shadow-sm shrink-0 whitespace-nowrap"><span>United States</span></a><a href="/camaras/united-states/miami/" class="hero-city-pill inline-flex items-center gap-1 px-2.5 py-1.5 rounded-full bg-white/95 hover:bg-[#f2920b] text-slate-800 hover:text-slate-950 border border-white/80 font-heading font-bold text-[10px] sm:text-[11px] uppercase tracking-wider transition shadow-sm shrink-0 whitespace-nowrap"><i data-lucide="map-pin" class="w-3 h-3 text-[#f2920b]"></i><span>Miami</span></a><a href="/camaras/united-states/austin/" class="hero-city-pill inline-flex items-center gap-1 px-2.5 py-1.5 rounded-full bg-white/95 hover:bg-[#f2920b] text-slate-800 hover:text-slate-950 border border-white/80 font-heading font-bold text-[10px] sm:text-[11px] uppercase tracking-wider transition shadow-sm shrink-0 whitespace-nowrap"><i data-lucide="map-pin" class="w-3 h-3 text-[#f2920b]"></i><span>Austin</span></a><a href="/camaras/united-states/los-angeles/" class="hero-city-pill inline-flex items-center gap-1 px-2.5 py-1.5 rounded-full bg-white/95 hover:bg-[#f2920b] text-slate-800 hover:text-slate-950 border border-white/80 font-heading font-bold text-[10px] sm:text-[11px] uppercase tracking-wider transition shadow-sm shrink-0 whitespace-nowrap"><i data-lucide="map-pin" class="w-3 h-3 text-[#f2920b]"></i><span>Los Angeles</span></a><a href="/camaras/united-states/new-york/" class="hero-city-pill inline-flex items-center gap-1 px-2.5 py-1.5 rounded-full bg-white/95 hover:bg-[#f2920b] text-slate-800 hover:text-slate-950 border border-white/80 font-heading font-bold text-[10px] sm:text-[11px] uppercase tracking-wider transition shadow-sm shrink-0 whitespace-nowrap"><i data-lucide="map-pin" class="w-3 h-3 text-[#f2920b]"></i><span>New York</span></a></div>
           </div>
 
-          <div class="lg:col-span-5">
-            <div class="relative mx-auto max-w-md lg:max-w-none">
-              <div class="absolute -inset-1 bg-gradient-to-r from-[#f2920b] to-[#76d3f6] rounded-3xl blur-xl opacity-30"></div>
-              <div class="relative bg-white p-3 sm:p-4 rounded-3xl border border-slate-200/90 shadow-xl overflow-hidden group">
-                <img src="../../../assets/images/savemyplay-1.jpg" alt="Save My Play Houston United States" width="800" height="800" class="w-full h-auto rounded-2xl object-cover group-hover:scale-105 transition duration-500" loading="eager" decoding="async">
-                
-                <div class="mt-4 p-4 rounded-2xl bg-slate-50 border border-slate-200/80">
-                  <div class="grid grid-cols-2 gap-3 text-left">
-                    <div>
-                      <span class="text-[10px] font-heading font-black uppercase text-slate-400 tracking-wider block">Court Hardware</span>
-                      <span class="text-xs sm:text-sm font-bold text-slate-900">$199 (owned equipment)</span>
-                    </div>
-                    <div>
-                      <span class="text-[10px] font-heading font-black uppercase text-slate-400 tracking-wider block">Software Plan</span>
-                      <span class="text-xs sm:text-sm font-bold text-slate-900">$49/mo (Recording) • $150/mo (AI Stats)</span>
-                    </div>
-                    <div>
-                      <span class="text-[10px] font-heading font-black uppercase text-slate-400 tracking-wider block">Lock-in</span>
-                      <span class="text-xs sm:text-sm font-bold text-[#f2920b]">0 months (Cancel or pause anytime)</span>
-                    </div>
-                    <div>
-                      <span class="text-[10px] font-heading font-black uppercase text-slate-400 tracking-wider block">Installation</span>
-                      <span class="text-xs sm:text-sm font-bold text-emerald-700">5 minutes with zero works</span>
-                    </div>
-                  </div>
-                  <p class="mt-3 text-xs text-slate-500 border-t border-slate-200/60 pt-2.5 font-medium">
-                    Save My Play is the official match recording and AI performance system for padel and tennis courts. Crystal-clear sports video quality, 5-minute setup and flexible month-to-month cancellation.
-                  </p>
-                </div>
-              </div>
+                    <div class="lg:col-span-5">
+            <div class="relative rounded-3xl overflow-hidden border border-white/20 shadow-2xl bg-slate-900/40 group max-w-md mx-auto lg:max-w-none">
+              <picture>
+                <source srcset="/assets/images/savemyplay_photos/1.webp" type="image/webp">
+                <img src="/assets/images/savemyplay_photos/1.jpg" alt="Save My Play Houston" width="1920" height="1080" class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500 shadow-inner" loading="eager" decoding="async">
+              </picture>
+            </div>
+            <div class="hero-award-badge flex flex-row items-center justify-center gap-1.5 sm:gap-2 text-[#f2920b] font-heading font-black text-xs sm:text-sm uppercase tracking-wider text-center flex-nowrap whitespace-nowrap" style="margin-top: 28px !important;">
+              <i data-lucide="award" class="w-4 h-4 text-[#f2920b] shrink-0"></i>
+              <span class="whitespace-nowrap">Official Camera USA Padel & USTA</span>
             </div>
           </div>
 
@@ -368,10 +564,99 @@
       </div>
     </section>
 
+    <!-- Resumen Clave (4 Tarjetas con textura azul sobre fondo blanco sin reborde naranja - Variante Asunción) -->
+    <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 hero-stats-section relative z-20">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+        <div class="hero-stat-card rounded-2xl p-3.5 sm:p-4 shadow-xl flex flex-col justify-center h-[88px] overflow-hidden">
+          <span class="text-[10px] sm:text-[11px] font-bold text-slate-100/90 uppercase tracking-wider block leading-tight">Software plan</span>
+          <span class="text-xs sm:text-sm font-black font-heading text-white mt-1 block leading-tight">$49/mo</span>
+        </div>
+        <div class="hero-stat-card rounded-2xl p-3.5 sm:p-4 shadow-xl flex flex-col justify-center h-[88px] overflow-hidden">
+          <span class="text-[10px] sm:text-[11px] font-bold text-slate-100/90 uppercase tracking-wider block leading-tight">Initial Hardware Investment</span>
+          <span class="text-xs sm:text-sm font-black font-heading text-white mt-1 block leading-tight">$199</span>
+        </div>
+        <div class="hero-stat-card rounded-2xl p-3.5 sm:p-4 shadow-xl flex flex-col justify-center h-[88px] overflow-hidden">
+          <span class="text-[10px] sm:text-[11px] font-bold text-slate-100/90 uppercase tracking-wider block leading-tight">Commitment</span>
+          <span class="text-xs sm:text-sm font-black font-heading text-white mt-1 block leading-tight">0 lock-in</span>
+        </div>
+        <div class="hero-stat-card rounded-2xl p-3.5 sm:p-4 shadow-xl flex flex-col justify-center h-[88px] overflow-hidden">
+          <span class="text-[10px] sm:text-[11px] font-bold text-slate-100/90 uppercase tracking-wider block leading-tight">Installation</span>
+          <span class="text-xs sm:text-sm font-black font-heading text-white mt-1 block leading-tight">5-minute setup</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3 Artículos Destacados de Cámaras para Clubs (Variante Asunción) -->
+    <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mb-12 sm:mb-16">
+      <div class="hero-featured-articles">
+        
+        <!-- Artículo 1 -->
+        <a href="/camaras/articulos/por-donde-empezar-si-estoy-pensando-en-poner-camaras/" class="article-card group">
+          <div>
+            <div class="article-thumb-wrap">
+              <img src="/assets/images/camaras/camera-01.jpg" alt="Thinking about adding cameras to your club? Where to start" width="800" height="450" loading="lazy" decoding="async">
+            </div>
+            <h3 class="article-card-title">
+              Thinking about adding cameras to your club? Where to start
+            </h3>
+          </div>
+          <div class="article-card-footer">
+            <div class="card-action">
+              <span>Read article</span>
+              <div class="action-icon">
+                <i data-lucide="arrow-right"></i>
+              </div>
+            </div>
+          </div>
+        </a>
+
+        <!-- Artículo 2 -->
+        <a href="/camaras/articulos/errores-clubs-se-arrepienten-de-poner-camaras/" class="article-card group">
+          <div>
+            <div class="article-thumb-wrap">
+              <img src="/assets/images/camaras/retransmision-directo-marcador-youtube.png" alt="The 3 biggest mistakes clubs make when installing cameras" width="800" height="450" loading="lazy" decoding="async">
+            </div>
+            <h3 class="article-card-title">
+              The 3 biggest mistakes clubs make when installing cameras
+            </h3>
+          </div>
+          <div class="article-card-footer">
+            <div class="card-action">
+              <span>Read article</span>
+              <div class="action-icon">
+                <i data-lucide="arrow-right"></i>
+              </div>
+            </div>
+          </div>
+        </a>
+
+        <!-- Artículo 3 -->
+        <a href="/camaras/articulos/por-que-no-recomiendo-plan-analytics/" class="article-card group">
+          <div>
+            <div class="article-thumb-wrap">
+              <img src="/assets/images/camaras/portada-mapa-calor-analytics.png" alt="Why I don't recommend the expensive AI stats plan to 95% of clubs" width="800" height="450" loading="lazy" decoding="async">
+            </div>
+            <h3 class="article-card-title">
+              Why I don't recommend the expensive AI stats plan to 95% of clubs
+            </h3>
+          </div>
+          <div class="article-card-footer">
+            <div class="card-action">
+              <span>Read article</span>
+              <div class="action-icon">
+                <i data-lucide="arrow-right"></i>
+              </div>
+            </div>
+          </div>
+        </a>
+
+      </div>
+    </section>
+
     <!-- 2. POR QUÉ ELEGIR SAVE MY PLAY (EXACTAMENTE 3 RAZONES) -->
-    <section class="py-14 sm:py-20 bg-white border-b border-slate-200">
+    <section class="pt-8 pb-14 sm:pt-10 sm:pb-20 bg-white border-b border-slate-200">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center max-w-2xl mx-auto mb-12 sm:mb-16 space-y-2">
+        <div class="text-center max-w-2xl mx-auto mb-10 sm:mb-14 space-y-2">
           <h2 class="font-heading font-black text-2xl sm:text-4xl text-slate-950 uppercase tracking-tight">
             Why choose Save My Play for your club?
           </h2>
@@ -381,60 +666,44 @@
         </div>
 
         <div class="grid md:grid-cols-3 gap-6 sm:gap-8">
-          <div class="p-6 sm:p-8 rounded-3xl bg-slate-50 border border-slate-200/80 shadow-xs hover:border-[#f2920b]/60 transition group flex flex-col justify-between">
-            <div class="space-y-4">
-              <div class="w-12 h-12 rounded-2xl bg-amber-500/10 text-[#f2920b] flex items-center justify-center font-heading font-black text-lg group-hover:scale-110 transition">
-                <i data-lucide="zap" class="w-6 h-6"></i>
-              </div>
-              <h3 class="font-heading font-black text-lg text-slate-950 uppercase tracking-tight">
-                Not surveillance cameras: dedicated sports optics
-              </h3>
-              <p class="text-sm text-slate-600 leading-relaxed font-normal">
-                Built exclusively for padel and tennis. Ultra-sharp sports recording, wide angle without court distortion, and smooth live streaming.
-              </p>
+          
+          <div class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/90 shadow-sm hover:shadow-md transition">
+            <div class="text-[#f2920b] flex items-center justify-start mb-4 font-black text-2xl">
+              ✓
             </div>
+            <h3 class="font-heading font-black text-xl sm:text-2xl text-slate-950 mb-2">Not surveillance cameras: dedicated sports optics</h3>
+            <p class="text-slate-600 text-sm sm:text-base leading-relaxed">Built exclusively for padel and tennis. Ultra-sharp sports recording, wide angle without court distortion, and smooth live streaming.</p>
           </div>
 
-          <div class="p-6 sm:p-8 rounded-3xl bg-slate-50 border border-slate-200/80 shadow-xs hover:border-[#f2920b]/60 transition group flex flex-col justify-between">
-            <div class="space-y-4">
-              <div class="w-12 h-12 rounded-2xl bg-sky-500/10 text-sky-600 flex items-center justify-center font-heading font-black text-lg group-hover:scale-110 transition">
-                <i data-lucide="smartphone" class="w-6 h-6"></i>
-              </div>
-              <h3 class="font-heading font-black text-lg text-slate-950 uppercase tracking-tight">
-                Clear monthly plans per court
-              </h3>
-              <p class="text-sm text-slate-600 leading-relaxed font-normal">
-                Match recording, highlights, and live streaming for $49/mo. AI stats plans for $150/mo including complete breakdown of your game.
-              </p>
+          <div class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/90 shadow-sm hover:shadow-md transition">
+            <div class="text-[#f2920b] flex items-center justify-start mb-4 font-black text-2xl">
+              ✓
             </div>
+            <h3 class="font-heading font-black text-xl sm:text-2xl text-slate-950 mb-2">Clear monthly plans per court</h3>
+            <p class="text-slate-600 text-sm sm:text-base leading-relaxed">Match recording, highlights, and live streaming for $49/mo. AI stats plans for $150/mo including complete breakdown of your game.</p>
           </div>
 
-          <div class="p-6 sm:p-8 rounded-3xl bg-slate-50 border border-slate-200/80 shadow-xs hover:border-[#f2920b]/60 transition group flex flex-col justify-between">
-            <div class="space-y-4">
-              <div class="w-12 h-12 rounded-2xl bg-emerald-500/10 text-emerald-600 flex items-center justify-center font-heading font-black text-lg group-hover:scale-110 transition">
-                <i data-lucide="shield-check" class="w-6 h-6"></i>
-              </div>
-              <h3 class="font-heading font-black text-lg text-slate-950 uppercase tracking-tight">
-                Effortless setup with zero civil works
-              </h3>
-              <p class="text-sm text-slate-600 leading-relaxed font-normal">
-                $199 owned hardware. Installs in 5 minutes directly onto the net post or lighting pole, completely contract-free.
-              </p>
+          <div class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/90 shadow-sm hover:shadow-md transition">
+            <div class="text-[#f2920b] flex items-center justify-start mb-4 font-black text-2xl">
+              ✓
             </div>
+            <h3 class="font-heading font-black text-xl sm:text-2xl text-slate-950 mb-2">Effortless setup with zero civil works</h3>
+            <p class="text-slate-600 text-sm sm:text-base leading-relaxed">$199 owned hardware. Installs in 5 minutes directly onto the net post or lighting pole, completely contract-free.</p>
           </div>
+
         </div>
       </div>
     </section>
 
     <!-- 3. TABLA DE PRECIOS EXACTA EN 3 FILAS -->
-    <section id="precios" class="py-14 sm:py-20 bg-slate-50 border-b border-slate-200">
+    <section id="precios" class="py-14 sm:py-20 bg-slate-50 border-b border-slate-200 scroll-mt-20">
       <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center max-w-2xl mx-auto mb-10 sm:mb-14 space-y-2">
           <h2 class="font-heading font-black text-2xl sm:text-4xl text-slate-950 uppercase tracking-tight">
             Plan / Specification
           </h2>
           <p class="text-sm sm:text-base text-slate-600 font-medium">
-            * Prices exclude VAT. Zero contract lock-in. 5-minute setup.
+            Final price, no lock-in contract.
           </p>
         </div>
 
@@ -495,9 +764,9 @@
         </div>
 
         <div class="mt-8 text-center">
-          <a href="https://api.whatsapp.com/send?phone=34680317486&text=Hi%20Javier%2C%20I%20run%20a%20padel%20club%20in%20Houston%20%28United%20States%29%20and%20would%20like%20to%20see%20a%20demo%20of%20Save%20My%20Play%20cameras." target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] text-slate-950 font-heading font-black text-sm uppercase tracking-wider transition shadow-md hover:scale-105 active:scale-95">
+          <a data-product="camaras" data-lead-intent="demo" data-button-position="pricing" href="https://api.whatsapp.com/send?phone=34680317486&text=Hi%20Javier%2C%20I%20run%20a%20padel%20club%20in%20Houston%20%28United%20States%29%20and%20would%20like%20to%20see%20a%20demo%20of%20Save%20My%20Play%20cameras." target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-[#f2920b] hover:bg-[#76d3f6] text-slate-950 font-heading font-black text-sm uppercase tracking-wider transition shadow-md hover:scale-105 active:scale-95">
             <i data-lucide="message-circle" class="w-4 h-4 text-slate-950"></i>
-            <span>Get a quote for my club in Houston</span>
+            <span>Request 15-min WhatsApp Demo</span>
           </a>
         </div>
       </div>
@@ -571,7 +840,7 @@
     </section>
 
     <!-- 5. PREGUNTAS FRECUENTES DESPLEGABLES -->
-    <section class="py-14 sm:py-20 bg-slate-50 border-b border-slate-200">
+    <section class="py-14 sm:py-20 bg-white border-b border-slate-200">
       <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center max-w-2xl mx-auto mb-10 sm:mb-14 space-y-2">
           <h2 class="font-heading font-black text-2xl sm:text-4xl text-slate-950 uppercase tracking-tight">

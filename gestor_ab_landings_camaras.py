@@ -87,7 +87,11 @@ def generate_or_load_ab_split(pages, seed=42):
         try:
             with open(MAP_FILE, 'r', encoding='utf-8') as f:
                 data = json.load(f)
-                if len(data.get("pages", {})) == len(pages):
+                assignments = data.get("pages", {})
+                if (assignments.keys() == {p["rel_path"] for p in pages}
+                        and list(assignments.values()).count("A") == 150
+                        and list(assignments.values()).count("B") == 150
+                        and assignments.get("paraguay/asuncion/index.html") == "B"):
                     return data
         except Exception:
             pass
@@ -518,6 +522,8 @@ def remove_variant_b_from_html(html):
 
 def apply_all_variants():
     pages = scan_all_market_pages()
+    if len(pages) != 300:
+        raise ValueError(f"Se esperaban 300 landings de cámaras, hay {len(pages)}.")
     split = generate_or_load_ab_split(pages)
     variant_map = split["pages"]
     
@@ -558,6 +564,9 @@ def apply_all_variants():
 def audit_all_pages():
     """Ejecuta una auditoría estructural y técnica exhaustiva sobre las 300 páginas (Variante A y B)."""
     pages = scan_all_market_pages()
+    if len(pages) != 300:
+        print(f"Se esperaban 300 landings de cámaras, hay {len(pages)}.")
+        return False
     split = generate_or_load_ab_split(pages)
     variant_map = split["pages"]
 
@@ -580,6 +589,8 @@ def audit_all_pages():
         errs = []
 
         # 1. Chequeos transversales
+        if '<meta http-equiv="refresh" content="0;' in html:
+            errs.append("La landing redirige y no muestra su variante")
         if "G-3FY3DTNN21" not in html:
             errs.append("Falta GA4")
         if "q7p8g52y9e" not in html:
