@@ -515,7 +515,7 @@ def render_local_landing(l):
             "availability": "https://schema.org/InStock",
             "hasMerchantReturnPolicy": {{
               "@type": "MerchantReturnPolicy",
-              "applicableCountry": "ES",
+              "applicableCountry": ["ES", "MX", "GB", "FR", "IT", "DE", "PT", "NL", "BE", "SE"],
               "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
               "merchantReturnDays": 14,
               "returnMethod": "https://schema.org/ReturnByMail",
@@ -531,7 +531,7 @@ def render_local_landing(l):
               }},
               "shippingDestination": {{
                 "@type": "DefinedRegion",
-                "addressCountry": ["ES", "FR", "IT", "PT", "DE", "BE", "GB", "US"]
+                "addressCountry": ["ES", "MX", "FR", "IT", "PT", "DE", "BE", "GB", "NL", "SE", "US"]
               }}
             }}
           }},

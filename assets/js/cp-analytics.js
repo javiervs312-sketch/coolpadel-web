@@ -428,6 +428,55 @@
     return '🌐 Home (coolpadelstudios.com)';
   }
 
+  // 6. Detección Inteligente del Modelo / Variante de la Página (Test A/B Cámaras y Secciones Web)
+  function getPageModelInfo() {
+    const rawPath = window.location.pathname || '/';
+    const path = rawPath.toLowerCase();
+
+    // Páginas bajo /camaras/
+    if (path.indexOf('/camaras') !== -1) {
+      const clean = path.replace(/^\/(?:it|en|fr|de)(?=\/|$)/, '');
+      const sub = clean.replace(/^\/camaras\/?/, '').replace(/\/index\.html$/, '').trim();
+
+      if (!sub || sub === 'index.html') {
+        return { modelo: 'Hub Cámaras (/camaras/)', tag: '', es_camara_landing: false };
+      }
+      if (sub.startsWith('articulos') || sub.startsWith('camaras-padel-') || sub.startsWith('errores-') || sub.startsWith('por-que-') || sub.startsWith('save-my-play-')) {
+        return { modelo: 'Artículo Blog', tag: '', es_camara_landing: false };
+      }
+
+      // Landing de país o ciudad de cámaras: distinguir Variante B (Asunción) vs Variante A (Control)
+      const tieneEstructuraB = Boolean(
+        document.querySelector('.hero-stats-section') ||
+        document.querySelector('.hero-featured-articles') ||
+        document.querySelector('.camera-local-hero')
+      );
+
+      if (tieneEstructuraB) {
+        return { modelo: 'Variante B (Asunción)', tag: '[Var. B]', es_camara_landing: true };
+      } else {
+        return { modelo: 'Variante A (Control)', tag: '[Var. A]', es_camara_landing: true };
+      }
+    }
+
+    if (path.indexOf('/llaveros') !== -1 || path.indexOf('welcome-packs') !== -1) {
+      return { modelo: 'Landing Llaveros', tag: '', es_camara_landing: false };
+    }
+    if (path.indexOf('/franquicias') !== -1) {
+      return { modelo: 'Cadenas de clubs', tag: '', es_camara_landing: false };
+    }
+    if (path.indexOf('/herramientas') !== -1) {
+      return { modelo: 'Herramientas', tag: '', es_camara_landing: false };
+    }
+    if (path.indexOf('/blog') !== -1) {
+      return { modelo: 'Blog', tag: '', es_camara_landing: false };
+    }
+    if (path === '/' || path === '/index.html') {
+      return { modelo: 'Home Web', tag: '', es_camara_landing: false };
+    }
+    return { modelo: 'Página Web', tag: '', es_camara_landing: false };
+  }
+
   // 6. Geolocalización Rápida por IP con Fallback Timezone
   let geoUbicacion = '';
   try {
@@ -613,6 +662,12 @@
 
       // Incluimos visitor_id para vincular visitas del mismo usuario/dispositivo
       // e incluimos el origen real tras '||' en session_id para que el normalizador lo extraiga con precisión.
+      const modelInfo = getPageModelInfo();
+      const rawPath = window.location.pathname || '/';
+      const cleanPathWithModel = modelInfo.tag && modelInfo.es_camara_landing
+        ? (rawPath.endsWith('/') ? rawPath : rawPath + '/') + ' ' + modelInfo.tag
+        : rawPath;
+
       const payload = {
         tipo: 'analitica_evento',
         session_id: sessionId + '||' + origenActual,
@@ -625,8 +680,10 @@
         es_admin: false,
         evento: eventName,
         evento_desc: extraData.evento_desc || eventName,
-        pagina: window.location.pathname || '/',
-        path: window.location.pathname || '/',
+        pagina: cleanPathWithModel,
+        path: rawPath,
+        modelo_variante: modelInfo.modelo,
+        es_variante_b: modelInfo.modelo.indexOf('Variante B') !== -1,
         url: window.location.href,
         url_completa: window.location.href,
         referrer: document.referrer || '',

@@ -1438,7 +1438,7 @@ def render_landing(landing, lang="es"):
             "availability": "https://schema.org/InStock",
             "hasMerchantReturnPolicy": {{
               "@type": "MerchantReturnPolicy",
-              "applicableCountry": "ES",
+              "applicableCountry": ["ES", "MX", "GB", "FR", "IT", "DE", "PT", "NL", "BE", "SE"],
               "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
               "merchantReturnDays": 14,
               "returnMethod": "https://schema.org/ReturnByMail",
@@ -1454,7 +1454,7 @@ def render_landing(landing, lang="es"):
               }},
               "shippingDestination": {{
                 "@type": "DefinedRegion",
-                "addressCountry": ["ES", "FR", "IT", "PT", "DE", "BE", "GB", "US"]
+                "addressCountry": ["ES", "MX", "FR", "IT", "PT", "DE", "BE", "GB", "NL", "SE", "US"]
               }}
             }}
           }},

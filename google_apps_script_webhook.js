@@ -370,13 +370,18 @@ function doPost(e) {
 
       sheetAnalitica.getRange(filaSesion, 1, 1, 12).setValues([filaConsolidada]);
       sheetAnalitica.getRange(filaSesion, 5).setNote(nuevaNota);
+      if (data.modelo_variante) {
+        try {
+          sheetAnalitica.getRange(filaSesion, 14).setValue(data.modelo_variante);
+        } catch (eMod) {}
+      }
 
     } else {
       // ─────────────────────────────────────────────────────────────────
       // CASO B: NUEVA VISITA / NUEVA SESIÓN -> INSERTAR NUEVA FILA EN FILA 2
       // (NUNCA se borran visitas anteriores: cada sesión queda registrada)
       // ─────────────────────────────────────────────────────────────────
-      let notaInicial = "📜 Visita registrada:\n• " + visitasStr + " (" + dia + " " + hora + ")\n  Pág: " + pagina + " | Origen: " + origenCanal + "\n[id: " + (visitorId || "v") + " | " + sessionId + "]";
+      let notaInicial = "📜 Visita registrada:\n• " + visitasStr + " (" + dia + " " + hora + ")\n  Pág: " + pagina + (data.modelo_variante ? " [" + data.modelo_variante + "]" : "") + " | Origen: " + origenCanal + "\n[id: " + (visitorId || "v") + " | " + sessionId + "]";
 
       sheetAnalitica.insertRowBefore(2);
       sheetAnalitica.getRange(2, 1, 1, 12).setValues([[
@@ -394,6 +399,11 @@ function doPost(e) {
         sMax
       ]]);
       sheetAnalitica.getRange(2, 5).setNote(notaInicial);
+      if (data.modelo_variante) {
+        try {
+          sheetAnalitica.getRange(2, 14).setValue(data.modelo_variante);
+        } catch (eMod) {}
+      }
     }
 
     return ContentService.createTextOutput(JSON.stringify({ status: "success" })).setMimeType(ContentService.MimeType.JSON);

@@ -6102,6 +6102,11 @@ def build_all():
       <g:image_link>https://coolpadelstudios.com/assets/images/savemyplay-1.jpg</g:image_link>
 
       <g:additional_image_link>https://coolpadelstudios.com/assets/images/camaras/camera-01.jpg</g:additional_image_link>
+      <g:additional_image_link>https://coolpadelstudios.com/assets/images/camaras/camera-02.jpg</g:additional_image_link>
+      <g:additional_image_link>https://coolpadelstudios.com/assets/images/camaras/camera-03.jpg</g:additional_image_link>
+      <g:additional_image_link>https://coolpadelstudios.com/assets/images/camaras/camera-04.jpg</g:additional_image_link>
+      <g:additional_image_link>https://coolpadelstudios.com/assets/images/camaras/camara-instalada-reja-4m.jpg</g:additional_image_link>
+      <g:additional_image_link>https://coolpadelstudios.com/assets/images/camaras/portada-coolpadel-savemyplay.jpg</g:additional_image_link>
 
       <g:availability>in_stock</g:availability>
 
@@ -6112,17 +6117,120 @@ def build_all():
       <g:condition>new</g:condition>
 
       <g:identifier_exists>no</g:identifier_exists>
+      <g:mpn>SMP-CAM-180</g:mpn>
+      <g:shipping_weight>1.5 kg</g:shipping_weight>
 
       <g:google_product_category>Sporting Goods &gt; Racquet Sports &gt; Padel</g:google_product_category>
+      <g:return_policy_label>devolucion_estandar_14dias</g:return_policy_label>
 
+      <!-- España -->
       <g:shipping>
-
         <g:country>ES</g:country>
-
-        <g:service>Envío Estándar</g:service>
-
+        <g:service>Envío Estándar Peninsular e Islas</g:service>
         <g:price>0.00 EUR</g:price>
+        <g:min_handling_time>1</g:min_handling_time>
+        <g:max_handling_time>2</g:max_handling_time>
+        <g:min_transit_time>1</g:min_transit_time>
+        <g:max_transit_time>3</g:max_transit_time>
+      </g:shipping>
 
+      <!-- México -->
+      <g:shipping>
+        <g:country>MX</g:country>
+        <g:service>Envío Exprés Internacional México</g:service>
+        <g:price>0.00 EUR</g:price>
+        <g:min_handling_time>1</g:min_handling_time>
+        <g:max_handling_time>2</g:max_handling_time>
+        <g:min_transit_time>3</g:min_transit_time>
+        <g:max_transit_time>5</g:max_transit_time>
+      </g:shipping>
+
+      <!-- Reino Unido -->
+      <g:shipping>
+        <g:country>GB</g:country>
+        <g:service>Standard International Delivery UK</g:service>
+        <g:price>0.00 EUR</g:price>
+        <g:min_handling_time>1</g:min_handling_time>
+        <g:max_handling_time>2</g:max_handling_time>
+        <g:min_transit_time>2</g:min_transit_time>
+        <g:max_transit_time>4</g:max_transit_time>
+      </g:shipping>
+
+      <!-- Francia -->
+      <g:shipping>
+        <g:country>FR</g:country>
+        <g:service>Livraison Standard France</g:service>
+        <g:price>0.00 EUR</g:price>
+        <g:min_handling_time>1</g:min_handling_time>
+        <g:max_handling_time>2</g:max_handling_time>
+        <g:min_transit_time>2</g:min_transit_time>
+        <g:max_transit_time>4</g:max_transit_time>
+      </g:shipping>
+
+      <!-- Italia -->
+      <g:shipping>
+        <g:country>IT</g:country>
+        <g:service>Spedizione Standard Italia</g:service>
+        <g:price>0.00 EUR</g:price>
+        <g:min_handling_time>1</g:min_handling_time>
+        <g:max_handling_time>2</g:max_handling_time>
+        <g:min_transit_time>2</g:min_transit_time>
+        <g:max_transit_time>4</g:max_transit_time>
+      </g:shipping>
+
+      <!-- Alemania -->
+      <g:shipping>
+        <g:country>DE</g:country>
+        <g:service>Standardversand Deutschland</g:service>
+        <g:price>0.00 EUR</g:price>
+        <g:min_handling_time>1</g:min_handling_time>
+        <g:max_handling_time>2</g:max_handling_time>
+        <g:min_transit_time>2</g:min_transit_time>
+        <g:max_transit_time>4</g:max_transit_time>
+      </g:shipping>
+
+      <!-- Portugal -->
+      <g:shipping>
+        <g:country>PT</g:country>
+        <g:service>Envio Padrão Portugal</g:service>
+        <g:price>0.00 EUR</g:price>
+        <g:min_handling_time>1</g:min_handling_time>
+        <g:max_handling_time>2</g:max_handling_time>
+        <g:min_transit_time>1</g:min_transit_time>
+        <g:max_transit_time>3</g:max_transit_time>
+      </g:shipping>
+
+      <!-- Países Bajos -->
+      <g:shipping>
+        <g:country>NL</g:country>
+        <g:service>Standaard Verzending Nederland</g:service>
+        <g:price>0.00 EUR</g:price>
+        <g:min_handling_time>1</g:min_handling_time>
+        <g:max_handling_time>2</g:max_handling_time>
+        <g:min_transit_time>2</g:min_transit_time>
+        <g:max_transit_time>4</g:max_transit_time>
+      </g:shipping>
+
+      <!-- Bélgica -->
+      <g:shipping>
+        <g:country>BE</g:country>
+        <g:service>Livraison Standard Belgique</g:service>
+        <g:price>0.00 EUR</g:price>
+        <g:min_handling_time>1</g:min_handling_time>
+        <g:max_handling_time>2</g:max_handling_time>
+        <g:min_transit_time>2</g:min_transit_time>
+        <g:max_transit_time>4</g:max_transit_time>
+      </g:shipping>
+
+      <!-- Suecia -->
+      <g:shipping>
+        <g:country>SE</g:country>
+        <g:service>Standardleverans Sverige</g:service>
+        <g:price>0.00 EUR</g:price>
+        <g:min_handling_time>1</g:min_handling_time>
+        <g:max_handling_time>2</g:max_handling_time>
+        <g:min_transit_time>2</g:min_transit_time>
+        <g:max_transit_time>4</g:max_transit_time>
       </g:shipping>
 
     </item>
