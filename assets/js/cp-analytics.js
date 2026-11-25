@@ -235,14 +235,10 @@
   try {
     if (pLead) localStorage.setItem('cp_lead_name', pLead);
     if (pTel) localStorage.setItem('cp_lead_tel', pTel);
-    if (pSource) localStorage.setItem('cp_utm_source', pSource);
-    if (pCampaign) localStorage.setItem('cp_utm_campaign', pCampaign);
   } catch (e) {}
 
   const leadName = pLead || (function () { try { return localStorage.getItem('cp_lead_name') || ''; } catch (e) { return ''; } })();
   const leadTel = pTel || (function () { try { return localStorage.getItem('cp_lead_tel') || ''; } catch (e) { return ''; } })();
-  const utmSource = pSource || (function () { try { return localStorage.getItem('cp_utm_source') || ''; } catch (e) { return ''; } })();
-  const utmCampaign = pCampaign || (function () { try { return localStorage.getItem('cp_utm_campaign') || ''; } catch (e) { return ''; } })();
 
   // 3. ID de Sesión e ID de Visitante persistentes
   // Mantiene el mismo sessionId a lo largo de toda la navegación del usuario en la sesión activa (pestaña / 30 min)
@@ -252,11 +248,13 @@
 
   const nowMs = Date.now();
   let sessionId = '';
+  let startsJourney = true;
   const currentPageKey = (window.location.pathname || '/').replace(/[^a-zA-Z0-9]/g, '_').slice(0, 48);
   try {
     const storageKey = 'cp_sid_' + currentPageKey;
     sessionId = sessionStorage.getItem(storageKey) || '';
     const lastActivity = parseInt(sessionStorage.getItem('cp_session_activity') || '0', 10);
+    startsJourney = nowMs - lastActivity > 30 * 60 * 1000;
     if (!sessionId || (nowMs - lastActivity > 30 * 60 * 1000)) {
       sessionId = generateUid('s');
       sessionStorage.setItem(storageKey, sessionId);
@@ -334,10 +332,10 @@
 
   // 5. Clasificación Exacta de Origen / Canal (SEO, GEO/AEO, WhatsApp, Email, Redes)
   function getChannelOrigin() {
-    const ref = (document.referrer || '').toLowerCase();
+    const ref = referrerHost;
     const ua = navigator.userAgent || '';
-    const src = (utmSource || '').toLowerCase();
-    const camp = (utmCampaign || '').toUpperCase();
+    const src = pSource.toLowerCase();
+    const camp = pCampaign.toUpperCase();
 
     // 1. Motores de IA Generativa (GEO / AEO)
     if (ref.includes('chatgpt.com') || ref.includes('openai.com') || src.includes('chatgpt') || src.includes('openai')) {
@@ -360,8 +358,9 @@
     }
 
     // 2. Búsqueda Orgánica en Buscadores (SEO)
-    const isGoogle = ref.includes('google') || urlParams.has('srsltid') || urlParams.has('gclid') || /GoogleApp|GSA\//i.test(ua);
-    if (isGoogle) return '🔍 Búsqueda Google';
+    if (['gclid', 'gbraid', 'wbraid'].some((key) => urlParams.has(key))) return 'Google Ads · enlace etiquetado';
+    if (/^(?:www\.)?google\.(?:com|[a-z]{2}|(?:com|co)\.[a-z]{2})$/.test(referrerHost)) return 'Google · referencia web';
+    if (urlParams.has('srsltid')) return 'Google · enlace etiquetado';
     if (ref.includes('bing.com') || ref.includes('msn.com') || urlParams.has('msclkid')) return '🔍 Búsqueda Bing';
     if (ref.includes('duckduckgo.com')) return '🔍 Búsqueda DuckDuckGo';
     if (ref.includes('yahoo.')) return '🔍 Búsqueda Yahoo';
@@ -370,7 +369,7 @@
     if (ref.includes('yandex.')) return '🔍 Búsqueda Yandex';
 
     // 3. Link recibido por WhatsApp
-    const hasWaParam = src.includes('wa') || src.includes('whatsapp') || camp.startsWith('1A') || camp.startsWith('2A') || camp.startsWith('3A') || camp.startsWith('4A') || Boolean(pTel);
+    const hasWaParam = src === 'wa' || src.includes('whatsapp') || /^[1-6]A/.test(camp) || Boolean(pTel);
     const isWaApp = /WhatsApp/i.test(ua) || ref.includes('whatsapp.com');
     if (hasWaParam || isWaApp) {
       let detalle = '📲 Link WhatsApp';
@@ -389,10 +388,6 @@
       try {
         const urlRef = new URL(document.referrer);
         const pathRef = urlRef.pathname || '/';
-        const canalInicial = (function () { try { return sessionStorage.getItem('cp_initial_channel') || ''; } catch (e) { return ''; } })();
-        if (canalInicial && !canalInicial.startsWith('🌐 Desde la Web')) {
-          return canalInicial;
-        }
         if (pathRef !== window.location.pathname) {
           return '🌐 Desde la Web (de ' + pathRef + ')';
         }
@@ -410,6 +405,8 @@
     if (/TikTok/i.test(ua) || ref.includes('tiktok.com')) return '🎵 TikTok';
 
     // 7. Otras webs externas (Backlinks / Referrals)
+    if (pSource) return 'Enlace etiquetado · ' + pSource.slice(0, 60);
+    if (/GoogleApp|GSA\//i.test(ua) || /^android-app:\/\/com\.google\.android\.googlequicksearchbox(?:\/|$)/i.test(document.referrer)) return 'App de Google · origen sin confirmar';
     if (ref) {
       try {
         const host = new URL(document.referrer).hostname.replace(/^www\./, '');
@@ -417,15 +414,47 @@
       } catch (e) {}
     }
 
-    // 8. Acceso directo según sección de entrada
-    const path = window.location.pathname || '/';
-    if (path.indexOf('/herramientas/') >= 0) return '🛠️ Herramientas Gratuitas';
-    if (path.indexOf('/franquicias-padel/') >= 0) return '🏢 Directorio Franquicias';
-    if (path.indexOf('/blog/') >= 0) return '📝 Blog CoolPadel';
-    if (path.indexOf('/camaras/') >= 0) return '🌐 Carta de Ventas (/camaras/)';
-    if (path.indexOf('llaveros') >= 0 || path.indexOf('welcome-packs') >= 0) return '🏷️ Landing Llaveros';
-    if (path.indexOf('camaras-padel') >= 0 || path.indexOf('camaras-grabacion') >= 0) return '🎥 Landing Cámaras';
-    return '🌐 Home (coolpadelstudios.com)';
+    return 'Directo · origen sin confirmar';
+  }
+
+  let referrerHost = '';
+  try { referrerHost = new URL(document.referrer).hostname; } catch (e) {}
+  let firstEntry = {
+    path: window.location.pathname || '/',
+    referrer: referrerHost,
+    channel: getChannelOrigin(),
+    source: pSource.slice(0, 100),
+    medium: (urlParams.get('utm_medium') || '').slice(0, 100),
+    campaign: pCampaign.slice(0, 100),
+    time: new Date(nowMs).toISOString()
+  };
+  try {
+    const previous = JSON.parse(sessionStorage.getItem('cp_first_entry') || 'null');
+    const tagged = pSource || pCampaign || pTel || ['gclid', 'gbraid', 'wbraid', 'srsltid'].some((key) => urlParams.has(key));
+    const external = referrerHost && referrerHost !== window.location.hostname;
+    if (!startsJourney && previous && previous.path && previous.channel && !tagged && !external) firstEntry = previous;
+    sessionStorage.setItem('cp_first_entry', JSON.stringify(firstEntry));
+  } catch (e) {}
+
+  function addWhatsAppReference(link, url) {
+    if (!window.crypto || !window.crypto.getRandomValues) return '';
+    const previous = link.dataset.cpWhatsappReference;
+    const greetings = {
+      es: 'Hola, me gustaría recibir más información.',
+      en: 'Hello, I would like more information.',
+      fr: 'Bonjour, je souhaiterais en savoir plus.',
+      it: 'Ciao, vorrei ricevere maggiori informazioni.',
+      de: 'Hallo, ich hätte gerne weitere Informationen.'
+    };
+    const language = (document.documentElement.lang || 'es').toLowerCase().split('-')[0];
+    const message = url.searchParams.get('text') || greetings[language] || greetings.en;
+    if (previous && message.endsWith('Ref. ' + previous)) return previous;
+    const bytes = window.crypto.getRandomValues(new Uint8Array(6));
+    const reference = 'CP-' + Array.from(bytes, (byte) => byte.toString(16).padStart(2, '0')).join('').toUpperCase();
+    url.searchParams.set('text', message + '\n\nRef. ' + reference);
+    link.href = url.href;
+    link.dataset.cpWhatsappReference = reference;
+    return reference;
   }
 
   // 6. Detección Inteligente del Modelo / Variante de la Página (Test A/B Cámaras y Secciones Web)
@@ -653,12 +682,8 @@
     try {
       const dev = getDeviceInfo();
       delete extraData._unload;
-      const origenActual = getChannelOrigin();
-      try {
-        if (!sessionStorage.getItem('cp_initial_channel') && !origenActual.startsWith('🌐 Desde la Web')) {
-          sessionStorage.setItem('cp_initial_channel', origenActual);
-        }
-      } catch (e) {}
+      const origenActual = firstEntry.channel;
+      try { sessionStorage.setItem('cp_session_activity', Date.now().toString()); } catch (e) {}
 
       // Incluimos visitor_id para vincular visitas del mismo usuario/dispositivo
       // e incluimos el origen real tras '||' en session_id para que el normalizador lo extraiga con precisión.
@@ -684,9 +709,7 @@
         path: rawPath,
         modelo_variante: modelInfo.modelo,
         es_variante_b: modelInfo.modelo.indexOf('Variante B') !== -1,
-        url: window.location.href,
-        url_completa: window.location.href,
-        referrer: document.referrer || '',
+        url: window.location.origin + rawPath,
         seccion_actual: currentSection,
         secciones_recorridas: visitedSectionsList.join(' > '),
         scroll_max: maxScrollPercent + '%',
@@ -696,7 +719,7 @@
         resolucion: dev.resolucion,
         idioma: (document.documentElement.lang || navigator.language || 'es').toLowerCase(),
         origen_canal: origenActual,
-        campana_utm: utmCampaign || utmSource || '',
+        primera_entrada: firstEntry,
         ...extraData
       };
 
@@ -859,9 +882,15 @@
     try {
       const a = e.target.closest ? e.target.closest('a, button') : null;
       if (!a) return;
-      const href = (a.getAttribute('href') || '').toLowerCase();
       const txt = (a.innerText || '').replace(/\s+/g, ' ').trim().slice(0, 35);
-      const isWhatsApp = href.includes('wa.me') || href.includes('whatsapp.com');
+      let whatsappUrl;
+      if (a.tagName === 'A' && a.hasAttribute('href')) {
+        const url = new URL(a.href, window.location.href);
+        if (url.protocol === 'https:' && (
+          (url.hostname === 'wa.me' && /^\/\d+\/?$/.test(url.pathname)) ||
+          (['api.whatsapp.com', 'web.whatsapp.com'].includes(url.hostname) && /^\/send\/?$/.test(url.pathname) && url.searchParams.has('phone'))
+        )) whatsappUrl = url;
+      }
       const intent = a.dataset.leadIntent;
       let funnelEntry = '';
       try { funnelEntry = sessionStorage.getItem('cp_buying_entry_' + a.dataset.product) || ''; } catch (err) {}
@@ -879,11 +908,25 @@
         const { event_category, button_position, page_path, product, delivery_market, funnel_entry } = lead;
         window.gtag('event', 'lead_intent', { event_category, intent, button_position, page_path, product, delivery_market, funnel_entry });
       }
-      if (isWhatsApp) {
+      if (whatsappUrl) {
+        if (e.defaultPrevented || isAdmin) return;
+        const reference = addWhatsAppReference(a, whatsappUrl);
+        const evidence = [
+          reference && 'Ref. ' + reference,
+          'Entrada ' + firstEntry.path,
+          firstEntry.channel,
+          firstEntry.referrer && 'Referrer ' + firstEntry.referrer,
+          [firstEntry.source, firstEntry.medium, firstEntry.campaign].some(Boolean) &&
+            'UTM ' + [firstEntry.source, firstEntry.medium, firstEntry.campaign].filter(Boolean).join(' / '),
+          firstEntry.time
+        ].filter(Boolean).join(' · ');
         sendToWebhook('click_whatsapp', {
           ...lead,
-          ubicacion: intent ? intent + ' · ' + lead.button_position : (txt || 'Botón WhatsApp'),
-          evento_desc: '🎯 Clic WhatsApp (' + (txt || 'Web') + ')'
+          // La actualización de lectura del webhook no debe sobrescribir el clic.
+          ...(reference ? { session_id: 's_wa_' + reference + '||' + firstEntry.channel } : {}),
+          referencia_whatsapp: reference,
+          ubicacion: (intent ? intent + ' · ' + lead.button_position : (txt || 'Botón WhatsApp')) + ' · ' + evidence,
+          evento_desc: '🎯 Clic WhatsApp (' + (txt || 'Web') + ' · ' + evidence + ')'
         });
       } else if (intent) {
         sendToWebhook('lead_intent', lead);
