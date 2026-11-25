@@ -14,7 +14,7 @@
 
   const WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbxnF9JmVrikeAW7PdLc02r_1kkuSJVz1Ncl71ZeVGT37H0ji5DQ3DVw60122pcuYnxCgA/exec';
 
-  // 1. Detección y Exclusión de Bots, Rastreadores y Automatizaciones (Googlebot, Lighthouse, Headless Chrome, etc.)
+  // 1. Detección Inteligente de Bots, Rastreadores y Automatizaciones (Googlebot, Lighthouse, Headless Chrome, etc.)
   function isBotOrAutomation() {
     try {
       // Navegadores automatizados (Puppeteer, Selenium, Playwright, Lighthouse)
@@ -38,9 +38,7 @@
     return false;
   }
 
-  if (isBotOrAutomation()) {
-    return;
-  }
+  const isBotVisitor = isBotOrAutomation();
 
   // 2. Gestión Robusta de Exclusión de Administrador / Dueño (ignorar tus propias visitas)
   // Métodos de activación:
@@ -337,6 +335,14 @@
     const ua = navigator.userAgent || '';
     const src = pSource.toLowerCase();
     const camp = pCampaign.toUpperCase();
+
+    // 0. Bots, Rastreadores y Automatizaciones (Googlebot, Bingbot, Headless, etc.)
+    if (isBotVisitor) {
+      if (/googlebot|google-inspectiontool|adsbot|chrome-lighthouse/i.test(ua)) return '🤖 Googlebot / Indexación';
+      if (/bingbot|bingpreview|msnbot/i.test(ua)) return '🤖 Bingbot / Indexación';
+      return '🤖 Rastreador / Bot';
+    }
+
     if (/^(email|e-mail)$/i.test(pMedium)) return '✉️ Link Email' + (camp ? ' (' + camp + ')' : '');
 
     // 1. Motores de IA Generativa (GEO / AEO)
@@ -766,6 +772,13 @@
 
   // 9. Inicialización Automática en Carga, Latidos y Salida
   function initTracking() {
+    if (isBotVisitor) {
+      sendToWebhook('visita_iniciada', {
+        evento_desc: '🤖 Rastreo Automatizado / Bot'
+      });
+      return;
+    }
+
     setupSectionObserver();
 
     let initialVisitSent = false;
