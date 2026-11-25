@@ -230,6 +230,7 @@
   const pLead = urlParams.get('lead') || urlParams.get('club') || urlParams.get('nombre') || urlParams.get('director') || slugClub || '';
   const pTel = urlParams.get('tel') || urlParams.get('phone') || urlParams.get('c') || '';
   const pSource = urlParams.get('utm_source') || urlParams.get('src') || '';
+  const pMedium = urlParams.get('utm_medium') || '';
   const pCampaign = urlParams.get('utm_campaign') || urlParams.get('camp') || urlParams.get('ruta') || '';
 
   try {
@@ -336,6 +337,7 @@
     const ua = navigator.userAgent || '';
     const src = pSource.toLowerCase();
     const camp = pCampaign.toUpperCase();
+    if (/^(email|e-mail)$/i.test(pMedium)) return '✉️ Link Email' + (camp ? ' (' + camp + ')' : '');
 
     // 1. Motores de IA Generativa (GEO / AEO)
     if (ref.includes('chatgpt.com') || ref.includes('openai.com') || src.includes('chatgpt') || src.includes('openai')) {
@@ -424,13 +426,13 @@
     referrer: referrerHost,
     channel: getChannelOrigin(),
     source: pSource.slice(0, 100),
-    medium: (urlParams.get('utm_medium') || '').slice(0, 100),
+    medium: pMedium.slice(0, 100),
     campaign: pCampaign.slice(0, 100),
     time: new Date(nowMs).toISOString()
   };
   try {
     const previous = JSON.parse(sessionStorage.getItem('cp_first_entry') || 'null');
-    const tagged = pSource || pCampaign || pTel || ['gclid', 'gbraid', 'wbraid', 'srsltid'].some((key) => urlParams.has(key));
+    const tagged = pSource || pMedium || pCampaign || pTel || ['gclid', 'gbraid', 'wbraid', 'srsltid'].some((key) => urlParams.has(key));
     const external = referrerHost && referrerHost !== window.location.hostname;
     if (!startsJourney && previous && previous.path && previous.channel && !tagged && !external) firstEntry = previous;
     sessionStorage.setItem('cp_first_entry', JSON.stringify(firstEntry));
