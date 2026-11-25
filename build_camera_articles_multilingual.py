@@ -441,7 +441,7 @@ def render_page(title: str, content: str, lang: str, prefix: str = "/", slug: st
         canonical_base = "https://coolpadelstudios.com/"
         item_list_elements = []
         for idx_art, s_art in enumerate(ARTICLE_ORDER, start=1):
-            item_url = f"{canonical_url}articulos/{s_art}/"
+            item_url = "https://coolpadelstudios.com/camaras/articulos/padmi-vs-aiball-vs-rackety/" if s_art == "mejores-empresas-camaras-padel-espana" else f"{canonical_url}articulos/{s_art}/"
             item_list_elements.append(f"""        {{
           "@type": "ListItem",
           "position": {idx_art},
@@ -661,6 +661,10 @@ def build_all():
     except Exception:
         i18n_dict = {}
 
+    comparison_slug = "mejores-empresas-camaras-padel-espana"
+    comparison_url = "/camaras/articulos/padmi-vs-aiball-vs-rackety/"
+    comparison_title = "Padmi vs Aiball vs Rackety"
+
     for lang in ["es", "fr", "en", "it", "de"]:
         print(f"\n================ Compilando idioma: {lang.upper()} ================")
         if lang == "es":
@@ -740,9 +744,10 @@ def build_all():
         cards_html = []
         for slug in ARTICLE_ORDER:
             art = articles_data.get(slug, articles_by_slug_es.get(slug, {}))
-            art_title = art.get("title", slug)
+            art_title = comparison_title if slug == comparison_slug else art.get("title", slug)
+            article_href = comparison_url if slug == comparison_slug else f"articulos/{slug}/"
             img_name = ARTICLE_IMAGES.get(slug, "camera-01.jpg")
-            card = f'''<a href="articulos/{slug}/" class="article-card bg-white border-2 border-slate-200/90 hover:border-[#f2920b] rounded-2xl p-4 sm:p-5 shadow-2xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between group hover:-translate-y-0.5 cursor-pointer block">
+            card = f'''<a href="{article_href}" class="article-card bg-white border-2 border-slate-200/90 hover:border-[#f2920b] rounded-2xl p-4 sm:p-5 shadow-2xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between group hover:-translate-y-0.5 cursor-pointer block">
   <div class="space-y-3">
     <div class="aspect-[16/9] rounded-xl overflow-hidden bg-slate-900 border border-slate-200/90 shadow-sm relative">
       <img src="/assets/images/camaras/{img_name}" alt="{html.escape(art_title)}" width="800" height="450" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" decoding="async">
@@ -856,6 +861,8 @@ def build_all():
 
         # 2. Construir 20 Artículos
         for i, slug in enumerate(ARTICLE_ORDER):
+            if slug == comparison_slug:
+                continue
             art = articles_data.get(slug, articles_by_slug_es.get(slug, {}))
             title = art.get("title", slug)
             blocks = art.get("blocks", [])
@@ -1024,9 +1031,10 @@ def build_all():
             related_cards_html = []
             for r_slug in related_slugs:
                 r_art = articles_data.get(r_slug, articles_by_slug_es.get(r_slug, {}))
-                r_title = r_art.get("title", r_slug)
+                r_title = comparison_title if r_slug == comparison_slug else r_art.get("title", r_slug)
+                related_href = comparison_url if r_slug == comparison_slug else f"../{r_slug}/"
                 r_img = ARTICLE_IMAGES.get(r_slug, "camera-01.jpg")
-                r_card = f'''<a href="../{r_slug}/" class="related-card">
+                r_card = f'''<a href="{related_href}" class="related-card">
   <img src="/assets/images/camaras/{r_img}" alt="{html.escape(r_title)}" loading="lazy">
   <p class="related-card-title">{html.escape(r_title)}</p>
 </a>'''

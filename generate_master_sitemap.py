@@ -71,7 +71,6 @@ CAMARAS_SLUGS = [
     "que-son-las-coaching-tools",
     "camaras-en-exterior-lluvia-nieve-viento",
     "como-ver-highlights-sin-app",
-    "mejores-empresas-camaras-padel-espana",
     "por-que-no-conocia-save-my-play",
     "save-my-play-en-pocas-palabras",
     "por-que-coolpadel-colabora-con-save-my-play",
@@ -270,6 +269,8 @@ def generate_sitemap():
     # 3. 20 Artículos de Cámaras (100 URLs: 20 x 5 idiomas)
     for c_slug in CAMARAS_SLUGS:
         all_blocks.extend(get_camaras_cluster_xml(slug=c_slug, priority="0.88", changefreq="weekly"))
+
+    all_blocks.append(get_single_xml("/camaras/articulos/padmi-vs-aiball-vs-rackety/", priority="0.88", changefreq="weekly"))
 
     # 4. B2B Landings Transaccionales Multilingües Simétricas (36 URLs: 9 x 4 idiomas)
     for slug in COMMON_LANDINGS:

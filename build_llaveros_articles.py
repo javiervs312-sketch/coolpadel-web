@@ -564,7 +564,7 @@ SILO_FOOTER_HTML = """<footer class="bg-[#3478a6] bg-textured-blue text-white pt
             <li><a href="/camaras/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition font-bold text-[#f2920b]">Hub de Cámaras para Clubs (20 Guías)</a></li>
             <li><a href="/camaras/articulos/cuanto-cuesta-poner-camaras/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Cuánto Cuesta Poner Cámaras</a></li>
             <li><a href="/camaras/articulos/errores-clubs-se-arrepienten-de-poner-camaras/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">3 Errores al Instalar Cámaras</a></li>
-            <li><a href="/camaras/articulos/mejores-empresas-camaras-padel-espana/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Mejores Empresas Cámaras Pádel</a></li>
+            <li><a href="/camaras/articulos/padmi-vs-aiball-vs-rackety/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Padmi vs Aiball vs Rackety</a></li>
             <li><a href="/camaras-grabacion-pistas-padel/" class="hover:text-white underline decoration-white/20 underline-offset-2 transition">Grabación en Pista de Pádel</a></li>
           </ul>
         </div>
