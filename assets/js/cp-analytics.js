@@ -385,7 +385,7 @@
 
     // 2. Búsqueda Orgánica en Buscadores (SEO)
     if (['gclid', 'gbraid', 'wbraid'].some((key) => urlParams.has(key))) return 'Google Ads · enlace etiquetado';
-    if (/^(?:www\.)?google\.(?:com|[a-z]{2}|(?:com|co)\.[a-z]{2})$/.test(referrerHost)) return 'Búsqueda Google';
+    if (/^(?:www\.)?google\.(?:com|[a-z]{2}|(?:com|co)\.[a-z]{2})$/.test(referrerHost)) return '🔍 Búsqueda Google';
     if (urlParams.has('srsltid')) return 'Google · enlace etiquetado';
     if (ref.includes('bing.com') || ref.includes('msn.com') || urlParams.has('msclkid')) return '🔍 Búsqueda Bing';
     if (ref.includes('duckduckgo.com')) return '🔍 Búsqueda DuckDuckGo';
