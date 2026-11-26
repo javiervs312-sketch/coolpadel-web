@@ -196,7 +196,7 @@
   // 2. Atribución de Leads y Parámetros UTM / Buscadores / Subruta de Club (/camaras/nombre-club/)
   // Slugs reservados del sistema (artículos, países, categorías) que NUNCA deben asignarse como nombre de Lead/Club
   const SLUGS_RESERVADOS_CAMARAS = new Set([
-    'articulos', 'assets', 'index.html',
+    'articulos', 'assets', 'index.html', '404', '404.html',
     'alemania', 'andorra', 'arabia-saudi', 'argentina', 'australia', 'austria',
     'bahrain', 'bahrein', 'belgica', 'belgique', 'brasil',
     'camaras-padel-playtomic-matchi-padelmates', 'camaras-padel-urbanizaciones-comunidades',
@@ -213,12 +213,30 @@
     'rumania', 'saudi-arabia', 'save-my-play-vs-camaras-vigilancia',
     'save-my-play-vs-sistemas-con-obras', 'schweiz', 'south-africa', 'sudafrica',
     'suecia', 'suiza', 'suomi', 'sverige', 'tunez', 'tunisie', 'turkiye', 'turquia',
-    'uae', 'united-kingdom', 'united-states', 'uruguay', 'venezuela'
+    'uae', 'united-kingdom', 'united-states', 'uruguay', 'venezuela',
+    // Artículos de blog y guías técnicas
+    'scoreboard-padel-marcador-directo', 'patrocinios-virtuales-pista-padel',
+    'live-streaming-torneos-padel-multipista', 'eventos-monetizacion-pases-torneo-padel',
+    'var-ojo-halcon-instant-replay-padel', 'video-analisis-coaching-clases-padel',
+    'reels-highlights-verticales-redes-club-padel', 'torneos-americanas-pozo-pantallas-directo',
+    'clubs-padel-autonomos-sin-personal-24-7', 'grabar-padel-apple-watch-wearables',
+    'smart-tv-court-tv-cafeteria-club-padel', 'torneos-empresas-team-building-padel',
+    'diferenciacion-club-padel-frente-a-competencia', 'como-justificar-subir-precios-pista-padel',
+    'atraer-jugadores-nivel-avanzado-competicion-club-padel', 'fidelizar-socios-evitar-fuga-nuevos-clubes-padel',
+    'barometro-camaras-padel-2026', 'normativa-rgpd-camaras-pistas-padel', 'rentabilidad-camaras-pistas-padel',
+    'sistemas-grabacion-pistas-padel-comparativa', 'smart-courts-pistas-inteligentes-padel-horas-valle',
+    'retransmitir-torneos-padel-streaming-youtube-camaras'
   ]);
+
+  const is404Page = Boolean(
+    document.title.indexOf('404') !== -1 ||
+    document.title.indexOf('no encontrada') !== -1 ||
+    (window.location.pathname && window.location.pathname.indexOf('/404') !== -1)
+  );
 
   let slugClub = '';
   const camarasMatch = window.location.pathname.match(/\/(?:(?:en|fr|it|de)\/)?camaras\/([a-z0-9\-]+)\/?$/i);
-  if (camarasMatch) {
+  if (camarasMatch && !is404Page) {
     const rawSlug = camarasMatch[1].toLowerCase();
     if (!SLUGS_RESERVADOS_CAMARAS.has(rawSlug)) {
       slugClub = camarasMatch[1].replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
@@ -470,6 +488,10 @@
     const rawPath = window.location.pathname || '/';
     const path = rawPath.toLowerCase();
 
+    if (is404Page || path.indexOf('404') !== -1) {
+      return { modelo: 'Página 404 (No encontrada)', tag: '', es_camara_landing: false };
+    }
+
     // Páginas bajo /camaras/
     if (path.indexOf('/camaras') !== -1) {
       const clean = path.replace(/^\/(?:it|en|fr|de)(?=\/|$)/, '');
@@ -478,7 +500,15 @@
       if (!sub || sub === 'index.html') {
         return { modelo: 'Hub Cámaras (/camaras/)', tag: '', es_camara_landing: false };
       }
-      if (sub.startsWith('articulos') || sub.startsWith('camaras-padel-') || sub.startsWith('errores-') || sub.startsWith('por-que-') || sub.startsWith('save-my-play-')) {
+      if (
+        sub.startsWith('articulos') ||
+        sub.startsWith('camaras-padel-') ||
+        sub.startsWith('errores-') ||
+        sub.startsWith('por-que-') ||
+        sub.startsWith('save-my-play-') ||
+        sub.startsWith('cuanto-cuesta-') ||
+        SLUGS_RESERVADOS_CAMARAS.has(sub)
+      ) {
         return { modelo: 'Artículo Blog', tag: '', es_camara_landing: false };
       }
 
@@ -774,7 +804,14 @@
   function initTracking() {
     if (isBotVisitor) {
       sendToWebhook('visita_iniciada', {
-        evento_desc: '🤖 Rastreo Automatizado / Bot'
+        evento_desc: is404Page ? '🤖 Rastreo 404 / Bot' : '🤖 Rastreo Automatizado / Bot'
+      });
+      return;
+    }
+
+    if (is404Page) {
+      sendToWebhook('visita_iniciada', {
+        evento_desc: '❌ Error 404 (Página no encontrada)'
       });
       return;
     }
