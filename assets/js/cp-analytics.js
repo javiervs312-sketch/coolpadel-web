@@ -235,11 +235,21 @@
   );
 
   let slugClub = '';
+  const HASH_ANCHORS_RESERVADOS = new Set([
+    'contacto', 'llaveros', 'camaras', 'blog', 'herramientas', 'faq', 'precios',
+    'yo', 'admin', 'javier', 'soyyo', 'track_me', 'borrar_yo', 'top', 'main-content'
+  ]);
   const camarasMatch = window.location.pathname.match(/\/(?:(?:en|fr|it|de)\/)?camaras\/([a-z0-9\-]+)\/?$/i);
   if (camarasMatch && !is404Page) {
     const rawSlug = camarasMatch[1].toLowerCase();
     if (!SLUGS_RESERVADOS_CAMARAS.has(rawSlug)) {
       slugClub = camarasMatch[1].replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+    }
+  }
+  if (!slugClub && !is404Page && window.location.pathname.indexOf('/camaras') !== -1 && window.location.hash) {
+    const rawHashSlug = window.location.hash.replace(/^#/, '').trim().toLowerCase();
+    if (/^[a-z0-9][a-z0-9\-]{1,120}$/.test(rawHashSlug) && !SLUGS_RESERVADOS_CAMARAS.has(rawHashSlug) && !HASH_ANCHORS_RESERVADOS.has(rawHashSlug)) {
+      slugClub = rawHashSlug.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
     }
   }
 
