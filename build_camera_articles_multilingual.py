@@ -901,7 +901,7 @@ def build_all():
 
                 example_img_block = f'''<div class="article-block">
   <div class="rounded-2xl overflow-hidden border border-slate-200/90 shadow-sm bg-slate-950">
-    <img src="/assets/images/camaras/ejemplo-camara-vigilancia-padel.jpg" alt="{html.escape(caption_text)}" width="1280" height="720" class="w-full h-auto object-cover" loading="lazy">
+    <img src="/assets/images/camaras/ejemplo-camara-vigilancia-padel.jpg?v=2" alt="{html.escape(caption_text)}" width="880" height="494" class="w-full h-auto object-cover" loading="lazy">
   </div>
   <p class="text-xs sm:text-sm text-slate-500 text-center italic mt-2.5">{caption_text}</p>
 </div>'''
